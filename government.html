@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
@@ -36,7 +37,7 @@
         <span class="bottom">.org</span>
       </span>
     </a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Main">
       <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="sr-only">Menu</span>
       </button>
@@ -45,11 +46,17 @@
         <li><a href="services.html">Services</a></li>
         <li><a href="government.html">Government</a></li>
         <li><a href="legislative.html">Legislative</a></li>
+        <li><a href="statistics.html">Statistics</a></li>
         <li><a href="transparency.html">Transparency</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
+      <a href="search.html" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
     </nav>
   </div>
 </header>
+
 
 <main id="content">
 <section class="page-hero">
@@ -165,14 +172,14 @@
       <p>Appointed office heads and administrative staff who carry out frontline service delivery.</p>
     </div>
     <div class="table-wrap">
-      <table>
+      <table aria-label="Departments and key offices">
         <thead>
           <tr>
-            <th>Office / Department</th>
-            <th>Acronym</th>
-            <th>Contact</th>
-            <th>Email</th>
-            <th>Location</th>
+            <th scope="col">Office / Department</th>
+            <th scope="col">Acronym</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Email</th>
+            <th scope="col">Location</th>
           </tr>
         </thead>
         <tbody>
@@ -270,6 +277,7 @@
         </tbody>
       </table>
     </div>
+    <p class="last-updated">Data last verified: August 2026. <a href="support/report.html">Report incorrect information</a></p>
   </div>
 </section>
 
@@ -281,13 +289,13 @@
       <p>Landline, mobile, and email channels for each office. Numbers are drawn from official municipal disclosures.</p>
     </div>
     <div class="table-wrap">
-      <table>
+      <table aria-label="Contact directory">
         <thead>
           <tr>
-            <th>Office / Unit</th>
-            <th>Landline</th>
-            <th>Mobile / Hotline</th>
-            <th>Email</th>
+            <th scope="col">Office / Unit</th>
+            <th scope="col">Landline</th>
+            <th scope="col">Mobile / Hotline</th>
+            <th scope="col">Email</th>
           </tr>
         </thead>
         <tbody>
@@ -313,6 +321,7 @@
         </tbody>
       </table>
     </div>
+    <p class="last-updated">Data last verified: August 2026. <a href="support/report.html">Report incorrect information</a></p>
   </div>
 </section>
 
@@ -377,43 +386,59 @@
           <img src="assets/logo.png" alt="Better Mapandan seal" />
           <div>
             <div class="name">Better Mapandan</div>
-            <p>An independent transparency portal for Mapandan, Pangasinan, built and maintained by volunteers under the BetterGov.ph BetterLGU initiative &mdash; not an official government website.</p>
+            <p>An independent civic transparency portal for Mapandan, Pangasinan, built and maintained by volunteers under the BetterGov.ph initiative &mdash; not an official government website.</p>
           </div>
         </div>
       </div>
       <div>
-        <h5>Site</h5>
+        <h5>Quick Links</h5>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="government.html">Government</a></li>
           <li><a href="legislative.html">Legislative</a></li>
+          <li><a href="statistics.html">Statistics</a></li>
           <li><a href="transparency.html">Transparency</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support/sitemap.html">Sitemap</a></li>
+          <li><a href="support/faq.html">FAQ</a></li>
         </ul>
       </div>
       <div>
-        <h5>Official Sources</h5>
+        <h5>Resources</h5>
         <ul>
           <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
-          <li><a href="https://www.pangasinan.gov.ph/city-municipalities/mapandan/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
-          <li><a href="https://www.coa.gov.ph/" target="_blank" rel="noopener">Commission on Audit</a></li>
+          <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
+          <li><a href="https://coa.gov.ph/" target="_blank" rel="noopener">Commission on Audit</a></li>
+          <li><a href="https://dilg.gov.ph/" target="_blank" rel="noopener">DILG</a></li>
+          <li><a href="https://blgf.gov.ph/" target="_blank" rel="noopener">BLGF</a></li>
+          <li><a href="https://foi.gov.ph/" target="_blank" rel="noopener">FOI</a></li>
+          <li><a href="https://philgeps.gov.ph/" target="_blank" rel="noopener">PhilGEPS</a></li>
+          <li><a href="https://psa.gov.ph/" target="_blank" rel="noopener">Philippine Statistics Authority</a></li>
         </ul>
       </div>
       <div>
-        <h5>Community</h5>
+        <h5>Project</h5>
         <ul>
-          <li><a href="https://github.com/bettergovph" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
+          <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
           <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>
+          <li><a href="support/privacy.html">Privacy Policy</a></li>
+          <li><a href="support/terms.html">Terms of Use</a></li>
+          <li><a href="support/accessibility.html">Accessibility</a></li>
+          <li><a href="support/report.html">Report Incorrect Info</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 BetterMapandan.org. Community-run, independent of the LGU.</span>
-      <span class="cost-chip">Cost to the People of Mapandan: <strong>₱0</strong></span>
+      <span class="cost-chip">Cost to the People of Mapandan: <strong>&#8369;0</strong></span>
     </div>
   </div>
 </footer>
 
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="assets/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Search — BetterMapandan.org</title>
+<meta name="description" content="Search government services, officials, ordinances, and civic information for the Municipality of Mapandan." />
+<link rel="icon" href="assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" href="assets/favicon-180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="emergency-bar">
+  <div class="wrap">
+    <a href="tel:911"><span class="label">Emergency</span> 911</a>
+    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+    <a href="tel:09434242810"><span class="label">Fire (BFP)</span> 0943-424-2810</a>
+    <a href="tel:09159793390"><span class="label">Police (PNP)</span> 0915-979-3390</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Better Mapandan seal" />
+      <span class="brand-text">
+        <span class="top">Better Mapandan</span>
+        <span class="bottom">.org</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="government.html">Government</a></li>
+        <li><a href="legislative.html">Legislative</a></li>
+        <li><a href="statistics.html">Statistics</a></li>
+        <li><a href="transparency.html">Transparency</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="search.html" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="content">
+<section class="search-hero">
+  <div class="wrap">
+    <span class="eyebrow">Search</span>
+    <h1 style="color:#fff; font-size:clamp(24px,4vw,36px); margin-bottom:8px">Find government information</h1>
+    <p style="color:#d0dfcd; margin:0">Search services, officials, ordinances, offices, and more.</p>
+    <form class="search-form" role="search" action="search.html" method="get">
+      <label for="search-input" class="sr-only">Search query</label>
+      <input id="search-input" class="search-input" type="search" name="q" placeholder="e.g. birth certificate, business permit, zoning..." autocomplete="off" />
+      <button class="search-btn" type="submit" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="search-results">
+  <div class="wrap">
+    <div id="search-status" class="data-note" style="display:none">
+      <span>&#9432;</span>
+      <span id="search-status-text"></span>
+    </div>
+    <div id="search-results"></div>
+    <div id="search-empty" class="search-empty" style="display:none">
+      <h3>No results found</h3>
+      <p>Try different keywords or browse our pages directly.</p>
+      <div style="margin-top:16px">
+        <a class="btn btn-primary" href="services.html">Browse Services</a>
+        <a class="btn btn-outline" href="government.html">View Government Directory</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var input = document.getElementById("search-input");
+  var resultsDiv = document.getElementById("search-results");
+  var statusDiv = document.getElementById("search-status");
+  var statusText = document.getElementById("search-status-text");
+  var emptyDiv = document.getElementById("search-empty");
+  var params = new URLSearchParams(location.search);
+  var query = (params.get("q") || "").trim();
+
+  if (input && query) {
+    input.value = query;
+  }
+
+  if (!query) {
+    statusDiv.style.display = "none";
+    return;
+  }
+
+  // Load search index and perform search
+  fetch("assets/search-index.json")
+    .then(function (res) { return res.json(); })
+    .then(function (index) {
+      var q = query.toLowerCase();
+      var matches = [];
+
+      index.forEach(function (entry) {
+        var titleLower = entry.title.toLowerCase();
+        var bodyLower = entry.body.toLowerCase();
+        var descLower = entry.description.toLowerCase();
+        var score = 0;
+
+        if (titleLower.indexOf(q) !== -1) score += 10;
+        if (descLower.indexOf(q) !== -1) score += 5;
+        if (bodyLower.indexOf(q) !== -1) score += 2;
+
+        if (score > 0) {
+          // Extract snippet around match
+          var bodyText = entry.body;
+          var idx = bodyLower.indexOf(q);
+          var start = Math.max(0, idx - 80);
+          var end = Math.min(bodyText.length, idx + q.length + 80);
+          var snippet = (start > 0 ? "..." : "") + bodyText.slice(start, end) + (end < bodyText.length ? "..." : "");
+
+          matches.push({
+            title: entry.title,
+            url: entry.url,
+            description: entry.description,
+            snippet: snippet,
+            score: score
+          });
+        }
+      });
+
+      matches.sort(function (a, b) { return b.score - a.score; });
+
+      if (matches.length === 0) {
+        emptyDiv.style.display = "block";
+        statusDiv.style.display = "none";
+        return;
+      }
+
+      // Group by category (first path segment)
+      var groups = {};
+      matches.forEach(function (m) {
+        var parts = m.url.split("/");
+        var cat = parts.length > 1 ? parts[0].replace(".html", "") : "Pages";
+        cat = cat.charAt(0).toUpperCase() + cat.slice(1);
+        if (!groups[cat]) groups[cat] = [];
+        groups[cat].push(m);
+      });
+
+      var html = "";
+      Object.keys(groups).forEach(function (cat) {
+        html += '<div class="search-result-group">';
+        html += '<h3>' + cat + '</h3>';
+        groups[cat].forEach(function (m) {
+          html += '<div class="search-result">';
+          html += '<h4><a href="' + m.url + '">' + m.title + '</a></h4>';
+          html += '<p>' + m.snippet + '</p>';
+          html += '</div>';
+        });
+        html += '</div>';
+      });
+
+      resultsDiv.innerHTML = html;
+      statusDiv.style.display = "flex";
+      statusText.textContent = matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' for "' + query + '"';
+    })
+    .catch(function () {
+      emptyDiv.style.display = "block";
+      emptyDiv.querySelector("h3").textContent = "Search unavailable";
+      emptyDiv.querySelector("p").textContent = "The search index could not be loaded. Please try again later.";
+    });
+});
+</script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Better Mapandan seal" />
+          <div>
+            <div class="name">Better Mapandan</div>
+            <p>An independent civic transparency portal for Mapandan, Pangasinan, built and maintained by volunteers under the BetterGov.ph initiative &mdash; not an official government website.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="government.html">Government</a></li>
+          <li><a href="legislative.html">Legislative</a></li>
+          <li><a href="statistics.html">Statistics</a></li>
+          <li><a href="transparency.html">Transparency</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support/sitemap.html">Sitemap</a></li>
+          <li><a href="support/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
+          <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
+          <li><a href="https://coa.gov.ph/" target="_blank" rel="noopener">Commission on Audit</a></li>
+          <li><a href="https://dilg.gov.ph/" target="_blank" rel="noopener">DILG</a></li>
+          <li><a href="https://blgf.gov.ph/" target="_blank" rel="noopener">BLGF</a></li>
+          <li><a href="https://foi.gov.ph/" target="_blank" rel="noopener">FOI</a></li>
+          <li><a href="https://philgeps.gov.ph/" target="_blank" rel="noopener">PhilGEPS</a></li>
+          <li><a href="https://psa.gov.ph/" target="_blank" rel="noopener">Philippine Statistics Authority</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Project</h5>
+        <ul>
+          <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
+          <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>
+          <li><a href="support/privacy.html">Privacy Policy</a></li>
+          <li><a href="support/terms.html">Terms of Use</a></li>
+          <li><a href="support/accessibility.html">Accessibility</a></li>
+          <li><a href="support/report.html">Report Incorrect Info</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BetterMapandan.org. Community-run, independent of the LGU.</span>
+      <span class="cost-chip">Cost to the People of Mapandan: <strong>&#8369;0</strong></span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>

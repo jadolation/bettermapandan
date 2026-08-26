@@ -72,22 +72,32 @@ description: An independent, citizen-run transparency portal for the Municipalit
     <div class="stat-grid">
       <div class="stat">
         <div class="num">38,228</div>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: PSA Census 2020</span>
         <div class="label">Residents</div>
       </div>
       <div class="stat">
         <div class="num">15</div>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: DILG / Comelec</span>
         <div class="label">Barangays</div>
       </div>
       <div class="stat">
         <div class="num">9,326</div>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: PSA Census 2020</span>
         <div class="label">Households</div>
       </div>
       <div class="stat">
         <div class="num">1,274/km&sup2;</div>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Computed: 38,228 &divide; 30.00 km&sup2;</span>
         <div class="label">Pop. density</div>
       </div>
       <div class="stat">
         <div class="num">30.00 km&sup2;</div>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: MPDC Land Use Plan 2024</span>
         <div class="label">Land area</div>
       </div>
     </div>
@@ -195,13 +205,13 @@ description: An independent, citizen-run transparency portal for the Municipalit
       <p>Population figures from the 2024 and 2020 census, alongside each barangay's primary land use.</p>
     </div>
     <div class="table-wrap">
-      <table>
+      <table aria-label="Barangay population data">
         <thead>
           <tr>
-            <th>Barangay</th>
-            <th>2024 Population</th>
-            <th>2020 Population</th>
-            <th>Primary Land Use</th>
+            <th scope="col">Barangay</th>
+            <th scope="col">2024 Population</th>
+            <th scope="col">2020 Population</th>
+            <th scope="col">Primary Land Use</th>
           </tr>
         </thead>
         <tbody>
@@ -251,6 +261,34 @@ description: An independent, citizen-run transparency portal for the Municipalit
 </section>
 
 <section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Explore Mapandan</div>
+      <h2>Weather &amp; map</h2>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <div class="section-head">
+          <h3>Current weather</h3>
+        </div>
+        <div class="weather-widget" id="weather-widget" aria-label="Weather">
+          <div class="weather-loading">Loading weather data...</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-head">
+          <h3>Interactive map</h3>
+        </div>
+        <div id="map" class="map-container" aria-label="Interactive map"></div>
+        <div style="margin-top:10px">
+          <a class="link-arrow" href="https://www.openstreetmap.org/?mlat=16.0&mlon=120.4#map=13/16.0/120.4" target="_blank" rel="noopener">Open in OpenStreetMap &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Emergency Hotlines</div>
