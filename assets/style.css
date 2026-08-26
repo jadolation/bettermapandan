@@ -849,14 +849,14 @@ tbody tr:hover {
   border-radius: 4px 4px 0 0;
 }
 
-/* Revenue vs. expenditure snapshot (transparency.html) — heights are the data. */
+/* Revenue vs. expenditure snapshot (transparency.html) — heights are proportional to values. */
 .bar--revenue {
-  height: 180px;
+  height: 170px;
   background: var(--green-bright);
 }
 
 .bar--expenditure {
-  height: 190px;
+  height: 180px;
   background: var(--red-flag);
 }
 
