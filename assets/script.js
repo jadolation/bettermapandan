@@ -26,4 +26,22 @@ document.addEventListener("DOMContentLoaded", function () {
       a.setAttribute("aria-current", "page");
     }
   });
+
+  // Search: highlight matching rows on services.html when ?q= is present
+  var params = new URLSearchParams(location.search);
+  var query = (params.get("q") || "").trim().toLowerCase();
+  if (query && here === "services.html") {
+    var rows = document.querySelectorAll("table tbody tr");
+    var matched = [];
+    rows.forEach(function (row) {
+      var text = row.textContent.toLowerCase();
+      if (text.indexOf(query) !== -1) {
+        row.style.background = "#f6ecc9";
+        matched.push(row);
+      }
+    });
+    if (matched.length > 0) {
+      matched[0].scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
 });
