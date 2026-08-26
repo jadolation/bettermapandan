@@ -90,63 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // Interactive map — Leaflet + OpenStreetMap
-  var mapEl = document.getElementById("map");
-  if (mapEl && typeof L !== "undefined") {
-    var map = L.map("map").setView([16.0, 120.4], 13);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 18
-    }).addTo(map);
-
-    // Barangay markers
-    var barangays = [
-      { name: "Bacnar", lat: 16.005, lon: 120.395, pop: 4064 },
-      { name: "Baloling", lat: 15.995, lon: 120.385, pop: 1403 },
-      { name: "East Centre", lat: 16.002, lon: 120.405, pop: 773 },
-      { name: "Gilotongan", lat: 15.998, lon: 120.410, pop: 1135 },
-      { name: "Luyan (South Centre)", lat: 15.990, lon: 120.395, pop: 2767 },
-      { name: "Parangao", lat: 16.010, lon: 120.415, pop: 1171 },
-      { name: "Poblacion", lat: 16.000, lon: 120.400, pop: 3452 },
-      { name: "Pogo", lat: 16.008, lon: 120.380, pop: 1107 },
-      { name: "Primicias", lat: 15.992, lon: 120.415, pop: 2218 },
-      { name: "Santa Maria", lat: 16.012, lon: 120.390, pop: 1585 },
-      { name: "Torres", lat: 15.988, lon: 120.405, pop: 3061 }
-    ];
-
-    var barangayLayer = L.layerGroup();
-    barangays.forEach(function (b) {
-      L.circleMarker([b.lat, b.lon], {
-        radius: 6, fillColor: "#4c8a2e", color: "#16532c", weight: 1, fillOpacity: 0.8
-      }).bindPopup("<strong>" + b.name + "</strong><br/>Population: " + b.pop.toLocaleString()).addTo(barangayLayer);
-    });
-    barangayLayer.addTo(map);
-
-    // Facility markers
-    var facilities = [
-      { name: "Municipal Hall", lat: 16.001, lon: 120.401, icon: "🏛️" },
-      { name: "Mapandan Community Hospital", lat: 16.003, lon: 120.398, icon: "🏥" },
-      { name: "Rural Health Unit", lat: 15.999, lon: 120.402, icon: "🏥" },
-      { name: "PNP Station", lat: 16.000, lon: 120.397, icon: "🚔" },
-      { name: "BFP Station", lat: 15.998, lon: 120.399, icon: "🚒" },
-      { name: "Town Plaza", lat: 16.0005, lon: 120.4005, icon: "🌳" },
-      { name: "Public Market", lat: 16.0015, lon: 120.399, icon: "🏪" }
-    ];
-
-    var facilityLayer = L.layerGroup();
-    facilities.forEach(function (f) {
-      L.marker([f.lat, f.lon], {
-        icon: L.divIcon({ className: "map-marker", html: '<span style="font-size:20px">' + f.icon + '</span>', iconSize: [24, 24], iconAnchor: [12, 12] })
-      }).bindPopup("<strong>" + f.name + "</strong>").addTo(facilityLayer);
-    });
-    facilityLayer.addTo(map);
-
-    // Layer control
-    L.control.layers(null, {
-      "Barangays": barangayLayer,
-      "Facilities": facilityLayer
-    }, { collapsed: false }).addTo(map);
-  }
 });
 
 // Weather code helpers

@@ -1194,14 +1194,10 @@ tbody tr:hover {
   overflow: hidden;
 }
 
-.map-marker {
-  background: none;
-  border: none;
-}
-
-.leaflet-control-layers {
-  font-family: var(--font-body);
-  font-size: 13px;
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 canvas {
