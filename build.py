@@ -19,6 +19,7 @@ Nested pages (e.g. services/*.html) are written to subdirectories.
 A full-text search index is generated at assets/search-index.json.
 """
 
+import html
 import json
 import re
 import sys
@@ -27,6 +28,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SRC_PAGES = ROOT / "src" / "pages"
 SRC_PARTIALS = ROOT / "src" / "partials"
+
+SRC_DATA = ROOT / "src" / "data"
+SRC_TEMPLATES = ROOT / "src" / "templates"
+SERVICES_OUT = SRC_PAGES / "services"
 
 SITE_CONFIG = {
     "REPO_URL": "https://github.com/jadolation/bettermapandan.git",
@@ -80,12 +85,127 @@ def compute_url(rel_path: Path) -> str:
     return "/".join(parts)
 
 
-def build() -> None:
-    base = (SRC_PARTIALS / "base.html").read_text()
-    header = (SRC_PARTIALS / "header.html").read_text()
-    footer = fill((SRC_PARTIALS / "footer.html").read_text(), SITE_CONFIG)
+def generate_services() -> None:
+    """Generate service detail pages and directory page from JSON data."""
+    data_path = SRC_DATA / "services.json"
+    svc_template = (SRC_TEMPLATES / "service.html").read_text()
+    dir_template = (SRC_TEMPLATES / "services-directory.html").read_text()
 
-    page_hero_partial = (SRC_PARTIALS / "page-hero.html").read_text()
+    data = json.loads(data_path.read_text())
+    services = data.get("services", [])
+    categories = {c["slug"]: c for c in data.get("categories", [])}
+
+    # Map services by category
+    by_category = {}
+    for svc in services:
+        by_category.setdefault(svc["category"], []).append(svc)
+
+    # Ensure output directory exists
+    SERVICES_OUT.mkdir(parents=True, exist_ok=True)
+
+    # --- Generate individual service pages ---
+    for svc in services:
+        cat = categories.get(svc["category"], {})
+
+        # Build requirements list HTML
+        reqs_html = "\n".join(
+            f"            <li>{html.escape(r)}</li>" for r in svc.get("requirements", [])
+        )
+        proc_html = "\n".join(
+            f"            <li>{html.escape(p)}</li>" for p in svc.get("procedure", [])
+        )
+
+        # Build related services links
+        related_html = ""
+        related = svc.get("related", [])
+        if related:
+            links = []
+            for rel_slug in related:
+                # Find the service name for this slug
+                rel_svc = next((s for s in services if s["slug"] == rel_slug), None)
+                if rel_svc:
+                    links.append(
+                        f'<a href="services/{rel_slug}.html">{html.escape(rel_svc["name"])}</a>'
+                    )
+            related_html = (
+                '<div class="service-links">\n'
+                + "\n".join(f"          {link}" for link in links)
+                + "\n        </div>"
+            )
+        else:
+            related_html = '<p>No related services available.</p>'
+
+        # Fill template placeholders
+        filled = fill(
+            svc_template,
+            {
+                "NAME": svc["name"],
+                "DESCRIPTION": svc["description"],
+                "CATEGORY_NAME": cat.get("name", ""),
+                "HERO_LEDE": svc.get("hero_lede", svc.get("description", "")),
+                "DESCRIPTION_FULL": svc.get("description_full", svc.get("description", "")),
+                "REQUIREMENTS": reqs_html,
+                "PROCEDURE": proc_html,
+                "OFFICE": svc.get("office", ""),
+                "CLASSIFICATION": svc.get("classification", ""),
+                "PROCESSING_TIME": svc.get("processing_time", ""),
+                "FEE": svc.get("fee", "Free"),
+                "WHERE": svc.get("where_to_apply", ""),
+                "CONTACT": svc.get("contact", ""),
+                "SOURCE": svc.get("source", "Mapandan Citizen's Charter"),
+                "LAST_UPDATED": svc.get("last_updated", "August 2025"),
+                "RELATED_SERVICES": related_html,
+            },
+        )
+
+        out_path = SERVICES_OUT / f"{svc['slug']}.html"
+        out_path.write_text(filled)
+
+    # --- Generate directory page ---
+    category_cards = []
+    for cat in data.get("categories", []):
+        cat_services = by_category.get(cat["slug"], [])
+        # Cap at 3 links per category
+        service_links = []
+        for s in cat_services[:3]:
+            service_links.append(
+                f'<a class="service-link" href="services/{s["slug"]}.html">{html.escape(s["name"])}</a>'
+            )
+        if len(cat_services) > 3:
+            service_links.append(
+                f'<a class="service-link service-link-more" href="services.html">View all {len(cat_services)} services &rarr;</a>'
+            )
+
+        card = (
+            f'      <div class="card service-category-card">\n'
+            f'        <div class="service-icon">{cat.get("icon", "")}</div>\n'
+            f'        <h3>{html.escape(cat["name"])}</h3>\n'
+            f'        <p>{html.escape(cat["description"])}</p>\n'
+            f'        <div class="service-links">\n'
+            + "\n".join(f"          {link}" for link in service_links)
+            + f"\n        </div>\n"
+            f'      </div>'
+        )
+        category_cards.append(card)
+
+    dir_filled = fill(
+        dir_template,
+        {"CATEGORY_CARDS": "\n".join(category_cards)},
+    )
+
+    # Write directory page (will be processed by build() as a regular page)
+    out_dir = SRC_PAGES / "services.html"
+    out_dir.write_text(dir_filled)
+
+
+def build() -> None:
+    # Generate service pages from JSON data (creates src/pages/services/*.html + src/pages/services.html)
+    generate_services()
+
+    base = (SRC_PARTIALS / "base.html").read_text()
+    header_raw = (SRC_PARTIALS / "header.html").read_text()
+    footer_raw = (SRC_PARTIALS / "footer.html").read_text()
+    page_hero_raw = (SRC_PARTIALS / "page-hero.html").read_text()
 
     # Collect all .html files recursively under src/pages/
     page_files = sorted(SRC_PAGES.rglob("*.html"))
@@ -100,9 +220,16 @@ def build() -> None:
         rel = page_path.relative_to(SRC_PAGES)
         meta, body = parse_page(page_path.read_text())
 
+        # Compute asset base: "." for root pages, ".." for subdirectory pages
+        depth = len(rel.parts) - 1
+        asset_base = ".." * depth if depth > 0 else "."
+
+        # Fill header and footer with ASSET_BASE + SITE_CONFIG for this page
+        header = fill(header_raw, {"ASSET_BASE": asset_base})
+        footer = fill(footer_raw, {"ASSET_BASE": asset_base, **SITE_CONFIG})
+
         # Compute breadcrumbs if in a subdirectory
         breadcrumbs = ""
-        depth = len(rel.parts) - 1
         if depth > 0:
             # Build breadcrumb nav
             bc_items = []
@@ -124,8 +251,9 @@ def build() -> None:
         hero_html = ""
         if "hero_eyebrow" in meta or "hero_heading" in meta or "hero_lede" in meta:
             hero_html = fill(
-                page_hero_partial,
+                page_hero_raw,
                 {
+                    "ASSET_BASE": asset_base,
                     "HERO_EYEBROW": meta.get("hero_eyebrow", ""),
                     "HERO_HEADING": meta.get("hero_heading", ""),
                     "HERO_LEDE": meta.get("hero_lede", ""),
@@ -136,6 +264,7 @@ def build() -> None:
         html = fill(
             base,
             {
+                "ASSET_BASE": asset_base,
                 "TITLE": meta["title"],
                 "DESCRIPTION": meta["description"],
                 "HEADER": header,

@@ -1,0 +1,612 @@
+{
+  "categories": [
+    {
+      "slug": "business-permitting",
+      "name": "Business Permitting & Licensing",
+      "description": "Starting or renewing a business in Mapandan.",
+      "icon": "01"
+    },
+    {
+      "slug": "civil-registry",
+      "name": "Civil Registry & Vital Records",
+      "description": "Birth, marriage, death certificates and corrections.",
+      "icon": "02"
+    },
+    {
+      "slug": "building-engineering",
+      "name": "Building, Engineering & Zoning",
+      "description": "Construction permits and land-use clearances.",
+      "icon": "03"
+    },
+    {
+      "slug": "real-property",
+      "name": "Real Property & Revenue",
+      "description": "Property taxes, declarations, and transfers.",
+      "icon": "04"
+    },
+    {
+      "slug": "health",
+      "name": "Health Services",
+      "description": "Consultations, permits, and public health programs.",
+      "icon": "05"
+    },
+    {
+      "slug": "social-welfare",
+      "name": "Social Welfare",
+      "description": "Assistance programs and senior citizen / PWD services.",
+      "icon": "06"
+    },
+    {
+      "slug": "agriculture",
+      "name": "Agriculture",
+      "description": "Farming subsidies and agricultural support programs.",
+      "icon": "07"
+    }
+  ],
+  "services": [
+    {
+      "slug": "agriculture-subsidy",
+      "category": "agriculture",
+      "name": "Agricultural Subsidies",
+      "description": "The Municipal Agriculture Office (MAO) provides various government-subsidized agricultural programs to support local farmers and fisherfolk in Mapandan. These programs include subsidies for seeds, fertilizers, farm equipment, and technical assistance to improve agricultural productivity and livelihood. Availability of subsidies depends on national and provincial funding allocations.",
+      "description_full": "The Municipal Agriculture Office (MAO) provides various government-subsidized agricultural programs to support local farmers and fisherfolk in Mapandan. These programs include subsidies for seeds, fertilizers, farm equipment, and technical assistance to improve agricultural productivity and livelihood. Availability of subsidies depends on national and provincial funding allocations.",
+      "office": "Municipal Agriculture Office (MAO)",
+      "classification": "Simple",
+      "processing_time": "Varies (depends on availability)",
+      "fee": "Free (government-subsidized)",
+      "where_to_apply": "Municipal Agriculture Office, Poblacion",
+      "contact": "(075) 632-1873",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Farmer registration with the Municipal Agriculture Office",
+        "Barangay certification of residency and farming activity",
+        "Farm location and land area information"
+      ],
+      "procedure": [
+        "Register with the Municipal Agriculture Office (MAO) as a farmer or fisherfolk.",
+        "Secure a barangay certification confirming your farming activity and residency.",
+        "Submit your registration and requirements to the MAO.",
+        "Wait for availability announcement of agricultural subsidies or programs.",
+        "Receive agricultural assistance or subsidies upon program approval."
+      ],
+      "related": [],
+      "hero_lede": "Apply for government-subsidized agricultural programs in Mapandan. Learn about eligibility, requirements, and available assistance from the MAO."
+    },
+    {
+      "slug": "aics",
+      "category": "social-welfare",
+      "name": "AICS Assistance",
+      "description": "Assistance to Individuals in Crisis Situations (AICS) is a government program that provides financial assistance to individuals and families facing emergencies such as medical crises, bereavement, or other unforeseen circumstances. In Mapandan, AICS assistance is administered by the Municipal Social Welfare and Development Office (MSWDO) in coordination with the Department of Social Welfare and Development (DSWD).",
+      "description_full": "Assistance to Individuals in Crisis Situations (AICS) is a government program that provides financial assistance to individuals and families facing emergencies such as medical crises, bereavement, or other unforeseen circumstances. In Mapandan, AICS assistance is administered by the Municipal Social Welfare and Development Office (MSWDO) in coordination with the Department of Social Welfare and Development (DSWD).",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "1–3 working days",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751 / 0930-641-3934",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Barangay certification stating the resident’s crisis situation",
+        "Medical certificate (for medical-related assistance)",
+        "Death certificate (for burial assistance)",
+        "Valid government-issued ID",
+        "Case study or social worker assessment"
+      ],
+      "procedure": [
+        "Secure a barangay certification from your barangay captain or kagawad.",
+        "Gather all required documents (medical certificate, death certificate, etc.).",
+        "Visit the MSWDO office and submit your application with supporting documents.",
+        "Wait for the social worker’s assessment and case study.",
+        "Receive financial assistance upon approval of your application."
+      ],
+      "related": [],
+      "hero_lede": "Apply for Assistance to Individuals in Crisis Situations (AICS) in Mapandan. Learn about requirements, eligibility, and how to get help from the MSWDO."
+    },
+    {
+      "slug": "birth-certificate",
+      "category": "civil-registry",
+      "name": "Birth Certificate",
+      "description": "A birth certificate is a vital record that serves as proof of identity, age, and Filipino citizenship. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered birth certificates. This document is required for school enrollment, passport application, employment, and other legal purposes.",
+      "description_full": "A birth certificate is a vital record that serves as proof of identity, age, and Filipino citizenship. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered birth certificates. This document is required for school enrollment, passport application, employment, and other legal purposes.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "3–5 working days",
+      "fee": "As scheduled by the MCR (varies by copy type)",
+      "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid government-issued ID of the requesting party",
+        "PSA copy of the birth certificate (if available, for verification)",
+        "Barangay certification of residency (for the person named on the certificate)",
+        "Affidavit of two disinterested persons (required for delayed registration only)"
+      ],
+      "procedure": [
+        "Visit the Municipal Civil Registrar’s Office and present valid identification.",
+        "Fill out the request form and provide the necessary supporting documents.",
+        "Pay the certification fee at the Municipal Treasurer’s Office.",
+        "Receive the certified birth certificate upon release."
+      ],
+      "related": [],
+      "hero_lede": "Request a certified copy of your birth certificate from the Municipal Civil Registrar of Mapandan."
+    },
+    {
+      "slug": "building-permit",
+      "category": "building-engineering",
+      "name": "Building Permit",
+      "description": "A building permit is a legal requirement under the National Building Code of the Philippines (PD 1096) for any construction, renovation, alteration, or demolition of a building or structure. The Municipal Engineering Office (MEO) of Mapandan reviews and issues building permits after ensuring compliance with safety standards, zoning, and structural requirements.",
+      "description_full": "A building permit is a legal requirement under the National Building Code of the Philippines (PD 1096) for any construction, renovation, alteration, or demolition of a building or structure. The Municipal Engineering Office (MEO) of Mapandan reviews and issues building permits after ensuring compliance with safety standards, zoning, and structural requirements.",
+      "office": "Municipal Engineering Office (MEO)",
+      "classification": "Highly Technical",
+      "processing_time": "10–15 working days",
+      "fee": "Based on project cost (schedule per National Building Code)",
+      "where_to_apply": "Municipal Engineering Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Approved zoning clearance from the MPDC",
+        "Architectural plans (signed and sealed by a licensed architect)",
+        "Structural plans (signed and sealed by a licensed civil/structural engineer)",
+        "Bill of materials and cost estimate",
+        "Certificate of land title or ownership documents",
+        "Tax clearance / latest real property tax payment"
+      ],
+      "procedure": [
+        "Obtain a zoning clearance from the MPDC / Zoning Office.",
+        "Prepare architectural and structural plans signed by licensed professionals.",
+        "Submit all documents to the Municipal Engineering Office (MEO) for review.",
+        "Pay the building permit fees at the Municipal Treasurer’s Office.",
+        "Receive the approved building permit after technical evaluation."
+      ],
+      "related": [],
+      "hero_lede": "Secure a building permit before commencing any construction or renovation in the Municipality of Mapandan."
+    },
+    {
+      "slug": "business-permit",
+      "category": "business-permitting",
+      "name": "New Business Permit",
+      "description": "A business permit is required for all individuals or entities intending to operate a commercial business within the Municipality of Mapandan. This permit is issued after compliance with documentary and safety requirements and upon payment of applicable fees.",
+      "description_full": "A business permit is required for all individuals or entities intending to operate a commercial business within the Municipality of Mapandan. This permit is issued after compliance with documentary and safety requirements and upon payment of applicable fees.",
+      "office": "Municipal Treasurer’s Office (MTO)",
+      "classification": "Simple",
+      "processing_time": "3–5 working days",
+      "fee": "Based on business category (schedule available at MTO)",
+      "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "DTI or SEC registration certificate",
+        "Barangay clearance from the barangay where the business is located",
+        "Fire safety inspection certificate",
+        "Occupancy permit (if renting a commercial space)",
+        "Sketch of business location",
+        "Valid government-issued ID of the business owner or authorized representative"
+      ],
+      "procedure": [
+        "Secure a barangay clearance from the barangay where the business will be located.",
+        "Gather all required documents and submit them to the Municipal Treasurer’s Office (MTO).",
+        "Pay the corresponding business permit fees based on your business category.",
+        "Receive your official business permit upon successful processing."
+      ],
+      "related": [],
+      "hero_lede": "Secure your new business permit to operate commercially in the Municipality of Mapandan."
+    },
+    {
+      "slug": "business-renewal",
+      "category": "business-permitting",
+      "name": "Business Permit Renewal",
+      "description": "Businesses operating within Mapandan are required to renew their business permits annually. Renewal ensures that your business remains compliant with local regulations and avoids penalties for late filing.",
+      "description_full": "Businesses operating within Mapandan are required to renew their business permits annually. Renewal ensures that your business remains compliant with local regulations and avoids penalties for late filing.",
+      "office": "Municipal Treasurer’s Office (MTO)",
+      "classification": "Simple",
+      "processing_time": "1–3 working days",
+      "fee": "Based on business category (schedule available at MTO)",
+      "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Previous year’s business permit",
+        "Updated DTI or SEC registration certificate",
+        "Latest Barangay clearance",
+        "Fire safety inspection certificate",
+        "Valid government-issued ID of the business owner"
+      ],
+      "procedure": [
+        "Secure an updated barangay clearance from your barangay.",
+        "Submit all required documents to the Municipal Treasurer’s Office (MTO).",
+        "Pay the renewal fee based on your business category.",
+        "Receive your renewed business permit."
+      ],
+      "related": [],
+      "hero_lede": "Renew your existing business permit to continue operating in the Municipality of Mapandan."
+    },
+    {
+      "slug": "cedula",
+      "category": "real-property",
+      "name": "Cedula / Community Tax Certificate",
+      "description": "The Community Tax Certificate, commonly known as a cedula, is a requirement for residents of Mapandan engaged in certain transactions with government agencies. It serves as proof of community tax payment and is required for various legal, business, and personal transactions. The cedula is issued under the provisions of the Local Government Code (Republic Act No. 7160).",
+      "description_full": "The Community Tax Certificate, commonly known as a cedula, is a requirement for residents of Mapandan engaged in certain transactions with government agencies. It serves as proof of community tax payment and is required for various legal, business, and personal transactions. The cedula is issued under the provisions of the Local Government Code (Republic Act No. 7160).",
+      "office": "Municipal Treasury Office (MTO)",
+      "classification": "Simple",
+      "processing_time": "Same day",
+      "fee": "₱500 (basic community tax) + ₱1 per ₱1,000 of income (if applicable)",
+      "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid government-issued ID",
+        "Payment of community tax"
+      ],
+      "procedure": [
+        "Present your valid ID at the Municipal Treasurer’s Office.",
+        "Pay the basic community tax of ₱500.",
+        "If applicable, pay an additional ₱1 per ₱1,000 of gross income earned during the preceding year.",
+        "Receive your community tax certificate (cedula)."
+      ],
+      "related": [],
+      "hero_lede": "Obtain your community tax certificate (cedula) in Mapandan. Learn about fees, requirements, and where to apply."
+    },
+    {
+      "slug": "death-certificate",
+      "category": "civil-registry",
+      "name": "Death Certificate",
+      "description": "A death certificate is an official document that records the death of an individual. It is required for settlement of estates, insurance claims, pension benefits, and other legal matters. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered death certificates.",
+      "description_full": "A death certificate is an official document that records the death of an individual. It is required for settlement of estates, insurance claims, pension benefits, and other legal matters. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered death certificates.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "3–5 working days",
+      "fee": "As scheduled by the MCR",
+      "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Medical certificate or certificate of cause of death",
+        "Valid government-issued ID of the requesting party",
+        "Barangay certification (for the requesting party’s relationship to the deceased)"
+      ],
+      "procedure": [
+        "Visit the Municipal Civil Registrar’s Office and present valid identification.",
+        "Fill out the request form and provide supporting documents.",
+        "Pay the certification fee at the Municipal Treasurer’s Office.",
+        "Receive the certified death certificate upon release."
+      ],
+      "related": [],
+      "hero_lede": "Request a certified copy of a death certificate from the Municipal Civil Registrar of Mapandan."
+    },
+    {
+      "slug": "health-consultation",
+      "category": "health",
+      "name": "Health Consultation",
+      "description": "The Municipal Health Office (MHO) / Rural Health Unit (RHU) provides free health consultation services to all residents of Mapandan. This includes general medical consultations, health advice, and referrals to higher-level health facilities when necessary. Walk-in patients are served on a first-come, first-served basis.",
+      "description_full": "The Municipal Health Office (MHO) / Rural Health Unit (RHU) provides free health consultation services to all residents of Mapandan. This includes general medical consultations, health advice, and referrals to higher-level health facilities when necessary. Walk-in patients are served on a first-come, first-served basis.",
+      "office": "Municipal Health Office (MHO / RHU)",
+      "classification": "Simple",
+      "processing_time": "Walk-in (same day)",
+      "fee": "Free",
+      "where_to_apply": "Rural Health Unit, Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "None — open to all residents"
+      ],
+      "procedure": [
+        "Visit the Rural Health Unit (RHU) in Poblacion during office hours.",
+        "Register at the reception counter and provide your basic information.",
+        "Wait for your name to be called for consultation.",
+        "Consult with the attending physician or health officer.",
+        "Receive prescription or referrals, if applicable."
+      ],
+      "related": [],
+      "hero_lede": "Free health consultation services for Mapandan residents at the Rural Health Unit. Walk-in services available for all residents."
+    },
+    {
+      "slug": "land-transfer",
+      "category": "real-property",
+      "name": "Transfer of Land Ownership",
+      "description": "Transfer of land ownership is the legal process of transferring property rights from one owner to another. This process involves coordination between the Municipal Assessor’s Office (MASSO) and the Municipal Treasury Office (MTO) to update property records and ensure proper tax assessment. The transfer may be due to sale, donation, inheritance, or other legal means.",
+      "description_full": "Transfer of land ownership is the legal process of transferring property rights from one owner to another. This process involves coordination between the Municipal Assessor’s Office (MASSO) and the Municipal Treasury Office (MTO) to update property records and ensure proper tax assessment. The transfer may be due to sale, donation, inheritance, or other legal means.",
+      "office": "Municipal Assessor’s Office (MASSO) + Municipal Treasury Office (MTO)",
+      "classification": "Complex",
+      "processing_time": "15–30 working days",
+      "fee": "Varies (assessor’s fee based on property value)",
+      "where_to_apply": "Municipal Assessor’s Office, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Deed of sale or deed of donation (depending on transfer type)",
+        "Tax clearance from the Municipal Treasurer’s Office",
+        "Valid government-issued ID of the new owner",
+        "Original tax declaration",
+        "Bureau of Internal Revenue (BIR) certificate of registration"
+      ],
+      "procedure": [
+        "Secure a tax clearance from the Municipal Treasurer’s Office.",
+        "Obtain the BIR certificate of registration for the transfer.",
+        "Submit all required documents to the Municipal Assessor’s Office (MASSO).",
+        "Pay the assessor’s fee based on the property value.",
+        "Wait for processing and verification of documents.",
+        "Receive the updated tax declaration under the new owner’s name."
+      ],
+      "related": [],
+      "hero_lede": "Transfer land ownership in Mapandan. Learn about the requirements, procedures, and fees for property transfer at the Assessor's Office."
+    },
+    {
+      "slug": "marriage-license",
+      "category": "civil-registry",
+      "name": "Marriage License",
+      "description": "A marriage license is a legal requirement before a marriage can be solemnized in the Philippines. The Municipal Civil Registrar (MCR) of Mapandan processes marriage license applications, which include a required publication period. The license is valid for 120 days from the date of issuance.",
+      "description_full": "A marriage license is a legal requirement before a marriage can be solemnized in the Philippines. The Municipal Civil Registrar (MCR) of Mapandan processes marriage license applications, which include a required publication period. The license is valid for 120 days from the date of issuance.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "10–15 working days (including 10-day publication period)",
+      "fee": "As scheduled by the MCR",
+      "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Birth certificates (PSA-authenticated) of both contracting parties",
+        "Valid government-issued IDs of both parties",
+        "Certificate of No Marriage (CENOMAR) for both parties",
+        "Parental consent or advice (if either party is under 25 years old)",
+        "Certificate of Marriage Counseling (from a government-accredited counselor)",
+        "Community Tax Certificate (cedula) for both parties",
+        "Two (2) ID photos of each party"
+      ],
+      "procedure": [
+        "Both parties appear at the MCR and submit all required documents.",
+        "Fill out the marriage license application form.",
+        "Pay the applicable fees at the Municipal Treasurer’s Office.",
+        "Wait for the 10-day publication period.",
+        "After publication, claim the marriage license from the MCR."
+      ],
+      "related": [],
+      "hero_lede": "Apply for a marriage license at the Municipal Civil Registrar of Mapandan, Pangasinan."
+    },
+    {
+      "slug": "name-correction",
+      "category": "civil-registry",
+      "name": "Name Correction (RA 9048)",
+      "description": "Republic Act No. 9048 authorizes the city or municipal civil registrar to correct clerical or typographical errors in civil registry entries without the need for a judicial order. This covers corrections in first names, nicknames, or minor spelling errors. This process does not apply to changes in gender, date of birth, or other substantive entries.",
+      "description_full": "Republic Act No. 9048 authorizes the city or municipal civil registrar to correct clerical or typographical errors in civil registry entries without the need for a judicial order. This covers corrections in first names, nicknames, or minor spelling errors. This process does not apply to changes in gender, date of birth, or other substantive entries.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Complex",
+      "processing_time": "15–30 working days (including publication period)",
+      "fee": "As scheduled by the MCR (includes publication cost)",
+      "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "PSA-authenticated birth certificate (original and photocopy)",
+        "Valid government-issued ID of the petitioner",
+        "Supporting documents that prove the correct name (e.g., school records, baptismal certificate, IDs)",
+        "Notarized affidavit of the petitioner explaining the error",
+        "Publication of the correction in a local newspaper (for the required period)"
+      ],
+      "procedure": [
+        "Visit the Municipal Civil Registrar’s Office and submit all required documents.",
+        "File the petition for correction of clerical error.",
+        "Pay the required fees at the Municipal Treasurer’s Office.",
+        "Wait for the publication period to be completed.",
+        "After publication and verification, claim the corrected birth certificate from the MCR."
+      ],
+      "related": [],
+      "hero_lede": "Correct clerical or typographical errors in your birth certificate under Republic Act No. 9048."
+    },
+    {
+      "slug": "occupancy-permit",
+      "category": "building-engineering",
+      "name": "Occupancy Permit",
+      "description": "An occupancy permit certifies that a building or structure has been completed and inspected in accordance with the approved plans and the National Building Code. It is required before any building may be legally occupied or used.",
+      "description_full": "An occupancy permit certifies that a building or structure has been completed and inspected in accordance with the approved plans and the National Building Code. It is required before any building may be legally occupied or used.",
+      "office": "Municipal Engineering Office (MEO)",
+      "classification": "Simple",
+      "processing_time": "3–5 working days",
+      "fee": "As scheduled by the MEO",
+      "where_to_apply": "Municipal Engineering Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Approved building permit",
+        "As-built plans (reflecting the actual construction)",
+        "Inspection report from the Municipal Engineering Office",
+        "Fire safety inspection certificate from the Bureau of Fire Protection"
+      ],
+      "procedure": [
+        "Request a final inspection from the Municipal Engineering Office.",
+        "Submit the as-built plans and inspection report.",
+        "Obtain a fire safety inspection certificate from the BFP.",
+        "Submit all documents to the MEO for review.",
+        "Receive the occupancy permit upon approval."
+      ],
+      "related": [],
+      "hero_lede": "Obtain an occupancy permit to legally occupy a newly constructed or renovated building in Mapandan."
+    },
+    {
+      "slug": "rpt-payment",
+      "category": "real-property",
+      "name": "Real Property Tax Payment",
+      "description": "Real property tax (RPT) is an annual tax on the assessed value of land, buildings, and improvements owned by individuals or entities within the Municipality of Mapandan. Payment of RPT is required under the Local Government Code (Republic Act No. 7160) and Provincial Ordinance No. 253-2020. The tax is used to fund local services, infrastructure, and public welfare programs.",
+      "description_full": "Real property tax (RPT) is an annual tax on the assessed value of land, buildings, and improvements owned by individuals or entities within the Municipality of Mapandan. Payment of RPT is required under the Local Government Code (Republic Act No. 7160) and Provincial Ordinance No. 253-2020. The tax is used to fund local services, infrastructure, and public welfare programs.",
+      "office": "Municipal Treasury Office (MTO)",
+      "classification": "Simple",
+      "processing_time": "Same day",
+      "fee": "Based on assessed value (1% annual for basic, additional for SEF)",
+      "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter / Provincial Ordinance No. 253-2020",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Tax declaration from the Municipal Assessor’s Office",
+        "Previous year’s official receipt",
+        "Valid government-issued ID"
+      ],
+      "procedure": [
+        "Present your tax declaration and previous year’s official receipt at the Municipal Treasurer’s Office.",
+        "Verify the current assessed value of your property with the assessor.",
+        "Pay the corresponding real property tax at the treasury counter.",
+        "Receive your official receipt as proof of payment."
+      ],
+      "related": [],
+      "hero_lede": "Pay your real property tax obligations in Mapandan. Learn about assessment rates, fees, and step-by-step payment procedures."
+    },
+    {
+      "slug": "sanitary-permit",
+      "category": "health",
+      "name": "Sanitary Permit",
+      "description": "A sanitary permit is required for all businesses that handle food, beverages, or other consumable products to ensure compliance with health and sanitation standards. The permit is issued by the Municipal Health Office (MHO) after an inspection of the business premises to verify that health and safety regulations are met.",
+      "description_full": "A sanitary permit is required for all businesses that handle food, beverages, or other consumable products to ensure compliance with health and sanitation standards. The permit is issued by the Municipal Health Office (MHO) after an inspection of the business premises to verify that health and safety regulations are met.",
+      "office": "Municipal Health Office (MHO)",
+      "classification": "Simple",
+      "processing_time": "3–5 working days",
+      "fee": "Based on business type",
+      "where_to_apply": "Municipal Health Office, Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Health certificate from the MHO",
+        "Food handler’s certificate (if applicable for food businesses)",
+        "Business permit from the Municipal Treasurer’s Office",
+        "Inspection of premises by MHO health officer"
+      ],
+      "procedure": [
+        "Secure a health certificate and food handler’s certificate (if applicable) from the MHO.",
+        "Request an inspection of your business premises by a health officer.",
+        "Pay the corresponding sanitary permit fee based on your business type.",
+        "Receive your sanitary permit after successful inspection and payment."
+      ],
+      "related": [],
+      "hero_lede": "Obtain a sanitary permit for your business in Mapandan. Learn about requirements, inspection process, and fees at the Municipal Health Office."
+    },
+    {
+      "slug": "senior-pwd-id",
+      "category": "social-welfare",
+      "name": "Senior Citizen / PWD ID",
+      "description": "The Senior Citizen ID and Persons with Disabilities (PWD) ID are government-issued identification cards that provide holders with benefits and privileges under the law. Senior Citizens (60 years old and above) and PWDs are entitled to discounts, tax exemptions, and other benefits as mandated by RA 9994 (Senior Citizens Act) and RA 7277 (Magna Carta for Disabled Persons). The IDs are processed through the MSWDO and MCR in coordination with the national implementing agencies.",
+      "description_full": "The Senior Citizen ID and Persons with Disabilities (PWD) ID are government-issued identification cards that provide holders with benefits and privileges under the law. Senior Citizens (60 years old and above) and PWDs are entitled to discounts, tax exemptions, and other benefits as mandated by RA 9994 (Senior Citizens Act) and RA 7277 (Magna Carta for Disabled Persons). The IDs are processed through the MSWDO and MCR in coordination with the national implementing agencies.",
+      "office": "MSWDO + MCR",
+      "classification": "Simple",
+      "processing_time": "3–5 working days",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751 / 0930-641-3934",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Birth certificate or PSA-issued document as proof of age (for Senior Citizens)",
+        "Barangay certification of residency",
+        "Two (2) pieces of 2x2 ID photos",
+        "Medical certificate (for PWD applicants, indicating the nature of disability)"
+      ],
+      "procedure": [
+        "Secure a barangay certification of residency from your barangay office.",
+        "For PWD applicants, obtain a medical certificate indicating the nature and severity of the disability.",
+        "Submit all required documents to the MSWDO or MCR office.",
+        "Wait for verification and processing of your application.",
+        "Receive your Senior Citizen or PWD ID upon approval."
+      ],
+      "related": [],
+      "hero_lede": "Apply for a Senior Citizen or Persons with Disabilities (PWD) ID in Mapandan. Learn about requirements, eligibility, and where to apply."
+    },
+    {
+      "slug": "special-event-permit",
+      "category": "business-permitting",
+      "name": "Special Event Permit",
+      "description": "A special event permit is required for individuals or organizations planning to hold public events within Mapandan. This includes festivals, concerts, trade fairs, sports tournaments, and other gatherings that may affect public roads, spaces, or safety.",
+      "description_full": "A special event permit is required for individuals or organizations planning to hold public events within Mapandan. This includes festivals, concerts, trade fairs, sports tournaments, and other gatherings that may affect public roads, spaces, or safety.",
+      "office": "Municipal Treasurer’s Office (MTO) + Mayor’s Office",
+      "classification": "Simple",
+      "processing_time": "5–7 working days",
+      "fee": "Varies by event type and scale",
+      "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Event proposal with detailed description, expected attendance, and schedule",
+        "Sketch or map of the event venue",
+        "Safety and security plan",
+        "Event insurance (if applicable, depending on event type and size)",
+        "Barangay endorsement from the barangay where the event will be held"
+      ],
+      "procedure": [
+        "Secure a barangay endorsement from the barangay where the event will take place.",
+        "Prepare the event proposal, venue sketch, and safety plan.",
+        "Submit all requirements to the Municipal Treasurer’s Office (MTO) and/or Mayor’s Office.",
+        "Wait for review and approval; pay any required fees.",
+        "Receive the approved special event permit."
+      ],
+      "related": [],
+      "hero_lede": "Obtain a permit for special events such as festivals, concerts, fairs, and other public gatherings in Mapandan."
+    },
+    {
+      "slug": "tax-declaration",
+      "category": "real-property",
+      "name": "Tax Declaration Copy",
+      "description": "A tax declaration is an official document that shows the assessed value of your real property for taxation purposes. Property owners may request certified copies of their tax declaration for various legal, financial, and administrative transactions, including property sales, loans, and insurance applications.",
+      "description_full": "A tax declaration is an official document that shows the assessed value of your real property for taxation purposes. Property owners may request certified copies of their tax declaration for various legal, financial, and administrative transactions, including property sales, loans, and insurance applications.",
+      "office": "Municipal Assessor’s Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "1–3 working days",
+      "fee": "₱50 per copy",
+      "where_to_apply": "Municipal Assessor’s Office, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid government-issued ID",
+        "Written request stating the purpose of the request",
+        "Payment of ₱50 per copy"
+      ],
+      "procedure": [
+        "Submit a written request to the Municipal Assessor’s Office (MASSO) stating the purpose of your request.",
+        "Present your valid government-issued ID for verification.",
+        "Pay ₱50 per copy at the designated payment counter.",
+        "Receive your certified tax declaration copy after processing."
+      ],
+      "related": [],
+      "hero_lede": "Request a copy of your tax declaration from the Municipal Assessor's Office in Mapandan. Learn about fees, requirements, and processing time."
+    },
+    {
+      "slug": "zoning-clearance",
+      "category": "building-engineering",
+      "name": "Zoning Clearance",
+      "description": "A zoning clearance certifies that the intended use or construction on a property complies with the municipality’s land use plan and zoning regulations. It is a prerequisite for obtaining a building permit or for any change in land use classification.",
+      "description_full": "A zoning clearance certifies that the intended use or construction on a property complies with the municipality’s land use plan and zoning regulations. It is a prerequisite for obtaining a building permit or for any change in land use classification.",
+      "office": "Municipal Planning and Development Office (MPDC) / Zoning Office",
+      "classification": "Simple",
+      "processing_time": "3–5 working days",
+      "fee": "As scheduled by the MPDC",
+      "where_to_apply": "MPDC / Zoning Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / 0998-577-3164",
+      "source": "Mapandan Citizen’s Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Certificate of land title or ownership documents (e.g., Tax Declaration, Deed of Sale)",
+        "Site development plan or proposed layout",
+        "Sketch of property location (showing the lot in relation to nearby streets/landmarks)"
+      ],
+      "procedure": [
+        "Visit the Municipal Planning and Development Office (MPDC) or Zoning Office.",
+        "Submit the required documents along with the zoning clearance application form.",
+        "Pay the applicable fee at the Municipal Treasurer’s Office.",
+        "Receive the zoning clearance after verification of land use compliance."
+      ],
+      "related": [],
+      "hero_lede": "Obtain a zoning clearance before constructing, renovating, or changing the use of a property in Mapandan."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+---
+title: {{NAME}} — BetterMapandan.org
+description: {{DESCRIPTION}}
+hero_eyebrow: {{CATEGORY_NAME}}
+hero_heading: {{NAME}}
+hero_lede: {{HERO_LEDE}}
+---
+<section class="section">
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:start; gap:32px">
+      <div>
+        <div class="service-section">
+          <h2>Description</h2>
+          <p>{{DESCRIPTION_FULL}}</p>
+        </div>
+        <div class="service-section">
+          <h2>Requirements</h2>
+          <ul>
+            {{REQUIREMENTS}}
+          </ul>
+        </div>
+        <div class="service-section">
+          <h2>Procedure</h2>
+          <ol>
+            {{PROCEDURE}}
+          </ol>
+        </div>
+      </div>
+      <div>
+        <div class="service-sidebar">
+          <h3>Service Details</h3>
+          <p><strong>Responsible Office:</strong> {{OFFICE}}</p>
+          <p><strong>Classification:</strong> {{CLASSIFICATION}}</p>
+          <p><strong>Processing Time:</strong> {{PROCESSING_TIME}}</p>
+          <p><strong>Fee:</strong> <span class="fee-amount">{{FEE}}</span></p>
+          <p><strong>Where to Apply:</strong> {{WHERE}}</p>
+          <p><strong>Contact:</strong> {{CONTACT}}</p>
+          <p><strong>Source:</strong> {{SOURCE}}</p>
+          <p><strong>Last Updated:</strong> {{LAST_UPDATED}}</p>
+        </div>
+        <a class="report-btn" href="mailto:report@bettermapandan.org?subject=Data%20correction:%20{{NAME}}">Report incorrect information</a>
+      </div>
+    </div>
+    <div class="service-section">
+      <h2>Related Services</h2>
+      {{RELATED_SERVICES}}
+    </div>
+  </div>
+</section>
