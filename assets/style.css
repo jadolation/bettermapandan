@@ -859,6 +859,43 @@ p {
   color: var(--ink);
 }
 
+/* Timeline collapse */
+.timeline-collapse-btn {
+  display: inline-block;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--green-bright);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  min-height: 44px;
+}
+
+.timeline-collapse-btn:hover {
+  background: var(--paper);
+  border-color: var(--green-bright);
+}
+
+.timeline-collapse-btn:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 2px;
+}
+
+.history-timeline.collapsed .timeline-item p {
+  display: none;
+}
+
+.history-timeline.collapsed .accordion-toggle {
+  display: none;
+}
+
+.history-timeline.collapsed .source-cite {
+  display: none;
+}
+
 .accordion-toggle {
   display: inline-block;
   background: none;
@@ -968,12 +1005,31 @@ p {
 
 .barangay-card h4 {
   font-size: 15px;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   color: var(--green-deep);
 }
 
-.barangay-card .pop {
+.barangay-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.barangay-card-pop {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.barangay-card-pop::after {
+  content: " residents";
   font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.barangay-card-landuse {
+  font-size: 12px;
   color: var(--ink-soft);
 }
 
