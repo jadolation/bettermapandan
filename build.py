@@ -85,6 +85,8 @@ def build() -> None:
     header = (SRC_PARTIALS / "header.html").read_text()
     footer = fill((SRC_PARTIALS / "footer.html").read_text(), SITE_CONFIG)
 
+    page_hero_partial = (SRC_PARTIALS / "page-hero.html").read_text()
+
     # Collect all .html files recursively under src/pages/
     page_files = sorted(SRC_PAGES.rglob("*.html"))
     if not page_files:
@@ -116,6 +118,20 @@ def build() -> None:
                 + " &rsaquo; ".join(bc_items)
                 + "</nav>\n"
             )
+
+        # If hero_eyebrow/hero_heading/hero_lede are in front matter,
+        # inject the page-hero partial instead of requiring inline hero HTML.
+        hero_html = ""
+        if "hero_eyebrow" in meta or "hero_heading" in meta or "hero_lede" in meta:
+            hero_html = fill(
+                page_hero_partial,
+                {
+                    "HERO_EYEBROW": meta.get("hero_eyebrow", ""),
+                    "HERO_HEADING": meta.get("hero_heading", ""),
+                    "HERO_LEDE": meta.get("hero_lede", ""),
+                },
+            )
+        body = hero_html + body
 
         html = fill(
             base,
