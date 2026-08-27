@@ -150,6 +150,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// History carousel
+document.addEventListener("DOMContentLoaded", function () {
+  var track = document.querySelector(".carousel-track");
+  if (!track) return;
+
+  var slides = track.querySelectorAll(".carousel-slide");
+  var captionText = document.querySelector(".carousel-caption-text");
+  var counter = document.querySelector(".carousel-current");
+  var prevBtn = document.querySelector(".carousel-prev");
+  var nextBtn = document.querySelector(".carousel-next");
+  var current = 0;
+  var total = slides.length;
+
+  var captions = [
+    "Mapandan Town Plaza",
+    "Old Mapandan Public Market",
+    "Early Municipal Officials",
+    "Old Mapandan School",
+    "Old Baloling Bridge",
+  ];
+
+  function goTo(index) {
+    slides[current].classList.remove("active");
+    current = (index + total) % total;
+    slides[current].classList.add("active");
+    if (captionText) captionText.textContent = captions[current] || "";
+    if (counter) counter.textContent = current + 1;
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", function () {
+    goTo(current - 1);
+  });
+
+  if (nextBtn) nextBtn.addEventListener("click", function () {
+    goTo(current + 1);
+  });
+
+  var region = document.querySelector(".history-carousel");
+  if (region) {
+    region.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { goTo(current - 1); e.preventDefault(); }
+      if (e.key === "ArrowRight") { goTo(current + 1); e.preventDefault(); }
+    });
+  }
+});
+
 // Weather code helpers
 function weatherIcon(code) {
   var icons = { 0: "\u2600\uFE0F", 1: "\uD83C\uDF24\uFE0F", 2: "\u26C5", 3: "\u2601\uFE0F", 45: "\uD83C\uDF2B\uFE0F", 48: "\uD83C\uDF2B\uFE0F", 51: "\uD83C\uDF26\uFE0F", 53: "\uD83C\uDF26\uFE0F", 55: "\uD83C\uDF27\uFE0F", 61: "\uD83C\uDF27\uFE0F", 63: "\uD83C\uDF27\uFE0F", 65: "\uD83C\uDF27\uFE0F", 71: "\u2744\uFE0F", 73: "\u2744\uFE0F", 75: "\u2744\uFE0F", 80: "\uD83C\uDF26\uFE0F", 81: "\uD83C\uDF27\uFE0F", 82: "\uD83C\uDF27\uFE0F", 95: "\u26C8\uFE0F", 96: "\u26C8\uFE0F", 99: "\u26C8\uFE0F" };
