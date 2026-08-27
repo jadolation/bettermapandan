@@ -1805,11 +1805,16 @@ canvas {
 }
 
 .service-category-card .service-icon {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--green);
+  font-size: 32px;
   line-height: 1;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-pale);
+  border-radius: 50%;
 }
 
 .service-category-card h3 {
