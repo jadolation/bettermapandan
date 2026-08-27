@@ -32,8 +32,8 @@
     },
     {
       "slug": "social-welfare",
-      "name": "Social Welfare",
-      "description": "Assistance programs and senior citizen / PWD services.",
+      "name": "Social Welfare — IDs & Certifications",
+      "description": "Senior citizen, PWD, solo parent IDs and other certifications.",
       "icon": "06"
     },
     {
@@ -41,6 +41,18 @@
       "name": "Agriculture",
       "description": "Farming subsidies and agricultural support programs.",
       "icon": "07"
+    },
+    {
+      "slug": "social-assistance",
+      "name": "Social Assistance & Protection",
+      "description": "Financial aid, case studies, child welfare, and disaster relief.",
+      "icon": "08"
+    },
+    {
+      "slug": "zoning",
+      "name": "Zoning & Planning",
+      "description": "Zoning clearances for electrical, business, and land use.",
+      "icon": "09"
     }
   ],
   "services": [
@@ -171,30 +183,33 @@
       "name": "New Business Permit",
       "description": "A business permit is required for all individuals or entities intending to operate a commercial business within the Municipality of Mapandan. This permit is issued after compliance with documentary and safety requirements and upon payment of applicable fees.",
       "description_full": "A business permit is required for all individuals or entities intending to operate a commercial business within the Municipality of Mapandan. This permit is issued after compliance with documentary and safety requirements and upon payment of applicable fees.",
-      "office": "Municipal Treasurer’s Office (MTO)",
+      "office": "Business Permit and Licensing Office (BPLO)",
       "classification": "Simple",
-      "processing_time": "3–5 working days",
-      "fee": "Based on business category (schedule available at MTO)",
+      "processing_time": "~1 hour (10 min encoding + 44 min endorsement + 10 min pay & claim)",
+      "fee": "Mayor's Permit (₱500–₱1,000) + Business Plate & Sticker (₱250) + Weights & Measure (₱100–200) + Storage Fee (₱550) + Garbage Fee (₱800–₱1,200)",
       "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "DTI or SEC registration certificate",
-        "Barangay clearance from the barangay where the business is located",
-        "Fire safety inspection certificate",
-        "Occupancy permit (if renting a commercial space)",
-        "Sketch of business location",
-        "Valid government-issued ID of the business owner or authorized representative"
+        "Filled up UNIFIED Form / Community Tax Certificate (from BPLO/Treasury Office)",
+        "DTI/SEC/CDA Registration (from DTI/SEC/CDA Office or Online Application)",
+        "BIR COR, if available (from RDO Calasiao)",
+        "Barangay Clearance (System Integrated)"
       ],
       "procedure": [
-        "Secure a barangay clearance from the barangay where the business will be located.",
-        "Gather all required documents and submit them to the Municipal Treasurer’s Office (MTO).",
-        "Pay the corresponding business permit fees based on your business category.",
-        "Receive your official business permit upon successful processing."
+        "Fill up the UNIFIED form and submit necessary requirements for verification (10 min).",
+        "BPLO encodes data into the e-BPLS System.",
+        "BPLO endorses applicant to various offices: Engineering (Occupancy Certificate), MPDC (Zoning Certificate), RHU (Health Certificate & Sanitary Permit), BFP (Fire Safety Inspection Certificate) (44 min).",
+        "Pay fees and charges at the Treasury Office.",
+        "Proceed to the Mayor's Office for issuance of Business Permit.",
+        "Claim business plate and sticker at the Treasury Office (10 min)."
       ],
-      "related": [],
-      "hero_lede": "Secure your new business permit to operate commercially in the Municipality of Mapandan."
+      "related": [
+        "business-renewal",
+        "business-zoning"
+      ],
+      "hero_lede": "Apply for a new business permit at the BPLO in Mapandan. Includes endorsement to Engineering, MPDC, RHU, and BFP."
     },
     {
       "slug": "business-renewal",
@@ -202,29 +217,33 @@
       "name": "Business Permit Renewal",
       "description": "Businesses operating within Mapandan are required to renew their business permits annually. Renewal ensures that your business remains compliant with local regulations and avoids penalties for late filing.",
       "description_full": "Businesses operating within Mapandan are required to renew their business permits annually. Renewal ensures that your business remains compliant with local regulations and avoids penalties for late filing.",
-      "office": "Municipal Treasurer’s Office (MTO)",
+      "office": "Business Permit and Licensing Office (BPLO)",
       "classification": "Simple",
-      "processing_time": "1–3 working days",
-      "fee": "Based on business category (schedule available at MTO)",
+      "processing_time": "~1 hour (similar to new business permit process)",
+      "fee": "Mayor's Permit (₱500–₱1,000) + Business Tax (% of Gross Sales) + Business Plate & Sticker (₱250) + Weights & Measure (₱100–200) + Storage Fee (₱550) + Garbage Fee (₱800–₱1,200)",
       "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Previous year’s business permit",
-        "Updated DTI or SEC registration certificate",
-        "Latest Barangay clearance",
-        "Fire safety inspection certificate",
-        "Valid government-issued ID of the business owner"
+        "Filled up UNIFIED Form / Community Tax Certificate (from BPLO/Treasury Office)",
+        "DTI/SEC/CDA Registration (from DTI/SEC/CDA Office or Online Application)",
+        "BIR COR (from RDO Calasiao)",
+        "Barangay Clearance (System Integrated)"
       ],
       "procedure": [
-        "Secure an updated barangay clearance from your barangay.",
-        "Submit all required documents to the Municipal Treasurer’s Office (MTO).",
-        "Pay the renewal fee based on your business category.",
-        "Receive your renewed business permit."
+        "Fill up the UNIFIED form and submit necessary requirements for verification (10 min).",
+        "BPLO encodes data into the e-BPLS System.",
+        "BPLO endorses applicant to Engineering, MPDC, RHU, and BFP for required certificates (44 min).",
+        "Pay fees at the Treasury Office. Fees include Mayor's Permit, Business Tax (% of Gross Sales), Plate & Sticker, Weights & Measure, Storage Fee, and Garbage Fee.",
+        "Proceed to the Mayor's Office for issuance of renewed Business Permit.",
+        "Claim business plate and sticker at the Treasury Office."
       ],
-      "related": [],
-      "hero_lede": "Renew your existing business permit to continue operating in the Municipality of Mapandan."
+      "related": [
+        "business-permit",
+        "business-zoning"
+      ],
+      "hero_lede": "Renew your business permit at the BPLO in Mapandan. Annual renewal required to maintain compliance."
     },
     {
       "slug": "cedula",
@@ -289,24 +308,25 @@
       "description_full": "The Municipal Health Office (MHO) / Rural Health Unit (RHU) provides free health consultation services to all residents of Mapandan. This includes general medical consultations, health advice, and referrals to higher-level health facilities when necessary. Walk-in patients are served on a first-come, first-served basis.",
       "office": "Municipal Health Office (MHO / RHU)",
       "classification": "Simple",
-      "processing_time": "Walk-in (same day)",
+      "processing_time": "25 minutes per client",
       "fee": "Free",
       "where_to_apply": "Rural Health Unit, Poblacion",
       "contact": "(075) 632-1874",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "None — open to all residents"
+        "Valid ID (government issued, employment, school, barangay certification)"
       ],
       "procedure": [
-        "Visit the Rural Health Unit (RHU) in Poblacion during office hours.",
-        "Register at the reception counter and provide your basic information.",
-        "Wait for your name to be called for consultation.",
-        "Consult with the attending physician or health officer.",
-        "Receive prescription or referrals, if applicable."
+        "Register in Electronic Medical Record (EMR). Midwife registers new patients and encodes data.",
+        "Classify patient: PhilHealth member (attach ID number) or non-PhilHealth member.",
+        "Record consultation date, vital signs, and chief complaint.",
+        "Occupy seats in waiting area and wait for name to be called.",
+        "MHO check-up, assess, and treat the patient. Schedule follow-up check-up.",
+        "Give available medicines to patient and encode."
       ],
       "related": [],
-      "hero_lede": "Free health consultation services for Mapandan residents at the Rural Health Unit. Walk-in services available for all residents."
+      "hero_lede": "Free health consultation at the Mapandan RHU. Walk-in service for all residents. 25 minutes per client."
     },
     {
       "slug": "land-transfer",
@@ -468,28 +488,34 @@
       "name": "Sanitary Permit",
       "description": "A sanitary permit is required for all businesses that handle food, beverages, or other consumable products to ensure compliance with health and sanitation standards. The permit is issued by the Municipal Health Office (MHO) after an inspection of the business premises to verify that health and safety regulations are met.",
       "description_full": "A sanitary permit is required for all businesses that handle food, beverages, or other consumable products to ensure compliance with health and sanitation standards. The permit is issued by the Municipal Health Office (MHO) after an inspection of the business premises to verify that health and safety regulations are met.",
-      "office": "Municipal Health Office (MHO)",
+      "office": "Rural Health Unit (RHU)",
       "classification": "Simple",
-      "processing_time": "3–5 working days",
-      "fee": "Based on business type",
+      "processing_time": "53 minutes per client",
+      "fee": "₱130 (laboratory tests)",
       "where_to_apply": "Municipal Health Office, Poblacion",
       "contact": "(075) 632-1874",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Health certificate from the MHO",
-        "Food handler’s certificate (if applicable for food businesses)",
-        "Business permit from the Municipal Treasurer’s Office",
-        "Inspection of premises by MHO health officer"
+        "Valid ID (government issued, employment, school, barangay certification)",
+        "Laboratory Tests: CBC, urinalysis, fecalysis, sputum exam, Hepatitis B (from RHU Primary Laboratory)",
+        "Chest X-Ray, PA (from government or private diagnostic facility)"
       ],
       "procedure": [
-        "Secure a health certificate and food handler’s certificate (if applicable) from the MHO.",
-        "Request an inspection of your business premises by a health officer.",
-        "Pay the corresponding sanitary permit fee based on your business type.",
-        "Receive your sanitary permit after successful inspection and payment."
+        "Present official receipt from the Treasury Office.",
+        "Laboratory examination of urine, feces, sputum is conducted by Medical Technologist (30 min).",
+        "Refer to other laboratories for X-ray if needed (2 min).",
+        "Refer result to MHO for interpretation (10 min).",
+        "MHO does physical examination and interprets result (5 min).",
+        "MHO prescribes medicines if needed (2 min).",
+        "MHO signs the certification (2 min).",
+        "List down certificate number on logbook and release certification (2 min)."
       ],
-      "related": [],
-      "hero_lede": "Obtain a sanitary permit for your business in Mapandan. Learn about requirements, inspection process, and fees at the Municipal Health Office."
+      "related": [
+        "health-consultation",
+        "business-permit"
+      ],
+      "hero_lede": "Get a sanitary permit, health certificate, or medical certificate at the Mapandan RHU. 53 minutes processing time."
     },
     {
       "slug": "senior-pwd-id",
@@ -607,6 +633,686 @@
       ],
       "related": [],
       "hero_lede": "Obtain a zoning clearance before constructing, renovating, or changing the use of a property in Mapandan."
+    },
+    {
+      "slug": "certificate-of-indigency",
+      "category": "social-welfare",
+      "name": "Certificate of Indigency",
+      "description": "A Certificate of Indigency is issued to indigent families certified by the Barangay Captain. It is used to avail of hospital discounts, legal assistance from PAO, scholarship assistance, and other social services.",
+      "description_full": "The Certificate of Indigency is issued by the MSWDO to indigent families certified by the Barangay Captain. This document is required to avail of various services including hospital discounts, legal assistance from the Public Attorney's Office (PAO), scholarship assistance for college education, and other social welfare programs. The MSWDO conducts an interview and assessment to verify the client's eligibility before issuing the certificate.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Barangay Certificate of Indigency",
+        "Medical Certificate (if hospitalized)",
+        "Police report / Police blotter / RTC/MTC report (if applicable)",
+        "Report Card Form 138 / Recommendation (if for students)",
+        "Birth Certificate (PSA/MCR)"
+      ],
+      "procedure": [
+        "Register at the MSWD Office. Staff will refer you and conduct an initial interview.",
+        "Submit your Barangay Certificate of Indigency and other supporting documents.",
+        "Staff will conduct an interview and assess your eligibility for assistance.",
+        "Receive your Certificate of Indigency upon approval."
+      ],
+      "related": [
+        "aics",
+        "social-case-study"
+      ],
+      "hero_lede": "Get a Certificate of Indigency from the MSWDO for hospital discounts, legal aid, scholarships, and other social services."
+    },
+    {
+      "slug": "solo-parent-id",
+      "category": "social-welfare",
+      "name": "Solo Parent ID",
+      "description": "The Solo Parent ID is issued to solo parents as mandated by RA 8972 (Solo Parents' Welfare Act of 2000). The ID provides benefits including flexible work arrangements, educational assistance, and health care privileges.",
+      "description_full": "The Solo Parent ID is issued by the MSWDO to qualifying solo parents as mandated by RA 8972 (Solo Parents' Welfare Act of 2000). Holders are entitled to benefits including flexible work arrangements, educational assistance for children, and health care privileges. The MSWDO assesses eligibility using the solo parent intake form. Processing includes a 6-month assessment period before the ID is issued.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes (assessment) + 6 months before ID issuance",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Barangay Certificate",
+        "Birth Certificate of minor child/children under custody",
+        "1x1 picture"
+      ],
+      "procedure": [
+        "Register at the MSWDO and submit your requirements.",
+        "Staff will check and verify your submitted documents.",
+        "Submit your requirements and undergo assessment using the solo parent intake form.",
+        "After 6 months of assessment, the Solo Parent ID is recorded in the logbook and issued."
+      ],
+      "related": [
+        "certificate-of-indigency",
+        "marriage-counseling"
+      ],
+      "hero_lede": "Apply for a Solo Parent ID in Mapandan. Learn about eligibility, requirements, and the assessment process at the MSWDO."
+    },
+    {
+      "slug": "scholarship-certification",
+      "category": "social-welfare",
+      "name": "Scholarship Certification",
+      "description": "The MSWDO issues certifications for students who wish to avail of scholarship programs, tuition fee discounts, or educational assistance from schools, universities, and government agencies.",
+      "description_full": "The MSWDO issues certifications for students who wish to avail of scholarship programs, tuition fee discounts, or educational assistance from schools, universities, and government agencies. The certification verifies the student's residency and financial status, which is required by most scholarship-granting institutions.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "5–10 minutes",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Request letter stating the purpose",
+        "Valid ID (school ID or government-issued)"
+      ],
+      "procedure": [
+        "Request the list of requirements from MSWDO staff.",
+        "Staff will explain the requirements and process.",
+        "MSWDO prepares the certification for educational assistance, school fees discount, or scholarship.",
+        "Receive the issued certification."
+      ],
+      "related": [
+        "certificate-of-indigency"
+      ],
+      "hero_lede": "Get a Scholarship Certification from the MSWDO for educational assistance and tuition fee discounts."
+    },
+    {
+      "slug": "pwd-assistive-devices",
+      "category": "social-welfare",
+      "name": "PWD Assistive Devices",
+      "description": "The MSWDO provides assistive devices such as crutches, wheelchairs, prosthesis, and other gadgets to Persons with Disabilities (PWDs) to help them integrate into the mainstream of community life.",
+      "description_full": "The MSWDO provides assistive devices such as crutches, wheelchairs, prosthesis, and other gadgets to Persons with Disabilities (PWDs) to help them integrate into the mainstream of community life. The service covers orthopedically handicapped, visually impaired, and immobile individuals aged 0–59 years old. The MSWDO coordinates with PSWDO and DSWD Field Office I for funding and procurement of devices.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "Varies (1 day to several weeks depending on device availability)",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Barangay Certificate of Indigency",
+        "Medical Certificate with doctor's recommendation for assistive device",
+        "Whole body picture"
+      ],
+      "procedure": [
+        "Apply at the MSWDO. A family member may represent the client.",
+        "Staff will interview and gather relevant information from the client or family member.",
+        "Submit Barangay Certificate, Medical Certificate, and whole body picture.",
+        "MSWDO conducts follow-up, home visit, and assesses eligibility and device needs.",
+        "MSWDO prepares and submits documents to PSWDO/DSWD FO1 for funding and purchase.",
+        "Receive the assistive device (crutches, wheelchair, prosthesis, etc.) upon availability."
+      ],
+      "related": [
+        "senior-pwd-id"
+      ],
+      "hero_lede": "Request assistive devices for PWDs from the MSWDO in Mapandan. Crutches, wheelchairs, and other devices available."
+    },
+    {
+      "slug": "osca-death-aid",
+      "category": "social-welfare",
+      "name": "OSCA Death Aid Benefits",
+      "description": "The OSCA Death Aid Benefits provide financial assistance to families of deceased Senior Citizens. The benefit is processed through the MSWDO upon submission of required documents.",
+      "description_full": "The OSCA Death Aid Benefits provide financial assistance to families of deceased Senior Citizens. The benefit is processed through the MSWDO upon submission of the deceased's original death certificate, two photocopies of the OSCA ID, and surrender of the OSCA ID. The MSWDO prepares the application and submits reports to the Municipal Budget Office for fund allocation.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "At least 5 days to 1 week",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Certificate of Indigency",
+        "Death Certificate (original copy)",
+        "OSCA ID (original + two photocopies)"
+      ],
+      "procedure": [
+        "Register at the MSWDO. Staff will conduct intake interview and assess eligibility.",
+        "Submit the deceased's original Death Certificate, two photocopies of OSCA ID, and surrender the OSCA ID.",
+        "MSWDO prepares the Application Form and Certificate of Eligibility.",
+        "MSWDO submits report with attached documents to the Municipal Budget Office for fund allocation.",
+        "Follow up with the MSWDO for the status of financial assistance.",
+        "Receive the OSCA financial assistance at the Municipal Treasury Office."
+      ],
+      "related": [
+        "certificate-of-indigency",
+        "aics"
+      ],
+      "hero_lede": "Claim OSCA Death Aid Benefits for deceased senior citizens. Learn about requirements and the claims process at the MSWDO."
+    },
+    {
+      "slug": "social-case-study",
+      "category": "social-assistance",
+      "name": "Social Case Study Report",
+      "description": "A Social Case Study Report is issued to clients who need to avail of assistance from PCSO, other government hospitals, institutions, NGOs, DSWD, and various foundations. The report is prepared by MSWDO social workers after a thorough assessment.",
+      "description_full": "A Social Case Study Report is issued to clients who need to avail of assistance from PCSO, other government hospitals, institutions, NGOs, DSWD, and various foundations. The report is prepared by MSWDO social workers after a thorough assessment that includes an initial interview, home visit, and evaluation of the client's situation. The report serves as a supporting document for various forms of assistance.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes to 1 hour (may require home visit)",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Certificate of Indigency from Barangay Captain",
+        "Medical Certificate / Clinical Abstract / Medico-Legal report",
+        "Police report / Police blotter (if applicable)",
+        "Whole body picture",
+        "Birth Certificate (PSA/MCR)",
+        "Psychiatric Evaluation Report (as needed)"
+      ],
+      "procedure": [
+        "Apply at the MSWD Office. Staff will refer you for initial interview.",
+        "Discuss your problem and provide relevant information. Staff conducts initial interview and gathers data.",
+        "Staff may conduct a home visit or follow-up, especially for CICL cases.",
+        "Submit Barangay Certificate of Indigency and other required documents.",
+        "MSWDO prepares and computerizes the Social Case Study Report.",
+        "Receive your copy of the Social Case Study Report upon approval."
+      ],
+      "related": [
+        "aics",
+        "certificate-of-indigency"
+      ],
+      "hero_lede": "Get a Social Case Study Report from the MSWDO for PCSO, hospital, and foundation assistance applications."
+    },
+    {
+      "slug": "marriage-counseling",
+      "category": "social-assistance",
+      "name": "Pre-Marriage Counseling",
+      "description": "The MSWDO provides pre-marriage counseling to would-be couples as required before obtaining a marriage license. The counseling covers family planning, rights and responsibilities of marriage, and strengthening family solidarity.",
+      "description_full": "The MSWDO provides pre-marriage counseling to would-be couples as required before obtaining a marriage license. The counseling covers family planning, rights and responsibilities of marriage, and strengthening family solidarity. The service is mandated by law and the certificate issued is a prerequisite for marriage license application. Would-be couples, couples with marital problems, couples of reproductive age, and solo parents may avail of this service.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "2–3 hours (counseling session)",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Personal Data Form",
+        "Marriage Counselling Services Form"
+      ],
+      "procedure": [
+        "Apply at the MSWDO. Staff will refer you to the Population Office.",
+        "Fill out the Personal Data Form and Marriage Counselling Services Form.",
+        "Attend the Marriage Counseling Seminar conducted by MSWDO staff.",
+        "After the seminar, the Pre-Marriage Counseling Certificate is signed by the counselor.",
+        "Receive the duly signed Pre-Marriage Counseling Certificate."
+      ],
+      "related": [
+        "marriage-license"
+      ],
+      "hero_lede": "Complete your pre-marriage counseling requirement at the MSWDO in Mapandan. Required before applying for a marriage license."
+    },
+    {
+      "slug": "cicl-services",
+      "category": "social-assistance",
+      "name": "Children in Difficult Circumstances (CICL)",
+      "description": "The MSWDO provides care and protection services for Children in Conflict with the Law (CICL) and children under difficult circumstances, including abandoned, neglected, physically and sexually abused, and emotionally abused children.",
+      "description_full": "The MSWDO provides care and protection services for Children in Conflict with the Law (CICL) and children under difficult circumstances. Services include surveillance, rescue and recovery, counselling, referral to PNP, temporary shelter, and custody care. The MSWDO coordinates with the PNP, hospitals, and Prosecutor's Office as necessary.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "1 hour or more",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Birth Certificate (PSA)",
+        "Medical Certificate / Medico-legal report",
+        "Police Blotter Report"
+      ],
+      "procedure": [
+        "Register at the MSWD Office. Staff will refer the client for intake.",
+        "Discuss the problem and provide relevant information. Staff interviews and gathers data.",
+        "Staff refers the client to other agencies (PNP, Hospital, Prosecutor's Office) if necessary.",
+        "Staff prepares draft of Social Case Study Report and follows up with home visits and counseling.",
+        "Present results. MSWDO prepares and submits Social Case Study Report."
+      ],
+      "related": [
+        "women-welfare",
+        "special-social-services"
+      ],
+      "hero_lede": "MSWDO protection services for children in difficult circumstances in Mapandan. Counselling, shelter, and referral available."
+    },
+    {
+      "slug": "women-welfare",
+      "category": "social-assistance",
+      "name": "Women's Welfare (WSDW)",
+      "description": "The MSWDO promotes the welfare of socially disadvantaged women, including battered and maltreated women and rape victims. Services include rescue and recovery, counselling, referral to other agencies, and temporary shelter and custody care.",
+      "description_full": "The MSWDO promotes the welfare of socially disadvantaged women, including battered and maltreated women and rape victims. Services include rescue and recovery, counselling, referral to other agencies, and temporary shelter and custody care. The MSWDO coordinates with PNP, hospitals, and the Prosecutor's Office for cases requiring legal action.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "1 hour or more",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Police Blotter Report",
+        "Medical Certificate / Medico-legal report",
+        "Barangay blotter report"
+      ],
+      "procedure": [
+        "Register at the MSWD Office. Staff will refer the client for intake.",
+        "Discuss the problem and provide relevant information. Staff interviews, gathers data, and counsels.",
+        "Staff refers the client to PNP, Hospital, Prosecutor's Office, or other agencies if necessary.",
+        "Follow up with home visits, counseling, and other services as needed."
+      ],
+      "related": [
+        "cicl-services",
+        "special-social-services"
+      ],
+      "hero_lede": "MSWDO welfare services for socially disadvantaged women in Mapandan. Counselling, shelter, and referral available."
+    },
+    {
+      "slug": "disaster-relief",
+      "category": "social-assistance",
+      "name": "Disaster Relief Assistance",
+      "description": "The MSWDO provides disaster relief assistance and rehabilitation services to families affected by floods, typhoons, fires, and other calamities. The service includes distribution of relief goods and financial assistance for housing repair.",
+      "description_full": "The MSWDO provides disaster relief assistance and rehabilitation services to families affected by floods, typhoons, fires, and other calamities. The service includes verification of affected families, distribution of relief goods through the Barangay Captain with the BDCC, and financial assistance (ESA) for families whose houses are totally destroyed. The MSWDO coordinates with the LGU, PSWDO, and DSWD Field Office I.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "Varies (1 day for relief goods, 1–3 weeks for financial assistance)",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Master list of affected families (from Barangay Captain)",
+        "Barangay certificate",
+        "Certificate of Indigency"
+      ],
+      "procedure": [
+        "Report to the Barangay Captain the extent of damage. The Captain validates and forwards the list to MSWDO.",
+        "MSWDO attends MDDC meeting conducted by the Local Chief Executive.",
+        "MSWDO receives list of affected families and endorses to concerned social worker.",
+        "Verification and inspection team (with Engineering, PNP, DSWD) assesses the damage.",
+        "MSWDO requests and lobbies for allocation of relief goods from LGU, PSWDO, DSWD FO1.",
+        "Distribution of relief goods through the Barangay Captain with the BDCC.",
+        "For totally destroyed houses, MSWDO prepares project proposal for ESA funding.",
+        "Financial assistance (ESA) is distributed to qualified beneficiaries.",
+        "MSWDO monitors and evaluates project implementation for house repair/reconstruction."
+      ],
+      "related": [
+        "aics"
+      ],
+      "hero_lede": "Disaster relief assistance for families affected by calamities in Mapandan. Relief goods and housing repair assistance available."
+    },
+    {
+      "slug": "special-social-services",
+      "category": "social-assistance",
+      "name": "Special Social Services",
+      "description": "The MSWDO provides special social services for mentally challenged clients and other individuals requiring specialized assistance. Services include counselling, referral to hospitals, and coordination for PhilHealth Point of Care benefits.",
+      "description_full": "The MSWDO provides special social services for mentally challenged clients and other individuals requiring specialized assistance. Services include counselling, referral to other agencies and hospitals, preparation of Social Case Study Reports, and coordination for PhilHealth Point of Care benefits. The MSWDO assesses client eligibility and prepares referral letters to district hospitals and medical centers.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes or more",
+      "fee": "Free",
+      "where_to_apply": "MSWDO Office, Municipal Building, Poblacion",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Certificate of Indigency from Barangay Captain",
+        "Medical Certificate (if necessary)",
+        "Birth Certificate",
+        "Marriage Certificate (if married)"
+      ],
+      "procedure": [
+        "Register at the MSWD Office. Staff will refer the client for intake.",
+        "Discuss the problem and provide relevant information. Staff interviews and assesses the client.",
+        "Submit Certificate of Indigency, Medical Certificate, Birth Certificate, and whole body picture.",
+        "MSWDO prepares referral letter or Social Case Study Report (SCSR).",
+        "Receive the Social Case Study Report or Referral Letter.",
+        "Proceed to other concerned agencies as necessary (District Hospital, PRU Hospital, Region 1 Medical Center).",
+        "MSWDO coordinates for PhilHealth Point of Care eligibility assessment.",
+        "Receive Certificate of Indigency for PhilHealth benefits."
+      ],
+      "related": [
+        "cicl-services",
+        "certificate-of-indigency"
+      ],
+      "hero_lede": "Special social services for mentally challenged individuals in Mapandan. Counselling, referral, and PhilHealth coordination."
+    },
+    {
+      "slug": "day-care",
+      "category": "social-assistance",
+      "name": "Day Care Program",
+      "description": "The MSWDO operates a Day Care Service Program for pre-schoolers in the barangay. The program provides early childhood education through regular sessions conducted by Child Development Workers at Day Care Centers.",
+      "description_full": "The MSWDO operates a Day Care Service Program for pre-schoolers in the barangay. The program provides early childhood education through regular sessions conducted by Child Development Workers at Day Care Centers. Parents register their children and attend regular sessions and parents' meetings. The program also includes annual events such as Nutrition Month Celebration, Children's Congress, and Family Day.",
+      "office": "Municipal Social Welfare and Development Office (MSWDO)",
+      "classification": "Simple",
+      "processing_time": "2–5 minutes (registration); ongoing sessions",
+      "fee": "Free",
+      "where_to_apply": "Day Care Center in your barangay",
+      "contact": "(075) 632-1751",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Child must be of pre-school age",
+        "Registration at the Day Care Center"
+      ],
+      "procedure": [
+        "Register your child at the Day Care Center in your barangay.",
+        "Fill out the registration forms. Staff will assess the child's birth certificate.",
+        "Send or accompany your child to the Day Care Center for regular sessions (2–3 hours).",
+        "Attend Day Care parents' meetings as scheduled."
+      ],
+      "related": [
+        "nutrition-immunization"
+      ],
+      "hero_lede": "Enroll your pre-schooler in the Mapandan Day Care Program. Free early childhood education at barangay Day Care Centers."
+    },
+    {
+      "slug": "pre-natal",
+      "category": "health",
+      "name": "Pre-Natal Consultation",
+      "description": "The RHU provides pre-natal consultation services for antenatal women. The service includes registration, physical examination, laboratory tests, health teaching, and classification of pregnancy risk level.",
+      "description_full": "The RHU provides pre-natal consultation services for antenatal women. The service includes registration in the Electronic Medical Record (EMR), OB history, vital signs, Leopold's maneuver, fetal heartbeat assessment, and fundic height measurement. Routine laboratory tests (CBC, urinalysis, HBsAg, RPR) are requested. The MHO conducts complete physical examination, interprets laboratory results, and provides health teaching on proper nutrition, prenatal care, breastfeeding, and immunization. High-risk patients are referred to higher-level facilities.",
+      "office": "Rural Health Unit (RHU)",
+      "classification": "Simple",
+      "processing_time": "55 minutes per client",
+      "fee": "Free",
+      "where_to_apply": "Rural Health Unit, Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid ID (government issued, employment, school, barangay certification)",
+        "Medical Records, Laboratory Results, Prescription for Medicines (from previous physician, if any)"
+      ],
+      "procedure": [
+        "Register in the Electronic Medical Record (EMR). Midwife encodes OB history, vital signs, and performs Leopold's maneuver.",
+        "Request for routine laboratory tests (CBC, urinalysis, HBsAg Screening, RPR test).",
+        "MHO performs complete physical examination and interprets laboratory results.",
+        "If high-risk, patient is referred to a higher level of facility.",
+        "Health teaching on proper nutrition, prenatal care, breastfeeding, and immunization."
+      ],
+      "related": [
+        "health-consultation",
+        "family-planning"
+      ],
+      "hero_lede": "Free pre-natal consultation for antenatal women at the Mapandan Rural Health Unit. Lab tests and health teaching included."
+    },
+    {
+      "slug": "family-planning",
+      "category": "health",
+      "name": "Family Planning",
+      "description": "The RHU provides family planning services to couples, including counselling on different methods, assessment of suitability, and provision of oral pills and DMPA injectables.",
+      "description_full": "The RHU provides family planning services to couples, including counselling on different family planning methods along with their advantages and disadvantages. The MHO assesses whether the chosen method is suitable and appropriate for the mother. Available methods include oral pills and DMPA injectables. Data encoding, obstetric history, and vital signs are recorded during the consultation.",
+      "office": "Rural Health Unit (RHU)",
+      "classification": "Simple",
+      "processing_time": "45 minutes per client",
+      "fee": "Free",
+      "where_to_apply": "Rural Health Unit, Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid ID (government issued, employment, school, barangay certification)"
+      ],
+      "procedure": [
+        "Register in the log book. Midwife encodes data, obstetric history, and vital signs.",
+        "Receive counselling on different family planning methods, including advantages and disadvantages.",
+        "Select the preferred family planning method.",
+        "MHO assesses whether the method is suitable and appropriate.",
+        "Provision of family planning method (oral pills or DMPA injectable)."
+      ],
+      "related": [
+        "pre-natal",
+        "health-consultation"
+      ],
+      "hero_lede": "Free family planning services at the Mapandan RHU. Counselling and provision of oral pills and injectables for couples."
+    },
+    {
+      "slug": "tb-dots",
+      "category": "health",
+      "name": "TB DOTS Treatment",
+      "description": "The RHU provides Directly Observed Treatment Short Course (TB DOTS) for patients with tuberculosis. The service includes sputum examination, GeneXpert testing, physical examination, and provision of anti-TB drugs.",
+      "description_full": "The RHU provides Directly Observed Treatment Short Course (TB DOTS) for patients with tuberculosis. The service includes registration, sputum examination, GeneXpert/TBDC testing, physical examination, and provision of anti-TB drugs with proper intake instructions. The MHO maintains patient confidentiality and monitors treatment compliance.",
+      "office": "Rural Health Unit (RHU)",
+      "classification": "Simple",
+      "processing_time": "36 minutes per client",
+      "fee": "Free",
+      "where_to_apply": "Rural Health Unit, Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid ID (government issued, employment, school, barangay certification)",
+        "Medical Records, Prescription of Medicines (from previous physician, if any)",
+        "Chest X-Ray PA Result (from government or private diagnostic facility)"
+      ],
+      "procedure": [
+        "Register in the log book. Midwife encodes data, vital signs, and asks about symptoms and duration.",
+        "Submit sputum for examination.",
+        "Sputum examination is conducted. Patient is referred to GeneXpert/TBDC for further testing.",
+        "Consent is secured and confidentiality is maintained.",
+        "MHO conducts physical examination of patient.",
+        "Anti-TB drugs are given with record and patient is advised on proper intake."
+      ],
+      "related": [
+        "health-consultation",
+        "laboratory"
+      ],
+      "hero_lede": "Free TB DOTS treatment at the Mapandan RHU. Sputum testing, GeneXpert, and anti-TB medication available."
+    },
+    {
+      "slug": "laboratory",
+      "category": "health",
+      "name": "Laboratory Examination",
+      "description": "The RHU primary laboratory provides various diagnostic tests including ABO/RH typing, pregnancy test, CBC, urinalysis, fecalysis, Hepatitis B screening, and fasting blood sugar (FBS).",
+      "description_full": "The RHU primary laboratory provides various diagnostic tests including ABO/RH typing, pregnancy test, CBC, urinalysis, fecalysis, Hepatitis B screening, and fasting blood sugar (FBS). The MHO provides a laboratory request, and the Medical Technologist conducts the examination. Results are interpreted by the MHO who prescribes medications as needed.",
+      "office": "Rural Health Unit (RHU)",
+      "classification": "Simple",
+      "processing_time": "~2 hours per client (varies by tests requested)",
+      "fee": "Varies by test (₱50–₱200)",
+      "where_to_apply": "Rural Health Unit Primary Laboratory, Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid ID (government issued, employment, school, barangay certification)",
+        "Physician's laboratory request / referral"
+      ],
+      "procedure": [
+        "Register in the log book. Midwife encodes data, vital signs, and asks about symptoms.",
+        "MHO conducts physical examination and requests laboratory tests.",
+        "Submit specimen for testing. Available tests: ABO/RH typing (₱100), Pregnancy test (₱50), CBC (₱150), Urinalysis (₱65), Fecalysis (₱65), Hepatitis B screening (₱200), FBS (₱100).",
+        "Medical Technologist conducts the laboratory examination.",
+        "MHO interprets laboratory results and prescribes medications."
+      ],
+      "related": [
+        "health-consultation",
+        "tb-dots"
+      ],
+      "hero_lede": "Laboratory services at the Mapandan RHU. CBC, urinalysis, fecalysis, pregnancy test, and more available at affordable rates."
+    },
+    {
+      "slug": "rabies",
+      "category": "health",
+      "name": "Rabies Treatment",
+      "description": "The RHU provides anti-rabies treatment for animal bite patients. The service includes wound assessment, counselling, vaccination, and post-treatment instructions. First dose is free for Mapandan residents and 4P's members.",
+      "description_full": "The RHU provides anti-rabies treatment for animal bite patients through the Animal Bite Treatment Center (ABTC). The service includes wound assessment, counselling, prescription of rabies vaccine or immunoglobulin, and post-treatment instructions. The first dose is free for 4P's members and Mapandan residents. Subsequent doses cost ₱350 each.",
+      "office": "Rural Health Unit (RHU)",
+      "classification": "Simple",
+      "processing_time": "37 minutes per client",
+      "fee": "Free (1st dose for Mapandanians and 4P's members); ₱350 for subsequent doses",
+      "where_to_apply": "Rural Health Unit (ABTC), Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Rabies exposure case (bite or scratch)"
+      ],
+      "procedure": [
+        "Register in the log book. Midwife classifies patient (new/old, PhilHealth member, emergency/senior citizen priority).",
+        "Record patient's data, vital signs, and bite/scratch details.",
+        "MHO performs wound/scratch assessment and provides counselling.",
+        "MHO prescribes rabies vaccine or immunoglobulin (as applicable).",
+        "ABTC Nurse administers anti-rabies vaccine and/or immunoglobulin.",
+        "ABTC Nurse provides post-treatment instructions and follow-up schedule.",
+        "Pharmacy Assistant dispenses vaccines or medicine."
+      ],
+      "related": [
+        "health-consultation",
+        "laboratory"
+      ],
+      "hero_lede": "Free rabies treatment for animal bite patients at the Mapandan RHU Animal Bite Treatment Center. First dose free for residents."
+    },
+    {
+      "slug": "nutrition-immunization",
+      "category": "health",
+      "name": "Nutrition & Immunization Program",
+      "description": "The RHU implements the Nutrition Program for malnourished children (0–59 months and older) and the National Immunization Program (NIP) for children against vaccine-preventable diseases.",
+      "description_full": "The RHU implements the Nutrition Program for malnourished children (0–59 months and older) and the National Immunization Program (NIP) for children against vaccine-preventable diseases. The nutrition program includes assessment, deworming, feeding with nutrient-dense food, and monthly monitoring. The immunization program administers age-appropriate vaccines after reviewing the child's records and checking vital signs.",
+      "office": "Rural Health Unit (RHU)",
+      "classification": "Simple",
+      "processing_time": "50 minutes per client",
+      "fee": "Free",
+      "where_to_apply": "Rural Health Unit, Poblacion",
+      "contact": "(075) 632-1874",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Birth Certificate (Municipal Civil Registry)",
+        "Medical Records, Vaccination Records (from hospital of birth or pediatrician)"
+      ],
+      "procedure": [
+        "For malnourished children (0–59 months): Barangay Nutrition Scholar assesses weight and height.",
+        "Physician refers to RHU for deworming and medical intervention.",
+        "Child is fed with nutrient-dense food (high carbohydrate and protein).",
+        "Monthly monitoring of weight, height, and alertness.",
+        "For immunization: BHW interviews child's information and reviews records.",
+        "Midwife checks vital signs (weight and temperature).",
+        "Midwife administers age-appropriate vaccine.",
+        "Midwife advises parent on child care and expected outcome.",
+        "Schedule next vaccination."
+      ],
+      "related": [
+        "pre-natal",
+        "day-care"
+      ],
+      "hero_lede": "Free nutrition and immunization programs for children at the Mapandan RHU. Malnourishment intervention and NIP vaccines available."
+    },
+    {
+      "slug": "electrical-zoning",
+      "category": "zoning",
+      "name": "Electrical Zoning Clearance",
+      "description": "A zoning clearance is required for electrical permits. The MPDC/Zoning Office evaluates the application, conducts land use assessment, and issues the Zoning Compliance Certificate for electrical installations.",
+      "description_full": "A zoning clearance is required for electrical permits. The MPDC/Zoning Office evaluates the application, conducts land use assessment, and issues the Zoning Compliance Certificate for electrical installations. The process includes site evaluation/inspection, computation of fees, and approval by the Zoning Officer.",
+      "office": "Municipal Planning and Development Office (MPDC) / Zoning Office",
+      "classification": "Simple",
+      "processing_time": "~1.5 hours",
+      "fee": "₱330 (Zoning fee ₱200 + Affidavit ₱100 + Documentary Stamp ₱30)",
+      "where_to_apply": "MPDC / Zoning Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Application for Zoning Permit (from MPDC)",
+        "Accomplished Individual Assessment for Application of Temporary Housing Unit Form",
+        "Tax Declaration of lot (from Assessor Office)",
+        "Current Tax receipts (from Treasury Office)",
+        "Affidavit of consent of lot owner",
+        "Site development sketch indicating the ROW",
+        "Affidavit of consent for Right of Way (from lot owner)",
+        "Certification from Barangay Captain"
+      ],
+      "procedure": [
+        "Inquire at the MPDC office and secure the application form.",
+        "MPDC staff conducts interview and provides forms.",
+        "Accomplish forms and prepare all required documents.",
+        "MPDC checks and evaluates forms and required documents.",
+        "Request for site evaluation/inspection. Land use assessment conducted.",
+        "Go to Zoning office for computation of fees and charges.",
+        "Pay fees at the Treasury Office.",
+        "Present receipts to MPDC. Submit one photocopy of all forms and documents.",
+        "MPDC prepares and submits documents. Zoning Officer approves application.",
+        "Client signs logbook."
+      ],
+      "related": [
+        "building-permit",
+        "business-zoning"
+      ],
+      "hero_lede": "Get an electrical zoning clearance from the MPDC in Mapandan. Required before obtaining an electrical permit."
+    },
+    {
+      "slug": "business-zoning",
+      "category": "zoning",
+      "name": "Business Zoning Clearance",
+      "description": "A zoning clearance is required for all businesses applying for a business permit. The MPDC/Zoning Office encodes the business, conducts geotagging, computes fees, and issues the Business Zoning Clearance.",
+      "description_full": "A zoning clearance is required for all businesses applying for a business permit. The MPDC/Zoning Office encodes the business to the DTI-Local Data Capture Sheet, conducts geotagging of the business establishment, computes fees in the iBPLS web application, and issues the Business Zoning Clearance. The process is part of the integrated business permit system.",
+      "office": "Municipal Planning and Development Office (MPDC) / Zoning Office",
+      "classification": "Simple",
+      "processing_time": "~24 minutes",
+      "fee": "₱820 (Zoning fee ₱720 + Inspection fee ₱100)",
+      "where_to_apply": "MPDC / Zoning Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Unified Application Form for Business Permit (from BPLO)"
+      ],
+      "procedure": [
+        "Go to MPDC / Zoning Office for zoning endorsement.",
+        "MPDC encodes business to DTI-Local Data Capture Sheet Annex B.",
+        "Geotagging of business establishment is conducted.",
+        "Computation of fees in the iBPLS web application: Zoning fee (New Business ₱720, Renewal varies) + Inspection fee (₱100).",
+        "MPDC prepares and issues Business Zoning Clearance.",
+        "Complete endorsement is recorded."
+      ],
+      "related": [
+        "business-permit",
+        "business-renewal",
+        "electrical-zoning"
+      ],
+      "hero_lede": "Get a business zoning clearance from the MPDC in Mapandan. Required before applying for a business permit."
+    },
+    {
+      "slug": "public-information",
+      "category": "zoning",
+      "name": "Public Information Request",
+      "description": "The MPDC provides public information and data to clients who request specific information about Mapandan's planning, land use, and development data.",
+      "description_full": "The MPDC provides public information and data to clients who request specific information about Mapandan's planning, land use, and development data. The MPDC verifies the availability of the requested data and provides it if available. This service supports transparency and public access to government information.",
+      "office": "Municipal Planning and Development Office (MPDC)",
+      "classification": "Simple",
+      "processing_time": "~13 minutes",
+      "fee": "Free",
+      "where_to_apply": "MPDC Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter request",
+        "Valid ID"
+      ],
+      "procedure": [
+        "Present request letter and photocopy of valid ID to MPDC staff.",
+        "MPDC staff verifies the availability of the requested data/information.",
+        "If available, MPDC provides the requested data/information.",
+        "Receive the information/data."
+      ],
+      "related": [],
+      "hero_lede": "Request public information and data from the MPDC in Mapandan. Planning, land use, and development data available."
     }
   ]
 }
