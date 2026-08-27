@@ -60,7 +60,7 @@
       "slug": "agriculture-subsidy",
       "category": "agriculture",
       "name": "Agricultural Subsidies",
-      "description": "The Municipal Agriculture Office (MAO) provides various government-subsidized agricultural programs to support local farmers and fisherfolk in Mapandan. These programs include subsidies for seeds, fertilizers, farm equipment, and technical assistance to improve agricultural productivity and livelihood. Availability of subsidies depends on national and provincial funding allocations.",
+      "description": "The Municipal Agriculture Office provides subsidized agricultural programs including seeds (hybrid and inbred at 50% DA-RFU subsidy), fertilizers, farm equipment, and technical assistance. Also provides seed certification, crop protection services, and animal anti-rabies vaccination.",
       "description_full": "The Municipal Agriculture Office (MAO) provides various government-subsidized agricultural programs to support local farmers and fisherfolk in Mapandan. These programs include subsidies for seeds, fertilizers, farm equipment, and technical assistance to improve agricultural productivity and livelihood. Availability of subsidies depends on national and provincial funding allocations.",
       "office": "Municipal Agriculture Office (MAO)",
       "classification": "Simple",
@@ -83,7 +83,7 @@
         "Receive agricultural assistance or subsidies upon program approval."
       ],
       "related": [],
-      "hero_lede": "Apply for government-subsidized agricultural programs in Mapandan. Learn about eligibility, requirements, and available assistance from the MAO."
+      "hero_lede": "Apply for agricultural subsidies in Mapandan. Seeds at 50% discount, plus technical assistance and livestock services."
     },
     {
       "slug": "aics",
@@ -120,12 +120,12 @@
       "slug": "birth-certificate",
       "category": "civil-registry",
       "name": "Birth Certificate",
-      "description": "A birth certificate is a vital record that serves as proof of identity, age, and Filipino citizenship. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered birth certificates. This document is required for school enrollment, passport application, employment, and other legal purposes.",
+      "description": "A birth certificate is a vital record issued by the Municipal Civil Registrar. Covers standard registration (₱115), registration by unmarried parents (₱215), hospital registration (₱100), and late registration (₱315–₱1,015 depending on age). Late registration requires 10-day posting period.",
       "description_full": "A birth certificate is a vital record that serves as proof of identity, age, and Filipino citizenship. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered birth certificates. This document is required for school enrollment, passport application, employment, and other legal purposes.",
       "office": "Municipal Civil Registrar (MCR)",
       "classification": "Simple",
-      "processing_time": "3–5 working days",
-      "fee": "As scheduled by the MCR (varies by copy type)",
+      "processing_time": "10 minutes (standard) to 10+ days (late registration)",
+      "fee": "₱115 (standard) / ₱215 (unmarried) / ₱100 (hospital) / ₱315–₱1,015 (late registration)",
       "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
@@ -143,29 +143,36 @@
         "Receive the certified birth certificate upon release."
       ],
       "related": [],
-      "hero_lede": "Request a certified copy of your birth certificate from the Municipal Civil Registrar of Mapandan."
+      "hero_lede": "Request a birth certificate from the Mapandan MCR. Standard ₱115, late registration ₱315–₱1,015."
     },
     {
       "slug": "building-permit",
       "category": "building-engineering",
       "name": "Building Permit",
-      "description": "A building permit is a legal requirement under the National Building Code of the Philippines (PD 1096) for any construction, renovation, alteration, or demolition of a building or structure. The Municipal Engineering Office (MEO) of Mapandan reviews and issues building permits after ensuring compliance with safety standards, zoning, and structural requirements.",
+      "description": "A building permit is required under the National Building Code (PD 1096) and RA 11032. Processing times: Simple — 3 working days, Complex — 7 working days, Highly Technical — 20 working days. Includes site inspection, zoning and fire safety compliance.",
       "description_full": "A building permit is a legal requirement under the National Building Code of the Philippines (PD 1096) for any construction, renovation, alteration, or demolition of a building or structure. The Municipal Engineering Office (MEO) of Mapandan reviews and issues building permits after ensuring compliance with safety standards, zoning, and structural requirements.",
       "office": "Municipal Engineering Office (MEO)",
       "classification": "Highly Technical",
-      "processing_time": "10–15 working days",
+      "processing_time": "3 working days (Simple) / 7 working days (Complex) / 20 working days (Highly Technical) per RA 11032",
       "fee": "Based on project cost (schedule per National Building Code)",
       "where_to_apply": "Municipal Engineering Office, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Approved zoning clearance from the MPDC",
-        "Architectural plans (signed and sealed by a licensed architect)",
-        "Structural plans (signed and sealed by a licensed civil/structural engineer)",
-        "Bill of materials and cost estimate",
-        "Certificate of land title or ownership documents",
-        "Tax clearance / latest real property tax payment"
+        "Plans duly signed & sealed by licensed professionals",
+        "Certified true copy of Tax Declaration (from Assessor Office)",
+        "Xerox copy of land title (from Register of Deeds)",
+        "Community Tax Certificate (from Treasury Office)",
+        "Latest Tax receipts (from Treasury Office)",
+        "Electrical & Sanitary permit (from Municipal Health Office)",
+        "Confirmation of adjoining lot owners",
+        "Certification from Barangay Captain",
+        "Application for locational clearance (from Zoning Office)",
+        "2 Affidavits (from Notary Public)",
+        "Affidavit of consent if not lot owner (from Notary Public)",
+        "Fire Safety clearance (from BFP Office)",
+        "Affidavit of adjoining lot owners"
       ],
       "procedure": [
         "Obtain a zoning clearance from the MPDC / Zoning Office.",
@@ -175,7 +182,7 @@
         "Receive the approved building permit after technical evaluation."
       ],
       "related": [],
-      "hero_lede": "Secure a building permit before commencing any construction or renovation in the Municipality of Mapandan."
+      "hero_lede": "Get a building permit from the Mapandan MEO. Simple: 3 days, Complex: 7 days, Highly Technical: 20 days per RA 11032."
     },
     {
       "slug": "business-permit",
@@ -249,39 +256,38 @@
       "slug": "cedula",
       "category": "real-property",
       "name": "Cedula / Community Tax Certificate",
-      "description": "The Community Tax Certificate, commonly known as a cedula, is a requirement for residents of Mapandan engaged in certain transactions with government agencies. It serves as proof of community tax payment and is required for various legal, business, and personal transactions. The cedula is issued under the provisions of the Local Government Code (Republic Act No. 7160).",
-      "description_full": "The Community Tax Certificate, commonly known as a cedula, is a requirement for residents of Mapandan engaged in certain transactions with government agencies. It serves as proof of community tax payment and is required for various legal, business, and personal transactions. The cedula is issued under the provisions of the Local Government Code (Republic Act No. 7160).",
+      "description": "The Community Tax Certificate (cedula) computation: Individual — ₱5.00 + ₱1.00 for every ₱1,000 gross income (not to exceed ₱5,000). Juridical — ₱500.00 + ₱2.00 for every ₱5,000 gross income (not to exceed ₱10,000). Interest of 24% per annum from March 1 to December 31.",
+      "description_full": "The Community Tax Certificate (cedula) is computed as follows: Individual — ₱5.00 basic + ₱1.00 for every ₱1,000 gross income from business, profession, or property, but in no case shall exceed ₱5,000.00. Juridical — ₱500.00 basic + ₱2.00 for every ₱5,000 gross income from business or worth of real property, but in no case shall exceed ₱10,000.00. Interest of 24% per annum shall be imposed on individual or juridical securing their CTC from March 1 up to the end of the year.",
       "office": "Municipal Treasury Office (MTO)",
       "classification": "Simple",
-      "processing_time": "Same day",
-      "fee": "₱500 (basic community tax) + ₱1 per ₱1,000 of income (if applicable)",
+      "processing_time": "20 minutes (15 min form filling + 3 min payment + 2 min recording)",
+      "fee": "Individual: ₱5 + ₱1/₱1k income (max ₱5,000); Juridical: ₱500 + ₱2/₱5k income (max ₱10,000); 24% interest from March 1",
       "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Valid government-issued ID",
-        "Payment of community tax"
+        "Old Community Tax Certificate (if available)",
+        "Proof of income (if available)"
       ],
       "procedure": [
-        "Present your valid ID at the Municipal Treasurer’s Office.",
-        "Pay the basic community tax of ₱500.",
-        "If applicable, pay an additional ₱1 per ₱1,000 of gross income earned during the preceding year.",
-        "Receive your community tax certificate (cedula)."
+        "Go to Counters 1 and 2 and fill up the basic data form (15 min).",
+        "Pay the required fees (3 min).",
+        "Receive community tax certificate. Staff records in general collection system (2 min)."
       ],
       "related": [],
-      "hero_lede": "Obtain your community tax certificate (cedula) in Mapandan. Learn about fees, requirements, and where to apply."
+      "hero_lede": "Get your Community Tax Certificate (cedula) in Mapandan. Individual: ₱5 + ₱1/₱1k; Juridical: ₱500 + ₱2/₱5k."
     },
     {
       "slug": "death-certificate",
       "category": "civil-registry",
       "name": "Death Certificate",
-      "description": "A death certificate is an official document that records the death of an individual. It is required for settlement of estates, insurance claims, pension benefits, and other legal matters. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered death certificates.",
+      "description": "A death certificate is issued by the Municipal Civil Registrar. Covers registration by solemnizing officer, hospital, or authorized representative. Late registration fee: ₱215. Requires 10-day posting period for delayed registration.",
       "description_full": "A death certificate is an official document that records the death of an individual. It is required for settlement of estates, insurance claims, pension benefits, and other legal matters. The Municipal Civil Registrar (MCR) of Mapandan issues certified copies of locally registered death certificates.",
       "office": "Municipal Civil Registrar (MCR)",
       "classification": "Simple",
-      "processing_time": "3–5 working days",
-      "fee": "As scheduled by the MCR",
+      "processing_time": "10 minutes (standard) to 10+ days (late registration)",
+      "fee": "₱215 (late registration)",
       "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
@@ -298,7 +304,7 @@
         "Receive the certified death certificate upon release."
       ],
       "related": [],
-      "hero_lede": "Request a certified copy of a death certificate from the Municipal Civil Registrar of Mapandan."
+      "hero_lede": "Request a death certificate from the Mapandan MCR. Late registration fee ₱215."
     },
     {
       "slug": "health-consultation",
@@ -364,24 +370,24 @@
       "slug": "marriage-license",
       "category": "civil-registry",
       "name": "Marriage License",
-      "description": "A marriage license is a legal requirement before a marriage can be solemnized in the Philippines. The Municipal Civil Registrar (MCR) of Mapandan processes marriage license applications, which include a required publication period. The license is valid for 120 days from the date of issuance.",
+      "description": "A marriage license is required before marriage can be solemnized. Fee: ₱862. Includes 10-day publication period. Valid for 120 days from issuance. Requires pre-marriage counseling certificate from MSWDO.",
       "description_full": "A marriage license is a legal requirement before a marriage can be solemnized in the Philippines. The Municipal Civil Registrar (MCR) of Mapandan processes marriage license applications, which include a required publication period. The license is valid for 120 days from the date of issuance.",
       "office": "Municipal Civil Registrar (MCR)",
       "classification": "Simple",
       "processing_time": "10–15 working days (including 10-day publication period)",
-      "fee": "As scheduled by the MCR",
+      "fee": "₱862",
       "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Birth certificates (PSA-authenticated) of both contracting parties",
-        "Valid government-issued IDs of both parties",
-        "Certificate of No Marriage (CENOMAR) for both parties",
-        "Parental consent or advice (if either party is under 25 years old)",
-        "Certificate of Marriage Counseling (from a government-accredited counselor)",
-        "Community Tax Certificate (cedula) for both parties",
-        "Two (2) ID photos of each party"
+        "Municipal Form No. 90",
+        "Community Tax Certificate (cedula)",
+        "Parental Consent of father/guardian (from MCR)",
+        "Certificate of Family Planning (from Mun Health Office)",
+        "Certificate of Pre-Marriage Counselling (from MSWD Office)",
+        "CENOMAR / Birth Certificate (from PSA)",
+        "Legal Capacity (from DFA, if one party is a foreigner)"
       ],
       "procedure": [
         "Both parties appear at the MCR and submit all required documents.",
@@ -391,28 +397,29 @@
         "After publication, claim the marriage license from the MCR."
       ],
       "related": [],
-      "hero_lede": "Apply for a marriage license at the Municipal Civil Registrar of Mapandan, Pangasinan."
+      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862. Includes 10-day publication period."
     },
     {
       "slug": "name-correction",
       "category": "civil-registry",
       "name": "Name Correction (RA 9048)",
-      "description": "Republic Act No. 9048 authorizes the city or municipal civil registrar to correct clerical or typographical errors in civil registry entries without the need for a judicial order. This covers corrections in first names, nicknames, or minor spelling errors. This process does not apply to changes in gender, date of birth, or other substantive entries.",
+      "description": "RA 9048 authorizes correction of clerical or typographical errors. Change of first name: ₱3,000 filing fee. Correction of clerical error: ₱1,000 filing fee. Both require 10-day posting, MCR decision within 5 days, PSA processing 2–3 months.",
       "description_full": "Republic Act No. 9048 authorizes the city or municipal civil registrar to correct clerical or typographical errors in civil registry entries without the need for a judicial order. This covers corrections in first names, nicknames, or minor spelling errors. This process does not apply to changes in gender, date of birth, or other substantive entries.",
       "office": "Municipal Civil Registrar (MCR)",
       "classification": "Complex",
-      "processing_time": "15–30 working days (including publication period)",
-      "fee": "As scheduled by the MCR (includes publication cost)",
+      "processing_time": "10-day posting + 5 days MCR decision + 2–3 months PSA processing",
+      "fee": "₱3,000 (change of first name) / ₱1,000 (correction of clerical error)",
       "where_to_apply": "Municipal Civil Registrar’s Office, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "PSA-authenticated birth certificate (original and photocopy)",
-        "Valid government-issued ID of the petitioner",
-        "Supporting documents that prove the correct name (e.g., school records, baptismal certificate, IDs)",
-        "Notarized affidavit of the petitioner explaining the error",
-        "Publication of the correction in a local newspaper (for the required period)"
+        "Proof of Publication (from PSA)",
+        "Certificate of Live Birth (from PSA)",
+        "NBI Clearance",
+        "Police Clearance (from PNP)",
+        "Certificate of Employment (if employed) / Affidavit of non-employment",
+        "Marriage Certificate, Medical records, SSS records, land title, baptismal certificate"
       ],
       "procedure": [
         "Visit the Municipal Civil Registrar’s Office and submit all required documents.",
@@ -422,27 +429,25 @@
         "After publication and verification, claim the corrected birth certificate from the MCR."
       ],
       "related": [],
-      "hero_lede": "Correct clerical or typographical errors in your birth certificate under Republic Act No. 9048."
+      "hero_lede": "Correct your birth certificate under RA 9048. ₱3,000 for name change, ₱1,000 for clerical error."
     },
     {
       "slug": "occupancy-permit",
       "category": "building-engineering",
       "name": "Occupancy Permit",
-      "description": "An occupancy permit certifies that a building or structure has been completed and inspected in accordance with the approved plans and the National Building Code. It is required before any building may be legally occupied or used.",
+      "description": "An occupancy permit certifies building completion and inspection. Processing times per RA 11032: Simple — 3 working days, Complex — 7 working days, Highly Technical — 20 working days. Includes site inspection, assessment fee computation, and zoning/fire safety compliance.",
       "description_full": "An occupancy permit certifies that a building or structure has been completed and inspected in accordance with the approved plans and the National Building Code. It is required before any building may be legally occupied or used.",
       "office": "Municipal Engineering Office (MEO)",
       "classification": "Simple",
-      "processing_time": "3–5 working days",
+      "processing_time": "3 working days (Simple) / 7 working days (Complex) / 20 working days (Highly Technical) per RA 11032",
       "fee": "As scheduled by the MEO",
       "where_to_apply": "Municipal Engineering Office, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Approved building permit",
-        "As-built plans (reflecting the actual construction)",
-        "Inspection report from the Municipal Engineering Office",
-        "Fire safety inspection certificate from the Bureau of Fire Protection"
+        "Xerox copy of approved building permit",
+        "Fire safety inspection certificate (from BFP)"
       ],
       "procedure": [
         "Request a final inspection from the Municipal Engineering Office.",
@@ -452,35 +457,34 @@
         "Receive the occupancy permit upon approval."
       ],
       "related": [],
-      "hero_lede": "Obtain an occupancy permit to legally occupy a newly constructed or renovated building in Mapandan."
+      "hero_lede": "Get an occupancy permit from the Mapandan MEO. RA 11032 processing times: 3–20 working days."
     },
     {
       "slug": "rpt-payment",
       "category": "real-property",
       "name": "Real Property Tax Payment",
-      "description": "Real property tax (RPT) is an annual tax on the assessed value of land, buildings, and improvements owned by individuals or entities within the Municipality of Mapandan. Payment of RPT is required under the Local Government Code (Republic Act No. 7160) and Provincial Ordinance No. 253-2020. The tax is used to fund local services, infrastructure, and public welfare programs.",
-      "description_full": "Real property tax (RPT) is an annual tax on the assessed value of land, buildings, and improvements owned by individuals or entities within the Municipality of Mapandan. Payment of RPT is required under the Local Government Code (Republic Act No. 7160) and Provincial Ordinance No. 253-2020. The tax is used to fund local services, infrastructure, and public welfare programs.",
+      "description": "Real property tax (RPT) is an annual tax on the assessed value of land, buildings, and improvements. Basic Tax = 1% of Assessed Value + Special Education Tax = 1% of Assessed Value. Discount: 10% for prompt payment, 20% for advance payment. Interest on unpaid tax: 2% per month but not to exceed 72%.",
+      "description_full": "Real property tax (RPT) is an annual tax on the assessed value of land, buildings, and improvements within Mapandan. Computation: Basic Tax = 1% of Assessed Value + Special Education Tax (SEF) = 1% of Assessed Value. Discounts: 10% for prompt payment, 20% for advance payment. Interest on unpaid real property tax: 2% per month but not to exceed 72%. Payment is processed at Counters 4-9 of the Treasury Office.",
       "office": "Municipal Treasury Office (MTO)",
       "classification": "Simple",
-      "processing_time": "Same day",
-      "fee": "Based on assessed value (1% annual for basic, additional for SEF)",
+      "processing_time": "30 minutes (20 min computation + 5 min payment + 5 min recording)",
+      "fee": "Basic Tax (1% of AV) + SEF (1% of AV); 10% prompt payment discount; 20% advance payment discount",
       "where_to_apply": "1st Floor, Main Municipal Building, Poblacion",
       "contact": "(075) 696-0831 / 0998-577-3164",
       "source": "Mapandan Citizen’s Charter / Provincial Ordinance No. 253-2020",
       "last_updated": "August 2025",
       "requirements": [
-        "Tax declaration from the Municipal Assessor’s Office",
-        "Previous year’s official receipt",
-        "Valid government-issued ID"
+        "Real Property Tax bill (from Assessor's Office)",
+        "Previous Tax receipt (if available)"
       ],
       "procedure": [
-        "Present your tax declaration and previous year’s official receipt at the Municipal Treasurer’s Office.",
-        "Verify the current assessed value of your property with the assessor.",
-        "Pay the corresponding real property tax at the treasury counter.",
-        "Receive your official receipt as proof of payment."
+        "Go to Counters 4 to 9 and request computation of real property tax.",
+        "Staff computes the real property tax due (20 min).",
+        "Pay the required fees (5 min).",
+        "Receive the official receipt. Staff records in general collection system (5 min)."
       ],
       "related": [],
-      "hero_lede": "Pay your real property tax obligations in Mapandan. Learn about assessment rates, fees, and step-by-step payment procedures."
+      "hero_lede": "Pay your real property tax in Mapandan. Basic 1% + SEF 1% of assessed value. 10%–20% discount for prompt/advance payment."
     },
     {
       "slug": "sanitary-permit",
@@ -1313,6 +1317,646 @@
       ],
       "related": [],
       "hero_lede": "Request public information and data from the MPDC in Mapandan. Planning, land use, and development data available."
+    },
+    {
+      "slug": "sb-certified-copy",
+      "category": "social-assistance",
+      "name": "Certified True Copy of Ordinances & Resolutions",
+      "description": "The Office of the Sangguniang Bayan provides certified true copies of municipal ordinances, resolutions, and other documents pertaining to the SB. Available to any citizen upon request.",
+      "description_full": "The Office of the Sangguniang Bayan provides certified true copies of municipal ordinances, resolutions, and other documents pertaining to the Office of the Sangguniang Bayan. The client submits a letter of request, pays the required fee at the Treasury Office, and the SB staff researches, produces, and authenticates the document through the SB Secretary.",
+      "office": "Office of the Sangguniang Bayan / Vice Mayor",
+      "classification": "Simple",
+      "processing_time": "~13 minutes",
+      "fee": "₱130",
+      "where_to_apply": "SB Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter of Request",
+        "Official Receipt (from Treasury Office)"
+      ],
+      "procedure": [
+        "Submit letter of request for the needed documents to the SB Office.",
+        "Staff receives the letter and requires you to pay ₱130 at the Treasury Office.",
+        "Pay the required fee and obtain official receipt.",
+        "SB staff researches the needed document.",
+        "Staff produces the document and submits it to the SB Secretary for authentication, certification, and sealing.",
+        "Receive the authenticated and certified document."
+      ],
+      "related": [
+        "public-information"
+      ],
+      "hero_lede": "Get certified true copies of Mapandan municipal ordinances, resolutions, and SB documents. ₱130 fee, ~13 minutes processing."
+    },
+    {
+      "slug": "sb-financial-assistance",
+      "category": "social-assistance",
+      "name": "SB Financial Assistance",
+      "description": "The Office of the Sangguniang Bayan provides financial assistance to indigent residents of Mapandan. The SB processes the request and forwards it to the Budget, Accounting, and Treasury Office for check preparation.",
+      "description_full": "The Office of the Sangguniang Bayan provides financial assistance to indigent residents of Mapandan. The client submits documents including a medical certificate, certificate of indigency, and valid ID. The SB staff receives and checks the documents, prepares them, and forwards to the Budget, Accounting, and Treasury Office for check preparation.",
+      "office": "Office of the Sangguniang Bayan",
+      "classification": "Simple",
+      "processing_time": "~15 minutes",
+      "fee": "Free",
+      "where_to_apply": "SB Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Medical Certificate (from Attending Doctor)",
+        "Certificate of Indigency (from Barangay)",
+        "Valid ID"
+      ],
+      "procedure": [
+        "Submit your documents (Medical Certificate, Certificate of Indigency, Valid ID) to the SB Office.",
+        "SB staff receives and checks the submitted documents.",
+        "Staff prepares the documents and forwards them to the Budget, Accounting, and Treasury Office for check preparation.",
+        "Follow up with the Treasury Office for the release of the check."
+      ],
+      "related": [
+        "aics",
+        "certificate-of-indigency"
+      ],
+      "hero_lede": "Apply for financial assistance from the Sangguniang Bayan for indigent residents of Mapandan. Free service."
+    },
+    {
+      "slug": "professional-tax-receipt",
+      "category": "real-property",
+      "name": "Professional Tax Receipt",
+      "description": "A Professional Tax Receipt is required for all professionals exercising their profession. The fee is ₱300 for professionals (remitted to Provincial Treasury) and ₱100 for non-professionals.",
+      "description_full": "A Professional Tax Receipt is required for all professionals exercising their profession in the Municipality of Mapandan. The fee is ₱300 for professionals (to be remitted to the Provincial Treasury Office) and ₱100 for non-professionals. Professionals must present their PRC ID, while non-professionals must present their Mayor's Permit.",
+      "office": "Municipal Treasurer's Office",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱300 (professionals) / ₱100 (non-professionals)",
+      "where_to_apply": "Counters 1-2, Municipal Treasury Office, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Professional ID from PRC (for professionals)",
+        "Mayor's Permit from Mayor's Office (for non-professionals)"
+      ],
+      "procedure": [
+        "Go to Counters 1 and 2 and request for Professional Tax Receipt.",
+        "Pay the required fee: ₱300 for professionals or ₱100 for non-professionals.",
+        "Receive official receipt."
+      ],
+      "related": [
+        "cedula",
+        "business-permit"
+      ],
+      "hero_lede": "Get your Professional Tax Receipt at the Mapandan Treasury Office. ₱300 for professionals, ₱100 for non-professionals."
+    },
+    {
+      "slug": "tax-clearance",
+      "category": "real-property",
+      "name": "Tax Clearance Certificate",
+      "description": "A Tax Clearance Certificate is issued to taxpayers upon verification of their records. Required for various business and legal transactions. Fee is ₱100 per certificate plus ₱30 documentary stamps.",
+      "description_full": "A Tax Clearance Certificate is issued to taxpayers upon verification of their records at the Treasury Office. The certificate is required for various business and legal transactions including business permit applications, property transfers, and government dealings. Fee is ₱100 per certificate or clearance plus ₱30 documentary stamps.",
+      "office": "Municipal Treasurer's Office",
+      "classification": "Simple",
+      "processing_time": "20 minutes",
+      "fee": "₱100 per certificate + ₱30 documentary stamps",
+      "where_to_apply": "Counters 4, 6-7, Municipal Treasury Office, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Real Property Tax official receipt (for RPT clearance)",
+        "Mayor's Permit (for cessation of business clearance)"
+      ],
+      "procedure": [
+        "Go to Counters 4, 6 or 7 and request for clearance or certificate.",
+        "Staff verifies records and prepares the documents (15 min).",
+        "Pay the required fees: ₱100 + ₱30 documentary stamps (3 min).",
+        "Receive the Tax Clearance Certificate."
+      ],
+      "related": [
+        "cedula",
+        "rpt-payment"
+      ],
+      "hero_lede": "Get a Tax Clearance Certificate at the Mapandan Treasury Office. ₱130 total fee, 20 minutes processing."
+    },
+    {
+      "slug": "mtop",
+      "category": "real-property",
+      "name": "Motorized Tricycle Operator's Permit (MTOP)",
+      "description": "A Motorized Tricycle Operator's Permit is required for all motorized tricycle operators within Mapandan. Annual fee is ₱365 including documentary stamps. First-time operators also pay ₱100 for the LGU plate.",
+      "description_full": "A Motorized Tricycle Operator's Permit (MTOP) is required for all motorized tricycle operators within the Municipality of Mapandan. The annual fee is ₱365 including documentary stamps. Filing fee for renewal is ₱315 including documentary stamps. First-time operators also pay ₱100 for the LGU plate. Operators must be members of the local TODA.",
+      "office": "Municipal Treasurer's Office",
+      "classification": "Simple",
+      "processing_time": "25 minutes",
+      "fee": "₱365/yr (annual) + ₱100 LGU plate (first-timers); ₱315 (renewal filing)",
+      "where_to_apply": "Counters 1, 8, Municipal Treasury Office, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Certificate of Membership from TODA",
+        "Community Tax Certificate (from Treasury Office)",
+        "Photocopy of updated LTO registration",
+        "Photocopy of updated Driver's license"
+      ],
+      "procedure": [
+        "Go to Counters 1 and 8 and submit the required documents.",
+        "Staff reviews the documents (20 min).",
+        "Pay the required fees (3 min).",
+        "Receive Official Receipt and LGU Plate or sticker.",
+        "Staff records in MTOP logbook and endorses documents to the Mayor's Office."
+      ],
+      "related": [
+        "business-permit",
+        "cedula"
+      ],
+      "hero_lede": "Get or renew your Motorized Tricycle Operator's Permit (MTOP) in Mapandan. ₱365/year annual fee."
+    },
+    {
+      "slug": "market-stall-fee",
+      "category": "real-property",
+      "name": "Market Booth & Stall Fee Payment",
+      "description": "Payment of monthly rental fees for market booths and stalls at the Mapandan public market. Rates vary by type and classification.",
+      "description_full": "Payment of monthly rental fees for market booths and stalls at the Mapandan public market. Stall rates: ₱1,950/month (Prime), ₱1,450/month (Deluxe), ₱950/month (Standard). Booth rates: ₱975/month (Prime), ₱725/month (Deluxe), ₱475/month (Standard). New stalls: ₱2,000/month and ₱1,500/month.",
+      "office": "Municipal Treasurer's Office",
+      "classification": "Simple",
+      "processing_time": "20 minutes",
+      "fee": "Stalls: ₱950–₱1,950/mo; Booths: ₱475–₱975/mo; New stalls: ₱1,500–₱2,000/mo",
+      "where_to_apply": "Counters 5, 8, Municipal Treasury Office, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Community Tax Certificate (from Treasury Office)",
+        "Mayor's Permit (from Mayor's Office)"
+      ],
+      "procedure": [
+        "Go to Counters 5 and 8 and request computation of fees.",
+        "Staff computes the stall/booth fees (15 min).",
+        "Pay the required fees (3 min).",
+        "Receive the Official Receipt."
+      ],
+      "related": [
+        "business-permit",
+        "cedula"
+      ],
+      "hero_lede": "Pay your market booth or stall rental fees at the Mapandan Treasury Office. Rates from ₱475 to ₱1,950 per month."
+    },
+    {
+      "slug": "cemetery-payment",
+      "category": "real-property",
+      "name": "Cemetery Lot Rental & Tomb Purchase",
+      "description": "Payment for cemetery lot rental and purchase of cemetery tombs. Rental is ₱1,500 every 10 years. Tombs range from ₱10,000 to ₱20,000.",
+      "description_full": "Payment for cemetery lot rental and purchase of cemetery tombs at the Mapandan cemetery. Cemetery lot rental is ₱1,500 every ten years. Cemetery tombs are available at ₱10,000, ₱15,000, and ₱20,000. A death certificate is required for tomb purchase.",
+      "office": "Municipal Treasurer's Office",
+      "classification": "Simple",
+      "processing_time": "25 minutes",
+      "fee": "₱1,500/10yr (lot rental); ₱10,000–₱20,000 (tombs)",
+      "where_to_apply": "Counter 8, Municipal Treasury Office, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Death Certificate (from Municipal Civil Registry)"
+      ],
+      "procedure": [
+        "Go to Counter 8 and inquire for available tomb or lot rental.",
+        "Staff checks availability (20 min).",
+        "Pay the required fees (3 min).",
+        "Receive Official Receipt. Staff records in Cemetery log book."
+      ],
+      "related": [
+        "death-certificate"
+      ],
+      "hero_lede": "Pay for cemetery lot rental or purchase a tomb at the Mapandan Treasury Office. ₱1,500/10yr rental, tombs from ₱10,000."
+    },
+    {
+      "slug": "cattle-registration",
+      "category": "agriculture",
+      "name": "Large Cattle Ownership & Brand Registration",
+      "description": "Registration of ownership, transfer of ownership, and brand registration for large cattle. Required for cattle owners within the municipality.",
+      "description_full": "Issuance of Certificate of Ownership, Transfer of Ownership of Large Cattle, and Registration of Cattle Brand. Fees: ₱155 for certificate of ownership (including doc stamps), ₱160 for transfer of ownership (including doc stamps), ₱155 for registration of brand (including doc stamps). The staff enumerates distinguishing marks and physical characteristics of the cattle.",
+      "office": "Municipal Treasurer's Office",
+      "classification": "Simple",
+      "processing_time": "20 minutes",
+      "fee": "₱155 (ownership/brand) / ₱160 (transfer) including doc stamps",
+      "where_to_apply": "Counter 2, Municipal Treasury Office, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Copy of the Certificate of Large Cattle",
+        "Steel Branding of Owner (2x2 in size)",
+        "Personal appearance of the owner of the registered brand"
+      ],
+      "procedure": [
+        "Go to Counter 2 and request for registration of ownership.",
+        "Staff prepares documents (5 min).",
+        "Enumerate distinguishing marks of cattle — brand, marks, and permanent physical characteristics (10 min).",
+        "Pay the required fees (3 min).",
+        "Receive the Certificate of Ownership/Transfer of Ownership."
+      ],
+      "related": [
+        "agriculture-subsidy"
+      ],
+      "hero_lede": "Register or transfer large cattle ownership in Mapandan. ₱155–₱160 including documentary stamps."
+    },
+    {
+      "slug": "financial-claims-payment",
+      "category": "real-property",
+      "name": "Financial Assistance Claims Payment",
+      "description": "Payment of financial assistance and other claims for indigent residents. The Treasury Office verifies documents and releases cash (≤₱3,000) or check (>₱3,000).",
+      "description_full": "Payment of financial assistance and other claims for indigent residents of Mapandan. The Treasury Office verifies documents, checks signatures, and releases payment. Cash is released for amounts ₱3,000 and below; checks are issued for amounts exceeding ₱3,000. An authorization letter is required if a representative claims on behalf of the beneficiary.",
+      "office": "Municipal Treasurer's Office",
+      "classification": "Simple",
+      "processing_time": "26 minutes",
+      "fee": "Free",
+      "where_to_apply": "Counters 3-4, Municipal Treasury Office, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Disbursement Voucher with complete supporting papers",
+        "Official Receipt from suppliers/contractors",
+        "Authorization letter (if claiming through representative)",
+        "Valid ID"
+      ],
+      "procedure": [
+        "Go to Counters 3 and 4. Mention your claim and provide ID and/or authorization to claim.",
+        "Staff checks if documents are available for release (10 min).",
+        "Sign on the received page. Staff verifies signature and identification (10 min).",
+        "Receive cash if ₱3,000 and below (recorded in Petty Cash Fund).",
+        "Receive check if more than ₱3,000 (recorded in Cheque Disbursement Book)."
+      ],
+      "related": [
+        "sb-financial-assistance",
+        "aics"
+      ],
+      "hero_lede": "Claim financial assistance payments at the Mapandan Treasury Office. Cash for ≤₱3,000, check for >₱3,000."
+    },
+    {
+      "slug": "seed-certification",
+      "category": "agriculture",
+      "name": "Seed Certification Services",
+      "description": "The Municipal Agriculturist provides technical and extension services for seed certification, including seed sampling, laboratory analysis, and issuance of seed tags for registered seed growers.",
+      "description_full": "The Municipal Agriculturist provides technical and extension services for seed certification. The service includes seed sampling in the presence of the Seed Inspector, laboratory analysis, and issuance of seed tags. Available to registered members of the Seed Grower Association. The Municipal Agriculturist coordinates with the Seeds Laboratory for analysis.",
+      "office": "Municipal Agriculturist Office (MAO)",
+      "classification": "Simple",
+      "processing_time": "~50 minutes",
+      "fee": "Free",
+      "where_to_apply": "Municipal Agriculture Office, Poblacion",
+      "contact": "(075) 632-1873",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Membership in Seed Grower Association",
+        "Actual harvest date notification to Seeds Inspector"
+      ],
+      "procedure": [
+        "Submit/show requirements and inform the Seeds Inspector of the actual date of harvest.",
+        "Municipal Agriculturist confirms presence at the date of harvest (10 min).",
+        "Gather seed samples in the presence of the Seed Inspector and submit to the seed laboratory for analysis (10 min).",
+        "Seeds Laboratory analyzes seed samples, tags, and prepares report (15 min).",
+        "Receive result of the seed analysis and sign log book. Seeds Inspector delivers seed tags and discusses results (15 min)."
+      ],
+      "related": [
+        "agriculture-subsidy",
+        "crop-protection"
+      ],
+      "hero_lede": "Get seed certification services from the Mapandan MAO. Free lab analysis and seed tags for registered seed growers."
+    },
+    {
+      "slug": "animal-anti-rabies",
+      "category": "agriculture",
+      "name": "Animal Anti-Rabies Vaccination",
+      "description": "The Municipal Agriculturist provides consultation, treatment, and anti-rabies vaccination for pets and animals. Free service for pet owners in Mapandan.",
+      "description_full": "The Municipal Agriculturist provides consultation, treatment, and anti-rabies vaccination for pets and animals. The Livestock Inspector obtains the animal's medical history, conducts a physical examination, and vaccinates the animal. This service helps prevent the spread of rabies in the community.",
+      "office": "Municipal Agriculturist Office (MAO)",
+      "classification": "Simple",
+      "processing_time": "35 minutes",
+      "fee": "Free",
+      "where_to_apply": "Municipal Agriculture Office, Poblacion",
+      "contact": "(075) 632-1873",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Bring the animal to the Municipal Agriculture Office"
+      ],
+      "procedure": [
+        "Bring the animal to the Municipal Agriculture Office.",
+        "Livestock Inspector obtains the animal's medical history and conducts physical examination (30 min).",
+        "Livestock Inspector vaccinates the animal (5 min)."
+      ],
+      "related": [
+        "rabies"
+      ],
+      "hero_lede": "Free anti-rabies vaccination for your pets at the Mapandan Municipal Agriculture Office."
+    },
+    {
+      "slug": "crop-protection",
+      "category": "agriculture",
+      "name": "Crop Protection Technical Services",
+      "description": "The Municipal Agriculturist provides technical and extension services for crop protection, including farm inspection, plant analysis, and recommendations for pest and disease management.",
+      "description_full": "The Municipal Agriculturist provides technical and extension services for crop protection. The Agricultural Technologist conducts farm inspections, examines plant health, submits samples to DA-RCPC for analysis, and provides recommendations for pest and disease management. Available to registered farmers.",
+      "office": "Municipal Agriculturist Office (MAO)",
+      "classification": "Simple",
+      "processing_time": "~70 minutes (across visits)",
+      "fee": "Free",
+      "where_to_apply": "Municipal Agriculture Office, Poblacion",
+      "contact": "(075) 632-1873",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Registration as a farmer",
+        "Notification of farm visit schedule to assigned Agricultural Technologist"
+      ],
+      "procedure": [
+        "Inform the assigned Agricultural Technologist of the actual date of farm visit for crop protection.",
+        "AT confirms presence at the date of crop protection visit (10 min).",
+        "AT inspects the farm and examines the physical appearance of plants (15 min).",
+        "AT analyzes the plants and prepares reports. Samples sent to DA-RCPC (15 min).",
+        "Receive results of plant analysis. AT discusses results and gives appropriate recommendations (30 min)."
+      ],
+      "related": [
+        "agriculture-subsidy",
+        "seed-certification"
+      ],
+      "hero_lede": "Free crop protection services from the Mapandan MAO. Farm inspection, plant analysis, and pest management recommendations."
+    },
+    {
+      "slug": "demolition-permit",
+      "category": "building-engineering",
+      "name": "Demolition Permit",
+      "description": "A demolition permit is required before any demolition of a building or structure. The Municipal Engineer conducts initial assessment, site inspection, and issues the permit after fee computation.",
+      "description_full": "A demolition permit is required before any demolition of a building or structure in Mapandan. The Municipal Engineer conducts initial assessment of the application, site inspection, and computation of fees. The permit is issued after payment and verification of all requirements.",
+      "office": "Municipal Engineer's Office",
+      "classification": "Simple",
+      "processing_time": "~2 hours",
+      "fee": "Varies depending on inspection results",
+      "where_to_apply": "Municipal Engineer's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Application for demolition permit",
+        "Approved demolition plans (if applicable)",
+        "Proof of ownership or authorization from owner"
+      ],
+      "procedure": [
+        "Report to the Engineering Office for assessment of your application (15 min).",
+        "Engineering staff conducts site inspection (1 hour).",
+        "Staff computes the required assessment fee (15 min).",
+        "Pay the necessary fees at the Treasury Office and obtain official receipt (10 min).",
+        "Present OR to Engineering Staff. Staff prepares the demolition permit (15 min).",
+        "Receive the demolition permit (5 min)."
+      ],
+      "related": [
+        "building-permit",
+        "occupancy-permit"
+      ],
+      "hero_lede": "Get a demolition permit from the Mapandan Municipal Engineer. Required before demolishing any building or structure."
+    },
+    {
+      "slug": "electrical-permit",
+      "category": "building-engineering",
+      "name": "Electrical Permit",
+      "description": "An electrical permit is required for electrical installations and wiring. The Municipal Engineer evaluates the application, conducts site inspection, and issues the permit after zoning and fire safety compliance.",
+      "description_full": "An electrical permit is required for electrical installations and wiring within Mapandan. The Municipal Engineer evaluates the application, conducts site inspection, computes fees based on total connected loads, and endorses to the Zoning Officer and BFP for compliance. The permit is issued after all clearances are obtained.",
+      "office": "Municipal Engineer's Office",
+      "classification": "Simple",
+      "processing_time": "~2 hours",
+      "fee": "Varies based on total connected loads",
+      "where_to_apply": "Municipal Engineer's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Confirmation of adjoining lot owners",
+        "Barangay Clearance",
+        "Certified true copy of Tax Declaration",
+        "Xerox copy of land title (if any)",
+        "Latest tax payment",
+        "Community Tax Certificate",
+        "Signed & sealed form of electrical permits",
+        "Application for zoning clearance",
+        "Affidavits"
+      ],
+      "procedure": [
+        "Report to Engineering Office for assessment. Staff provides necessary forms (15 min).",
+        "Fill up electrical permit forms and submit to the Building Official.",
+        "Staff evaluates requirements and conducts site inspection (30 min + 1 hour).",
+        "Staff computes assessment fee and endorses to Zoning Officer & BFP (15 min + 15 min).",
+        "Pay fees at Treasury Office. Zoning officer & Fire Dept conduct inspection (10 min).",
+        "Receive Zoning/Locational & Fire Safety clearance (15 min).",
+        "Receive the Electrical Permit (2 min)."
+      ],
+      "related": [
+        "building-permit",
+        "electrical-zoning"
+      ],
+      "hero_lede": "Get an electrical permit from the Mapandan Municipal Engineer. Required for all electrical installations and wiring."
+    },
+    {
+      "slug": "birth-registration",
+      "category": "civil-registry",
+      "name": "Birth Registration",
+      "description": "Registration of birth with the Municipal Civil Registrar. Covers registration by attending midwife/hilot, unmarried parents, hospital administrators, and late registration with PSA verification.",
+      "description_full": "Registration of birth at the Municipal Civil Registrar. Covers three pathways: (1) Attending midwife/hilot reports child's birth — requires Marriage Certificate of parents and Mun. Form 102; (2) Unmarried parents — requires Community Tax Certificate; (3) Hospital administrator — requires Accomplished Mun. Form 102. Late registration requires negative PSA certification and supporting documents. Fees: Misc Fee ₱115 (standard), ₱215 (unmarried), ₱100 (hospital), ₱315–₱1,015 (late registration depending on age).",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "10 minutes (standard) to 10 days (late registration posting)",
+      "fee": "₱115 (standard) / ₱215 (unmarried) / ₱100 (hospital) / ₱315–₱1,015 (late registration)",
+      "where_to_apply": "Municipal Civil Registrar's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Marriage Certificate of parents from PSA (for attending midwife/hilot registration)",
+        "Community Tax Certificate from Treasury Office (for unmarried parents)",
+        "Accomplished Mun. Form 102 from MCR (for hospital registration)",
+        "Negative certification from PSA (for late registration)",
+        "Affidavit of delayed registration (for late registration)",
+        "Supporting evidence: Baptismal Certificate, School records, ITR, Insurance Policy, Medical records, Barangay certification (for late registration)"
+      ],
+      "procedure": [
+        "Attending midwife/hilot reports child's birth. MCR evaluates information and registers (10 min).",
+        "For unmarried parents: Hospital admin or representative prepares documents (15 min).",
+        "For late registration: Apply at MCR, verify from CRIS/Registry Book. If negative, submit requirements. Data typed in Certificate of Live Birth (15 min typing).",
+        "MCR approves registration (after 10 days of posting for late registration).",
+        "Secure copy of birth certificate. MCR releases documents (3 min)."
+      ],
+      "related": [
+        "birth-certificate",
+        "death-certificate"
+      ],
+      "hero_lede": "Register a birth at the Mapandan MCR. Standard fee ₱115, late registration ₱315–₱1,015."
+    },
+    {
+      "slug": "death-registration",
+      "category": "civil-registry",
+      "name": "Death Registration",
+      "description": "Registration of death with the Municipal Civil Registrar. Covers registration by solemnizing officer, hospital administrator, or nearest relative. Late registration available with PSA verification.",
+      "description_full": "Registration of death at the Municipal Civil Registrar. The solemnizing officer or authorized representative submits the Certificate of Marriage for verification. If the place of death is not in a hospital, the person who last attended the deceased reports. Late registration requires negative PSA certification. Fee for late registration: ₱215. MCR approves after 10 days of posting.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "10 minutes (standard) to 10 days (late registration posting)",
+      "fee": "₱215 (late registration only)",
+      "where_to_apply": "Municipal Civil Registrar's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Accomplished Certificate of Marriage",
+        "Negative certification from PSA (for late registration)",
+        "Affidavit of delayed registration (for late registration)",
+        "Certified copy of Marriage license (for late registration)"
+      ],
+      "procedure": [
+        "Solemnizing Officer or authorized representative submits documents. MCR examines accuracy and completeness (10 min).",
+        "In default of Solemnizing Officer, either or both contracting parties may report (10 min).",
+        "For late registration: Verify from CRIS/Registry Book. If negative, submit requirements and prepare certificate (20 min, ₱215).",
+        "MCR approves documents (after 10 days of posting).",
+        "Secure copy of death certificate or late registration. Release documents (3 min)."
+      ],
+      "related": [
+        "death-certificate",
+        "birth-registration"
+      ],
+      "hero_lede": "Register a death at the Mapandan MCR. Late registration fee ₱215."
+    },
+    {
+      "slug": "marriage-registration",
+      "category": "civil-registry",
+      "name": "Marriage License Registration",
+      "description": "Registration and issuance of marriage license at the Municipal Civil Registrar. Includes interview, fee payment, and document release. Fee: ₱862.",
+      "description_full": "Registration and issuance of marriage license at the Municipal Civil Registrar. The MCR interviews the parties on their residence, verifies birth certificates, and processes the application. The client proceeds to Treasury for payment (₱862) and returns to MCR for document release. Additional requirements for delayed registration include negative PSA certification.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "Varies (including 10-day publication period)",
+      "fee": "₱862",
+      "where_to_apply": "Municipal Civil Registrar's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Municipal Form No. 90",
+        "Community Tax Certificate (from Treasury Office)",
+        "Parental Consent of father/guardian (from MCR)",
+        "Certificate of Family Planning (from Mun Health Office)",
+        "Certificate of Pre-Marriage Counselling (from MSWD Office)",
+        "CENOMAR / Birth Certificate (from PSA)",
+        "Legal Capacity (from DFA, if one party is a foreigner)"
+      ],
+      "procedure": [
+        "Apply for marriage license at MCR. Interview conducted on residence, birth certificates verified.",
+        "Proceed to Treasury Office for payment of ₱862.",
+        "Receive official receipt.",
+        "Present OR to MCR Office. Staff advises on issuance of license.",
+        "Secure copy of marriage license. Documents released."
+      ],
+      "related": [
+        "marriage-license",
+        "marriage-counseling"
+      ],
+      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862."
+    },
+    {
+      "slug": "civil-registry-certifications",
+      "category": "civil-registry",
+      "name": "Birth / Marriage / Death Certifications",
+      "description": "Issuance of certified copies of birth, marriage, death, and other civil registry documents. Fee: ₱115 per copy. PSA endorsement available for ₱200.",
+      "description_full": "Issuance of certified copies of birth, marriage, death, and other civil registry documents from the Municipal Civil Registrar. The MCR verifies records through CRIS/Registry Book and prepares the certificate. Fee: ₱115 per copy. For PSA endorsement: additional ₱200. Various MCR forms are available depending on document availability and status.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "~18 minutes",
+      "fee": "₱115 per copy; ₱200 for PSA endorsement",
+      "where_to_apply": "Municipal Civil Registrar's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "MCR Form 1A (Birth authorization) / 1B (Birth not available) / 1C (Birth destroyed)",
+        "MCR Form 3A (Marriage) / 3B (Marriage not available) / 3C (Marriage destroyed)",
+        "MCR Form 2A (Death not available) / 3C (Death destroyed)"
+      ],
+      "procedure": [
+        "Request certification from MCR. Staff verifies through CRIS/Registry Book and prepares certificate (15 min).",
+        "MCR certifies the facts stated as to correctness.",
+        "Proceed to Treasury Office for payment of ₱115 per copy.",
+        "Present OR to MCR Office. Documents released.",
+        "For PSA endorsement: MCR verifies and prepares endorsement (₱200, 10 min)."
+      ],
+      "related": [
+        "birth-certificate",
+        "death-certificate",
+        "marriage-license"
+      ],
+      "hero_lede": "Get certified copies of birth, marriage, or death certificates at the Mapandan MCR. ₱115 per copy."
+    },
+    {
+      "slug": "legal-document-registration",
+      "category": "civil-registry",
+      "name": "Legal Document Registration",
+      "description": "Registration of legal documents including Affidavit of Legitimation, Affidavit of Acknowledgement, and RA 9255 (use of father's surname). Fee: ₱215–₱315.",
+      "description_full": "Registration of legal documents at the Municipal Civil Registrar. Covers Affidavit of Legitimation (for parents not married before child's birth), Affidavit of Acknowledgement (for fathers acknowledging children), and RA 9255 applications (use of father's surname). Fee: ₱315 for legitimation, ₱215 for acknowledgement and RA 9255. MCR examines documents, prepares attachments, and makes annotations on the registry book.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "20–25 minutes + 5 minutes for approval",
+      "fee": "₱315 (legitimation) / ₱215 (acknowledgement / RA 9255)",
+      "where_to_apply": "Municipal Civil Registrar's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Affidavit of Legitimation (for legitimation)",
+        "CENOMAR from PSA",
+        "Certified copy of child's COLB from MCR",
+        "Certified copy of parent's Marriage Certificate from MCR",
+        "Affidavit of Acknowledgement (for acknowledgement)",
+        "Affidavit to use the surname of the father (for RA 9255)",
+        "Other supporting documents: baptismal certificate, insurance policies"
+      ],
+      "procedure": [
+        "For legitimation: Parents not married before child's birth submit requirements. MCR examines documents, prepares attachments, and annotates registry book (₱315, 20–25 min).",
+        "For acknowledgement: Father acknowledges children. Same procedure as above (₱215, 20–25 min).",
+        "For RA 9255: Parents apply to use father's surname. Same procedure (₱215, 20–25 min).",
+        "MCR annotates and approves documents (5 min)."
+      ],
+      "related": [
+        "birth-registration",
+        "birth-certificate"
+      ],
+      "hero_lede": "Register legal documents at the Mapandan MCR. Legitimation, acknowledgement, and RA 9255 services available."
+    },
+    {
+      "slug": "court-order-annotation",
+      "category": "civil-registry",
+      "name": "Court Order Annotation & Adoption",
+      "description": "Annotation of COLB/COD based on court order for corrections, annulment, or presumptive death. Also covers issuance of amended COLB for adoption. Fee: ₱515.",
+      "description_full": "Annotation of Certificate of Live Birth (COLB) or Certificate of Death (COD) based on court order. Covers corrections of entries, annulment, presumptive death, and adoption. The MCR examines documents for authenticity and completeness, makes annotations on the certificate, and prepares other attachments. For adoption, an amended COLB is prepared. Fee: ₱515 for both services.",
+      "office": "Municipal Civil Registrar (MCR)",
+      "classification": "Simple",
+      "processing_time": "35–50 minutes",
+      "fee": "₱515",
+      "where_to_apply": "Municipal Civil Registrar's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Certified copy of Court petition from PSA",
+        "Court Order from PSA",
+        "Finality and certification of registration where the court is functioning from PSA"
+      ],
+      "procedure": [
+        "Present court order for correction of entries / annulment / presumptive death. MCR examines documents (30 min, ₱515).",
+        "MCR makes annotations on the certificate and prepares attachments (15 min).",
+        "For adoption: Present court order. MCR examines documents and prepares amended COLB (20 min, ₱515)."
+      ],
+      "related": [
+        "name-correction",
+        "birth-registration"
+      ],
+      "hero_lede": "Annotate civil registry documents based on court order at the Mapandan MCR. ₱515 for corrections and adoption."
     }
   ]
 }
