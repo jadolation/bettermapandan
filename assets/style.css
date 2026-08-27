@@ -243,6 +243,7 @@ p {
   height: 620px;
   opacity: 0.16;
   pointer-events: none;
+  object-fit: contain;
 }
 
 .hero .wrap {

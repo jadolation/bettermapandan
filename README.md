@@ -27,9 +27,9 @@ assets/
   style.css              All design tokens and styles — zero inline styles
                           anywhere in the generated HTML.
   script.js               Mobile nav toggle (the only JS on the site).
-  logo.png                Municipal seal — source for the header/footer marks
+  logo.svg                Municipal seal — source for the header/footer marks
                            and every generated favicon.
-  favicon.ico, favicon-*.png   Generated from logo.png.
+  favicon.ico, favicon-*.png   Generated from logo.svg.
 
 index.html, services.html, government.html,        <- BUILD OUTPUT.
 legislative.html, transparency.html                    Don't hand-edit these;
