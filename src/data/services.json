@@ -53,6 +53,30 @@
       "name": "Zoning & Planning",
       "description": "Zoning clearances for electrical, business, and land use.",
       "icon": "09"
+    },
+    {
+      "slug": "mayors-office",
+      "name": "Mayor's Office",
+      "description": "Clearances, certifications, affidavits, and other services from the Office of the Mayor.",
+      "icon": "10"
+    },
+    {
+      "slug": "disaster-risk-reduction",
+      "name": "Disaster Risk Management",
+      "description": "Emergency rescue, disaster response, and related services from the MDRRMO.",
+      "icon": "11"
+    },
+    {
+      "slug": "youth-development",
+      "name": "Youth Development",
+      "description": "Youth organization registration and development programs.",
+      "icon": "12"
+    },
+    {
+      "slug": "environment",
+      "name": "Environment",
+      "description": "Environmental complaints and protection services.",
+      "icon": "13"
     }
   ],
   "services": [
@@ -181,7 +205,10 @@
         "Pay the building permit fees at the Municipal Treasurer’s Office.",
         "Receive the approved building permit after technical evaluation."
       ],
-      "related": [],
+      "related": [
+        "assessor-building-appraisal",
+        "occupancy-permit"
+      ],
       "hero_lede": "Get a building permit from the Mapandan MEO. Simple: 3 days, Complex: 7 days, Highly Technical: 20 days per RA 11032."
     },
     {
@@ -214,7 +241,8 @@
       ],
       "related": [
         "business-renewal",
-        "business-zoning"
+        "business-zoning",
+        "mayors-clearance"
       ],
       "hero_lede": "Apply for a new business permit at the BPLO in Mapandan. Includes endorsement to Engineering, MPDC, RHU, and BFP."
     },
@@ -338,33 +366,38 @@
       "slug": "land-transfer",
       "category": "real-property",
       "name": "Transfer of Land Ownership",
-      "description": "Transfer of land ownership is the legal process of transferring property rights from one owner to another. This process involves coordination between the Municipal Assessor’s Office (MASSO) and the Municipal Treasury Office (MTO) to update property records and ensure proper tax assessment. The transfer may be due to sale, donation, inheritance, or other legal means.",
-      "description_full": "Transfer of land ownership is the legal process of transferring property rights from one owner to another. This process involves coordination between the Municipal Assessor’s Office (MASSO) and the Municipal Treasury Office (MTO) to update property records and ensure proper tax assessment. The transfer may be due to sale, donation, inheritance, or other legal means.",
-      "office": "Municipal Assessor’s Office (MASSO) + Municipal Treasury Office (MTO)",
+      "description": "Transfer of land ownership is the legal process of transferring property rights from one owner to another. This involves updating the Tax Declaration at the Assessor's Office. The transfer may be due to sale, donation, inheritance, or other legal means. Recording fee: ₱150.",
+      "description_full": "Transfer of land ownership is the legal process of transferring property rights from one owner to another. The Municipal Assessor's Office (MASSO) records the transfer and updates the Tax Declaration under the new owner's name. The client first secures a tax clearance from the Treasury Office, then submits the transfer documents to the Assessor's Office. The Assessor records the transaction, cancels the old Tax Declaration, and issues a new one. Fee: ₱150 for recording.",
+      "office": "Municipal Assessor's Office (MASSO)",
       "classification": "Complex",
-      "processing_time": "15–30 working days",
-      "fee": "Varies (assessor’s fee based on property value)",
-      "where_to_apply": "Municipal Assessor’s Office, Poblacion",
-      "contact": "(075) 696-0831 / 0998-577-3164",
-      "source": "Mapandan Citizen’s Charter",
+      "processing_time": "30 minutes (Assessor recording); full transfer may take 15–30 working days",
+      "fee": "₱150 (recording fee at Assessor's Office)",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Deed of sale or deed of donation (depending on transfer type)",
-        "Tax clearance from the Municipal Treasurer’s Office",
-        "Valid government-issued ID of the new owner",
-        "Original tax declaration",
-        "Bureau of Internal Revenue (BIR) certificate of registration"
+        "Deed of Sale, Deed of Donation, or other proof of transfer",
+        "Tax Clearance from the Municipal Treasurer's Office",
+        "Certified True Copy of Tax Declaration (from Assessor's Office)",
+        "Valid Government-issued ID of the new owner",
+        "BIR Certificate of Registration (if applicable)"
       ],
       "procedure": [
-        "Secure a tax clearance from the Municipal Treasurer’s Office.",
-        "Obtain the BIR certificate of registration for the transfer.",
-        "Submit all required documents to the Municipal Assessor’s Office (MASSO).",
-        "Pay the assessor’s fee based on the property value.",
-        "Wait for processing and verification of documents.",
-        "Receive the updated tax declaration under the new owner’s name."
+        "Secure a Tax Clearance from the Municipal Treasurer's Office.",
+        "Obtain a Certified True Copy of the Tax Declaration from the Assessor's Office.",
+        "Submit all required documents to the Assessor's Office.",
+        "Assessor reviews and records the transfer (15 min).",
+        "Assessor cancels the old Tax Declaration and prepares the new one (10 min).",
+        "Pay ₱150 recording fee at the Treasury Office.",
+        "Claim the new Tax Declaration under the new owner's name (5 min)."
       ],
-      "related": [],
-      "hero_lede": "Transfer land ownership in Mapandan. Learn about the requirements, procedures, and fees for property transfer at the Assessor's Office."
+      "related": [
+        "assessor-annotations",
+        "rpt-payment",
+        "assessor-true-copy"
+      ],
+      "hero_lede": "Transfer land ownership in Mapandan at the Assessor's Office. ₱150 recording fee, 30 minutes for Assessor processing."
     },
     {
       "slug": "marriage-license",
@@ -396,7 +429,10 @@
         "Wait for the 10-day publication period.",
         "After publication, claim the marriage license from the MCR."
       ],
-      "related": [],
+      "related": [
+        "solemnization-of-marriage",
+        "pre-marriage-counseling-pop"
+      ],
       "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862. Includes 10-day publication period."
     },
     {
@@ -586,29 +622,32 @@
       "slug": "tax-declaration",
       "category": "real-property",
       "name": "Tax Declaration Copy",
-      "description": "A tax declaration is an official document that shows the assessed value of your real property for taxation purposes. Property owners may request certified copies of their tax declaration for various legal, financial, and administrative transactions, including property sales, loans, and insurance applications.",
-      "description_full": "A tax declaration is an official document that shows the assessed value of your real property for taxation purposes. Property owners may request certified copies of their tax declaration for various legal, financial, and administrative transactions, including property sales, loans, and insurance applications.",
-      "office": "Municipal Assessor’s Office (MASSO)",
+      "description": "A tax declaration is an official document that shows the assessed value of your real property for taxation purposes. Property owners may request certified copies of their tax declaration for various legal, financial, and administrative transactions. Fee: ₱100 per certified true copy.",
+      "description_full": "A tax declaration is an official document that shows the assessed value of your real property for taxation purposes. The Municipal Assessor's Office (MASSO) of Mapandan issues certified true copies of Tax Declarations upon request. This document is required for property sales, loans, insurance applications, tax payments, and other legal transactions. The client submits a written request with property details and the Assessor's Office locates the record, prepares the certified true copy, and releases it upon payment.",
+      "office": "Municipal Assessor's Office (MASSO)",
       "classification": "Simple",
-      "processing_time": "1–3 working days",
-      "fee": "₱50 per copy",
-      "where_to_apply": "Municipal Assessor’s Office, Poblacion",
-      "contact": "(075) 696-0831 / 0998-577-3164",
-      "source": "Mapandan Citizen’s Charter",
+      "processing_time": "15 minutes",
+      "fee": "₱100 per certified true copy",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
       "last_updated": "August 2025",
       "requirements": [
-        "Valid government-issued ID",
-        "Written request stating the purpose of the request",
-        "Payment of ₱50 per copy"
+        "Written request stating the property location (lot number, block, street, barangay)",
+        "Valid Government-issued ID"
       ],
       "procedure": [
-        "Submit a written request to the Municipal Assessor’s Office (MASSO) stating the purpose of your request.",
-        "Present your valid government-issued ID for verification.",
-        "Pay ₱50 per copy at the designated payment counter.",
-        "Receive your certified tax declaration copy after processing."
+        "Submit a written request with property details and valid ID to the Assessor's Office.",
+        "Staff receives and verifies the request (5 min).",
+        "Staff locates the Tax Declaration in the records (5 min).",
+        "Staff prepares the certified true copy and stamps it (3 min).",
+        "Pay ₱100 at the Treasury Office and claim the document (2 min)."
       ],
-      "related": [],
-      "hero_lede": "Request a copy of your tax declaration from the Municipal Assessor's Office in Mapandan. Learn about fees, requirements, and processing time."
+      "related": [
+        "rpt-payment",
+        "assessor-true-copy"
+      ],
+      "hero_lede": "Request a copy of your tax declaration from the Municipal Assessor's Office in Mapandan. ₱100 per certified true copy, 15 minutes processing."
     },
     {
       "slug": "zoning-clearance",
@@ -667,7 +706,8 @@
       ],
       "related": [
         "aics",
-        "social-case-study"
+        "social-case-study",
+        "philhealth-enrollment"
       ],
       "hero_lede": "Get a Certificate of Indigency from the MSWDO for hospital discounts, legal aid, scholarships, and other social services."
     },
@@ -956,7 +996,9 @@
         "MSWDO monitors and evaluates project implementation for house repair/reconstruction."
       ],
       "related": [
-        "aics"
+        "aics",
+        "ldrrmo-rescue-operation",
+        "environmental-complaint"
       ],
       "hero_lede": "Disaster relief assistance for families affected by calamities in Mapandan. Relief goods and housing repair assistance available."
     },
@@ -1957,6 +1999,834 @@
         "birth-registration"
       ],
       "hero_lede": "Annotate civil registry documents based on court order at the Mapandan MCR. ₱515 for corrections and adoption."
+    },
+    {
+      "slug": "mayors-clearance",
+      "category": "mayors-office",
+      "name": "Mayor's Clearance & Certificates",
+      "description": "The Office of the Mayor issues various clearances and certificates to residents and businesses of Mapandan. This includes residency clearance, business endorsement, and other official certifications signed by the Mayor.",
+      "description_full": "The Office of the Mayor issues various clearances and certificates to residents and businesses of Mapandan. The staff receives the request, verifies the applicant's records, prepares the document, and submits it to the Mayor for signature. The client pays the required fee at the Treasury Office before claiming the document.",
+      "office": "Office of the Municipal Mayor",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱130",
+      "where_to_apply": "Office of the Municipal Mayor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter of Request",
+        "Valid Government-issued ID",
+        "Community Tax Certificate (Cedula) from Treasury Office"
+      ],
+      "procedure": [
+        "Submit letter of request and valid ID to the Mayor's Office.",
+        "Staff receives and reviews the request (5 min).",
+        "Pay ₱130 at the Treasury Office and obtain official receipt.",
+        "Present OR to the Mayor's Office. Staff prepares the document for the Mayor's signature (5 min).",
+        "Receive the signed clearance or certificate (5 min)."
+      ],
+      "related": [
+        "cedula",
+        "business-permit"
+      ],
+      "hero_lede": "Get a clearance or certificate signed by the Mayor of Mapandan. ₱130 fee, 15 minutes processing."
+    },
+    {
+      "slug": "subscription-of-affidavits",
+      "category": "mayors-office",
+      "name": "Subscription of Affidavits",
+      "description": "The Office of the Mayor administers the subscription of affidavits for residents of Mapandan. The Mayor or authorized representative administers the oath and signs the affidavit.",
+      "description_full": "The Office of the Mayor administers the subscription of affidavits for residents of Mapandan. The client presents the draft affidavit, the Mayor or authorized representative administers the oath, and the document is signed and sealed. The client pays the required fee at the Treasury Office.",
+      "office": "Office of the Municipal Mayor",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱130",
+      "where_to_apply": "Office of the Municipal Mayor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Draft Affidavit (printed in legal size bond paper)",
+        "Valid Government-issued ID of the affiant",
+        "Community Tax Certificate (Cedula) from Treasury Office"
+      ],
+      "procedure": [
+        "Present the draft affidavit and valid ID to the Mayor's Office.",
+        "Staff reviews the document (5 min).",
+        "Pay ₱130 at the Treasury Office and obtain official receipt.",
+        "Present OR. The Mayor or authorized representative administers the oath and signs the affidavit (5 min).",
+        "Receive the notarized affidavit (5 min)."
+      ],
+      "related": [
+        "mayors-clearance",
+        "cedula"
+      ],
+      "hero_lede": "Have your affidavit subscribed and sworn before the Mayor of Mapandan. ₱130 fee, 15 minutes processing."
+    },
+    {
+      "slug": "solemnization-of-marriage",
+      "category": "mayors-office",
+      "name": "Solemnization of Marriage",
+      "description": "The Municipal Mayor of Mapandan is authorized to solemnize marriages. Couples with a valid marriage license may request the Mayor to officiate their wedding ceremony at the Mayor's Office or an agreed venue.",
+      "description_full": "The Municipal Mayor of Mapandan is authorized to solemnize marriages under the Family Code of the Philippines. Couples must first obtain a marriage license from the Municipal Civil Registrar. The Mayor's Office schedules the ceremony and the Mayor administers the marriage rites. A Certificate of Marriage is prepared and signed by the Mayor, the couple, and witnesses.",
+      "office": "Office of the Municipal Mayor",
+      "classification": "Simple",
+      "processing_time": "15 minutes (ceremony)",
+      "fee": "Free",
+      "where_to_apply": "Office of the Municipal Mayor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid Marriage License (from Municipal Civil Registrar)",
+        "Valid Government-issued IDs of both parties",
+        "Two (2) witnesses with valid IDs"
+      ],
+      "procedure": [
+        "Present the Marriage License and valid IDs to the Mayor's Office.",
+        "Staff schedules the solemnization date and time.",
+        "Appear on the scheduled date with two (2) witnesses.",
+        "The Mayor administers the marriage rites and signs the Certificate of Marriage.",
+        "Receive the signed Certificate of Marriage."
+      ],
+      "related": [
+        "marriage-license",
+        "pre-marriage-counseling-pop"
+      ],
+      "hero_lede": "Have your marriage solemnized by the Mayor of Mapandan. Free service for couples with a valid marriage license."
+    },
+    {
+      "slug": "mayors-recommendation",
+      "category": "mayors-office",
+      "name": "Mayor's Employment Recommendation",
+      "description": "The Office of the Mayor issues recommendation letters for residents seeking employment, scholarship, or other opportunities. The letter certifies the applicant's good moral character and residency in Mapandan.",
+      "description_full": "The Office of the Mayor issues recommendation letters for residents of Mapandan who are applying for employment, scholarship, or other opportunities requiring a character reference from the Local Chief Executive. The staff reviews the application, prepares the recommendation letter, and submits it to the Mayor for signature.",
+      "office": "Office of the Municipal Mayor",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "Free",
+      "where_to_apply": "Office of the Municipal Mayor, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter of Request stating the purpose",
+        "Valid Government-issued ID",
+        "Barangay Certification of Residency",
+        "Resume or CV (for employment)"
+      ],
+      "procedure": [
+        "Submit letter of request, valid ID, and barangay certification to the Mayor's Office.",
+        "Staff reviews and verifies the documents (5 min).",
+        "Staff prepares the recommendation letter for the Mayor's signature (5 min).",
+        "Receive the signed recommendation letter (5 min)."
+      ],
+      "related": [
+        "mayors-clearance",
+        "certificate-of-indigency"
+      ],
+      "hero_lede": "Get a recommendation letter from the Mayor for employment, scholarship, or other opportunities. Free service."
+    },
+    {
+      "slug": "ldrrmo-document-request",
+      "category": "disaster-risk-reduction",
+      "name": "MDRRMO Document & Information Request",
+      "description": "The Municipal Disaster Risk Reduction and Management Office (MDRRMO) provides copies of documents and information related to disaster risk management, hazard maps, and emergency plans to requesting individuals or organizations.",
+      "description_full": "The MDRRMO provides copies of documents and information related to disaster risk management upon request. This includes hazard maps, evacuation plans, disaster risk reduction plans, and other related documents. The client submits a letter of request, and the MDRRMO staff verifies availability and prepares the documents.",
+      "office": "Municipal Disaster Risk Reduction and Management Office (MDRRMO)",
+      "classification": "Simple",
+      "processing_time": "7 minutes",
+      "fee": "Free",
+      "where_to_apply": "MDRRMO Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter of Request specifying the document or information needed",
+        "Valid Government-issued ID"
+      ],
+      "procedure": [
+        "Submit letter of request and valid ID to the MDRRMO Office.",
+        "Staff receives and reviews the request (2 min).",
+        "Staff verifies availability of the requested document or information (3 min).",
+        "If available, staff prepares and releases the document or information (2 min)."
+      ],
+      "related": [
+        "ldrrmo-rescue-operation",
+        "disaster-relief"
+      ],
+      "hero_lede": "Request disaster risk management documents and information from the MDRRMO in Mapandan. Free service."
+    },
+    {
+      "slug": "ldrrmo-training-seminar",
+      "category": "disaster-risk-reduction",
+      "name": "MDRRMO Training, Seminar & Workshop Request",
+      "description": "The MDRRMO conducts training, seminars, and workshops on disaster preparedness, first aid, search and rescue, and other DRRM-related topics for barangays, schools, and organizations in Mapandan.",
+      "description_full": "The MDRRMO conducts training, seminars, and workshops on disaster preparedness and risk reduction for barangay officials, community volunteers, students, and organizations. Topics include first aid, basic life support, search and rescue, fire suppression, and emergency response. The requesting entity submits a letter of request specifying the desired topic, schedule, and expected participants.",
+      "office": "Municipal Disaster Risk Reduction and Management Office (MDRRMO)",
+      "classification": "Simple",
+      "processing_time": "10 minutes (coordination); training schedule varies",
+      "fee": "Free",
+      "where_to_apply": "MDRRMO Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter of Request specifying topic, preferred schedule, and number of participants",
+        "Endorsement from the Barangay Captain (for barangay-level requests)"
+      ],
+      "procedure": [
+        "Submit letter of request and endorsement to the MDRRMO Office.",
+        "Staff receives and evaluates the request (3 min).",
+        "MDRRMO schedules the training, seminar, or workshop (coordination varies).",
+        "MDRRMO conducts the training at the agreed venue and schedule.",
+        "Participants receive certificates of completion (if applicable)."
+      ],
+      "related": [
+        "ldrrmo-rescue-operation",
+        "disaster-relief"
+      ],
+      "hero_lede": "Request a disaster preparedness training or seminar from the MDRRMO in Mapandan. Free for barangays and organizations."
+    },
+    {
+      "slug": "ldrrmo-rescue-operation",
+      "category": "disaster-risk-reduction",
+      "name": "MDRRMO Rescue Operation & Emergency Medical Transport",
+      "description": "The MDRRMO provides emergency rescue operations and medical transportation for residents of Mapandan during disasters, accidents, and medical emergencies. The service includes deployment of rescue teams and ambulance.",
+      "description_full": "The MDRRMO provides 24/7 emergency rescue operations and medical transportation for residents of Mapandan. During disasters, accidents, and medical emergencies, the MDRRMO deploys its rescue teams and ambulance to respond to calls. The client or a family member contacts the MDRRMO hotline or reports in person. The MDRRMO assesses the situation, deploys the appropriate response team, and provides transportation to the nearest hospital if needed.",
+      "office": "Municipal Disaster Risk Reduction and Management Office (MDRRMO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes (response time varies by location and situation)",
+      "fee": "Free",
+      "where_to_apply": "MDRRMO Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831 / Emergency Hotline",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "No prior requirements needed for emergency response — call or report directly"
+      ],
+      "procedure": [
+        "Call the MDRRMO hotline or report to the MDRRMO Office in case of emergency.",
+        "Provide details of the emergency: location, nature of incident, number of persons affected.",
+        "MDRRMO assesses the situation and deploys the rescue team and/or ambulance.",
+        "Rescue team provides first aid, rescue operations, or medical transportation as needed.",
+        "Patient or affected individuals are transported to the nearest hospital or safe location."
+      ],
+      "related": [
+        "health-consultation",
+        "disaster-relief"
+      ],
+      "hero_lede": "Emergency rescue and medical transport from the MDRRMO in Mapandan. Call the hotline for immediate assistance."
+    },
+    {
+      "slug": "ldrrmo-transportation",
+      "category": "disaster-risk-reduction",
+      "name": "MDRRMO Standby / Transportation Request",
+      "description": "The MDRRMO provides standby and transportation services for events, activities, and operations that require emergency preparedness and medical standby support.",
+      "description_full": "The MDRRMO provides standby and transportation services for events, activities, and operations that require emergency preparedness and medical standby support. This includes deployment of ambulances and rescue vehicles for large gatherings, sports events, and other activities. The requesting entity submits a letter of request specifying the event details and expected requirements.",
+      "office": "Municipal Disaster Risk Reduction and Management Office (MDRRMO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes (coordination and deployment)",
+      "fee": "Free",
+      "where_to_apply": "MDRRMO Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter of Request specifying event details, schedule, and venue",
+        "Event permit or endorsement from the Mayor's Office (if applicable)"
+      ],
+      "procedure": [
+        "Submit letter of request and event details to the MDRRMO Office.",
+        "Staff receives and evaluates the request (5 min).",
+        "MDRRMO coordinates the standby or transportation requirements (15 min).",
+        "MDRRMO deploys the ambulance and/or rescue vehicle to the event venue.",
+        "After the event, the MDRRMO unit stands down and returns to the station."
+      ],
+      "related": [
+        "ldrrmo-rescue-operation",
+        "special-event-permit"
+      ],
+      "hero_lede": "Request standby or transportation support from the MDRRMO for events and activities in Mapandan. Free service."
+    },
+    {
+      "slug": "ldrrmo-walk-in",
+      "category": "disaster-risk-reduction",
+      "name": "MDRRMO Walk-In Client Assistance",
+      "description": "The MDRRMO provides walk-in assistance to residents who visit the office for disaster-related inquiries, complaints, coordination, and other concerns.",
+      "description_full": "The MDRRMO provides walk-in assistance to residents who visit the office for disaster-related inquiries, complaints, coordination, and other concerns. The client is received by the duty officer, who assesses the concern and provides the appropriate assistance or referral. The MDRRMO also handles reports on flood damage, landslide, fire incidents, and other disaster-related events.",
+      "office": "Municipal Disaster Risk Reduction and Management Office (MDRRMO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "Free",
+      "where_to_apply": "MDRRMO Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid Government-issued ID (for verification)",
+        "Any supporting documents related to the concern (if applicable)"
+      ],
+      "procedure": [
+        "Visit the MDRRMO Office and approach the duty officer.",
+        "Duty officer receives the client and assesses the concern (5 min).",
+        "Duty officer provides the appropriate assistance, information, or referral (5 min).",
+        "If the concern requires further action, the MDRRMO coordinates with the appropriate unit or agency (5 min)."
+      ],
+      "related": [
+        "ldrrmo-rescue-operation",
+        "ldrrmo-document-request"
+      ],
+      "hero_lede": "Walk in to the MDRRMO Office for disaster-related inquiries, complaints, and coordination assistance. Free service."
+    },
+    {
+      "slug": "youth-organization-registration",
+      "category": "youth-development",
+      "name": "Youth Organization Registration Program (YORP)",
+      "description": "The Local Youth Development Office (LYDO) registers youth organizations in Mapandan under the Youth Organization Registration Program. Registration provides official recognition and access to LGU support, funding, and participation in youth programs.",
+      "description_full": "The Local Youth Development Office (LYDO) administers the Youth Organization Registration Program (YORP) as mandated by the SK Reform Act (RA 11769). Registration provides official recognition of the youth organization, access to LGU support and funding opportunities, and participation in municipal, provincial, and national youth programs and activities. The LYDO assesses the application, verifies membership composition, and issues the Certificate of Registration.",
+      "office": "Local Youth Development Office (LYDO)",
+      "classification": "Simple",
+      "processing_time": "10 minutes (processing); registration valid upon approval",
+      "fee": "Free",
+      "where_to_apply": "LYDO Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Letter of Intent to Register from the organization",
+        "Constitution and By-Laws of the organization",
+        "List of Officers and Members with ages (must be 15–30 years old)",
+        "Minutes of the organization's founding meeting",
+        "Endorsement from the Barangay Captain (if barangay-level organization)"
+      ],
+      "procedure": [
+        "Submit the letter of intent and all required documents to the LYDO Office.",
+        "LYDO staff receives and reviews the application (3 min).",
+        "LYDO verifies the membership composition and constitution (3 min).",
+        "LYDO prepares the Certificate of Registration (2 min).",
+        "Receive the Certificate of Registration upon approval (2 min)."
+      ],
+      "related": [
+        "certificate-of-indigency",
+        "public-information"
+      ],
+      "hero_lede": "Register your youth organization with the LYDO in Mapandan under the YORP. Free service, official recognition and program access."
+    },
+    {
+      "slug": "assessor-true-copy",
+      "category": "real-property",
+      "name": "Certified True Copy of Tax Declaration",
+      "description": "The Municipal Assessor's Office issues certified true copies of Tax Declarations for real properties located in Mapandan. This document shows the assessed value of land, buildings, and improvements for taxation purposes.",
+      "description_full": "The Municipal Assessor's Office issues certified true copies of Tax Declarations upon request. The Tax Declaration is an official document showing the assessed value of real property for taxation purposes. The client submits a written request with the property details. The Assessor's Office locates the record, prepares the certified true copy, and releases it upon payment.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱100 per certified true copy",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Written request stating the property location (lot number, block, street, barangay)",
+        "Valid Government-issued ID"
+      ],
+      "procedure": [
+        "Submit a written request with property details and valid ID to the Assessor's Office.",
+        "Staff receives and verifies the request (5 min).",
+        "Staff locates the Tax Declaration in the records (5 min).",
+        "Staff prepares the certified true copy and stamps it (3 min).",
+        "Pay ₱100 at the Treasury Office and claim the document (2 min)."
+      ],
+      "related": [
+        "tax-declaration",
+        "rpt-payment"
+      ],
+      "hero_lede": "Get a certified true copy of your Tax Declaration from the Assessor's Office. ₱100, 15 minutes processing."
+    },
+    {
+      "slug": "assessor-improvement-certificate",
+      "category": "real-property",
+      "name": "No Improvement / With Improvement Certificate",
+      "description": "The Municipal Assessor's Office issues a certificate indicating whether a property has declared improvements (buildings, structures, or other constructions). This is required for various transactions including property sale and loan applications.",
+      "description_full": "The Municipal Assessor's Office issues a certificate indicating whether a real property has declared improvements such as buildings, structures, or other constructions on the land. This certificate is required for property transactions, loan applications, and other legal purposes. The fee depends on the assessed value of the property.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱100 (if assessed value ≤ ₱100,000) / ₱200 (₱100,001–₱500,000) / ₱300 (₱500,001–₱1,000,000) / ₱600 (above ₱1,000,000)",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Written request stating the property location",
+        "Valid Government-issued ID"
+      ],
+      "procedure": [
+        "Submit a written request with property details and valid ID to the Assessor's Office.",
+        "Staff receives and verifies the request (5 min).",
+        "Staff checks the property record for declared improvements (5 min).",
+        "Staff prepares and issues the certificate (3 min).",
+        "Pay the required fee at the Treasury Office and claim the certificate (2 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "assessor-building-appraisal"
+      ],
+      "hero_lede": "Get a No Improvement or With Improvement Certificate from the Assessor's Office. Fees ₱100–₱600 based on assessed value."
+    },
+    {
+      "slug": "assessor-landholdings",
+      "category": "real-property",
+      "name": "Landholdings Certificate",
+      "description": "The Municipal Assessor's Office issues a Landholdings Certificate showing all real properties registered under a person's name within the municipality. This is required for tax compliance verification and legal transactions.",
+      "description_full": "The Municipal Assessor's Office issues a Landholdings Certificate showing all real properties registered under a person's name within the Municipality of Mapandan. This certificate is used for tax compliance verification, legal transactions, and property portfolio documentation. The client submits a written request, and the Assessor's Office compiles the information from the property records.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱100",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Written request stating the name of the property owner",
+        "Valid Government-issued ID"
+      ],
+      "procedure": [
+        "Submit a written request with the property owner's name and valid ID to the Assessor's Office.",
+        "Staff receives and verifies the request (5 min).",
+        "Staff searches the records for all properties under the name (5 min).",
+        "Staff compiles and prepares the Landholdings Certificate (3 min).",
+        "Pay ₱100 at the Treasury Office and claim the certificate (2 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "rpt-payment"
+      ],
+      "hero_lede": "Get a Landholdings Certificate showing all your registered properties in Mapandan. ₱100, 15 minutes processing."
+    },
+    {
+      "slug": "assessor-declare-undeclared",
+      "category": "real-property",
+      "name": "Declaring Undeclared Properties",
+      "description": "Property owners who have not declared their real property for taxation may voluntarily declare it with the Municipal Assessor's Office. The Assessor appraises the property and issues a new Tax Declaration.",
+      "description_full": "Property owners who have not declared their real property for taxation purposes may voluntarily declare it with the Municipal Assessor's Office. The Assessor appraises the land and any improvements, and issues a new Tax Declaration. This process brings the property into the tax rolls and avoids penalties for non-declaration. The fee covers the appraisal and declaration process.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes",
+      "fee": "₱700",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid Government-issued ID of the property owner",
+        "Proof of ownership (Deed of Sale, Deed of Donation, Tax-Exempt Certificate, or Inheritance documents)",
+        "Blueprints or sketches of the property (if available)",
+        "Barangay Certification of ownership"
+      ],
+      "procedure": [
+        "Visit the Assessor's Office and submit all required documents.",
+        "Staff receives and reviews the application (5 min).",
+        "Assessor conducts appraisal of the land and improvements (15 min).",
+        "Staff prepares the Tax Declaration (5 min).",
+        "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "assessor-appraisal-untitled"
+      ],
+      "hero_lede": "Declare an undeclared property with the Assessor's Office. ₱700 appraisal fee, 30 minutes processing."
+    },
+    {
+      "slug": "assessor-declare-missing",
+      "category": "real-property",
+      "name": "Declaring Unrevised / Missing Tax Declaration",
+      "description": "Property owners whose Tax Declaration has been lost, destroyed, or never issued may apply for a replacement or new declaration with the Municipal Assessor's Office.",
+      "description_full": "Property owners whose Tax Declaration has been lost, destroyed, or was never issued may apply for a replacement or new declaration with the Municipal Assessor's Office. The Assessor verifies the property records, conducts appraisal if needed, and issues a new Tax Declaration. This ensures the property remains in the tax rolls with accurate records.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes",
+      "fee": "₱700",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Affidavit of Loss (if Tax Declaration was lost or destroyed)",
+        "Valid Government-issued ID",
+        "Proof of ownership (Deed of Sale, Tax receipts, or other documents)",
+        "Blueprints or sketches of the property (if available)"
+      ],
+      "procedure": [
+        "Visit the Assessor's Office and submit all required documents.",
+        "Staff receives and verifies the application (5 min).",
+        "Assessor checks records and conducts appraisal if needed (15 min).",
+        "Staff prepares the new Tax Declaration (5 min).",
+        "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "assessor-declare-undeclared"
+      ],
+      "hero_lede": "Replace a lost or missing Tax Declaration at the Assessor's Office. ₱700 fee, 30 minutes processing."
+    },
+    {
+      "slug": "assessor-appraisal-titled",
+      "category": "real-property",
+      "name": "Appraisal for Newly Declared Titled Property",
+      "description": "The Municipal Assessor's Office conducts appraisal of newly declared titled real property for tax assessment purposes. The assessed value is used as basis for real property tax computation.",
+      "description_full": "The Municipal Assessor's Office conducts appraisal of newly declared titled real property to determine its assessed value for taxation purposes. The appraisal covers the land area, market value, and any improvements. The assessed value becomes the basis for computing real property taxes. The process includes review of the title, site inspection, and computation of assessed value.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes",
+      "fee": "₱700",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Transfer Certificate of Title (TCT) or Condominium Certificate of Title (CCT)",
+        "Valid Government-issued ID of the owner",
+        "Deed of Sale or other proof of acquisition",
+        "Blueprints or sketches of improvements (if any)"
+      ],
+      "procedure": [
+        "Submit all required documents to the Assessor's Office.",
+        "Staff receives and reviews the application (5 min).",
+        "Assessor reviews the title and conducts site inspection if needed (15 min).",
+        "Staff computes the assessed value and prepares the Tax Declaration (5 min).",
+        "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "land-transfer",
+        "rpt-payment"
+      ],
+      "hero_lede": "Get your newly titled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing."
+    },
+    {
+      "slug": "assessor-appraisal-untitled",
+      "category": "real-property",
+      "name": "Appraisal for Newly Declared Untitled Property",
+      "description": "The Municipal Assessor's Office conducts appraisal of newly declared untitled real property for tax assessment purposes. This covers properties without a registered title but with proof of ownership.",
+      "description_full": "The Municipal Assessor's Office conducts appraisal of newly declared untitled real property to determine its assessed value for taxation purposes. Untitled properties are appraised based on the land area, market value, location, and any improvements. The assessed value becomes the basis for computing real property taxes. The process includes verification of ownership documents, site inspection, and computation of assessed value.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes",
+      "fee": "₱700",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid Government-issued ID of the owner",
+        "Proof of ownership (Deed of Sale, Deed of Donation, Tax-Exempt Certificate, or Inheritance documents)",
+        "Blueprints or sketches of the property (if available)",
+        "Barangay Certification of ownership"
+      ],
+      "procedure": [
+        "Submit all required documents to the Assessor's Office.",
+        "Staff receives and reviews the application (5 min).",
+        "Assessor conducts site inspection and appraisal (15 min).",
+        "Staff computes the assessed value and prepares the Tax Declaration (5 min).",
+        "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
+      ],
+      "related": [
+        "assessor-declare-undeclared",
+        "assessor-appraisal-titled"
+      ],
+      "hero_lede": "Get your untitled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing."
+    },
+    {
+      "slug": "assessor-building-appraisal",
+      "category": "real-property",
+      "name": "Building Appraisal / Assessment",
+      "description": "The Municipal Assessor's Office conducts appraisal and assessment of buildings and other structures for real property taxation. This includes new construction, renovation, and re-appraisal of existing buildings.",
+      "description_full": "The Municipal Assessor's Office conducts appraisal and assessment of buildings and other structures for real property taxation purposes. The assessment covers the type of construction, floor area, materials used, depreciation, and current market value. The assessed value of the building is added to the land's assessed value for real property tax computation. The process includes review of building plans, site inspection, and computation of assessed value.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes",
+      "fee": "₱700",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Building plans or blueprints",
+        "Certificate of Occupancy (from MEO)",
+        "Valid Government-issued ID of the owner",
+        "Tax Declaration of the land"
+      ],
+      "procedure": [
+        "Submit all required documents to the Assessor's Office.",
+        "Staff receives and reviews the application (5 min).",
+        "Assessor conducts site inspection of the building (15 min).",
+        "Staff computes the assessed value and prepares the updated Tax Declaration (5 min).",
+        "Pay ₱700 at the Treasury Office and claim the updated Tax Declaration (5 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "building-permit",
+        "occupancy-permit"
+      ],
+      "hero_lede": "Get your building appraised and assessed by the Assessor's Office. ₱700 fee, 30 minutes processing."
+    },
+    {
+      "slug": "assessor-reclassification",
+      "category": "real-property",
+      "name": "Land Reclassification / Reassessment",
+      "description": "The Municipal Assessor's Office conducts reclassification or reassessment of land when there is a change in land use, classification, or other factors affecting the property's assessed value.",
+      "description_full": "The Municipal Assessor's Office conducts reclassification or reassessment of land when there is a change in land use, zoning classification, or other factors affecting the property's assessed value. This may be triggered by rezoning, subdivision, conversion from agricultural to residential or commercial use, or other changes. The Assessor reviews the applicable ordinances, conducts inspection, and updates the Tax Declaration accordingly.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "30 minutes",
+      "fee": "₱700",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Written request stating the reason for reclassification/reassessment",
+        "Valid Government-issued ID",
+        "Zoning clearance or land use change approval (from MPDC)",
+        "Current Tax Declaration"
+      ],
+      "procedure": [
+        "Submit written request, valid ID, and supporting documents to the Assessor's Office.",
+        "Staff receives and reviews the application (5 min).",
+        "Assessor reviews zoning/land use changes and conducts inspection (15 min).",
+        "Staff updates the Tax Declaration with the new classification and assessed value (5 min).",
+        "Pay ₱700 at the Treasury Office and claim the updated Tax Declaration (5 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "zoning-clearance"
+      ],
+      "hero_lede": "Reclassify or reassess your land at the Assessor's Office. ₱700 fee, 30 minutes processing."
+    },
+    {
+      "slug": "assessor-tax-map",
+      "category": "real-property",
+      "name": "Tax Map Issuance",
+      "description": "The Municipal Assessor's Office issues tax maps showing the location, boundaries, and lot details of real properties for taxation and legal purposes.",
+      "description_full": "The Municipal Assessor's Office issues tax maps showing the location, boundaries, dimensions, and lot details of real properties within Mapandan. Tax maps are required for property transactions, land use planning, and other legal purposes. The client submits a written request with the lot details, and the Assessor's Office prepares the tax map from their records.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱100",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Written request specifying the lot number, block, street, and barangay",
+        "Valid Government-issued ID"
+      ],
+      "procedure": [
+        "Submit a written request with lot details and valid ID to the Assessor's Office.",
+        "Staff receives and verifies the request (3 min).",
+        "Staff locates the tax map in the records (7 min).",
+        "Staff prepares and issues the tax map (3 min).",
+        "Pay ₱100 at the Treasury Office and claim the tax map (2 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "assessor-landholdings"
+      ],
+      "hero_lede": "Get a tax map from the Assessor's Office showing your property's location and boundaries. ₱100, 15 minutes."
+    },
+    {
+      "slug": "assessor-inquiries",
+      "category": "real-property",
+      "name": "Inquiries & Verifications",
+      "description": "The Municipal Assessor's Office provides information and verification services regarding real property records, assessed values, tax declarations, and other property-related inquiries.",
+      "description_full": "The Municipal Assessor's Office provides information and verification services regarding real property records, assessed values, tax declarations, and other property-related inquiries. The client may inquire about the status of their property, verify assessed values, check for outstanding obligations, or request general information about property taxation. The Assessor's Office staff provides the information from their records.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱100",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid Government-issued ID",
+        "Property details (lot number, block, street, barangay) if inquiring about a specific property"
+      ],
+      "procedure": [
+        "Visit the Assessor's Office and present your valid ID.",
+        "State your inquiry or verification request to the staff.",
+        "Staff looks up the information in the records (10 min).",
+        "Staff provides the information or prints the verification document (3 min).",
+        "Pay ₱100 at the Treasury Office if a printed document is required (2 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "assessor-tax-map"
+      ],
+      "hero_lede": "Inquire or verify real property records at the Assessor's Office. ₱100 for printed verification, 15 minutes."
+    },
+    {
+      "slug": "assessor-certificates",
+      "category": "real-property",
+      "name": "Other Assessor Certificates",
+      "description": "The Municipal Assessor's Office issues various other certificates related to real property, including clearance certificates, non-declaration certificates, and other property-related certifications.",
+      "description_full": "The Municipal Assessor's Office issues various certificates related to real property beyond the standard Tax Declaration copies. These include clearance certificates, non-declaration certificates, and other property-related certifications needed for legal, financial, and administrative transactions. The fee is ₱100 per certificate.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes",
+      "fee": "₱100",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Written request specifying the type of certificate needed",
+        "Valid Government-issued ID",
+        "Property details (lot number, block, street, barangay)"
+      ],
+      "procedure": [
+        "Submit a written request with property details and valid ID to the Assessor's Office.",
+        "Staff receives and reviews the request (3 min).",
+        "Staff verifies the information in the records (7 min).",
+        "Staff prepares and issues the certificate (3 min).",
+        "Pay ₱100 at the Treasury Office and claim the certificate (2 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "assessor-inquiries"
+      ],
+      "hero_lede": "Get various property-related certificates from the Assessor's Office. ₱100 per certificate, 15 minutes."
+    },
+    {
+      "slug": "assessor-annotations",
+      "category": "real-property",
+      "name": "Recording & Cancellation of Annotations",
+      "description": "The Municipal Assessor's Office records new annotations (such as mortgages, liens, and court orders) or cancels existing annotations on Tax Declarations. This ensures accurate property records for legal and financial transactions.",
+      "description_full": "The Municipal Assessor's Office records new annotations or cancels existing annotations on Tax Declarations. Annotations include mortgages, liens, legal inhibitions, court orders, and other encumbrances affecting the property. The client submits the supporting documents (e.g., Deed of Mortgage, Release of Mortgage, Court Order), and the Assessor's Office updates the Tax Declaration accordingly.",
+      "office": "Municipal Assessor's Office (MASSO)",
+      "classification": "Simple",
+      "processing_time": "20 minutes",
+      "fee": "₱150",
+      "where_to_apply": "Municipal Assessor's Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Deed of Mortgage / Release of Mortgage (for mortgage annotations)",
+        "Court Order or Writ of Attachment (for legal annotations)",
+        "Valid Government-issued ID of the property owner",
+        "Current Tax Declaration"
+      ],
+      "procedure": [
+        "Submit the supporting documents and valid ID to the Assessor's Office.",
+        "Staff receives and reviews the documents (5 min).",
+        "Staff verifies the authenticity and completeness of the documents (5 min).",
+        "Staff records the annotation or cancellation on the Tax Declaration (5 min).",
+        "Pay ₱150 at the Treasury Office and claim the updated Tax Declaration (5 min)."
+      ],
+      "related": [
+        "assessor-true-copy",
+        "land-transfer"
+      ],
+      "hero_lede": "Record or cancel annotations on your Tax Declaration at the Assessor's Office. ₱150, 20 minutes processing."
+    },
+    {
+      "slug": "environmental-complaint",
+      "category": "environment",
+      "name": "Environmental Complaints Processing",
+      "description": "The Municipal Environment and Natural Resources Office (MENRO) receives and processes complaints related to environmental violations, pollution, illegal dumping, and other environmental concerns in Mapandan.",
+      "description_full": "The Municipal Environment and Natural Resources Office (MENRO) receives and processes complaints related to environmental violations, pollution, illegal dumping, and other environmental concerns in Mapandan. The client submits a complaint with supporting evidence, and the MENRO investigates, verifies the complaint, and takes appropriate enforcement action. The MENRO coordinates with the PNP, Barangay officials, and other agencies as needed.",
+      "office": "Municipal Environment and Natural Resources Office (MENRO)",
+      "classification": "Simple",
+      "processing_time": "15 minutes (initial processing); investigation varies",
+      "fee": "Free",
+      "where_to_apply": "MENRO Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Written complaint describing the environmental violation",
+        "Evidence of violation (photos, videos, or other documentation if available)",
+        "Valid Government-issued ID of the complainant"
+      ],
+      "procedure": [
+        "Submit the written complaint with evidence and valid ID to the MENRO Office.",
+        "MENRO staff receives and evaluates the complaint (5 min).",
+        "MENRO verifies the complaint through site inspection or investigation (varies).",
+        "MENRO takes appropriate enforcement action and coordinates with concerned agencies.",
+        "Follow up with MENRO for the status of the complaint."
+      ],
+      "related": [
+        "ldrrmo-walk-in",
+        "ldrrmo-document-request"
+      ],
+      "hero_lede": "File an environmental complaint with the MENRO in Mapandan. Report pollution, illegal dumping, and other violations. Free service."
+    },
+    {
+      "slug": "pre-marriage-counseling-pop",
+      "category": "social-assistance",
+      "name": "Pre-Marriage Orientation & Counseling (Population Office)",
+      "description": "The Population Office provides pre-marriage orientation and counseling to couples planning to get married. The session covers family planning, reproductive health, and responsible parenthood. A certificate is issued upon completion.",
+      "description_full": "The Population Office provides pre-marriage orientation and counseling to couples planning to get married as required before obtaining a marriage license. The session covers family planning methods, reproductive health, responsible parenthood, and RA 9255. A Certificate of Pre-Marriage Counseling is issued upon completion, which is a prerequisite for marriage license application.",
+      "office": "Municipal Population Office",
+      "classification": "Simple",
+      "processing_time": "15 minutes (session duration varies)",
+      "fee": "Free",
+      "where_to_apply": "Municipal Population Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid Government-issued ID of both parties",
+        "Community Tax Certificate (Cedula) from Treasury Office"
+      ],
+      "procedure": [
+        "Visit the Population Office with your partner and present valid IDs.",
+        "Staff records the couple's information and schedules the session.",
+        "Attend the pre-marriage orientation and counseling session.",
+        "Receive the Certificate of Pre-Marriage Counseling upon completion."
+      ],
+      "related": [
+        "marriage-license",
+        "solemnization-of-marriage"
+      ],
+      "hero_lede": "Complete your pre-marriage counseling at the Population Office in Mapandan. Free session, certificate issued upon completion."
+    },
+    {
+      "slug": "philhealth-enrollment",
+      "category": "social-assistance",
+      "name": "LGU PhilHealth Group Enrollment",
+      "description": "The Population Office facilitates group enrollment of indigent residents to PhilHealth under the LGU-sponsored program. Enrolled members receive health insurance coverage for hospitalization and medical services.",
+      "description_full": "The Population Office facilitates group enrollment of indigent residents to PhilHealth under the Local Government Unit (LGU)-sponsored program. The LGU subsidizes the premium contributions of qualified beneficiaries. Enrolled members receive health insurance coverage for hospitalization and medical services at PhilHealth-accredited facilities. The Population Office verifies eligibility, collects required documents, and submits the enrollment to PhilHealth.",
+      "office": "Municipal Population Office",
+      "classification": "Simple",
+      "processing_time": "10 minutes (processing); enrollment effective upon PhilHealth validation",
+      "fee": "Free (LGU-subsidized)",
+      "where_to_apply": "Municipal Population Office, Main Municipal Building, Poblacion",
+      "contact": "(075) 696-0831",
+      "source": "Mapandan Citizen's Charter",
+      "last_updated": "August 2025",
+      "requirements": [
+        "Valid Government-issued ID",
+        "Certificate of Indigency from the Barangay Captain",
+        "Birth Certificate or any valid ID showing date of birth"
+      ],
+      "procedure": [
+        "Visit the Population Office and submit the required documents.",
+        "Staff verifies eligibility and reviews the documents (3 min).",
+        "Staff fills out the PhilHealth enrollment form (3 min).",
+        "Staff submits the enrollment to PhilHealth for validation (2 min).",
+        "Receive confirmation of enrollment. PhilHealth ID will be distributed upon availability (2 min)."
+      ],
+      "related": [
+        "certificate-of-indigency",
+        "health-consultation"
+      ],
+      "hero_lede": "Enroll in the LGU-sponsored PhilHealth program at the Population Office. Free health insurance for indigent residents."
     }
   ]
 }
