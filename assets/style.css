@@ -1619,6 +1619,7 @@ canvas {
 .badge-community { background: #fef3cd; color: #856404; }
 .badge-needs-verification { background: #fde2d4; color: #a94442; }
 .badge-placeholder { background: #f0f0f0; color: #666; }
+.badge-estimate { background: #fff3cd; color: #856404; }
 
 .source-label {
   display: inline-block;
