@@ -167,7 +167,7 @@ def generate_services() -> None:
         cat_services = by_category.get(cat["slug"], [])
         # Cap at 3 links per category
         service_links = []
-        for s in cat_services[:3]:
+        for s in cat_services:
             service_links.append(
                 f'<a class="service-link" href="services/{s["slug"]}.html">{html.escape(s["name"])}</a>'
             )
