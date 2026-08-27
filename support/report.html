@@ -85,7 +85,7 @@
           <li><strong>Source:</strong> Where you found the correct information (if available)</li>
         </ul>
         <div style="margin-top:14px">
-          <a class="btn btn-primary" href="mailto:report@bettermapandan.org?subject=Data%20Correction%20Report&body=Page%20URL:%0A%0AError%20description:%0A%0ACorrect%20information:%0A%0ASource%20(if%20available):%0A">Compose email &rarr;</a>
+          <a id="report-email-btn" class="btn btn-primary" href="mailto:report@bettermapandan.org?subject=Data%20Correction%20Report&body=Page%20URL:%0A%0AError%20description:%0A%0ACorrect%20information:%0A%0ASource%20(if%20available):%0A">Compose email &rarr;</a>
         </div>
       </div>
 
@@ -138,6 +138,22 @@
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var params = new URLSearchParams(location.search);
+  var service = params.get("service");
+  if (!service) return;
+
+  var btn = document.getElementById("report-email-btn");
+  if (!btn) return;
+
+  var pageUrl = location.origin + location.pathname.replace(/support\/report\.html$/, "services/" + service.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "") + ".html");
+  var subject = "Data Correction: " + service;
+  var body = "Service: " + service + "%0APage URL: " + encodeURIComponent(pageUrl) + "%0A%0AError description:%0A%0ACorrect information:%0A%0ASource (if available):%0A";
+  btn.href = "mailto:report@bettermapandan.org?subject=" + encodeURIComponent(subject) + "&body=" + body;
+});
+</script>
 </main>
 
 <footer class="site-footer">
