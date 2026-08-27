@@ -1864,6 +1864,65 @@ canvas {
   color: var(--green);
 }
 
+/* ---------- Service directory filter ---------- */
+
+.service-filter {
+  margin: 0 auto 24px;
+  max-width: 480px;
+}
+
+.service-filter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  transition: border-color 0.15s;
+}
+
+.service-filter-wrap:focus-within {
+  border-color: var(--green);
+}
+
+.service-filter-icon {
+  flex-shrink: 0;
+  margin-left: 14px;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+
+.service-filter-input {
+  flex: 1;
+  padding: 12px 14px 12px 10px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  outline: none;
+  min-width: 0;
+}
+
+.service-filter-input::placeholder {
+  color: #8a9587;
+}
+
+.service-no-results {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--ink-soft);
+}
+
+.service-no-results p {
+  font-size: 15px;
+}
+
+.service-no-results a {
+  color: var(--green);
+  font-weight: 500;
+}
+
 /* ---------- Service detail ---------- */
 
 .service-detail-header {
