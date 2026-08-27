@@ -125,7 +125,7 @@ def generate_services() -> None:
                 rel_svc = next((s for s in services if s["slug"] == rel_slug), None)
                 if rel_svc:
                     links.append(
-                        f'<a href="services/{rel_slug}.html">{html.escape(rel_svc["name"])}</a>'
+                        f'<a href="{rel_slug}.html">{html.escape(rel_svc["name"])}</a>'
                     )
             related_html = (
                 '<div class="service-links">\n'
@@ -171,10 +171,7 @@ def generate_services() -> None:
             service_links.append(
                 f'<a class="service-link" href="services/{s["slug"]}.html">{html.escape(s["name"])}</a>'
             )
-        if len(cat_services) > 3:
-            service_links.append(
-                f'<a class="service-link service-link-more" href="services.html">View all {len(cat_services)} services &rarr;</a>'
-            )
+
 
         card = (
             f'      <div class="card service-category-card">\n'
