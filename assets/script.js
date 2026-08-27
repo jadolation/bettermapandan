@@ -214,6 +214,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Timeline collapse/expand
+document.addEventListener("DOMContentLoaded", function () {
+  var timeline = document.querySelector(".history-timeline");
+  var btn = document.querySelector(".timeline-collapse-btn");
+  if (!timeline || !btn) return;
+
+  var expanded = localStorage.getItem("timeline-expanded") === "true";
+  if (expanded) {
+    timeline.classList.remove("collapsed");
+    btn.textContent = "Collapse timeline";
+    btn.setAttribute("aria-expanded", "true");
+  }
+
+  btn.addEventListener("click", function () {
+    var isCollapsed = timeline.classList.toggle("collapsed");
+    btn.setAttribute("aria-expanded", String(!isCollapsed));
+    btn.textContent = isCollapsed ? "Show full timeline" : "Collapse timeline";
+    localStorage.setItem("timeline-expanded", String(!isCollapsed));
+  });
+});
+
 // History population chart
 document.addEventListener("DOMContentLoaded", function () {
   var ctx = document.getElementById("chart-history-population");
@@ -279,8 +300,8 @@ document.addEventListener("DOMContentLoaded", function () {
     card.className = "barangay-card";
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
-    card.setAttribute("aria-label", name + " \u2014 " + d.pop2024 + " residents. Read history.");
-    card.innerHTML = "<h4>" + name + '</h4><div class="pop">' + d.pop2024 + " residents</div>";
+    card.setAttribute("aria-label", name + " \u2014 " + d.pop2024 + " residents, " + d.landUse + ". Read history.");
+    card.innerHTML = "<h4>" + name + '</h4><div class="barangay-card-meta"><span class="barangay-card-pop">' + d.pop2024 + '</span><span class="barangay-card-landuse">' + d.landUse + '</span></div>';
     card.addEventListener("click", function () { openBarangayModal(name, d); });
     card.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openBarangayModal(name, d); }
