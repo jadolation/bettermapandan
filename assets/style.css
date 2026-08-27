@@ -1796,6 +1796,69 @@ canvas {
   margin-bottom: 10px;
 }
 
+/* ---------- Service directory cards ---------- */
+
+.service-category-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-category-card .service-icon {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.service-category-card h3 {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.service-category-card p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.service-category-card .service-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.service-category-card .service-link {
+  display: inline-block;
+  font-size: 13.5px;
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.service-category-card .service-link:hover,
+.service-category-card .service-link:focus {
+  color: var(--green-deep);
+  text-decoration: underline;
+}
+
+.service-category-card .service-link-more {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.service-category-card .service-link-more:hover,
+.service-category-card .service-link-more:focus {
+  color: var(--green);
+}
+
 /* ---------- Service detail ---------- */
 
 .service-detail-header {
