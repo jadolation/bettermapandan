@@ -2064,6 +2064,60 @@ canvas {
   .barangay-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ============================================
+   LEGISLATIVE PAGE
+   ============================================ */
+
+.category-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.category-regulatory { background: #e8f5e9; color: #2e7d32; }
+.category-personnel { background: #e3f2fd; color: #1565c0; }
+.category-fiscal { background: #fff3e0; color: #e65100; }
+.category-health { background: #fce4ec; color: #c62828; }
+.category-environment { background: #e0f2f1; color: #00695c; }
+.category-disaster { background: #fbe9e7; color: #bf360c; }
+
+.fiscal-card {
+  text-align: center;
+}
+
+.fiscal-card .figure {
+  color: #4c8a2e;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.fiscal-card .source-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.schema-table code {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.pill-pending {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #fff3e0;
+  color: #e65100;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .carousel-slide { transition: none; }

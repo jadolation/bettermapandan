@@ -127,7 +127,7 @@ hero_lede: Key demographic, economic, and development indicators for Mapandan, c
     <div class="section-head">
       <div class="section-eyebrow">Fiscal</div>
       <h2>Revenue &amp; expenditure</h2>
-      <p>Key fiscal indicators. See the <a href="transparency.html">Transparency page</a> for detailed breakdowns.</p>
+      <p>Key fiscal indicators including actuals, approved budgets, and credit financing. See the <a href="transparency.html">Transparency page</a> for detailed breakdowns and revenue sources.</p>
     </div>
     <div class="grid grid-3">
       <div class="card">
@@ -143,10 +143,30 @@ hero_lede: Key demographic, economic, and development indicators for Mapandan, c
         <span class="verification-badge badge-verified">Verified</span>
       </div>
       <div class="card">
-        <h3>CY 2022 Approved Budget</h3>
-        <p class="figure">&#8369;173.1M</p>
-        <span class="source-label">Source: BLGF Local Budget Documentation</span>
+        <h3>CY 2025 Annual Budget</h3>
+        <p class="figure">&#8369;193.1M</p>
+        <span class="source-label">Source: SB Res. No. 299, S-2024 / SP approved Jan 6, 2025</span>
         <span class="verification-badge badge-official">Official</span>
+      </div>
+    </div>
+    <div class="grid grid-3" style="margin-top:16px">
+      <div class="card">
+        <h3>IRA/NTA Dependency</h3>
+        <p class="figure">82&ndash;85%</p>
+        <span class="source-label">Share of total operating revenue from national transfers</span>
+        <span class="verification-badge badge-verified">Verified</span>
+      </div>
+      <div class="card">
+        <h3>Land Bank Loan (2024)</h3>
+        <p class="figure">&#8369;28.8M</p>
+        <span class="source-label">Source: Ord. No. 7, S-2024 &mdash; 16 rescue vehicles</span>
+        <span class="verification-badge badge-official">Official</span>
+      </div>
+      <div class="card">
+        <h3>Land Bank Loan (2026, proposed)</h3>
+        <p class="figure">&#8369;45M</p>
+        <span class="source-label">Source: Ord. No. 3, S-2026 &mdash; Infrastructure</span>
+        <span class="verification-badge badge-estimate">Proposed</span>
       </div>
     </div>
   </div>
@@ -166,7 +186,7 @@ hero_lede: Key demographic, economic, and development indicators for Mapandan, c
         <button class="report-btn" onclick="downloadCSV('population')">Download CSV</button>
       </div>
       <div class="card">
-        <h3>Revenue vs. Expenditure</h3>
+        <h3>Budget Trend (CY 2020&ndash;2025)</h3>
         <canvas id="chart-fiscal" height="200"></canvas>
         <button class="report-btn" onclick="downloadCSV('fiscal')">Download CSV</button>
       </div>
@@ -234,21 +254,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Revenue vs Expenditure
+  // Revenue vs Expenditure — Budget Trend CY 2020-2025
   var fiscalCtx = document.getElementById("chart-fiscal");
   if (fiscalCtx) {
     new Chart(fiscalCtx, {
       type: "bar",
       data: {
-        labels: ["CY 2024"],
-        datasets: [
-          { label: "Revenue", data: [173.8], backgroundColor: green },
-          { label: "Expenditure", data: [183.6], backgroundColor: red }
-        ]
+        labels: ["CY 2020", "CY 2021", "CY 2022", "CY 2023", "CY 2024", "CY 2025"],
+        datasets: [{
+          label: "Total Enacted Budget (PHP Millions)",
+          data: [122.40, 129.28, 173.14, 151.54, 160.83, 193.09],
+          backgroundColor: [green, green, gold, green, green, gold]
+        }]
       },
       options: {
         responsive: true,
-        plugins: { legend: { position: "bottom" } },
+        plugins: { legend: { display: false } },
         scales: { y: { beginAtZero: true } }
       }
     });
@@ -282,7 +303,7 @@ function downloadCSV(type) {
   if (type === "population") {
     csv = "Year,Population\n2000,30395\n2007,33115\n2010,34077\n2015,35943\n2020,38228";
   } else if (type === "fiscal") {
-    csv = "Metric,Amount (PHP Millions)\nRevenue,173.8\nExpenditure,183.6";
+    csv = "Fiscal Year,Total Enacted Budget (PHP Millions)\nCY 2020,122.40\nCY 2021,129.28\nCY 2022,173.14\nCY 2023,151.54\nCY 2024,160.83\nCY 2025,193.09";
   } else if (type === "barangay") {
     csv = "Barangay,Population 2024\nApaya,1650\nAmanoaoac,1656\nBaloling,4238\nCoral,1405\nGolden,1432\nJimenez,2008\nLambayan,1682\nLuyan,3344\nNilombot,4199\nPias,4827\nPoblacion,3509\nPogo,1107\nPrimicias,2218\nSta. Maria,1585\nTorres,3061";
   }

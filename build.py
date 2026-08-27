@@ -195,9 +195,161 @@ def generate_services() -> None:
     out_dir.write_text(dir_filled)
 
 
+def generate_legislative() -> None:
+    """Generate legislative page from JSON data."""
+    data_path = SRC_DATA / "legislative.json"
+    template = (SRC_TEMPLATES / "legislative.html").read_text()
+    data = json.loads(data_path.read_text())
+
+    category_labels = data.get("category_labels", {})
+
+    # --- Build ordinances table rows ---
+    ord_rows = []
+    for o in data.get("ordinances", []):
+        cat_label = category_labels.get(o["category"], o["category"].title())
+        fiscal = f'₱{o["fiscal_value"]:,.0f}' if o.get("fiscal_value") else "—"
+        status_class = "pill-enacted" if o["status"] == "enacted" else ("pill-pending" if o["status"] == "pending" else "pill")
+        status_text = o["status"].title()
+        source = f'<a href="{o["source_url"]}" target="_blank" rel="noopener">Source &rarr;</a>' if o.get("source_url") else "—"
+        ord_rows.append(
+            f'<tr>'
+            f'<td>{html.escape(o["number"])}</td>'
+            f'<td>{html.escape(o["title"])}</td>'
+            f'<td>{html.escape(o["date_enacted"])}</td>'
+            f'<td><span class="category-pill category-{o["category"]}">{html.escape(cat_label)}</span></td>'
+            f'<td>{html.escape(o["sp_review"])}</td>'
+            f'<td><span class="pill {status_class}">{status_text}</span></td>'
+            f'<td>{source}</td>'
+            f'</tr>'
+        )
+
+    # --- Build resolutions table rows ---
+    res_rows = []
+    for r in data.get("resolutions", []):
+        fiscal = f'₱{r["fiscal_value"]:,.2f}' if r.get("fiscal_value") else "—"
+        source = f'<a href="{r["source_url"]}" target="_blank" rel="noopener">Source &rarr;</a>' if r.get("source_url") else "—"
+        res_rows.append(
+            f'<tr>'
+            f'<td>{html.escape(r["number"])}</td>'
+            f'<td>{html.escape(r["title"])}</td>'
+            f'<td>{html.escape(r["date_approved"])}</td>'
+            f'<td>{fiscal}</td>'
+            f'<td>{source}</td>'
+            f'</tr>'
+        )
+
+    # --- Build executive issuances rows ---
+    exec_rows = []
+    for e in data.get("executive_issuances", []):
+        date = html.escape(e["date"]) if e.get("date") else "—"
+        exec_rows.append(
+            f'<tr>'
+            f'<td>{html.escape(e["title"])}</td>'
+            f'<td>{date}</td>'
+            f'<td>{html.escape(e["authority"])}</td>'
+            f'<td>{html.escape(e["description"])}</td>'
+            f'</tr>'
+        )
+
+    # --- Build fiscal cards ---
+    fiscal_cards = []
+    for f in data.get("fiscal", []):
+        amount = f["amount"]
+        if amount >= 1_000_000:
+            amount_str = f'₱{amount / 1_000_000:,.1f}M'
+        else:
+            amount_str = f'₱{amount:,.0f}'
+        type_label = f["type"].replace("_", " ").title()
+        fiscal_cards.append(
+            f'<div class="card fiscal-card">'
+            f'<h3>{html.escape(type_label)}</h3>'
+            f'<p class="figure">{amount_str}</p>'
+            f'<p class="source-label">{html.escape(f["period"])}</p>'
+            f'<p>{html.escape(f["scope"])}</p>'
+            f'<span class="source-label">{html.escape(f["legislative_basis"])}</span>'
+            f'</div>'
+        )
+
+    # --- Build trends cards ---
+    trend_cards = []
+    for t in data.get("legislative_trends", []):
+        trend_cards.append(
+            f'<div class="card">'
+            f'<h3>{html.escape(t["title"])}</h3>'
+            f'<p>{html.escape(t["description"])}</p>'
+            f'</div>'
+        )
+
+    # --- Build process steps ---
+    process_steps = []
+    for s in data.get("legislative_process", []):
+        final_class = ' final' if s["step"] == len(data["legislative_process"]) else ''
+        process_steps.append(
+            f'<div class="step{final_class}">'
+            f'<div class="n">{s["step"]}</div>'
+            f'<h4>{html.escape(s["title"])}</h4>'
+            f'<p>{html.escape(s["description"])}</p>'
+            f'</div>'
+        )
+
+    # --- Build schema rows ---
+    schema_rows = []
+    for field in data.get("database_schema", {}).get("fields", []):
+        schema_rows.append(
+            f'<tr>'
+            f'<td><code>{html.escape(field["name"])}</code></td>'
+            f'<td>{html.escape(field["type"])}</td>'
+            f'<td>{html.escape(field["definition"])}</td>'
+            f'<td><code>{html.escape(field["example"])}</code></td>'
+            f'</tr>'
+        )
+
+    # --- Build schema procedures ---
+    schema_procs = []
+    for i, proc in enumerate(data.get("database_schema", {}).get("procedures", []), 1):
+        schema_procs.append(
+            f'<div class="card">'
+            f'<h3>Procedure {i}</h3>'
+            f'<p>{html.escape(proc)}</p>'
+            f'</div>'
+        )
+
+    # --- Governance framework ---
+    gw = data.get("governance_framework", {})
+
+    # --- Precedent ---
+    prec = data.get("precedent", {})
+
+    # --- Fill template ---
+    filled = fill(template, {
+        "HISTORY": gw.get("history", ""),
+        "MUNICIPAL_CLASS": gw.get("municipal_class", ""),
+        "LAND_AREA": gw.get("land_area", ""),
+        "BARANGAYS": str(gw.get("barangays", "")),
+        "ORDINANCES_ROWS": "\n          ".join(ord_rows),
+        "RESOLUTIONS_ROWS": "\n          ".join(res_rows),
+        "EXECUTIVE_ROWS": "\n          ".join(exec_rows),
+        "FISCAL_CARDS": "\n      ".join(fiscal_cards),
+        "TRENDS_CARDS": "\n      ".join(trend_cards),
+        "PROCESS_STEPS": "\n      ".join(process_steps),
+        "SCHEMA_DESCRIPTION": data.get("database_schema", {}).get("description", ""),
+        "SCHEMA_ROWS": "\n          ".join(schema_rows),
+        "SCHEMA_PROCEDURES": "\n      ".join(schema_procs),
+        "PRECEDENT_CASE": prec.get("case", ""),
+        "PRECEDENT_CITATION": prec.get("citation", ""),
+        "PRECEDENT_SUMMARY": prec.get("summary", ""),
+    })
+
+    # Write to src/pages/legislative.html
+    out_path = SRC_PAGES / "legislative.html"
+    out_path.write_text(filled)
+
+
 def build() -> None:
     # Generate service pages from JSON data (creates src/pages/services/*.html + src/pages/services.html)
     generate_services()
+    # Generate legislative page from JSON data (creates src/pages/legislative.html)
+    generate_legislative()
 
     base = (SRC_PARTIALS / "base.html").read_text()
     header_raw = (SRC_PARTIALS / "header.html").read_text()

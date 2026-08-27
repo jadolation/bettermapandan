@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Budget & Fiscal Transparency — BetterMapandan.org</title>
-<meta name="description" content="Income, expenditure, assets, and infrastructure project breakdown for the Municipality of Mapandan, Pangasinan, plus links to Commission on Audit reports." />
+<meta name="description" content="Income, expenditure, assets, budget trends, and infrastructure project breakdown for the Municipality of Mapandan, Pangasinan, plus compliance status and Commission on Audit reports." />
 <link rel="icon" href="./assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon-192.png" />
@@ -63,14 +63,14 @@
   <div class="wrap">
     <span class="eyebrow">Government &middot; Open Data</span>
     <h1>Budget &amp; Fiscal Transparency</h1>
-    <p class="lede">Income, expenditure, and infrastructure spending for Mapandan, gathered from official disclosures and Commission on Audit reports.</p>
+    <p class="lede">Income, expenditure, appropriations, and infrastructure spending for Mapandan, gathered from official disclosures, Sangguniang Bayan resolutions, and Commission on Audit reports.</p>
   </div>
 </section>
 <section class="section">
   <div class="wrap">
     <div class="data-note">
       <span>&#9432;</span>
-      <span><strong>Data last updated:</strong> August 2026 &mdash; compiled from official municipal financial disclosures and Commission on Audit reports. Figures for CY 2024 are the most recent available; earlier years are noted where cited. Volunteers should replace or supplement this with the Municipal Accountant's Office's published annual budget report as it becomes available.</span>
+      <span><strong>Data last updated:</strong> August 2026 &mdash; compiled from official municipal financial disclosures, Sangguniang Bayan resolutions, and Commission on Audit reports. CY 2024 figures are the most recent actuals; CY 2025&ndash;2026 figures are SP-approved appropriations. Volunteers should replace or supplement this with the Municipal Accountant's Office's published annual budget report as it becomes available.</span>
     </div>
 
     <div class="grid grid-3 stack-gap-lg">
@@ -87,10 +87,10 @@
         <span class="source-label">Source: Municipal Accountant / COA AAR</span>
       </div>
       <div class="card">
-        <h3>CY 2022 Approved Budget</h3>
-        <p class="figure">&#8369;173,142,760</p>
+        <h3>CY 2025 Annual Budget</h3>
+        <p class="figure">&#8369;193.1M</p>
         <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: BLGF Local Budget Documentation</span>
+        <span class="source-label">Source: SB Res. No. 299, S-2024 / SP approved Jan 6, 2025</span>
       </div>
     </div>
 
@@ -165,6 +165,184 @@
 <section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-eyebrow">Budget Trend</div>
+      <h2>Multi-year appropriations (CY 2020&ndash;2025)</h2>
+      <p>Mapandan's enacted budget grew 57.75% from CY 2020 to CY 2025, driven by the Mandanas-Garcia ruling expanding the National Tax Allocation base and post-pandemic recovery initiatives.</p>
+    </div>
+    <div class="table-wrap">
+      <table aria-label="Multi-year budget trend">
+        <thead>
+          <tr>
+            <th scope="col">Fiscal Year</th>
+            <th scope="col">Total Enacted Budget</th>
+            <th scope="col">Local Appropriation Ordinance</th>
+            <th scope="col">Provincial Review Status</th>
+            <th scope="col">Date of Provincial Approval</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CY 2020</td>
+            <td>&#8369;122,402,454</td>
+            <td>Ordinance No. 02, S-2019</td>
+            <td>Declared Operative (Res. No. 134-2020)</td>
+            <td>February 3, 2020</td>
+          </tr>
+          <tr>
+            <td>CY 2021</td>
+            <td>&#8369;129,281,542</td>
+            <td>Local Appropriation Ordinance</td>
+            <td>Declared Operative in its Entirety</td>
+            <td>December 14, 2020</td>
+          </tr>
+          <tr>
+            <td>CY 2022</td>
+            <td>&#8369;173,142,760</td>
+            <td>Local Appropriation Ordinance</td>
+            <td>Declared Operative (Res. No. 854-2022)</td>
+            <td>February 21, 2022</td>
+          </tr>
+          <tr>
+            <td>CY 2023</td>
+            <td>&#8369;151,540,728</td>
+            <td>Ordinance No. 06, S-2022</td>
+            <td>Declared Operative (Res. No. 362-2023)</td>
+            <td>May 8, 2023</td>
+          </tr>
+          <tr>
+            <td>CY 2024</td>
+            <td>&#8369;160,828,663</td>
+            <td>Local Appropriation Ordinance</td>
+            <td>Declared Operative (Res. No. 212-2024)</td>
+            <td>February 12, 2024</td>
+          </tr>
+          <tr>
+            <td><strong>CY 2025</strong></td>
+            <td><strong>&#8369;193,088,074</strong></td>
+            <td><strong>Ordinance No. 04, S-2024</strong></td>
+            <td><strong>Declared Operative (Res. No. 45-2025)</strong></td>
+            <td><strong>January 6, 2025</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-label">The CY 2022 spike (&#8369;173.14M) coincided with full devolution mandates under Executive Order No. 138 and post-pandemic recovery. The CY 2023 baseline adjustment (&#8369;151.54M) reflected a correction in national tax collection bases, after which the budget resumed an upward trajectory.</p>
+    <div class="card" style="margin-top:24px" aria-live="polite">
+      <h3>Budget Growth (CY 2020&ndash;2025)</h3>
+      <canvas id="chart-budget-trend" height="200"></canvas>
+      <button class="report-btn" onclick="downloadCSV('budget')">Download CSV</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Appropriations</div>
+      <h2>Current budget &amp; supplemental appropriations</h2>
+      <p>CY 2025 and CY 2026 budget figures from SP-approved General Appropriations Ordinances.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>CY 2025 Annual General Appropriations</h3>
+        <p class="figure">&#8369;193,088,074</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: SB Res. No. 299, S-2024 &mdash; Approved Jan 6, 2025</span>
+        <p>Declared operative in its entirety. Funds executive operations, local health services, public works, and statutory 20% development funds.</p>
+      </div>
+      <div class="card">
+        <h3>CY 2026 Supplemental Budget No. 1</h3>
+        <p class="figure">&#8369;5,142,197.86</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: SP Res. No. 871-2026 &mdash; Jul 13, 2026</span>
+        <p>Covers supplemental administrative requirements, disaster risk interventions, and personnel benefits.</p>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:44px">
+      <div class="section-eyebrow">Credit Financing</div>
+      <h2>Loans &amp; borrowing</h2>
+      <p>Mapandan utilizes credit financing through state banks for capital expansion projects, leveraging future budget cycles to fund infrastructure modernization.</p>
+    </div>
+    <div class="table-wrap">
+      <table aria-label="Credit financing and loans">
+        <thead>
+          <tr>
+            <th scope="col">Facility</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Purpose</th>
+            <th scope="col">Legislative Basis</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Land Bank of the Philippines Term Loan</td>
+            <td>&#8369;28,800,000</td>
+            <td>Procurement of 16 emergency rescue vehicles (one per barangay + central unit)</td>
+            <td>Ord. No. 7, S-2024 / SP Res. 1140-2024</td>
+            <td><span class="pill pill-completed">Approved</span></td>
+          </tr>
+          <tr>
+            <td>Land Bank of the Philippines Credit Facility</td>
+            <td>&#8369;45,000,000</td>
+            <td>Infrastructure expansion, public works, and LGU facility upgrades</td>
+            <td>Ord. No. 3, S-2026</td>
+            <td><span class="pill pill-pending">Proposed</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-label">See also: <a href="legislative.html">Legislative Documents</a> for full ordinance details and provincial review outcomes.</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Fiscal Structure</div>
+      <h2>Revenue dependency &amp; statutory earmarks</h2>
+      <p>Mapandan's fiscal architecture is shaped by national tax transfers and legally mandated fund allocations.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>NTA/IRA Dependency</h3>
+        <p class="figure">82&ndash;85%</p>
+        <p>Of total operating revenue comes from the National Tax Allocation (formerly IRA). Locally generated taxes cover only a small fraction of municipal operations.</p>
+        <span class="verification-badge badge-verified">Verified</span>
+        <span class="source-label">Source: BLGF / COA AAR</span>
+      </div>
+      <div class="card">
+        <h3>20% Development Fund</h3>
+        <p class="figure">20%</p>
+        <p>Of annual NTA share is earmarked for social development, economic development, and environmental management projects under Section 287 of R.A. 7160. Restricted to capital works; cannot fund personal services.</p>
+        <span class="verification-badge badge-official">Statutory</span>
+      </div>
+      <div class="card">
+        <h3>5% LDRRMF</h3>
+        <p class="figure">5%</p>
+        <p>Of estimated regular annual revenues allocated for disaster preparedness under R.A. 10121. Split: 30% Quick Response Fund (emergency relief) + 70% pre-disaster preparedness and mitigation.</p>
+        <span class="verification-badge badge-official">Statutory</span>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:24px">
+      <div class="card">
+        <h3>Special Education Fund (SEF)</h3>
+        <p>Financed through a 1% tax levy on assessed real property values under Section 235 of R.A. 7160. Co-administered by the Municipal School Board. Restricted to supplementary funding for public schools: facility construction, educational materials, instructional support, and sports development.</p>
+        <span class="verification-badge badge-official">Statutory</span>
+      </div>
+      <div class="card">
+        <h3>Personnel Services Cap</h3>
+        <p>Section 325(a) of R.A. 7160 limits total personnel spending to 45% or 55% of total annual regular income depending on LGU classification. Mapandan has reduced PS from 51% of operating income (CY 2013) to under 42% (CY 2015), ensuring compliance.</p>
+        <span class="verification-badge badge-official">Statutory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
       <div class="section-eyebrow">Balance Sheet</div>
       <h2>Assets &amp; liabilities</h2>
       <p>The municipality holds a net asset position, providing leverage for local infrastructure investment.</p>
@@ -192,9 +370,111 @@
   </div>
 </section>
 
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Historical Baseline</div>
+      <h2>Financial statements (CY 2013&ndash;2015)</h2>
+      <p>Longitudinal financial data showing Mapandan's fiscal trajectory during the baseline period, prior to recent budgetary expansion.</p>
+    </div>
+    <div class="table-wrap">
+      <table aria-label="Historical financial statements 2013-2015">
+        <thead>
+          <tr>
+            <th scope="col">Component</th>
+            <th scope="col">CY 2013</th>
+            <th scope="col">CY 2014</th>
+            <th scope="col">CY 2015</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tax Revenue</td>
+            <td>&#8369;4,372,789</td>
+            <td>&#8369;4,554,372</td>
+            <td>&#8369;5,029,207</td>
+          </tr>
+          <tr>
+            <td>Total Operating Income</td>
+            <td>&#8369;64,849,668</td>
+            <td>&#8369;71,432,036</td>
+            <td>&#8369;81,052,292</td>
+          </tr>
+          <tr>
+            <td>Personal Services (PS)</td>
+            <td>&#8369;33,119,810</td>
+            <td>&#8369;32,661,346</td>
+            <td>&#8369;33,961,796</td>
+          </tr>
+          <tr>
+            <td>Maintenance &amp; Other Operating (MOOE)</td>
+            <td>&#8369;17,914,330</td>
+            <td>&#8369;20,500,817</td>
+            <td>&#8369;24,590,416</td>
+          </tr>
+          <tr>
+            <td>Total Operating Expenses</td>
+            <td>&#8369;54,145,928</td>
+            <td>&#8369;56,386,883</td>
+            <td>&#8369;61,801,161</td>
+          </tr>
+          <tr>
+            <td><strong>Income from Operations</strong></td>
+            <td><strong>&#8369;10,703,740</strong></td>
+            <td><strong>&#8369;15,045,152</strong></td>
+            <td><strong>&#8369;19,251,131</strong></td>
+          </tr>
+          <tr>
+            <td>Total Assets</td>
+            <td>&#8369;101,056,441</td>
+            <td>&#8369;115,037,161</td>
+            <td>&#8369;130,533,027</td>
+          </tr>
+          <tr>
+            <td>Total Equity</td>
+            <td>&#8369;73,213,235</td>
+            <td>&#8369;81,579,963</td>
+            <td>&#8369;91,568,914</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports / Municipal Financial Statements. Tax revenue as a share of total operating income declined from 6.74% (2013) to 6.20% (2015), underscoring structural reliance on national transfers.</p>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-eyebrow">Compliance</div>
+      <h2>Audit &amp; transparency status</h2>
+      <p>Mapandan's financial governance is subject to continuous oversight from the Commission on Audit, DILG, and provincial review authorities.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>COA Audit Opinion</h3>
+        <p class="figure" style="font-size:1.4rem">Unmodified</p>
+        <p>Fair presentation of financial statements in all material respects. The highest audit opinion granted by the Commission on Audit.</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: COA Annual Audit Reports</span>
+      </div>
+      <div class="card">
+        <h3>Seal of Good Local Governance</h3>
+        <p class="figure" style="font-size:1.4rem">GFH Certified</p>
+        <p>Passed DILG Good Financial Housekeeping evaluation in CY 2022 and CY 2024, meeting both COA audit opinion and Full Disclosure Policy compliance thresholds.</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: DILG / Provincial Government of Pangasinan</span>
+      </div>
+      <div class="card">
+        <h3>Full Disclosure Policy</h3>
+        <p class="figure" style="font-size:1.4rem">100%</p>
+        <p>Compliance rate in mandatory quarterly and annual financial document postings on the FDPP and physical posting locations across all evaluated reporting cycles.</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: DILG MC No. 2010-83 / MC No. 2019-149</span>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:44px">
       <div class="section-eyebrow">Audit</div>
       <h2>Commission on Audit reports</h2>
       <p>Independent annual audits covering municipal accounts and local public utilities.</p>
@@ -279,7 +559,7 @@
     <div class="section-head">
       <div class="section-eyebrow">Procurement Ledger</div>
       <h2>Recent capital projects &amp; procurements</h2>
-      <p>Notable infrastructure and equipment acquisitions from municipal procurement records. Figures are based onPhilGEPS postings and COA-reported disbursements.</p>
+      <p>Notable infrastructure and equipment acquisitions from municipal procurement records. Figures are based on PhilGEPS postings and COA-reported disbursements.</p>
     </div>
     <div class="table-wrap">
       <table aria-label="Capital projects and procurements">
@@ -360,6 +640,47 @@
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof Chart === "undefined") return;
+
+  var green = "#4c8a2e";
+  var gold = "#e8a917";
+
+  var budgetCtx = document.getElementById("chart-budget-trend");
+  if (budgetCtx) {
+    new Chart(budgetCtx, {
+      type: "bar",
+      data: {
+        labels: ["CY 2020", "CY 2021", "CY 2022", "CY 2023", "CY 2024", "CY 2025"],
+        datasets: [{
+          label: "Total Enacted Budget (PHP Millions)",
+          data: [122.40, 129.28, 173.14, 151.54, 160.83, 193.09],
+          backgroundColor: [green, green, gold, green, green, gold]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  }
+});
+
+function downloadCSV(type) {
+  var csv = "";
+  if (type === "budget") {
+    csv = "Fiscal Year,Total Enacted Budget (PHP)\nCY 2020,122402454\nCY 2021,129281542\nCY 2022,173142760\nCY 2023,151540728\nCY 2024,160828663\nCY 2025,193088074";
+  }
+  var blob = new Blob([csv], { type: "text/csv" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "mapandan-" + type + ".csv";
+  a.click();
+}
+</script>
 </main>
 
 <footer class="site-footer">
