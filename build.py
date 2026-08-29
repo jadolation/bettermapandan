@@ -382,10 +382,10 @@ def build() -> None:
         if depth > 0:
             # Build breadcrumb nav
             bc_items = []
-            bc_items.append('<a href="index.html">Home</a>')
+            bc_items.append('<a href="../index.html">Home</a>')
             # For services/foo.html -> parent is "Services"
             parent_name = rel.parts[0].replace("-", " ").title()
-            parent_link = rel.parts[0] + ".html"
+            parent_link = "../" + rel.parts[0] + ".html"
             bc_items.append(f'<a href="{parent_link}">{parent_name}</a>')
             current_name = meta["title"].split(" —")[0].split(" |")[0].strip()
             bc_items.append(f'<span aria-current="page">{current_name}</span>')
