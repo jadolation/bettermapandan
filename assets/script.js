@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mark the current page in the nav
   var here = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav-links a").forEach(function (a) {
-    var target = a.getAttribute("href");
+    var target = a.getAttribute("href").split("/").pop();
     if (target === here || (here === "" && target === "index.html")) {
       a.setAttribute("aria-current", "page");
     }
