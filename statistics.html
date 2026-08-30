@@ -109,16 +109,53 @@
           <tr><th scope="col">Year</th><th scope="col">Population</th><th scope="col">Growth Rate</th><th scope="col">Source</th></tr>
         </thead>
         <tbody>
-          <tr><td>2020</td><td>38,228</td><td>+1.24%/yr</td><td>PSA Census 2020 <span class="verification-badge badge-official">Official</span></td></tr>
-          <tr><td>2015</td><td>35,943</td><td>+1.08%/yr</td><td>PSA Census 2015 <span class="verification-badge badge-official">Official</span></td></tr>
-          <tr><td>2010</td><td>34,077</td><td>+1.12%/yr</td><td>PSA Census 2010 <span class="verification-badge badge-official">Official</span></td></tr>
-          <tr><td>2007</td><td>33,115</td><td>&mdash;</td><td>PSA Census 2007 <span class="verification-badge badge-official">Official</span></td></tr>
-          <tr><td>2000</td><td>30,395</td><td>&mdash;</td><td>PSA Census 2000 <span class="verification-badge badge-official">Official</span></td></tr>
+          <tr class="clickable-row" data-href="https://psa.gov.ph/classification/psgc/barangays/0105528000">
+            <td>2024</td>
+            <td>38,228</td>
+            <td>+1.24%/yr</td>
+            <td>PSA Census 2024 <span class="verification-badge badge-official">Official</span></td>
+          </tr>
+          <tr class="clickable-row" data-href="https://rsso01.psa.gov.ph/system/files/publication/QuickStat_Pangasinan_0626.pdf">
+            <td>2020</td>
+            <td>38,058</td>
+            <td>+1.08%/yr</td>
+            <td>PSA Census 2020 <span class="verification-badge badge-official">Official</span></td>
+          </tr>
+          <tr class="clickable-row" data-href="https://rsso01.psa.gov.ph/system/files/publication/QuickStat_Pangasinan_0626.pdf">
+            <td>2015</td>
+            <td>37,059</td>
+            <td>+1.12%/yr</td>
+            <td>PSA Census 2015 <span class="verification-badge badge-official">Official</span></td>
+          </tr>
+          <tr class="clickable-row" data-href="https://rsso01.psa.gov.ph/system/files/publication/QuickStat_Pangasinan_0626.pdf">
+            <td>2010</td>
+            <td>34,439</td>
+            <td>&mdash;</td>
+            <td>PSA Census 2010 <span class="verification-badge badge-official">Official</span></td>
+          </tr>
+          <tr class="clickable-row" data-href="https://www.philatlas.com/luzon/r01/pangasinan/mapandan.html">
+            <td>2007</td>
+            <td>32,905</td>
+            <td>&mdash;</td>
+            <td>PSA Census 2007 <span class="verification-badge badge-official">Official</span></td>
+          </tr>
+          <tr class="clickable-row" data-href="https://www.philatlas.com/luzon/r01/pangasinan/mapandan.html">
+            <td>2000</td>
+            <td>30,775</td>
+            <td>&mdash;</td>
+            <td>PSA Census 2000 <span class="verification-badge badge-unofficial">Unofficial</span></td>
+          </tr>
+          <tr class="clickable-row" data-href="https://www.philatlas.com/luzon/r01/pangasinan/mapandan.html">
+            <td>1995</td>
+            <td>27,439</td>
+            <td>&mdash;</td>
+            <td>PSA Census 1995 <span class="verification-badge badge-unofficial">Unofficial</span></td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div class="cta-row">
-      <a class="btn btn-outline" href="https://psa.gov.ph" target="_blank" rel="noopener">View PSA Full Data &rarr;</a>
+      <a class="btn btn-outline" href="https://rsso01.psa.gov.ph/system/files/publication/QuickStat_Pangasinan_0626.pdf" target="_blank" rel="noopener">View PSA Full Data &rarr;</a>
     </div>
   </div>
 </section>
@@ -357,6 +394,30 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+
+  // --- NEW: Make table rows clickable without showing the URL ---
+  document.querySelectorAll('.clickable-row').forEach(row => {
+    row.addEventListener('click', function(e) {
+      // If the user clicks an actual link inside the row, let the link handle it normally
+      if (e.target.closest('a')) return;
+      
+      const url = this.getAttribute('data-href');
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    });
+    
+    // Accessibility: allow keyboard users to trigger the click with Enter or Space
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('role', 'link');
+    row.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
 });
 
 function downloadCSV(type) {
