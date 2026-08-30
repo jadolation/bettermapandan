@@ -143,8 +143,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   var params = new URLSearchParams(location.search);
   var service = params.get("service");
+  var barangay = params.get("barangay");
+
+  if (barangay) {
+    // Barangay data correction
+    var btn = document.getElementById("report-email-btn");
+    if (!btn) return;
+    var pageUrl = location.origin + location.pathname.replace(/support\/report\.html$/, "barangays/" + barangay.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "") + ".html");
+    var subject = "Barangay Data Update: " + barangay;
+    var body = "Barangay: " + barangay + "%0APage URL: " + encodeURIComponent(pageUrl) + "%0A%0AWhat needs to be corrected or updated:%0A%0ACorrect information:%0A%0ASource (if available):%0A";
+    btn.href = "mailto:report@bettermapandan.org?subject=" + encodeURIComponent(subject) + "&body=" + body;
+    return;
+  }
+
   if (!service) return;
 
+  // Service data correction
   var btn = document.getElementById("report-email-btn");
   if (!btn) return;
 
@@ -216,6 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../assets/barangay-data.js"></script>
 <script src="../assets/script.js"></script>
 </body>
 </html>

@@ -1037,6 +1037,59 @@ p {
   color: var(--ink);
 }
 
+/* --- Barangay modal actions --- */
+.barangay-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+/* --- Barangay card punong --- */
+.barangay-card-punong {
+  font-size: 13px;
+  color: var(--green-deep);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* --- Barangay officials table --- */
+.barangay-officials {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.barangay-officials th,
+.barangay-officials td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.barangay-officials th {
+  background: var(--paper-alt, #f5f5f0);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.barangay-officials td {
+  color: var(--ink-soft);
+}
+
+.barangay-officials td strong {
+  color: var(--ink);
+}
+
+/* --- Text muted helper --- */
+.text-muted {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
 .history-sources {
   margin-top: 48px;
   padding-top: 24px;
