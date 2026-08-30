@@ -32,7 +32,53 @@
       "description": "Established early post-war municipal administrative regulations and local operational guidelines.",
       "scope": "Municipal administrative regulations",
       "source_url": "https://mapandan.gov.ph/",
-      "status": "historical"
+      "status": "historical",
+      "verification": "unverified"
+    },
+    {
+      "id": "ORD-2020-001",
+      "number": "Ordinance No. 1, S-2020",
+      "title": "Amending Ordinance No. 8, CY 2018 by Authorizing Mayor Anthony C. Peñuliar to Utilize Remaining Funds for Public Market Extension, Motorpool, and Perimeter Wall",
+      "date_enacted": "2020",
+      "sp_review": "SP Resolution No. 1121-2020",
+      "sp_review_date": "2020-12-07",
+      "category": "fiscal",
+      "fiscal_value": 28500000,
+      "description": "Authorizes the Municipal Mayor to utilize a remaining fund balance of ₱28,500,000 for the extension of the public market, construction of a motorpool, and a reinforced concrete perimeter wall as priority infrastructure projects.",
+      "scope": "Fund utilization for public market, motorpool, and perimeter wall construction",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-1-s-2020-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-amending-municipal-ordinance-no-8-cy-2018-by-authorizing-the-honorable-ma/",
+      "status": "enacted",
+      "verification": "confirmed via SP certification"
+    },
+    {
+      "id": "ORD-2020-002",
+      "number": "Ordinance No. 2, S-2020",
+      "title": "Creating Plantilla Positions Under the Office of the Municipal Treasurer and the Office of the Municipal Planning and Development Coordinator",
+      "date_enacted": "2020",
+      "sp_review": "SP Resolution No. 1043-2020",
+      "sp_review_date": "2020-11-16",
+      "category": "personnel",
+      "fiscal_value": null,
+      "description": "Creates plantilla positions under the Municipal Treasurer's Office and the Municipal Planning and Development Coordinator's Office, defining their duties, responsibilities, and funding.",
+      "scope": "Plantilla creation in Treasury and Planning/Development offices",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-2-s-2020-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-creating-plantilla-positions-under-the-office-of-the-municipal-treasurer-an/",
+      "status": "enacted",
+      "verification": "confirmed via SP certification"
+    },
+    {
+      "id": "ORD-2021-002",
+      "number": "Ordinance No. 2, S-2021",
+      "title": "Abolishing the Vacant/Unfilled Permanent Position of Agricultural Technologist (SG-10)",
+      "date_enacted": "2021",
+      "sp_review": "SP Resolution No. 498-2021",
+      "sp_review_date": "2021-05-31",
+      "category": "personnel",
+      "fiscal_value": null,
+      "description": "Abolishes the vacant, unfilled permanent Agricultural Technologist (Agri Tech) position, Salary Grade 10, under the Office of the Municipal Agriculturist.",
+      "scope": "Personnel restructuring, Office of the Municipal Agriculturist",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-2-s-2021-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-abolishing-the-vacant-unfilled-permanent-position-of-agricultural-technolog/",
+      "status": "enacted",
+      "verification": "confirmed via SP certification"
     },
     {
       "id": "ORD-2021-003",
@@ -46,7 +92,38 @@
       "description": "Codifies rules governing public market operations, stall leasing, sanitation, and commercial fee schedules.",
       "scope": "Public market operations, stall leasing, sanitation, commercial fees",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-3-s-2021-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-otherwise-known-as-the-market-code-of-the-municipality-of-mapandan-province-of-pangasin/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
+    },
+    {
+      "id": "ORD-2021-005",
+      "number": "Ordinance No. 5, S-2021",
+      "title": "Creating Sixteen (16) Positions Under the Executive and Legislative Offices",
+      "date_enacted": "2021",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "personnel",
+      "fiscal_value": null,
+      "description": "Creates sixteen (16) new plantilla positions distributed across the following executive and legislative offices of the municipality, per the ordinance title as listed by the Province of Pangasinan.",
+      "scope": "Personnel expansion across executive and legislative offices",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-5-s-2021-of-the-sangguniang-bayan-of-mapan-dan-pangasinan-entitled-an-ordinance-creating-sixteen-16-positions-under-the-following-executive-and-legislat/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified, recommend confirming SP resolution number/date before final archival"
+    },
+    {
+      "id": "ORD-2021-006",
+      "number": "Ordinance No. 6, S-2021",
+      "title": "Authorizing the Proposed Borrowing of the Municipality of Mapandan",
+      "date_enacted": "2021",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "fiscal",
+      "fiscal_value": null,
+      "description": "Authorizes the Municipality of Mapandan to enter into a proposed credit/borrowing arrangement, per the ordinance title as listed by the Province of Pangasinan.",
+      "scope": "Credit financing authorization",
+      "source_url": "http://pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-6-s-2021-of-the-sangguniang-bayan-of-mapan-dan-pangasinan-entitled-an-ordinance-authorizing-the-proposed-borrowing-of-the-municipality-of-mapandan-provin/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified, recommend confirming loan amount/lender before final archival"
     },
     {
       "id": "ORD-2022-001",
@@ -60,7 +137,8 @@
       "description": "Abolishes SG-22 position; creates operational plantilla roles in Mayor's, LDRRM, Health, MSWD, and Treasury Offices.",
       "scope": "Plantilla restructuring across executive offices",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-1-s-2022-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-abolishing-the-position-of-municipal-government-assistant-department-head-i/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
     },
     {
       "id": "ORD-2023-001",
@@ -74,7 +152,53 @@
       "description": "Regulates public cemetery operations, burial permits, grave space leases, and associated municipal service fees.",
       "scope": "Cemetery operations, burial permits, grave leases, service fees",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-1-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-establishing-the-policies-and-guidelines-for-the-operation-and-maintenance/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
+    },
+    {
+      "id": "ORD-2023-002",
+      "number": "Ordinance No. 2, S-2023",
+      "title": "Reclassifying Agricultural Land into Residential Use for Ercy Homes Subdivision",
+      "date_enacted": "2023",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "land use",
+      "fiscal_value": null,
+      "description": "Reclassifies a parcel of agricultural land into residential use for the Ercy Homes Subdivision development, per the ordinance title as listed by the Province of Pangasinan.",
+      "scope": "Land reclassification, agricultural to residential",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-2-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-reclassifying-agricultural-land-into-residential-use-for-ercy-homes-subdiv/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "ORD-2023-003",
+      "number": "Ordinance No. 3, S-2023",
+      "title": "Reclassifying Agricultural Land into Residential Use (Land Belonging to Named Private Owner)",
+      "date_enacted": "2023",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "land use",
+      "fiscal_value": null,
+      "description": "Reclassifies a specific parcel of agricultural land into residential use, per the ordinance title as listed by the Province of Pangasinan (owner name truncated in source listing).",
+      "scope": "Land reclassification, agricultural to residential",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-3-series-of-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-reclassifying-agricultural-land-into-residential-use-belonging-to-l/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "ORD-2023-004",
+      "number": "Ordinance No. 4, S-2023",
+      "title": "Integrated Zoning Regulations of the Municipality of Mapandan for the Term 2022–2032",
+      "date_enacted": "2023",
+      "sp_review": "SP Resolution No. 214-2024",
+      "sp_review_date": "2024-02-12",
+      "category": "land use",
+      "fiscal_value": null,
+      "description": "Enacts the Integrated Zoning Regulations of Mapandan covering the 2022–2032 planning term, implementing the municipality's Comprehensive Land Use Plan.",
+      "scope": "Zoning regulations, land use classification, 2022–2032 term",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-ordinance-no-4-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-enacting-the-integrated-zoning-regulations-of-the-municipality-of-mapandan-for-the-te/",
+      "status": "enacted",
+      "verification": "confirmed via SP certification"
     },
     {
       "id": "ORD-2023-005",
@@ -88,7 +212,38 @@
       "description": "Institutionalizes technical and administrative personnel positions in executive offices to expand local service delivery.",
       "scope": "Personnel positions in Mayor's, LDRRM, and MSWD offices",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-5-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-creating-the-positions-under-the-following-executive-office-1-mayor/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
+    },
+    {
+      "id": "ORD-2024-001",
+      "number": "Ordinance No. 1, S-2024",
+      "title": "Imposing Service Fees for an Offline Method of Encoding Requests for Civil Registry Documents",
+      "date_enacted": "2024",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "regulatory",
+      "fiscal_value": null,
+      "description": "Imposes service fees for an offline encoding method used to process requests for civil registry documents at the Municipal Civil Registrar's Office.",
+      "scope": "Civil registry service fees",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-1-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-imposing-service-fees-for-an-off-line-method-of-encoding-request-for-civil/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "ORD-2024-002",
+      "number": "Ordinance No. 02, S-2024",
+      "title": "Establishing an Animal Bite Treatment Center Under the Municipal Health Office",
+      "date_enacted": "2024",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "health",
+      "fiscal_value": null,
+      "description": "Establishes an Animal Bite Treatment Center under the Municipal Health Office to provide rabies post-exposure prophylaxis and related services.",
+      "scope": "Public health infrastructure, animal bite treatment",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-02-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-establishing-an-animal-bite-treatment-center-under-the-municipal-health-office-in-the-m/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified"
     },
     {
       "id": "ORD-2024-003",
@@ -102,7 +257,23 @@
       "description": "Establishes public transport tariffs, regulating local tricycle and utility vehicle fare matrices within municipal borders.",
       "scope": "Transport fares, tricycle rates, utility vehicle tariffs",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-03-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-prescribing-the-new-fare-rates-for-hire-within-the-municipality-of-mapanda/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
+    },
+    {
+      "id": "ORD-2024-005",
+      "number": "Ordinance No. 5, S-2024",
+      "title": "Reclassification of Parcels of Land from Agricultural to Commercial Use",
+      "date_enacted": "2024",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "land use",
+      "fiscal_value": null,
+      "description": "Reclassifies specified parcels of land within Mapandan from agricultural to commercial use, per the ordinance title as listed by the Province of Pangasinan.",
+      "scope": "Land reclassification, agricultural to commercial",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-5-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-for-the-reclassification-of-parcels-of-land-from-agricultural-to-commercia/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified"
     },
     {
       "id": "ORD-2024-006",
@@ -116,7 +287,8 @@
       "description": "Implements Republic Act 9003 locally; mandates waste segregation, solid waste fees, penalties, and collection guidelines.",
       "scope": "Waste segregation, solid waste fees, penalties, collection",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-6-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-providing-for-an-ecological-solid-waste-management-prescribing-fees-for-so/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
     },
     {
       "id": "ORD-2024-007",
@@ -130,7 +302,8 @@
       "description": "Authorizes ₱28,800,000 credit facility with LBP to fund 16 emergency rescue vehicles across all 15 barangays and LGU center.",
       "scope": "Credit financing, rescue vehicle procurement",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-7-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-approving-and-ratifying-the-terms-and-conditions-of-the-approved-loan-and-o/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
     },
     {
       "id": "ORD-2025-001",
@@ -144,7 +317,8 @@
       "description": "Integrates national mental health policies into municipal public health; establishes local care mechanisms and funding.",
       "scope": "Mental health programs, public health integration, funding",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-1-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-institutionalizing-the-mental-health-care-program-in-the-municipality-of-ma/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
     },
     {
       "id": "ORD-2025-002",
@@ -157,8 +331,24 @@
       "fiscal_value": null,
       "description": "Abolishes SG-8 Assistant Registration Officer; creates SG-3 Driver I (Mayor's Office) and SG-10 Registration Officer I (MCR Office).",
       "scope": "Personnel restructuring in Mayor's Office and MCR",
-      "source_url": "https://www.pangasinan.gov.ph/issuances/",
-      "status": "enacted"
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-2-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-abolishing-the-position-assistant-registration-officer-sg-8-in-the-mcr-of/",
+      "status": "enacted",
+      "verification": "confirmed"
+    },
+    {
+      "id": "ORD-2025-003",
+      "number": "Ordinance No. 03, S-2025",
+      "title": "Granting Benefits and Incentives to Child Development Workers (CDWs)",
+      "date_enacted": "2025",
+      "sp_review": "SP Reviewed / Conferred Powers",
+      "sp_review_date": null,
+      "category": "personnel",
+      "fiscal_value": null,
+      "description": "Grants benefits and incentives to Child Development Workers (CDWs) serving in the municipality's day care and early childhood programs.",
+      "scope": "Benefits and incentives for Child Development Workers",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-odinance-no-03-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-granting-benefits-and-incentives-to-child-development-workers-cdws-of-the/",
+      "status": "enacted",
+      "verification": "title only — page not individually verified"
     },
     {
       "id": "ORD-2025-004",
@@ -172,7 +362,8 @@
       "description": "Mandates municipal and village-level blood donation councils to implement voluntary blood donation programs.",
       "scope": "Blood donation councils, voluntary donation programs",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-04-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-providing-the-creation-of-the-mapandan-blood-council-and-the-15-barangay-b/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
     },
     {
       "id": "ORD-2025-005",
@@ -186,7 +377,8 @@
       "description": "Elevates local disaster management leadership to department-head status (SG-24 equivalent) for heightened resilience.",
       "scope": "Disaster risk reduction leadership, department-head status",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-5-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-creating-the-positions-of-municipal-government-head-i-mdrrm-officer-under/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
     },
     {
       "id": "ORD-2026-001",
@@ -200,7 +392,8 @@
       "description": "Restructures Disaster Risk Reduction staff hierarchy by eliminating intermediate vacant position.",
       "scope": "LDRRMO staffing restructuring",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-1-s-2026-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-abolishing-the-vacant-unfilled-permanent-position-of-local-disaster-risk-re/",
-      "status": "enacted"
+      "status": "enacted",
+      "verification": "confirmed"
     },
     {
       "id": "ORD-2026-003",
@@ -214,7 +407,8 @@
       "description": "Authorizes LGU to enter credit financing contract with LBP for local public infrastructure projects.",
       "scope": "Credit financing, infrastructure, development",
       "source_url": "https://wwwmortzcortigoza.blogspot.com/2026/07/mapandan-to-borrow-p45-m-from-lbp-for.html",
-      "status": "pending"
+      "status": "pending",
+      "verification": "reported via third-party news blog, not yet on official SP issuances page"
     }
   ],
   "resolutions": [
@@ -236,12 +430,104 @@
       "description": "Procurement resolution awarding contract for agricultural inputs.",
       "source_url": "https://mapandan.gov.ph/procurement-bids__trashed/bac-resolution-declaring-single-calculated-responsive-bid-and-recommending-approval/"
     },
+        {
+      "id": "RES-2022-075",
+      "number": "SB Res. No. 75, S-2022",
+      "title": "Approving Supplemental Annual Investment Plan No. 1, CY 2022",
+      "date_approved": "2022",
+      "fiscal_value": 22032033.51,
+      "description": "Approves Supplemental Annual Investment Plan No. 1 to the CY 2022 Annual Investment Plan of Mapandan.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-75-s-2022-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-supplemental-annual-investment-plan-no-1-calendar-year-2022-of-the-municipality-of-ma/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2022-063",
+      "number": "SB Res. No. 63, S-2022",
+      "title": "Approving the Supplemental Annual Investment Plan No. 5, CY 2022",
+      "date_approved": "2022",
+      "fiscal_value": 6593298.60,
+      "description": "Approves Supplemental Annual Investment Plan No. 5 to the CY 2022 Annual Investment Plan of Mapandan.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-63-s-2022-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-supplemental-annual-investment-plan-no-5-cy-2022-of-the-municipality-of-mapandan/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2022-070",
+      "number": "SB Res. No. 70, S-2022",
+      "title": "Approving the Supplemental Annual Investment Plan No. 6, CY 2022",
+      "date_approved": "2022",
+      "fiscal_value": 485057.48,
+      "description": "Approves Supplemental Annual Investment Plan No. 6 to the CY 2022 Annual Investment Plan of Mapandan, the final recorded supplemental adjustment for that fiscal year.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-70-s-2022-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-supplemental-annual-investment-plan-no-6-cy-2022-of-the-municipality-of-mapandan/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2023-180",
+      "number": "SB Res. No. 180, S-2023",
+      "title": "Revising the 2023 Annual Investment Plan (AIP) of Mapandan",
+      "date_approved": "2023",
+      "fiscal_value": 3514635.85,
+      "description": "Revises the CY 2023 Annual Investment Plan of Mapandan, amending previously approved capital project allocations.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-180-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-revising-the-2023-annual-investment-plan-aip-of-the-municipality-of-mapandan-province-of-pan/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2023-184",
+      "number": "SB Res. No. 184, S-2023",
+      "title": "Approving Supplemental Investment Plan (SIP) No. 3 of the Annual Investment Plan (AIP)",
+      "date_approved": "2023",
+      "fiscal_value": 6970980.29,
+      "description": "Approves Supplemental Investment Plan No. 3 to the CY 2023 Annual Investment Plan of Mapandan.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-184-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-supplemental-investment-plan-sip-no-3-of-the-annual-investment-plan-aip-of-t/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2022-066",
+      "number": "SB Res. No. 66, S-2022",
+      "title": "Approving the Annual Investment Plan (AIP) CY 2023 of Mapandan",
+      "date_approved": "2023",
+      "sp_review": "SP Resolution No. 361-2023",
+      "sp_review_date": "2023-05-08",
+      "fiscal_value": 151540728.00,
+      "description": "Provides the master investment framework for CY 2023 municipal operations, preceding the CY 2024 and CY 2025 investment plans.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-66-s-2022-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-annual-investment-plan-cy-2023-of-the-municipality-of-mapandan-province-of-pangas/",
+      "verification": "confirmed via SP certification"
+    },
+    {
+      "id": "RES-2023-181",
+      "number": "SB Res. No. 181, S-2023",
+      "title": "Adopting the Comprehensive Land Use Plan (CLUP) of the Municipality of Mapandan, Province of Pangasinan",
+      "date_approved": "2023",
+      "fiscal_value": null,
+      "description": "Adopts the Comprehensive Land Use Plan of Mapandan, which forms the planning basis subsequently implemented through Ordinance No. 4, S-2023 (Integrated Zoning Regulations, 2022–2032).",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-181-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-adopting-the-comprehensive-land-use-plan-in-the-municipality-of-mapandan-province-of-pangasina/"
+    },
+    
+    {
+      "id": "RES-2024-287",
+      "number": "SB Res. No. 287, S-2024",
+      "title": "Approving the 2024 AIP Supplemental Investment Plan (SIP) No. 3 of Mapandan",
+      "date_approved": "2024",
+      "fiscal_value": 6936123.31,
+      "description": "Approves Supplemental Investment Plan No. 3 to the CY 2024 Annual Investment Plan, adjusting capital project allocations.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-287-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-2024-aip-supplemental-investment-plan-sip-number-3-of-mapandan-pangasinan-amou/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2024-344",
+      "number": "SB Res. No. 344, S-2024",
+      "title": "Approving the 2024 AIP Supplemental Investment Plan (SIP) No. 5 of Mapandan",
+      "date_approved": "2024",
+      "fiscal_value": 1935145.11,
+      "description": "Approves Supplemental Investment Plan No. 5 to the CY 2024 Annual Investment Plan, the final recorded supplemental adjustment for that fiscal year.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-344-s-2024-of-the-sangguniang-of-mapandan-pangasinan-entitled-approving-the-2024-aip-supplemental-investment-plan-sip-number-5-of-mapandan-pangasinan-amounting/",
+      "verification": "title only — page not individually verified"
+    },
     {
       "id": "RES-2024-299",
       "number": "SB Res. No. 299, S-2024",
       "title": "Approving the Annual Investment Plan (AIP) for Fiscal Year 2025",
       "date_approved": "2025-01-06",
-      "fiscal_value": null,
+      "fiscal_value": 193088074,
       "description": "Provides master investment framework for CY 2025 municipal operations.",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-299-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-annual-investment-plan-aip-for-the-fiscal-year-2025-of-the-municipality-of-mapa/"
     },
@@ -250,9 +536,29 @@
       "number": "SB Res. No. 50, S-2025",
       "title": "Approving Supplemental Investment Plan No. 2 CY-2025",
       "date_approved": "2025",
-      "fiscal_value": null,
+      "fiscal_value": 1350334.00,
       "description": "Expanded capital investment targets for 2025 development projects.",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-50-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-supplemental-investment-plan-no-2-cy-2025-of-the-municipality-of-mapandan-provin/"
+    },
+    {
+      "id": "RES-2025-380",
+      "number": "SB Res. No. 380, S-2025",
+      "title": "Approving the 2025 AIP Supplemental Investment Plan (SIP) No. 1 of Mapandan",
+      "date_approved": "2025",
+      "fiscal_value": 15046789.90,
+      "description": "Approves Supplemental Investment Plan No. 1 to the CY 2025 Annual Investment Plan, adjusting capital project allocations mid-year.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-380-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-2025-aip-supplemental-investment-plan-sip-number-1-of-the-municipality-of-mapan/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2025-084",
+      "number": "SB Res. No. 84, S-2025",
+      "title": "Approving Supplemental Investment Plan No. 4 of Mapandan",
+      "date_approved": "2025",
+      "fiscal_value": 1495180.06,
+      "description": "Approves Supplemental Investment Plan No. 4, further adjusting the municipality's capital investment program for the period.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-84-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-supplemental-investment-plan-no-4-of-the-municipality-of-mapandan-province-of-pa/",
+      "verification": "title only — page not individually verified"
     },
     {
       "id": "RES-2025-067",
@@ -267,9 +573,9 @@
       "id": "RES-2025-083",
       "number": "SB Res. No. 83, S-2025",
       "title": "Approving the Annual Investment Plan CY-2026 of Mapandan",
-      "date_approved": "2025",
-      "fiscal_value": null,
-      "description": "Established baseline capital development targets for FY 2026.",
+      "date_approved": "2026-03-30",
+      "fiscal_value": 318209799.00,
+      "description": "Established baseline capital development targets for FY 2026, which were subsequently funded through the CY 2026 Annual Budget (₱218,209,788.00, SP Resolution No. 438-2026).",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-83-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-annual-investment-plan-cy-2026-of-the-municipality-of-mapandan-province-of-pangas/"
     },
     {
@@ -296,6 +602,22 @@
       "authority": "Office of the Municipal Mayor"
     },
     {
+      "title": "Executive Order No. 13, S-2024 — Temporary Suspension Order",
+      "date": "2024",
+      "description": "Declares the temporary suspension of operations/services (specific subject not fully specified in the available source excerpt); posted via the municipality's official Facebook page.",
+      "authority": "Office of the Municipal Mayor",
+      "source_url": "https://www.facebook.com/mapandanforeveryjuan/posts/executive-order-no-13series-of-2024an-order-declaring-the-temporary-suspension-o/418940880651429/",
+      "verification": "title only — full text not accessible for detailed extraction; recommend confirming exact subject before archival"
+    },
+    {
+      "title": "Executive Order No. 09, S-2026 — Temporary Suspension Order",
+      "date": "2026",
+      "description": "Declares the temporary suspension of operations/services (specific subject not fully specified in the available source excerpt); posted via the municipality's official Facebook page.",
+      "authority": "Office of the Municipal Mayor",
+      "source_url": "https://www.facebook.com/mapandanforeveryjuan/posts/executive-order-no-09-series-of-2026an-order-declaring-the-temporary-suspension-/941262561752589/",
+      "verification": "title only — full text not accessible for detailed extraction; recommend confirming exact subject before archival"
+    },
+    {
       "title": "Proposed Land and Water Uses and Zoning Ordinance",
       "date": null,
       "description": "Classifies Mapandan's 30.00 km² into: 2,649.067 ha Agricultural Land, 465.371 ha Built-up Area, 43.762 ha Roads and Bridges, 6.689 ha Special Uses. Underwent technical review by Provincial Land Use Committee under Provincial Resolution No. 214-2024.",
@@ -314,6 +636,15 @@
       "authority": "Office of the Municipal Mayor"
     }
   ],
+  "barangay_issuances": [
+    {
+      "title": "Barangay Ordinance No. 1, Series [pending confirmation] — Public Hearing",
+      "date": "2026-02-25",
+      "description": "Sangguniang Bayan of Mapandan conducted a public hearing on a proposed barangay-level ordinance, as posted via official Facebook page.",
+      "source_url": "https://www.facebook.com/100063684085198/posts/february-25-2026-sangguniang-bayan-of-mapandan-hearingbarangay-ordinance-no-1-se/1525169216282533/",
+      "verification": "title only — this is a public-hearing notice, not yet a finalized/enacted ordinance; recommend follow-up once enactment is confirmed"
+    }
+  ],
   "fiscal": [
     {
       "type": "annual_budget",
@@ -323,6 +654,16 @@
       "legislative_basis": "SP Approval Date: Jan 6, 2025",
       "scope": "Funds executive operations, local health services, public works, and statutory 20% development funds.",
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-the-annual-budget-for-calendar-year-2025-of-mapandan-pangasinan-involving-a-total-appropriation-of-p193088074-00-operative-in-its-entirety/"
+    },
+    {
+      "type": "annual_budget",
+      "title": "Annual General Appropriations Ordinance — CY 2026",
+      "period": "Calendar Year 2026",
+      "amount": 218209788,
+      "legislative_basis": "SP Resolution No. 438-2026 (approved March 30, 2026); planning basis set by SB Res. No. 83, S-2025 (Approving the Annual Investment Plan CY-2026)",
+      "scope": "Funds executive operations, local health services, public works, and statutory 20% development funds for CY 2026, superseding the CY 2025 budget of ₱193,088,074.00.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-the-annual-budget-for-calendar-year-2026-of-mapandan-pangasinan-involving-a-total-appropriation-of-p218209788-00-operative-in-its-entirety/",
+      "verification": "confirmed via SP certification"
     },
     {
       "type": "supplemental_budget",
@@ -343,6 +684,15 @@
       "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-7-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-approving-and-ratifying-the-terms-and-conditions-of-the-approved-loan-and-o/"
     },
     {
+      "type": "loan",
+      "title": "Fund Utilization Authorization (Amending Ord. No. 8, CY 2018) — Land Bank of the Philippines Era",
+      "period": "Authorized CY 2020",
+      "amount": 28500000,
+      "legislative_basis": "SB Ord. No. 1, S-2020 / SP Res. 1121-2020",
+      "scope": "Authorizes Mayor Anthony C. Peñuliar to utilize a remaining fund balance for extension of the public market, motorpool construction, and reinforced concrete wall.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-municipal-ordinance-no-1-s-2020-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-an-ordinance-amending-municipal-ordinance-no-8-cy-2018-by-authorizing-the-honorable-ma/"
+    },
+    {
       "type": "proposed_loan",
       "title": "Proposed Credit Facility — Land Bank of the Philippines",
       "period": "Proposed CY 2026",
@@ -355,15 +705,19 @@
   "legislative_trends": [
     {
       "title": "Administrative Restructuring for Technical Capacity",
-      "description": "The Sangguniang Bayan has systematically eliminated redundant mid-level posts — such as the Assistant Municipal Treasury Head (SG-22) under Ordinance No. 1, S-2022 and the LDRRMO III (SG-18) under Ordinance No. 1, S-2026 — while creating specialized operational positions like Driver I (SG-3), Registration Officer I (SG-10), and elevating disaster management to department-head status via the MDRRM Officer position (SG-24). This strengthens disaster preparedness, civil registration, and frontline service delivery while optimizing payroll expenditures."
+      "description": "The Sangguniang Bayan has systematically eliminated redundant mid-level posts — such as the Agricultural Technologist (SG-10) under Ordinance No. 2, S-2021, the Assistant Municipal Treasury Head (SG-22) under Ordinance No. 1, S-2022, and the LDRRMO III (SG-18) under Ordinance No. 1, S-2026 — while creating specialized operational positions like Driver I (SG-3), Registration Officer I (SG-10), and elevating disaster management to department-head status via the MDRRM Officer position (SG-24). This strengthens disaster preparedness, civil registration, and frontline service delivery while optimizing payroll expenditures."
     },
     {
       "title": "National Mandate Devolution to Local Enforcement",
-      "description": "The municipal council translated national social policy into local enforcement: Ordinance No. 1, S-2025 institutionalizes the Mental Health Act (R.A. 11036), Ordinance No. 04, S-2025 establishes blood donation councils across all 15 barangays, and Ordinance No. 6, S-2024 implements the Ecological Solid Waste Management Act (R.A. 9003) with local fees and penalties. National mandates are backed by dedicated local funding and village-level enforcement."
+      "description": "The municipal council translated national social policy into local enforcement: Ordinance No. 1, S-2025 institutionalizes the Mental Health Act (R.A. 11036), Ordinance No. 04, S-2025 establishes blood donation councils across all 15 barangays, Ordinance No. 6, S-2024 implements the Ecological Solid Waste Management Act (R.A. 9003) with local fees and penalties, and Ordinance No. 03, S-2025 extends benefits and incentives to Child Development Workers. National mandates are backed by dedicated local funding and village-level enforcement."
     },
     {
       "title": "Debt Financing for Capital Expansion",
-      "description": "With annual appropriations (₱193.08M in CY 2025) largely committed to personal services and operations, the municipality utilizes credit financing through state banks for capital projects. A ₱28.8M Land Bank loan (Ordinance No. 7, S-2024) funded 16 rescue vehicles, and a ₱45M loan (Ordinance No. 3, S-2026) targets infrastructure expansion — accelerating modernization while spreading obligations across future budget cycles."
+      "description": "Annual appropriations grew from ₱193.08M in CY 2025 to ₱218.21M in CY 2026 (a ~13% increase, SP Resolution No. 438-2026), largely committed to personal services and operations. Alongside this growth, the municipality has repeatedly turned to credit financing through state banks for capital projects: a ₱28.5M fund-utilization authorization in 2020 (Ordinance No. 1, S-2020) for market/motorpool works, a ₱28.8M Land Bank loan in 2024 (Ordinance No. 7, S-2024) for 16 rescue vehicles, and a ₱45M loan proposed in 2026 (Ordinance No. 3, S-2026) for infrastructure expansion — accelerating modernization while spreading obligations across future budget cycles."
+    },
+    {
+      "title": "Land Use Planning and Reclassification",
+      "description": "Following the adoption of the Comprehensive Land Use Plan (SB Resolution No. 181, S-2023), the Sangguniang Bayan enacted the Integrated Zoning Regulations for 2022–2032 (Ordinance No. 4, S-2023) and passed successive land reclassification ordinances converting agricultural parcels to residential (Ordinance Nos. 2 and 3, S-2023, for subdivision development) and commercial use (Ordinance No. 5, S-2024), reflecting the municipality's shift toward planned urban and commercial expansion."
     }
   ],
   "database_schema": {
@@ -378,11 +732,12 @@
       {"name": "SP_Review_Resolution", "type": "String", "definition": "Reviewing provincial board resolution reference", "example": "Provincial Resolution No. 410-2025"},
       {"name": "SP_Review_Date", "type": "Date (ISO 8601)", "definition": "Date of approval by Sangguniang Panlalawigan", "example": "2025-03-31"},
       {"name": "Fiscal_Value_PHP", "type": "Decimal (12,2)", "definition": "Monetary value or loan amount authorized", "example": "28800000.00"},
-      {"name": "Subject_Taxonomy", "type": "Categorical", "definition": "Functional policy domain tagging", "example": "Environment & Waste Management"}
+      {"name": "Subject_Taxonomy", "type": "Categorical", "definition": "Functional policy domain tagging", "example": "Environment & Waste Management"},
+      {"name": "Verification_Status", "type": "Categorical", "definition": "Whether the record was confirmed against the full source certification page or derived from title/URL only", "example": "confirmed via SP certification"}
     ],
     "procedures": [
       "A dual-indexing mechanism links every municipal enactment ID directly to its corresponding Sangguniang Panlalawigan review resolution, preserving the complete chain of legal validity under the Local Government Code.",
-      "The digital repository organizes files using a categorical taxonomy: Fiscal & Budgetary Enactments; Personnel & Administrative Restructuring; Regulatory & Revenue Codes; Public Health, Safety, & Welfare; and Territorial & Boundary Decrees.",
+      "The digital repository organizes files using a categorical taxonomy: Fiscal & Budgetary Enactments; Personnel & Administrative Restructuring; Regulatory & Revenue Codes; Public Health, Safety, & Welfare; Land Use & Zoning; and Territorial & Boundary Decrees.",
       "Physical archives at the Sangguniang Bayan Secretariat undergo OCR scanning into text-searchable PDF/A digital records, indexed alongside structured metadata for public legal research and ARTA compliance."
     ]
   },
@@ -397,6 +752,24 @@
     "fiscal": "Fiscal",
     "health": "Health",
     "environment": "Environment",
-    "disaster": "Disaster"
-  }
+    "disaster": "Disaster",
+    "land use": "Land Use & Zoning"
+  },
+  "unresolved_items": [
+    {
+      "note": "PDF at http://pangasinan.gov.ph/wp-content/uploads/2025/02/930-2023.pdf appears to be a Sangguniang Panlalawigan resolution attachment (likely SP Resolution No. 930-2023) but its associated Mapandan ordinance/resolution could not be confirmed from the URL alone.",
+      "source_url": "http://pangasinan.gov.ph/wp-content/uploads/2025/02/930-2023.pdf"
+    },
+    {
+      "note": "PDF at https://www.pangasinan.gov.ph/wp-content/uploads/2026/05/439-2026-RES.pdf is a Sangguniang Panlalawigan resolution attachment (likely SP Resolution No. 439-2026, filed immediately after SP Res. No. 438-2026 which declared the CY 2026 annual budget). It may relate to a companion Mapandan measure filed alongside the CY 2026 budget, but the specific underlying municipal ordinance/resolution title could not be confirmed from the PDF filename alone.",
+      "source_url": "https://www.pangasinan.gov.ph/wp-content/uploads/2026/05/439-2026-RES.pdf"
+    },
+    {
+      "note": "General resolution listing/index pages (page 207 and page 118 of the Province's resolutions archive) were included in the source link list but do not point to a single specific issuance, so no individual record was created for them.",
+      "source_urls": [
+        "https://www.pangasinan.gov.ph/kind/resolutions/page/207/",
+        "http://pangasinan.gov.ph/kind/resolutions/page/118/"
+      ]
+    }
+  ]
 }
