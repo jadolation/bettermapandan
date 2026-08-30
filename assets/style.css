@@ -1621,6 +1621,7 @@ canvas {
 }
 
 .badge-official { background: #dceee5; color: var(--green-deep); }
+.badge-unofficial { background: #eedddc; color: var(--red-deep); }
 .badge-verified { background: #d4e8f7; color: #1a5276; }
 .badge-community { background: #fef3cd; color: #856404; }
 .badge-needs-verification { background: #fde2d4; color: #a94442; }
