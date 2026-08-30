@@ -431,6 +431,18 @@
       "source_url": "https://mapandan.gov.ph/procurement-bids__trashed/bac-resolution-declaring-single-calculated-responsive-bid-and-recommending-approval/"
     },
     {
+      "id": "RES-2022-066",
+      "number": "SB Res. No. 66, S-2022",
+      "title": "Approving the Annual Investment Plan (AIP) CY 2023 of Mapandan",
+      "date_approved": "2023",
+      "sp_review": "SP Resolution No. 361-2023",
+      "sp_review_date": "2023-05-08",
+      "fiscal_value": 151540728.00,
+      "description": "Provides the master investment framework for CY 2023 municipal operations, preceding the CY 2024 and CY 2025 investment plans.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-66-s-2022-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-annual-investment-plan-cy-2023-of-the-municipality-of-mapandan-province-of-pangas/",
+      "verification": "confirmed via SP certification"
+    },
+    {
       "id": "RES-2023-181",
       "number": "SB Res. No. 181, S-2023",
       "title": "Adopting the Comprehensive Land Use Plan (CLUP) of the Municipality of Mapandan, Province of Pangasinan",
@@ -439,12 +451,33 @@
       "description": "Adopts the Comprehensive Land Use Plan of Mapandan, which forms the planning basis subsequently implemented through Ordinance No. 4, S-2023 (Integrated Zoning Regulations, 2022–2032).",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-181-s-2023-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-adopting-the-comprehensive-land-use-plan-in-the-municipality-of-mapandan-province-of-pangasina/"
     },
+    
+    {
+      "id": "RES-2024-287",
+      "number": "SB Res. No. 287, S-2024",
+      "title": "Approving the 2024 AIP Supplemental Investment Plan (SIP) No. 3 of Mapandan",
+      "date_approved": "2024",
+      "fiscal_value": 6936123.31,
+      "description": "Approves Supplemental Investment Plan No. 3 to the CY 2024 Annual Investment Plan, adjusting capital project allocations.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-287-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-2024-aip-supplemental-investment-plan-sip-number-3-of-mapandan-pangasinan-amou/",
+      "verification": "title only — page not individually verified"
+    },
+    {
+      "id": "RES-2024-344",
+      "number": "SB Res. No. 344, S-2024",
+      "title": "Approving the 2024 AIP Supplemental Investment Plan (SIP) No. 5 of Mapandan",
+      "date_approved": "2024",
+      "fiscal_value": 1935145.11,
+      "description": "Approves Supplemental Investment Plan No. 5 to the CY 2024 Annual Investment Plan, the final recorded supplemental adjustment for that fiscal year.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-344-s-2024-of-the-sangguniang-of-mapandan-pangasinan-entitled-approving-the-2024-aip-supplemental-investment-plan-sip-number-5-of-mapandan-pangasinan-amounting/",
+      "verification": "title only — page not individually verified"
+    },
     {
       "id": "RES-2024-299",
       "number": "SB Res. No. 299, S-2024",
       "title": "Approving the Annual Investment Plan (AIP) for Fiscal Year 2025",
       "date_approved": "2025-01-06",
-      "fiscal_value": null,
+      "fiscal_value": 193088074,
       "description": "Provides master investment framework for CY 2025 municipal operations.",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-299-s-2024-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-annual-investment-plan-aip-for-the-fiscal-year-2025-of-the-municipality-of-mapa/"
     },
@@ -453,7 +486,7 @@
       "number": "SB Res. No. 50, S-2025",
       "title": "Approving Supplemental Investment Plan No. 2 CY-2025",
       "date_approved": "2025",
-      "fiscal_value": null,
+      "fiscal_value": 1350334.00,
       "description": "Expanded capital investment targets for 2025 development projects.",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-50-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-supplemental-investment-plan-no-2-cy-2025-of-the-municipality-of-mapandan-provin/"
     },
@@ -462,7 +495,7 @@
       "number": "SB Res. No. 380, S-2025",
       "title": "Approving the 2025 AIP Supplemental Investment Plan (SIP) No. 1 of Mapandan",
       "date_approved": "2025",
-      "fiscal_value": null,
+      "fiscal_value": 15046789.90,
       "description": "Approves Supplemental Investment Plan No. 1 to the CY 2025 Annual Investment Plan, adjusting capital project allocations mid-year.",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-380-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-2025-aip-supplemental-investment-plan-sip-number-1-of-the-municipality-of-mapan/",
       "verification": "title only — page not individually verified"
@@ -472,7 +505,7 @@
       "number": "SB Res. No. 84, S-2025",
       "title": "Approving Supplemental Investment Plan No. 4 of Mapandan",
       "date_approved": "2025",
-      "fiscal_value": null,
+      "fiscal_value": 1495180.06,
       "description": "Approves Supplemental Investment Plan No. 4, further adjusting the municipality's capital investment program for the period.",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-84-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-supplemental-investment-plan-no-4-of-the-municipality-of-mapandan-province-of-pa/",
       "verification": "title only — page not individually verified"
@@ -490,8 +523,8 @@
       "id": "RES-2025-083",
       "number": "SB Res. No. 83, S-2025",
       "title": "Approving the Annual Investment Plan CY-2026 of Mapandan",
-      "date_approved": "2025",
-      "fiscal_value": null,
+      "date_approved": "2026-03-30",
+      "fiscal_value": 318209799.00,
       "description": "Established baseline capital development targets for FY 2026, which were subsequently funded through the CY 2026 Annual Budget (₱218,209,788.00, SP Resolution No. 438-2026).",
       "source_url": "https://www.pangasinan.gov.ph/issuances/approving-resolution-no-83-s-2025-of-the-sangguniang-bayan-of-mapandan-pangasinan-entitled-approving-the-annual-investment-plan-cy-2026-of-the-municipality-of-mapandan-province-of-pangas/"
     },
@@ -676,6 +709,10 @@
     {
       "note": "PDF at http://pangasinan.gov.ph/wp-content/uploads/2025/02/930-2023.pdf appears to be a Sangguniang Panlalawigan resolution attachment (likely SP Resolution No. 930-2023) but its associated Mapandan ordinance/resolution could not be confirmed from the URL alone.",
       "source_url": "http://pangasinan.gov.ph/wp-content/uploads/2025/02/930-2023.pdf"
+    },
+    {
+      "note": "PDF at https://www.pangasinan.gov.ph/wp-content/uploads/2026/05/439-2026-RES.pdf is a Sangguniang Panlalawigan resolution attachment (likely SP Resolution No. 439-2026, filed immediately after SP Res. No. 438-2026 which declared the CY 2026 annual budget). It may relate to a companion Mapandan measure filed alongside the CY 2026 budget, but the specific underlying municipal ordinance/resolution title could not be confirmed from the PDF filename alone.",
+      "source_url": "https://www.pangasinan.gov.ph/wp-content/uploads/2026/05/439-2026-RES.pdf"
     },
     {
       "note": "General resolution listing/index pages (page 207 and page 118 of the Province's resolutions archive) were included in the source link list but do not point to a single specific issuance, so no individual record was created for them.",
