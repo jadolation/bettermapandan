@@ -648,6 +648,42 @@
   "fiscal": [
     {
       "type": "annual_budget",
+      "title": "Annual General Appropriations Ordinance — CY 2020",
+      "period": "Calendar Year 2020",
+      "amount": 122402454.00,
+      "legislative_basis": "SP Approval Date: feb 3, 2020",
+      "scope": "Funds executive operations, local health services, public works, and statutory 20% development funds.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-the-annual-budget-for-calendar-year-2020-of-mapandan-pangasinan-involving-a-total-appropriation-of-p122402454-00-operative-in-its-entirety/"
+    },
+     {
+      "type": "annual_budget",
+      "title": "Annual General Appropriations Ordinance — CY 2022",
+      "period": "Calendar Year 2022",
+      "amount": 173142760.00,
+      "legislative_basis": "SP Approval Date: Feb 21, 2022",
+      "scope": "Funds executive operations, local health services, public works, and statutory 20% development funds.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-the-annual-budget-for-cal-endar-year-2022-of-mapandan-pangasinan-involving-a-total-appropriation-of-p173142760-00-operative-in-its-entirety/"
+    },
+    {
+      "type": "annual_budget",
+      "title": "Annual General Appropriations Ordinance — CY 2023",
+      "period": "Calendar Year 2023",
+      "amount": 151540728.00,
+      "legislative_basis": "SP Approval Date: May 8, 2023",
+      "scope": "Funds executive operations, local health services, public works, and statutory 20% development funds.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-the-annual-budget-for-calendar-year-2023-of-mapandan-pangasinan-involving-a-total-appropriation-of-p151540728-00-operative-in-its-entirety/"
+    },
+     {
+      "type": "annual_budget",
+      "title": "Annual General Appropriations Ordinance — CY 2024",
+      "period": "Calendar Year 2024",
+      "amount": 160828663.00,
+      "legislative_basis": "SP Approval Date: Feb 12, 2024",
+      "scope": "Funds executive operations, local health services, public works, and statutory 20% development funds.",
+      "source_url": "https://www.pangasinan.gov.ph/issuances/declaring-the-annual-budget-for-calendar-year-2024-of-mapandan-pangasinan-involving-a-total-appropriation-of-p160828663-00-operative-in-its-entirety/"
+    },
+    {
+      "type": "annual_budget",
       "title": "Annual General Appropriations Ordinance — CY 2025",
       "period": "Calendar Year 2025",
       "amount": 193088074,
