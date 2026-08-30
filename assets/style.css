@@ -763,13 +763,19 @@ p {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .carousel-slide.active {
   opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .carousel-caption {
@@ -788,7 +794,7 @@ p {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  padding: 10px 16px 14px;
+  padding: 14px 16px 16px;
   border-top: 1px solid var(--line);
 }
 
@@ -2010,6 +2016,39 @@ canvas {
   .weather-forecast { grid-template-columns: repeat(3, 1fr); }
   .history-layout { grid-template-columns: 1fr; }
   .barangay-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Desktop: stack carousel images vertically to fill space */
+@media (min-width: 961px) {
+  .carousel-track {
+    position: static;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .carousel-slide {
+    position: static;
+    opacity: 1;
+    transition: none;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+  .carousel-slide img {
+    height: auto;
+    object-fit: contain;
+  }
+  .carousel-caption {
+    position: static;
+    padding: 8px 0 0;
+    text-align: left;
+    min-height: 0;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+  .carousel-controls {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {

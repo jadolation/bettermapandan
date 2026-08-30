@@ -138,44 +138,54 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!track) return;
 
   var slides = track.querySelectorAll(".carousel-slide");
-  var captionText = document.querySelector(".carousel-caption-text");
   var counter = document.querySelector(".carousel-current");
   var prevBtn = document.querySelector(".carousel-prev");
   var nextBtn = document.querySelector(".carousel-next");
   var current = 0;
   var total = slides.length;
 
-  var captions = [
-    "Mapandan Town Plaza",
-    "Old Mapandan Public Market",
-    "Early Municipal Officials",
-    "Old Mapandan School",
-    "Old Baloling Bridge",
-  ];
-
   function goTo(index) {
     slides[current].classList.remove("active");
     current = (index + total) % total;
     slides[current].classList.add("active");
-    if (captionText) captionText.textContent = captions[current] || "";
     if (counter) counter.textContent = current + 1;
   }
 
   if (prevBtn) prevBtn.addEventListener("click", function () {
     goTo(current - 1);
+    resetAuto();
   });
 
   if (nextBtn) nextBtn.addEventListener("click", function () {
     goTo(current + 1);
+    resetAuto();
   });
 
   var region = document.querySelector(".history-carousel");
   if (region) {
     region.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") { goTo(current - 1); e.preventDefault(); }
-      if (e.key === "ArrowRight") { goTo(current + 1); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { goTo(current - 1); resetAuto(); e.preventDefault(); }
+      if (e.key === "ArrowRight") { goTo(current + 1); resetAuto(); e.preventDefault(); }
     });
   }
+
+  // Auto-advance carousel every 5 seconds, pause on hover
+  var autoTimer = null;
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(function () { goTo(current + 1); }, 5000);
+  }
+  function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+  function resetAuto() { stopAuto(); startAuto(); }
+  if (region) {
+    region.addEventListener("mouseenter", stopAuto);
+    region.addEventListener("mouseleave", startAuto);
+    region.addEventListener("touchstart", stopAuto, { passive: true });
+    region.addEventListener("touchend", function () { setTimeout(startAuto, 3000); }, { passive: true });
+  }
+  startAuto();
 });
 
 // History accordions
