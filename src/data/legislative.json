@@ -738,6 +738,57 @@
       "source_url": "https://wwwmortzcortigoza.blogspot.com/2026/07/mapandan-to-borrow-p45-m-from-lbp-for.html"
     }
   ],
+  
+    "blgf_fiscal_data": [
+      {
+        "year": 2020,
+        "annual_revenue": 125925653.62,
+        "operating_expenditure": 110874566.68,
+        "non_operating_expenditure": 16729855.66,
+        "total_expenditure": 127604422.34,
+        "source": "https://blgf.gov.ph/lgu-fiscal-data/"
+      },
+      {
+        "year": 2021,
+        "annual_revenue": 141635154.19,
+        "operating_expenditure": 111173079.68,
+        "non_operating_expenditure": 35122866.07,
+        "total_expenditure": 146295945.75,
+        "source": "https://blgf.gov.ph/lgu-fiscal-data/"
+      },
+      {
+        "year": 2022,
+        "annual_revenue": 177228974.94,
+        "operating_expenditure": 125480012.80,
+        "non_operating_expenditure": 108519807.29,
+        "total_expenditure": 233999820.09,
+        "source": "https://blgf.gov.ph/lgu-fiscal-data/"
+      },
+      {
+        "year": 2023,
+        "annual_revenue": 155277148.32,
+        "operating_expenditure": 113940007.45,
+        "non_operating_expenditure": 31433553.20,
+        "total_expenditure": 145373560.65,
+        "source": "https://blgf.gov.ph/lgu-fiscal-data/"
+      },
+      {
+        "year": 2024,
+        "annual_revenue": 168119706.29,
+        "operating_expenditure": 136854816.75,
+        "non_operating_expenditure": 29200254.40,
+        "total_expenditure": 166055071.15,
+        "source": "https://blgf.gov.ph/lgu-fiscal-data/"
+      },
+      {
+        "year": 2025,
+        "annual_revenue": 197702148.15,
+        "operating_expenditure": 161522159.54,
+        "non_operating_expenditure": 30263694.65,
+        "total_expenditure": 191785854.19,
+        "source": "https://blgf.gov.ph/lgu-fiscal-data/"
+      }
+    ],
   "legislative_trends": [
     {
       "title": "Administrative Restructuring for Technical Capacity",
