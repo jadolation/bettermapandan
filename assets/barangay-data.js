@@ -1,0 +1,275 @@
+// Auto-generated from barangays.json — do not edit manually
+var BARANGAY_DATA = [
+  {
+    "slug": "torres",
+    "name": "Torres",
+    "pop2024": "3,061",
+    "pop2020": "3,112",
+    "landUse": "Historical settlement / farming",
+    "history": "Torres was the first seat of Mapandan, established when the municipality was created in 1887. The area was associated with a church where Fr. Jose Torres served as parish priest. The community once contained several sitios &mdash; Primicias, Luyan, Lambayan, and Jimenez &mdash; that later developed into separate barangays. Torres&rsquo;s position near the southern boundary led to the eventual transfer of the municipal center to Poblacion.",
+    "source": "Municipality of Mapandan, Barangay Torres History",
+    "punong": "Noel S. Biala",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/profile.php?id=61583040407980",
+    "phone": ""
+  },
+  {
+    "slug": "poblacion",
+    "name": "Poblacion",
+    "pop2024": "3,509",
+    "pop2020": "3,622",
+    "landUse": "Administrative / central commercial zone",
+    "history": "Poblacion became the municipal center after the transfer from Torres. Much of the land was owned by the Aquino family, with Leon Hilario Aquino encouraging settlement by subdividing land into uniform lots. Today it houses the Municipal Hall, Sangguniang Bayan, Municipal Trial Court, and Mapandan National High School &mdash; the administrative and commercial heart of the municipality.",
+    "source": "Municipality of Mapandan, Barangay Poblacion History",
+    "punong": "Cesario E. Quinto Jr",
+    "kagawads": [],
+    "officials": [
+      {
+        "name": "John Michael Landingin",
+        "position": "SK Chairperson"
+      }
+    ],
+    "facebook": "https://www.facebook.com/profile.php?id=61584120474621",
+    "phone": ""
+  },
+  {
+    "slug": "baloling",
+    "name": "Baloling",
+    "pop2024": "4,238",
+    "pop2020": "4,393",
+    "landUse": "Mixed agricultural / residential",
+    "history": "One of the original barrios when Mapandan was established in 1887, Baloling is one of the municipality&rsquo;s more populous barangays. The community has a mixed agricultural and residential character, reflecting its growth over more than 130 years.",
+    "source": "Municipality of Mapandan, Municipal Profile",
+    "punong": "Rodel L. Casilang",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "",
+    "phone": ""
+  },
+  {
+    "slug": "pias",
+    "name": "Pias",
+    "pop2024": "4,827",
+    "pop2020": "4,699",
+    "landUse": "High-density residential / farming",
+    "history": "Pias is one of Mapandan&rsquo;s most populous barangays. The community combines high-density residential areas with active farming, reflecting the transition from purely agricultural to mixed-use land character.",
+    "source": "Municipality of Mapandan, Municipal Profile",
+    "punong": "Atty. Rosette G. Soriano",
+    "kagawads": [],
+    "officials": [
+      {
+        "name": "Kenneth Abrigo",
+        "position": "SK Chairperson"
+      }
+    ],
+    "facebook": "https://www.facebook.com/piaslgu",
+    "phone": "09524869599"
+  },
+  {
+    "slug": "nilombot",
+    "name": "Nilombot",
+    "pop2024": "4,199",
+    "pop2020": "4,411",
+    "landUse": "Residential / commercial outer fringe",
+    "history": "Nilombot&rsquo;s name has local origins tied to the area&rsquo;s former landscape. The community has developed from agricultural roots into a residential and commercial area on Mapandan&rsquo;s outer fringe, reflecting the municipality&rsquo;s growth.",
+    "source": "Municipality of Mapandan, Barangay Nilombot History",
+    "punong": "Edgar Garin",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/profile.php?id=61553828348087",
+    "phone": ""
+  },
+  {
+    "slug": "luyan",
+    "name": "Luyan (Luyan South)",
+    "pop2024": "3,344",
+    "pop2020": "3,730",
+    "landUse": "Agri-tourism / culinary agriculture",
+    "history": "Luyan&rsquo;s history traces back to 18th-century oral accounts. The community has historical relationships with Torres, Aserda, and Sta. Maria. An elementary school was developed in 1990, marking a significant milestone in the community&rsquo;s educational infrastructure. Today, Luyan is highlighted in regional DOT farm-to-table culinary circuits for its agri-tourism programs.",
+    "source": "Municipality of Mapandan, Barangay Luyan History",
+    "punong": "Roger Tropia Castro",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/barangay.luyan",
+    "phone": ""
+  },
+  {
+    "slug": "jimenez",
+    "name": "Jimenez",
+    "pop2024": "2,008",
+    "pop2020": "1,995",
+    "landUse": "Agricultural",
+    "history": "Jimenez is one of the sitios that were originally part of Barangay Torres before developing into a separate community. The barangay has maintained its agricultural character throughout its history.",
+    "source": "Municipality of Mapandan, Barangay Torres History",
+    "punong": "Bernard Cabaluna Antolin",
+    "kagawads": [],
+    "officials": [
+      {
+        "name": "Rechie Penuliar Bravo",
+        "position": "Secretary"
+      },
+      {
+        "name": "Edilbrto Espiritu Penuliar",
+        "position": "Treasurer"
+      },
+      {
+        "name": "Jay Mark Peralta Erasquin",
+        "position": "SK Chairperson"
+      }
+    ],
+    "facebook": "",
+    "phone": "0905 584 6164"
+  },
+  {
+    "slug": "lambayan",
+    "name": "Lambayan",
+    "pop2024": "1,682",
+    "pop2020": "1,756",
+    "landUse": "Agricultural / rice production",
+    "history": "Lambayan was originally one of the sitios of Barangay Torres before becoming a separate community. The barangay is known for its rice production, contributing to Mapandan&rsquo;s agricultural economy.",
+    "source": "Municipality of Mapandan, Barangay Torres History",
+    "punong": "Alex Aquino",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/profile.php?id=61554475378408",
+    "phone": ""
+  },
+  {
+    "slug": "amanoaoac",
+    "name": "Amanoaoac",
+    "pop2024": "1,656",
+    "pop2020": "1,636",
+    "landUse": "Agricultural / crop farming",
+    "history": "One of the original barrios when Mapandan was established in 1887. The name Amanoaoac has local linguistic origins, and the community shares historical ties with Golden, which was formerly a sitio called Amanoaoac North. The barangay has maintained its agricultural character throughout its history.",
+    "source": "Municipality of Mapandan, Barangay Amanoaoac History",
+    "punong": "Marben P. Calaunan",
+    "kagawads": [],
+    "officials": [
+      {
+        "name": "Gemma R. Visperas",
+        "position": "Secretary"
+      },
+      {
+        "name": "Robert Adolfo W. Chan",
+        "position": "Treasurer"
+      },
+      {
+        "name": "Zyrene Khiza A. Castrence",
+        "position": "SK Chairperson"
+      }
+    ],
+    "facebook": "https://www.facebook.com/profile.php?id=100094241576558",
+    "phone": ""
+  },
+  {
+    "slug": "apaya",
+    "name": "Apaya",
+    "pop2024": "1,650",
+    "pop2020": "1,467",
+    "landUse": "Agricultural / livestock production",
+    "history": "One of the original barrios of Mangaldan that became part of Mapandan in 1887. Apaya is one of the major historical barrios, with relationships to Coral, Golden, and Poblacion. The community has maintained its agricultural and livestock production character over more than a century.",
+    "source": "Municipality of Mapandan, Barangay Apaya History",
+    "punong": "Albert P. Ferrer",
+    "kagawads": [],
+    "officials": [
+      {
+        "name": "Jennifer M. Aficial",
+        "position": "Secretary"
+      },
+      {
+        "name": "Renato B. Rabina Jr.",
+        "position": "Treasurer"
+      },
+      {
+        "name": "Angela Joy P. Bongato",
+        "position": "SK Chairperson"
+      }
+    ],
+    "facebook": "https://www.facebook.com/profile.php?id=61554665935950",
+    "phone": ""
+  },
+  {
+    "slug": "aserda",
+    "name": "Aserda",
+    "pop2024": "1,414",
+    "pop2020": "1,108",
+    "landUse": "Agricultural",
+    "history": "Aserda is one of Mapandan&rsquo;s 15 barangays, with historical ties to neighboring Luyan. The community has developed primarily as an agricultural area, contributing to Mapandan&rsquo;s identity as a rice-growing municipality.",
+    "source": "Municipality of Mapandan, Municipal Profile",
+    "punong": "Francis S. Serafica",
+    "kagawads": [],
+    "officials": [
+      {
+        "name": "Paz L. Serafica",
+        "position": "Secretary"
+      },
+      {
+        "name": "Ernesto M. Villanueva",
+        "position": "Treasurer"
+      },
+      {
+        "name": "Hazel Gladys E. Peralta",
+        "position": "SK Chairperson"
+      }
+    ],
+    "facebook": "",
+    "phone": ""
+  },
+  {
+    "slug": "coral",
+    "name": "Coral",
+    "pop2024": "1,405",
+    "pop2020": "1,389",
+    "landUse": "Agricultural",
+    "history": "Coral&rsquo;s name originates from the stone coral (animal enclosure) built during the Spanish era to protect livestock from disease. The barangay was created through a series of official actions: Municipal Council Resolution No. 87 (May 4, 1972), Provincial Board Resolution No. 155 (August 10, 1972), and Proclamation No. 11 (April 25, 1973), followed by a special election for barangay officials on May 6, 1973.",
+    "source": "Municipality of Mapandan, Barangay Coral History",
+    "punong": "Eduardo V. De Guzman",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/profile.php?id=100085067732976",
+    "phone": ""
+  },
+  {
+    "slug": "golden",
+    "name": "Golden",
+    "pop2024": "1,432",
+    "pop2020": "1,399",
+    "landUse": "Agricultural / micro-commercial",
+    "history": "Golden was formerly known as Amanoaoac North, a sitio of Amanoaoac. Named after the Golden Distillery that operated after liberation, the community underwent substantial development including road improvement, waterworks, school construction, and cooperative organization. In 1972, Golden was recognized as a SEATO/PACD Model Village, with the award presented at Malaca&ntilde;ang on September 8, 1972. It became a separate barangay in 1967.",
+    "source": "Municipality of Mapandan, Barangay Golden History",
+    "punong": "Arturo M. Caramat",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/profile.php?id=61560028545057",
+    "phone": ""
+  },
+  {
+    "slug": "primicias",
+    "name": "Primicias",
+    "pop2024": "2,218",
+    "pop2020": "2,071",
+    "landUse": "Agricultural",
+    "history": "Primicias was originally one of the sitios of Barangay Torres before developing into a separate community. The barangay has maintained its agricultural character throughout its development.",
+    "source": "Municipality of Mapandan, Barangay Torres History",
+    "punong": "Ariel Palagud",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/profile/61552569993449",
+    "phone": ""
+  },
+  {
+    "slug": "sta-maria",
+    "name": "Sta. Maria (Luyan North)",
+    "pop2024": "1,585",
+    "pop2020": "1,270",
+    "landUse": "Agricultural",
+    "history": "Sta. Maria was formerly part of Luyan, developed from former hacienda land. After World War II, tenants gained opportunities to own the land they had been farming. The community developed as an independent barrio in 1965, with agricultural development driven by the area&rsquo;s fertile land and the community&rsquo;s transition from tenant farming to land ownership.",
+    "source": "Municipality of Mapandan, Barangay Sta. Maria History",
+    "punong": "Jihan P. Ranas",
+    "kagawads": [],
+    "officials": [],
+    "facebook": "https://www.facebook.com/BrgyStaMaria.MP.SolidCommunity",
+    "phone": ""
+  }
+];
