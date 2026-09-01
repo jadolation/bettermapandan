@@ -7,12 +7,22 @@ var BARANGAY_DATA = [
     "pop2020": "3,112",
     "landUse": "Historical settlement / farming",
     "history": "Torres was the first seat of Mapandan, established when the municipality was created in 1887. The area was associated with a church where Fr. Jose Torres served as parish priest. The community once contained several sitios &mdash; Primicias, Luyan, Lambayan, and Jimenez &mdash; that later developed into separate barangays. Torres&rsquo;s position near the southern boundary led to the eventual transfer of the municipal center to Poblacion.",
-    "source": "Municipality of Mapandan, Barangay Torres History",
+    "history_source": "Municipality of Mapandan, Barangay Torres History",
     "punong": "Noel S. Biala",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Diego G. Castro", "position": "SK Chairperson", "email": "", "contact": "N/A" },
+      { "name": "Leizl M. Ramirez", "position": "Barangay Secretary", "email": "lzielmangueramirez@gmail.com", "contact": "N/A" },
+      { "name": "Christopher P. Castro", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Raymond V. Lacaste", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Joey G. Pascua", "position": "Sangguniang Barangay Member", "email": "JPASCUA896@GMAIL.COM", "contact": "N/A" },
+      { "name": "Juan C. Caagusan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Philip F. Biala", "position": "Sangguniang Barangay Member", "email": "bialaphilip00@gmail.com", "contact": "N/A" },
+      { "name": "Abraham A. Visperas", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Renato S. Marquez", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+    ],
     "facebook": "https://www.facebook.com/profile.php?id=61583040407980",
-    "phone": ""
+    "phone": "09851311622"
   },
   {
     "slug": "poblacion",
@@ -21,17 +31,22 @@ var BARANGAY_DATA = [
     "pop2020": "3,622",
     "landUse": "Administrative / central commercial zone",
     "history": "Poblacion became the municipal center after the transfer from Torres. Much of the land was owned by the Aquino family, with Leon Hilario Aquino encouraging settlement by subdividing land into uniform lots. Today it houses the Municipal Hall, Sangguniang Bayan, Municipal Trial Court, and Mapandan National High School &mdash; the administrative and commercial heart of the municipality.",
-    "source": "Municipality of Mapandan, Barangay Poblacion History",
+    "history_source": "Municipality of Mapandan, Barangay Poblacion History",
     "punong": "Cesario E. Quinto Jr",
     "kagawads": [],
     "officials": [
-      {
-        "name": "John Michael Landingin",
-        "position": "SK Chairperson"
-      }
+      { "name": "John Manuel V. Landingin", "position": "SK Chairperson", "email": "johnmanuellandingin@gmail.com", "contact": "N/A" },
+      { "name": "Mary Joy T. Velasco", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+      { "name": "Edison Jules F. Calimlim", "position": "Sangguniang Barangay Member", "email": "Ecalimlim31@gmail.com", "contact": "N/A" },
+      { "name": "Arnulfo B. Mejia", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Bernabe Jose T. Datuin", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Efren P. Revilla Sr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Leo C. Tamayo", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Barbara N. Bronuela", "position": "Sangguniang Barangay Member", "email": "babronuela@gmail.com", "contact": "N/A" },
+      { "name": "Raymund E. Gabriel Jr.", "position": "Sangguniang Barangay Member", "email": "rjaygabriel777@gmail.com", "contact": "" }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61584120474621",
-    "phone": ""
+    "phone": "N/A"
   },
   {
     "slug": "baloling",
@@ -40,12 +55,22 @@ var BARANGAY_DATA = [
     "pop2020": "4,393",
     "landUse": "Mixed agricultural / residential",
     "history": "One of the original barrios when Mapandan was established in 1887, Baloling is one of the municipality&rsquo;s more populous barangays. The community has a mixed agricultural and residential character, reflecting its growth over more than 130 years.",
-    "source": "Municipality of Mapandan, Municipal Profile",
+    "history_source": "Municipality of Mapandan, Municipal Profile",
     "punong": "Rodel L. Casilang",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Terence Jerome F. Manaois", "position": "SK Chairperson", "email": "terencejeromem@gmail.com", "contact": "N/A" },
+      { "name": "Romeo C. Camara", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+      { "name": "Jimson S. Lemon", "position": "Sangguniang Barangay Member", "email": "perlemon10@gmail.com", "contact": "N/A" },
+      { "name": "Ronald O. Manaois", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Carmelita C. Villamil", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Ma. Teresa L. Duterte", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
+      { "name": "Miguel C. Botuyan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Bobby D. Mosada", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Joel G. Deciles", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+    ],
     "facebook": "",
-    "phone": ""
+    "phone": "N/A"
   },
   {
     "slug": "pias",
@@ -54,17 +79,22 @@ var BARANGAY_DATA = [
     "pop2020": "4,699",
     "landUse": "High-density residential / farming",
     "history": "Pias is one of Mapandan&rsquo;s most populous barangays. The community combines high-density residential areas with active farming, reflecting the transition from purely agricultural to mixed-use land character.",
-    "source": "Municipality of Mapandan, Municipal Profile",
-    "punong": "Atty. Rosette G. Soriano",
+    "history_source": "Municipality of Mapandan, Municipal Profile",
+    "punong": "Rosette G. Soriano",
     "kagawads": [],
     "officials": [
-      {
-        "name": "Kenneth Abrigo",
-        "position": "SK Chairperson"
-      }
+      { "name": "Kenneth T. Abrigo", "position": "SK Chairperson", "email": "", "contact": "N/A" },
+      { "name": "Lorna A. Biason", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+      { "name": "Rodrigo M. Biagtan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Mario C. Gatinga", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Teofilo E. Soriano Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "William G. Revilla", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Rufino G. Visperas", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Cesar G. Cerame", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Efren G. Aquino", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
     ],
     "facebook": "https://www.facebook.com/piaslgu",
-    "phone": "09524869599"
+    "phone": "N/A"
   },
   {
     "slug": "nilombot",
@@ -73,12 +103,22 @@ var BARANGAY_DATA = [
     "pop2020": "4,411",
     "landUse": "Residential / commercial outer fringe",
     "history": "Nilombot&rsquo;s name has local origins tied to the area&rsquo;s former landscape. The community has developed from agricultural roots into a residential and commercial area on Mapandan&rsquo;s outer fringe, reflecting the municipality&rsquo;s growth.",
-    "source": "Municipality of Mapandan, Barangay Nilombot History",
-    "punong": "Edgar Garin",
+    "history_source": "Municipality of Mapandan, Barangay Nilombot History",
+    "punong": "Edgar R. Garin",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Irene Jane F. Barreto", "position": "SK Chairperson", "email": "irenejanebarreto@gmail.com", "contact": "N/A" },
+      { "name": "Lerma L. Legaspi", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+      { "name": "Abraham A. Langit", "position": "Sangguniang Barangay Member", "email": "abc_heaven@yahoo.com", "contact": "N/A" },
+      { "name": "Eduardo C. Embuido Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Ramil G. Aquino", "position": "Sangguniang Barangay Member", "email": "ramilaquino@gmail.com", "contact": "6343304" },
+      { "name": "Joel M. Loresco", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Dominador V. Langit", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Benjamin V. Petrola", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Flores Mendoza Noime", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+    ],
     "facebook": "https://www.facebook.com/profile.php?id=61553828348087",
-    "phone": ""
+    "phone": "N/A"
   },
   {
     "slug": "luyan",
@@ -87,12 +127,22 @@ var BARANGAY_DATA = [
     "pop2020": "3,730",
     "landUse": "Agri-tourism / culinary agriculture",
     "history": "Luyan&rsquo;s history traces back to 18th-century oral accounts. The community has historical relationships with Torres, Aserda, and Sta. Maria. An elementary school was developed in 1990, marking a significant milestone in the community&rsquo;s educational infrastructure. Today, Luyan is highlighted in regional DOT farm-to-table culinary circuits for its agri-tourism programs.",
-    "source": "Municipality of Mapandan, Barangay Luyan History",
-    "punong": "Roger Tropia Castro",
+    "history_source": "Municipality of Mapandan, Barangay Luyan History",
+    "punong": "Roger T. Castro",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Roland B. Guba Jr.", "position": "SK Chairperson", "email": "rolandoguba123@gmail.com", "contact": "N/A" },
+      { "name": "Choilo B. Petrola", "position": "Barangay Secretary", "email": "choilopetrola18@gmail.com", "contact": "0755101283" },
+      { "name": "Ramil I. Laitan", "position": "Sangguniang Barangay Member", "email": "ramil.laitan2010@gmail.com", "contact": "0755101283" },
+      { "name": "Lani C. Medrana", "position": "Sangguniang Barangay Member", "email": "medranalani@yahoo.com", "contact": "0755101283" },
+      { "name": "Samuel V. Calimlim", "position": "Sangguniang Barangay Member", "email": "CALIMLIMSAMUEL@GMAIL.COM", "contact": "0755101283" },
+      { "name": "Fernando T. Castro", "position": "Sangguniang Barangay Member", "email": "", "contact": "0755101283" },
+      { "name": "Restie D. Palma", "position": "Sangguniang Barangay Member", "email": "", "contact": "0755101283" },
+      { "name": "Evelyn S. Siapno", "position": "Sangguniang Barangay Member", "email": "evelynsiapno@gmail.com", "contact": "0755101283" },
+      { "name": "Eddie S. Nepacina", "position": "Sangguniang Barangay Member", "email": "", "contact": "0755101283" }
+    ],
     "facebook": "https://www.facebook.com/barangay.luyan",
-    "phone": ""
+    "phone": "0755101283"
   },
   {
     "slug": "jimenez",
@@ -101,25 +151,23 @@ var BARANGAY_DATA = [
     "pop2020": "1,995",
     "landUse": "Agricultural",
     "history": "Jimenez is one of the sitios that were originally part of Barangay Torres before developing into a separate community. The barangay has maintained its agricultural character throughout its history.",
-    "source": "Municipality of Mapandan, Barangay Torres History",
-    "punong": "Bernard Cabaluna Antolin",
+    "history_source": "Municipality of Mapandan, Barangay Torres History",
+    "punong": "Bernard C. Antolin",
     "kagawads": [],
     "officials": [
-      {
-        "name": "Rechie Penuliar Bravo",
-        "position": "Secretary"
-      },
-      {
-        "name": "Edilbrto Espiritu Penuliar",
-        "position": "Treasurer"
-      },
-      {
-        "name": "Jay Mark Peralta Erasquin",
-        "position": "SK Chairperson"
-      }
+      { "name": "Jay Mark P. Erasquin", "position": "SK Chairperson", "email": "jaymarkerasquin@gmail.com", "contact": "N/A" },
+      { "name": "Rechie P. Bravo", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+      { "name": "Edilbrto Espiritu Penuliar", "position": "Treasurer", "email": "", "contact": "N/A" },
+      { "name": "Teresita F. Navarro", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
+      { "name": "Sanny F. Easquin", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
+      { "name": "Elmar M. De Guzman", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Jayson D. Erasquin", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Mariano D. Peralta", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Jaime B. Revilla", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Mario P. Biala", "position": "Sangguniang Barangay Member", "email": "", "contact": "" }
     ],
     "facebook": "",
-    "phone": "0905 584 6164"
+    "phone": "N/A"
   },
   {
     "slug": "lambayan",
@@ -128,12 +176,22 @@ var BARANGAY_DATA = [
     "pop2020": "1,756",
     "landUse": "Agricultural / rice production",
     "history": "Lambayan was originally one of the sitios of Barangay Torres before becoming a separate community. The barangay is known for its rice production, contributing to Mapandan&rsquo;s agricultural economy.",
-    "source": "Municipality of Mapandan, Barangay Torres History",
-    "punong": "Alex Aquino",
+    "history_source": "Municipality of Mapandan, Barangay Torres History",
+    "punong": "Alexander L. Aquino",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Carl Tristan C. Agustin", "position": "SK Chairperson", "email": "Agustin.CarlTristan@gmail.com", "contact": "N/A" },
+      { "name": "Manolet T. Revilla", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+      { "name": "Jaypee D. Soria", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Jhonie V. Agustin", "position": "Sangguniang Barangay Member", "email": "jhon@gmail.com", "contact": "N/A" },
+      { "name": "Ronald C. Llena", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Lope U. Soriano", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
+      { "name": "Emilio L. Aquino Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Wennie O. Lu", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Ariel A. Marzan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+    ],
     "facebook": "https://www.facebook.com/profile.php?id=61554475378408",
-    "phone": ""
+    "phone": "N/A"
   },
   {
     "slug": "amanoaoac",
@@ -142,25 +200,23 @@ var BARANGAY_DATA = [
     "pop2020": "1,636",
     "landUse": "Agricultural / crop farming",
     "history": "One of the original barrios when Mapandan was established in 1887. The name Amanoaoac has local linguistic origins, and the community shares historical ties with Golden, which was formerly a sitio called Amanoaoac North. The barangay has maintained its agricultural character throughout its history.",
-    "source": "Municipality of Mapandan, Barangay Amanoaoac History",
+    "history_source": "Municipality of Mapandan, Barangay Amanoaoac History",
     "punong": "Marben P. Calaunan",
     "kagawads": [],
     "officials": [
-      {
-        "name": "Gemma R. Visperas",
-        "position": "Secretary"
-      },
-      {
-        "name": "Robert Adolfo W. Chan",
-        "position": "Treasurer"
-      },
-      {
-        "name": "Zyrene Khiza A. Castrence",
-        "position": "SK Chairperson"
-      }
+      { "name": "Zyrene Khiza A. Castrene", "position": "SK Chairperson", "email": "khizacastrene@gmail.com", "contact": "N/A" },
+      { "name": "Gemma R. Visperas", "position": "Barangay Secretary", "email": "", "contact": "09074323847" },
+      { "name": "Robert Adolfo W. Chan", "position": "Treasurer", "email": "", "contact": "N/A" },
+      { "name": "Sotero P. Burguillos Jr", "position": "Sangguniang Barangay Member", "email": "junjrburguillos@gmail.com", "contact": "09074323847" },
+      { "name": "Noblito S. Dela Cruz Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" },
+      { "name": "Jeffson C. Burguillos", "position": "Sangguniang Barangay Member", "email": "JEFFSON.BURGUILLOS@YAHOO.COM", "contact": "09074323847" },
+      { "name": "Victoria S. Erasquin", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" },
+      { "name": "Rony M. Zarcilla", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" },
+      { "name": "Jerriel Jaruh G. Dela Cruz", "position": "Sangguniang Barangay Member", "email": "jerrieljaruhd@gmail.com", "contact": "09074323847" },
+      { "name": "Jayson O. Penuliar", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=100094241576558",
-    "phone": ""
+    "phone": "09293626955"
   },
   {
     "slug": "apaya",
@@ -169,25 +225,23 @@ var BARANGAY_DATA = [
     "pop2020": "1,467",
     "landUse": "Agricultural / livestock production",
     "history": "One of the original barrios of Mangaldan that became part of Mapandan in 1887. Apaya is one of the major historical barrios, with relationships to Coral, Golden, and Poblacion. The community has maintained its agricultural and livestock production character over more than a century.",
-    "source": "Municipality of Mapandan, Barangay Apaya History",
+    "history_source": "Municipality of Mapandan, Barangay Apaya History",
     "punong": "Albert P. Ferrer",
     "kagawads": [],
     "officials": [
-      {
-        "name": "Jennifer M. Aficial",
-        "position": "Secretary"
-      },
-      {
-        "name": "Renato B. Rabina Jr.",
-        "position": "Treasurer"
-      },
-      {
-        "name": "Angela Joy P. Bongato",
-        "position": "SK Chairperson"
-      }
+      { "name": "Angela Joy P. Bongato", "position": "SK Chairperson", "email": "bongatoangela682@gmail.com", "contact": "N/A" },
+      { "name": "Jennifer M. Aficial", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+      { "name": "Renato B. Rabina Jr.", "position": "Treasurer", "email": "", "contact": "N/A" },
+      { "name": "Roberto C. Siapno", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
+      { "name": "Salvador N. Bronuela", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Edgardo S. Garin", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Cecilio G. Serapion", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
+      { "name": "Juanito O. Santos Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Marivic L. Morado", "position": "Sangguniang Barangay Member", "email": "MIL070678@GMAIL.COM", "contact": "N/A" },
+      { "name": "Ronnie N. Sta. Ana Jr", "position": "Sangguniang Barangay Member", "email": "ronnie.staana@yahoo.com", "contact": "" }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61554665935950",
-    "phone": ""
+    "phone": "N/A"
   },
   {
     "slug": "aserda",
@@ -196,25 +250,23 @@ var BARANGAY_DATA = [
     "pop2020": "1,108",
     "landUse": "Agricultural",
     "history": "Aserda is one of Mapandan&rsquo;s 15 barangays, with historical ties to neighboring Luyan. The community has developed primarily as an agricultural area, contributing to Mapandan&rsquo;s identity as a rice-growing municipality.",
-    "source": "Municipality of Mapandan, Municipal Profile",
+    "history_source": "Municipality of Mapandan, Municipal Profile",
     "punong": "Francis S. Serafica",
     "kagawads": [],
     "officials": [
-      {
-        "name": "Paz L. Serafica",
-        "position": "Secretary"
-      },
-      {
-        "name": "Ernesto M. Villanueva",
-        "position": "Treasurer"
-      },
-      {
-        "name": "Hazel Gladys E. Peralta",
-        "position": "SK Chairperson"
-      }
+      { "name": "Hazel Gladys E. Peralta", "position": "SK Chairperson", "email": "HAZELPERALTA.MNHS@GMAIL.COM", "contact": "N/A" },
+      { "name": "Paz L. Serafica", "position": "Barangay Secretary", "email": "", "contact": "09338139368" },
+      { "name": "Ernesto M. Villanueva", "position": "Treasurer", "email": "", "contact": "N/A" },
+      { "name": "Joel P. Trillado", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
+      { "name": "Bernardo H. Natan", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
+      { "name": "Ernesto V. Visperas", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
+      { "name": "Marilyn A. Almonte", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
+      { "name": "Roberto D. Tandingan", "position": "Sangguniang Barangay Member", "email": "TANDINGANROBERT16@GMAIL.COM", "contact": "09338139368" },
+      { "name": "Ernesto F. Vinluan", "position": "Sangguniang Barangay Member", "email": "NESTORVINLUAN1@GMAIL.COM", "contact": "09338139368" },
+      { "name": "Michael T. Peralta", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
     ],
     "facebook": "",
-    "phone": ""
+    "phone": "09293877746"
   },
   {
     "slug": "coral",
@@ -223,12 +275,22 @@ var BARANGAY_DATA = [
     "pop2020": "1,389",
     "landUse": "Agricultural",
     "history": "Coral&rsquo;s name originates from the stone coral (animal enclosure) built during the Spanish era to protect livestock from disease. The barangay was created through a series of official actions: Municipal Council Resolution No. 87 (May 4, 1972), Provincial Board Resolution No. 155 (August 10, 1972), and Proclamation No. 11 (April 25, 1973), followed by a special election for barangay officials on May 6, 1973.",
-    "source": "Municipality of Mapandan, Barangay Coral History",
+    "history_source": "Municipality of Mapandan, Barangay Coral History",
     "punong": "Eduardo V. De Guzman",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Jeneveive Eillene T. Vega", "position": "SK Chairperson", "email": "jnvvllnvega@gmail.com", "contact": "N/A" },
+      { "name": "Elvira D. Velasquez", "position": "Barangay Secretary", "email": "", "contact": "540-1307" },
+      { "name": "Loreto S. Aquino", "position": "Sangguniang Barangay Member", "email": "", "contact": "5461307" },
+      { "name": "Reynaldo S. De Vera", "position": "Sangguniang Barangay Member", "email": "", "contact": "5401307" },
+      { "name": "Steven V. Querimit", "position": "Sangguniang Barangay Member", "email": "", "contact": "540-1307" },
+      { "name": "Erian Jo A. Quirimit", "position": "Sangguniang Barangay Member", "email": "", "contact": "540-1307" },
+      { "name": "Efren A. Aquino", "position": "Sangguniang Barangay Member", "email": "", "contact": "5401307" },
+      { "name": "Renan M. Sy", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Myrna V. Asunio", "position": "Sangguniang Barangay Member", "email": "", "contact": "09469797890" }
+    ],
     "facebook": "https://www.facebook.com/profile.php?id=100085067732976",
-    "phone": ""
+    "phone": "5401307"
   },
   {
     "slug": "golden",
@@ -237,12 +299,22 @@ var BARANGAY_DATA = [
     "pop2020": "1,399",
     "landUse": "Agricultural / micro-commercial",
     "history": "Golden was formerly known as Amanoaoac North, a sitio of Amanoaoac. Named after the Golden Distillery that operated after liberation, the community underwent substantial development including road improvement, waterworks, school construction, and cooperative organization. In 1972, Golden was recognized as a SEATO/PACD Model Village, with the award presented at Malaca&ntilde;ang on September 8, 1972. It became a separate barangay in 1967.",
-    "source": "Municipality of Mapandan, Barangay Golden History",
+    "history_source": "Municipality of Mapandan, Barangay Golden History",
     "punong": "Arturo M. Caramat",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Steven Michael V. Daroy", "position": "SK Chairperson", "email": "daroysteven156@gmail.com", "contact": "N/A" },
+      { "name": "Mylene S. Valeña", "position": "Barangay Secretary", "email": "", "contact": "6320616" },
+      { "name": "Virginia S. Lopez", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
+      { "name": "Joseph S. Sison", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
+      { "name": "Danilo D. Tolentino", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
+      { "name": "Ariel M. Tolentino", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
+      { "name": "Leonardo S. Fernandez", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
+      { "name": "Eddieson C. De Guzman", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
+      { "name": "Angelo P. Lopez", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" }
+    ],
     "facebook": "https://www.facebook.com/profile.php?id=61560028545057",
-    "phone": ""
+    "phone": "N/A"
   },
   {
     "slug": "primicias",
@@ -251,12 +323,22 @@ var BARANGAY_DATA = [
     "pop2020": "2,071",
     "landUse": "Agricultural",
     "history": "Primicias was originally one of the sitios of Barangay Torres before developing into a separate community. The barangay has maintained its agricultural character throughout its development.",
-    "source": "Municipality of Mapandan, Barangay Torres History",
-    "punong": "Ariel Palagud",
+    "history_source": "Municipality of Mapandan, Barangay Torres History",
+    "punong": "Ariel P. Palagud",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Albert D. Aquino", "position": "SK Chairperson", "email": "aquinoalbert333@gmail.com", "contact": "N/A" },
+      { "name": "Anastacia M. Cabida", "position": "Barangay Secretary", "email": "anastacia051173@gmail.com", "contact": "09684453175" },
+      { "name": "Mamerto P. Sison", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
+      { "name": "Freddie F. Valencia", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
+      { "name": "Fernando A. Soria", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
+      { "name": "Reynaldo C. Meneses", "position": "Sangguniang Barangay Member", "email": "mcley2424@yahoo.com", "contact": "09953375194" },
+      { "name": "Cesario M. Sotto", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
+      { "name": "Emerson D. Meneses", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
+      { "name": "Andres D. Paragas", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" }
+    ],
     "facebook": "https://www.facebook.com/profile/61552569993449",
-    "phone": ""
+    "phone": "09953375194"
   },
   {
     "slug": "sta-maria",
@@ -265,11 +347,21 @@ var BARANGAY_DATA = [
     "pop2020": "1,270",
     "landUse": "Agricultural",
     "history": "Sta. Maria was formerly part of Luyan, developed from former hacienda land. After World War II, tenants gained opportunities to own the land they had been farming. The community developed as an independent barrio in 1965, with agricultural development driven by the area&rsquo;s fertile land and the community&rsquo;s transition from tenant farming to land ownership.",
-    "source": "Municipality of Mapandan, Barangay Sta. Maria History",
-    "punong": "Jihan P. Ranas",
+    "history_source": "Municipality of Mapandan, Barangay Sta. Maria History",
+    "punong": "Jihan M. Paulino",
     "kagawads": [],
-    "officials": [],
+    "officials": [
+      { "name": "Lian Joshua D. Tandingan", "position": "SK Chairperson", "email": "", "contact": "N/A" },
+      { "name": "Cyrine Jane D. Sadio", "position": "Barangay Secretary", "email": "", "contact": "075-615-8597" },
+      { "name": "Janray B. Fernandez", "position": "Sangguniang Barangay Member", "email": "fernandezjanray@gmail.com", "contact": "0756158597" },
+      { "name": "Jay-Ar V. Malanum", "position": "Sangguniang Barangay Member", "email": "jcobmalanum@gmail.com", "contact": "N/A" },
+      { "name": "Lorna C. Licuanan", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
+      { "name": "Rolly P. De Guzman", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
+      { "name": "Joseph F. Madayag", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
+      { "name": "Romeo G. Rodriguez", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
+      { "name": "Jim P. Bautista", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" }
+    ],
     "facebook": "https://www.facebook.com/BrgyStaMaria.MP.SolidCommunity",
-    "phone": ""
+    "phone": "0756158597"
   }
 ];

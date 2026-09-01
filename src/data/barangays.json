@@ -7,7 +7,7 @@
       "pop2020": "1,636",
       "landUse": "Agricultural / crop farming",
       "history": "One of the original barrios when Mapandan was established in 1887. The name Amanoaoac has local linguistic origins, and the community shares historical ties with Golden, which was formerly a sitio called Amanoaoac North. The barangay has maintained its agricultural character throughout its history.",
-      "history_source": "Municipality of Mapandan, Barangay Amanoaoac History",
+      "source": "Municipality of Mapandan, Barangay Amanoaoac History",
       "punong_barangay": "Marben P. Calaunan",
       "kagawads": [
         { "name": "Sotero P. Burguillos Jr", "position": "Sangguniang Barangay Member", "email": "junjrburguillos@gmail.com", "contact": "09074323847" },
@@ -20,7 +20,11 @@
       ],
       "officials": [
         { "name": "Zyrene Khiza A. Castrene", "position": "SK Chairperson", "email": "khizacastrene@gmail.com", "contact": "N/A" },
-        { "name": "Gemma R. Visperas", "position": "Barangay Secretary", "email": "", "contact": "09074323847" }
+        { "name": "Gemma R. Visperas", "position": "Barangay Secretary", "email": "", "contact": "09074323847" },
+        {
+        "name": "Robert Adolfo W. Chan",
+        "position": "Treasurer"
+      }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=100094241576558",
       "phone": "09293626955"
@@ -45,7 +49,11 @@
       ],
       "officials": [
         { "name": "Angela Joy P. Bongato", "position": "SK Chairperson", "email": "bongatoangela682@gmail.com", "contact": "N/A" },
-        { "name": "Jennifer M. Aficial", "position": "Barangay Secretary", "email": "", "contact": "N/A" }
+        { "name": "Jennifer M. Aficial", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+         {
+        "name": "Renato B. Rabina Jr.",
+        "position": "Treasurer"
+      }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61554665935950",
       "phone": "N/A"
@@ -70,7 +78,11 @@
       ],
       "officials": [
         { "name": "Hazel Gladys E. Peralta", "position": "SK Chairperson", "email": "HAZELPERALTA.MNHS@GMAIL.COM", "contact": "N/A" },
-        { "name": "Paz L. Serafica", "position": "Barangay Secretary", "email": "", "contact": "09338139368" }
+        { "name": "Paz L. Serafica", "position": "Barangay Secretary", "email": "", "contact": "09338139368" },
+        {
+        "name": "Ernesto M. Villanueva",
+        "position": "Treasurer"
+      }
       ],
       "facebook": "",
       "phone": "09293877746"
@@ -170,7 +182,10 @@
       ],
       "officials": [
         { "name": "Jay Mark P. Erasquin", "position": "SK Chairperson", "email": "jaymarkerasquin@gmail.com", "contact": "N/A" },
-        { "name": "Rechie P. Bravo", "position": "Barangay Secretary", "email": "", "contact": "N/A" }
+        { "name": "Rechie P. Bravo", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
+        {
+        "name": "Edilbrto Espiritu Penuliar",
+        "position": "Treasurer"}
       ],
       "facebook": "",
       "phone": "N/A"
