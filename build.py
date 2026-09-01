@@ -345,11 +345,41 @@ def generate_legislative() -> None:
     out_path.write_text(filled)
 
 
+def generate_barangays() -> None:
+    """Generate barangay-data.js for homepage from JSON data."""
+    data_path = SRC_DATA / "barangays.json"
+    data = json.loads(data_path.read_text())
+    barangays = data.get("barangays", [])
+
+    js_data = []
+    for brgy in barangays:
+        js_data.append({
+            "slug": brgy["slug"],
+            "name": brgy["name"],
+            "pop2024": brgy.get("pop2024", ""),
+            "pop2020": brgy.get("pop2020", ""),
+            "landUse": brgy.get("landUse", ""),
+            "history": brgy.get("history", ""),
+            "source": brgy.get("history_source", ""),
+            "punong": brgy.get("punong_barangay", ""),
+            "kagawads": brgy.get("kagawads", []),
+            "officials": brgy.get("officials", []),
+            "facebook": brgy.get("facebook", ""),
+            "phone": brgy.get("phone", ""),
+        })
+
+    js_content = "// Auto-generated from barangays.json — do not edit manually\nvar BARANGAY_DATA = " + json.dumps(js_data, ensure_ascii=False, indent=2) + ";\n"
+    js_path = ROOT / "assets" / "barangay-data.js"
+    js_path.write_text(js_content)
+
+
 def build() -> None:
     # Generate service pages from JSON data (creates src/pages/services/*.html + src/pages/services.html)
     generate_services()
     # Generate legislative page from JSON data (creates src/pages/legislative.html)
     generate_legislative()
+    # Generate barangay homepage data from JSON data (creates assets/barangay-data.js)
+    generate_barangays()
 
     base = (SRC_PARTIALS / "base.html").read_text()
     header_raw = (SRC_PARTIALS / "header.html").read_text()
