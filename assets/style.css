@@ -681,6 +681,15 @@ p {
 }
 
 
+.leader-card .source-label {
+  display: inline-block;
+  font-size: 12px;
+  color: #dcebd9;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+
 .leader-card .photo {
   position: absolute;
   right: 0;
