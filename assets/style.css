@@ -611,6 +611,37 @@ p {
   margin-bottom: 12px;
   font-size: 17px;
 }
+.card-photo{
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.card-photo::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.05) 100%),
+    linear-gradient(270deg, rgba(15, 85, 26, 0.245) 0%, rgba(0,0,0,0.55) 60%, rgba(45, 72, 9, 0.85) 100%);
+}
+.card-photo-inner{
+  position: relative;
+  z-index: 1;
+}
+.card-photo h3{ color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+.card-photo p{ color: rgba(255,255,255,0.9); }
+.card-photo-credit{
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  z-index: 1;
+}
 
 .link-arrow {
   display: inline-flex;
