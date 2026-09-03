@@ -106,6 +106,7 @@
         "Wait for availability announcement of agricultural subsidies or programs.",
         "Receive agricultural assistance or subsidies upon program approval."
       ],
+      "photo-referenced": "assets/citizens-charter/agriculture-subsidy.jpg",
       "related": [],
       "hero_lede": "Apply for agricultural subsidies in Mapandan. Seeds at 50% discount, plus technical assistance and livestock services."
     },
@@ -137,6 +138,7 @@
         "Wait for the social worker’s assessment and case study.",
         "Receive financial assistance upon approval of your application."
       ],
+      "photo-referenced": "assets/citizens-charter/aics.jpg",
       "related": [],
       "hero_lede": "Apply for Assistance to Individuals in Crisis Situations (AICS) in Mapandan. Learn about requirements, eligibility, and how to get help from the MSWDO."
     },
@@ -166,6 +168,7 @@
         "Pay the certification fee at the Municipal Treasurer’s Office.",
         "Receive the certified birth certificate upon release."
       ],
+      "photo-referenced": "assets/citizens-charter/birth-certificate.jpg",
       "related": [],
       "hero_lede": "Request a birth certificate from the Mapandan MCR. Standard ₱115, late registration ₱315–₱1,015."
     },
@@ -205,6 +208,7 @@
         "Pay the building permit fees at the Municipal Treasurer’s Office.",
         "Receive the approved building permit after technical evaluation."
       ],
+      "photo-referenced": "assets/citizens-charter/building-permit.jpg",
       "related": [
         "assessor-building-appraisal",
         "occupancy-permit"
@@ -239,6 +243,7 @@
         "Proceed to the Mayor's Office for issuance of Business Permit.",
         "Claim business plate and sticker at the Treasury Office (10 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/business-permit.jpg",
       "related": [
         "business-renewal",
         "business-zoning",
@@ -274,6 +279,7 @@
         "Proceed to the Mayor's Office for issuance of renewed Business Permit.",
         "Claim business plate and sticker at the Treasury Office."
       ],
+      "photo-referenced": "assets/citizens-charter/business-renewal.jpg",
       "related": [
         "business-permit",
         "business-zoning"
@@ -303,6 +309,7 @@
         "Pay the required fees (3 min).",
         "Receive community tax certificate. Staff records in general collection system (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/cedula.jpg",
       "related": [],
       "hero_lede": "Get your Community Tax Certificate (cedula) in Mapandan. Individual: ₱5 + ₱1/₱1k; Juridical: ₱500 + ₱2/₱5k."
     },
@@ -331,6 +338,7 @@
         "Pay the certification fee at the Municipal Treasurer’s Office.",
         "Receive the certified death certificate upon release."
       ],
+      "photo-referenced": "assets/citizens-charter/death-certificate.jpg",
       "related": [],
       "hero_lede": "Request a death certificate from the Mapandan MCR. Late registration fee ₱215."
     },
@@ -359,6 +367,7 @@
         "MHO check-up, assess, and treat the patient. Schedule follow-up check-up.",
         "Give available medicines to patient and encode."
       ],
+      "photo-referenced": "assets/citizens-charter/health-consultation.jpg",
       "related": [],
       "hero_lede": "Free health consultation at the Mapandan RHU. Walk-in service for all residents. 25 minutes per client."
     },
@@ -392,6 +401,7 @@
         "Pay ₱150 recording fee at the Treasury Office.",
         "Claim the new Tax Declaration under the new owner's name (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/land-transfer.jpg",
       "related": [
         "assessor-annotations",
         "rpt-payment",
@@ -429,6 +439,7 @@
         "Wait for the 10-day publication period.",
         "After publication, claim the marriage license from the MCR."
       ],
+      "photo-referenced": "assets/citizens-charter/marriage-license.jpg",
       "related": [
         "solemnization-of-marriage",
         "pre-marriage-counseling-pop"
@@ -464,6 +475,7 @@
         "Wait for the publication period to be completed.",
         "After publication and verification, claim the corrected birth certificate from the MCR."
       ],
+      "photo-referenced": "assets/citizens-charter/name-correction.jpg",
       "related": [],
       "hero_lede": "Correct your birth certificate under RA 9048. ₱3,000 for name change, ₱1,000 for clerical error."
     },
@@ -492,6 +504,7 @@
         "Submit all documents to the MEO for review.",
         "Receive the occupancy permit upon approval."
       ],
+      "photo-referenced": "assets/citizens-charter/occupancy-permit.jpg",
       "related": [],
       "hero_lede": "Get an occupancy permit from the Mapandan MEO. RA 11032 processing times: 3–20 working days."
     },
@@ -519,6 +532,7 @@
         "Pay the required fees (5 min).",
         "Receive the official receipt. Staff records in general collection system (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/rpt-payment.jpg",
       "related": [],
       "hero_lede": "Pay your real property tax in Mapandan. Basic 1% + SEF 1% of assessed value. 10%–20% discount for prompt/advance payment."
     },
@@ -551,6 +565,7 @@
         "MHO signs the certification (2 min).",
         "List down certificate number on logbook and release certification (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/sanitary-permit.jpg",
       "related": [
         "health-consultation",
         "business-permit"
@@ -584,6 +599,7 @@
         "Wait for verification and processing of your application.",
         "Receive your Senior Citizen or PWD ID upon approval."
       ],
+      "photo-referenced": "assets/citizens-charter/senior-pwd-id.jpg",
       "related": [],
       "hero_lede": "Apply for a Senior Citizen or Persons with Disabilities (PWD) ID in Mapandan. Learn about requirements, eligibility, and where to apply."
     },
@@ -615,6 +631,7 @@
         "Wait for review and approval; pay any required fees.",
         "Receive the approved special event permit."
       ],
+      "photo-referenced": "assets/citizens-charter/special-event-permit.jpg",
       "related": [],
       "hero_lede": "Obtain a permit for special events such as festivals, concerts, fairs, and other public gatherings in Mapandan."
     },
@@ -643,6 +660,7 @@
         "Staff prepares the certified true copy and stamps it (3 min).",
         "Pay ₱100 at the Treasury Office and claim the document (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-true-copy.jpg",
       "related": [
         "rpt-payment",
         "assessor-true-copy"
@@ -674,6 +692,7 @@
         "Pay the applicable fee at the Municipal Treasurer’s Office.",
         "Receive the zoning clearance after verification of land use compliance."
       ],
+      "photo-referenced": "assets/citizens-charter/zoning-clearance.jpg",
       "related": [],
       "hero_lede": "Obtain a zoning clearance before constructing, renovating, or changing the use of a property in Mapandan."
     },
@@ -704,6 +723,7 @@
         "Staff will conduct an interview and assess your eligibility for assistance.",
         "Receive your Certificate of Indigency upon approval."
       ],
+      "photo-referenced": "assets/citizens-charter/certificate-of-indigency.jpg",
       "related": [
         "aics",
         "social-case-study",
@@ -736,6 +756,7 @@
         "Submit your requirements and undergo assessment using the solo parent intake form.",
         "After 6 months of assessment, the Solo Parent ID is recorded in the logbook and issued."
       ],
+      "photo-referenced": "assets/citizens-charter/solo-parent-id.jpg",
       "related": [
         "certificate-of-indigency",
         "marriage-counseling"
@@ -766,6 +787,7 @@
         "MSWDO prepares the certification for educational assistance, school fees discount, or scholarship.",
         "Receive the issued certification."
       ],
+      "photo-referenced": "assets/citizens-charter/scholarship-certification.jpg",
       "related": [
         "certificate-of-indigency"
       ],
@@ -798,6 +820,7 @@
         "MSWDO prepares and submits documents to PSWDO/DSWD FO1 for funding and purchase.",
         "Receive the assistive device (crutches, wheelchair, prosthesis, etc.) upon availability."
       ],
+      "photo-referenced": "assets/citizens-charter/pwd-assistive-devices.jpg",
       "related": [
         "senior-pwd-id"
       ],
@@ -830,6 +853,7 @@
         "Follow up with the MSWDO for the status of financial assistance.",
         "Receive the OSCA financial assistance at the Municipal Treasury Office."
       ],
+      "photo-referenced": "assets/citizens-charter/osca-death-aid.jpg",
       "related": [
         "certificate-of-indigency",
         "aics"
@@ -866,6 +890,7 @@
         "MSWDO prepares and computerizes the Social Case Study Report.",
         "Receive your copy of the Social Case Study Report upon approval."
       ],
+      "photo-referenced": "assets/citizens-charter/social-case-study.jpg",
       "related": [
         "aics",
         "certificate-of-indigency"
@@ -897,6 +922,7 @@
         "After the seminar, the Pre-Marriage Counseling Certificate is signed by the counselor.",
         "Receive the duly signed Pre-Marriage Counseling Certificate."
       ],
+      "photo-referenced": "assets/citizens-charter/marriage-counseling.jpg",
       "related": [
         "marriage-license"
       ],
@@ -928,6 +954,7 @@
         "Staff prepares draft of Social Case Study Report and follows up with home visits and counseling.",
         "Present results. MSWDO prepares and submits Social Case Study Report."
       ],
+      "photo-referenced": "assets/citizens-charter/cicl-services.jpg",
       "related": [
         "women-welfare",
         "special-social-services"
@@ -959,6 +986,7 @@
         "Staff refers the client to PNP, Hospital, Prosecutor's Office, or other agencies if necessary.",
         "Follow up with home visits, counseling, and other services as needed."
       ],
+      "photo-referenced": "assets/citizens-charter/women-welfare.jpg",
       "related": [
         "cicl-services",
         "special-social-services"
@@ -995,6 +1023,7 @@
         "Financial assistance (ESA) is distributed to qualified beneficiaries.",
         "MSWDO monitors and evaluates project implementation for house repair/reconstruction."
       ],
+      "photo-referenced": "assets/citizens-charter/disaster-relief.jpg",
       "related": [
         "aics",
         "ldrrmo-rescue-operation",
@@ -1032,6 +1061,7 @@
         "MSWDO coordinates for PhilHealth Point of Care eligibility assessment.",
         "Receive Certificate of Indigency for PhilHealth benefits."
       ],
+      "photo-referenced": "assets/citizens-charter/special-social-services.jpg",
       "related": [
         "cicl-services",
         "certificate-of-indigency"
@@ -1062,6 +1092,7 @@
         "Send or accompany your child to the Day Care Center for regular sessions (2–3 hours).",
         "Attend Day Care parents' meetings as scheduled."
       ],
+      "photo-referenced": "assets/citizens-charter/day-care.jpg",
       "related": [
         "nutrition-immunization"
       ],
@@ -1092,6 +1123,7 @@
         "If high-risk, patient is referred to a higher level of facility.",
         "Health teaching on proper nutrition, prenatal care, breastfeeding, and immunization."
       ],
+      "photo-referenced": "assets/citizens-charter/pre-natal.jpg",
       "related": [
         "health-consultation",
         "family-planning"
@@ -1122,6 +1154,7 @@
         "MHO assesses whether the method is suitable and appropriate.",
         "Provision of family planning method (oral pills or DMPA injectable)."
       ],
+      "photo-referenced": "assets/citizens-charter/family-planning.jpg",
       "related": [
         "pre-natal",
         "health-consultation"
@@ -1155,6 +1188,7 @@
         "MHO conducts physical examination of patient.",
         "Anti-TB drugs are given with record and patient is advised on proper intake."
       ],
+      "photo-referenced": "assets/citizens-charter/tb-dots.jpg",
       "related": [
         "health-consultation",
         "laboratory"
@@ -1186,6 +1220,7 @@
         "Medical Technologist conducts the laboratory examination.",
         "MHO interprets laboratory results and prescribes medications."
       ],
+      "photo-referenced": "assets/citizens-charter/laboratory.jpg",
       "related": [
         "health-consultation",
         "tb-dots"
@@ -1218,6 +1253,7 @@
         "ABTC Nurse provides post-treatment instructions and follow-up schedule.",
         "Pharmacy Assistant dispenses vaccines or medicine."
       ],
+      "photo-referenced": "assets/citizens-charter/rabies.jpg",
       "related": [
         "health-consultation",
         "laboratory"
@@ -1253,6 +1289,7 @@
         "Midwife advises parent on child care and expected outcome.",
         "Schedule next vaccination."
       ],
+      "photo-referenced": "assets/citizens-charter/nutrition-immunization.jpg",
       "related": [
         "pre-natal",
         "day-care"
@@ -1295,6 +1332,7 @@
         "MPDC prepares and submits documents. Zoning Officer approves application.",
         "Client signs logbook."
       ],
+      "photo-referenced": "assets/citizens-charter/electrical-zoning.jpg",
       "related": [
         "building-permit",
         "business-zoning"
@@ -1326,6 +1364,7 @@
         "MPDC prepares and issues Business Zoning Clearance.",
         "Complete endorsement is recorded."
       ],
+      "photo-referenced": "assets/citizens-charter/business-zoning.jpg",
       "related": [
         "business-permit",
         "business-renewal",
@@ -1357,6 +1396,7 @@
         "If available, MPDC provides the requested data/information.",
         "Receive the information/data."
       ],
+      "photo-referenced": "assets/citizens-charter/public-information.jpg",
       "related": [],
       "hero_lede": "Request public information and data from the MPDC in Mapandan. Planning, land use, and development data available."
     },
@@ -1386,6 +1426,7 @@
         "Staff produces the document and submits it to the SB Secretary for authentication, certification, and sealing.",
         "Receive the authenticated and certified document."
       ],
+      "photo-referenced": "assets/citizens-charter/sb-certified-copy.jpg",
       "related": [
         "public-information"
       ],
@@ -1416,6 +1457,7 @@
         "Staff prepares the documents and forwards them to the Budget, Accounting, and Treasury Office for check preparation.",
         "Follow up with the Treasury Office for the release of the check."
       ],
+      "photo-referenced": "assets/citizens-charter/sb-financial-assistance.jpg",
       "related": [
         "aics",
         "certificate-of-indigency"
@@ -1445,6 +1487,7 @@
         "Pay the required fee: ₱300 for professionals or ₱100 for non-professionals.",
         "Receive official receipt."
       ],
+      "photo-referenced": "assets/citizens-charter/professional-tax-receipt.jpg",
       "related": [
         "cedula",
         "business-permit"
@@ -1475,6 +1518,7 @@
         "Pay the required fees: ₱100 + ₱30 documentary stamps (3 min).",
         "Receive the Tax Clearance Certificate."
       ],
+      "photo-referenced": "assets/citizens-charter/tax-clearance.jpg",
       "related": [
         "cedula",
         "rpt-payment"
@@ -1508,6 +1552,7 @@
         "Receive Official Receipt and LGU Plate or sticker.",
         "Staff records in MTOP logbook and endorses documents to the Mayor's Office."
       ],
+      "photo-referenced": "assets/citizens-charter/mtop.jpg",
       "related": [
         "business-permit",
         "cedula"
@@ -1538,6 +1583,7 @@
         "Pay the required fees (3 min).",
         "Receive the Official Receipt."
       ],
+      "photo-referenced": "assets/citizens-charter/market-stall-fee.jpg",
       "related": [
         "business-permit",
         "cedula"
@@ -1567,6 +1613,7 @@
         "Pay the required fees (3 min).",
         "Receive Official Receipt. Staff records in Cemetery log book."
       ],
+      "photo-referenced": "assets/citizens-charter/cemetery-payment.jpg",
       "related": [
         "death-certificate"
       ],
@@ -1598,6 +1645,7 @@
         "Pay the required fees (3 min).",
         "Receive the Certificate of Ownership/Transfer of Ownership."
       ],
+      "photo-referenced": "assets/citizens-charter/cattle-registration.jpg",
       "related": [
         "agriculture-subsidy"
       ],
@@ -1630,6 +1678,7 @@
         "Receive cash if ₱3,000 and below (recorded in Petty Cash Fund).",
         "Receive check if more than ₱3,000 (recorded in Cheque Disbursement Book)."
       ],
+      "photo-referenced": "assets/citizens-charter/financial-claims-payment.jpg",
       "related": [
         "sb-financial-assistance",
         "aics"
@@ -1661,6 +1710,7 @@
         "Seeds Laboratory analyzes seed samples, tags, and prepares report (15 min).",
         "Receive result of the seed analysis and sign log book. Seeds Inspector delivers seed tags and discusses results (15 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/seed-certification.jpg",
       "related": [
         "agriculture-subsidy",
         "crop-protection"
@@ -1689,6 +1739,7 @@
         "Livestock Inspector obtains the animal's medical history and conducts physical examination (30 min).",
         "Livestock Inspector vaccinates the animal (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/animal-anti-rabies.jpg",
       "related": [
         "rabies"
       ],
@@ -1719,6 +1770,7 @@
         "AT analyzes the plants and prepares reports. Samples sent to DA-RCPC (15 min).",
         "Receive results of plant analysis. AT discusses results and gives appropriate recommendations (30 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/crop-protection.jpg",
       "related": [
         "agriculture-subsidy",
         "seed-certification"
@@ -1752,6 +1804,7 @@
         "Present OR to Engineering Staff. Staff prepares the demolition permit (15 min).",
         "Receive the demolition permit (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/demolition-permit.jpg",
       "related": [
         "building-permit",
         "occupancy-permit"
@@ -1792,6 +1845,7 @@
         "Receive Zoning/Locational & Fire Safety clearance (15 min).",
         "Receive the Electrical Permit (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/electrical-permit.jpg",
       "related": [
         "building-permit",
         "electrical-zoning"
@@ -1827,6 +1881,7 @@
         "MCR approves registration (after 10 days of posting for late registration).",
         "Secure copy of birth certificate. MCR releases documents (3 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/birth-registration.jpg",
       "related": [
         "birth-certificate",
         "death-certificate"
@@ -1860,6 +1915,7 @@
         "MCR approves documents (after 10 days of posting).",
         "Secure copy of death certificate or late registration. Release documents (3 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/death-registration.jpg",
       "related": [
         "death-certificate",
         "birth-registration"
@@ -1896,6 +1952,7 @@
         "Present OR to MCR Office. Staff advises on issuance of license.",
         "Secure copy of marriage license. Documents released."
       ],
+      "photo-referenced": "assets/citizens-charter/marriage-registration.jpg",
       "related": [
         "marriage-license",
         "marriage-counseling"
@@ -1928,6 +1985,7 @@
         "Present OR to MCR Office. Documents released.",
         "For PSA endorsement: MCR verifies and prepares endorsement (₱200, 10 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/civil-registry-certifications.jpg",
       "related": [
         "birth-certificate",
         "death-certificate",
@@ -1964,6 +2022,7 @@
         "For RA 9255: Parents apply to use father's surname. Same procedure (₱215, 20–25 min).",
         "MCR annotates and approves documents (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/legal-document-registration.jpg",
       "related": [
         "birth-registration",
         "birth-certificate"
@@ -1994,6 +2053,7 @@
         "MCR makes annotations on the certificate and prepares attachments (15 min).",
         "For adoption: Present court order. MCR examines documents and prepares amended COLB (20 min, ₱515)."
       ],
+      "photo-referenced": "assets/citizens-charter/court-order-annotation.jpg",
       "related": [
         "name-correction",
         "birth-registration"
@@ -2026,6 +2086,7 @@
         "Present OR to the Mayor's Office. Staff prepares the document for the Mayor's signature (5 min).",
         "Receive the signed clearance or certificate (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/mayors-clearance.jpg",
       "related": [
         "cedula",
         "business-permit"
@@ -2058,6 +2119,7 @@
         "Present OR. The Mayor or authorized representative administers the oath and signs the affidavit (5 min).",
         "Receive the notarized affidavit (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/subscription-of-affidavits.jpg",
       "related": [
         "mayors-clearance",
         "cedula"
@@ -2090,6 +2152,7 @@
         "The Mayor administers the marriage rites and signs the Certificate of Marriage.",
         "Receive the signed Certificate of Marriage."
       ],
+      "photo-referenced": "assets/citizens-charter/solemnization-of-marriage.jpg",
       "related": [
         "marriage-license",
         "pre-marriage-counseling-pop"
@@ -2122,6 +2185,7 @@
         "Staff prepares the recommendation letter for the Mayor's signature (5 min).",
         "Receive the signed recommendation letter (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/mayors-recommendation.jpg",
       "related": [
         "mayors-clearance",
         "certificate-of-indigency"
@@ -2152,6 +2216,7 @@
         "Staff verifies availability of the requested document or information (3 min).",
         "If available, staff prepares and releases the document or information (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/ldrrmo-document-request.jpg",
       "related": [
         "ldrrmo-rescue-operation",
         "disaster-relief"
@@ -2183,6 +2248,7 @@
         "MDRRMO conducts the training at the agreed venue and schedule.",
         "Participants receive certificates of completion (if applicable)."
       ],
+      "photo-referenced": "assets/citizens-charter/ldrrmo-training-seminar.jpg",
       "related": [
         "ldrrmo-rescue-operation",
         "disaster-relief"
@@ -2213,6 +2279,7 @@
         "Rescue team provides first aid, rescue operations, or medical transportation as needed.",
         "Patient or affected individuals are transported to the nearest hospital or safe location."
       ],
+      "photo-referenced": "assets/citizens-charter/ldrrmo-rescue-operation.jpg",
       "related": [
         "health-consultation",
         "disaster-relief"
@@ -2244,6 +2311,7 @@
         "MDRRMO deploys the ambulance and/or rescue vehicle to the event venue.",
         "After the event, the MDRRMO unit stands down and returns to the station."
       ],
+      "photo-referenced": "assets/citizens-charter/ldrrmo-transportation.jpg",
       "related": [
         "ldrrmo-rescue-operation",
         "special-event-permit"
@@ -2274,6 +2342,7 @@
         "Duty officer provides the appropriate assistance, information, or referral (5 min).",
         "If the concern requires further action, the MDRRMO coordinates with the appropriate unit or agency (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/ldrrmo-walk-in.jpg",
       "related": [
         "ldrrmo-rescue-operation",
         "ldrrmo-document-request"
@@ -2308,6 +2377,7 @@
         "LYDO prepares the Certificate of Registration (2 min).",
         "Receive the Certificate of Registration upon approval (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/youth-organization-registration.jpg",
       "related": [
         "certificate-of-indigency",
         "public-information"
@@ -2339,6 +2409,7 @@
         "Staff prepares the certified true copy and stamps it (3 min).",
         "Pay ₱100 at the Treasury Office and claim the document (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-true-copy.jpg",
       "related": [
         "tax-declaration",
         "rpt-payment"
@@ -2370,6 +2441,7 @@
         "Staff prepares and issues the certificate (3 min).",
         "Pay the required fee at the Treasury Office and claim the certificate (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-improvement-certificate.jpg",
       "related": [
         "assessor-true-copy",
         "assessor-building-appraisal"
@@ -2401,6 +2473,7 @@
         "Staff compiles and prepares the Landholdings Certificate (3 min).",
         "Pay ₱100 at the Treasury Office and claim the certificate (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-landholdings.jpg",
       "related": [
         "assessor-true-copy",
         "rpt-payment"
@@ -2434,6 +2507,7 @@
         "Staff prepares the Tax Declaration (5 min).",
         "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-declare-undeclared.jpg",
       "related": [
         "assessor-true-copy",
         "assessor-appraisal-untitled"
@@ -2467,6 +2541,7 @@
         "Staff prepares the new Tax Declaration (5 min).",
         "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-declare-missing.jpg",
       "related": [
         "assessor-true-copy",
         "assessor-declare-undeclared"
@@ -2500,6 +2575,7 @@
         "Staff computes the assessed value and prepares the Tax Declaration (5 min).",
         "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-appraisal-titled.jpg",
       "related": [
         "assessor-true-copy",
         "land-transfer",
@@ -2534,6 +2610,7 @@
         "Staff computes the assessed value and prepares the Tax Declaration (5 min).",
         "Pay ₱700 at the Treasury Office and claim the Tax Declaration (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-appraisal-untitled.jpg",
       "related": [
         "assessor-declare-undeclared",
         "assessor-appraisal-titled"
@@ -2567,6 +2644,7 @@
         "Staff computes the assessed value and prepares the updated Tax Declaration (5 min).",
         "Pay ₱700 at the Treasury Office and claim the updated Tax Declaration (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-building-appraisal.jpg",
       "related": [
         "assessor-true-copy",
         "building-permit",
@@ -2601,6 +2679,7 @@
         "Staff updates the Tax Declaration with the new classification and assessed value (5 min).",
         "Pay ₱700 at the Treasury Office and claim the updated Tax Declaration (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-reclassification.jpg",
       "related": [
         "assessor-true-copy",
         "zoning-clearance"
@@ -2632,6 +2711,7 @@
         "Staff prepares and issues the tax map (3 min).",
         "Pay ₱100 at the Treasury Office and claim the tax map (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-tax-map.jpg",
       "related": [
         "assessor-true-copy",
         "assessor-landholdings"
@@ -2663,6 +2743,7 @@
         "Staff provides the information or prints the verification document (3 min).",
         "Pay ₱100 at the Treasury Office if a printed document is required (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-inquiries.jpg",
       "related": [
         "assessor-true-copy",
         "assessor-tax-map"
@@ -2695,6 +2776,7 @@
         "Staff prepares and issues the certificate (3 min).",
         "Pay ₱100 at the Treasury Office and claim the certificate (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-certificates.jpg",
       "related": [
         "assessor-true-copy",
         "assessor-inquiries"
@@ -2728,6 +2810,7 @@
         "Staff records the annotation or cancellation on the Tax Declaration (5 min).",
         "Pay ₱150 at the Treasury Office and claim the updated Tax Declaration (5 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/assessor-annotations.jpg",
       "related": [
         "assessor-true-copy",
         "land-transfer"
@@ -2760,6 +2843,7 @@
         "MENRO takes appropriate enforcement action and coordinates with concerned agencies.",
         "Follow up with MENRO for the status of the complaint."
       ],
+      "photo-referenced": "assets/citizens-charter/environmental-complaint.jpg",
       "related": [
         "ldrrmo-walk-in",
         "ldrrmo-document-request"
@@ -2790,6 +2874,7 @@
         "Attend the pre-marriage orientation and counseling session.",
         "Receive the Certificate of Pre-Marriage Counseling upon completion."
       ],
+      "photo-referenced": "assets/citizens-charter/pre-marriage-counseling-pop.jpg",
       "related": [
         "marriage-license",
         "solemnization-of-marriage"
@@ -2822,6 +2907,7 @@
         "Staff submits the enrollment to PhilHealth for validation (2 min).",
         "Receive confirmation of enrollment. PhilHealth ID will be distributed upon availability (2 min)."
       ],
+      "photo-referenced": "assets/citizens-charter/philhealth-enrollment.jpg",
       "related": [
         "certificate-of-indigency",
         "health-consultation"
