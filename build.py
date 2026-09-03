@@ -284,13 +284,22 @@ def generate_legislative() -> None:
             f'</div>'
         )
 
-    # --- Build trends cards ---
+    # --- Build trends cards (step-flow with bullets) ---
     trend_cards = []
-    for t in data.get("legislative_trends", []):
+    for i, t in enumerate(data.get("legislative_trends", []), 1):
+        bullets_html = ""
+        for b in t.get("bullets", []):
+            bullets_html += f'<li>{html.escape(b)}</li>'
+        ordinances = t.get("ordinances", [])
+        refs = " · ".join(html.escape(o) for o in ordinances)
         trend_cards.append(
-            f'<div class="card">'
-            f'<h3>{html.escape(t["title"])}</h3>'
-            f'<p>{html.escape(t["description"])}</p>'
+            f'<div class="trend-step">'
+            f'<div class="n">{i}</div>'
+            f'<div class="trend-body">'
+            f'<h4>{html.escape(t["title"])}</h4>'
+            f'<ul class="trend-bullets">{bullets_html}</ul>'
+            f'<span class="trend-refs">{refs}</span>'
+            f'</div>'
             f'</div>'
         )
 
@@ -306,33 +315,8 @@ def generate_legislative() -> None:
             f'</div>'
         )
 
-    # --- Build schema rows ---
-    schema_rows = []
-    for field in data.get("database_schema", {}).get("fields", []):
-        schema_rows.append(
-            f'<tr>'
-            f'<td><code>{html.escape(field["name"])}</code></td>'
-            f'<td>{html.escape(field["type"])}</td>'
-            f'<td>{html.escape(field["definition"])}</td>'
-            f'<td><code>{html.escape(field["example"])}</code></td>'
-            f'</tr>'
-        )
-
-    # --- Build schema procedures ---
-    schema_procs = []
-    for i, proc in enumerate(data.get("database_schema", {}).get("procedures", []), 1):
-        schema_procs.append(
-            f'<div class="card">'
-            f'<h3>Procedure {i}</h3>'
-            f'<p>{html.escape(proc)}</p>'
-            f'</div>'
-        )
-
     # --- Governance framework ---
     gw = data.get("governance_framework", {})
-
-    # --- Precedent ---
-    prec = data.get("precedent", {})
 
     # --- Fill template ---
     filled = fill(template, {
@@ -346,12 +330,6 @@ def generate_legislative() -> None:
         "FISCAL_CARDS": "\n      ".join(fiscal_cards),
         "TRENDS_CARDS": "\n      ".join(trend_cards),
         "PROCESS_STEPS": "\n      ".join(process_steps),
-        "SCHEMA_DESCRIPTION": data.get("database_schema", {}).get("description", ""),
-        "SCHEMA_ROWS": "\n          ".join(schema_rows),
-        "SCHEMA_PROCEDURES": "\n      ".join(schema_procs),
-        "PRECEDENT_CASE": prec.get("case", ""),
-        "PRECEDENT_CITATION": prec.get("citation", ""),
-        "PRECEDENT_SUMMARY": prec.get("summary", ""),
     })
 
     out_path = SRC_PAGES / "legislative.html"

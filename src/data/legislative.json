@@ -792,19 +792,43 @@
   "legislative_trends": [
     {
       "title": "Administrative Restructuring for Technical Capacity",
-      "description": "The Sangguniang Bayan has systematically eliminated redundant mid-level posts — such as the Agricultural Technologist (SG-10) under Ordinance No. 2, S-2021, the Assistant Municipal Treasury Head (SG-22) under Ordinance No. 1, S-2022, and the LDRRMO III (SG-18) under Ordinance No. 1, S-2026 — while creating specialized operational positions like Driver I (SG-3), Registration Officer I (SG-10), and elevating disaster management to department-head status via the MDRRM Officer position (SG-24). This strengthens disaster preparedness, civil registration, and frontline service delivery while optimizing payroll expenditures."
+      "bullets": [
+        "Eliminated redundant mid-level posts: Agricultural Technologist (SG-10), Asst. Treasury Head (SG-22), LDRRMO III (SG-18)",
+        "Created specialized operational roles: Driver I (SG-3), Registration Officer I (SG-10)",
+        "Elevated disaster management to department-head status via MDRRM Officer (SG-24)",
+        "Optimizes payroll expenditures while strengthening frontline service delivery"
+      ],
+      "ordinances": ["Ord. No. 2, S-2021", "Ord. No. 1, S-2022", "Ord. No. 1, S-2026", "Ord. No. 2, S-2025"]
     },
     {
       "title": "National Mandate Devolution to Local Enforcement",
-      "description": "The municipal council translated national social policy into local enforcement: Ordinance No. 1, S-2025 institutionalizes the Mental Health Act (R.A. 11036), Ordinance No. 04, S-2025 establishes blood donation councils across all 15 barangays, Ordinance No. 6, S-2024 implements the Ecological Solid Waste Management Act (R.A. 9003) with local fees and penalties, and Ordinance No. 03, S-2025 extends benefits and incentives to Child Development Workers. National mandates are backed by dedicated local funding and village-level enforcement."
+      "bullets": [
+        "Institutionalized the Mental Health Act (R.A. 11036) with local care mechanisms and funding",
+        "Created municipal and 15 barangay blood councils for voluntary donation programs",
+        "Implemented the Ecological Solid Waste Management Act (R.A. 9003) with local fees and penalties",
+        "Extended benefits and incentives to Child Development Workers in day care programs"
+      ],
+      "ordinances": ["Ord. No. 1, S-2025", "Ord. No. 04, S-2025", "Ord. No. 6, S-2024", "Ord. No. 03, S-2025"]
     },
     {
       "title": "Debt Financing for Capital Expansion",
-      "description": "Annual appropriations grew from ₱193.08M in CY 2025 to ₱218.21M in CY 2026 (a ~13% increase, SP Resolution No. 438-2026), largely committed to personal services and operations. Alongside this growth, the municipality has repeatedly turned to credit financing through state banks for capital projects: a ₱28.5M fund-utilization authorization in 2020 (Ordinance No. 1, S-2020) for market/motorpool works, a ₱28.8M Land Bank loan in 2024 (Ordinance No. 7, S-2024) for 16 rescue vehicles, and a ₱45M loan proposed in 2026 (Ordinance No. 3, S-2026) for infrastructure expansion — accelerating modernization while spreading obligations across future budget cycles."
+      "bullets": [
+        "Annual budget grew from ₱193.08M (CY 2025) to ₱218.21M (CY 2026) — a 13% increase",
+        "₱28.5M fund-utilization for public market extension and motorpool (CY 2020)",
+        "₱28.8M Land Bank loan for 16 rescue vehicles across all 15 barangays (CY 2024)",
+        "₱45M proposed loan for infrastructure expansion and facility upgrades (CY 2026)"
+      ],
+      "ordinances": ["Ord. No. 1, S-2020", "Ord. No. 7, S-2024", "Ord. No. 3, S-2026"]
     },
     {
-      "title": "Land Use Planning and Reclassification",
-      "description": "Following the adoption of the Comprehensive Land Use Plan (SB Resolution No. 181, S-2023), the Sangguniang Bayan enacted the Integrated Zoning Regulations for 2022–2032 (Ordinance No. 4, S-2023) and passed successive land reclassification ordinances converting agricultural parcels to residential (Ordinance Nos. 2 and 3, S-2023, for subdivision development) and commercial use (Ordinance No. 5, S-2024), reflecting the municipality's shift toward planned urban and commercial expansion."
+      "title": "Land Use Planning & Reclassification",
+      "bullets": [
+        "Adopted the Comprehensive Land Use Plan (SB Res. No. 181, S-2023)",
+        "Enacted Integrated Zoning Regulations for 2022–2032 (Ord. No. 4, S-2023)",
+        "Reclassified agricultural parcels to residential for subdivision development (Ord. Nos. 2 & 3, S-2023)",
+        "Converted agricultural land to commercial use (Ord. No. 5, S-2024)"
+      ],
+      "ordinances": ["Ord. No. 4, S-2023", "Ord. Nos. 2 & 3, S-2023", "Ord. No. 5, S-2024"]
     }
   ],
   "database_schema": {

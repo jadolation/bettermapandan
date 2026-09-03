@@ -16,6 +16,8 @@
 :root {
   --green-deep: #16532c;
   --green-bright: #4c8a2e;
+  --green-mid: #3a7a28;
+  --green-pale: #e2ecda;
   --gold: #e8a917;
   --gold-soft: #f6ecc9;
   --red-flag: #b5312a;
@@ -23,6 +25,7 @@
   --paper: #ffffff;
   --ink: #1b2a1f;
   --ink-soft: #4a5749;
+  --ink-faint: #7a8579;
   --line: #e3dfcf;
 
   --font-display: "Fraunces", "Iowan Old Style", serif;
@@ -1321,6 +1324,85 @@ tbody tr:hover {
   font-size: 13.5px;
   color: var(--ink-soft);
   margin: 0;
+}
+
+/* ---------- Trend step-flow ---------- */
+
+.trend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.trend-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+
+.trend-step .n {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-deep);
+  border: 1.5px solid var(--green-deep);
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trend-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.trend-body h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.trend-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+.trend-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+  line-height: 1.45;
+}
+
+.trend-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--green-mid);
+  font-weight: 600;
+}
+
+.trend-refs {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--ink-faint);
+  background: var(--green-pale);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-top: 4px;
 }
 
 /* ---------- Bar chart (hand-rolled, no library) ---------- */
