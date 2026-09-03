@@ -496,7 +496,6 @@ p {
 
 .page-hero .lede {
   color: #e4ecdf;
-  max-width: 62ch;
   margin: 0;
 }
 
@@ -1923,7 +1922,6 @@ canvas {
 }
 
 .search-hero .wrap {
-  max-width: 720px;
 }
 
 .search-form {
