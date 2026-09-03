@@ -2,11 +2,12 @@
 title: Search — BetterMapandan.org
 description: Search government services, officials, ordinances, and civic information for the Municipality of Mapandan.
 ---
-<section class="search-hero">
+<section class="page-hero">
+  <img class="hero-rays" src="./assets/logo-no-white.svg" alt="" aria-hidden="true" />
   <div class="wrap">
     <span class="eyebrow">Search</span>
-    <h1 style="color:#fff; font-size:clamp(24px,4vw,36px); margin-bottom:8px">Find government information</h1>
-    <p style="color:#d0dfcd; margin:0">Search services, officials, ordinances, offices, and more.</p>
+    <h1>Find government information</h1>
+    <p class="lede">Search services, officials, ordinances, offices, and more.</p>
     <form class="search-form" role="search" action="search.html" method="get">
       <label for="search-input" class="sr-only">Search query</label>
       <input id="search-input" class="search-input" type="search" name="q" placeholder="e.g. birth certificate, business permit, zoning..." autocomplete="off" />
@@ -17,7 +18,7 @@ description: Search government services, officials, ordinances, and civic inform
   </div>
 </section>
 
-<section class="search-results">
+<section class="section">
   <div class="wrap">
     <div id="search-status" class="data-note" style="display:none">
       <span>&#9432;</span>
@@ -32,6 +33,67 @@ description: Search government services, officials, ordinances, and civic inform
         <a class="btn btn-outline" href="government.html">View Government Directory</a>
       </div>
     </div>
+    <div id="search-browse">
+      <div class="section-head">
+        <div class="section-eyebrow">Browse by topic</div>
+        <h2>Explore Mapandan</h2>
+        <p>Jump to a section or explore popular services.</p>
+      </div>
+      <div class="search-browse-grid">
+        <a class="search-browse-card" href="services.html">
+          <div class="search-browse-icon">📋</div>
+          <h3>Services</h3>
+          <p>Citizen's charter, permits, and certifications.</p>
+        </a>
+        <a class="search-browse-card" href="government.html">
+          <div class="search-browse-icon">🏛️</div>
+          <h3>Government</h3>
+          <p>Officials, departments, and barangay directory.</p>
+        </a>
+        <a class="search-browse-card" href="legislative.html">
+          <div class="search-browse-icon">⚖️</div>
+          <h3>Legislative</h3>
+          <p>Ordinances, resolutions, and executive issuances.</p>
+        </a>
+        <a class="search-browse-card" href="statistics.html">
+          <div class="search-browse-icon">📊</div>
+          <h3>Statistics</h3>
+          <p>Population, demographics, and fiscal data.</p>
+        </a>
+        <a class="search-browse-card" href="transparency.html">
+          <div class="search-browse-icon">💰</div>
+          <h3>Transparency</h3>
+          <p>Budget, expenditures, and audit reports.</p>
+        </a>
+      </div>
+      <div class="search-categories">
+        <h3>Popular services</h3>
+        <div class="search-category-grid">
+          <div class="search-category-card">
+            <h4>📋 Business Permitting</h4>
+            <a href="services/business-permit.html">New Business Permit</a>
+            <a href="services/business-renewal.html">Business Renewal</a>
+            <a href="services/special-event-permit.html">Special Event Permit</a>
+          </div>
+          <div class="search-category-card">
+            <h4>📜 Civil Registry</h4>
+            <a href="services/birth-certificate.html">Birth Certificate</a>
+            <a href="services/marriage-license.html">Marriage License</a>
+            <a href="services/death-certificate.html">Death Certificate</a>
+          </div>
+          <div class="search-category-card">
+            <h4>🏥 Health Services</h4>
+            <a href="services/health-consultation.html">Health Consultation</a>
+            <a href="services/nutrition-immunization.html">Nutrition &amp; Immunization</a>
+          </div>
+          <div class="search-category-card">
+            <h4>🪪 Social Welfare</h4>
+            <a href="services/senior-pwd-id.html">Senior Citizen &amp; PWD ID</a>
+            <a href="services/solo-parent-id.html">Solo Parent ID</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -42,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var statusDiv = document.getElementById("search-status");
   var statusText = document.getElementById("search-status-text");
   var emptyDiv = document.getElementById("search-empty");
+  var browseDiv = document.getElementById("search-browse");
   var params = new URLSearchParams(location.search);
   var query = (params.get("q") || "").trim();
 
@@ -51,8 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!query) {
     statusDiv.style.display = "none";
+    browseDiv.style.display = "block";
     return;
   }
+
+  browseDiv.style.display = "none";
 
   // Load search index and perform search
   fetch("assets/search-index.json")
