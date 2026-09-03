@@ -88,10 +88,10 @@ def compute_url(rel_path: Path) -> str:
 def generate_services() -> None:
     """Generate service detail pages and directory page from JSON data."""
     data_path = SRC_DATA / "services.json"
-    svc_template = (SRC_TEMPLATES / "service.html").read_text()
-    dir_template = (SRC_TEMPLATES / "services-directory.html").read_text()
+    svc_template = (SRC_TEMPLATES / "service.html").read_text(encoding="utf-8")
+    dir_template = (SRC_TEMPLATES / "services-directory.html").read_text(encoding="utf-8")
 
-    data = json.loads(data_path.read_text())
+    data = json.loads(data_path.read_text(encoding="utf-8"))
     services = data.get("services", [])
     categories = {c["slug"]: c for c in data.get("categories", [])}
 
@@ -121,7 +121,6 @@ def generate_services() -> None:
         if related:
             links = []
             for rel_slug in related:
-                # Find the service name for this slug
                 rel_svc = next((s for s in services if s["slug"] == rel_slug), None)
                 if rel_svc:
                     links.append(
@@ -134,6 +133,22 @@ def generate_services() -> None:
             )
         else:
             related_html = '<p>No related services available.</p>'
+
+        # --- BUILD PHOTO REFERENCE HTML ---
+        photo_html = ""
+        photo_ref = svc.get("photo-referenced", "")
+        if photo_ref:
+            photo_filename = photo_ref.split("/")[-1]
+            photo_html = f'''
+            <figure class="service-photo-container" style="margin: 2rem 0; text-align: center;">
+                <img src="../{photo_ref}" alt="{html.escape(svc['name'])} Reference" 
+                    style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" 
+                    loading="lazy" 
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='none';">
+                <figcaption style="font-size: 0.875rem; color: #666; margin-top: 0.5rem; font-style: italic;">
+                    Reference: {html.escape(photo_filename)}
+                </figcaption>
+            </figure>'''
 
         # Fill template placeholders
         filled = fill(
@@ -155,23 +170,23 @@ def generate_services() -> None:
                 "SOURCE": svc.get("source", "Mapandan Citizen's Charter"),
                 "LAST_UPDATED": svc.get("last_updated", "August 2025"),
                 "RELATED_SERVICES": related_html,
+                "PHOTO_HTML": photo_html,  # <-- Injected here
             },
         )
 
         out_path = SERVICES_OUT / f"{svc['slug']}.html"
-        out_path.write_text(filled)
+        out_path.write_text(filled, encoding="utf-8")
 
     # --- Generate directory page ---
     category_cards = []
     for cat in data.get("categories", []):
         cat_services = by_category.get(cat["slug"], [])
-        # Cap at 3 links per category
+        
         service_links = []
         for s in cat_services:
             service_links.append(
                 f'<a class="service-link" href="services/{s["slug"]}.html">{html.escape(s["name"])}</a>'
             )
-
 
         card = (
             f'      <div class="card service-category-card">\n'
@@ -190,16 +205,15 @@ def generate_services() -> None:
         {"CATEGORY_CARDS": "\n".join(category_cards)},
     )
 
-    # Write directory page (will be processed by build() as a regular page)
     out_dir = SRC_PAGES / "services.html"
-    out_dir.write_text(dir_filled)
+    out_dir.write_text(dir_filled, encoding="utf-8")
 
 
 def generate_legislative() -> None:
     """Generate legislative page from JSON data."""
     data_path = SRC_DATA / "legislative.json"
-    template = (SRC_TEMPLATES / "legislative.html").read_text()
-    data = json.loads(data_path.read_text())
+    template = (SRC_TEMPLATES / "legislative.html").read_text(encoding="utf-8")
+    data = json.loads(data_path.read_text(encoding="utf-8"))
 
     category_labels = data.get("category_labels", {})
 
@@ -340,9 +354,8 @@ def generate_legislative() -> None:
         "PRECEDENT_SUMMARY": prec.get("summary", ""),
     })
 
-    # Write to src/pages/legislative.html
     out_path = SRC_PAGES / "legislative.html"
-    out_path.write_text(filled)
+    out_path.write_text(filled, encoding="utf-8")
 
 
 def generate_barangays() -> None:
@@ -371,6 +384,7 @@ def generate_barangays() -> None:
     js_content = "// Auto-generated from barangays.json — do not edit manually\nvar BARANGAY_DATA = " + json.dumps(js_data, ensure_ascii=False, indent=2) + ";\n"
     js_path = ROOT / "assets" / "barangay-data.js"
     js_path.write_text(js_content)
+    out_path.write_text(filled, encoding="utf-8")
 
 
 def build() -> None:
@@ -378,13 +392,11 @@ def build() -> None:
     generate_services()
     # Generate legislative page from JSON data (creates src/pages/legislative.html)
     generate_legislative()
-    # Generate barangay homepage data from JSON data (creates assets/barangay-data.js)
-    generate_barangays()
 
-    base = (SRC_PARTIALS / "base.html").read_text()
-    header_raw = (SRC_PARTIALS / "header.html").read_text()
-    footer_raw = (SRC_PARTIALS / "footer.html").read_text()
-    page_hero_raw = (SRC_PARTIALS / "page-hero.html").read_text()
+    base = (SRC_PARTIALS / "base.html").read_text(encoding="utf-8")
+    header_raw = (SRC_PARTIALS / "header.html").read_text(encoding="utf-8")
+    footer_raw = (SRC_PARTIALS / "footer.html").read_text(encoding="utf-8")
+    page_hero_raw = (SRC_PARTIALS / "page-hero.html").read_text(encoding="utf-8")
 
     # Collect all .html files recursively under src/pages/
     page_files = sorted(SRC_PAGES.rglob("*.html"))
@@ -397,7 +409,7 @@ def build() -> None:
     for page_path in page_files:
         # Relative path from src/pages/ (e.g. services/birth.html)
         rel = page_path.relative_to(SRC_PAGES)
-        meta, body = parse_page(page_path.read_text())
+        meta, body = parse_page(page_path.read_text(encoding="utf-8"))
 
         # Compute asset base: "." for root pages, ".." for subdirectory pages
         depth = len(rel.parts) - 1
@@ -410,10 +422,8 @@ def build() -> None:
         # Compute breadcrumbs if in a subdirectory
         breadcrumbs = ""
         if depth > 0:
-            # Build breadcrumb nav
             bc_items = []
             bc_items.append('<a href="../index.html">Home</a>')
-            # For services/foo.html -> parent is "Services"
             parent_name = rel.parts[0].replace("-", " ").title()
             parent_link = "../" + rel.parts[0] + ".html"
             bc_items.append(f'<a href="{parent_link}">{parent_name}</a>')
@@ -425,8 +435,6 @@ def build() -> None:
                 + "</nav>\n"
             )
 
-        # If hero_eyebrow/hero_heading/hero_lede are in front matter,
-        # inject the page-hero partial instead of requiring inline hero HTML.
         hero_html = ""
         if "hero_eyebrow" in meta or "hero_heading" in meta or "hero_lede" in meta:
             hero_html = fill(
@@ -455,7 +463,7 @@ def build() -> None:
         # Output path: maintain subdirectory structure
         out_path = ROOT / rel
         out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_text(html)
+        out_path.write_text(html, encoding="utf-8")
         count += 1
         print(f"  built {rel}  ({len(html):,} bytes)")
 
@@ -470,7 +478,7 @@ def build() -> None:
 
     # Write search index
     index_path = ROOT / "assets" / "search-index.json"
-    index_path.write_text(json.dumps(search_entries, ensure_ascii=False, indent=2))
+    index_path.write_text(json.dumps(search_entries, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  built assets/search-index.json  ({len(search_entries)} entries)")
 
     print(f"\nDone. {count} page(s) written to {ROOT}/")
