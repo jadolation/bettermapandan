@@ -352,3 +352,22 @@ function windDirection(degrees) {
   var idx = Math.round(degrees / 22.5) % 16;
   return dirs[idx];
 }
+
+// Feedback widget
+var feedback = document.getElementById("service-feedback");
+if (feedback) {
+  var feedbackService = document.querySelector(".hero h1");
+  var serviceName = feedbackService ? feedbackService.textContent.trim() : "";
+  var feedbackKey = "feedback_" + serviceName.replace(/[^a-z0-9]/gi, "_");
+  if (localStorage.getItem(feedbackKey)) {
+    feedback.querySelector(".feedback-buttons").style.display = "none";
+    feedback.querySelector(".feedback-thanks").style.display = "block";
+  }
+  feedback.querySelectorAll("button").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      localStorage.setItem(feedbackKey, btn.getAttribute("data-helpful"));
+      feedback.querySelector(".feedback-buttons").style.display = "none";
+      feedback.querySelector(".feedback-thanks").style.display = "block";
+    });
+  });
+}

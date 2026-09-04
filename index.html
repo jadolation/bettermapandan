@@ -132,31 +132,31 @@
       <div class="stat">
         <div class="num">38,228</div>
         <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: PSA Census 2020</span>
+        <span class="source-label" data-tip="PSA 2020 Census of Population &amp; Housing &mdash; verified public record">Source: PSA Census 2020</span>
         <div class="label">Residents</div>
       </div>
       <div class="stat">
         <div class="num">15</div>
         <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: DILG / Comelec</span>
+        <span class="source-label" data-tip="Department of the Interior and Local Government / Commission on Elections &mdash; official barangay count">Source: DILG / Comelec</span>
         <div class="label">Barangays</div>
       </div>
       <div class="stat">
         <div class="num">10,685</div>
         <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: RHU Mapandan 2023</span>
+        <span class="source-label" data-tip="Rural Health Unit Mapandan, 2023 household census &mdash; municipal records">Source: RHU Mapandan 2023</span>
         <div class="label">Households</div>
       </div>
       <div class="stat">
         <div class="num">1,161.24/km&sup2;</div>
         <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Computed: 38,228 &divide; 32.92 km&sup2;</span>
+        <span class="source-label" data-tip="Computed: 38,228 residents &divide; 32.92 km&sup2; land area &mdash; derived from PSA and MPDC data">Computed: 38,228 &divide; 32.92 km&sup2;</span>
         <div class="label">Pop. density</div>
       </div>
       <div class="stat">
         <div class="num">32.92&sup2;</div>
         <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: MPDC Land Use Plan 2024</span>
+        <span class="source-label" data-tip="Municipal Planning and Development Office, Land Use Plan 2024 &mdash; official municipal boundary">Source: MPDC Land Use Plan 2024</span>
         <div class="label">Land area</div>
       </div>
     </div>
@@ -453,5 +453,21 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="./assets/barangay-data.js"></script>
 <script src="./assets/script.js"></script>
+
+<nav class="mobile-action-bar" aria-label="Quick actions">
+  <a href="tel:911" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Hotline</span>
+  </a>
+  <a href="./search.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+  </a>
+  <a href="./services.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <span>Services</span>
+  </a>
+</nav>
+
 </body>
 </html>

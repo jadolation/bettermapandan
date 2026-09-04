@@ -108,7 +108,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/agriculture-subsidy.jpg",
       "related": [],
-      "hero_lede": "Apply for agricultural subsidies in Mapandan. Seeds at 50% discount, plus technical assistance and livestock services."
+      "hero_lede": "Apply for agricultural subsidies in Mapandan. Seeds at 50% discount, plus technical assistance and livestock services.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "aics",
@@ -140,7 +141,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/aics.jpg",
       "related": [],
-      "hero_lede": "Apply for Assistance to Individuals in Crisis Situations (AICS) in Mapandan. Learn about requirements, eligibility, and how to get help from the MSWDO."
+      "hero_lede": "Apply for Assistance to Individuals in Crisis Situations (AICS) in Mapandan. Learn about requirements, eligibility, and how to get help from the MSWDO.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "birth-certificate",
@@ -170,7 +172,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/birth-certificate.jpg",
       "related": [],
-      "hero_lede": "Request a birth certificate from the Mapandan MCR. Standard ₱115, late registration ₱315–₱1,015."
+      "hero_lede": "Request a birth certificate from the Mapandan MCR. Standard ₱115, late registration ₱315–₱1,015.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "building-permit",
@@ -213,7 +216,8 @@
         "assessor-building-appraisal",
         "occupancy-permit"
       ],
-      "hero_lede": "Get a building permit from the Mapandan MEO. Simple: 3 days, Complex: 7 days, Highly Technical: 20 days per RA 11032."
+      "hero_lede": "Get a building permit from the Mapandan MEO. Simple: 3 days, Complex: 7 days, Highly Technical: 20 days per RA 11032.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "business-permit",
@@ -249,7 +253,8 @@
         "business-zoning",
         "mayors-clearance"
       ],
-      "hero_lede": "Apply for a new business permit at the BPLO in Mapandan. Includes endorsement to Engineering, MPDC, RHU, and BFP."
+      "hero_lede": "Apply for a new business permit at the BPLO in Mapandan. Includes endorsement to Engineering, MPDC, RHU, and BFP.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "business-renewal",
@@ -284,7 +289,8 @@
         "business-permit",
         "business-zoning"
       ],
-      "hero_lede": "Renew your business permit at the BPLO in Mapandan. Annual renewal required to maintain compliance."
+      "hero_lede": "Renew your business permit at the BPLO in Mapandan. Annual renewal required to maintain compliance.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "cedula",
@@ -311,7 +317,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/cedula.jpg",
       "related": [],
-      "hero_lede": "Get your Community Tax Certificate (cedula) in Mapandan. Individual: ₱5 + ₱1/₱1k; Juridical: ₱500 + ₱2/₱5k."
+      "hero_lede": "Get your Community Tax Certificate (cedula) in Mapandan. Individual: ₱5 + ₱1/₱1k; Juridical: ₱500 + ₱2/₱5k.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "death-certificate",
@@ -340,7 +347,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/death-certificate.jpg",
       "related": [],
-      "hero_lede": "Request a death certificate from the Mapandan MCR. Late registration fee ₱215."
+      "hero_lede": "Request a death certificate from the Mapandan MCR. Late registration fee ₱215.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "health-consultation",
@@ -369,7 +377,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/health-consultation.jpg",
       "related": [],
-      "hero_lede": "Free health consultation at the Mapandan RHU. Walk-in service for all residents. 25 minutes per client."
+      "hero_lede": "Free health consultation at the Mapandan RHU. Walk-in service for all residents. 25 minutes per client.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "land-transfer",
@@ -407,7 +416,8 @@
         "rpt-payment",
         "assessor-true-copy"
       ],
-      "hero_lede": "Transfer land ownership in Mapandan at the Assessor's Office. ₱150 recording fee, 30 minutes for Assessor processing."
+      "hero_lede": "Transfer land ownership in Mapandan at the Assessor's Office. ₱150 recording fee, 30 minutes for Assessor processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "marriage-license",
@@ -444,7 +454,8 @@
         "solemnization-of-marriage",
         "pre-marriage-counseling-pop"
       ],
-      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862. Includes 10-day publication period."
+      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862. Includes 10-day publication period.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "name-correction",
@@ -477,7 +488,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/name-correction.jpg",
       "related": [],
-      "hero_lede": "Correct your birth certificate under RA 9048. ₱3,000 for name change, ₱1,000 for clerical error."
+      "hero_lede": "Correct your birth certificate under RA 9048. ₱3,000 for name change, ₱1,000 for clerical error.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "occupancy-permit",
@@ -506,7 +518,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/occupancy-permit.jpg",
       "related": [],
-      "hero_lede": "Get an occupancy permit from the Mapandan MEO. RA 11032 processing times: 3–20 working days."
+      "hero_lede": "Get an occupancy permit from the Mapandan MEO. RA 11032 processing times: 3–20 working days.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "rpt-payment",
@@ -534,7 +547,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/rpt-payment.jpg",
       "related": [],
-      "hero_lede": "Pay your real property tax in Mapandan. Basic 1% + SEF 1% of assessed value. 10%–20% discount for prompt/advance payment."
+      "hero_lede": "Pay your real property tax in Mapandan. Basic 1% + SEF 1% of assessed value. 10%–20% discount for prompt/advance payment.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "sanitary-permit",
@@ -570,7 +584,8 @@
         "health-consultation",
         "business-permit"
       ],
-      "hero_lede": "Get a sanitary permit, health certificate, or medical certificate at the Mapandan RHU. 53 minutes processing time."
+      "hero_lede": "Get a sanitary permit, health certificate, or medical certificate at the Mapandan RHU. 53 minutes processing time.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "senior-pwd-id",
@@ -601,7 +616,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/senior-pwd-id.jpg",
       "related": [],
-      "hero_lede": "Apply for a Senior Citizen or Persons with Disabilities (PWD) ID in Mapandan. Learn about requirements, eligibility, and where to apply."
+      "hero_lede": "Apply for a Senior Citizen or Persons with Disabilities (PWD) ID in Mapandan. Learn about requirements, eligibility, and where to apply.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "special-event-permit",
@@ -633,7 +649,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/special-event-permit.jpg",
       "related": [],
-      "hero_lede": "Obtain a permit for special events such as festivals, concerts, fairs, and other public gatherings in Mapandan."
+      "hero_lede": "Obtain a permit for special events such as festivals, concerts, fairs, and other public gatherings in Mapandan.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "tax-declaration",
@@ -665,7 +682,8 @@
         "rpt-payment",
         "assessor-true-copy"
       ],
-      "hero_lede": "Request a copy of your tax declaration from the Municipal Assessor's Office in Mapandan. ₱100 per certified true copy, 15 minutes processing."
+      "hero_lede": "Request a copy of your tax declaration from the Municipal Assessor's Office in Mapandan. ₱100 per certified true copy, 15 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "zoning-clearance",
@@ -694,7 +712,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/zoning-clearance.jpg",
       "related": [],
-      "hero_lede": "Obtain a zoning clearance before constructing, renovating, or changing the use of a property in Mapandan."
+      "hero_lede": "Obtain a zoning clearance before constructing, renovating, or changing the use of a property in Mapandan.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "certificate-of-indigency",
@@ -729,7 +748,8 @@
         "social-case-study",
         "philhealth-enrollment"
       ],
-      "hero_lede": "Get a Certificate of Indigency from the MSWDO for hospital discounts, legal aid, scholarships, and other social services."
+      "hero_lede": "Get a Certificate of Indigency from the MSWDO for hospital discounts, legal aid, scholarships, and other social services.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "solo-parent-id",
@@ -761,7 +781,8 @@
         "certificate-of-indigency",
         "marriage-counseling"
       ],
-      "hero_lede": "Apply for a Solo Parent ID in Mapandan. Learn about eligibility, requirements, and the assessment process at the MSWDO."
+      "hero_lede": "Apply for a Solo Parent ID in Mapandan. Learn about eligibility, requirements, and the assessment process at the MSWDO.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "scholarship-certification",
@@ -791,7 +812,8 @@
       "related": [
         "certificate-of-indigency"
       ],
-      "hero_lede": "Get a Scholarship Certification from the MSWDO for educational assistance and tuition fee discounts."
+      "hero_lede": "Get a Scholarship Certification from the MSWDO for educational assistance and tuition fee discounts.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "pwd-assistive-devices",
@@ -824,7 +846,8 @@
       "related": [
         "senior-pwd-id"
       ],
-      "hero_lede": "Request assistive devices for PWDs from the MSWDO in Mapandan. Crutches, wheelchairs, and other devices available."
+      "hero_lede": "Request assistive devices for PWDs from the MSWDO in Mapandan. Crutches, wheelchairs, and other devices available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "osca-death-aid",
@@ -858,7 +881,8 @@
         "certificate-of-indigency",
         "aics"
       ],
-      "hero_lede": "Claim OSCA Death Aid Benefits for deceased senior citizens. Learn about requirements and the claims process at the MSWDO."
+      "hero_lede": "Claim OSCA Death Aid Benefits for deceased senior citizens. Learn about requirements and the claims process at the MSWDO.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "social-case-study",
@@ -895,7 +919,8 @@
         "aics",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Get a Social Case Study Report from the MSWDO for PCSO, hospital, and foundation assistance applications."
+      "hero_lede": "Get a Social Case Study Report from the MSWDO for PCSO, hospital, and foundation assistance applications.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "marriage-counseling",
@@ -926,7 +951,8 @@
       "related": [
         "marriage-license"
       ],
-      "hero_lede": "Complete your pre-marriage counseling requirement at the MSWDO in Mapandan. Required before applying for a marriage license."
+      "hero_lede": "Complete your pre-marriage counseling requirement at the MSWDO in Mapandan. Required before applying for a marriage license.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "cicl-services",
@@ -959,7 +985,8 @@
         "women-welfare",
         "special-social-services"
       ],
-      "hero_lede": "MSWDO protection services for children in difficult circumstances in Mapandan. Counselling, shelter, and referral available."
+      "hero_lede": "MSWDO protection services for children in difficult circumstances in Mapandan. Counselling, shelter, and referral available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "women-welfare",
@@ -991,7 +1018,8 @@
         "cicl-services",
         "special-social-services"
       ],
-      "hero_lede": "MSWDO welfare services for socially disadvantaged women in Mapandan. Counselling, shelter, and referral available."
+      "hero_lede": "MSWDO welfare services for socially disadvantaged women in Mapandan. Counselling, shelter, and referral available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "disaster-relief",
@@ -1029,7 +1057,8 @@
         "ldrrmo-rescue-operation",
         "environmental-complaint"
       ],
-      "hero_lede": "Disaster relief assistance for families affected by calamities in Mapandan. Relief goods and housing repair assistance available."
+      "hero_lede": "Disaster relief assistance for families affected by calamities in Mapandan. Relief goods and housing repair assistance available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "special-social-services",
@@ -1066,7 +1095,8 @@
         "cicl-services",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Special social services for mentally challenged individuals in Mapandan. Counselling, referral, and PhilHealth coordination."
+      "hero_lede": "Special social services for mentally challenged individuals in Mapandan. Counselling, referral, and PhilHealth coordination.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "day-care",
@@ -1096,7 +1126,8 @@
       "related": [
         "nutrition-immunization"
       ],
-      "hero_lede": "Enroll your pre-schooler in the Mapandan Day Care Program. Free early childhood education at barangay Day Care Centers."
+      "hero_lede": "Enroll your pre-schooler in the Mapandan Day Care Program. Free early childhood education at barangay Day Care Centers.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "pre-natal",
@@ -1128,7 +1159,8 @@
         "health-consultation",
         "family-planning"
       ],
-      "hero_lede": "Free pre-natal consultation for antenatal women at the Mapandan Rural Health Unit. Lab tests and health teaching included."
+      "hero_lede": "Free pre-natal consultation for antenatal women at the Mapandan Rural Health Unit. Lab tests and health teaching included.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "family-planning",
@@ -1159,7 +1191,8 @@
         "pre-natal",
         "health-consultation"
       ],
-      "hero_lede": "Free family planning services at the Mapandan RHU. Counselling and provision of oral pills and injectables for couples."
+      "hero_lede": "Free family planning services at the Mapandan RHU. Counselling and provision of oral pills and injectables for couples.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "tb-dots",
@@ -1193,7 +1226,8 @@
         "health-consultation",
         "laboratory"
       ],
-      "hero_lede": "Free TB DOTS treatment at the Mapandan RHU. Sputum testing, GeneXpert, and anti-TB medication available."
+      "hero_lede": "Free TB DOTS treatment at the Mapandan RHU. Sputum testing, GeneXpert, and anti-TB medication available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "laboratory",
@@ -1225,7 +1259,8 @@
         "health-consultation",
         "tb-dots"
       ],
-      "hero_lede": "Laboratory services at the Mapandan RHU. CBC, urinalysis, fecalysis, pregnancy test, and more available at affordable rates."
+      "hero_lede": "Laboratory services at the Mapandan RHU. CBC, urinalysis, fecalysis, pregnancy test, and more available at affordable rates.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "rabies",
@@ -1258,7 +1293,8 @@
         "health-consultation",
         "laboratory"
       ],
-      "hero_lede": "Free rabies treatment for animal bite patients at the Mapandan RHU Animal Bite Treatment Center. First dose free for residents."
+      "hero_lede": "Free rabies treatment for animal bite patients at the Mapandan RHU Animal Bite Treatment Center. First dose free for residents.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "nutrition-immunization",
@@ -1294,7 +1330,8 @@
         "pre-natal",
         "day-care"
       ],
-      "hero_lede": "Free nutrition and immunization programs for children at the Mapandan RHU. Malnourishment intervention and NIP vaccines available."
+      "hero_lede": "Free nutrition and immunization programs for children at the Mapandan RHU. Malnourishment intervention and NIP vaccines available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "electrical-zoning",
@@ -1337,7 +1374,8 @@
         "building-permit",
         "business-zoning"
       ],
-      "hero_lede": "Get an electrical zoning clearance from the MPDC in Mapandan. Required before obtaining an electrical permit."
+      "hero_lede": "Get an electrical zoning clearance from the MPDC in Mapandan. Required before obtaining an electrical permit.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "business-zoning",
@@ -1370,7 +1408,8 @@
         "business-renewal",
         "electrical-zoning"
       ],
-      "hero_lede": "Get a business zoning clearance from the MPDC in Mapandan. Required before applying for a business permit."
+      "hero_lede": "Get a business zoning clearance from the MPDC in Mapandan. Required before applying for a business permit.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "public-information",
@@ -1398,7 +1437,8 @@
       ],
       "photo-referenced": "assets/citizens-charter/public-information.jpg",
       "related": [],
-      "hero_lede": "Request public information and data from the MPDC in Mapandan. Planning, land use, and development data available."
+      "hero_lede": "Request public information and data from the MPDC in Mapandan. Planning, land use, and development data available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "sb-certified-copy",
@@ -1430,7 +1470,8 @@
       "related": [
         "public-information"
       ],
-      "hero_lede": "Get certified true copies of Mapandan municipal ordinances, resolutions, and SB documents. ₱130 fee, ~13 minutes processing."
+      "hero_lede": "Get certified true copies of Mapandan municipal ordinances, resolutions, and SB documents. ₱130 fee, ~13 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "sb-financial-assistance",
@@ -1462,7 +1503,8 @@
         "aics",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Apply for financial assistance from the Sangguniang Bayan for indigent residents of Mapandan. Free service."
+      "hero_lede": "Apply for financial assistance from the Sangguniang Bayan for indigent residents of Mapandan. Free service.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "professional-tax-receipt",
@@ -1492,7 +1534,8 @@
         "cedula",
         "business-permit"
       ],
-      "hero_lede": "Get your Professional Tax Receipt at the Mapandan Treasury Office. ₱300 for professionals, ₱100 for non-professionals."
+      "hero_lede": "Get your Professional Tax Receipt at the Mapandan Treasury Office. ₱300 for professionals, ₱100 for non-professionals.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "tax-clearance",
@@ -1523,7 +1566,8 @@
         "cedula",
         "rpt-payment"
       ],
-      "hero_lede": "Get a Tax Clearance Certificate at the Mapandan Treasury Office. ₱130 total fee, 20 minutes processing."
+      "hero_lede": "Get a Tax Clearance Certificate at the Mapandan Treasury Office. ₱130 total fee, 20 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "mtop",
@@ -1557,7 +1601,8 @@
         "business-permit",
         "cedula"
       ],
-      "hero_lede": "Get or renew your Motorized Tricycle Operator's Permit (MTOP) in Mapandan. ₱365/year annual fee."
+      "hero_lede": "Get or renew your Motorized Tricycle Operator's Permit (MTOP) in Mapandan. ₱365/year annual fee.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "market-stall-fee",
@@ -1588,7 +1633,8 @@
         "business-permit",
         "cedula"
       ],
-      "hero_lede": "Pay your market booth or stall rental fees at the Mapandan Treasury Office. Rates from ₱475 to ₱1,950 per month."
+      "hero_lede": "Pay your market booth or stall rental fees at the Mapandan Treasury Office. Rates from ₱475 to ₱1,950 per month.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "cemetery-payment",
@@ -1617,7 +1663,8 @@
       "related": [
         "death-certificate"
       ],
-      "hero_lede": "Pay for cemetery lot rental or purchase a tomb at the Mapandan Treasury Office. ₱1,500/10yr rental, tombs from ₱10,000."
+      "hero_lede": "Pay for cemetery lot rental or purchase a tomb at the Mapandan Treasury Office. ₱1,500/10yr rental, tombs from ₱10,000.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "cattle-registration",
@@ -1649,7 +1696,8 @@
       "related": [
         "agriculture-subsidy"
       ],
-      "hero_lede": "Register or transfer large cattle ownership in Mapandan. ₱155–₱160 including documentary stamps."
+      "hero_lede": "Register or transfer large cattle ownership in Mapandan. ₱155–₱160 including documentary stamps.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "financial-claims-payment",
@@ -1683,7 +1731,8 @@
         "sb-financial-assistance",
         "aics"
       ],
-      "hero_lede": "Claim financial assistance payments at the Mapandan Treasury Office. Cash for ≤₱3,000, check for >₱3,000."
+      "hero_lede": "Claim financial assistance payments at the Mapandan Treasury Office. Cash for ≤₱3,000, check for >₱3,000.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "seed-certification",
@@ -1715,7 +1764,8 @@
         "agriculture-subsidy",
         "crop-protection"
       ],
-      "hero_lede": "Get seed certification services from the Mapandan MAO. Free lab analysis and seed tags for registered seed growers."
+      "hero_lede": "Get seed certification services from the Mapandan MAO. Free lab analysis and seed tags for registered seed growers.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "animal-anti-rabies",
@@ -1743,7 +1793,8 @@
       "related": [
         "rabies"
       ],
-      "hero_lede": "Free anti-rabies vaccination for your pets at the Mapandan Municipal Agriculture Office."
+      "hero_lede": "Free anti-rabies vaccination for your pets at the Mapandan Municipal Agriculture Office.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "crop-protection",
@@ -1775,7 +1826,8 @@
         "agriculture-subsidy",
         "seed-certification"
       ],
-      "hero_lede": "Free crop protection services from the Mapandan MAO. Farm inspection, plant analysis, and pest management recommendations."
+      "hero_lede": "Free crop protection services from the Mapandan MAO. Farm inspection, plant analysis, and pest management recommendations.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "demolition-permit",
@@ -1809,7 +1861,8 @@
         "building-permit",
         "occupancy-permit"
       ],
-      "hero_lede": "Get a demolition permit from the Mapandan Municipal Engineer. Required before demolishing any building or structure."
+      "hero_lede": "Get a demolition permit from the Mapandan Municipal Engineer. Required before demolishing any building or structure.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "electrical-permit",
@@ -1850,7 +1903,8 @@
         "building-permit",
         "electrical-zoning"
       ],
-      "hero_lede": "Get an electrical permit from the Mapandan Municipal Engineer. Required for all electrical installations and wiring."
+      "hero_lede": "Get an electrical permit from the Mapandan Municipal Engineer. Required for all electrical installations and wiring.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "birth-registration",
@@ -1886,7 +1940,8 @@
         "birth-certificate",
         "death-certificate"
       ],
-      "hero_lede": "Register a birth at the Mapandan MCR. Standard fee ₱115, late registration ₱315–₱1,015."
+      "hero_lede": "Register a birth at the Mapandan MCR. Standard fee ₱115, late registration ₱315–₱1,015.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "death-registration",
@@ -1920,7 +1975,8 @@
         "death-certificate",
         "birth-registration"
       ],
-      "hero_lede": "Register a death at the Mapandan MCR. Late registration fee ₱215."
+      "hero_lede": "Register a death at the Mapandan MCR. Late registration fee ₱215.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "marriage-registration",
@@ -1957,7 +2013,8 @@
         "marriage-license",
         "marriage-counseling"
       ],
-      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862."
+      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "civil-registry-certifications",
@@ -1991,7 +2048,8 @@
         "death-certificate",
         "marriage-license"
       ],
-      "hero_lede": "Get certified copies of birth, marriage, or death certificates at the Mapandan MCR. ₱115 per copy."
+      "hero_lede": "Get certified copies of birth, marriage, or death certificates at the Mapandan MCR. ₱115 per copy.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "legal-document-registration",
@@ -2027,7 +2085,8 @@
         "birth-registration",
         "birth-certificate"
       ],
-      "hero_lede": "Register legal documents at the Mapandan MCR. Legitimation, acknowledgement, and RA 9255 services available."
+      "hero_lede": "Register legal documents at the Mapandan MCR. Legitimation, acknowledgement, and RA 9255 services available.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "court-order-annotation",
@@ -2058,7 +2117,8 @@
         "name-correction",
         "birth-registration"
       ],
-      "hero_lede": "Annotate civil registry documents based on court order at the Mapandan MCR. ₱515 for corrections and adoption."
+      "hero_lede": "Annotate civil registry documents based on court order at the Mapandan MCR. ₱515 for corrections and adoption.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "mayors-clearance",
@@ -2091,7 +2151,8 @@
         "cedula",
         "business-permit"
       ],
-      "hero_lede": "Get a clearance or certificate signed by the Mayor of Mapandan. ₱130 fee, 15 minutes processing."
+      "hero_lede": "Get a clearance or certificate signed by the Mayor of Mapandan. ₱130 fee, 15 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "subscription-of-affidavits",
@@ -2124,7 +2185,8 @@
         "mayors-clearance",
         "cedula"
       ],
-      "hero_lede": "Have your affidavit subscribed and sworn before the Mayor of Mapandan. ₱130 fee, 15 minutes processing."
+      "hero_lede": "Have your affidavit subscribed and sworn before the Mayor of Mapandan. ₱130 fee, 15 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "solemnization-of-marriage",
@@ -2157,7 +2219,8 @@
         "marriage-license",
         "pre-marriage-counseling-pop"
       ],
-      "hero_lede": "Have your marriage solemnized by the Mayor of Mapandan. Free service for couples with a valid marriage license."
+      "hero_lede": "Have your marriage solemnized by the Mayor of Mapandan. Free service for couples with a valid marriage license.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "mayors-recommendation",
@@ -2190,7 +2253,8 @@
         "mayors-clearance",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Get a recommendation letter from the Mayor for employment, scholarship, or other opportunities. Free service."
+      "hero_lede": "Get a recommendation letter from the Mayor for employment, scholarship, or other opportunities. Free service.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "ldrrmo-document-request",
@@ -2221,7 +2285,8 @@
         "ldrrmo-rescue-operation",
         "disaster-relief"
       ],
-      "hero_lede": "Request disaster risk management documents and information from the MDRRMO in Mapandan. Free service."
+      "hero_lede": "Request disaster risk management documents and information from the MDRRMO in Mapandan. Free service.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "ldrrmo-training-seminar",
@@ -2253,7 +2318,8 @@
         "ldrrmo-rescue-operation",
         "disaster-relief"
       ],
-      "hero_lede": "Request a disaster preparedness training or seminar from the MDRRMO in Mapandan. Free for barangays and organizations."
+      "hero_lede": "Request a disaster preparedness training or seminar from the MDRRMO in Mapandan. Free for barangays and organizations.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "ldrrmo-rescue-operation",
@@ -2284,7 +2350,8 @@
         "health-consultation",
         "disaster-relief"
       ],
-      "hero_lede": "Emergency rescue and medical transport from the MDRRMO in Mapandan. Call the hotline for immediate assistance."
+      "hero_lede": "Emergency rescue and medical transport from the MDRRMO in Mapandan. Call the hotline for immediate assistance.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "ldrrmo-transportation",
@@ -2316,7 +2383,8 @@
         "ldrrmo-rescue-operation",
         "special-event-permit"
       ],
-      "hero_lede": "Request standby or transportation support from the MDRRMO for events and activities in Mapandan. Free service."
+      "hero_lede": "Request standby or transportation support from the MDRRMO for events and activities in Mapandan. Free service.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "ldrrmo-walk-in",
@@ -2347,7 +2415,8 @@
         "ldrrmo-rescue-operation",
         "ldrrmo-document-request"
       ],
-      "hero_lede": "Walk in to the MDRRMO Office for disaster-related inquiries, complaints, and coordination assistance. Free service."
+      "hero_lede": "Walk in to the MDRRMO Office for disaster-related inquiries, complaints, and coordination assistance. Free service.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "youth-organization-registration",
@@ -2382,7 +2451,8 @@
         "certificate-of-indigency",
         "public-information"
       ],
-      "hero_lede": "Register your youth organization with the LYDO in Mapandan under the YORP. Free service, official recognition and program access."
+      "hero_lede": "Register your youth organization with the LYDO in Mapandan under the YORP. Free service, official recognition and program access.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-true-copy",
@@ -2414,7 +2484,8 @@
         "tax-declaration",
         "rpt-payment"
       ],
-      "hero_lede": "Get a certified true copy of your Tax Declaration from the Assessor's Office. ₱100, 15 minutes processing."
+      "hero_lede": "Get a certified true copy of your Tax Declaration from the Assessor's Office. ₱100, 15 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-improvement-certificate",
@@ -2446,7 +2517,8 @@
         "assessor-true-copy",
         "assessor-building-appraisal"
       ],
-      "hero_lede": "Get a No Improvement or With Improvement Certificate from the Assessor's Office. Fees ₱100–₱600 based on assessed value."
+      "hero_lede": "Get a No Improvement or With Improvement Certificate from the Assessor's Office. Fees ₱100–₱600 based on assessed value.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-landholdings",
@@ -2478,7 +2550,8 @@
         "assessor-true-copy",
         "rpt-payment"
       ],
-      "hero_lede": "Get a Landholdings Certificate showing all your registered properties in Mapandan. ₱100, 15 minutes processing."
+      "hero_lede": "Get a Landholdings Certificate showing all your registered properties in Mapandan. ₱100, 15 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-declare-undeclared",
@@ -2512,7 +2585,8 @@
         "assessor-true-copy",
         "assessor-appraisal-untitled"
       ],
-      "hero_lede": "Declare an undeclared property with the Assessor's Office. ₱700 appraisal fee, 30 minutes processing."
+      "hero_lede": "Declare an undeclared property with the Assessor's Office. ₱700 appraisal fee, 30 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-declare-missing",
@@ -2546,7 +2620,8 @@
         "assessor-true-copy",
         "assessor-declare-undeclared"
       ],
-      "hero_lede": "Replace a lost or missing Tax Declaration at the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Replace a lost or missing Tax Declaration at the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-appraisal-titled",
@@ -2581,7 +2656,8 @@
         "land-transfer",
         "rpt-payment"
       ],
-      "hero_lede": "Get your newly titled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Get your newly titled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-appraisal-untitled",
@@ -2615,7 +2691,8 @@
         "assessor-declare-undeclared",
         "assessor-appraisal-titled"
       ],
-      "hero_lede": "Get your untitled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Get your untitled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-building-appraisal",
@@ -2650,7 +2727,8 @@
         "building-permit",
         "occupancy-permit"
       ],
-      "hero_lede": "Get your building appraised and assessed by the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Get your building appraised and assessed by the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-reclassification",
@@ -2684,7 +2762,8 @@
         "assessor-true-copy",
         "zoning-clearance"
       ],
-      "hero_lede": "Reclassify or reassess your land at the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Reclassify or reassess your land at the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-tax-map",
@@ -2716,7 +2795,8 @@
         "assessor-true-copy",
         "assessor-landholdings"
       ],
-      "hero_lede": "Get a tax map from the Assessor's Office showing your property's location and boundaries. ₱100, 15 minutes."
+      "hero_lede": "Get a tax map from the Assessor's Office showing your property's location and boundaries. ₱100, 15 minutes.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-inquiries",
@@ -2748,7 +2828,8 @@
         "assessor-true-copy",
         "assessor-tax-map"
       ],
-      "hero_lede": "Inquire or verify real property records at the Assessor's Office. ₱100 for printed verification, 15 minutes."
+      "hero_lede": "Inquire or verify real property records at the Assessor's Office. ₱100 for printed verification, 15 minutes.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-certificates",
@@ -2781,7 +2862,8 @@
         "assessor-true-copy",
         "assessor-inquiries"
       ],
-      "hero_lede": "Get various property-related certificates from the Assessor's Office. ₱100 per certificate, 15 minutes."
+      "hero_lede": "Get various property-related certificates from the Assessor's Office. ₱100 per certificate, 15 minutes.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "assessor-annotations",
@@ -2815,7 +2897,8 @@
         "assessor-true-copy",
         "land-transfer"
       ],
-      "hero_lede": "Record or cancel annotations on your Tax Declaration at the Assessor's Office. ₱150, 20 minutes processing."
+      "hero_lede": "Record or cancel annotations on your Tax Declaration at the Assessor's Office. ₱150, 20 minutes processing.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "environmental-complaint",
@@ -2848,7 +2931,8 @@
         "ldrrmo-walk-in",
         "ldrrmo-document-request"
       ],
-      "hero_lede": "File an environmental complaint with the MENRO in Mapandan. Report pollution, illegal dumping, and other violations. Free service."
+      "hero_lede": "File an environmental complaint with the MENRO in Mapandan. Report pollution, illegal dumping, and other violations. Free service.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "pre-marriage-counseling-pop",
@@ -2879,7 +2963,8 @@
         "marriage-license",
         "solemnization-of-marriage"
       ],
-      "hero_lede": "Complete your pre-marriage counseling at the Population Office in Mapandan. Free session, certificate issued upon completion."
+      "hero_lede": "Complete your pre-marriage counseling at the Population Office in Mapandan. Free session, certificate issued upon completion.",
+      "delivery_mode": "in-person"
     },
     {
       "slug": "philhealth-enrollment",
@@ -2912,7 +2997,8 @@
         "certificate-of-indigency",
         "health-consultation"
       ],
-      "hero_lede": "Enroll in the LGU-sponsored PhilHealth program at the Population Office. Free health insurance for indigent residents."
+      "hero_lede": "Enroll in the LGU-sponsored PhilHealth program at the Population Office. Free health insurance for indigent residents.",
+      "delivery_mode": "in-person"
     }
   ]
 }
