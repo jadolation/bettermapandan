@@ -37,6 +37,39 @@ SITE_CONFIG = {
     "REPO_URL": "https://github.com/jadolation/bettermapandan.git",
 }
 
+# Section anchors for deep-linking from search results.
+# Maps page filename to list of (anchor_id, heading_text) tuples.
+# When a search result matches text within a section, the anchor is
+# appended to the URL so users land on the right part of the page.
+SECTION_ANCHORS = {
+    "government.html": [
+        ("executive", "Executive Branch"),
+        ("legislative", "Legislative Branch"),
+        ("barangay-councils", "Barangay Councils"),
+        ("departments", "Departments"),
+        ("contacts", "Contact Directory"),
+    ],
+    "legislative.html": [
+        ("governance-framework", "Local governance"),
+        ("ordinances", "Municipal ordinances"),
+        ("resolutions", "Resolutions"),
+        ("executive-issuances", "Executive issuances"),
+        ("fiscal", "Budgets"),
+        ("trends", "Legislative trends"),
+    ],
+    "statistics.html": [
+        ("population", "Demographic overview"),
+        ("economy", "Economic indicators"),
+        ("fiscal-data", "Revenue"),
+    ],
+    "transparency.html": [
+        ("appropriations", "Current budget"),
+        ("revenue", "Revenue"),
+        ("fiscal-snapshot", "Fiscal snapshot"),
+        ("compliance", "Audit"),
+    ],
+}
+
 FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.S)
 
 
@@ -461,12 +494,31 @@ def build() -> None:
 
         # Search index entry
         url = compute_url(rel)
-        search_entries.append({
+        plain_body = strip_html(body)
+
+        # Build section anchor map for deep-linking from search results.
+        # Split the plain-text body by known section headings so the JS
+        # can figure out which section a match landed in and append #anchor.
+        anchors = SECTION_ANCHORS.get(rel.name, [])
+        section_anchors = []
+        if anchors:
+            for anchor_id, heading in anchors:
+                idx = plain_body.lower().find(heading.lower())
+                if idx != -1:
+                    section_anchors.append({"anchor": anchor_id, "pos": idx})
+            # Sort by position so the JS can pick the section that comes
+            # closest *before* or *at* the match position.
+            section_anchors.sort(key=lambda s: s["pos"])
+
+        entry = {
             "title": meta["title"],
             "url": url,
             "description": meta["description"],
-            "body": strip_html(body),
-        })
+            "body": plain_body,
+        }
+        if section_anchors:
+            entry["section_anchors"] = section_anchors
+        search_entries.append(entry)
 
     # Write search index
     index_path = ROOT / "assets" / "search-index.json"
