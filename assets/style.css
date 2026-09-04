@@ -1727,6 +1727,32 @@ tbody tr:hover {
   color: var(--gold);
 }
 
+/* BetterGov attribution logo */
+.footer-bettergov {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #a9c1a3;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-bettergov:hover {
+  color: #fff;
+}
+
+.footer-bettergov-logo {
+  height: 18px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+.footer-bettergov:hover .footer-bettergov-logo {
+  opacity: 1;
+}
+
 /* ---------- Utility ---------- */
 
 .sr-only {
@@ -2661,6 +2687,16 @@ canvas {
   }
   .mobile-action-item svg { color: var(--green-deep); }
   main#content { padding-bottom: 72px; }
+
+  /* Civic contribution hub mobile */
+  .segmented-control { flex-wrap: wrap; }
+  .segmented-control button { flex: 1 1 33%; min-height: 44px; padding: 8px 10px; font-size: 12px; }
+  .segmented-control button .label-text { display: none; }
+  .segmented-control button::after { content: attr(data-short); }
+  .civic-preview { position: static; margin-top: 24px; }
+  .civic-toast { left: 16px; right: 16px; bottom: 80px; }
+  .civic-submit-row { flex-direction: column; align-items: stretch; }
+  .civic-submit-row .btn, .civic-submit-row .btn-copy { width: 100%; justify-content: center; }
 }
 
 /* ============================================
@@ -2717,7 +2753,205 @@ canvas {
   color: #e65100;
 }
 
+/* ============================================
+   CIVIC CONTRIBUTION HUB
+   ============================================ */
+
+/* Segmented control */
+.segmented-control {
+  display: inline-flex;
+  border: 2px solid var(--green-deep);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.segmented-control button {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--green-deep);
+  transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.segmented-control button.active {
+  background: var(--green-deep);
+  color: #fff;
+}
+
+.segmented-control button:not(:last-child) {
+  border-right: 2px solid var(--green-deep);
+}
+
+.segmented-control button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+/* Form panels */
+.civic-form-panel {
+  display: none;
+}
+
+.civic-form-panel.active {
+  display: block;
+}
+
+.civic-form-field {
+  margin-bottom: 18px;
+}
+
+.civic-form-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.civic-form-field input,
+.civic-form-field textarea,
+.civic-form-field select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--paper);
+  transition: border-color 0.15s;
+}
+
+.civic-form-field input:focus,
+.civic-form-field textarea:focus,
+.civic-form-field select:focus {
+  border-color: var(--green-deep);
+  outline: none;
+}
+
+.civic-form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+}
+
+/* Submit row */
+.civic-submit-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+
+.btn-copy:hover {
+  background: var(--gold-soft);
+  color: var(--green-deep);
+}
+
+/* Live preview card */
+.civic-preview {
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  position: sticky;
+  top: 100px;
+}
+
+.civic-preview-mode {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.civic-preview-mode.mode-report { background: #fde2d4; color: #a94442; }
+.civic-preview-mode.mode-contribute { background: #d4e8f7; color: #1a5276; }
+.civic-preview-mode.mode-suggest { background: #fef3cd; color: #856404; }
+
+.civic-preview h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.civic-preview p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.preview-footer {
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+/* Toast notification */
+.civic-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--green-deep);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 1000;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 380px;
+}
+
+.civic-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .carousel-slide { transition: none; }
+  .civic-toast { transition: none; }
 }
