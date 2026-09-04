@@ -185,15 +185,21 @@ def generate_services() -> None:
         
         service_links = []
         for s in cat_services:
-            meta_parts = []
-            if s.get("processing_time"):
-                meta_parts.append(html.escape(s["processing_time"]))
-            fee = s.get("fee", "Free")
-            if fee:
-                meta_parts.append(html.escape(fee))
-            meta = f'<span class="service-link-meta">{" &middot; ".join(meta_parts)}</span>' if meta_parts else ""
+            name_html = html.escape(s["name"])
+            time_html = html.escape(s["processing_time"]) if s.get("processing_time") else ""
+            fee_html = html.escape(s.get("fee", "")) if s.get("fee") else ""
+            meta_html = ""
+            if time_html or fee_html:
+                parts = []
+                if time_html:
+                    parts.append(f'<span class="service-link-time">{time_html}</span>')
+                if fee_html:
+                    parts.append(f'<span class="service-link-fee">{fee_html}</span>')
+                meta_html = f'<div class="service-link-meta">{"".join(parts)}</div>'
             service_links.append(
-                f'<a class="service-link" href="services/{s["slug"]}.html">{html.escape(s["name"])}{meta}</a>'
+                f'<div class="service-link-wrap">'
+                f'<a class="service-link" href="services/{s["slug"]}.html">{name_html}</a>'
+                f'{meta_html}</div>'
             )
 
         card = (
