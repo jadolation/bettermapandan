@@ -145,9 +145,23 @@ document.addEventListener("DOMContentLoaded", function () {
           var end = Math.min(bodyText.length, idx + q.length + 80);
           var snippet = (start > 0 ? "..." : "") + bodyText.slice(start, end) + (end < bodyText.length ? "..." : "");
 
+          // Determine section anchor for deep-linking
+          var resultUrl = entry.url;
+          var sectionAnchors = entry.section_anchors;
+          if (sectionAnchors && sectionAnchors.length > 0) {
+            // Find the section whose start position is closest before the match
+            var bestAnchor = sectionAnchors[0].anchor;
+            for (var i = 0; i < sectionAnchors.length; i++) {
+              if (sectionAnchors[i].pos <= idx) {
+                bestAnchor = sectionAnchors[i].anchor;
+              }
+            }
+            resultUrl = entry.url + "#" + bestAnchor;
+          }
+
           matches.push({
             title: entry.title,
-            url: entry.url,
+            url: resultUrl,
             description: entry.description,
             snippet: snippet,
             score: score
