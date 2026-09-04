@@ -157,7 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Barangay data correction
     var btn = document.getElementById("report-email-btn");
     if (!btn) return;
-    var pageUrl = location.origin + location.pathname.replace(/support\/report\.html$/, "barangays/" + barangay.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "") + ".html");
+    var slug = barangay.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
+    var pageUrl = location.origin + location.pathname.replace(/support\/report\.html$/, "index.html#barangay-" + slug);
     var subject = "Barangay Data Update: " + barangay;
     var body = "Barangay: " + barangay + "%0APage URL: " + encodeURIComponent(pageUrl) + "%0A%0AWhat needs to be corrected or updated:%0A%0ACorrect information:%0A%0ASource (if available):%0A";
     btn.href = "mailto:report@bettermapandan.org?subject=" + encodeURIComponent(subject) + "&body=" + body;
