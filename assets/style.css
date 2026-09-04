@@ -2263,19 +2263,21 @@ canvas {
 .service-category-card .service-links {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   margin-top: 4px;
 }
 
+.service-link-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .service-category-card .service-link {
-  display: inline-block;
   font-size: 13.5px;
   color: var(--green);
   text-decoration: none;
   font-weight: 500;
-  min-height: 32px;
-  display: flex;
-  align-items: center;
 }
 
 .service-category-card .service-link:hover,
@@ -2285,11 +2287,20 @@ canvas {
 }
 
 .service-link-meta {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
   font-size: 12px;
-  font-weight: 400;
+  line-height: 1.4;
+}
+
+.service-link-time {
   color: var(--ink-faint);
-  margin-top: 1px;
+}
+
+.service-link-fee {
+  color: var(--ink-faint);
+  font-style: italic;
 }
 
 .badge-delivery {
