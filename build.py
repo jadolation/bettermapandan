@@ -171,6 +171,7 @@ def generate_services() -> None:
                 "LAST_UPDATED": svc.get("last_updated", "August 2025"),
                 "RELATED_SERVICES": related_html,
                 "PHOTO_HTML": photo_html,  # <-- Injected here
+                "DELIVERY_MODE": svc.get("delivery_mode", "in-person"),
             },
         )
 
@@ -184,8 +185,15 @@ def generate_services() -> None:
         
         service_links = []
         for s in cat_services:
+            meta_parts = []
+            if s.get("processing_time"):
+                meta_parts.append(html.escape(s["processing_time"]))
+            fee = s.get("fee", "Free")
+            if fee:
+                meta_parts.append(html.escape(fee))
+            meta = f'<span class="service-link-meta">{" &middot; ".join(meta_parts)}</span>' if meta_parts else ""
             service_links.append(
-                f'<a class="service-link" href="services/{s["slug"]}.html">{html.escape(s["name"])}</a>'
+                f'<a class="service-link" href="services/{s["slug"]}.html">{html.escape(s["name"])}{meta}</a>'
             )
 
         card = (
