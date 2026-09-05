@@ -127,7 +127,9 @@ def fill(template: str, values: dict) -> str:
 
 
 def strip_html(html_text: str) -> str:
-    text = re.sub(r"<[^>]+>", " ", html_text)
+    text = re.sub(r"<script[^>]*>.*?</script>", " ", html_text, flags=re.S)
+    text = re.sub(r"<style[^>]*>.*?</style>", " ", text, flags=re.S)
+    text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
@@ -773,6 +775,8 @@ def build() -> None:
         ("fil", fil_locale, FIL_DIR, True),
     ]
 
+    all_search_entries = []
+
     for lang_code, locale, out_root, is_fil in languages:
         print(f"\n--- Building [{lang_code.upper()}] ---")
 
@@ -1275,15 +1279,13 @@ def build() -> None:
             }
             search_entries.append(entry)
 
-        # Write search index (append to shared index)
-        index_path = ROOT / "assets" / "search-index.json"
-        if index_path.exists():
-            existing = json.loads(index_path.read_text(encoding="utf-8"))
-        else:
-            existing = []
-        existing.extend(search_entries)
-        index_path.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")
+        all_search_entries.extend(search_entries)
         print(f"  [{lang_code.upper()}] search index: {len(search_entries)} entries")
+
+    # Write combined search index
+    index_path = ROOT / "assets" / "search-index.json"
+    index_path.write_text(json.dumps(all_search_entries, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\nSearch index: {len(all_search_entries)} total entries")
 
     # Copy assets to Filipino output
     assets_src = ROOT / "assets"
