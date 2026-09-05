@@ -127,9 +127,21 @@ def fill(template: str, values: dict) -> str:
 
 
 def strip_html(html_text: str) -> str:
-    text = re.sub(r"<script[^>]*>.*?</script>", " ", html_text, flags=re.S)
-    text = re.sub(r"<style[^>]*>.*?</style>", " ", text, flags=re.S)
-    text = re.sub(r"<[^>]+>", " ", text)
+    from html.parser import HTMLParser
+    class TextExtractor(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.result = []
+        def handle_data(self, data):
+            self.result.append(data)
+        def get_text(self):
+            return " ".join(self.result)
+    parser = TextExtractor()
+    try:
+        parser.feed(html_text)
+        text = parser.get_text()
+    except Exception:
+        text = re.sub(r"<[^>]+>", " ", html_text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
@@ -368,7 +380,14 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
     ord_rows = []
     for o in data.get("ordinances", []):
         cat_label = category_labels.get(o["category"], o["category"].title())
-        fiscal = f'₱{o["fiscal_value"]:,.0f}' if o.get("fiscal_value") else "—"
+        fiscal_val = o.get("fiscal_value")
+        if fiscal_val is not None:
+            try:
+                fiscal = f'₱{int(fiscal_val):,}'
+            except (ValueError, TypeError):
+                fiscal = "—"
+        else:
+            fiscal = "—"
         status_class = "pill-enacted" if o["status"] == "enacted" else ("pill-pending" if o["status"] == "pending" else "pill")
         status_text = o["status"].title()
         source = f'<a href="{o["source_url"]}" target="_blank" rel="noopener">Source &rarr;</a>' if o.get("source_url") else "—"
@@ -386,7 +405,14 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
 
     res_rows = []
     for r in data.get("resolutions", []):
-        fiscal = f'₱{r["fiscal_value"]:,.2f}' if r.get("fiscal_value") else "—"
+        fiscal_val = r.get("fiscal_value")
+        if fiscal_val is not None:
+            try:
+                fiscal = f'₱{float(fiscal_val):,.2f}'
+            except (ValueError, TypeError):
+                fiscal = "—"
+        else:
+            fiscal = "—"
         source = f'<a href="{r["source_url"]}" target="_blank" rel="noopener">Source &rarr;</a>' if r.get("source_url") else "—"
         res_rows.append(
             f'<tr>'
@@ -523,8 +549,15 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
 def validate_barangays(barangays: list[dict]) -> list[dict]:
     """Validate and normalize barangay entries. Returns cleaned list."""
     required = {"slug", "name", "punong_barangay"}
+    seen_slugs = set()
     normalized = []
     for brgy in barangays:
+        slug = brgy.get("slug", "")
+        if slug in seen_slugs:
+            print(f"  WARNING: duplicate barangay slug '{slug}' - skipping duplicate")
+            continue
+        if slug:
+            seen_slugs.add(slug)
         missing = required - brgy.keys()
         if missing:
             print(f"  WARNING: barangay '{brgy.get('name', '?')}' missing fields: {missing}")
@@ -714,6 +747,30 @@ def generate_sitemap() -> None:
     print(f"  sitemap.xml: {len(all_paths)} URLs")
 
 
+def minify_css(css_text: str) -> str:
+    """Remove CSS comments and unnecessary whitespace."""
+    css = re.sub(r"/\*[^*]*\*+(?:[^/*][^*]*\*+)*/", "", css_text)
+    css = re.sub(r"\s+", " ", css)
+    css = re.sub(r"\s*([{}:;,])\s*", r"\1", css)
+    css = re.sub(r";\s*}", "}", css)
+    css = re.sub(r"^\s+", "", css, flags=re.MULTILINE)
+    return css.strip()
+
+
+def minify_assets() -> None:
+    """Minify CSS and JS assets."""
+    css_path = ROOT / "assets" / "style.css"
+    css_min_path = ROOT / "assets" / "style.min.css"
+    if css_path.exists():
+        css = css_path.read_text(encoding="utf-8")
+        css_min = minify_css(css)
+        css_min_path.write_text(css_min, encoding="utf-8")
+        orig_size = len(css.encode("utf-8"))
+        min_size = len(css_min.encode("utf-8"))
+        pct = ((1 - min_size / orig_size) * 100) if orig_size > 0 else 0
+        print(f"  style.css: {orig_size:,} → {min_size:,} bytes ({pct:.1f}% reduction)")
+
+
 def compress_images() -> None:
     """Compress citizen's charter JPGs and history PNGs using sharp (Node.js)."""
     compress_script = ROOT / "compress.mjs"
@@ -836,9 +893,6 @@ def build() -> None:
 
             # Language switcher URLs
             if is_fil:
-                en_url = "../" + rel.as_posix() if depth == 0 else "../" + "/".join([".."] * depth + [rel.as_posix()])
-                fil_url = rel.as_posix() if depth == 0 else "/".join([".."] * depth + [rel.as_posix()])
-                # Simpler: en is always one level up from fil
                 en_url = "../" + rel.as_posix()
                 fil_url = rel.as_posix()
             else:
@@ -1064,10 +1118,10 @@ def build() -> None:
                 "HOMEPAGE_PLAZA_CREDIT": t(locale, "homepage.plaza_credit", ""),
                 "HOMEPAGE_AGRI_DESC": t(locale, "homepage.agri_desc", ""),
                 "HOMEPAGE_AGRI_CREDIT": t(locale, "homepage.agri_credit", ""),
-                "HOMEPAGE_MAYOR_NAME": t(locale, "homepage.mayor_name", "Hon. Karl Christian F. Vega"),
+                "HOMEPAGE_MAYOR_NAME": t(locale, "homepage.mayor_name", ""),
                 "HOMEPAGE_MAYOR_ROLE": t(locale, "homepage.mayor_role", "Municipal Mayor"),
-                "HOMEPAGE_MAYOR_AFFIL": t(locale, "homepage.mayor_affil", "Nacionalista Party (NP)"),
-                "HOMEPAGE_VICE_MAYOR_NAME": t(locale, "homepage.vice_mayor_name", "Hon. Anthony C. Penuliar"),
+                "HOMEPAGE_MAYOR_AFFIL": t(locale, "homepage.mayor_affil", ""),
+                "HOMEPAGE_VICE_MAYOR_NAME": t(locale, "homepage.vice_mayor_name", ""),
                 "HOMEPAGE_VICE_MAYOR_ROLE": t(locale, "homepage.vice_mayor_role", "Vice Mayor &middot; Presiding Officer"),
                 "HOMEPAGE_VICE_MAYOR_AFFIL": t(locale, "homepage.vice_mayor_affil", "Independent (IND)"),
                 "HOMEPAGE_LEADER_SOURCE": t(locale, "homepage.leader_source", "Source: Mapandan.gov.ph"),
@@ -1361,6 +1415,9 @@ def build() -> None:
     index_path = ROOT / "assets" / "search-index.json"
     index_path.write_text(json.dumps(all_search_entries, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nSearch index: {len(all_search_entries)} total entries")
+
+    # Minify CSS
+    minify_assets()
 
     # Copy assets to Filipino output
     assets_src = ROOT / "assets"
