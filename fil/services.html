@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mga Serbisyo — BetterMapandan.org</title>
+<meta name="description" content="Browse every service the Municipality of Mapandan offers." />
+<link rel="icon" href="../assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/android-chrome-192x192.png" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="emergency-bar">
+  <div class="wrap">
+    <a href="tel:911"><span class="label">Emergency</span> 911</a>
+    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+    <a href="tel:09434242810"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+    <a href="tel:09159793390"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+    <a href="tel:911"><span class="label">Emergency</span> 911</a>
+    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+    <a href="tel:09434242810"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+    <a href="tel:09159793390"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+      <span class="brand-text">
+        <span class="top">Better Mapandan</span>
+        <span class="bottom">.org</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Tahanan</a></li>
+        <li><a href="../services.html">Mga Serbisyo</a></li>
+        <li><a href="../government.html">Pamahalaan</a></li>
+        <li><a href="../legislative.html">Lehislatibo</a></li>
+        <li><a href="../statistics.html">Estadistika</a></li>
+        <li><a href="../transparency.html">Transparency</a></li>
+        <li><a href="../about.html">Tungkol sa Amin</a></li>
+        <li><a href="../search.html" class="nav-search-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Hanapin
+        </a></li>
+      </ul>
+      <div class="lang-switcher">
+        <a href="../services.html" class="lang-btn ">EN</a>
+        <a href="services.html" class="lang-btn active">FIL</a>
+      </div>
+      <a href="../search.html" class="nav-search" aria-label="Hanapin">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="content">
+<section class="page-hero">
+  <img class="hero-rays" src="../assets/logo-no-white.svg" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow">Citizen's Charter</span>
+    <h1>Mga Serbisyo</h1>
+    <p class="lede">Bawat serbisyo na inaalok ng Mapandan, ayon sa iyong kailangan.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p>Hanapin ang serbisyo na kailangan mo ayon sa kategorya. Bawat listahan ay may kasamang mga kinakailangan, bayad, oras ng pagproseso, at ang opisyo na may pananagutan.</p>
+    </div>
+    <div class="service-filter">
+      <label for="service-filter-input" class="sr-only">Search services</label>
+      <div class="service-filter-wrap">
+        <svg class="service-filter-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="service-filter-input" class="service-filter-input" type="search" placeholder="Maghanap ng serbisyo..." autocomplete="off" />
+      </div>
+    </div>
+    <div class="grid grid-2" id="service-category-grid">
+            <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="clipboard-list"></i></div>
+          <h3>Pagpapasyal at Lisensya ng Negosyo</h3>
+        </div>
+        <p>Pagsisimula o pagbabago ng negosyo sa Mapandan.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/business-permit.html">Bagong Business Permit</a><div class="service-link-meta"><span class="service-link-time">~1 hour (10 min encoding + 44 min endorsement + 10 min pay &amp; claim)</span><span class="service-link-fee">Mayor&#x27;s Permit (₱500–₱1,000) + Business Plate &amp; Sticker (₱250) + Weights &amp; Measure (₱100–200) + Storage Fee (₱550) + Garbage Fee (₱800–₱1,200)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/business-renewal.html">Pagbabago ng Business Permit</a><div class="service-link-meta"><span class="service-link-time">~1 hour (similar to new business permit process)</span><span class="service-link-fee">Mayor&#x27;s Permit (₱500–₱1,000) + Business Tax (% of Gross Sales) + Business Plate &amp; Sticker (₱250) + Weights &amp; Measure (₱100–200) + Storage Fee (₱550) + Garbage Fee (₱800–₱1,200)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/special-event-permit.html">Special Event Permit</a><div class="service-link-meta"><span class="service-link-time">5–7 working days</span><span class="service-link-fee">Varies by event type and scale</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="scroll-text"></i></div>
+          <h3>Civil Registry at mga Vital Record</h3>
+        </div>
+        <p>Mga sertipiko ng kapanganakan, kasal, pagkamatay, at mga pagwawasto.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/birth-certificate.html">Certipiko ng Kapanganakan</a><div class="service-link-meta"><span class="service-link-time">10 minutes (standard) to 10+ days (late registration)</span><span class="service-link-fee">₱115 (standard) / ₱215 (unmarried) / ₱100 (hospital) / ₱315–₱1,015 (late registration)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/death-certificate.html">Certipiko ng Pagkamatay</a><div class="service-link-meta"><span class="service-link-time">10 minutes (standard) to 10+ days (late registration)</span><span class="service-link-fee">₱215 (late registration)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/marriage-license.html">Marriage License</a><div class="service-link-meta"><span class="service-link-time">10–15 working days (including 10-day publication period)</span><span class="service-link-fee">₱862</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/name-correction.html">Pagwawasto ng Pangalan (RA 9048)</a><div class="service-link-meta"><span class="service-link-time">10-day posting + 5 days MCR decision + 2–3 months PSA processing</span><span class="service-link-fee">₱3,000 (change of first name) / ₱1,000 (correction of clerical error)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/birth-registration.html">Rehistrasyon ng Kapanganakan</a><div class="service-link-meta"><span class="service-link-time">10 minutes (standard) to 10 days (late registration posting)</span><span class="service-link-fee">₱115 (standard) / ₱215 (unmarried) / ₱100 (hospital) / ₱315–₱1,015 (late registration)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/death-registration.html">Rehistrasyon ng Pagkamatay</a><div class="service-link-meta"><span class="service-link-time">10 minutes (standard) to 10 days (late registration posting)</span><span class="service-link-fee">₱215 (late registration only)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/marriage-registration.html">Rehistrasyon ng Marriage License</a><div class="service-link-meta"><span class="service-link-time">Varies (including 10-day publication period)</span><span class="service-link-fee">₱862</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/civil-registry-certifications.html">Mga Sertipikasyon ng Birth / Marriage / Death</a><div class="service-link-meta"><span class="service-link-time">~18 minutes</span><span class="service-link-fee">₱115 per copy; ₱200 for PSA endorsement</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/legal-document-registration.html">Rehistrasyon ng Legal Document</a><div class="service-link-meta"><span class="service-link-time">20–25 minutes + 5 minutes for approval</span><span class="service-link-fee">₱315 (legitimation) / ₱215 (acknowledgement / RA 9255)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/court-order-annotation.html">Court Order Annotation at Adoption</a><div class="service-link-meta"><span class="service-link-time">35–50 minutes</span><span class="service-link-fee">₱515</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="hard-hat"></i></div>
+          <h3>Gusali, Engineering, at Zoning</h3>
+        </div>
+        <p>Mga pahintulot sa konstruksyon at mga clearance sa paggamit ng lupa.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/building-permit.html">Building Permit</a><div class="service-link-meta"><span class="service-link-time">3 working days (Simple) / 7 working days (Complex) / 20 working days (Highly Technical) per RA 11032</span><span class="service-link-fee">Based on project cost (schedule per National Building Code)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/occupancy-permit.html">Occupancy Permit</a><div class="service-link-meta"><span class="service-link-time">3 working days (Simple) / 7 working days (Complex) / 20 working days (Highly Technical) per RA 11032</span><span class="service-link-fee">As scheduled by the MEO</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/zoning-clearance.html">Zoning Clearance</a><div class="service-link-meta"><span class="service-link-time">3–5 working days</span><span class="service-link-fee">As scheduled by the MPDC</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/demolition-permit.html">Demolition Permit</a><div class="service-link-meta"><span class="service-link-time">~2 hours</span><span class="service-link-fee">Varies depending on inspection results</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/electrical-permit.html">Electrical Permit</a><div class="service-link-meta"><span class="service-link-time">~2 hours</span><span class="service-link-fee">Varies based on total connected loads</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="home"></i></div>
+          <h3>Real Property at Revenue</h3>
+        </div>
+        <p>Mga buwis sa ari-arian, deklarasyon, at mga paglilipat.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/cedula.html">Cedula / Community Tax Certificate</a><div class="service-link-meta"><span class="service-link-time">20 minutes (15 min form filling + 3 min payment + 2 min recording)</span><span class="service-link-fee">Individual: ₱5 + ₱1/₱1k income (max ₱5,000); Juridical: ₱500 + ₱2/₱5k income (max ₱10,000); 24% interest from March 1</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/land-transfer.html">Paglilipat ng Ownership ng Lupa</a><div class="service-link-meta"><span class="service-link-time">30 minutes (Assessor recording); full transfer may take 15–30 working days</span><span class="service-link-fee">₱150 (recording fee at Assessor&#x27;s Office)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/rpt-payment.html">Bayad sa Real Property Tax</a><div class="service-link-meta"><span class="service-link-time">30 minutes (20 min computation + 5 min payment + 5 min recording)</span><span class="service-link-fee">Basic Tax (1% of AV) + SEF (1% of AV); 10% prompt payment discount; 20% advance payment discount</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/tax-declaration.html">Kopya ng Tax Declaration</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱100 per certified true copy</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/professional-tax-receipt.html">Professional Tax Receipt</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱300 (professionals) / ₱100 (non-professionals)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/tax-clearance.html">Tax Clearance Certificate</a><div class="service-link-meta"><span class="service-link-time">20 minutes</span><span class="service-link-fee">₱100 per certificate + ₱30 documentary stamps</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/mtop.html">Motorized Tricycle Operator&#x27;s Permit (MTOP)</a><div class="service-link-meta"><span class="service-link-time">25 minutes</span><span class="service-link-fee">₱365/yr (annual) + ₱100 LGU plate (first-timers); ₱315 (renewal filing)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/market-stall-fee.html">Bayad sa Market Booth at Stall</a><div class="service-link-meta"><span class="service-link-time">20 minutes</span><span class="service-link-fee">Stalls: ₱950–₱1,950/mo; Booths: ₱475–₱975/mo; New stalls: ₱1,500–₱2,000/mo</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/cemetery-payment.html">Cemetery Lot Rental at Pagbili ng Libingan</a><div class="service-link-meta"><span class="service-link-time">25 minutes</span><span class="service-link-fee">₱1,500/10yr (lot rental); ₱10,000–₱20,000 (tombs)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/financial-claims-payment.html">Financial Assistance Claims Payment</a><div class="service-link-meta"><span class="service-link-time">26 minutes</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-true-copy.html">Certified True Copy ng Tax Declaration</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱100 per certified true copy</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-improvement-certificate.html">No Improvement / With Improvement Certificate</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱100 (if assessed value ≤ ₱100,000) / ₱200 (₱100,001–₱500,000) / ₱300 (₱500,001–₱1,000,000) / ₱600 (above ₱1,000,000)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-landholdings.html">Landholdings Certificate</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱100</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-declare-undeclared.html">Pagdeklara ng Mga Undeclared na Property</a><div class="service-link-meta"><span class="service-link-time">30 minutes</span><span class="service-link-fee">₱700</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-declare-missing.html">Pagdeklara ng Mga Unrevised / Missing Tax Declaration</a><div class="service-link-meta"><span class="service-link-time">30 minutes</span><span class="service-link-fee">₱700</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-appraisal-titled.html">Appraisal para sa Newly Declared Titled Property</a><div class="service-link-meta"><span class="service-link-time">30 minutes</span><span class="service-link-fee">₱700</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-appraisal-untitled.html">Appraisal para sa Newly Declared Untitled Property</a><div class="service-link-meta"><span class="service-link-time">30 minutes</span><span class="service-link-fee">₱700</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-building-appraisal.html">Building Appraisal / Assessment</a><div class="service-link-meta"><span class="service-link-time">30 minutes</span><span class="service-link-fee">₱700</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-reclassification.html">Land Reclassification / Reassessment</a><div class="service-link-meta"><span class="service-link-time">30 minutes</span><span class="service-link-fee">₱700</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-tax-map.html">Tax Map Issuance</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱100</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-inquiries.html">Mga Inquiries at Verifications</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱100</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-certificates.html">Iba pang mga Sertipikasyon ng Assessor</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱100</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/assessor-annotations.html">Recording at Cancellation ng Mga Annotation</a><div class="service-link-meta"><span class="service-link-time">20 minutes</span><span class="service-link-fee">₱150</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="heart-pulse"></i></div>
+          <h3>Mga Serbisyong Pangkalusugan</h3>
+        </div>
+        <p>Mga konsultasyon, pahintulot, at mga programang pampublikong kalusugan.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/health-consultation.html">Konsultasyong Pangkalusugan</a><div class="service-link-meta"><span class="service-link-time">25 minutes per client</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/sanitary-permit.html">Sanitary Permit</a><div class="service-link-meta"><span class="service-link-time">53 minutes per client</span><span class="service-link-fee">₱130 (laboratory tests)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/pre-natal.html">Pre-Natal Consultation</a><div class="service-link-meta"><span class="service-link-time">55 minutes per client</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/family-planning.html">Family Planning</a><div class="service-link-meta"><span class="service-link-time">45 minutes per client</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/tb-dots.html">TB DOTS Treatment</a><div class="service-link-meta"><span class="service-link-time">36 minutes per client</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/laboratory.html">Laboratory Examination</a><div class="service-link-meta"><span class="service-link-time">~2 hours per client (varies by tests requested)</span><span class="service-link-fee">Varies by test (₱50–₱200)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/rabies.html">Rabies Treatment</a><div class="service-link-meta"><span class="service-link-time">37 minutes per client</span><span class="service-link-fee">Free (1st dose for Mapandanians and 4P&#x27;s members); ₱350 for subsequent doses</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/nutrition-immunization.html">Programang Nutrition at Immunization</a><div class="service-link-meta"><span class="service-link-time">50 minutes per client</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="id-card"></i></div>
+          <h3>Serbisyong Panlipunan — Mga ID at Sertipikasyon</h3>
+        </div>
+        <p>Mga ID para sa Senior Citizen, PWD, Solo Parent, at iba pang sertipikasyon.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/aics.html">Tulong sa AICS</a><div class="service-link-meta"><span class="service-link-time">1–3 working days</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/senior-pwd-id.html">Senior Citizen / PWD ID</a><div class="service-link-meta"><span class="service-link-time">3–5 working days</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/certificate-of-indigency.html">Certipiko ng Indigency</a><div class="service-link-meta"><span class="service-link-time">30 minutes</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/solo-parent-id.html">Solo Parent ID</a><div class="service-link-meta"><span class="service-link-time">15 minutes (assessment) + 6 months before ID issuance</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/scholarship-certification.html">Sertipikasyon ng Scholarship</a><div class="service-link-meta"><span class="service-link-time">5–10 minutes</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/pwd-assistive-devices.html">PWD Assistive Devices</a><div class="service-link-meta"><span class="service-link-time">Varies (1 day to several weeks depending on device availability)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/osca-death-aid.html">OSCA Death Aid Benefits</a><div class="service-link-meta"><span class="service-link-time">At least 5 days to 1 week</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="wheat"></i></div>
+          <h3>Agrikultura</h3>
+        </div>
+        <p>Mga subsidiya sa pagsasaka at mga programang suporta sa agrikultura.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/agriculture-subsidy.html">Mga Subsidiya sa Agrikultura</a><div class="service-link-meta"><span class="service-link-time">Varies (depends on availability)</span><span class="service-link-fee">Free (government-subsidized)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/cattle-registration.html">Large Cattle Ownership at Brand Registration</a><div class="service-link-meta"><span class="service-link-time">20 minutes</span><span class="service-link-fee">₱155 (ownership/brand) / ₱160 (transfer) including doc stamps</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/seed-certification.html">Seed Certification Services</a><div class="service-link-meta"><span class="service-link-time">~50 minutes</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/animal-anti-rabies.html">Animal Anti-Rabies Vaccination</a><div class="service-link-meta"><span class="service-link-time">35 minutes</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/crop-protection.html">Crop Protection Technical Services</a><div class="service-link-meta"><span class="service-link-time">~70 minutes (across visits)</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="handshake"></i></div>
+          <h3>Tulong Panlipunan at Proteksyon</h3>
+        </div>
+        <p>Tulong pinansyal, mga pag-aaral ng kaso, kagalingan ng bata, at tulong sa disaster.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/social-case-study.html">Social Case Study Report</a><div class="service-link-meta"><span class="service-link-time">30 minutes to 1 hour (may require home visit)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/marriage-counseling.html">Pre-Marriage Counseling</a><div class="service-link-meta"><span class="service-link-time">2–3 hours (counseling session)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/cicl-services.html">Mga Serbisyo para sa Children in Difficult Circumstances (CICL)</a><div class="service-link-meta"><span class="service-link-time">1 hour or more</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/women-welfare.html">Kagalingan ng Kababaihan (WSDW)</a><div class="service-link-meta"><span class="service-link-time">1 hour or more</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/disaster-relief.html">Tulong sa Disaster Relief</a><div class="service-link-meta"><span class="service-link-time">Varies (1 day for relief goods, 1–3 weeks for financial assistance)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/special-social-services.html">Mga Espesyal na Serbisyong Panlipunan</a><div class="service-link-meta"><span class="service-link-time">30 minutes or more</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/day-care.html">Programang Day Care</a><div class="service-link-meta"><span class="service-link-time">2–5 minutes (registration); ongoing sessions</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/sb-certified-copy.html">Certified True Copy ng mga Ordinansa at Resolusyon</a><div class="service-link-meta"><span class="service-link-time">~13 minutes</span><span class="service-link-fee">₱130</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/sb-financial-assistance.html">SB Financial Assistance</a><div class="service-link-meta"><span class="service-link-time">~15 minutes</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/pre-marriage-counseling-pop.html">Pre-Marriage Orientation at Counseling (Population Office)</a><div class="service-link-meta"><span class="service-link-time">15 minutes (session duration varies)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/philhealth-enrollment.html">LGU PhilHealth Group Enrollment</a><div class="service-link-meta"><span class="service-link-time">10 minutes (processing); enrollment effective upon PhilHealth validation</span><span class="service-link-fee">Free (LGU-subsidized)</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="map"></i></div>
+          <h3>Zoning at Planificación</h3>
+        </div>
+        <p>Mga zoning clearance para sa electrical, negosyo, at paggamit ng lupa.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/electrical-zoning.html">Electrical Zoning Clearance</a><div class="service-link-meta"><span class="service-link-time">~1.5 hours</span><span class="service-link-fee">₱330 (Zoning fee ₱200 + Affidavit ₱100 + Documentary Stamp ₱30)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/business-zoning.html">Business Zoning Clearance</a><div class="service-link-meta"><span class="service-link-time">~24 minutes</span><span class="service-link-fee">₱820 (Zoning fee ₱720 + Inspection fee ₱100)</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/public-information.html">Public Information Request</a><div class="service-link-meta"><span class="service-link-time">~13 minutes</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="landmark"></i></div>
+          <h3>Opisyo ng Mayor</h3>
+        </div>
+        <p>Mga clearance, sertipikasyon, mga affidavit, at iba pang serbisyo mula sa Opisyo ng Mayor.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/mayors-clearance.html">Mayor&#x27;s Clearance at Mga Sertipikasyon</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱130</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/subscription-of-affidavits.html">Subscription of Affidavits</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">₱130</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/solemnization-of-marriage.html">Solemnization of Marriage</a><div class="service-link-meta"><span class="service-link-time">15 minutes (ceremony)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/mayors-recommendation.html">Mayor&#x27;s Employment Recommendation</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="siren"></i></div>
+          <h3>Pamamahala ng Panganib sa Disaster</h3>
+        </div>
+        <p>Mga rescue sa emergency, pagtugon sa disaster, at mga kaugnay na serbisyo mula sa MDRRMO.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/ldrrmo-document-request.html">MDRRMO Document at Information Request</a><div class="service-link-meta"><span class="service-link-time">7 minutes</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/ldrrmo-training-seminar.html">MDRRMO Training, Seminar, at Workshop Request</a><div class="service-link-meta"><span class="service-link-time">10 minutes (coordination); training schedule varies</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/ldrrmo-rescue-operation.html">MDRRMO Rescue Operation at Emergency Medical Transport</a><div class="service-link-meta"><span class="service-link-time">30 minutes (response time varies by location and situation)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/ldrrmo-transportation.html">MDRRMO Standby / Transportation Request</a><div class="service-link-meta"><span class="service-link-time">30 minutes (coordination and deployment)</span><span class="service-link-fee">Free</span></div></div>
+          <div class="service-link-wrap"><a class="service-link" href="services/ldrrmo-walk-in.html">MDRRMO Walk-In Client Assistance</a><div class="service-link-meta"><span class="service-link-time">15 minutes</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="users"></i></div>
+          <h3>Pag-unlad ng Kabataan</h3>
+        </div>
+        <p>Rehistrasyon ng mga organisasyon ng kabataan at mga programang pag-unlad.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/youth-organization-registration.html">Youth Organization Registration Program (YORP)</a><div class="service-link-meta"><span class="service-link-time">10 minutes (processing); registration valid upon approval</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+      <div class="card service-category-card">
+        <div class="service-card-head">
+          <div class="service-icon"><i data-lucide="leaf"></i></div>
+          <h3>Kapaligiran</h3>
+        </div>
+        <p>Mga reklamo sa kapaligiran at mga serbisyong proteksyon.</p>
+        <div class="service-links">
+          <div class="service-link-wrap"><a class="service-link" href="services/environmental-complaint.html">Environmental Complaints Processing</a><div class="service-link-meta"><span class="service-link-time">15 minutes (initial processing); investigation varies</span><span class="service-link-fee">Free</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="service-no-results" id="service-no-results" style="display:none">
+      <p>Walang serbisyo na tumutugma sa iyong paghahanap. Subukan ang ibang mga salita o <a href="services.html">tingnan ang lahat ng kategorya</a></p>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var input = document.getElementById("service-filter-input");
+  var grid = document.getElementById("service-category-grid");
+  var noResults = document.getElementById("service-no-results");
+  if (!input || !grid) return;
+
+  var cards = grid.querySelectorAll(".service-category-card");
+  var params = new URLSearchParams(location.search);
+  var initialQuery = (params.get("q") || "").trim();
+
+  if (initialQuery && input) {
+    input.value = initialQuery;
+  }
+
+  function filterServices() {
+    var q = input.value.toLowerCase().trim();
+    var anyVisible = false;
+
+    cards.forEach(function (card) {
+      var h3 = card.querySelector("h3");
+      var desc = card.querySelector("p");
+      var links = card.querySelectorAll(".service-link");
+      var catName = h3 ? h3.textContent.toLowerCase() : "";
+      var catDesc = desc ? desc.textContent.toLowerCase() : "";
+      var catMatch = !q || catName.indexOf(q) !== -1 || catDesc.indexOf(q) !== -1;
+      var visibleLinks = 0;
+
+      links.forEach(function (link) {
+        var linkText = link.textContent.toLowerCase();
+        var linkMatch = !q || linkText.indexOf(q) !== -1 || catMatch;
+        link.style.display = linkMatch ? "" : "none";
+        if (linkMatch) visibleLinks++;
+      });
+
+      var cardVisible = catMatch || visibleLinks > 0;
+      card.style.display = cardVisible ? "" : "none";
+      if (cardVisible) anyVisible = true;
+    });
+
+    noResults.style.display = anyVisible ? "none" : "block";
+  }
+
+  input.addEventListener("input", filterServices);
+
+  if (initialQuery) {
+    filterServices();
+  }
+});
+</script>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Mga Pambansang Platform</div>
+      <h2>Online na serbisyo</h2>
+      <p>Ilang pambansang serbisyo ng pamahalaan ay available online sa mga opisyal na portal na ito.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="service-card-head">
+          <div class="icon"><i data-lucide="id-card"></i></div>
+          <h3>PhilSys National ID</h3>
+        </div>
+        <p>Rehistrasyon at pag-iisyu ng National ID. Mag-apply sa itinakdang PhilSys center.</p>
+        <a class="link-arrow" href="https://philsys.gov.ph" target="_blank" rel="noopener">philsys.gov.ph &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="service-card-head">
+          <div class="icon"><i data-lucide="file-text"></i></div>
+          <h3>PSA Serbilis</h3>
+        </div>
+        <p>Civil Registry System para sa paghingi ng PSA-certified na birth, marriage, at death certificates online.</p>
+        <a class="link-arrow" href="https://www.psaserbilis.com.ph/" target="_blank" rel="noopener">psaserbilis.com.ph &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="service-card-head">
+          <div class="icon"><i data-lucide="globe"></i></div>
+          <h3>eGovPH</h3>
+        </div>
+        <p>Unified na portal ng pambansang digital na serbisyo ng pamahalaan. Access sa maraming ahensya sa iisang lugar.</p>
+        <a class="link-arrow" href="https://e.gov.ph" target="_blank" rel="noopener">e.gov.ph &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="service-card-head">
+          <div class="icon"><i data-lucide="building-2"></i></div>
+          <h3>e-LGU Portal</h3>
+        </div>
+        <p>Digital na platform ng serbisyo para sa mga lokal na pamahalaan. Suriin ang availability para sa mga serbisyo ng Mapandan.</p>
+        <a class="link-arrow" href="https://emapandan.com" target="_blank" rel="noopener">emapandan.com &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+          <div>
+            <div class="name">Better Mapandan</div>
+            <p>Isang independenteng civic transparency portal para sa Mapandan, Pangasinan, ginawa at pinapanatili ng mga volunteer sa ilalim ng BetterGov.ph initiative &mdash; hindi opisyal na website ng pamahalaan.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h5>Mabilis na Links</h5>
+        <ul>
+          <li><a href="../index.html">{{NAV_HOME}}</a></li>
+          <li><a href="../services.html">{{NAV_SERVICES}}</a></li>
+          <li><a href="../government.html">{{NAV_GOVERNMENT}}</a></li>
+          <li><a href="../legislative.html">{{NAV_LEGISLATIVE}}</a></li>
+          <li><a href="../statistics.html">{{NAV_STATISTICS}}</a></li>
+          <li><a href="../transparency.html">{{NAV_TRANSPARENCY}}</a></li>
+          <li><a href="../about.html">{{NAV_ABOUT}}</a></li>
+          <li><a href="../support/sitemap.html">Sitemap</a></li>
+          <li><a href="../support/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Mga Mapagkukunan</h5>
+        <ul>
+          <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
+          <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
+          <li><a href="https://coa.gov.ph/" target="_blank" rel="noopener">Commission on Audit</a></li>
+          <li><a href="https://dilg.gov.ph/" target="_blank" rel="noopener">DILG</a></li>
+          <li><a href="https://blgf.gov.ph/" target="_blank" rel="noopener">BLGF</a></li>
+          <li><a href="https://foi.gov.ph/" target="_blank" rel="noopener">FOI</a></li>
+          <li><a href="https://philgeps.gov.ph/" target="_blank" rel="noopener">PhilGEPS</a></li>
+          <li><a href="https://psa.gov.ph/" target="_blank" rel="noopener">Philippine Statistics Authority</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Proyekto</h5>
+        <ul>
+          <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
+          <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>
+          <li><a href="../support/privacy.html">Privacy Policy</a></li>
+          <li><a href="../support/terms.html">Mga Tuntunin ng Paggamit</a></li>
+          <li><a href="../support/accessibility.html">Accessibility</a></li>
+          <li><a href="../support/report.html">Iulat ang Maliwang Impormasyon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BetterMapandan.org. Pinamamahalaan ng komunidad, independent sa LGU.</span>
+      <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
+        <img src="../assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo">
+        <span>Isang BetterGov.ph Community Portal</span>
+      </a>
+      <span class="cost-chip">Gastos sa mga Tao ng Mapandan: <strong>&#8369;0</strong></span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/barangay-data.js"></script>
+<script src="../assets/script.js"></script>
+
+<nav class="mobile-action-bar" aria-label="Quick actions">
+  <a href="tel:911" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Hotline</span>
+  </a>
+  <a href="../search.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+  </a>
+  <a href="../services.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <span>Services</span>
+  </a>
+</nav>
+
+</body>
+</html>

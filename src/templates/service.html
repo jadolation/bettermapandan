@@ -10,17 +10,17 @@ hero_lede: {{HERO_LEDE}}
     <div class="grid grid-2" style="align-items:start; gap:32px">
       <div>
         <div class="service-section">
-          <h2>Description</h2>
+          <h2>{{SVC_DESCRIPTION_LABEL}}</h2>
           <p>{{DESCRIPTION_FULL}}</p>
         </div>
         <div class="service-section">
-          <h2>Requirements</h2>
+          <h2>{{SVC_REQUIREMENTS_LABEL}}</h2>
           <ul>
             {{REQUIREMENTS}}
           </ul>
         </div>
         <div class="service-section">
-          <h2>Procedure</h2>
+          <h2>{{SVC_PROCEDURE_LABEL}}</h2>
           <ol>
             {{PROCEDURE}}
           </ol>
@@ -28,36 +28,36 @@ hero_lede: {{HERO_LEDE}}
       </div>
       <div>
         <div class="service-sidebar">
-          <h3>Service Details</h3>
-          <p><strong>Responsible Office:</strong> {{OFFICE}}</p>
-          <p><strong>Classification:</strong> {{CLASSIFICATION}}</p>
-          <p><strong>Mode:</strong> <span class="badge-delivery" data-mode="{{DELIVERY_MODE}}">{{DELIVERY_MODE}}</span></p>
-          <p><strong>Processing Time:</strong> {{PROCESSING_TIME}}</p>
-          <p><strong>Fee:</strong> <span class="fee-amount">{{FEE}}</span></p>
-          <p><strong>Where to Apply:</strong> {{WHERE}}</p>
-          <p><strong>Contact:</strong> {{CONTACT}}</p>
-          <p><strong>Source:</strong> {{SOURCE}}</p>
-          <p><strong>Last Updated:</strong> {{LAST_UPDATED}}</p>
+          <h3>{{SVC_DETAILS_LABEL}}</h3>
+          <p><strong>{{SVC_OFFICE_LABEL}}</strong> {{OFFICE}}</p>
+          <p><strong>{{SVC_CLASSIFICATION_LABEL}}</strong> {{CLASSIFICATION}}</p>
+          <p><strong>{{SVC_MODE_LABEL}}</strong> <span class="badge-delivery" data-mode="{{DELIVERY_MODE}}">{{DELIVERY_MODE}}</span></p>
+          <p><strong>{{SVC_PROCESSING_TIME_LABEL}}</strong> {{PROCESSING_TIME}}</p>
+          <p><strong>{{SVC_FEE_LABEL}}</strong> <span class="fee-amount">{{FEE}}</span></p>
+          <p><strong>{{SVC_WHERE_LABEL}}</strong> {{WHERE}}</p>
+          <p><strong>{{SVC_CONTACT_LABEL}}</strong> {{CONTACT}}</p>
+          <p><strong>{{SVC_SOURCE_LABEL}}</strong> {{SOURCE}}</p>
+          <p><strong>{{SVC_LAST_UPDATED_LABEL}}</strong> {{LAST_UPDATED}}</p>
         </div>
-        <a class="report-btn" href="../support/report.html?service={{NAME}}">Report incorrect information</a>
+        <a class="report-btn" href="../support/report.html?service={{NAME}}">{{SVC_REPORT}}</a>
       </div>
     </div>
     <div class="service-section">
-      <h2>Scanned Document</h2>
-      <p>Scanned page from the official Mapandan Citizen's Charter listing the requirements, fees, processing time, and responsible staff for the service.</p>
+      <h2>{{SVC_SCANNED_DOC_LABEL}}</h2>
+      <p>{{SVC_SCANNED_DOC_DESC}}</p>
       {{PHOTO_HTML}}
     </div>
     <div class="service-section">
-      <h2>Related Services</h2>
+      <h2>{{SVC_RELATED_LABEL}}</h2>
       {{RELATED_SERVICES}}
     </div>
     <div class="feedback-widget" id="service-feedback">
-      <p>Was this information helpful?</p>
+      <p>{{SVC_WAS_HELPFUL}}</p>
       <div class="feedback-buttons">
-        <button class="btn btn-outline feedback-yes" data-helpful="yes"><i data-lucide="thumbs-up"></i> Yes</button>
-        <button class="btn btn-outline feedback-no" data-helpful="no"><i data-lucide="thumbs-down"></i> No</button>
+        <button class="btn btn-outline feedback-yes" data-helpful="yes"><i data-lucide="thumbs-up"></i> {{SVC_YES}}</button>
+        <button class="btn btn-outline feedback-no" data-helpful="no"><i data-lucide="thumbs-down"></i> {{SVC_NO}}</button>
       </div>
-      <p class="feedback-thanks" style="display:none">Thank you for your feedback!</p>
+      <p class="feedback-thanks" style="display:none">{{SVC_THANKS}}</p>
     </div>
   </div>
 </section>
