@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Current conditions
         html += '<div class="weather-current">';
-        html += '<span class="weather-icon">' + icon + '</span>';
+        html += '<span class="weather-icon"><i data-lucide="' + icon + '"></i></span>';
         html += '<div>';
         html += '<div class="weather-temp">' + Math.round(current.temperature_2m) + '&deg;C</div>';
         html += '<div class="weather-desc">' + desc + '</div>';
@@ -86,15 +86,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Details row
         html += '<div class="weather-details">';
-        html += '<span>&#x1F4A7; Humidity ' + current.relative_humidity_2m + '%</span>';
-        html += '<span>&#x1F4A8; Wind ' + Math.round(current.wind_speed_10m) + ' km/h ' + windDir + '</span>';
+        html += '<span><i data-lucide="droplet"></i> Humidity ' + current.relative_humidity_2m + '%</span>';
+        html += '<span><i data-lucide="wind"></i> Wind ' + Math.round(current.wind_speed_10m) + ' km/h ' + windDir + '</span>';
         if (current.precipitation > 0 || (current.rain && current.rain > 0)) {
           var rainMm = current.rain || current.precipitation;
-          html += '<span>&#x1F327;&#xFE0F; Rain ' + rainMm + ' mm</span>';
+          html += '<span><i data-lucide="cloud-rain"></i> Rain ' + rainMm + ' mm</span>';
         }
         var rainProb = daily.precipitation_probability_max ? daily.precipitation_probability_max[0] : null;
         if (rainProb !== null && rainProb !== undefined) {
-          html += '<span>&#x1F326;&#xFE0F; Rain chance ' + rainProb + '%</span>';
+          html += '<span><i data-lucide="cloud-drizzle"></i> Rain chance ' + rainProb + '%</span>';
         }
         html += '</div>';
 
@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         html += '</div>';
 
         weatherEl.innerHTML = html;
+        if (typeof lucide !== "undefined") lucide.createIcons({ nodes: [weatherEl] });
       })
       .catch(function (err) {
         clearTimeout(timeout);
@@ -129,6 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
           '<div class="weather-pagasa-fallback"><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">View PAGASA Advisories &rarr;</a></div>';
       });
   }
+
+  // Initialize all Lucide icons on the page
+  if (typeof lucide !== "undefined") lucide.createIcons();
 
 });
 
@@ -338,8 +342,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Weather code helpers
 function weatherIcon(code) {
-  var icons = { 0: "\u2600\uFE0F", 1: "\uD83C\uDF24\uFE0F", 2: "\u26C5", 3: "\u2601\uFE0F", 45: "\uD83C\uDF2B\uFE0F", 48: "\uD83C\uDF2B\uFE0F", 51: "\uD83C\uDF26\uFE0F", 53: "\uD83C\uDF26\uFE0F", 55: "\uD83C\uDF27\uFE0F", 61: "\uD83C\uDF27\uFE0F", 63: "\uD83C\uDF27\uFE0F", 65: "\uD83C\uDF27\uFE0F", 71: "\u2744\uFE0F", 73: "\u2744\uFE0F", 75: "\u2744\uFE0F", 80: "\uD83C\uDF26\uFE0F", 81: "\uD83C\uDF27\uFE0F", 82: "\uD83C\uDF27\uFE0F", 95: "\u26C8\uFE0F", 96: "\u26C8\uFE0F", 99: "\u26C8\uFE0F" };
-  return icons[code] || "\uD83C\uDF24\uFE0F";
+  var icons = { 0: "sun", 1: "sun", 2: "cloud-sun", 3: "cloud", 45: "cloud-fog", 48: "cloud-fog", 51: "cloud-drizzle", 53: "cloud-drizzle", 55: "cloud-rain", 61: "cloud-rain", 63: "cloud-rain", 65: "cloud-rain-heavy", 71: "snowflake", 73: "snowflake", 75: "snowflake", 80: "cloud-drizzle", 81: "cloud-rain", 82: "cloud-rain-heavy", 95: "cloud-lightning", 96: "cloud-lightning", 99: "cloud-lightning" };
+  return icons[code] || "cloud-sun";
 }
 
 function weatherDesc(code) {

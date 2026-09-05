@@ -237,8 +237,10 @@ def generate_services() -> None:
 
         card = (
             f'      <div class="card service-category-card">\n'
-            f'        <div class="service-icon">{cat.get("icon", "")}</div>\n'
-            f'        <h3>{html.escape(cat["name"])}</h3>\n'
+            f'        <div class="service-card-head">\n'
+            f'          <div class="service-icon"><i data-lucide="{cat.get("icon", "")}"></i></div>\n'
+            f'          <h3>{html.escape(cat["name"])}</h3>\n'
+            f'        </div>\n'
             f'        <p>{html.escape(cat["description"])}</p>\n'
             f'        <div class="service-links">\n'
             + "\n".join(f"          {link}" for link in service_links)
