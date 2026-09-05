@@ -1,6 +1,6 @@
 // Better Mapandan — shared site behavior (no frameworks, no dead ends)
 
-// Language persistence — saves preference and auto-redirects on page load
+// Language persistence — saves preference to localStorage
 function switchLang(lang) {
   localStorage.setItem("bettermapandan_lang", lang);
 }
@@ -8,24 +8,6 @@ function switchLang(lang) {
 function getCurrentLang() {
   return location.pathname.indexOf("/fil/") !== -1 ? "fil" : "en";
 }
-
-function redirectIfMismatch() {
-  var stored = localStorage.getItem("bettermapandan_lang");
-  var current = getCurrentLang();
-  if (!stored || stored === current) return;
-
-  var path = location.pathname;
-  var target;
-  if (stored === "fil") {
-    target = "/fil" + path;
-  } else {
-    target = path.replace("/fil/", "/");
-  }
-  location.replace(target + location.search + location.hash);
-}
-
-// Run redirect check immediately (before any rendering)
-redirectIfMismatch();
 
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
@@ -402,3 +384,51 @@ if (feedback) {
     });
   });
 }
+
+// Language suggestion banner — shows once per session if user has a stored preference
+// that differs from the current page language
+(function() {
+  var banner = document.getElementById("lang-banner");
+  if (!banner) return;
+
+  var stored = localStorage.getItem("bettermapandan_lang");
+  var current = getCurrentLang();
+
+  // Don't show if no preference stored or already on preferred language
+  if (!stored || stored === current) return;
+
+  // Don't show if already dismissed this session
+  if (sessionStorage.getItem("lang_banner_dismissed")) return;
+
+  // Build banner content
+  var isEnPage = current === "en";
+  var switchLabel = isEnPage ? "Filipino" : "English";
+  var switchUrl;
+  if (isEnPage) {
+    // EN page → link to FIL version
+    switchUrl = "/fil" + location.pathname;
+  } else {
+    // FIL page → link to EN version
+    switchUrl = location.pathname.replace("/fil/", "/");
+  }
+  switchUrl += location.search + location.hash;
+
+  var msgLabel = isEnPage
+    ? "Mababasa rin ito sa Filipino"
+    : "This page is also available in English";
+
+  banner.innerHTML =
+    '<div class="lang-banner-inner">' +
+    '<span class="lang-banner-msg">' + msgLabel + '</span>' +
+    '<a href="' + switchUrl + '" class="lang-banner-btn" onclick="switchLang(\'' + stored + '\')">Switch to ' + switchLabel + '</a>' +
+    '<button class="lang-banner-dismiss" aria-label="Dismiss">&times;</button>' +
+    '</div>';
+
+  banner.style.display = "block";
+
+  // Dismiss handler
+  banner.querySelector(".lang-banner-dismiss").addEventListener("click", function() {
+    banner.style.display = "none";
+    sessionStorage.setItem("lang_banner_dismissed", "1");
+  });
+})();
