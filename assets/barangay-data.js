@@ -19,7 +19,7 @@ var BARANGAY_DATA = [
       {
         "name": "Noblito S. Dela Cruz Jr",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09074323847"
       },
       {
@@ -31,13 +31,13 @@ var BARANGAY_DATA = [
       {
         "name": "Victoria S. Erasquin",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09074323847"
       },
       {
         "name": "Rony M. Zarcilla",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09074323847"
       },
       {
@@ -49,7 +49,7 @@ var BARANGAY_DATA = [
       {
         "name": "Jayson O. Penuliar",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09074323847"
       }
     ],
@@ -63,7 +63,7 @@ var BARANGAY_DATA = [
       {
         "name": "Gemma R. Visperas",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "09074323847"
       },
       {
@@ -87,31 +87,31 @@ var BARANGAY_DATA = [
       {
         "name": "Roberto C. Siapno",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": ""
       },
       {
         "name": "Salvador N. Bronuela",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Edgardo S. Garin",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Cecilio G. Serapion",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": ""
       },
       {
         "name": "Juanito O. Santos Jr",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -137,7 +137,7 @@ var BARANGAY_DATA = [
       {
         "name": "Jennifer M. Aficial",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -146,7 +146,7 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61554665935950",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "aserda",
@@ -161,25 +161,25 @@ var BARANGAY_DATA = [
       {
         "name": "Joel P. Trillado",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09338139368"
       },
       {
         "name": "Bernardo H. Natan",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09338139368"
       },
       {
         "name": "Ernesto V. Visperas",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09338139368"
       },
       {
         "name": "Marilyn A. Almonte",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09338139368"
       },
       {
@@ -197,7 +197,7 @@ var BARANGAY_DATA = [
       {
         "name": "Michael T. Peralta",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
@@ -211,7 +211,7 @@ var BARANGAY_DATA = [
       {
         "name": "Paz L. Serafica",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "09338139368"
       },
       {
@@ -241,37 +241,37 @@ var BARANGAY_DATA = [
       {
         "name": "Ronald O. Manaois",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Carmelita C. Villamil",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Ma. Teresa L. Duterte",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": ""
       },
       {
         "name": "Miguel C. Botuyan",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Bobby D. Mosada",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Joel G. Deciles",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
@@ -285,12 +285,12 @@ var BARANGAY_DATA = [
       {
         "name": "Romeo C. Camara",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
     "facebook": "",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "coral",
@@ -305,43 +305,43 @@ var BARANGAY_DATA = [
       {
         "name": "Loreto S. Aquino",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "5461307"
       },
       {
         "name": "Reynaldo S. De Vera",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "5401307"
       },
       {
         "name": "Steven V. Querimit",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "540-1307"
       },
       {
         "name": "Erian Jo A. Quirimit",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "540-1307"
       },
       {
         "name": "Efren A. Aquino",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "5401307"
       },
       {
         "name": "Renan M. Sy",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Myrna V. Asunio",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09469797890"
       }
     ],
@@ -355,7 +355,7 @@ var BARANGAY_DATA = [
       {
         "name": "Elvira D. Velasquez",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "540-1307"
       }
     ],
@@ -375,43 +375,43 @@ var BARANGAY_DATA = [
       {
         "name": "Virginia S. Lopez",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       },
       {
         "name": "Joseph S. Sison",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       },
       {
         "name": "Danilo D. Tolentino",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       },
       {
         "name": "Ariel M. Tolentino",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       },
       {
         "name": "Leonardo S. Fernandez",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       },
       {
         "name": "Eddieson C. De Guzman",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       },
       {
         "name": "Angelo P. Lopez",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       }
     ],
@@ -425,12 +425,12 @@ var BARANGAY_DATA = [
       {
         "name": "Mylene S. Vale&ntilde;a",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "6320616"
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61560028545057",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "jimenez",
@@ -445,43 +445,43 @@ var BARANGAY_DATA = [
       {
         "name": "Teresita F. Navarro",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": ""
       },
       {
         "name": "Sanny F. Easquin",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": ""
       },
       {
         "name": "Elmar M. De Guzman",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Jayson D. Erasquin",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Mariano D. Peralta",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Jaime B. Revilla",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Mario P. Biala",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": ""
       }
     ],
@@ -495,7 +495,7 @@ var BARANGAY_DATA = [
       {
         "name": "Rechie P. Bravo",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -504,7 +504,7 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "lambayan",
@@ -519,7 +519,7 @@ var BARANGAY_DATA = [
       {
         "name": "Jaypee D. Soria",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -531,31 +531,31 @@ var BARANGAY_DATA = [
       {
         "name": "Ronald C. Llena",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Lope U. Soriano",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": ""
       },
       {
         "name": "Emilio L. Aquino Jr",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Wennie O. Lu",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Ariel A. Marzan",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
@@ -569,12 +569,12 @@ var BARANGAY_DATA = [
       {
         "name": "Manolet T. Revilla",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61554475378408",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "luyan",
@@ -607,13 +607,13 @@ var BARANGAY_DATA = [
       {
         "name": "Fernando T. Castro",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0755101283"
       },
       {
         "name": "Restie D. Palma",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0755101283"
       },
       {
@@ -625,7 +625,7 @@ var BARANGAY_DATA = [
       {
         "name": "Eddie S. Nepacina",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0755101283"
       }
     ],
@@ -665,7 +665,7 @@ var BARANGAY_DATA = [
       {
         "name": "Eduardo C. Embuido Jr",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -677,25 +677,25 @@ var BARANGAY_DATA = [
       {
         "name": "Joel M. Loresco",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Dominador V. Langit",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Benjamin V. Petrola",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Flores Mendoza Noime",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
@@ -709,12 +709,12 @@ var BARANGAY_DATA = [
       {
         "name": "Lerma L. Legaspi",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61553828348087",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "pias",
@@ -729,43 +729,43 @@ var BARANGAY_DATA = [
       {
         "name": "Rodrigo M. Biagtan",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Mario C. Gatinga",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Teofilo E. Soriano Jr",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "William G. Revilla",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Rufino G. Visperas",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Cesar G. Cerame",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Efren G. Aquino",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
@@ -773,18 +773,18 @@ var BARANGAY_DATA = [
       {
         "name": "Kenneth T. Abrigo",
         "position": "SK Chairperson",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Lorna A. Biason",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
     "facebook": "https://www.facebook.com/piaslgu",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "poblacion",
@@ -805,25 +805,25 @@ var BARANGAY_DATA = [
       {
         "name": "Arnulfo B. Mejia",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Bernabe Jose T. Datuin",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Efren P. Revilla Sr",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Leo C. Tamayo",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -849,12 +849,12 @@ var BARANGAY_DATA = [
       {
         "name": "Mary Joy T. Velasco",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61584120474621",
-    "phone": "N/A"
+    "phone": null
   },
   {
     "slug": "primicias",
@@ -869,19 +869,19 @@ var BARANGAY_DATA = [
       {
         "name": "Mamerto P. Sison",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09953375194"
       },
       {
         "name": "Freddie F. Valencia",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09953375194"
       },
       {
         "name": "Fernando A. Soria",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09953375194"
       },
       {
@@ -893,19 +893,19 @@ var BARANGAY_DATA = [
       {
         "name": "Cesario M. Sotto",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09953375194"
       },
       {
         "name": "Emerson D. Meneses",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Andres D. Paragas",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "09953375194"
       }
     ],
@@ -951,31 +951,31 @@ var BARANGAY_DATA = [
       {
         "name": "Lorna C. Licuanan",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0756158597"
       },
       {
         "name": "Rolly P. De Guzman",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0756158597"
       },
       {
         "name": "Joseph F. Madayag",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0756158597"
       },
       {
         "name": "Romeo G. Rodriguez",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0756158597"
       },
       {
         "name": "Jim P. Bautista",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "0756158597"
       }
     ],
@@ -983,13 +983,13 @@ var BARANGAY_DATA = [
       {
         "name": "Lian Joshua D. Tandingan",
         "position": "SK Chairperson",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Cyrine Jane D. Sadio",
         "position": "Barangay Secretary",
-        "email": "",
+        "email": null,
         "contact": "075-615-8597"
       }
     ],
@@ -1009,13 +1009,13 @@ var BARANGAY_DATA = [
       {
         "name": "Christopher P. Castro",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Raymond V. Lacaste",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -1027,7 +1027,7 @@ var BARANGAY_DATA = [
       {
         "name": "Juan C. Caagusan",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
@@ -1039,13 +1039,13 @@ var BARANGAY_DATA = [
       {
         "name": "Abraham A. Visperas",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {
         "name": "Renato S. Marquez",
         "position": "Sangguniang Barangay Member",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       }
     ],
@@ -1053,7 +1053,7 @@ var BARANGAY_DATA = [
       {
         "name": "Diego G. Castro",
         "position": "SK Chairperson",
-        "email": "",
+        "email": null,
         "contact": "N/A"
       },
       {

@@ -84,8 +84,12 @@ def load_locale(lang: str) -> dict:
     path = LOCALES_DIR / f"{lang}.json"
     if not path.exists():
         return {}
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"WARNING: Malformed JSON in {path}: {e}")
+        return {}
 
 
 def t(locale: dict, key: str, default: str = "") -> str:
@@ -107,7 +111,7 @@ def t(locale: dict, key: str, default: str = "") -> str:
 def parse_page(text: str) -> tuple[dict, str]:
     match = FRONT_MATTER_RE.match(text)
     if not match:
-        sys.exit("Page is missing --- front matter (title/description).")
+        raise SystemExit("Page is missing --- front matter (title/description).")
     meta_block, body = match.groups()
     meta = {}
     for line in meta_block.splitlines():
@@ -115,14 +119,15 @@ def parse_page(text: str) -> tuple[dict, str]:
         meta[key.strip()] = value.strip()
     for required in ("title", "description"):
         if required not in meta:
-            sys.exit(f"Page is missing required front matter field: {required}")
+            raise SystemExit(f"Page is missing required front matter field: {required}")
     return meta, body.strip("\n")
 
 
 def fill(template: str, values: dict) -> str:
     for key, value in values.items():
-        template = template.replace("{{" + key + "}}", value)
-        template = template.replace("{" + key + "}", value)
+        str_value = str(value) if value is not None else ""
+        template = template.replace("{{" + key + "}}", str_value)
+        template = template.replace("{" + key + "}", str_value)
     return template
 
 
@@ -168,16 +173,29 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
     Returns (pages, metadata) where pages is {relative_path: html_content}
     and metadata is {relative_path: {title, description}} for SEO."""
     data_path = SRC_DATA / "services.json"
-    svc_template = (SRC_TEMPLATES / "service.html").read_text(encoding="utf-8")
-    dir_template = (SRC_TEMPLATES / "services-directory.html").read_text(encoding="utf-8")
+    try:
+        svc_template = (SRC_TEMPLATES / "service.html").read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise SystemExit(f"ERROR: Template file not found: {SRC_TEMPLATES / 'service.html'}")
+    try:
+        dir_template = (SRC_TEMPLATES / "services-directory.html").read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise SystemExit(f"ERROR: Template file not found: {SRC_TEMPLATES / 'services-directory.html'}")
 
-    data = json.loads(data_path.read_text(encoding="utf-8"))
+    try:
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"ERROR: Malformed JSON in {data_path}: {e}")
+
     services = data.get("services", [])
-    categories = {c["slug"]: c for c in data.get("categories", [])}
+    try:
+        categories = {c["slug"]: c for c in data.get("categories", [])}
+    except KeyError as e:
+        raise SystemExit(f"ERROR: Category missing 'slug' field in {data_path}: {e}")
 
     by_category = {}
     for svc in services:
-        by_category.setdefault(svc["category"], []).append(svc)
+        by_category.setdefault(svc.get("category", ""), []).append(svc)
 
     pages = {}
     meta = {}
@@ -209,13 +227,13 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
     }
 
     for svc in services:
-        cat = categories.get(svc["category"], {})
+        cat = categories.get(svc.get("category", ""), {})
 
         # Use translated names if available
-        svc_name = svc.get("name_fil", svc["name"]) if is_fil else svc["name"]
-        svc_desc = svc.get("description_fil", svc["description"]) if is_fil else svc["description"]
+        svc_name = svc.get("name_fil", svc.get("name", ""))
+        svc_desc = svc.get("description_fil", svc.get("description", ""))
         cat_name = cat.get("name_fil", cat.get("name", "")) if is_fil else cat.get("name", "")
-        hero_lede = svc.get("hero_lede_fil", svc.get("hero_lede", svc_desc)) if is_fil else svc.get("hero_lede", svc["description"])
+        hero_lede = svc.get("hero_lede_fil", svc.get("hero_lede", svc_desc)) if is_fil else svc.get("hero_lede", svc.get("description", ""))
 
         reqs_html = "\n".join(
             f"            <li>{html.escape(r)}</li>" for r in svc.get("requirements", [])
@@ -229,11 +247,11 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         if related:
             links = []
             for rel_slug in related:
-                rel_svc = next((s for s in services if s["slug"] == rel_slug), None)
+                rel_svc = next((s for s in services if s.get("slug") == rel_slug), None)
                 if rel_svc:
-                    rel_name = rel_svc.get("name_fil", rel_svc["name"]) if is_fil else rel_svc["name"]
+                    rel_name = rel_svc.get("name_fil", rel_svc.get("name", "Unknown Service")) if is_fil else rel_svc.get("name", "Unknown Service")
                     links.append(
-                        f'<a href="{rel_slug}.html">{html.escape(rel_name)}</a>'
+                        f'<a href="{html.escape(rel_slug)}.html">{html.escape(rel_name)}</a>'
                     )
             related_html = (
                 '<div class="service-links">\n'
@@ -262,31 +280,32 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         filled = fill(
             svc_template,
             {
-                "NAME": svc_name,
-                "DESCRIPTION": svc_desc,
-                "CATEGORY_NAME": cat_name,
-                "HERO_LEDE": hero_lede,
-                "DESCRIPTION_FULL": svc.get("description_full", svc["description"]),
+                "NAME": html.escape(svc_name),
+                "DESCRIPTION": html.escape(svc_desc),
+                "CATEGORY_NAME": html.escape(cat_name),
+                "HERO_LEDE": html.escape(hero_lede),
+                "DESCRIPTION_FULL": html.escape(svc.get("description_full", svc.get("description", ""))),
                 "REQUIREMENTS": reqs_html,
                 "PROCEDURE": proc_html,
-                "OFFICE": svc.get("office", ""),
-                "CLASSIFICATION": svc.get("classification", ""),
-                "PROCESSING_TIME": svc.get("processing_time", ""),
-                "FEE": svc.get("fee", "Free"),
-                "WHERE": svc.get("where_to_apply", ""),
-                "CONTACT": svc.get("contact", ""),
-                "SOURCE": svc.get("source", "Mapandan Citizen's Charter"),
-                "LAST_UPDATED": svc.get("last_updated", "August 2025"),
+                "OFFICE": html.escape(svc.get("office", "")),
+                "CLASSIFICATION": html.escape(svc.get("classification", "")),
+                "PROCESSING_TIME": html.escape(svc.get("processing_time", "")),
+                "FEE": html.escape(svc.get("fee", "Free")),
+                "WHERE": html.escape(svc.get("where_to_apply", "")),
+                "CONTACT": html.escape(svc.get("contact", "")),
+                "SOURCE": html.escape(svc.get("source", "Mapandan Citizen's Charter")),
+                "LAST_UPDATED": html.escape(svc.get("last_updated", "August 2025")),
                 "RELATED_SERVICES": related_html,
                 "PHOTO_HTML": photo_html,
-                "DELIVERY_MODE": svc.get("delivery_mode", "in-person"),
-                "SLUG": svc["slug"],
+                "DELIVERY_MODE": html.escape(svc.get("delivery_mode", "in-person")),
+                "SLUG": html.escape(svc.get("slug", "")),
                 **svc_labels,
             },
         )
 
-        pages[f"services/{svc['slug']}.html"] = filled
-        meta[f"services/{svc['slug']}.html"] = {
+        svc_slug = svc.get("slug", "unknown")
+        pages[f"services/{svc_slug}.html"] = filled
+        meta[f"services/{svc_slug}.html"] = {
             "title": f"{svc_name} — BetterMapandan.org",
             "description": svc_desc[:160],
         }
@@ -294,15 +313,15 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
     # --- Generate directory page ---
     category_cards = []
     for cat in data.get("categories", []):
-        cat_services = by_category.get(cat["slug"], [])
+        cat_services = by_category.get(cat.get("slug", ""), [])
         cat_name = cat.get("name_fil", cat.get("name", "")) if is_fil else cat.get("name", "")
         cat_desc = cat.get("description_fil", cat.get("description", "")) if is_fil else cat.get("description", "")
 
         service_links = []
         for s in cat_services:
-            s_name = s.get("name_fil", s["name"]) if is_fil else s["name"]
+            s_name = s.get("name_fil", s.get("name", "")) if is_fil else s.get("name", "")
             name_html = html.escape(s_name)
-            time_html = html.escape(s["processing_time"]) if s.get("processing_time") else ""
+            time_html = html.escape(s.get("processing_time", "")) if s.get("processing_time") else ""
             fee_html = html.escape(s.get("fee", "")) if s.get("fee") else ""
             meta_html = ""
             if time_html or fee_html:
@@ -314,14 +333,14 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
                 meta_html = f'<div class="service-link-meta">{"".join(parts)}</div>'
             service_links.append(
                 f'<div class="service-link-wrap">'
-                f'<a class="service-link" href="services/{s["slug"]}.html">{name_html}</a>'
+                f'<a class="service-link" href="services/{html.escape(s.get("slug", ""))}.html">{name_html}</a>'
                 f'{meta_html}</div>'
             )
 
         card = (
             f'      <div class="card service-category-card">\n'
             f'        <div class="service-card-head">\n'
-            f'          <div class="service-icon"><i data-lucide="{cat.get("icon", "")}"></i></div>\n'
+            f'          <div class="service-icon"><i data-lucide="{html.escape(cat.get("icon", ""))}"></i></div>\n'
             f'          <h3>{html.escape(cat_name)}</h3>\n'
             f'        </div>\n'
             f'        <p>{html.escape(cat_desc)}</p>\n'
@@ -372,14 +391,21 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
 def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
     """Generate legislative page HTML. Returns (html, metadata) for SEO."""
     data_path = SRC_DATA / "legislative.json"
-    template = (SRC_TEMPLATES / "legislative.html").read_text(encoding="utf-8")
-    data = json.loads(data_path.read_text(encoding="utf-8"))
+    try:
+        template = (SRC_TEMPLATES / "legislative.html").read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise SystemExit(f"ERROR: Template file not found: {SRC_TEMPLATES / 'legislative.html'}")
+
+    try:
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"ERROR: Malformed JSON in {data_path}: {e}")
 
     category_labels = data.get("category_labels", {})
 
     ord_rows = []
     for o in data.get("ordinances", []):
-        cat_label = category_labels.get(o["category"], o["category"].title())
+        cat_label = category_labels.get(o.get("category", ""), o.get("category", "").title())
         fiscal_val = o.get("fiscal_value")
         if fiscal_val is not None:
             try:
@@ -388,16 +414,22 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
                 fiscal = "—"
         else:
             fiscal = "—"
-        status_class = "pill-enacted" if o["status"] == "enacted" else ("pill-pending" if o["status"] == "pending" else "pill")
-        status_text = o["status"].title()
-        source = f'<a href="{o["source_url"]}" target="_blank" rel="noopener">Source &rarr;</a>' if o.get("source_url") else "—"
+        status_val = o.get("status", "")
+        status_class = "pill-enacted" if status_val == "enacted" else ("pill-pending" if status_val == "pending" else "pill")
+        status_text = status_val.title()
+        source_url = o.get("source_url", "")
+        if source_url and source_url.startswith(("http://", "https://")):
+            source = f'<a href="{html.escape(source_url)}" target="_blank" rel="noopener">Source &rarr;</a>'
+        else:
+            source = "—"
+        cat_class = html.escape(o.get("category", ""))
         ord_rows.append(
             f'<tr>'
-            f'<td>{html.escape(o["number"])}</td>'
-            f'<td>{html.escape(o["title"])}</td>'
-            f'<td>{html.escape(o["date_enacted"])}</td>'
-            f'<td><span class="category-pill category-{o["category"]}">{html.escape(cat_label)}</span></td>'
-            f'<td>{html.escape(o["sp_review"])}</td>'
+            f'<td>{html.escape(o.get("number", ""))}</td>'
+            f'<td>{html.escape(o.get("title", ""))}</td>'
+            f'<td>{html.escape(o.get("date_enacted", ""))}</td>'
+            f'<td><span class="category-pill category-{cat_class}">{html.escape(cat_label)}</span></td>'
+            f'<td>{html.escape(o.get("sp_review", ""))}</td>'
             f'<td><span class="pill {status_class}">{status_text}</span></td>'
             f'<td>{source}</td>'
             f'</tr>'
@@ -413,44 +445,48 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
                 fiscal = "—"
         else:
             fiscal = "—"
-        source = f'<a href="{r["source_url"]}" target="_blank" rel="noopener">Source &rarr;</a>' if r.get("source_url") else "—"
+        res_source_url = r.get("source_url", "")
+        if res_source_url and res_source_url.startswith(("http://", "https://")):
+            res_source = f'<a href="{html.escape(res_source_url)}" target="_blank" rel="noopener">Source &rarr;</a>'
+        else:
+            res_source = "—"
         res_rows.append(
             f'<tr>'
-            f'<td>{html.escape(r["number"])}</td>'
-            f'<td>{html.escape(r["title"])}</td>'
-            f'<td>{html.escape(r["date_approved"])}</td>'
+            f'<td>{html.escape(r.get("number", ""))}</td>'
+            f'<td>{html.escape(r.get("title", ""))}</td>'
+            f'<td>{html.escape(r.get("date_approved", ""))}</td>'
             f'<td>{fiscal}</td>'
-            f'<td>{source}</td>'
+            f'<td>{res_source}</td>'
             f'</tr>'
         )
 
     exec_rows = []
     for e in data.get("executive_issuances", []):
-        date = html.escape(e["date"]) if e.get("date") else "—"
+        date = html.escape(e.get("date", "")) if e.get("date") else "—"
         exec_rows.append(
             f'<tr>'
-            f'<td>{html.escape(e["title"])}</td>'
+            f'<td>{html.escape(e.get("title", ""))}</td>'
             f'<td>{date}</td>'
-            f'<td>{html.escape(e["authority"])}</td>'
-            f'<td>{html.escape(e["description"])}</td>'
+            f'<td>{html.escape(e.get("authority", ""))}</td>'
+            f'<td>{html.escape(e.get("description", ""))}</td>'
             f'</tr>'
         )
 
     fiscal_cards = []
     for fc in data.get("fiscal", []):
-        amount = fc["amount"]
+        amount = fc.get("amount", 0)
         if amount >= 1_000_000:
             amount_str = f'₱{amount / 1_000_000:,.1f}M'
         else:
             amount_str = f'₱{amount:,.0f}'
-        type_label = fc["type"].replace("_", " ").title()
+        type_label = fc.get("type", "").replace("_", " ").title()
         fiscal_cards.append(
             f'<div class="card fiscal-card">'
             f'<h3>{html.escape(type_label)}</h3>'
             f'<p class="figure">{amount_str}</p>'
-            f'<p class="source-label">{html.escape(fc["period"])}</p>'
-            f'<p>{html.escape(fc["scope"])}</p>'
-            f'<span class="source-label">{html.escape(fc["legislative_basis"])}</span>'
+            f'<p class="source-label">{html.escape(fc.get("period", ""))}</p>'
+            f'<p>{html.escape(fc.get("scope", ""))}</p>'
+            f'<span class="source-label">{html.escape(fc.get("legislative_basis", ""))}</span>'
             f'</div>'
         )
 
@@ -465,7 +501,7 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
             f'<div class="trend-step">'
             f'<div class="n">{i}</div>'
             f'<div class="trend-body">'
-            f'<h4>{html.escape(tr["title"])}</h4>'
+            f'<h4>{html.escape(tr.get("title", ""))}</h4>'
             f'<ul class="trend-bullets">{bullets_html}</ul>'
             f'<span class="trend-refs">{refs}</span>'
             f'</div>'
@@ -473,13 +509,15 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
         )
 
     process_steps = []
-    for s in data.get("legislative_process", []):
-        final_class = ' final' if s["step"] == len(data["legislative_process"]) else ''
+    process_list = data.get("legislative_process", [])
+    for s in process_list:
+        step_num = s.get("step", 1)
+        final_class = ' final' if step_num == len(process_list) else ''
         process_steps.append(
             f'<div class="step{final_class}">'
-            f'<div class="n">{s["step"]}</div>'
-            f'<h4>{html.escape(s["title"])}</h4>'
-            f'<p>{html.escape(s["description"])}</p>'
+            f'<div class="n">{step_num}</div>'
+            f'<h4>{html.escape(s.get("title", ""))}</h4>'
+            f'<p>{html.escape(s.get("description", ""))}</p>'
             f'</div>'
         )
 
@@ -581,14 +619,17 @@ def validate_barangays(barangays: list[dict]) -> list[dict]:
 def generate_barangays() -> None:
     """Generate barangay-data.js for homepage from JSON data."""
     data_path = SRC_DATA / "barangays.json"
-    data = json.loads(data_path.read_text())
+    try:
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"ERROR: Malformed JSON in {data_path}: {e}")
     barangays = validate_barangays(data.get("barangays", []))
 
     js_data = []
     for brgy in barangays:
         js_data.append({
-            "slug": brgy["slug"],
-            "name": brgy["name"],
+            "slug": brgy.get("slug", ""),
+            "name": brgy.get("name", ""),
             "pop2024": brgy.get("pop2024", ""),
             "pop2020": brgy.get("pop2020", ""),
             "landUse": brgy.get("landUse", ""),
@@ -709,6 +750,7 @@ def verify_translations() -> None:
 def generate_sitemap() -> None:
     """Generate sitemap.xml with hreflang alternate links for EN/FIL."""
     import datetime
+    from urllib.parse import quote
 
     today = datetime.date.today().isoformat()
     base_url = "https://bettermapandan.org"
@@ -728,8 +770,8 @@ def generate_sitemap() -> None:
     ]
 
     for path in all_paths:
-        en_url = f"{base_url}/{path}"
-        fil_url = f"{base_url}/fil/{path}"
+        en_url = f"{base_url}/{quote(path, safe='/')}"
+        fil_url = f"{base_url}/fil/{quote(path, safe='/')}"
 
         lines.append("  <url>")
         lines.append(f"    <loc>{en_url}</loc>")
@@ -747,13 +789,19 @@ def generate_sitemap() -> None:
     print(f"  sitemap.xml: {len(all_paths)} URLs")
 
 
+CSS_COMMENT_RE = re.compile(r"/\*[^*]*\*+(?:[^/*][^*]*\*+)*/")
+CSS_WHITESPACE_RE = re.compile(r"\s+")
+CSS_BRACE_RE = re.compile(r"\s*([{}:;,])\s*")
+CSS_TRAILING_RE = re.compile(r";\s*}")
+CSS_LEADING_RE = re.compile(r"^\s+", re.MULTILINE)
+
 def minify_css(css_text: str) -> str:
     """Remove CSS comments and unnecessary whitespace."""
-    css = re.sub(r"/\*[^*]*\*+(?:[^/*][^*]*\*+)*/", "", css_text)
-    css = re.sub(r"\s+", " ", css)
-    css = re.sub(r"\s*([{}:;,])\s*", r"\1", css)
-    css = re.sub(r";\s*}", "}", css)
-    css = re.sub(r"^\s+", "", css, flags=re.MULTILINE)
+    css = CSS_COMMENT_RE.sub("", css_text)
+    css = CSS_WHITESPACE_RE.sub(" ", css)
+    css = CSS_BRACE_RE.sub(r"\1", css)
+    css = CSS_TRAILING_RE.sub("}", css)
+    css = CSS_LEADING_RE.sub("", css)
     return css.strip()
 
 
@@ -872,7 +920,7 @@ def build() -> None:
         # Collect all .html files from src/pages/ (static pages)
         page_files = sorted(SRC_PAGES.rglob("*.html"))
         if not page_files:
-            sys.exit(f"No page sources found in {SRC_PAGES}")
+            raise SystemExit(f"No page sources found in {SRC_PAGES}")
 
         search_entries = []
         count = 0
