@@ -2,9 +2,8 @@
 title: Statistics — BetterMapandan.org
 description: Population, demographics, economy, and key development indicators for the Municipality of Mapandan, Pangasinan.
 ---
-<main id="content">
 <section class="page-hero">
-  <img class="hero-rays" src="./assets/logo-no-white.svg" alt="" aria-hidden="true" />
+  <img class="hero-rays" src="{{ASSET_BASE}}/assets/logo-no-white.svg" alt="" aria-hidden="true" />
   <div class="wrap">
     <span class="eyebrow">Open Data</span>
     <h1>{STATISTICS_TITLE}</h1>
@@ -37,8 +36,8 @@ description: Population, demographics, economy, and key development indicators f
       </div>
       <div class="card">
         <h3>{STATISTICS_POP_DENSITY}</h3>
-        <p class="figure">1,274/km&sup2;</p>
-        <span class="source-label">Computed: 38,228 &divide; 30.00 km&sup2;</span>
+        <p class="figure">1,161/km&sup2;</p>
+        <span class="source-label">Computed: 38,228 &divide; 32.92 km&sup2;</span>
         <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
       </div>
     </div>
@@ -319,10 +318,10 @@ description: Population, demographics, economy, and key development indicators f
           <tr><td>Sta. Maria</td><td>1,585</td></tr>
           <tr><td>Golden</td><td>1,432</td></tr>
           <tr><td>Coral</td><td>1,405</td></tr>
-          <tr><td>Pogo</td><td>1,107</td></tr>
+          <tr><td>Aserda</td><td>1,414</td></tr>
         </tbody>
       </table>
-      <button class="report-btn" onclick="downloadCSV('barangay')"{STATISTICS_CHART_DOWNLOAD}button>
+      <button class="report-btn" onclick="downloadCSV('barangay')">{STATISTICS_CHART_DOWNLOAD}</button>
     </div>
   </div>
 </section>
@@ -423,10 +422,10 @@ document.addEventListener("DOMContentLoaded", function () {
     new Chart(brgyCtx, {
       type: "bar",
       data: {
-        labels: ["Pias", "Poblacion", "Baloling", "Nilombot", "Torres", "Luyan", "Jimenez", "Primicias", "Amanoaoac", "Lambayan", "Apaya", "Pogo", "Coral", "Golden", "Sta. Maria"],
+        labels: ["Pias", "Poblacion", "Baloling", "Nilombot", "Torres", "Luyan", "Jimenez", "Primicias", "Amanoaoac", "Lambayan", "Apaya", "Aserda", "Coral", "Golden", "Sta. Maria"],
         datasets: [{
           label: "Population 2024",
-          data: [4827, 3509, 4238, 4199, 3061, 3344, 2008, 2218, 1656, 1682, 1650, 1107, 1405, 1432, 1585],
+          data: [4827, 3509, 4238, 4199, 3061, 3344, 2008, 2218, 1656, 1682, 1650, 1414, 1405, 1432, 1585],
           backgroundColor: green
         }]
       },
@@ -466,7 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function downloadCSV(type) {
   var csv = "";
   if (type === "population") {
-    csv = "Year,Population\n2000,30395\n2007,33115\n2010,34077\n2015,35943\n2020,38228";
+    csv = "Year,Population\n2000,30775\n2007,32905\n2010,34439\n2015,37059\n2020,38058";
   } else if (type === "fiscal") {
     csv = "Fiscal Year,Annual Budget (PHP),AIP/SIP Investment Plan Total (PHP),Notes\n"
         + "CY 2022,,29110389.59,Sum of SB Res. 75-2022 SIP1 + 63-2022 SIP5 + 70-2022 SIP6\n"
@@ -475,7 +474,7 @@ function downloadCSV(type) {
         + "CY 2025,193088074,214861029.79,Budget = SP-approved Jan 6 2025 (SB Res. 299-2024); AIP = Master AIP + SIP1-4\n"
         + "CY 2026,218209788,318209799,\"Budget = SP Res. 438-2026 (confirmed); AIP = SB Res. 83-2025 (UNVERIFIED, see note)\"";
   } else if (type === "barangay") {
-    csv = "Barangay,Population 2024\nApaya,1650\nAmanoaoac,1656\nBaloling,4238\nCoral,1405\nGolden,1432\nJimenez,2008\nLambayan,1682\nLuyan,3344\nNilombot,4199\nPias,4827\nPoblacion,3509\nPogo,1107\nPrimicias,2218\nSta. Maria,1585\nTorres,3061";
+    csv = "Barangay,Population 2024\nApaya,1650\nAmanoaoac,1656\nBaloling,4238\nCoral,1405\nGolden,1432\nJimenez,2008\nLambayan,1682\nLuyan,3344\nNilombot,4199\nPias,4827\nPoblacion,3509\nAserda,1414\nPrimicias,2218\nSta. Maria,1585\nTorres,3061";
   }
   var blob = new Blob([csv], { type: "text/csv" });
   var a = document.createElement("a");
@@ -484,4 +483,3 @@ function downloadCSV(type) {
   a.click();
 }
 </script>
-</main>

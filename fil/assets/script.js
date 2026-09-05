@@ -281,6 +281,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function openBarangayModal(name, data) {
+    var previouslyFocused = document.activeElement;
+
     // Contact info — show Facebook and Phone separately
     var contactHtml = "";
     if (data.facebook) {
@@ -315,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var overlay = document.createElement("div");
     overlay.className = "barangay-modal-overlay";
     overlay.innerHTML =
-      '<div class="barangay-modal" role="dialog" aria-label="' + name + ' profile">' +
+      '<div class="barangay-modal" role="dialog" aria-modal="true" aria-label="' + name + ' profile">' +
       '<button class="barangay-modal-close" aria-label="Close">&times;</button>' +
       "<h3>" + name + "</h3>" +
       "<p><strong>2024 Population:</strong> " + data.pop2024 +
@@ -339,11 +341,21 @@ document.addEventListener("DOMContentLoaded", function () {
     function close() {
       overlay.classList.remove("open");
       setTimeout(function () { overlay.remove(); }, 200);
+      if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
     }
     closeBtn.addEventListener("click", close);
     overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
     document.addEventListener("keydown", function handler(e) {
       if (e.key === "Escape") { close(); document.removeEventListener("keydown", handler); }
+      if (e.key === "Tab") {
+        var modal = overlay.querySelector(".barangay-modal");
+        var focusable = modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     });
     closeBtn.focus();
   }

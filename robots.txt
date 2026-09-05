@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /support/
+Disallow: /assets/
+
+Sitemap: https://bettermapandan.org/sitemap.xml

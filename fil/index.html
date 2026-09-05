@@ -18,7 +18,7 @@
 
 <a class="skip-link" href="#content">Skip to content</a>
 
-<div class="emergency-bar">
+<div class="emergency-bar" aria-label="Emergency contact numbers">
   <div class="wrap">
     <a href="tel:911"><span class="label">Emergency</span> 911</a>
     <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
@@ -71,15 +71,13 @@
 
 <main id="content">
 <section class="hero">
-  <img class="hero-rays" src="assets/logo-no-white.svg" alt="" aria-hidden="true" />
+  <img class="hero-rays" src="../assets/logo-no-white.svg" alt="" aria-hidden="true" />
   <div class="wrap">
     <div class="hero-text">
       <span class="eyebrow">Malaya &middot; Pinapanatili ng Mamamayan &middot; Pangasinan</span>
       <h1>Mapandan, sa malinaw na pagtingin.</h1>
       <p class="lede">
-        Officials, budgets, ordinances, and frontline services for the Municipality of
-        Mapandan &mdash; gathered from public records and kept in one place, so every
-        resident can find what their local government is doing.
+        Mga opisyal, badyet, ordinansa, at mga serbisyo para sa Bayan ng Mapandan &mdash; tinipon mula sa mga pampublikong talaan at inilagay sa iisang lugar, upang ang bawat residente ay makahanap ng kung ano ang ginagawa ng kanilang lokal na pamahalaan.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="services.html">Tumingin ng Serbisyo</a>
@@ -92,15 +90,15 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           Maghanap ng Serbisyo
         </h3>
-        <p class="hero-search-desc">Search every service Mapandan offers &mdash; by what you're trying to do, not which office handles it.</p>
-        <form class="hero-search-form" action="services.html" method="get">
-          <input class="hero-search-input" type="text" name="q" placeholder="business permit, barangay clearance, hospital..." aria-label="Search services" autocomplete="off" />
+        <p class="hero-search-desc">Maghanap sa bawat serbisyo na inaalok ng Mapandan &mdash; ayon sa iyong kailangan, hindi kung aling opisyo ang humahawak.</p>
+        <form class="hero-search-form" action="search.html" method="get">
+          <input class="hero-search-input" type="text" name="q" placeholder="business permit, barangay clearance, ospital..." aria-label="Search services" autocomplete="off" />
           <button class="hero-search-btn" type="submit" aria-label="Search">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
         <div class="hero-search-tags">
-          <span class="hero-search-popular">Popular:</span>
+          <span class="hero-search-popular">Sikat:</span>
           <a href="services.html" class="hero-search-tag">business permit</a>
           <a href="government.html" class="hero-search-tag">local hospital</a>
           <a href="services.html" class="hero-search-tag">barangay clearance</a>
@@ -114,19 +112,19 @@
 <div class="action-hub-bar">
   <a class="action-hub-item" href="services.html">
     <span class="action-hub-icon"><i data-lucide="clipboard-list"></i></span>
-    <span>Services</span>
+    <span>Mga Serbisyo</span>
   </a>
   <a class="action-hub-item" href="transparency.html">
     <span class="action-hub-icon"><i data-lucide="wallet"></i></span>
-    <span>Budget</span>
+    <span>Badyet</span>
   </a>
   <a class="action-hub-item" href="legislative.html">
     <span class="action-hub-icon"><i data-lucide="scale"></i></span>
-    <span>Legislation</span>
+    <span>Lehislatibo</span>
   </a>
   <a class="action-hub-item" href="government.html">
     <span class="action-hub-icon"><i data-lucide="phone"></i></span>
-    <span>Hotlines</span>
+    <span>Mga Hotline</span>
   </a>
 </div>
 
@@ -153,13 +151,13 @@
       </div>
       <div class="stat">
         <div class="num">1,161.24/km&sup2;</div>
-        <span class="verification-badge badge-official">Official</span>
+        <span class="verification-badge badge-official">Opisyal</span>
         <span class="source-label" data-tip="Computed: 38,228 residents &divide; 32.92 km&sup2; land area &mdash; derived from PSA and MPDC data">Computed: 38,228 &divide; 32.92 km&sup2;</span>
         <div class="label">Populasyon/km²</div>
       </div>
       <div class="stat">
         <div class="num">32.92&sup2;</div>
-        <span class="verification-badge badge-official">Official</span>
+        <span class="verification-badge badge-official">Opisyal</span>
         <span class="source-label" data-tip="Municipal Planning and Development Office, Land Use Plan 2024 &mdash; official municipal boundary">Source: MPDC Land Use Plan 2024</span>
         <div class="label">Lupang area</div>
       </div>
@@ -170,33 +168,27 @@
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Third-Class Municipality &middot; Region I</div>
-      <h2>A rice-growing town in Pangasinan's third district</h2>
+      <div class="section-eyebrow">Ikatlong Klase na Bayan &middot; Rehiyon I</div>
+      <h2>Isang bayang palayan sa ikatlong distrito ng Pangasinan</h2>
       <p>
-        Mapandan sits in the Third Congressional District of Pangasinan, bounded by
-        San Jacinto to the north, Mangaldan to the northwest, Manaoag to the east, and
-        Santa Barbara to the south. Covering 30.00 square kilometres, around three-quarters
-        of its land supports agriculture &mdash; mainly rice, alongside corn, livestock,
-        and seasonal vegetables. The municipal administration operates under the tagline
-        &ldquo;Kaakibat niyo ang Aktibo at Responsableng Liderato&rdquo;
-        (Partnering with you in Active and Responsible Leadership).
+        Matatagpuan ang Mapandan sa Ikatlong Kongresonal na Distrito ng Pangasinan, hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. Sakop nito ang 30.00 square kilometro, kung saan halos tatlo sa apat na bahagi ng lupain ay suportado ang agrikultura &mdash; pangunahin ang palain, kasama ang mais, hayop, at mga pan겻ang gulay. Ang pamahalaang bayan ay gumagana sa ilalim ng tagline &ldquo;Kaakibat niyo ang Aktibo at Responsableng Liderato.&rdquo;
       </p>
     </div>
     <div class="grid grid-3">
       <div class="card">
         <div class="icon">01</div>
         <h3>Itinatag noong Dis. 28, 1887</h3>
-        <p>Separated from Mangaldan as an independent pueblo under Governor General Emilio Bravo, led by ten local leaders including Antonio Morales, Sabino Prado, and Andres Bongato.</p>
+        <p>Hiwalay sa Mangaldan bilang isang independenteng pueblo sa ilalim ni Heneral Gobernador Emilio Bravo, pinamunuan ng sampung lokal na lider kabilang si Antonio Morales, Sabino Prado, at Andres Bongato.</p>
       </div>
       <div class="card">
         <div class="icon">02</div>
         <h3>Muling itinatag noong 1909</h3>
-        <p>A severe epidemic forced temporary re-annexation to Mangaldan. Full autonomy was restored via Executive Order No. 10 by Governor General James F. Smith.</p>
+        <p>Isang matinding epidemya ang nagpilit sa pansamantalang pagsasama muli sa Mangaldan. Ang buong kasarinlan ay naibalik sa pamamagitan ng Executive Order Blg. 10 ni Heneral Gobernador James F. Smith.</p>
       </div>
       <div class="card">
         <div class="icon">03</div>
         <h3>Puso ng Agrikultura</h3>
-        <p>Approximately 75% of the municipality's 30 km&sup2; is dedicated to lowland crop production, livestock, and poultry farming.</p>
+        <p>Humigit-kumulang 75% ng 30 km&sup2; ng munisipalidad ay inilaan para sa produksyon ng lowland crop, hayop, at pag-aalaga ng manok.</p>
       </div>
     </div>
   </div>
@@ -207,29 +199,29 @@
     <div class="section-head">
       <div class="section-eyebrow">Maikling Kasaysayan</div>
       <h2>Ang Kwento ng Mapandan</h2>
-      <p>From a new pueblo to a growing community</p>
+      <p>Mula sa bagong pueblo patungo sa isang lumalagong komunidad</p>
     </div>
 
     <div class="history-milestones">
       <div class="milestone">
-        <span class="milestone-year">Before 1887</span>
-        <h3>Indigenous Roots</h3>
-        <p>The area belonged to Mangaldan as southern barrios &mdash; Payapay, Baloling, Apaya, and Amanoaoac &mdash; named for the abundance of fragrant pandan plants along the Agno River floodplain.</p>
+        <span class="milestone-year">Itinatag noong Dis. 28, 1887</span>
+        <h3>Mga Ugaling Katutubo</h3>
+        <p>Ang lugar ay kabilang sa Mangaldan bilang mga timog na barrio &mdash; Payapay, Baloling, Apaya, at Amanoaoac &mdash; pinangalanan para sa kasaganaan ng mabangong halamang pandan sa kapatagan ng Ilog Agno.</p>
       </div>
       <div class="milestone">
-        <span class="milestone-year">Dec. 28, 1887</span>
-        <h3>Founding as a Pueblo</h3>
-        <p>Established as an independent municipality through Director General No. 39, led by ten local leaders including Antonio Morales, Sabino Prado, and Andres Bongato.</p>
+        <span class="milestone-year">Muling itinatag noong 1909</span>
+        <h3>Pagkakatatag bilang Pueblo</h3>
+        <p>Itinatag bilang isang independenteng munisipalidad sa pamamagitan ng Director General Blg. 39, pinamunuan ng sampung lokal na lider kabilang si Antonio Morales, Sabino Prado, at Andres Bongato.</p>
       </div>
       <div class="milestone">
-        <span class="milestone-year">1905&ndash;1909</span>
-        <h3>Survival &amp; Rebirth</h3>
-        <p>A severe epidemic forced temporary re-annexation to Mangaldan due to financial insolvency. Full autonomy was restored in 1909 under Executive Order No. 10 by Governor General James F. Smith.</p>
+        <span class="milestone-year">Puso ng Agrikultura</span>
+        <h3>Pakikipagtalo at Pagbangon</h3>
+        <p>Isang matinding epidemya ang nagpilit sa pansamantalang pagsasama muli sa Mangaldan dahil sa krisis pinansyal. Ang buong kasarinlan ay naibalik noong 1909 sa ilalim ng Executive Order Blg. 10 ni Heneral Gobernador James F. Smith.</p>
       </div>
       <div class="milestone">
-        <span class="milestone-year">2020s</span>
-        <h3>Modern Mapandan</h3>
-        <p>A 15-barangay municipality of 38,228 residents, investing in the Super Health Center, Pandan Festival, and infrastructure growth.</p>
+        <span class="milestone-year"></span>
+        <h3>Modernong Mapandan</h3>
+        <p>Isang 15-barangay na bayan na may 38,228 na residente, namumuhunan sa Super Health Center, Pandan Festival, at imprastraktura.</p>
       </div>
     </div>
 
@@ -240,13 +232,13 @@
     <div class="section-head" style="margin-top:48px">
       <div class="section-eyebrow">Mga Kwento sa Likod ng mga Barangay</div>
       <h2>15 komunidad, 15 kasaysayan</h2>
-      <p>Each of Mapandan&rsquo;s barangays has its own story of origin, growth, and community life.</p>
+      <p>Bawat barangay ng Mapandan ay may sariling kwento ng pinagmulan, paglago, at buhay komunidad.</p>
     </div>
     <div class="barangay-grid" id="barangay-grid"></div>
 
     <div class="history-sources">
-      <h3>Sources &amp; Historical Notes</h3>
-      <p>Much of Mapandan&rsquo;s historical material comes from the Municipality of Mapandan&rsquo;s official website, including the Municipal Profile, Physical Characteristics, and individual barangay history pages. Population data is from the Philippine Statistics Authority. Development milestones reference the Philippine News Agency and Department of Budget and Management records.</p>
+      <h3>Mga Pinagmulan at Talaang Kasaysayan</h3>
+      <p>Ang karamihan ng makasaysayang materyal ng Mapandan ay nagmula sa opisyal na website ng Munisipalidad ng Mapandan, kabilang ang Municipal Profile, Physical Characteristics, at mga indibidwal na kasaysayan ng barangay. Ang datos ng populasyon ay mula sa Philippine Statistics Authority. Ang mga milestone ng pag-unlad ay tumutukoy sa Philippine News Agency at Department of Budget and Management records.</p>
       <ul>
         <li>Municipality of Mapandan &mdash; <a href="https://mapandan.gov.ph/municipal-profile/" target="_blank" rel="noopener">Municipal Profile</a></li>
         <li>Municipality of Mapandan &mdash; <a href="https://mapandan.gov.ph/mapandan-physical-characteristic/" target="_blank" rel="noopener">Physical Characteristics</a></li>
@@ -267,23 +259,23 @@
       <div class="card card-photo" style="background-image:url('assets/Pandan.jpg')">
         <div class="card-photo-inner">
           <h3>Pandan Festival</h3>
-          <p>Held annually during the second week of April, celebrating the town's agricultural harvest and its namesake plant, <em>Pandanus amaryllifolius</em>. Events include street-dancing pageants, trade fairs, and exhibitions of traditional pandan leaf weaving.</p>
+          <p>Ginaganap taon-taon sa pangalawang linggo ng Abril, ang Pandan Festival ay nagdiriwang sa pamana ng kultura ng Mapandan sa pamamagitan ng sayaw sa kalye, mga pageant, at mga pagtitipon ng komunidad.</p>
         </div>
-        <span class="card-photo-credit">Photo: IRISE Studios</span>
+        <span class="card-photo-credit">Larawan: IRISE Studios</span>
       </div>
       <div class="card card-photo" style="background-image:url('assets/plaza.jpg')">
         <div class="card-photo-inner">
           <h3>Plaza ng Bayan</h3>
-          <p>Located in Poblacion, the Mapandan Town Plaza is widely regarded as one of Pangasinan's best-maintained civic parks, featuring an open-air auditorium, tennis courts, recreational children's playgrounds, and landscaped green space.</p>
+          <p>Matatagpuan sa Poblacion, ang Plaza ng Bayan ng Mapandan ay nagsisilbing sentro ng sibil para sa mga pampublikong pagtitipon, mga pagdiriwang, at mga kaganapan ng komunidad.</p>
         </div>
-        <span class="card-photo-credit">Photo: Pangasinan Lakwatsero</span>
+        <span class="card-photo-credit">Larawan: Pangasinan Lakwatsero</span>
       </div>
       <div class="card card-photo" style="background-image:url('assets/luyan.png')">
         <div class="card-photo-inner">
           <h3>Agri-Turismo sa Luyan</h3>
-          <p>Barangay Luyan is highlighted in regional DOT farm-to-table culinary circuits, offering agri-tourism programs that showcase sustainable crop cultivation, local gastronomy, and rural life.</p>
+          <p>Ang Barangay Luyan ay highlight sa mga regional DOT program para sa mga palayan nito, mga scenic na rutang farm, at mga inisyatibang community-based tourism.</p>
         </div>
-        <span class="card-photo-credit">Photo: Jenrie C. Del Rosario</span>
+        <span class="card-photo-credit">Larawan: Jenrie C. Del Rosario</span>
       </div>
     </div>
   </div>
@@ -299,9 +291,9 @@
       <div class="leader-card">
         <div class="leader-text">
           <div class="name">Hon. Karl Christian F. Vega</div>
-          <span class="role">Municipal Mayor</span>
+          <span class="role">Punong Bayan</span>
           <div class="affil">Nacionalista Party (NP)</div>
-          <span class="source-label">Source: Mapandan.gov.ph</span>
+          <span class="source-label">Pinagmulan: Mapandan.gov.ph</span>
         </div>
         <div class="photo-wrap">
           <img src="assets/officials/mayor-vega.png" alt="Hon. Karl Christian F. Vega" class="photo" loading="lazy" decoding="async">
@@ -310,14 +302,15 @@
       <div class="leader-card vice">
         <div class="leader-text">
         <div class="name">Hon. Anthony C. Penuliar</div>
-        <span class="role">Vice Mayor &middot; Presiding Officer</span>
+        <span class="role">Punong Bayan-Pangalawa &middot; Tagapangulo</span>
         <div class="affil">Independent (IND)</div>
-        <span class="source-label">Source: Mapandan.gov.ph</span>
+        <span class="source-label">Pinagmulan: Mapandan.gov.ph</span>
         </div>
         <div class="photo-wrap">
           <img src="assets/officials/vicemayor-penuliar.png" alt="Hon. Anthony C. Penuliar" class="photo" loading="lazy" decoding="async">
         </div>
       </div>
+   </div>
     <p class="cta-row">
       <a class="link-arrow" href="government.html">Tingnan ang Buong Direktoryo ng Pamahalaan &rarr;</a>
     </p>
@@ -336,10 +329,10 @@
           <h3>Kasalukuyang panahon</h3>
         </div>
         <div class="weather-widget" id="weather-widget" aria-label="Weather">
-          <div class="weather-loading">Loading weather data...</div>
+          <div class="weather-loading">Naglo-load ng datos ng panahon...</div>
         </div>
         <div style="margin-top:10px">
-          <a class="link-arrow" href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">View PAGASA Advisories &rarr;</a>
+          <a class="link-arrow" href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">Tingnan ang mga Abiso ng PAGASA &rarr;</a>
         </div>
       </div>
       <div>
@@ -350,7 +343,7 @@
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30679.4255940754!2d120.43267199043375!3d16.017252767882685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33916a0a19820b0d%3A0xf36309f55f2f1351!2sMapandan%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1787762411829!5m2!1sen!2sph" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Map of Mapandan, Pangasinan"></iframe>
         </div>
         <div style="margin-top:10px">
-          <a class="link-arrow" href="https://www.google.com/maps/place/Mapandan,+Pangasinan/@16.0300,120.4561,13z" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+          <a class="link-arrow" href="https://www.google.com/maps/place/Mapandan,+Pangasinan/@16.0300,120.4561,13z" target="_blank" rel="noopener">Buksan sa Google Maps &rarr;</a>
         </div>
       </div>
     </div>
@@ -366,7 +359,7 @@
       <div class="grid grid-3">
         <div class="card">
           <h3>MDRRMO</h3>
-          <p>Municipal Disaster Risk Reduction and Management Office<br />
+          <p>Opisina para sa Pamamahala ng Panganib sa Disaster<br />
           <a href="tel:+63756002564">(075) 600-2564</a> &middot; <a href="tel:911">911</a> / <a href="tel:+639692236912">0969-223-6912</a></p>
         </div>
         <div class="card">

@@ -33,6 +33,12 @@
     "search_popular": "Sikat:",
     "search_btn": "Hanapin"
   },
+  "action_hub": {
+    "services": "Mga Serbisyo",
+    "budget": "Badyet",
+    "legislation": "Lehislatibo",
+    "hotlines": "Mga Hotline"
+  },
   "stats": {
     "residents": "Mamamayan",
     "barangays": "Barangay",
@@ -94,7 +100,26 @@
     "footer_source": "Larawan:",
     "municipality_founded": "Itinatag noong Dis. 28, 1887",
     "municipality_reestablished": "Muling itinatag noong 1909",
-    "municipality_agri": "Puso ng Agrikultura"
+    "municipality_agri": "Puso ng Agrikultura",
+    "founded_desc": "Hiwalay sa Mangaldan bilang isang independenteng pueblo sa ilalim ni Heneral Gobernador Emilio Bravo, pinamunuan ng sampung lokal na lider kabilang si Antonio Morales, Sabino Prado, at Andres Bongato.",
+    "reestablished_desc": "Isang matinding epidemya ang nagpilit sa pansamantalang pagsasama muli sa Mangaldan. Ang buong kasarinlan ay naibalik sa pamamagitan ng Executive Order Blg. 10 ni Heneral Gobernador James F. Smith.",
+    "agri_desc_full": "Humigit-kumulang 75% ng 30 km&sup2; ng munisipalidad ay inilaan para sa produksyon ng lowland crop, hayop, at pag-aalaga ng manok.",
+    "pandan_title": "Pandan Festival",
+    "pandan_credit": "Larawan: IRISE Studios",
+    "plaza_credit": "Larawan: Pangasinan Lakwatsero",
+    "agri_credit": "Larawan: Jenrie C. Del Rosario",
+    "weather_loading": "Naglo-load ng datos ng panahon...",
+    "weather_cta": "Tingnan ang mga Abiso ng PAGASA &rarr;",
+    "map_cta": "Buksan sa Google Maps &rarr;",
+    "sources_title": "Mga Pinagmulan at Talaang Kasaysayan",
+    "sources_desc": "Ang karamihan ng makasaysayang materyal ng Mapandan ay nagmula sa opisyal na website ng Munisipalidad ng Mapandan, kabilang ang Municipal Profile, Physical Characteristics, at mga indibidwal na kasaysayan ng barangay. Ang datos ng populasyon ay mula sa Philippine Statistics Authority. Ang mga milestone ng pag-unlad ay tumutukoy sa Philippine News Agency at Department of Budget and Management records.",
+    "leader_source": "Pinagmulan: Mapandan.gov.ph",
+    "mayor_name": "Hon. Karl Christian F. Vega",
+    "mayor_role": "Punong Bayan",
+    "mayor_affil": "Nacionalista Party (NP)",
+    "vice_mayor_name": "Hon. Anthony C. Penuliar",
+    "vice_mayor_role": "Punong Bayan-Pangalawa &middot; Tagapangulo",
+    "vice_mayor_affil": "Independent (IND)"
   },
   "service_page": {
     "description": "Paglalarawan",
@@ -198,7 +223,7 @@
     "next_title": "Ano ang susunod?",
     "next_step1": "<strong>Review:</strong> Ang aming mga volunteers ay ni-review ang ulat sa loob ng 7 araw.",
     "next_step2": "<strong>Verification:</strong> Tinutumbasan namin ang correction sa mga opisyal na pinagmulan ng pamahalaan.",
-    "next_step3": "<strong>Update:</strong] Kung na-verify, ina-update ang impormasyon sa site.",
+    "next_step3": "<strong>Update:</strong> Kung na-verify, ina-update ang impormasyon sa site.",
     "next_step4": "<strong>Pasasalamat:</strong> Binibigyan namin ng kredito ang mga contributors (maliban kung mas gusto nilang manatiling anonymous).",
     "github_trail": "Nais mong makita ang mga open fixes o i-track ang iyong ulat?",
     "verification_title": "Verification status",
@@ -233,6 +258,7 @@
     "res_date": "Petsa ng Pagpapasya",
     "res_fiscal": "Epekto sa Fiscal",
     "res_source": "Pinagmulan",
+    "exec_eyebrow": "Ehekutibo",
     "exec_title": "Mga executive issuance",
     "exec_desc": "Mga executive order, memorandum, at direktiba mula sa Opisyo ng Mayor.",
     "exec_name": "Pamagat",
