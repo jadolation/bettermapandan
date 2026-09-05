@@ -393,6 +393,17 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         "title": t(locale, "services_dir.title", "Services") + " — BetterMapandan.org",
         "description": t(locale, "services_dir.desc", "Find the service you need."),
     }
+    # Extract hero metadata for services directory page
+    dir_hero_match = FRONT_MATTER_RE.match(dir_filled)
+    if dir_hero_match:
+        dir_hero_block = dir_hero_match.group(1)
+        dir_hero_meta = {}
+        for line in dir_hero_block.splitlines():
+            key, _, value = line.partition(":")
+            key = key.strip()
+            if key in ("hero_eyebrow", "hero_heading", "hero_lede"):
+                dir_hero_meta[key] = value.strip()
+        hero_meta_dict["services.html"] = dir_hero_meta
     return pages, meta, hero_meta_dict
 
 
