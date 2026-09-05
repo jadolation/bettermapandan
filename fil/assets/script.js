@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
     card.className = "barangay-card";
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
-    card.setAttribute("aria-label", escAttr(name) + " \u2014 " + escAttr(d.pop2024) + " residents, " + escAttr(d.landUse) + ". Read history.");
+    card.setAttribute("aria-label", (name || "") + " \u2014 " + (d.pop2024 || "") + " residents, " + (d.landUse || "") + ". Read history.");
 
     var h4 = document.createElement("h4");
     h4.textContent = name;
@@ -383,24 +383,39 @@ document.addEventListener("DOMContentLoaded", function () {
     modalDiv.appendChild(titleEl);
 
     var popEl = document.createElement("p");
-    popEl.innerHTML = "<strong>2024 Population:</strong> " + escHtml(data.pop2024) +
-      " &middot; <strong>2020 Population:</strong> " + escHtml(data.pop2020) +
-      " &middot; <strong>Land Use:</strong> " + escHtml(data.landUse);
+    var strong2024 = document.createElement("strong");
+    strong2024.textContent = "2024 Population: ";
+    popEl.appendChild(strong2024);
+    popEl.appendChild(document.createTextNode(data.pop2024 || ""));
+    popEl.appendChild(document.createTextNode(" \u00B7 "));
+    var strong2020 = document.createElement("strong");
+    strong2020.textContent = "2020 Population: ";
+    popEl.appendChild(strong2020);
+    popEl.appendChild(document.createTextNode(data.pop2020 || ""));
+    popEl.appendChild(document.createTextNode(" \u00B7 "));
+    var strongLand = document.createElement("strong");
+    strongLand.textContent = "Land Use: ";
+    popEl.appendChild(strongLand);
+    popEl.appendChild(document.createTextNode(data.landUse || ""));
     modalDiv.appendChild(popEl);
 
     if (data.punong) {
       var punongEl = document.createElement("p");
-      punongEl.innerHTML = "<strong>Punong Barangay:</strong> " + escHtml(data.punong);
+      var punongStrong = document.createElement("strong");
+      punongStrong.textContent = "Punong Barangay: ";
+      punongEl.appendChild(punongStrong);
+      punongEl.appendChild(document.createTextNode(data.punong));
       modalDiv.appendChild(punongEl);
     }
 
     // Contact info
-    if (data.facebook) {
+    var fbUrl = data.facebook;
+    if (fbUrl && fbUrl.startsWith("http")) {
       var fbP = document.createElement("p");
       var fbStrong = document.createElement("strong");
       fbStrong.textContent = "Facebook: ";
       var fbLink = document.createElement("a");
-      fbLink.href = data.facebook;
+      fbLink.href = fbUrl;
       fbLink.target = "_blank";
       fbLink.rel = "noopener";
       fbLink.textContent = "Barangay Page";
@@ -429,7 +444,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var kagawads = data.kagawads || [];
     if (kagawads.length > 0) {
       var kagawadLabel = document.createElement("p");
-      kagawadLabel.innerHTML = "<strong>Kagawads:</strong>";
+      var kagawadStrong = document.createElement("strong");
+      kagawadStrong.textContent = "Kagawads:";
+      kagawadLabel.appendChild(kagawadStrong);
       modalDiv.appendChild(kagawadLabel);
       var kagawadList = document.createElement("ul");
       kagawadList.style.margin = "0 0 12px 20px";
@@ -571,15 +588,13 @@ if (feedback) {
   // Don't show if already dismissed this session
   if (sessionStorage.getItem("lang_banner_dismissed")) return;
 
-  // Build banner content
+  // Build banner content using DOM methods to prevent XSS
   var isEnPage = current === "en";
   var switchLabel = isEnPage ? "Filipino" : "English";
   var switchUrl;
   if (isEnPage) {
-    // EN page → link to FIL version
     switchUrl = "/fil" + location.pathname;
   } else {
-    // FIL page → link to EN version
     switchUrl = location.pathname.replace("/fil/", "/");
   }
   switchUrl += location.search + location.hash;
@@ -588,18 +603,31 @@ if (feedback) {
     ? "Mababasa rin ito sa Filipino"
     : "This page is also available in English";
 
-  banner.innerHTML =
-    '<div class="lang-banner-inner">' +
-    '<span class="lang-banner-msg">' + msgLabel + '</span>' +
-    '<a href="' + switchUrl + '" class="lang-banner-btn" onclick="switchLang(\'' + stored + '\')">Switch to ' + switchLabel + '</a>' +
-    '<button class="lang-banner-dismiss" aria-label="Dismiss">&times;</button>' +
-    '</div>';
+  var inner = document.createElement("div");
+  inner.className = "lang-banner-inner";
 
-  banner.style.display = "block";
+  var msg = document.createElement("span");
+  msg.className = "lang-banner-msg";
+  msg.textContent = msgLabel;
+  inner.appendChild(msg);
 
-  // Dismiss handler
-  banner.querySelector(".lang-banner-dismiss").addEventListener("click", function() {
+  var btn = document.createElement("a");
+  btn.href = switchUrl;
+  btn.className = "lang-banner-btn";
+  btn.textContent = "Switch to " + switchLabel;
+  btn.addEventListener("click", function() { switchLang(stored); });
+  inner.appendChild(btn);
+
+  var dismiss = document.createElement("button");
+  dismiss.className = "lang-banner-dismiss";
+  dismiss.setAttribute("aria-label", "Dismiss");
+  dismiss.textContent = "\u00D7";
+  dismiss.addEventListener("click", function() {
     banner.style.display = "none";
     sessionStorage.setItem("lang_banner_dismissed", "1");
   });
+  inner.appendChild(dismiss);
+
+  banner.appendChild(inner);
+  banner.style.display = "block";
 })();
