@@ -134,6 +134,15 @@ def strip_html(html_text: str) -> str:
     return text.strip()
 
 
+def strip_front_matter(text: str) -> str:
+    """Remove YAML front matter (--- ... ---) from the start of a template."""
+    if text.startswith("---"):
+        end = text.find("---", 3)
+        if end != -1:
+            return text[end + 3:].lstrip("\n")
+    return text
+
+
 def compute_url(rel_path: Path) -> str:
     return "/".join(rel_path.parts)
 
@@ -142,9 +151,10 @@ def compute_url(rel_path: Path) -> str:
 # Service generation (locale-aware)
 # ---------------------------------------------------------------------------
 
-def generate_services(locale: dict, lang: str, is_fil: bool) -> dict[str, str]:
+def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, str], dict[str, dict]]:
     """Generate service detail pages and directory page.
-    Returns dict of {relative_path: html_content} — no files written."""
+    Returns (pages, metadata) where pages is {relative_path: html_content}
+    and metadata is {relative_path: {title, description}} for SEO."""
     data_path = SRC_DATA / "services.json"
     svc_template = (SRC_TEMPLATES / "service.html").read_text(encoding="utf-8")
     dir_template = (SRC_TEMPLATES / "services-directory.html").read_text(encoding="utf-8")
@@ -158,6 +168,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> dict[str, str]:
         by_category.setdefault(svc["category"], []).append(svc)
 
     pages = {}
+    meta = {}
 
     # Service page labels from locale
     svc_labels = {
@@ -257,11 +268,16 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> dict[str, str]:
                 "RELATED_SERVICES": related_html,
                 "PHOTO_HTML": photo_html,
                 "DELIVERY_MODE": svc.get("delivery_mode", "in-person"),
+                "SLUG": svc["slug"],
                 **svc_labels,
             },
         )
 
         pages[f"services/{svc['slug']}.html"] = filled
+        meta[f"services/{svc['slug']}.html"] = {
+            "title": f"{svc_name} — BetterMapandan.org",
+            "description": svc_desc[:160],
+        }
 
     # --- Generate directory page ---
     category_cards = []
@@ -330,15 +346,19 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> dict[str, str]:
     )
 
     pages["services.html"] = dir_filled
-    return pages
+    meta["services.html"] = {
+        "title": t(locale, "services_dir.title", "Services") + " — BetterMapandan.org",
+        "description": t(locale, "services_dir.desc", "Find the service you need."),
+    }
+    return pages, meta
 
 
 # ---------------------------------------------------------------------------
 # Legislative generation (locale-aware)
 # ---------------------------------------------------------------------------
 
-def generate_legislative(locale: dict, is_fil: bool) -> str:
-    """Generate legislative page HTML. Returns filled template string."""
+def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
+    """Generate legislative page HTML. Returns (html, metadata) for SEO."""
     data_path = SRC_DATA / "legislative.json"
     template = (SRC_TEMPLATES / "legislative.html").read_text(encoding="utf-8")
     data = json.loads(data_path.read_text(encoding="utf-8"))
@@ -477,6 +497,7 @@ def generate_legislative(locale: dict, is_fil: bool) -> str:
         "LEG_RES_DATE": t(locale, "legislative.res_date", "Date Approved"),
         "LEG_RES_FISCAL": t(locale, "legislative.res_fiscal", "Fiscal Impact"),
         "LEG_RES_SOURCE": t(locale, "legislative.res_source", "Source"),
+        "LEG_EXEC_EYEBROW": t(locale, "legislative.exec_eyebrow", "Executive"),
         "LEG_EXEC_TITLE": t(locale, "legislative.exec_title", "Executive issuances"),
         "LEG_EXEC_DESC": t(locale, "legislative.exec_desc", ""),
         "LEG_EXEC_NAME": t(locale, "legislative.exec_name", "Title"),
@@ -489,7 +510,10 @@ def generate_legislative(locale: dict, is_fil: bool) -> str:
         "LEG_TRENDS_DESC": t(locale, "legislative.trends_desc", ""),
     })
 
-    return filled
+    return filled, {
+        "title": t(locale, "legislative.ord_title", "Municipal ordinances") + " — BetterMapandan.org",
+        "description": t(locale, "legislative.ord_desc", "Ordinances, resolutions, and executive issuances for the Municipality of Mapandan."),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -536,7 +560,7 @@ def generate_barangays() -> None:
             "pop2020": brgy.get("pop2020", ""),
             "landUse": brgy.get("landUse", ""),
             "history": brgy.get("history", ""),
-            "source": brgy.get("history_source", ""),
+            "source": brgy.get("history_source", brgy.get("source", "")),
             "punong": brgy.get("punong_barangay", ""),
             "kagawads": brgy.get("kagawads", []),
             "officials": brgy.get("officials", []),
@@ -781,11 +805,12 @@ def build() -> None:
         print(f"\n--- Building [{lang_code.upper()}] ---")
 
         # Generate services for this language
-        svc_pages = generate_services(locale, lang_code, is_fil)
+        svc_pages, svc_meta = generate_services(locale, lang_code, is_fil)
 
         # Generate legislative for this language
-        leg_html = generate_legislative(locale, is_fil)
+        leg_html, leg_meta = generate_legislative(locale, is_fil)
         svc_pages["legislative.html"] = leg_html
+        svc_meta["legislative.html"] = leg_meta
 
         # Collect all .html files from src/pages/ (static pages)
         page_files = sorted(SRC_PAGES.rglob("*.html"))
@@ -908,6 +933,7 @@ def build() -> None:
 
             # Resolve body placeholders (for migrated keys)
             body = fill(body, {
+                "ASSET_BASE": asset_base,
                 # About page
                 "ABOUT_CONTRIBUTE_CODE": t(locale, "about.contribute_code", ""),
                 "ABOUT_CONTRIBUTE_GET_INVOLVED": t(locale, "about.contribute_get_involved", ""),
@@ -981,7 +1007,7 @@ def build() -> None:
                 "HOMEPAGE_EMERGENCY_BFP": t(locale, "homepage.emergency_bfp", ""),
                 "HOMEPAGE_EMERGENCY_EYEBROW": t(locale, "homepage.emergency_eyebrow", ""),
                 "HOMEPAGE_EMERGENCY_HOSPITAL": t(locale, "homepage.emergency_hospital", ""),
-                "HOMEPAGE_EMERGENCY_MDRMMO_DESC": t(locale, "homepage.emergency_mdrmmo_desc", ""),
+                "HOMEPAGE_EMERGENCY_MDRRMO_DESC": t(locale, "homepage.emergency_mdrmmo_desc", ""),
                 "HOMEPAGE_EMERGENCY_PNP": t(locale, "homepage.emergency_pnp", ""),
                 "HOMEPAGE_EMERGENCY_RHU": t(locale, "homepage.emergency_rhu", ""),
                 "HOMEPAGE_EMERGENCY_TITLE": t(locale, "homepage.emergency_title", ""),
@@ -1001,6 +1027,53 @@ def build() -> None:
                 "HOMEPAGE_MUNICIPALITY_TITLE": t(locale, "homepage.municipality_title", ""),
                 "HOMEPAGE_PLAZA_TITLE": t(locale, "homepage.plaza_title", ""),
                 "HOMEPAGE_WEATHER_TITLE": t(locale, "homepage.weather_title", ""),
+                # Homepage - new keys
+                "ACTION_HUB_SERVICES": t(locale, "action_hub.services", "Services"),
+                "ACTION_HUB_BUDGET": t(locale, "action_hub.budget", "Budget"),
+                "ACTION_HUB_LEGISLATION": t(locale, "action_hub.legislation", "Legislation"),
+                "ACTION_HUB_HOTLINES": t(locale, "action_hub.hotlines", "Hotlines"),
+                "HERO_LEDE": t(locale, "hero.subtitle", ""),
+                "HERO_SEARCH_DESC": t(locale, "hero.search_desc", ""),
+                "HERO_SEARCH_PLACEHOLDER": t(locale, "hero.search_placeholder", ""),
+                "HERO_SEARCH_POPULAR": t(locale, "hero.search_popular", "Popular:"),
+                "HOMEPAGE_MUNICIPALITY_EYEBROW": t(locale, "homepage.municipality_eyebrow", ""),
+                "HOMEPAGE_MUNICIPALITY_DESC": t(locale, "homepage.municipality_desc", ""),
+                "HOMEPAGE_FOUNDED_DESC": t(locale, "homepage.founded_desc", ""),
+                "HOMEPAGE_REESTABLISHED_DESC": t(locale, "homepage.reestablished_desc", ""),
+                "HOMEPAGE_AGRI_DESC_FULL": t(locale, "homepage.agri_desc_full", ""),
+                "HOMEPAGE_HISTORY_SUBTITLE": t(locale, "homepage.history_subtitle", ""),
+                "HOMEPAGE_MILESTONE1_ERA": t(locale, "homepage.milestone1_era", ""),
+                "HOMEPAGE_MILESTONE1_TITLE": t(locale, "homepage.milestone1_title", ""),
+                "HOMEPAGE_MILESTONE1_DESC": t(locale, "homepage.milestone1_desc", ""),
+                "HOMEPAGE_MILESTONE2_ERA": t(locale, "homepage.milestone2_era", ""),
+                "HOMEPAGE_MILESTONE2_TITLE": t(locale, "homepage.milestone2_title", ""),
+                "HOMEPAGE_MILESTONE2_DESC": t(locale, "homepage.milestone2_desc", ""),
+                "HOMEPAGE_MILESTONE3_ERA": t(locale, "homepage.milestone3_era", ""),
+                "HOMEPAGE_MILESTONE3_TITLE": t(locale, "homepage.milestone3_title", ""),
+                "HOMEPAGE_MILESTONE3_DESC": t(locale, "homepage.milestone3_desc", ""),
+                "HOMEPAGE_MILESTONE4_ERA": t(locale, "homepage.milestone4_era", ""),
+                "HOMEPAGE_MILESTONE4_TITLE": t(locale, "homepage.milestone4_title", ""),
+                "HOMEPAGE_MILESTONE4_DESC": t(locale, "homepage.milestone4_desc", ""),
+                "HOMEPAGE_BARANGAY_SUBTITLE": t(locale, "homepage.barangay_subtitle", ""),
+                "HOMEPAGE_SOURCES_TITLE": t(locale, "homepage.sources_title", "Sources & Historical Notes"),
+                "HOMEPAGE_SOURCES_DESC": t(locale, "homepage.sources_desc", ""),
+                "HOMEPAGE_PANDAN_TITLE": t(locale, "homepage.pandan_title", "Pandan Festival"),
+                "HOMEPAGE_PANDAN_DESC": t(locale, "homepage.pandan_desc", ""),
+                "HOMEPAGE_PANDAN_CREDIT": t(locale, "homepage.pandan_credit", ""),
+                "HOMEPAGE_PLAZA_DESC": t(locale, "homepage.plaza_desc", ""),
+                "HOMEPAGE_PLAZA_CREDIT": t(locale, "homepage.plaza_credit", ""),
+                "HOMEPAGE_AGRI_DESC": t(locale, "homepage.agri_desc", ""),
+                "HOMEPAGE_AGRI_CREDIT": t(locale, "homepage.agri_credit", ""),
+                "HOMEPAGE_MAYOR_NAME": t(locale, "homepage.mayor_name", "Hon. Karl Christian F. Vega"),
+                "HOMEPAGE_MAYOR_ROLE": t(locale, "homepage.mayor_role", "Municipal Mayor"),
+                "HOMEPAGE_MAYOR_AFFIL": t(locale, "homepage.mayor_affil", "Nacionalista Party (NP)"),
+                "HOMEPAGE_VICE_MAYOR_NAME": t(locale, "homepage.vice_mayor_name", "Hon. Anthony C. Penuliar"),
+                "HOMEPAGE_VICE_MAYOR_ROLE": t(locale, "homepage.vice_mayor_role", "Vice Mayor &middot; Presiding Officer"),
+                "HOMEPAGE_VICE_MAYOR_AFFIL": t(locale, "homepage.vice_mayor_affil", "Independent (IND)"),
+                "HOMEPAGE_LEADER_SOURCE": t(locale, "homepage.leader_source", "Source: Mapandan.gov.ph"),
+                "HOMEPAGE_WEATHER_LOADING": t(locale, "homepage.weather_loading", "Loading weather data..."),
+                "HOMEPAGE_WEATHER_CTA": t(locale, "homepage.weather_cta", "View PAGASA Advisories &rarr;"),
+                "HOMEPAGE_MAP_CTA": t(locale, "homepage.map_cta", "Open in Google Maps &rarr;"),
                 # Statistics page
                 "STATISTICS_AGRI_CROPS": t(locale, "statistics.agri_crops", ""),
                 "STATISTICS_AGRI_IRRIGATED": t(locale, "statistics.agri_irrigated", ""),
@@ -1147,8 +1220,9 @@ def build() -> None:
                 entry["section_anchors"] = section_anchors
             search_entries.append(entry)
 
-        # Process generated pages (services, legislative) — no front matter
+        # Process generated pages (services, legislative) — strip front matter
         for rel_path, body_content in svc_pages.items():
+            body_content = strip_front_matter(body_content)
             rel = Path(rel_path)
 
             # Compute asset base
@@ -1240,12 +1314,13 @@ def build() -> None:
             })
 
             # Assemble page (no hero for generated pages)
+            page_meta = svc_meta.get(rel_path, {})
             page_html = fill(
                 base,
                 {
                     "ASSET_BASE": asset_base,
-                    "TITLE": "Better Mapandan",
-                    "DESCRIPTION": "",
+                    "TITLE": page_meta.get("title", "Better Mapandan"),
+                    "DESCRIPTION": page_meta.get("description", ""),
                     "HEADER": header,
                     "BODY": breadcrumbs + body_content,
                     "FOOTER": footer,
@@ -1299,7 +1374,7 @@ def build() -> None:
     # Generate sitemap
     generate_sitemap()
 
-    total = count * 2  # EN + FIL
+    total = count * 2  # EN + FIL (both produce same pages)
     print(f"\nDone. {total} page(s) written ({count} EN + {count} FIL)")
 
 

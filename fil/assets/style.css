@@ -67,8 +67,10 @@
   --green-mid: #3a7a28;
   --green-pale: #e2ecda;
   --gold: #e8a917;
+  --gold-dark: #c48a12;
   --gold-soft: #f6ecc9;
   --red-flag: #b5312a;
+  --red-deep: #8b1a1a;
   --cream: #fbf9f3;
   --paper: #ffffff;
   --ink: #1b2a1f;
@@ -2018,6 +2020,21 @@ tbody tr:hover {
 .weather-widget .weather-loading {
   color: var(--ink-soft);
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.weather-widget .weather-loading::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .weather-widget .weather-error {
