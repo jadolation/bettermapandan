@@ -625,6 +625,13 @@ def build() -> None:
             footer = fill(footer_raw, {
                 "ASSET_BASE": asset_base,
                 **SITE_CONFIG,
+                "NAV_HOME": t(locale, "nav.home", "Home"),
+                "NAV_SERVICES": t(locale, "nav.services", "Services"),
+                "NAV_GOVERNMENT": t(locale, "nav.government", "Government"),
+                "NAV_LEGISLATIVE": t(locale, "nav.legislative", "Legislative"),
+                "NAV_STATISTICS": t(locale, "nav.statistics", "Statistics"),
+                "NAV_TRANSPARENCY": t(locale, "nav.transparency", "Transparency"),
+                "NAV_ABOUT": t(locale, "nav.about", "About"),
                 "FOOTER_BRAND_DESC": t(locale, "footer.brand_desc", ""),
                 "FOOTER_QUICK_LINKS": t(locale, "footer.quick_links", "Quick Links"),
                 "FOOTER_RESOURCES": t(locale, "footer.resources", "Resources"),
@@ -698,29 +705,29 @@ def build() -> None:
                     t(locale, "hero.search_title", "Find a Service")
                 )
                 # Stats labels
-                page_html = page_html.replace('>Residents<', f'>{t(locale, "stats.residents", "Residents")}<')
-                page_html = page_html.replace('>Barangays<', f'>{t(locale, "stats.barangays", "Barangays")}<')
-                page_html = page_html.replace('>Households<', f'>{t(locale, "stats.households", "Households")}<')
-                page_html = page_html.replace('>Pop. density<', f'>{t(locale, "stats.density", "Pop. density")}<')
-                page_html = page_html.replace('>Land area<', f'>{t(locale, "stats.land_area", "Land area")}<')
+                page_html = page_html.replace('>Residents</', f'>{t(locale, "stats.residents", "Residents")}</')
+                page_html = page_html.replace('>Barangays</', f'>{t(locale, "stats.barangays", "Barangays")}</')
+                page_html = page_html.replace('>Households</', f'>{t(locale, "stats.households", "Households")}</')
+                page_html = page_html.replace('>Pop. density</', f'>{t(locale, "stats.density", "Pop. density")}</')
+                page_html = page_html.replace('>Land area</', f'>{t(locale, "stats.land_area", "Land area")}</')
                 # Emergency
-                page_html = page_html.replace('>Emergency<', f'>{t(locale, "emergency.label", "Emergency")}<')
-                page_html = page_html.replace('>Fire (BFP)<', f'>{t(locale, "emergency.fire", "Fire (BFP)")}<')
-                page_html = page_html.replace('>Police (PNP)<', f'>{t(locale, "emergency.police", "Police (PNP)")}<')
-                page_html = page_html.replace('>MDRRMO<', f'>{t(locale, "emergency.mdrrmo", "MDRRMO")}<')
+                page_html = page_html.replace('>Emergency</', f'>{t(locale, "emergency.label", "Emergency")}</')
+                page_html = page_html.replace('>Fire (BFP)</', f'>{t(locale, "emergency.fire", "Fire (BFP)")}</')
+                page_html = page_html.replace('>Police (PNP)</', f'>{t(locale, "emergency.police", "Police (PNP)")}</')
+                page_html = page_html.replace('>MDRRMO</', f'>{t(locale, "emergency.mdrrmo", "MDRRMO")}</')
                 # Homepage sections
-                page_html = page_html.replace('>A Brief History<', f'>{t(locale, "homepage.history_eyebrow", "")}<')
-                page_html = page_html.replace('>The Story of Mapandan<', f'>{t(locale, "homepage.history_title", "")}<')
-                page_html = page_html.replace('>Cultural Heritage<', f'>{t(locale, "homepage.cultural_eyebrow", "")}<')
-                page_html = page_html.replace('>Local traditions and community life<', f'>{t(locale, "homepage.cultural_title", "")}<')
-                page_html = page_html.replace('>Leadership<', f'>{t(locale, "homepage.leadership_eyebrow", "")}<')
-                page_html = page_html.replace('>Currently in office<', f'>{t(locale, "homepage.leadership_title", "")}<')
-                page_html = page_html.replace('>Explore Mapandan<', f'>{t(locale, "homepage.explore_eyebrow", "")}<')
-                page_html = page_html.replace('>Weather &amp; map<', f'>{t(locale, "homepage.explore_title", "")}<')
-                page_html = page_html.replace('>Emergency Hotlines<', f'>{t(locale, "homepage.emergency_eyebrow", "")}<')
-                page_html = page_html.replace('>Who to call<', f'>{t(locale, "homepage.emergency_title", "")}<')
-                page_html = page_html.replace('>Current weather<', f'>{t(locale, "homepage.weather_title", "")}<')
-                page_html = page_html.replace('>Interactive map<', f'>{t(locale, "homepage.map_title", "")}<')
+                page_html = page_html.replace('>A Brief History</', f'>{t(locale, "homepage.history_eyebrow", "")}</')
+                page_html = page_html.replace('>The Story of Mapandan</', f'>{t(locale, "homepage.history_title", "")}</')
+                page_html = page_html.replace('>Cultural Heritage</', f'>{t(locale, "homepage.cultural_eyebrow", "")}</')
+                page_html = page_html.replace('>Local traditions and community life</', f'>{t(locale, "homepage.cultural_title", "")}</')
+                page_html = page_html.replace('>Leadership</', f'>{t(locale, "homepage.leadership_eyebrow", "")}</')
+                page_html = page_html.replace('>Currently in office</', f'>{t(locale, "homepage.leadership_title", "")}</')
+                page_html = page_html.replace('>Explore Mapandan</', f'>{t(locale, "homepage.explore_eyebrow", "")}</')
+                page_html = page_html.replace('>Weather &amp; map</', f'>{t(locale, "homepage.explore_title", "")}</')
+                page_html = page_html.replace('>Emergency Hotlines</', f'>{t(locale, "homepage.emergency_eyebrow", "")}</')
+                page_html = page_html.replace('>Who to call</', f'>{t(locale, "homepage.emergency_title", "")}</')
+                page_html = page_html.replace('>Current weather</', f'>{t(locale, "homepage.weather_title", "")}</')
+                page_html = page_html.replace('>Interactive map</', f'>{t(locale, "homepage.map_title", "")}</')
                 page_html = page_html.replace(
                     'See the full Government Directory &rarr;',
                     t(locale, "homepage.leadership_cta", "")
@@ -730,150 +737,668 @@ def build() -> None:
                     t(locale, "homepage.history_cta", "")
                 )
                 page_html = page_html.replace(
-                    '>Stories Behind Our Barangays<',
-                    f'>{t(locale, "homepage.barangay_eyebrow", "")}<'
+                    '>Stories Behind Our Barangays</',
+                    f'>{t(locale, "homepage.barangay_eyebrow", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>15 communities, 15 histories<',
-                    f'>{t(locale, "homepage.barangay_title", "")}<'
+                    '>15 communities, 15 histories</',
+                    f'>{t(locale, "homepage.barangay_title", "")}</'
                 )
 
                 # Search page
                 page_html = page_html.replace(
-                    '>Find government information<',
-                    f'>{t(locale, "search_page.title", "")}<'
+                    '>Find government information</',
+                    f'>{t(locale, "search_page.title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Search services, officials, ordinances, offices, and more.<',
-                    f'>{t(locale, "search_page.subtitle", "")}<'
+                    '>Search services, officials, ordinances, offices, and more.</',
+                    f'>{t(locale, "search_page.subtitle", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Browse by topic<',
-                    f'>{t(locale, "search_page.browse_eyebrow", "")}<'
+                    '>Browse by topic</',
+                    f'>{t(locale, "search_page.browse_eyebrow", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Explore Mapandan<',
-                    f'>{t(locale, "search_page.browse_title", "")}<'
+                    '>Explore Mapandan</',
+                    f'>{t(locale, "search_page.browse_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Popular services<',
-                    f'>{t(locale, "search_page.popular_title", "")}<'
+                    '>Popular services</',
+                    f'>{t(locale, "search_page.popular_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Business Permitting<',
-                    f'>{t(locale, "search_page.popular_biz", "")}<'
+                    '>Business Permitting</',
+                    f'>{t(locale, "search_page.popular_biz", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Civil Registry<',
-                    f'>{t(locale, "search_page.popular_civil", "")}<'
+                    '>Civil Registry</',
+                    f'>{t(locale, "search_page.popular_civil", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Health Services<',
-                    f'>{t(locale, "search_page.popular_health", "")}<'
+                    '>Health Services</',
+                    f'>{t(locale, "search_page.popular_health", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Social Welfare<',
-                    f'>{t(locale, "search_page.popular_welfare", "")}<'
+                    '>Social Welfare</',
+                    f'>{t(locale, "search_page.popular_welfare", "")}</'
                 )
 
                 # Report hub
                 page_html = page_html.replace(
-                    '>Civic Contribution Hub<',
-                    f'>{t(locale, "report_hub.title", "")}<'
+                    '>Civic Contribution Hub</',
+                    f'>{t(locale, "report_hub.title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Choose how you want to contribute<',
-                    f'>{t(locale, "report_hub.choose_title", "")}<'
+                    '>Choose how you want to contribute</',
+                    f'>{t(locale, "report_hub.choose_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Report Error<',
-                    f'>{t(locale, "report_hub.report_error", "")}<'
+                    '>Report Error</',
+                    f'>{t(locale, "report_hub.report_error", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Submit Missing Info<',
-                    f'>{t(locale, "report_hub.submit_info", "")}<'
+                    '>Submit Missing Info</',
+                    f'>{t(locale, "report_hub.submit_info", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Suggest Feature<',
-                    f'>{t(locale, "report_hub.suggest_feature", "")}<'
+                    '>Suggest Feature</',
+                    f'>{t(locale, "report_hub.suggest_feature", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>What happens next?<',
-                    f'>{t(locale, "report_hub.next_title", "")}<'
+                    '>What happens next?</',
+                    f'>{t(locale, "report_hub.next_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Verification status<',
-                    f'>{t(locale, "report_hub.verification_title", "")}<'
+                    '>Verification status</',
+                    f'>{t(locale, "report_hub.verification_title", "")}</'
                 )
 
                 # Statistics page
                 page_html = page_html.replace(
-                    '>Statistics &amp; Indicators<',
-                    f'>{t(locale, "statistics.title", "")}<'
+                    '>Statistics &amp; Indicators</',
+                    f'>{t(locale, "statistics.title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Demographic overview<',
-                    f'>{t(locale, "statistics.pop_title", "")}<'
+                    '>Demographic overview</',
+                    f'>{t(locale, "statistics.pop_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Economic indicators<',
-                    f'>{t(locale, "statistics.econ_title", "")}<'
+                    '>Economic indicators</',
+                    f'>{t(locale, "statistics.econ_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Local revenue &amp; expenditure<',
-                    f'>{t(locale, "statistics.fiscal_title", "")}<'
+                    '>Local revenue &amp; expenditure</',
+                    f'>{t(locale, "statistics.fiscal_title", "")}</'
                 )
 
                 # Transparency page
                 page_html = page_html.replace(
-                    '>Budget &amp; Fiscal Transparency<',
-                    f'>{t(locale, "transparency.title", "")}<'
+                    '>Budget &amp; Fiscal Transparency</',
+                    f'>{t(locale, "transparency.title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Current budget &amp; supplemental appropriations<',
-                    f'>{t(locale, "transparency.appropriations_title", "")}<'
+                    '>Current budget &amp; supplemental appropriations</',
+                    f'>{t(locale, "transparency.appropriations_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Loans &amp; borrowing<',
-                    f'>{t(locale, "transparency.credit_title", "")}<'
+                    '>Loans &amp; borrowing</',
+                    f'>{t(locale, "transparency.credit_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Revenue breakdown<',
-                    f'>{t(locale, "transparency.revenue_title", "")}<'
+                    '>Revenue breakdown</',
+                    f'>{t(locale, "transparency.revenue_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Governance compliance<',
-                    f'>{t(locale, "transparency.compliance_title", "")}<'
+                    '>Governance compliance</',
+                    f'>{t(locale, "transparency.compliance_title", "")}</'
                 )
 
                 # About page
                 page_html = page_html.replace(
-                    '>About Better Mapandan<',
-                    f'>{t(locale, "about.title", "")}<'
+                    '>About Better Mapandan</',
+                    f'>{t(locale, "about.title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>The municipality<',
-                    f'>{t(locale, "about.municipality_title", "")}<'
+                    '>The municipality</',
+                    f'>{t(locale, "about.municipality_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Mapandan through the years<',
-                    f'>{t(locale, "about.history_title", "")}<'
+                    '>Mapandan through the years</',
+                    f'>{t(locale, "about.history_title", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>History<',
-                    f'>{t(locale, "about.history", "")}<'
+                    '>History</',
+                    f'>{t(locale, "about.history", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Geography<',
-                    f'>{t(locale, "about.geography", "")}<'
+                    '>Geography</',
+                    f'>{t(locale, "about.geography", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Read more<',
-                    f'>{t(locale, "about.read_more", "")}<'
+                    '>Read more</',
+                    f'>{t(locale, "about.read_more", "")}</'
                 )
                 page_html = page_html.replace(
-                    '>Show less<',
-                    f'>{t(locale, "about.show_less", "")}<'
+                    '>Show less</',
+                    f'>{t(locale, "about.show_less", "")}</'
+                )
+
+                # --- Homepage: municipality section ---
+                page_html = page_html.replace(
+                    ">A rice-growing town in Pangasinan's third district</",
+                    f'>{t(locale, "homepage.municipality_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Founded Dec. 28, 1887</',
+                    f'>{t(locale, "homepage.municipality_founded", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Re-established 1909</',
+                    f'>{t(locale, "homepage.municipality_reestablished", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Agricultural heart</',
+                    f'>{t(locale, "homepage.municipality_agri", "")}</'
+                )
+
+                # --- Homepage: cultural heritage ---
+                page_html = page_html.replace(
+                    '>Town Plaza</',
+                    f'>{t(locale, "homepage.plaza_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Agri-Tourism in Luyan</',
+                    f'>{t(locale, "homepage.agri_title", "")}</'
+                )
+
+                # --- Homepage: emergency hotlines ---
+                page_html = page_html.replace(
+                    '>Municipal Disaster Risk Reduction and Management Office</',
+                    f'>{t(locale, "homepage.emergency_mdrmmo_desc", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Bureau of Fire Protection</',
+                    f'>{t(locale, "homepage.emergency_bfp", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Philippine National Police</',
+                    f'>{t(locale, "homepage.emergency_pnp", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Rural Health Unit</',
+                    f'>{t(locale, "homepage.emergency_rhu", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Mapandan Community Hospital</',
+                    f'>{t(locale, "homepage.emergency_hospital", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Mapandan Water District</',
+                    f'>{t(locale, "homepage.emergency_water", "")}</'
+                )
+
+                # --- Statistics page ---
+                page_html = page_html.replace(
+                    '>Total Population (2024)</',
+                    f'>{t(locale, "statistics.pop_total", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Households (2024)</',
+                    f'>{t(locale, "statistics.pop_households", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Population Density</',
+                    f'>{t(locale, "statistics.pop_density", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Population by census year</',
+                    f'>{t(locale, "statistics.growth_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Poverty Incidence (Provincial 2023)</',
+                    f'>{t(locale, "statistics.econ_poverty", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Labor Force Participation</',
+                    f'>{t(locale, "statistics.econ_labor", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Agricultural Employment</',
+                    f'>{t(locale, "statistics.econ_agri_emp", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Economic Dynamism Rank</',
+                    f'>{t(locale, "statistics.econ_dynamism", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Land &amp; Barangays</',
+                    f'>{t(locale, "statistics.land_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Geographic breakdown</',
+                    f'>{t(locale, "statistics.land_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Total Land Area</',
+                    f'>{t(locale, "statistics.land_total", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Number of Barangays</',
+                    f'>{t(locale, "statistics.land_barangays", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Urban / Rural Split</',
+                    f'>{t(locale, "statistics.land_urban_rural", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>CY 2025 Total Revenue</',
+                    f'>{t(locale, "statistics.fiscal_rev_2025", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>CY 2025 Total Expenditure</',
+                    f'>{t(locale, "statistics.fiscal_exp_2025", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>CY 2025 Fiscal Balance</',
+                    f'>{t(locale, "statistics.fiscal_balance_2025", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>BLGF Fiscal Summary</',
+                    f'>{t(locale, "statistics.fiscal_blgf", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Annual Revenue vs. Expenditure (2020-2025)</',
+                    f'>{t(locale, "statistics.fiscal_blgf_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Interactive charts</',
+                    f'>{t(locale, "statistics.trends_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Population Trend</',
+                    f'>{t(locale, "statistics.chart_pop_trend", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Download CSV</',
+                    f'>{t(locale, "statistics.chart_download", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Primary Crops</',
+                    f'>{t(locale, "statistics.agri_crops", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Irrigated Area</',
+                    f'>{t(locale, "statistics.agri_irrigated", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Agricultural production</',
+                    f'>{t(locale, "statistics.agri_title", "")}</'
+                )
+
+                # --- Transparency page ---
+                page_html = page_html.replace(
+                    '>CY 2026 Annual Budget</',
+                    f'>{t(locale, "transparency.budget_2026", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>CY 2025 Revenues</',
+                    f'>{t(locale, "transparency.revenue_2025", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>CY 2025 Expenditures</',
+                    f'>{t(locale, "transparency.expenditure_2025", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Appropriations</',
+                    f'>{t(locale, "transparency.appropriations_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Credit Financing</',
+                    f'>{t(locale, "transparency.credit_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Revenue vs. Expenditure</',
+                    f'>{t(locale, "transparency.fiscal_snapshot_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Budget Trend</',
+                    f'>{t(locale, "transparency.budget_trend_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Fiscal Structure</',
+                    f'>{t(locale, "transparency.fiscal_structure_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Revenue dependency &amp; statutory earmarks</',
+                    f'>{t(locale, "transparency.fiscal_structure_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>NTA/IRA Dependency</',
+                    f'>{t(locale, "transparency.fiscal_nta", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>20% Development Fund</',
+                    f'>{t(locale, "transparency.fiscal_dev_fund", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>5% LDRRMF</',
+                    f'>{t(locale, "transparency.fiscal_ldrrmf", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Special Education Fund (SEF)</',
+                    f'>{t(locale, "transparency.fiscal_sef", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Personnel Services Cap</',
+                    f'>{t(locale, "transparency.fiscal_ps_cap", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Balance Sheet</',
+                    f'>{t(locale, "transparency.balance_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Assets &amp; liabilities</',
+                    f'>{t(locale, "transparency.balance_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Total Assets</',
+                    f'>{t(locale, "transparency.balance_assets", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Total Liabilities</',
+                    f'>{t(locale, "transparency.balance_liabilities", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Net Position</',
+                    f'>{t(locale, "transparency.balance_net", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Historical Baseline</',
+                    f'>{t(locale, "transparency.historical_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Financial statements (CY 2013-2015)</',
+                    f'>{t(locale, "transparency.historical_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Tax Revenue</',
+                    f'>{t(locale, "transparency.historical_tax_rev", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Total Operating Income</',
+                    f'>{t(locale, "transparency.historical_total_op_inc", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Maintenance &amp; Other Operating (MOOE)</',
+                    f'>{t(locale, "transparency.historical_mooe", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Total Operating Expenses</',
+                    f'>{t(locale, "transparency.historical_total_op_exp", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Income from Operations</',
+                    f'>{t(locale, "transparency.historical_inc_ops", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Total Equity</',
+                    f'>{t(locale, "transparency.historical_total_equity", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Audit &amp; transparency status</',
+                    f'>{t(locale, "transparency.compliance_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>COA Audit Opinion</',
+                    f'>{t(locale, "transparency.compliance_coa", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Seal of Good Local Governance</',
+                    f'>{t(locale, "transparency.compliance_sglg", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Full Disclosure Policy</',
+                    f'>{t(locale, "transparency.compliance_fdp", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Commission on Audit reports</',
+                    f'>{t(locale, "transparency.audit_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Capital Outlay</',
+                    f'>{t(locale, "transparency.capex_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Infrastructure projects</',
+                    f'>{t(locale, "transparency.capex_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Social &amp; Agricultural Programs</',
+                    f'>{t(locale, "transparency.social_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Where support reaches residents</',
+                    f'>{t(locale, "transparency.social_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Agricultural Assistance Packages</',
+                    f'>{t(locale, "transparency.social_agri", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Procurement Ledger</',
+                    f'>{t(locale, "transparency.procurement_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Recent capital projects &amp; procurements</',
+                    f'>{t(locale, "transparency.procurement_title", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>External Links</',
+                    f'>{t(locale, "transparency.external_eyebrow", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Transparency portals &amp; resources</',
+                    f'>{t(locale, "transparency.external_title", "")}</'
+                )
+
+                # --- Government page ---
+                page_html = page_html.replace(
+                    '>Executive Branch</',
+                    f'>{t(locale, "government.executive_title", "Executive Branch")}</'
+                )
+                page_html = page_html.replace(
+                    '>Legislative Branch</',
+                    f'>{t(locale, "government.legislative_title", "Legislative Branch")}</'
+                )
+                page_html = page_html.replace(
+                    '>Barangay Councils</',
+                    f'>{t(locale, "government.barangay_councils_title", "Barangay Councils")}</'
+                )
+                page_html = page_html.replace(
+                    '>Departments &amp; Key Offices</',
+                    f'>{t(locale, "government.departments_title", "Departments & Key Offices")}</'
+                )
+                page_html = page_html.replace(
+                    '>Contact Directory</',
+                    f'>{t(locale, "government.contact_title", "Contact Directory")}</'
+                )
+                page_html = page_html.replace(
+                    '>External Government Agency Directory</',
+                    f'>{t(locale, "government.external_title", "External Government Agency Directory")}</'
+                )
+                page_html = page_html.replace(
+                    '>Office / Department</',
+                    f'>{t(locale, "government.dept_col_office", "Office / Department")}</'
+                )
+                page_html = page_html.replace(
+                    '>Acronym</',
+                    f'>{t(locale, "government.dept_col_acronym", "Acronym")}</'
+                )
+                page_html = page_html.replace(
+                    '>Location</',
+                    f'>{t(locale, "government.dept_col_location", "Location")}</'
+                )
+                page_html = page_html.replace(
+                    '>Office / Unit</',
+                    f'>{t(locale, "government.contact_col_office", "Office / Unit")}</'
+                )
+                page_html = page_html.replace(
+                    '>Landline</',
+                    f'>{t(locale, "government.contact_col_landline", "Landline")}</'
+                )
+                page_html = page_html.replace(
+                    '>Mobile / Hotline</',
+                    f'>{t(locale, "government.contact_col_mobile", "Mobile / Hotline")}</'
+                )
+
+                # --- About page: history timeline ---
+                page_html = page_html.replace(
+                    '>Founding &amp; Restoration</',
+                    f'>{t(locale, "about.history_era1", "Founding & Restoration")}</'
+                )
+                page_html = page_html.replace(
+                    '>Early Municipal Life</',
+                    f'>{t(locale, "about.history_era2", "Early Municipal Life")}</'
+                )
+                page_html = page_html.replace(
+                    '>Rebuilding &amp; Barangay Growth</',
+                    f'>{t(locale, "about.history_era3", "Rebuilding & Barangay Growth")}</'
+                )
+                page_html = page_html.replace(
+                    '>Development &amp; Digital Era</',
+                    f'>{t(locale, "about.history_era5", "Development & Digital Era")}</'
+                )
+
+                # --- About page: project section ---
+                page_html = page_html.replace(
+                    '>What is Better Mapandan?</',
+                    f'>{t(locale, "about.project_what", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Our Mission</',
+                    f'>{t(locale, "about.project_mission", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>How It Works</',
+                    f'>{t(locale, "about.project_how", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Open Source</',
+                    f'>{t(locale, "about.project_open_source", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Volunteer-Run</',
+                    f'>{t(locale, "about.project_volunteer", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Get involved</',
+                    f'>{t(locale, "about.contribute_get_involved", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Report Incorrect Information</',
+                    f'>{t(locale, "about.contribute_report", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Contribute Code</',
+                    f'>{t(locale, "about.contribute_code", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Verify Data</',
+                    f'>{t(locale, "about.contribute_verify", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Share with Residents</',
+                    f'>{t(locale, "about.contribute_share", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Important notice</',
+                    f'>{t(locale, "about.disclaimer_notice", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Population Growth</',
+                    f'>{t(locale, "about.population_growth", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Mapandan through the census</',
+                    f'>{t(locale, "about.population_subtitle", "")}</'
+                )
+
+                # --- About page: photo captions ---
+                page_html = page_html.replace(
+                    '>Mapandan Town Plaza</',
+                    f'>{t(locale, "about.photo_plaza", "Mapandan Town Plaza")}</'
+                )
+                page_html = page_html.replace(
+                    '>Old Mapandan Public Market</',
+                    f'>{t(locale, "about.photo_market", "Old Mapandan Public Market")}</'
+                )
+                page_html = page_html.replace(
+                    '>Early Municipal Officials</',
+                    f'>{t(locale, "about.photo_officials", "Early Municipal Officials")}</'
+                )
+                page_html = page_html.replace(
+                    '>Old Mapandan School</',
+                    f'>{t(locale, "about.photo_school", "Old Mapandan School")}</'
+                )
+                page_html = page_html.replace(
+                    '>Old Baloling Bridge</',
+                    f'>{t(locale, "about.photo_bridge", "Old Baloling Bridge")}</'
+                )
+
+                # --- Footer ---
+                page_html = page_html.replace(
+                    '>Municipality of Mapandan</',
+                    f'>{t(locale, "footer.municipality_of", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Province of Pangasinan</',
+                    f'>{t(locale, "footer.province_of", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Commission on Audit</',
+                    f'>{t(locale, "footer.coa", "")}</'
+                )
+                page_html = page_html.replace(
+                    '>Philippine Statistics Authority</',
+                    f'>{t(locale, "footer.psa", "")}</'
+                )
+
+                # --- Common: verification badges ---
+                page_html = page_html.replace(
+                    'badge-official">Official</',
+                    f'badge-official">{t(locale, "common.official", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-verified">Verified</',
+                    f'badge-verified">{t(locale, "common.verified", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-unofficial">Unofficial</',
+                    f'badge-unofficial">{t(locale, "common.unofficial", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-estimate">Provincial Estimate</',
+                    f'badge-estimate">{t(locale, "common.provincial_estimate", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-estimate">Municipal Estimate</',
+                    f'badge-estimate">{t(locale, "common.municipal_estimate", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-statutory">Statutory</',
+                    f'badge-statutory">{t(locale, "common.statutory", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-community">Community Verified</',
+                    f'badge-community">{t(locale, "common.community_verified", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-pending">Needs Verification</',
+                    f'badge-pending">{t(locale, "common.needs_verification", "")}</'
+                )
+                page_html = page_html.replace(
+                    'badge-placeholder">Placeholder</',
+                    f'badge-placeholder">{t(locale, "common.placeholder", "")}</'
                 )
 
             # Output path
