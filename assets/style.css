@@ -532,7 +532,12 @@ p {
 
 .action-hub-icon {
   font-size: 18px;
-  line-height: 1;
+}
+
+.action-hub-icon .lucide {
+  width: 18px;
+  height: 18px;
+  stroke: var(--green-deep);
 }
 
 /* ---------- History milestones ---------- */
@@ -721,16 +726,17 @@ p {
 }
 
 .card .icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 5px;
-  background: var(--gold-soft);
-  color: var(--green-deep);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
-  font-size: 17px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.card .icon .lucide {
+  width: 20px;
+  height: 20px;
+  stroke: var(--green-deep);
 }
 .card-photo{
   position: relative;
@@ -1753,6 +1759,22 @@ tbody tr:hover {
   opacity: 1;
 }
 
+.segmented-control button .lucide {
+  width: 16px;
+  height: 16px;
+}
+
+.feedback-buttons .lucide {
+  width: 16px;
+  height: 16px;
+}
+
+/* Lucide icon base */
+.lucide {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* ---------- Utility ---------- */
 
 .sr-only {
@@ -1889,7 +1911,13 @@ tbody tr:hover {
 
 .weather-icon {
   font-size: 40px;
-  line-height: 1;
+  margin-right: 12px;
+}
+
+.weather-icon .lucide {
+  width: 40px;
+  height: 40px;
+  stroke: var(--gold);
 }
 
 .weather-details {
@@ -1899,6 +1927,12 @@ tbody tr:hover {
   font-size: 13px;
   color: var(--ink-soft);
   margin-top: 8px;
+}
+
+.weather-details .lucide {
+  width: 14px;
+  height: 14px;
+  vertical-align: -2px;
 }
 
 .weather-forecast {
@@ -2174,6 +2208,12 @@ canvas {
   margin-bottom: 10px;
 }
 
+.search-browse-icon .lucide {
+  width: 28px;
+  height: 28px;
+  stroke: var(--green-deep);
+}
+
 .search-browse-card h3 {
   font-size: 16px;
   margin-bottom: 4px;
@@ -2262,17 +2302,23 @@ canvas {
   gap: 8px;
 }
 
+.service-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .service-category-card .service-icon {
-  font-size: 32px;
-  line-height: 1;
-  margin-bottom: 8px;
-  width: 52px;
-  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--green-pale);
-  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.service-category-card .service-icon .lucide {
+  width: 28px;
+  height: 28px;
+  stroke: var(--green-deep);
 }
 
 .service-category-card h3 {

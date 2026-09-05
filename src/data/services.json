@@ -4,79 +4,79 @@
       "slug": "business-permitting",
       "name": "Business Permitting & Licensing",
       "description": "Starting or renewing a business in Mapandan.",
-      "icon": "📋"
+      "icon": "clipboard-list"
     },
     {
       "slug": "civil-registry",
       "name": "Civil Registry & Vital Records",
       "description": "Birth, marriage, death certificates and corrections.",
-      "icon": "📜"
+      "icon": "scroll-text"
     },
     {
       "slug": "building-engineering",
       "name": "Building, Engineering & Zoning",
       "description": "Construction permits and land-use clearances.",
-      "icon": "🏗️"
+      "icon": "hard-hat"
     },
     {
       "slug": "real-property",
       "name": "Real Property & Revenue",
       "description": "Property taxes, declarations, and transfers.",
-      "icon": "🏠"
+      "icon": "home"
     },
     {
       "slug": "health",
       "name": "Health Services",
       "description": "Consultations, permits, and public health programs.",
-      "icon": "🏥"
+      "icon": "heart-pulse"
     },
     {
       "slug": "social-welfare",
       "name": "Social Welfare — IDs & Certifications",
       "description": "Senior citizen, PWD, solo parent IDs and other certifications.",
-      "icon": "🪪"
+      "icon": "id-card"
     },
     {
       "slug": "agriculture",
       "name": "Agriculture",
       "description": "Farming subsidies and agricultural support programs.",
-      "icon": "🌾"
+      "icon": "wheat"
     },
     {
       "slug": "social-assistance",
       "name": "Social Assistance & Protection",
       "description": "Financial aid, case studies, child welfare, and disaster relief.",
-      "icon": "🤝"
+      "icon": "handshake"
     },
     {
       "slug": "zoning",
       "name": "Zoning & Planning",
       "description": "Zoning clearances for electrical, business, and land use.",
-      "icon": "🗺️"
+      "icon": "map"
     },
     {
       "slug": "mayors-office",
       "name": "Mayor's Office",
       "description": "Clearances, certifications, affidavits, and other services from the Office of the Mayor.",
-      "icon": "🏛️"
+      "icon": "landmark"
     },
     {
       "slug": "disaster-risk-reduction",
       "name": "Disaster Risk Management",
       "description": "Emergency rescue, disaster response, and related services from the MDRRMO.",
-      "icon": "🚨"
+      "icon": "siren"
     },
     {
       "slug": "youth-development",
       "name": "Youth Development",
       "description": "Youth organization registration and development programs.",
-      "icon": "👥"
+      "icon": "users"
     },
     {
       "slug": "environment",
       "name": "Environment",
       "description": "Environmental complaints and protection services.",
-      "icon": "🌿"
+      "icon": "leaf"
     }
   ],
   "services": [

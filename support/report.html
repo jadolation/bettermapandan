@@ -85,13 +85,13 @@
 
     <div class="segmented-control" role="tablist" aria-label="Contribution type">
       <button class="active" role="tab" aria-selected="true" data-mode="report" data-short="Report">
-        <span aria-hidden="true">&#128681;</span> <span class="label-text">Report Error</span>
+        <i data-lucide="flag"></i> <span class="label-text">Report Error</span>
       </button>
       <button role="tab" aria-selected="false" data-mode="contribute" data-short="Add Info">
-        <span aria-hidden="true">&#10133;</span> <span class="label-text">Submit Missing Info</span>
+        <i data-lucide="circle-plus"></i> <span class="label-text">Submit Missing Info</span>
       </button>
       <button role="tab" aria-selected="false" data-mode="suggest" data-short="Suggest">
-        <span aria-hidden="true">&#128161;</span> <span class="label-text">Suggest Feature</span>
+        <i data-lucide="lightbulb"></i> <span class="label-text">Suggest Feature</span>
       </button>
     </div>
 
@@ -247,7 +247,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var currentMode = "report";
-  var TO_EMAIL = "report@bettermapandan.org";
+  var TO_EMAIL = "zaratejandale15@gmail.com";
 
   // --- Segmented control ---
   var buttons = document.querySelectorAll(".segmented-control button");
@@ -552,6 +552,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 <script src="../assets/barangay-data.js"></script>
 <script src="../assets/script.js"></script>
 
