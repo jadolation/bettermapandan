@@ -514,6 +514,68 @@ def generate_barangays() -> None:
 # Main build
 # ---------------------------------------------------------------------------
 
+def compress_images() -> None:
+    """Compress citizen's charter JPGs and history PNGs using sharp (Node.js)."""
+    compress_script = ROOT / "compress.mjs"
+    script_content = r"""import sharp from "sharp";
+import fs from "fs";
+import path from "path";
+
+async function compressDir(dir, ext, method, params) {
+  const files = fs.readdirSync(dir).filter(f => f.endsWith(ext));
+  let totalBefore = 0, totalAfter = 0, count = 0;
+  for (const file of files) {
+    const filePath = path.join(dir, file);
+    const before = fs.statSync(filePath).size;
+    totalBefore += before;
+    try {
+      const buf = await sharp(filePath)[method](params).toBuffer();
+      fs.writeFileSync(filePath, buf);
+      totalAfter += buf.length;
+      count++;
+    } catch (err) {
+      console.error(`  SKIP ${file}: ${err.message}`);
+    }
+  }
+  return { count, totalBefore, totalAfter };
+}
+
+async function main() {
+  console.log("=== Compressing images ===\n");
+  const jpg = await compressDir("assets/citizens-charter", ".jpg", "jpeg", { quality: 82, mozjpeg: true });
+  const jpgPct = ((1 - jpg.totalAfter / jpg.totalBefore) * 100).toFixed(1);
+  console.log(`  JPGs: ${jpg.count} files, ${(jpg.totalBefore/1e6).toFixed(1)}MB → ${(jpg.totalAfter/1e6).toFixed(1)}MB (${jpgPct}%)`);
+
+  const png = await compressDir("assets/history", ".png", "png", { quality: 80, compressionLevel: 9 });
+  const pngPct = ((1 - png.totalAfter / png.totalBefore) * 100).toFixed(1);
+  console.log(`  PNGs: ${png.count} files, ${(png.totalBefore/1e6).toFixed(1)}MB → ${(png.totalAfter/1e6).toFixed(1)}MB (${pngPct}%)`);
+
+  const totalBefore = jpg.totalBefore + png.totalBefore;
+  const totalAfter = jpg.totalAfter + png.totalAfter;
+  console.log(`\n  Total: ${(totalBefore/1e6).toFixed(1)}MB → ${(totalAfter/1e6).toFixed(1)}MB (${((1-totalAfter/totalBefore)*100).toFixed(1)}% reduction)`);
+}
+
+main().catch(console.error);
+"""
+    compress_script.write_text(script_content, encoding="utf-8")
+    import subprocess
+
+    result = subprocess.run(
+        ["node", str(compress_script)],
+        cwd=str(ROOT),
+        capture_output=True,
+        text=True,
+    )
+    compress_script.unlink(missing_ok=True)
+
+    if result.returncode != 0:
+        print(f"  Image compression failed: {result.stderr}", file=sys.stderr)
+    else:
+        print(result.stdout)
+        if result.stderr:
+            print(result.stderr, file=sys.stderr)
+
+
 def build() -> None:
     # Generate barangay data (shared)
     generate_barangays()
@@ -1464,4 +1526,6 @@ def build() -> None:
 
 
 if __name__ == "__main__":
+    if "--compress" in sys.argv:
+        compress_images()
     build()
