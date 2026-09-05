@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Search — BetterMapandan.org</title>
+<meta name="description" content="Search government services, officials, ordinances, and civic information for the Municipality of Mapandan." />
+<link rel="icon" href="../assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/android-chrome-192x192.png" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="emergency-bar">
+  <div class="wrap">
+    <a href="tel:911"><span class="label">Emergency</span> 911</a>
+    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+    <a href="tel:09434242810"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+    <a href="tel:09159793390"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+    <a href="tel:911"><span class="label">Emergency</span> 911</a>
+    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+    <a href="tel:09434242810"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+    <a href="tel:09159793390"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+      <span class="brand-text">
+        <span class="top">Better Mapandan</span>
+        <span class="bottom">.org</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Tahanan</a></li>
+        <li><a href="../services.html">Mga Serbisyo</a></li>
+        <li><a href="../government.html">Pamahalaan</a></li>
+        <li><a href="../legislative.html">Lehislatibo</a></li>
+        <li><a href="../statistics.html">Estadistika</a></li>
+        <li><a href="../transparency.html">Transparency</a></li>
+        <li><a href="../about.html">Tungkol sa Amin</a></li>
+        <li><a href="../search.html" class="nav-search-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Hanapin
+        </a></li>
+      </ul>
+      <div class="lang-switcher">
+        <a href="../search.html" class="lang-btn ">EN</a>
+        <a href="search.html" class="lang-btn active">FIL</a>
+      </div>
+      <a href="../search.html" class="nav-search" aria-label="Hanapin">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="content">
+<section class="page-hero">
+  <img class="hero-rays" src="./assets/logo-no-white.svg" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow">Search</span>
+    <h1>Maghanap ng impormasyon ng pamahalaan</h1>
+    <p class="lede">Maghanap ng mga serbisyo, opisyal, ordinansa, opisyo, at iba pa.</p>
+    <form class="search-form" role="search" action="search.html" method="get">
+      <label for="search-input" class="sr-only">Search query</label>
+      <input id="search-input" class="search-input" type="search" name="q" placeholder="e.g. birth certificate, business permit, zoning..." autocomplete="off" />
+      <button class="search-btn" type="submit" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div id="search-status" class="data-note" style="display:none">
+      <span>&#9432;</span>
+      <span id="search-status-text"></span>
+    </div>
+    <div id="search-results"></div>
+    <div id="search-empty" class="search-empty" style="display:none">
+      <h3>No results found</h3>
+      <p>Try different keywords or browse our pages directly.</p>
+      <div style="margin-top:16px">
+        <a class="btn btn-primary" href="services.html">Tumingin ng Serbisyo</a>
+        <a class="btn btn-outline" href="government.html">View Government Directory</a>
+      </div>
+    </div>
+    <div id="search-browse">
+      <div class="section-head">
+        <div class="section-eyebrow">Tumingin ayon sa paksa</div>
+        <h2>Tuklasin ang Mapandan</h2>
+        <p>Jump to a section or explore popular services.</p>
+      </div>
+      <div class="search-browse-grid">
+        <a class="search-browse-card" href="services.html">
+          <div class="search-browse-icon"><i data-lucide="clipboard-list"></i></div>
+          <h3>Services</h3>
+          <p>Citizen's charter, permits, and certifications.</p>
+        </a>
+        <a class="search-browse-card" href="government.html">
+          <div class="search-browse-icon"><i data-lucide="landmark"></i></div>
+          <h3>Government</h3>
+          <p>Officials, departments, and barangay directory.</p>
+        </a>
+        <a class="search-browse-card" href="legislative.html">
+          <div class="search-browse-icon"><i data-lucide="scale"></i></div>
+          <h3>Legislative</h3>
+          <p>Ordinances, resolutions, and executive issuances.</p>
+        </a>
+        <a class="search-browse-card" href="statistics.html">
+          <div class="search-browse-icon"><i data-lucide="chart-bar"></i></div>
+          <h3>Statistics</h3>
+          <p>Population, demographics, and fiscal data.</p>
+        </a>
+        <a class="search-browse-card" href="transparency.html">
+          <div class="search-browse-icon"><i data-lucide="wallet"></i></div>
+          <h3>Transparency</h3>
+          <p>Budget, expenditures, and audit reports.</p>
+        </a>
+      </div>
+      <div class="search-categories">
+        <h3>Mga sikat na serbisyo</h3>
+        <div class="search-category-grid">
+          <div class="search-category-card">
+            <h4><i data-lucide="clipboard-list"></i> Business Permitting</h4>
+            <a href="services/business-permit.html">New Business Permit</a>
+            <a href="services/business-renewal.html">Business Renewal</a>
+            <a href="services/special-event-permit.html">Special Event Permit</a>
+          </div>
+          <div class="search-category-card">
+            <h4><i data-lucide="scroll-text"></i> Civil Registry</h4>
+            <a href="services/birth-certificate.html">Birth Certificate</a>
+            <a href="services/marriage-license.html">Marriage License</a>
+            <a href="services/death-certificate.html">Death Certificate</a>
+          </div>
+          <div class="search-category-card">
+            <h4><i data-lucide="heart-pulse"></i> Health Services</h4>
+            <a href="services/health-consultation.html">Health Consultation</a>
+            <a href="services/nutrition-immunization.html">Nutrition &amp; Immunization</a>
+          </div>
+          <div class="search-category-card">
+            <h4><i data-lucide="id-card"></i> Social Welfare</h4>
+            <a href="services/senior-pwd-id.html">Senior Citizen &amp; PWD ID</a>
+            <a href="services/solo-parent-id.html">Solo Parent ID</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var input = document.getElementById("search-input");
+  var resultsDiv = document.getElementById("search-results");
+  var statusDiv = document.getElementById("search-status");
+  var statusText = document.getElementById("search-status-text");
+  var emptyDiv = document.getElementById("search-empty");
+  var browseDiv = document.getElementById("search-browse");
+  var params = new URLSearchParams(location.search);
+  var query = (params.get("q") || "").trim();
+
+  if (input && query) {
+    input.value = query;
+  }
+
+  if (!query) {
+    statusDiv.style.display = "none";
+    browseDiv.style.display = "block";
+    return;
+  }
+
+  browseDiv.style.display = "none";
+
+  // Load search index and perform search
+  fetch("assets/search-index.json")
+    .then(function (res) { return res.json(); })
+    .then(function (index) {
+      var q = query.toLowerCase();
+      var matches = [];
+
+      index.forEach(function (entry) {
+        var titleLower = entry.title.toLowerCase();
+        var bodyLower = entry.body.toLowerCase();
+        var descLower = entry.description.toLowerCase();
+        var score = 0;
+
+        if (titleLower.indexOf(q) !== -1) score += 10;
+        if (descLower.indexOf(q) !== -1) score += 5;
+        if (bodyLower.indexOf(q) !== -1) score += 2;
+
+        if (score > 0) {
+          // Extract snippet around match
+          var bodyText = entry.body;
+          var idx = bodyLower.indexOf(q);
+          var start = Math.max(0, idx - 80);
+          var end = Math.min(bodyText.length, idx + q.length + 80);
+          var snippet = (start > 0 ? "..." : "") + bodyText.slice(start, end) + (end < bodyText.length ? "..." : "");
+
+          // Determine section anchor for deep-linking
+          var resultUrl = entry.url;
+          var sectionAnchors = entry.section_anchors;
+          if (sectionAnchors && sectionAnchors.length > 0) {
+            // Find the section whose start position is closest before the match
+            var bestAnchor = sectionAnchors[0].anchor;
+            for (var i = 0; i < sectionAnchors.length; i++) {
+              if (sectionAnchors[i].pos <= idx) {
+                bestAnchor = sectionAnchors[i].anchor;
+              }
+            }
+            resultUrl = entry.url + "#" + bestAnchor;
+          }
+
+          matches.push({
+            title: entry.title,
+            url: resultUrl,
+            description: entry.description,
+            snippet: snippet,
+            score: score
+          });
+        }
+      });
+
+      matches.sort(function (a, b) { return b.score - a.score; });
+
+      if (matches.length === 0) {
+        emptyDiv.style.display = "block";
+        statusDiv.style.display = "none";
+        return;
+      }
+
+      // Group by category (first path segment)
+      var groups = {};
+      matches.forEach(function (m) {
+        var parts = m.url.split("/");
+        var cat = parts.length > 1 ? parts[0].replace(".html", "") : "Pages";
+        cat = cat.charAt(0).toUpperCase() + cat.slice(1);
+        if (!groups[cat]) groups[cat] = [];
+        groups[cat].push(m);
+      });
+
+      var html = "";
+      Object.keys(groups).forEach(function (cat) {
+        html += '<div class="search-result-group">';
+        html += '<h3>' + cat + '</h3>';
+        groups[cat].forEach(function (m) {
+          html += '<div class="search-result">';
+          html += '<h4><a href="' + m.url + '">' + m.title + '</a></h4>';
+          html += '<p>' + m.snippet + '</p>';
+          html += '</div>';
+        });
+        html += '</div>';
+      });
+
+      resultsDiv.innerHTML = html;
+      statusDiv.style.display = "flex";
+      statusText.textContent = matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' for "' + query + '"';
+    })
+    .catch(function () {
+      emptyDiv.style.display = "block";
+      emptyDiv.querySelector("h3").textContent = "Search unavailable";
+      emptyDiv.querySelector("p").textContent = "The search index could not be loaded. Please try again later.";
+    });
+});
+</script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+          <div>
+            <div class="name">Better Mapandan</div>
+            <p>Isang independenteng civic transparency portal para sa Mapandan, Pangasinan, ginawa at pinapanatili ng mga volunteer sa ilalim ng BetterGov.ph initiative &mdash; hindi opisyal na website ng pamahalaan.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h5>Mabilis na Links</h5>
+        <ul>
+          <li><a href="../index.html">{{NAV_HOME}}</a></li>
+          <li><a href="../services.html">{{NAV_SERVICES}}</a></li>
+          <li><a href="../government.html">{{NAV_GOVERNMENT}}</a></li>
+          <li><a href="../legislative.html">{{NAV_LEGISLATIVE}}</a></li>
+          <li><a href="../statistics.html">{{NAV_STATISTICS}}</a></li>
+          <li><a href="../transparency.html">{{NAV_TRANSPARENCY}}</a></li>
+          <li><a href="../about.html">{{NAV_ABOUT}}</a></li>
+          <li><a href="../support/sitemap.html">Sitemap</a></li>
+          <li><a href="../support/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Mga Mapagkukunan</h5>
+        <ul>
+          <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
+          <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
+          <li><a href="https://coa.gov.ph/" target="_blank" rel="noopener">Commission on Audit</a></li>
+          <li><a href="https://dilg.gov.ph/" target="_blank" rel="noopener">DILG</a></li>
+          <li><a href="https://blgf.gov.ph/" target="_blank" rel="noopener">BLGF</a></li>
+          <li><a href="https://foi.gov.ph/" target="_blank" rel="noopener">FOI</a></li>
+          <li><a href="https://philgeps.gov.ph/" target="_blank" rel="noopener">PhilGEPS</a></li>
+          <li><a href="https://psa.gov.ph/" target="_blank" rel="noopener">Philippine Statistics Authority</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Proyekto</h5>
+        <ul>
+          <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
+          <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>
+          <li><a href="../support/privacy.html">Privacy Policy</a></li>
+          <li><a href="../support/terms.html">Mga Tuntunin ng Paggamit</a></li>
+          <li><a href="../support/accessibility.html">Accessibility</a></li>
+          <li><a href="../support/report.html">Iulat ang Maliwang Impormasyon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BetterMapandan.org. Pinamamahalaan ng komunidad, independent sa LGU.</span>
+      <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
+        <img src="../assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo">
+        <span>Isang BetterGov.ph Community Portal</span>
+      </a>
+      <span class="cost-chip">Gastos sa mga Tao ng Mapandan: <strong>&#8369;0</strong></span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/barangay-data.js"></script>
+<script src="../assets/script.js"></script>
+
+<nav class="mobile-action-bar" aria-label="Quick actions">
+  <a href="tel:911" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Hotline</span>
+  </a>
+  <a href="../search.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+  </a>
+  <a href="../services.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <span>Services</span>
+  </a>
+</nav>
+
+</body>
+</html>

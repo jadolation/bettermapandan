@@ -1,13 +1,13 @@
 <div class="emergency-bar">
   <div class="wrap">
-    <a href="tel:911"><span class="label">Emergency</span> 911</a>
-    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
-    <a href="tel:09434242810"><span class="label">Fire (BFP)</span> 0943-424-2810</a>
-    <a href="tel:09159793390"><span class="label">Police (PNP)</span> 0915-979-3390</a>
-    <a href="tel:911"><span class="label">Emergency</span> 911</a>
-    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
-    <a href="tel:09434242810"><span class="label">Fire (BFP)</span> 0943-424-2810</a>
-    <a href="tel:09159793390"><span class="label">Police (PNP)</span> 0915-979-3390</a>
+    <a href="tel:911"><span class="label">{{EMERGENCY_LABEL}}</span> 911</a>
+    <a href="tel:09692236912"><span class="label">{{EMERGENCY_MDRRMO}}</span> 0969-223-6912</a>
+    <a href="tel:09434242810"><span class="label">{{EMERGENCY_FIRE}}</span> 0943-424-2810</a>
+    <a href="tel:09159793390"><span class="label">{{EMERGENCY_POLICE}}</span> 0915-979-3390</a>
+    <a href="tel:911"><span class="label">{{EMERGENCY_LABEL}}</span> 911</a>
+    <a href="tel:09692236912"><span class="label">{{EMERGENCY_MDRRMO}}</span> 0969-223-6912</a>
+    <a href="tel:09434242810"><span class="label">{{EMERGENCY_FIRE}}</span> 0943-424-2810</a>
+    <a href="tel:09159793390"><span class="label">{{EMERGENCY_POLICE}}</span> 0915-979-3390</a>
   </div>
 </div>
 
@@ -21,23 +21,27 @@
       </span>
     </a>
     <nav class="nav" aria-label="Main">
-      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span class="sr-only">Menu</span>
+      <button class="nav-toggle" aria-label="{{NAV_MENU}}" aria-expanded="false">
+        <span class="sr-only">{{NAV_MENU}}</span>
       </button>
       <ul class="nav-links">
-        <li><a href="{{ASSET_BASE}}/index.html">Home</a></li>
-        <li><a href="{{ASSET_BASE}}/services.html">Services</a></li>
-        <li><a href="{{ASSET_BASE}}/government.html">Government</a></li>
-        <li><a href="{{ASSET_BASE}}/legislative.html">Legislative</a></li>
-        <li><a href="{{ASSET_BASE}}/statistics.html">Statistics</a></li>
-        <li><a href="{{ASSET_BASE}}/transparency.html">Transparency</a></li>
-        <li><a href="{{ASSET_BASE}}/about.html">About</a></li>
+        <li><a href="{{ASSET_BASE}}/index.html">{{NAV_HOME}}</a></li>
+        <li><a href="{{ASSET_BASE}}/services.html">{{NAV_SERVICES}}</a></li>
+        <li><a href="{{ASSET_BASE}}/government.html">{{NAV_GOVERNMENT}}</a></li>
+        <li><a href="{{ASSET_BASE}}/legislative.html">{{NAV_LEGISLATIVE}}</a></li>
+        <li><a href="{{ASSET_BASE}}/statistics.html">{{NAV_STATISTICS}}</a></li>
+        <li><a href="{{ASSET_BASE}}/transparency.html">{{NAV_TRANSPARENCY}}</a></li>
+        <li><a href="{{ASSET_BASE}}/about.html">{{NAV_ABOUT}}</a></li>
         <li><a href="{{ASSET_BASE}}/search.html" class="nav-search-link">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          Search
+          {{NAV_SEARCH}}
         </a></li>
       </ul>
-      <a href="{{ASSET_BASE}}/search.html" class="nav-search" aria-label="Search">
+      <div class="lang-switcher">
+        <a href="{{LANG_EN_URL}}" class="lang-btn {{LANG_ACTIVE_EN}}">{{LANG_LABEL_EN}}</a>
+        <a href="{{LANG_FIL_URL}}" class="lang-btn {{LANG_ACTIVE_FIL}}">{{LANG_LABEL_FIL}}</a>
+      </div>
+      <a href="{{ASSET_BASE}}/search.html" class="nav-search" aria-label="{{NAV_SEARCH}}">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </a>
     </nav>
