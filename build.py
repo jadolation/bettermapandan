@@ -514,6 +514,102 @@ def generate_barangays() -> None:
 # Main build
 # ---------------------------------------------------------------------------
 
+def verify_translations() -> None:
+    """Compare EN vs FIL HTML output and flag untranslated English strings."""
+    import re as _re
+
+    def strip_tags(html_text: str) -> str:
+        """Remove HTML tags and collapse whitespace."""
+        text = _re.sub(r"<script[^>]*>.*?</script>", "", html_text, flags=_re.S)
+        text = _re.sub(r"<style[^>]*>.*?</style>", "", html_text, flags=_re.S)
+        text = _re.sub(r"<[^>]+>", " ", text)
+        text = _re.sub(r"\s+", " ", text).strip()
+        return text
+
+    def extract_segments(text: str, min_len: int = 20) -> list[str]:
+        """Split into sentence-like segments."""
+        segs = _re.split(r"(?<=[.!?])\s+", text)
+        return [s.strip() for s in segs if len(s.strip()) >= min_len]
+
+    # Words/phrases that are expected to stay English (proper nouns, tech terms, etc.)
+    ALLOWLIST = {
+        "bettermapandan.org", "better mapandan", "github", "chart.js", "chart",
+        "open-meteo", "lucide", "svg", "pdf", "html", "css", "json", "js",
+        "philhealth", "pag-ibig", "gsis", "sss", "dswd", "doe", "da", "dar",
+        "denr", "dilg", "doj", "dof", "dbm", "neda", "psa", "comelec", "coe",
+        "coe-id", "philsys", "lgu", "bplo", "cenro", "menro", "ldrrmo", "lydo",
+        "sk", "sb", "rtc", "mctc", "mdrrmo", "aics", "pwd", "solo parent",
+        "birth certificate", "death certificate", "marriage certificate",
+        "certificate of", "clearance", "barangay", "mayor",
+        "mapandan", "pangasinan", "philippines", "luzon",
+        "cy 2020", "cy 2021", "cy 2022", "cy 2023", "cy 2024", "cy 2025", "cy 2026",
+        "res.", "res no.", "ordinance", "resolution", "executive order",
+        "republic act", "ra no.", "pd no.", "bp no.", " eo ",
+        "land bank", "landbank", "coa", "sglg", "fdp", "gf",
+        "chart.js", "unpkg.com", "cdn.jsdelivr.net",
+        "google maps", "google.com", "maps.app",
+        "16.03", "120.456", "openstreetmap",
+        "©", "© 2024", "© 2025", "© 2026",
+    }
+
+    print("\n--- Translation Linter ---\n")
+
+    en_dir = ROOT
+    fil_dir = FIL_DIR
+
+    if not fil_dir.exists():
+        print("  FIL output not found. Run build first.")
+        return
+
+    # Collect all EN HTML files
+    en_files = sorted(en_dir.glob("*.html")) + sorted((en_dir / "services").glob("*.html")) + sorted((en_dir / "support").glob("*.html"))
+    findings = []
+    pages_checked = 0
+
+    for en_path in en_files:
+        rel = en_path.relative_to(en_dir)
+        fil_path = fil_dir / rel
+
+        if not fil_path.exists():
+            continue
+
+        en_text = strip_tags(en_path.read_text(encoding="utf-8"))
+        fil_text = strip_tags(fil_path.read_text(encoding="utf-8"))
+
+        en_segs = extract_segments(en_text)
+        fil_segs = extract_segments(fil_text)
+
+        # Find EN segments that also appear verbatim in FIL (untranslated)
+        for seg in en_segs:
+            seg_lower = seg.lower().strip()
+            # Skip very short or trivial segments
+            if len(seg_lower) < 25:
+                continue
+            # Skip if in allowlist
+            if any(term in seg_lower for term in ALLOWLIST):
+                continue
+            # Check if this exact segment appears in FIL text
+            if seg_lower in fil_text.lower():
+                # Truncate for display
+                display = seg[:100] + ("..." if len(seg) > 100 else "")
+                findings.append((str(rel), display))
+
+        pages_checked += 1
+
+    if findings:
+        print(f"  Found {len(findings)} potential untranslated segment(s) in {pages_checked} page pairs:\n")
+        prev_file = None
+        for file_path, segment in findings:
+            if file_path != prev_file:
+                print(f"  [{file_path}]")
+                prev_file = file_path
+            print(f"    - \"{segment}\"")
+        print(f"\n  Summary: {len(findings)} segment(s) across {pages_checked} pages may need translation.")
+        print("  Note: Some matches are expected (proper nouns, technical terms). Review manually.")
+    else:
+        print(f"  No untranslated segments found across {pages_checked} page pairs.")
+
+
 def compress_images() -> None:
     """Compress citizen's charter JPGs and history PNGs using sharp (Node.js)."""
     compress_script = ROOT / "compress.mjs"
@@ -1528,4 +1624,7 @@ def build() -> None:
 if __name__ == "__main__":
     if "--compress" in sys.argv:
         compress_images()
-    build()
+    if "--verify-translations" in sys.argv:
+        verify_translations()
+    if "--compress" not in sys.argv and "--verify-translations" not in sys.argv:
+        build()
