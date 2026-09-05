@@ -1,5 +1,32 @@
 // Better Mapandan — shared site behavior (no frameworks, no dead ends)
 
+// Language persistence — saves preference and auto-redirects on page load
+function switchLang(lang) {
+  localStorage.setItem("bettermapandan_lang", lang);
+}
+
+function getCurrentLang() {
+  return location.pathname.indexOf("/fil/") !== -1 ? "fil" : "en";
+}
+
+function redirectIfMismatch() {
+  var stored = localStorage.getItem("bettermapandan_lang");
+  var current = getCurrentLang();
+  if (!stored || stored === current) return;
+
+  var path = location.pathname;
+  var target;
+  if (stored === "fil") {
+    target = "/fil" + path;
+  } else {
+    target = path.replace("/fil/", "/");
+  }
+  location.replace(target + location.search + location.hash);
+}
+
+// Run redirect check immediately (before any rendering)
+redirectIfMismatch();
+
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
