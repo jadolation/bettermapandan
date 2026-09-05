@@ -1,13 +1,41 @@
 // Better Mapandan — shared site behavior (no frameworks, no dead ends)
 
+function escHtml(str) {
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function escAttr(str) {
+  if (str == null) return "";
+  return String(str).replace(/"/g, "&quot;");
+}
+
 // Language persistence — saves preference to localStorage
 function switchLang(lang) {
   localStorage.setItem("bettermapandan_lang", lang);
 }
 
 function getCurrentLang() {
-  return location.pathname.indexOf("/fil/") !== -1 ? "fil" : "en";
+  return document.documentElement.lang || (location.pathname.indexOf("/fil/") !== -1 ? "fil" : "en");
 }
+
+// Language switcher - attach event listeners to lang buttons
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".lang-btn[data-lang]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = btn.getAttribute("data-lang");
+      switchLang(lang);
+      var href = btn.getAttribute("href");
+      if (href) window.location.href = href;
+    });
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
@@ -84,9 +112,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return res.json();
       })
       .then(function (data) {
-        clearTimeout(timeout);
         var current = data.current;
         var daily = data.daily;
+        if (!current || !daily) {
+          throw new Error("Invalid weather data");
+        }
+        clearTimeout(timeout);
         var code = current.weather_code;
         var icon = weatherIcon(code);
         var desc = weatherDesc(code);
@@ -146,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
         html += '</div>';
 
         weatherEl.innerHTML = html;
-        clearTimeout(timeout);
         if (typeof lucide !== "undefined") lucide.createIcons({ nodes: [weatherEl] });
       })
       .catch(function (err) {
@@ -218,8 +248,8 @@ document.addEventListener("DOMContentLoaded", function () {
     region.addEventListener("mouseleave", startAuto);
     region.addEventListener("touchstart", stopAuto, { passive: true });
     region.addEventListener("touchend", function () { setTimeout(startAuto, 3000); }, { passive: true });
+    startAuto();
   }
-  startAuto();
 });
 
 // History accordions
@@ -245,28 +275,32 @@ document.addEventListener("DOMContentLoaded", function () {
   var ctx = document.getElementById("chart-history-population");
   if (!ctx) return;
 
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["1903", "1918", "1939", "1948", "1960", "1970", "1980", "1990", "2000", "2010", "2020", "2024"],
-      datasets: [{
-        label: "Population",
-        data: [4198, 6049, 7286, 9836, 13065, 16653, 20094, 25622, 30775, 34077, 38058, 38228],
-        backgroundColor: "rgba(76,138,46,0.6)",
-        borderColor: "#4c8a2e",
-        borderWidth: 1,
-        borderRadius: 3
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: { legend: { display: false } },
-      scales: {
-        y: { beginAtZero: true },
-        x: { grid: { display: false } }
+  try {
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["1903", "1918", "1939", "1948", "1960", "1970", "1980", "1990", "2000", "2010", "2020", "2024"],
+        datasets: [{
+          label: "Population",
+          data: [4198, 6049, 7286, 9836, 13065, 16653, 20094, 25622, 30775, 34077, 38058, 38228],
+          backgroundColor: "rgba(76,138,46,0.6)",
+          borderColor: "#4c8a2e",
+          borderWidth: 1,
+          borderRadius: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true },
+          x: { grid: { display: false } }
+        }
       }
-    }
-  });
+    });
+  } catch (e) {
+    console.warn("Chart initialization failed:", e);
+  }
 });
 
 // Barangay history modal
@@ -292,8 +326,33 @@ document.addEventListener("DOMContentLoaded", function () {
     card.className = "barangay-card";
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
-    card.setAttribute("aria-label", name + " \u2014 " + d.pop2024 + " residents, " + d.landUse + ". Read history.");
-    card.innerHTML = "<h4>" + name + '</h4><div class="barangay-card-meta"><span class="barangay-card-pop">' + d.pop2024 + '</span><span class="barangay-card-landuse">' + d.landUse + '</span>' + (d.punong ? '<span class="barangay-card-punong">' + d.punong + '</span>' : '') + '</div>';
+    card.setAttribute("aria-label", escAttr(name) + " \u2014 " + escAttr(d.pop2024) + " residents, " + escAttr(d.landUse) + ". Read history.");
+
+    var h4 = document.createElement("h4");
+    h4.textContent = name;
+    card.appendChild(h4);
+
+    var meta = document.createElement("div");
+    meta.className = "barangay-card-meta";
+
+    var pop = document.createElement("span");
+    pop.className = "barangay-card-pop";
+    pop.textContent = d.pop2024 || "";
+    meta.appendChild(pop);
+
+    var landuse = document.createElement("span");
+    landuse.className = "barangay-card-landuse";
+    landuse.textContent = d.landUse || "";
+    meta.appendChild(landuse);
+
+    if (d.punong) {
+      var punong = document.createElement("span");
+      punong.className = "barangay-card-punong";
+      punong.textContent = d.punong;
+      meta.appendChild(punong);
+    }
+
+    card.appendChild(meta);
     card.addEventListener("click", function () { openBarangayModal(name, d); });
     card.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openBarangayModal(name, d); }
@@ -303,39 +362,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openBarangayModal(name, data) {
     var previouslyFocused = document.activeElement;
-
-    // Contact info — show Facebook and Phone separately
-    var contactHtml = "";
-    if (data.facebook) {
-      contactHtml += '<p><strong>Facebook:</strong> <a href="' + data.facebook + '" target="_blank" rel="noopener">Barangay Page</a></p>';
-    }
-    if (data.phone && data.phone.toUpperCase() !== "N/A") {
-      contactHtml += '<p><strong>Phone:</strong> <a href="tel:' + data.phone.replace(/\s/g, "") + '">' + data.phone + '</a></p>';
-    } else if (data.phone) {
-      contactHtml += '<p><strong>Phone:</strong> N/A</p>';
-    }
-
-    // Kagawads
-    var kagawadHtml = "";
-    var kagawads = data.kagawads || [];
-    if (kagawads.length > 0) {
-      kagawadHtml = '<p><strong>Kagawads:</strong></p><ul style="margin:0 0 12px 20px; padding:0">';
-      kagawads.forEach(function (k) {
-        kagawadHtml += "<li>" + k + "</li>";
-      });
-      kagawadHtml += "</ul>";
-    }
-
-    // Officials list (Secretary, Treasurer, SK Chair)
-    var officialsHtml = "";
-    var officials = data.officials || [];
-    if (officials.length > 0) {
-      officialsHtml = '<table class="barangay-officials"><thead><tr><th>Position</th><th>Name</th></tr></thead><tbody>';
-      officials.forEach(function (off) {
-        officialsHtml += "<tr><td>" + off.position + "</td><td>" + off.name + "</td></tr>";
-      });
-      officialsHtml += "</tbody></table>";
-    }
 
     var overlay = document.createElement("div");
     overlay.className = "barangay-modal-overlay";
@@ -349,7 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var closeBtn = document.createElement("button");
     closeBtn.className = "barangay-modal-close";
     closeBtn.setAttribute("aria-label", "Close");
-    closeBtn.innerHTML = "&times;";
+    closeBtn.textContent = "\u00D7";
     modalDiv.appendChild(closeBtn);
 
     var titleEl = document.createElement("h3");
@@ -357,42 +383,101 @@ document.addEventListener("DOMContentLoaded", function () {
     modalDiv.appendChild(titleEl);
 
     var popEl = document.createElement("p");
-    popEl.innerHTML = "<strong>2024 Population:</strong> " + data.pop2024 +
-      " &middot; <strong>2020 Population:</strong> " + data.pop2020 +
-      " &middot; <strong>Land Use:</strong> " + data.landUse;
+    popEl.innerHTML = "<strong>2024 Population:</strong> " + escHtml(data.pop2024) +
+      " &middot; <strong>2020 Population:</strong> " + escHtml(data.pop2020) +
+      " &middot; <strong>Land Use:</strong> " + escHtml(data.landUse);
     modalDiv.appendChild(popEl);
 
     if (data.punong) {
       var punongEl = document.createElement("p");
-      punongEl.innerHTML = "<strong>Punong Barangay:</strong> " + data.punong;
+      punongEl.innerHTML = "<strong>Punong Barangay:</strong> " + escHtml(data.punong);
       modalDiv.appendChild(punongEl);
     }
 
-    if (contactHtml) {
-      var contactDiv = document.createElement("div");
-      contactDiv.innerHTML = contactHtml;
-      modalDiv.appendChild(contactDiv);
+    // Contact info
+    if (data.facebook) {
+      var fbP = document.createElement("p");
+      var fbStrong = document.createElement("strong");
+      fbStrong.textContent = "Facebook: ";
+      var fbLink = document.createElement("a");
+      fbLink.href = data.facebook;
+      fbLink.target = "_blank";
+      fbLink.rel = "noopener";
+      fbLink.textContent = "Barangay Page";
+      fbP.appendChild(fbStrong);
+      fbP.appendChild(fbLink);
+      modalDiv.appendChild(fbP);
     }
 
-    if (kagawadHtml) {
-      var kagawadDiv = document.createElement("div");
-      kagawadDiv.innerHTML = kagawadHtml;
-      modalDiv.appendChild(kagawadDiv);
+    if (data.phone) {
+      var phoneP = document.createElement("p");
+      var phoneStrong = document.createElement("strong");
+      phoneStrong.textContent = "Phone: ";
+      phoneP.appendChild(phoneStrong);
+      if (data.phone.toUpperCase() !== "N/A") {
+        var phoneLink = document.createElement("a");
+        phoneLink.href = "tel:" + data.phone.replace(/\s/g, "");
+        phoneLink.textContent = data.phone;
+        phoneP.appendChild(phoneLink);
+      } else {
+        phoneP.appendChild(document.createTextNode("N/A"));
+      }
+      modalDiv.appendChild(phoneP);
     }
 
-    if (officialsHtml) {
-      var officialsDiv = document.createElement("div");
-      officialsDiv.innerHTML = officialsHtml;
-      modalDiv.appendChild(officialsDiv);
+    // Kagawads
+    var kagawads = data.kagawads || [];
+    if (kagawads.length > 0) {
+      var kagawadLabel = document.createElement("p");
+      kagawadLabel.innerHTML = "<strong>Kagawads:</strong>";
+      modalDiv.appendChild(kagawadLabel);
+      var kagawadList = document.createElement("ul");
+      kagawadList.style.margin = "0 0 12px 20px";
+      kagawadList.style.padding = "0";
+      kagawads.forEach(function (k) {
+        var li = document.createElement("li");
+        li.textContent = k.name || "";
+        kagawadList.appendChild(li);
+      });
+      modalDiv.appendChild(kagawadList);
+    }
+
+    // Officials list (Secretary, Treasurer, SK Chair)
+    var officials = data.officials || [];
+    if (officials.length > 0) {
+      var offTable = document.createElement("table");
+      offTable.className = "barangay-officials";
+      var offThead = document.createElement("thead");
+      var offTr = document.createElement("tr");
+      ["Position", "Name"].forEach(function (h) {
+        var th = document.createElement("th");
+        th.textContent = h;
+        offTr.appendChild(th);
+      });
+      offThead.appendChild(offTr);
+      offTable.appendChild(offThead);
+      var offTbody = document.createElement("tbody");
+      officials.forEach(function (off) {
+        var tr = document.createElement("tr");
+        var posTd = document.createElement("td");
+        posTd.textContent = off.position || "";
+        var nameTd = document.createElement("td");
+        nameTd.textContent = off.name || "";
+        tr.appendChild(posTd);
+        tr.appendChild(nameTd);
+        offTbody.appendChild(tr);
+      });
+      offTable.appendChild(offTbody);
+      modalDiv.appendChild(offTable);
     }
 
     var historyEl = document.createElement("p");
-    historyEl.textContent = data.history;
+    historyEl.textContent = data.history || "";
     modalDiv.appendChild(historyEl);
 
     var sourceEl = document.createElement("p");
     sourceEl.className = "source-cite";
-    sourceEl.textContent = "Source: " + data.source;
+    sourceEl.textContent = "Source: " + (data.source || "");
     modalDiv.appendChild(sourceEl);
 
     var actionsDiv = document.createElement("div");
@@ -410,15 +495,8 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(function () { overlay.classList.add("open"); });
 
     closeBtn = overlay.querySelector(".barangay-modal-close");
-    function close() {
-      overlay.classList.remove("open");
-      setTimeout(function () { overlay.remove(); }, 200);
-      if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
-    }
-    closeBtn.addEventListener("click", close);
-    overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
-    document.addEventListener("keydown", function handler(e) {
-      if (e.key === "Escape") { close(); document.removeEventListener("keydown", handler); }
+    var keyHandler = function handler(e) {
+      if (e.key === "Escape") { close(); }
       if (e.key === "Tab") {
         var modal = overlay.querySelector(".barangay-modal");
         var focusable = modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
@@ -428,7 +506,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
-    });
+    };
+    function close() {
+      overlay.classList.remove("open");
+      document.removeEventListener("keydown", keyHandler);
+      setTimeout(function () { overlay.remove(); }, 200);
+      if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
+    }
+    closeBtn.addEventListener("click", close);
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
+    document.addEventListener("keydown", keyHandler);
     closeBtn.focus();
   }
 });
