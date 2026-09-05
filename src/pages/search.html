@@ -6,8 +6,8 @@ description: Search government services, officials, ordinances, and civic inform
   <img class="hero-rays" src="./assets/logo-no-white.svg" alt="" aria-hidden="true" />
   <div class="wrap">
     <span class="eyebrow">Search</span>
-    <h1>Find government information</h1>
-    <p class="lede">Search services, officials, ordinances, offices, and more.</p>
+    <h1>{{SEARCH_TITLE}}</h1>
+    <p class="lede">{{SEARCH_SUBTITLE}}</p>
     <form class="search-form" role="search" action="search.html" method="get">
       <label for="search-input" class="sr-only">Search query</label>
       <input id="search-input" class="search-input" type="search" name="q" placeholder="e.g. birth certificate, business permit, zoning..." autocomplete="off" />
@@ -35,8 +35,8 @@ description: Search government services, officials, ordinances, and civic inform
     </div>
     <div id="search-browse">
       <div class="section-head">
-        <div class="section-eyebrow">Browse by topic</div>
-        <h2>Explore Mapandan</h2>
+        <div class="section-eyebrow">{{SEARCH_BROWSE_EYEBROW}}</div>
+        <h2>{{SEARCH_BROWSE_TITLE}}</h2>
         <p>Jump to a section or explore popular services.</p>
       </div>
       <div class="search-browse-grid">
@@ -67,27 +67,27 @@ description: Search government services, officials, ordinances, and civic inform
         </a>
       </div>
       <div class="search-categories">
-        <h3>Popular services</h3>
+        <h3>{{SEARCH_POPULAR_TITLE}}</h3>
         <div class="search-category-grid">
           <div class="search-category-card">
-            <h4><i data-lucide="clipboard-list"></i> Business Permitting</h4>
+            <h4><i data-lucide="clipboard-list"></i> {{SEARCH_POPULAR_BIZ}}</h4>
             <a href="services/business-permit.html">New Business Permit</a>
             <a href="services/business-renewal.html">Business Renewal</a>
             <a href="services/special-event-permit.html">Special Event Permit</a>
           </div>
           <div class="search-category-card">
-            <h4><i data-lucide="scroll-text"></i> Civil Registry</h4>
+            <h4><i data-lucide="scroll-text"></i> {{SEARCH_POPULAR_CIVIL}}</h4>
             <a href="services/birth-certificate.html">Birth Certificate</a>
             <a href="services/marriage-license.html">Marriage License</a>
             <a href="services/death-certificate.html">Death Certificate</a>
           </div>
           <div class="search-category-card">
-            <h4><i data-lucide="heart-pulse"></i> Health Services</h4>
+            <h4><i data-lucide="heart-pulse"></i> {{SEARCH_POPULAR_HEALTH}}</h4>
             <a href="services/health-consultation.html">Health Consultation</a>
             <a href="services/nutrition-immunization.html">Nutrition &amp; Immunization</a>
           </div>
           <div class="search-category-card">
-            <h4><i data-lucide="id-card"></i> Social Welfare</h4>
+            <h4><i data-lucide="id-card"></i> {{SEARCH_POPULAR_WELFARE}}</h4>
             <a href="services/senior-pwd-id.html">Senior Citizen &amp; PWD ID</a>
             <a href="services/solo-parent-id.html">Solo Parent ID</a>
           </div>

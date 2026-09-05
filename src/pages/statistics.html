@@ -7,7 +7,7 @@ description: Population, demographics, economy, and key development indicators f
   <img class="hero-rays" src="./assets/logo-no-white.svg" alt="" aria-hidden="true" />
   <div class="wrap">
     <span class="eyebrow">Open Data</span>
-    <h1>Statistics &amp; Indicators</h1>
+    <h1>{STATISTICS_TITLE}</h1>
     <p class="lede">Key demographic, economic, and development indicators for Mapandan, compiled from official government sources and community research.</p>
   </div>
 </section>
@@ -20,32 +20,32 @@ description: Population, demographics, economy, and key development indicators f
 
     <div class="section-head">
       <div class="section-eyebrow">Population</div>
-      <h2>Demographic overview</h2>
+      <h2>{STATISTICS_POP_TITLE}</h2>
     </div>
     <div class="grid grid-3 stack-gap-lg">
       <div class="card">
-        <h3>Total Population (2024)</h3>
+        <h3>{STATISTICS_POP_TOTAL}</h3>
         <p class="figure">38,228</p>
         <span class="source-label">Source: PSA Census of Population 2024</span>
-        <span class="verification-badge badge-official">Official</span>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
       </div>
       <div class="card">
-        <h3>Households (2024)</h3>
+        <h3>{STATISTICS_POP_HOUSEHOLDS}</h3>
         <p class="figure">10,685</p>
         <span class="source-label">Source: Mapandan RHU 2023 </span>
-        <span class="verification-badge badge-official">Official</span>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
       </div>
       <div class="card">
-        <h3>Population Density</h3>
+        <h3>{STATISTICS_POP_DENSITY}</h3>
         <p class="figure">1,274/km&sup2;</p>
         <span class="source-label">Computed: 38,228 &divide; 30.00 km&sup2;</span>
-        <span class="verification-badge badge-official">Official</span>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
       </div>
     </div>
 
     <div class="section-head">
       <div class="section-eyebrow">Growth Trend</div>
-      <h2>Population by census year</h2>
+      <h2>{STATISTICS_GROWTH_TITLE}</h2>
       <p>Historical population from successive PSA censuses.</p>
     </div>
     <div class="table-wrap">
@@ -88,13 +88,13 @@ description: Population, demographics, economy, and key development indicators f
             <td>2000</td>
             <td>30,775</td>
             <td>+2.31%/yr</td>
-            <td>PSA Census 2000 <span class="verification-badge badge-unofficial">Unofficial</span></td>
+            <td>PSA Census 2000 <span class="verification-badge badge-unofficial">{COMMON_UNOFFICIAL}</span></td>
           </tr>
           <tr class="clickable-row" data-href="https://www.philatlas.com/luzon/r01/pangasinan/mapandan.html">
             <td>1995</td>
             <td>27,439</td>
             <td>&mdash;</td>
-            <td>PSA Census 1995 <span class="verification-badge badge-unofficial">Unofficial</span></td>
+            <td>PSA Census 1995 <span class="verification-badge badge-unofficial">{COMMON_UNOFFICIAL}</span></td>
           </tr>
         </tbody>
       </table>
@@ -109,12 +109,12 @@ description: Population, demographics, economy, and key development indicators f
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Economy</div>
-      <h2>Economic indicators</h2>
+      <h2>{STATISTICS_ECON_TITLE}</h2>
     </div>
     <div class="grid grid-3 stack-gap-lg">
       <div class="card" >
       <div class="clickable-row" data-href="https://rsso01.psa.gov.ph/system/files/publication/QuickStat_Pangasinan_0626.pdf">
-        <h3>Poverty Incidence (Provincial 2023)</h3>
+        <h3>{STATISTICS_ECON_POVERTY}</h3>
         <p class="figure">18.5%</p>
         <span class="source-label">Source: PSA 2023 (Provincial level)</span>
         <span class="verification-badge badge-official">Official</span>
@@ -123,22 +123,22 @@ description: Population, demographics, economy, and key development indicators f
       <!--unverified -->
       </div>
       <div class="card">
-        <h3>Labor Force Participation</h3>
+        <h3>{STATISTICS_ECON_LABOR}</h3>
         <p class="figure">62.8%</p>
         <span class="source-label">Source: PSA WVS / BLES estimate</span>
-        <span class="verification-badge badge-estimate">Provincial Estimate</span>
+        <span class="verification-badge badge-estimate">{COMMON_PROVINCIAL_ESTIMATE}</span>
       </div>
        <!--unverified -->
       <div class="card">
-        <h3>Agricultural Employment</h3>
+        <h3>{STATISTICS_ECON_AGRI_EMP}</h3>
         <p class="figure">~45%</p>
         <span class="source-label">Source: MPDC estimate</span>
-        <span class="verification-badge badge-estimate">Municipal Estimate</span>
+        <span class="verification-badge badge-estimate">{COMMON_MUNICIPAL_ESTIMATE}</span>
         <p class="note-inline">Major livelihood: rice, corn, and aquaculture.</p>
       </div>
       <div class="card">
         <div class="clickable-row" data-href="https://cmci.dti.gov.ph/lgu-profile.php?lgu=Mapandan">
-        <h3>Economic Dynamism Rank</h3>
+        <h3>{STATISTICS_ECON_DYNAMISM}</h3>
         <p class="figure">127th</p>
         <span class="source-label">Source: DTI Cities and Municipalities Competitive Index</span>
         <span class="verification-badge badge-official">Official</span>
@@ -161,27 +161,27 @@ description: Population, demographics, economy, and key development indicators f
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Land &amp; Barangays</div>
-      <h2>Geographic breakdown</h2>
+      <div class="section-eyebrow">{STATISTICS_LAND_EYEBROW}</div>
+      <h2>{STATISTICS_LAND_TITLE}</h2>
     </div>
     <div class="grid grid-3 stack-gap-lg">
       <div class="card">
-        <h3>Total Land Area</h3>
+        <h3>{STATISTICS_LAND_TOTAL}</h3>
         <p class="figure">3,291.75 ha &sup2;</p>
         <span class="source-label">Source: MPDC Land Use Plan 2024</span>
-        <span class="verification-badge badge-verified">Verified</span>
+        <span class="verification-badge badge-verified">{COMMON_VERIFIED}</span>
       </div>
       <div class="card">
-        <h3>Number of Barangays</h3>
+        <h3>{STATISTICS_LAND_BARANGAYS}</h3>
         <p class="figure">15</p>
         <span class="source-label">Source: DILG / Comelec</span>
         <span class="verification-badge badge-official">Official</span>
       </div>
       <div class="card">
-        <h3>Urban / Rural Split</h3>
+        <h3>{STATISTICS_LAND_URBAN_RURAL}</h3>
         <p class="figure">3 urban &middot; 12 rural</p>
         <span class="source-label">Source: MPDC Land Use Plan</span>
-        <span class="verification-badge badge-estimate">Municipal Estimate</span>
+        <span class="verification-badge badge-estimate">{COMMON_MUNICIPAL_ESTIMATE}</span>
       </div>
     </div>
   </div>
@@ -197,7 +197,7 @@ description: Population, demographics, economy, and key development indicators f
     <div class="grid grid-3" style="margin-top:16px">
       <div class="card">
         <div class="clickable-row" data-href="https://blgf.gov.ph/lgu-fiscal-data/">        
-        <h3>CY 2025 Total Revenue</h3>
+        <h3>{STATISTICS_FISCAL_REV_2025}</h3>
         <p class="figure">&#8369;197.70M</p>
         <span class="source-label">Source: BLGF LGU Fiscal Data 2025</span>
         <span class="verification-badge badge-official">Official</span>
@@ -205,23 +205,23 @@ description: Population, demographics, economy, and key development indicators f
       </div>
       <div class="card">
         <div class="clickable-row" data-href="https://blgf.gov.ph/lgu-fiscal-data/">        
-        <h3>CY 2025 Total Expenditure</h3>
+        <h3>{STATISTICS_FISCAL_EXP_2025}</h3>
         <p class="figure">&#8369;191.79M</p>
         <span class="source-label">Source: BLGF LGU Fiscal Data 2025 (OPE + Non-OPE)</span>
         <span class="verification-badge badge-official">Official</span>
         </div>
       </div>
       <div class="card">
-        <h3>CY 2025 Fiscal Balance</h3>
+        <h3>{STATISTICS_FISCAL_BALANCE_2025}</h3>
         <p class="figure" style="color: #4c8a2e;">+&#8369;5.92M</p>
         <span class="source-label">Source: Computed (Revenue - Expenditure)</span>
-        <span class="verification-badge badge-verified">Verified</span>
+        <span class="verification-badge badge-verified">{COMMON_VERIFIED}</span>
       </div>
     </div>
     </div>
  <div class="wrap">
     <div class="section-head" style="margin-top: 48px;">
-      <div class="section-eyebrow">BLGF Fiscal Summary</div>
+      <div class="section-eyebrow">{STATISTICS_FISCAL_BLGF}</div>
       <h2>Annual Revenue vs. Expenditure (2020–2025)</h2>
       <p>Official fiscal performance data sourced from the Bureau of Local Government Finance (BLGF). Total Expenditure reflects the sum of Operating (OPE) and Non-Operating expenditures.</p>
     </div>
@@ -257,12 +257,12 @@ description: Population, demographics, economy, and key development indicators f
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Trends</div>
-      <h2>Interactive charts</h2>
+      <h2>{STATISTICS_TRENDS_TITLE}</h2>
       <p>Visualize population growth, fiscal trends, and barangay demographics.</p>
     </div>
     <div class="grid grid-2" style="margin-bottom:32px" aria-live="polite">
       <div class="card">
-        <h3>Population Trend</h3>
+        <h3>{STATISTICS_CHART_POP_TREND}</h3>
         <canvas id="chart-population" height="200" role="img" aria-label="Population trend: 27,439 in 1995 growing to 38,228 in 2024"></canvas>
         <table class="sr-only">
           <caption>Population trend</caption>
@@ -277,7 +277,7 @@ description: Population, demographics, economy, and key development indicators f
             <tr><td>2024</td><td>38,228</td></tr>
           </tbody>
         </table>
-        <button class="report-btn" onclick="downloadCSV('population')">Download CSV</button>
+        <button class="report-btn" onclick="downloadCSV('population')">{STATISTICS_CHART_DOWNLOAD}</button>
       </div>
       <div class="card">
         <h3>Annual Budget vs. Investment Plan (AIP/SIP) Total, CY 2022&ndash;2026</h3>
@@ -295,7 +295,7 @@ description: Population, demographics, economy, and key development indicators f
           </tbody>
         </table>
         <p class="note-inline" style="margin-top:8px">Annual Budget bars shown only for years with a confirmed enacted budget (CY 2025&ndash;2026). AIP/SIP bars are the sum of all investment-plan resolutions passed for that fiscal year; the CY 2026 AIP figure is flagged as unverified (see note above). Source: Sangguniang Panlalawigan-certified ordinances and resolutions.</p>
-        <button class="report-btn" onclick="downloadCSV('fiscal')">Download CSV</button>
+        <button class="report-btn" onclick="downloadCSV('fiscal')">{STATISTICS_CHART_DOWNLOAD}</button>
       </div>
     </div>
     <div class="card" aria-live="polite">
@@ -322,7 +322,7 @@ description: Population, demographics, economy, and key development indicators f
           <tr><td>Pogo</td><td>1,107</td></tr>
         </tbody>
       </table>
-      <button class="report-btn" onclick="downloadCSV('barangay')">Download CSV</button>
+      <button class="report-btn" onclick="downloadCSV('barangay')"{STATISTICS_CHART_DOWNLOAD}button>
     </div>
   </div>
 </section>
@@ -331,20 +331,20 @@ description: Population, demographics, economy, and key development indicators f
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Agriculture</div>
-      <h2>Agricultural production</h2>
+      <h2>{STATISTICS_AGRI_TITLE}</h2>
     </div>
     <div class="grid grid-2">
       <div class="card">
-        <h3>Primary Crops</h3>
+        <h3>{STATISTICS_AGRI_CROPS}</h3>
         <p>Rice (palay), yellow corn, vegetables, and pandan-related crafts.</p>
         <span class="source-label">Source: MAO / MPDC Land Use Plan</span>
-        <span class="verification-badge badge-verified">Verified</span>
+        <span class="verification-badge badge-official">{COMMON_VERIFIED}</span>
       </div>
       <div class="card">
-        <h3>Irrigated Area</h3>
+        <h3>{STATISTICS_AGRI_IRRIGATED}</h3>
         <p>Approximately 1,200 hectares under NIA irrigation systems.</p>
         <span class="source-label">Source: NIA Regional Office</span>
-        <span class="verification-badge badge-estimate">Provincial Estimate</span>
+        <span class="verification-badge badge-estimate">{COMMON_PROVINCIAL_ESTIMATE}</span>
       </div>
     </div>
   </div>

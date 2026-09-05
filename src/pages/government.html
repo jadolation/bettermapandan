@@ -8,8 +8,8 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
 <section class="section" id="executive">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Leadership</div>
-      <h2>Executive Branch</h2>
+      <div class="section-eyebrow">{HOMEPAGE_LEADERSHIP_EYEBROW}</div>
+      <h2>{GOVERNMENT_EXECUTIVE_TITLE}</h2>
       <p>The executive officials leading Mapandan's governance under the Local Government Code of 1991.</p>
     </div>
     <div class="grid grid-2">
@@ -153,8 +153,8 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
 <section class="section" id="barangay-councils">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Barangays</div>
-      <h2>Barangay Councils</h2>
+      <div class="section-eyebrow">{STATS_BARANGAYS}</div>
+      <h2>{GOVERNMENT_BARANGAY_COUNCILS_TITLE}</h2>
       <p>15 barangays with elected Punong Barangays and council members serving at the grassroots level.</p>
     </div>
     <div class="table-wrap">
@@ -483,18 +483,18 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Departments</div>
-      <h2>Departments &amp; Key Offices</h2>
+      <h2>{GOVERNMENT_DEPARTMENTS_TITLE}</h2>
       <p>Appointed office heads and administrative staff who carry out frontline service delivery.</p>
     </div>
     <div class="table-wrap">
       <table aria-label="Departments and key offices">
         <thead>
           <tr>
-            <th scope="col">Office / Department</th>
-            <th scope="col">Acronym</th>
+            <th scope="col"{GOVERNMENT_DEPT_COL_OFFICE}th>
+            <th scope="col"{GOVERNMENT_DEPT_COL_ACRONYM}th>
             <th scope="col">Contact</th>
             <th scope="col">Email</th>
-            <th scope="col">Location</th>
+            <th scope="col"{GOVERNMENT_DEPT_COL_LOCATION}th>
           </tr>
         </thead>
         <tbody>
@@ -570,7 +570,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
           </tr>
           <tr>
             <td>Disaster Risk Reduction &amp; Management</td>
-            <td>MDRRMO</td>
+            <td{EMERGENCY_MDRRMO}td>
             <td>(075) 600-2564 / 0969-223-6912</td>
             <td><a href="mailto:mdrrm@mapandan.gov.ph">mdrrm@mapandan.gov.ph</a></td>
             <td>Plaza Cafe Bldg, Poblacion</td>
@@ -600,16 +600,16 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Reach Us</div>
-      <h2>Contact Directory</h2>
+      <h2>{GOVERNMENT_CONTACT_TITLE}</h2>
       <p>Landline, mobile, and email channels for each office. Numbers are drawn from official municipal disclosures.</p>
     </div>
     <div class="table-wrap">
       <table aria-label="Contact directory">
         <thead>
           <tr>
-            <th scope="col">Office / Unit</th>
-            <th scope="col">Landline</th>
-            <th scope="col">Mobile / Hotline</th>
+            <th scope="col"{GOVERNMENT_CONTACT_COL_OFFICE}th>
+            <th scope="col"{GOVERNMENT_CONTACT_COL_LANDLINE}th>
+            <th scope="col"{GOVERNMENT_CONTACT_COL_MOBILE}th>
             <th scope="col">Email</th>
           </tr>
         </thead>
@@ -617,8 +617,8 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
           <tr><td>Office of the Municipal Mayor</td><td>(075) 632-1757</td><td>0917-544-1347 / 0968-444-6035</td><td><a href="mailto:MayorsOffice@mapandan.gov.ph">MayorsOffice@mapandan.gov.ph</a></td></tr>
           <tr><td>Office of the Vice Mayor</td><td>(075) 632-1875</td><td>0935-802-5650</td><td>&mdash;</td></tr>
           <tr><td>MDRRMO</td><td>(075) 600-2564</td><td>911 / 0969-223-6912</td><td><a href="mailto:mdrrm@mapandan.gov.ph">mdrrm@mapandan.gov.ph</a></td></tr>
-          <tr><td>Bureau of Fire Protection</td><td>(075) 632-1750</td><td>911 / 0943-424-2810</td><td>&mdash;</td></tr>
-          <tr><td>Philippine National Police</td><td>(075) 632-1754</td><td>911 / 0915-979-3390 / 0933-318-5445</td><td>&mdash;</td></tr>
+          <tr><td>{HOMEPAGE_EMERGENCY_BFP}</td><td>(075) 632-1750</td><td>911 / 0943-424-2810</td><td>&mdash;</td></tr>
+          <tr><td>{HOMEPAGE_EMERGENCY_PNP}</td><td>(075) 632-1754</td><td>911 / 0915-979-3390 / 0933-318-5445</td><td>&mdash;</td></tr>
           <tr><td>Municipal Treasury Office</td><td>(075) 696-0831</td><td>0998-577-3164 / 0917-596-8597</td><td><a href="mailto:mapandantreasury2018@gmail.com">mapandantreasury2018@gmail.com</a></td></tr>
           <tr><td>Municipal Assessor's Office</td><td>(075) 633-2653</td><td>0945-114-2515</td><td>&mdash;</td></tr>
           <tr><td>Municipal Accounting Office</td><td>(075) 696-0889</td><td>0948-452-9515</td><td>&mdash;</td></tr>
@@ -626,7 +626,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
           <tr><td>MPDC / Zoning Office</td><td>&mdash;</td><td>0933-865-9150 / 0925-708-8808</td><td><a href="mailto:mpdc@mapandan.gov.ph">mpdc@mapandan.gov.ph</a></td></tr>
           <tr><td>Municipal Engineering Office</td><td>(075) 636-9382</td><td>0918-962-7423</td><td>&mdash;</td></tr>
           <tr><td>Rural Health Unit (RHU)</td><td>(075) 632-1874</td><td>&mdash;</td><td>&mdash;</td></tr>
-          <tr><td>Mapandan Community Hospital</td><td>(075) 632-0491</td><td>0916-551-2522 / 0908-886-2830</td><td>&mdash;</td></tr>
+          <tr><td>{HOMEPAGE_EMERGENCY_HOSPITAL}</td><td>(075) 632-0491</td><td>0916-551-2522 / 0908-886-2830</td><td>&mdash;</td></tr>
           <tr><td>Municipal Civil Registrar (MCR)</td><td>(075) 633-2487</td><td>0912-115-5000</td><td>&mdash;</td></tr>
           <tr><td>MSWD Office</td><td>(075) 632-1751</td><td>0930-641-3934</td><td>&mdash;</td></tr>
           <tr><td>Human Resource Office (HRMO)</td><td>(075) 633-2621</td><td>0917-112-5040</td><td>&mdash;</td></tr>
@@ -644,7 +644,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">National Agencies</div>
-      <h2>External Government Agency Directory</h2>
+      <h2>{GOVERNMENT_EXTERNAL_TITLE}</h2>
       <p>Key national and provincial portals for permits, compliance, and public records.</p>
     </div>
     <div class="grid grid-2">
