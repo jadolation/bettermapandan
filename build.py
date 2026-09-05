@@ -168,9 +168,9 @@ def compute_url(rel_path: Path) -> str:
 # Service generation (locale-aware)
 # ---------------------------------------------------------------------------
 
-def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, str], dict[str, dict]]:
+def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, str], dict[str, dict], dict[str, dict]]:
     """Generate service detail pages and directory page.
-    Returns (pages, metadata) where pages is {relative_path: html_content}
+    Returns (pages, metadata, hero_metadata) where pages is {relative_path: html_content}
     and metadata is {relative_path: {title, description}} for SEO."""
     data_path = SRC_DATA / "services.json"
     try:
@@ -199,6 +199,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
 
     pages = {}
     meta = {}
+    hero_meta_dict = {}
 
     # Service page labels from locale
     svc_labels = {
@@ -230,8 +231,8 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         cat = categories.get(svc.get("category", ""), {})
 
         # Use translated names if available
-        svc_name = svc.get("name_fil", svc.get("name", ""))
-        svc_desc = svc.get("description_fil", svc.get("description", ""))
+        svc_name = svc.get("name_fil", svc.get("name", "")) if is_fil else svc.get("name", "")
+        svc_desc = svc.get("description_fil", svc.get("description", "")) if is_fil else svc.get("description", "")
         cat_name = cat.get("name_fil", cat.get("name", "")) if is_fil else cat.get("name", "")
         hero_lede = svc.get("hero_lede_fil", svc.get("hero_lede", svc_desc)) if is_fil else svc.get("hero_lede", svc.get("description", ""))
 
@@ -309,6 +310,17 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
             "title": f"{svc_name} — BetterMapandan.org",
             "description": svc_desc[:160],
         }
+        # Extract hero metadata from filled front matter
+        hero_meta_match = FRONT_MATTER_RE.match(filled)
+        if hero_meta_match:
+            hero_block = hero_meta_match.group(1)
+            hero_meta = {}
+            for line in hero_block.splitlines():
+                key, _, value = line.partition(":")
+                key = key.strip()
+                if key in ("hero_eyebrow", "hero_heading", "hero_lede"):
+                    hero_meta[key] = value.strip()
+            hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
     # --- Generate directory page ---
     category_cards = []
@@ -381,20 +393,33 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         "title": t(locale, "services_dir.title", "Services") + " — BetterMapandan.org",
         "description": t(locale, "services_dir.desc", "Find the service you need."),
     }
-    return pages, meta
+    return pages, meta, hero_meta_dict
 
 
 # ---------------------------------------------------------------------------
 # Legislative generation (locale-aware)
 # ---------------------------------------------------------------------------
 
-def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
-    """Generate legislative page HTML. Returns (html, metadata) for SEO."""
+def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict, dict]:
+    """Generate legislative page HTML. Returns (html, metadata, hero_meta) for SEO."""
     data_path = SRC_DATA / "legislative.json"
     try:
         template = (SRC_TEMPLATES / "legislative.html").read_text(encoding="utf-8")
     except FileNotFoundError:
         raise SystemExit(f"ERROR: Template file not found: {SRC_TEMPLATES / 'legislative.html'}")
+
+    match = FRONT_MATTER_RE.match(template)
+    if match:
+        meta_block, template_body = match.groups()
+        hero_meta = {}
+        for line in meta_block.splitlines():
+            key, _, value = line.partition(":")
+            key = key.strip()
+            if key in ("hero_eyebrow", "hero_heading", "hero_lede"):
+                hero_meta[key] = value.strip()
+    else:
+        template_body = template
+        hero_meta = {}
 
     try:
         data = json.loads(data_path.read_text(encoding="utf-8"))
@@ -577,7 +602,7 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict]:
     return filled, {
         "title": t(locale, "legislative.ord_title", "Municipal ordinances") + " — BetterMapandan.org",
         "description": t(locale, "legislative.ord_desc", "Ordinances, resolutions, and executive issuances for the Municipality of Mapandan."),
-    }
+    }, hero_meta
 
 
 # ---------------------------------------------------------------------------
@@ -910,12 +935,13 @@ def build() -> None:
         print(f"\n--- Building [{lang_code.upper()}] ---")
 
         # Generate services for this language
-        svc_pages, svc_meta = generate_services(locale, lang_code, is_fil)
+        svc_pages, svc_meta, svc_hero_meta = generate_services(locale, lang_code, is_fil)
 
         # Generate legislative for this language
-        leg_html, leg_meta = generate_legislative(locale, is_fil)
+        leg_html, leg_meta, leg_hero_meta = generate_legislative(locale, is_fil)
         svc_pages["legislative.html"] = leg_html
         svc_meta["legislative.html"] = leg_meta
+        svc_hero_meta["legislative.html"] = leg_hero_meta
 
         # Collect all .html files from src/pages/ (static pages)
         page_files = sorted(SRC_PAGES.rglob("*.html"))
@@ -1415,8 +1441,20 @@ def build() -> None:
                 "FOOTER_PSA": t(locale, "footer.psa", "Philippine Statistics Authority"),
             })
 
-            # Assemble page (no hero for generated pages)
+            # Assemble page
             page_meta = svc_meta.get(rel_path, {})
+            page_hero_meta = svc_hero_meta.get(rel_path, {})
+            if page_hero_meta:
+                hero_html = fill(
+                    page_hero_raw,
+                    {
+                        "ASSET_BASE": asset_base,
+                        "HERO_EYEBROW": page_hero_meta.get("hero_eyebrow", ""),
+                        "HERO_HEADING": page_hero_meta.get("hero_heading", ""),
+                        "HERO_LEDE": page_hero_meta.get("hero_lede", ""),
+                    },
+                )
+                body_content = hero_html + body_content
             page_html = fill(
                 base,
                 {
