@@ -121,7 +121,10 @@ document.addEventListener("DOMContentLoaded", function () {
   browseDiv.style.display = "none";
 
   // Load search index and perform search
-  fetch("assets/search-index.json")
+  // Use correct path for Filipino pages (assets are copied to /fil/assets/)
+  var isFil = location.pathname.indexOf("/fil/") !== -1;
+  var searchIndexPath = isFil ? "../assets/search-index.json" : "assets/search-index.json";
+  fetch(searchIndexPath)
     .then(function (res) { return res.json(); })
     .then(function (index) {
       var q = query.toLowerCase();

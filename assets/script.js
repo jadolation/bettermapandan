@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
     toggle.addEventListener("click", function () {
       var isOpen = links.classList.toggle("open");
       toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      if (isOpen) {
+        var firstLink = links.querySelector("a");
+        if (firstLink) firstLink.focus();
+      }
     });
 
     links.querySelectorAll("a").forEach(function (a) {
@@ -24,6 +28,22 @@ document.addEventListener("DOMContentLoaded", function () {
         links.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       });
+    });
+
+    links.addEventListener("keydown", function (e) {
+      if (e.key === "Tab") {
+        var focusable = links.querySelectorAll("a[href], button");
+        if (focusable.length === 0) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
   }
 
@@ -126,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
         html += '</div>';
 
         weatherEl.innerHTML = html;
+        clearTimeout(timeout);
         if (typeof lucide !== "undefined") lucide.createIcons({ nodes: [weatherEl] });
       })
       .catch(function (err) {
@@ -288,8 +309,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (data.facebook) {
       contactHtml += '<p><strong>Facebook:</strong> <a href="' + data.facebook + '" target="_blank" rel="noopener">Barangay Page</a></p>';
     }
-    if (data.phone) {
+    if (data.phone && data.phone.toUpperCase() !== "N/A") {
       contactHtml += '<p><strong>Phone:</strong> <a href="tel:' + data.phone.replace(/\s/g, "") + '">' + data.phone + '</a></p>';
+    } else if (data.phone) {
+      contactHtml += '<p><strong>Phone:</strong> N/A</p>';
     }
 
     // Kagawads
@@ -316,28 +339,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var overlay = document.createElement("div");
     overlay.className = "barangay-modal-overlay";
-    overlay.innerHTML =
-      '<div class="barangay-modal" role="dialog" aria-modal="true" aria-label="' + name + ' profile">' +
-      '<button class="barangay-modal-close" aria-label="Close">&times;</button>' +
-      "<h3>" + name + "</h3>" +
-      "<p><strong>2024 Population:</strong> " + data.pop2024 +
+
+    var modalDiv = document.createElement("div");
+    modalDiv.className = "barangay-modal";
+    modalDiv.setAttribute("role", "dialog");
+    modalDiv.setAttribute("aria-modal", "true");
+    modalDiv.setAttribute("aria-label", name + " profile");
+
+    var closeBtn = document.createElement("button");
+    closeBtn.className = "barangay-modal-close";
+    closeBtn.setAttribute("aria-label", "Close");
+    closeBtn.innerHTML = "&times;";
+    modalDiv.appendChild(closeBtn);
+
+    var titleEl = document.createElement("h3");
+    titleEl.textContent = name;
+    modalDiv.appendChild(titleEl);
+
+    var popEl = document.createElement("p");
+    popEl.innerHTML = "<strong>2024 Population:</strong> " + data.pop2024 +
       " &middot; <strong>2020 Population:</strong> " + data.pop2020 +
-      " &middot; <strong>Land Use:</strong> " + data.landUse + "</p>" +
-      (data.punong ? "<p><strong>Punong Barangay:</strong> " + data.punong + "</p>" : "") +
-      contactHtml +
-      kagawadHtml +
-      officialsHtml +
-      "<p>" + data.history + "</p>" +
-      '<p class="source-cite">Source: ' + data.source + "</p>" +
-      '<div class="barangay-modal-actions">' +
-      '<a class="btn btn-outline" href="support/report.html?barangay=' + encodeURIComponent(name) + '">Report or update information</a>' +
-      "</div>" +
-      "</div>";
+      " &middot; <strong>Land Use:</strong> " + data.landUse;
+    modalDiv.appendChild(popEl);
+
+    if (data.punong) {
+      var punongEl = document.createElement("p");
+      punongEl.innerHTML = "<strong>Punong Barangay:</strong> " + data.punong;
+      modalDiv.appendChild(punongEl);
+    }
+
+    if (contactHtml) {
+      var contactDiv = document.createElement("div");
+      contactDiv.innerHTML = contactHtml;
+      modalDiv.appendChild(contactDiv);
+    }
+
+    if (kagawadHtml) {
+      var kagawadDiv = document.createElement("div");
+      kagawadDiv.innerHTML = kagawadHtml;
+      modalDiv.appendChild(kagawadDiv);
+    }
+
+    if (officialsHtml) {
+      var officialsDiv = document.createElement("div");
+      officialsDiv.innerHTML = officialsHtml;
+      modalDiv.appendChild(officialsDiv);
+    }
+
+    var historyEl = document.createElement("p");
+    historyEl.textContent = data.history;
+    modalDiv.appendChild(historyEl);
+
+    var sourceEl = document.createElement("p");
+    sourceEl.className = "source-cite";
+    sourceEl.textContent = "Source: " + data.source;
+    modalDiv.appendChild(sourceEl);
+
+    var actionsDiv = document.createElement("div");
+    actionsDiv.className = "barangay-modal-actions";
+    var reportLink = document.createElement("a");
+    reportLink.className = "btn btn-outline";
+    reportLink.href = "support/report.html?barangay=" + encodeURIComponent(name);
+    reportLink.textContent = "Report or update information";
+    actionsDiv.appendChild(reportLink);
+    modalDiv.appendChild(actionsDiv);
+
+    overlay.appendChild(modalDiv);
 
     document.body.appendChild(overlay);
     requestAnimationFrame(function () { overlay.classList.add("open"); });
 
-    var closeBtn = overlay.querySelector(".barangay-modal-close");
+    closeBtn = overlay.querySelector(".barangay-modal-close");
     function close() {
       overlay.classList.remove("open");
       setTimeout(function () { overlay.remove(); }, 200);
