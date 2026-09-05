@@ -6,9 +6,22 @@ Supports dual-language output (EN at root, FIL under /fil/).
 Locale strings loaded from locales/en.json and locales/fil.json.
 
 Run:
-    python3 build.py
+    python3 build.py                  Build all pages (EN + FIL)
+    python3 build.py --compress       Compress images, then build
+    python3 build.py --verify-translations  Lint untranslated strings
 
 Output: all pages written to the project root (EN) and /fil/ (FIL).
+
+Table of Contents:
+    Section 1: Imports & constants              (lines 14-63)
+    Section 2: Locale helpers                   (lines 65-88)
+    Section 3: Template utilities               (lines 90-123)
+    Section 4: Service generator                (lines 125-320)
+    Section 5: Legislative generator            (lines 322-479)
+    Section 6: Barangay data generator          (lines 481-511)
+    Section 7: Translation linter               (lines 513-611)
+    Section 8: Image compression                (lines 613-673)
+    Section 9: Main build function              (lines 675-1627)
 """
 
 import html
