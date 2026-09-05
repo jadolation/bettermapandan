@@ -9,15 +9,15 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">About Mapandan</div>
-      <h2>The municipality</h2>
+      <h2>{ABOUT_MUNICIPALITY_TITLE}</h2>
     </div>
     <div class="grid grid-2">
       <div class="card">
-        <h3>History</h3>
+        <h3>{ABOUT_HISTORY}</h3>
         <p>Mapandan was created as an independent pueblo on December 28, 1887, through Director General No. 39. After a period of financial insolvency (1905&ndash;1908) when it was re-absorbed into Mangaldan, the town was re-established as an independent municipality in 1909 under Executive Order No. 10 by Governor General James F. Smith. The town was named for the abundance of fragrant pandan plants in the area.</p>
       </div>
       <div class="card">
-        <h3>Geography</h3>
+        <h3>{ABOUT_GEOGRAPHY}</h3>
         <p>Mapandan is a third-class municipality in the province of Pangasinan, Philippines. It covers a land area of 30.00 km&sup2; and is composed of 15 barangays. The municipality is located in the western part of Pangasinan, bordered by the Lingayen Gulf to the north and the Agno River floodplain to the south.</p>
       </div>
     </div>
@@ -33,7 +33,7 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
         <span class="source-label">MPDC Land Use Plan 2024</span>
       </div>
       <div class="card">
-        <h3>Barangays</h3>
+        <h3>{STATS_BARANGAYS}</h3>
         <p class="figure">15</p>
         <span class="source-label">DILG / Comelec</span>
       </div>
@@ -44,18 +44,18 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
 <section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">History</div>
-      <h2>Mapandan through the years</h2>
+      <div class="section-eyebrow">{ABOUT_HISTORY}</div>
+      <h2>{ABOUT_HISTORY_TITLE}</h2>
     </div>
     <div class="history-layout">
       <div class="history-left">
         <div class="timeline">
 
           <div class="timeline-item">
-            <div class="timeline-header"><span class="timeline-year">1887&ndash;1909</span><span class="timeline-title">Founding &amp; Restoration</span></div>
+            <div class="timeline-header"><span class="timeline-year">1887&ndash;1909</span><span class="timeline-title"{ABOUT_HISTORY_ERA1}span></div>
             <div class="timeline-body">
               <p>From southern barrios of Mangaldan to an independent pueblo&mdash;and back again. Mapandan&rsquo;s first two decades were defined by the courage of its founders, the fragility of a new town, and the determination to rise again.</p>
-              <button class="accordion-toggle" aria-expanded="false">Read more</button>
+              <button class="accordion-toggle" aria-expanded="false">{ABOUT_READ_MORE}</button>
               <div class="accordion-content" hidden>
                 <h3>Before 1887: Southern barrios of Mangaldan</h3>
                 <p>Before Mapandan existed as an independent pueblo, the area belonged to Mangaldan. The future municipality consisted of southern communities including Payapay, Baloling, Apaya and Amanoaoac.</p>
@@ -76,10 +76,10 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-header"><span class="timeline-year">1910s&ndash;1940s</span><span class="timeline-title">Early Municipal Life</span></div>
+            <div class="timeline-header"><span class="timeline-year">1910s&ndash;1940s</span><span class="timeline-title"{ABOUT_HISTORY_ERA2}span></div>
             <div class="timeline-body">
               <p>After its restoration, Mapandan developed as a predominantly agricultural community. Farming remained central to the local economy, with rice becoming the municipality&rsquo;s principal crop. The decades ahead would bring war, occupation, and the beginning of reconstruction.</p>
-              <button class="accordion-toggle" aria-expanded="false">Read more</button>
+              <button class="accordion-toggle" aria-expanded="false">{ABOUT_READ_MORE}</button>
               <div class="accordion-content" hidden>
                 <h3>Agricultural foundations</h3>
                 <p>Rice became the municipality&rsquo;s principal crop and livestock raising developed as an important secondary livelihood. The municipality&rsquo;s current seal still reflects these agricultural foundations through its rice, cattle, chicken and hog imagery.</p>
@@ -90,10 +90,10 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-header"><span class="timeline-year">1940s&ndash;1970s</span><span class="timeline-title">Rebuilding &amp; Barangay Growth</span></div>
+            <div class="timeline-header"><span class="timeline-year">1940s&ndash;1970s</span><span class="timeline-title"{ABOUT_HISTORY_ERA3}span></div>
             <div class="timeline-body">
               <p>After the war, Mapandan&rsquo;s communities began to take shape. New barangays were formed, land ownership changed hands, and the municipality entered a period of organized community development.</p>
-              <button class="accordion-toggle" aria-expanded="false">Read more</button>
+              <button class="accordion-toggle" aria-expanded="false"{ABOUT_READ_MORE}button>
               <div class="accordion-content" hidden>
                 <h3>Barangays begin taking shape</h3>
                 <p>Instead of only telling municipal history, the history of how Mapandan&rsquo;s communities formed tells an equally important story.</p>
@@ -123,7 +123,7 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-header"><span class="timeline-year">2002&ndash;2024</span><span class="timeline-title">Development &amp; Digital Era</span></div>
+            <div class="timeline-header"><span class="timeline-year">2002&ndash;2024</span><span class="timeline-title"{ABOUT_HISTORY_ERA5}span></div>
             <div class="timeline-body">
               <p>From a new municipal classification to healthcare expansion and digital government&mdash;Mapandan enters the 21st century with growing services, cultural pride, and a more connected community.</p>
               <button class="accordion-toggle" aria-expanded="false">Read more</button>
@@ -151,23 +151,23 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
           <div class="carousel-track">
             <div class="carousel-slide active">
               <img src="../assets/history/old-plaza.png" alt="Old Mapandan Town Plaza" loading="lazy" decoding="async" />
-              <div class="carousel-caption">Mapandan Town Plaza</div>
+              <div class="carousel-caption">{ABOUT_PHOTO_PLAZA}</div>
             </div>
             <div class="carousel-slide">
               <img src="../assets/history/old-market.png" alt="Old Mapandan Public Market" loading="lazy" decoding="async" />
-              <div class="carousel-caption">Old Mapandan Public Market</div>
+              <div class="carousel-caption">{ABOUT_PHOTO_MARKET}</div>
             </div>
             <div class="carousel-slide">
               <img src="../assets/history/old-officials.png" alt="Early Mapandan Municipal Officials" loading="lazy" decoding="async" />
-              <div class="carousel-caption">Early Municipal Officials</div>
+              <div class="carousel-caption">{ABOUT_PHOTO_OFFICIALS}</div>
             </div>
             <div class="carousel-slide">
               <img src="../assets/history/old-school.png" alt="Old Mapandan School Building" loading="lazy" decoding="async" />
-              <div class="carousel-caption">Old Mapandan School</div>
+              <div class="carousel-caption">{ABOUT_PHOTO_SCHOOL}</div>
             </div>
             <div class="carousel-slide">
               <img src="../assets/history/old-bridge.png" alt="Old Mapandan Bridge" loading="lazy" decoding="async" />
-              <div class="carousel-caption">Old Baloling Bridge</div>
+              <div class="carousel-caption">{ABOUT_PHOTO_BRIDGE}</div>
             </div>
           </div>
           <div class="carousel-controls">
@@ -185,13 +185,13 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Population Growth</div>
-      <h2>Mapandan through the census</h2>
+      <div class="section-eyebrow">{ABOUT_POPULATION_GROWTH}</div>
+      <h2>{ABOUT_POPULATION_SUBTITLE}</h2>
     </div>
     <div class="history-chart">
       <canvas id="chart-history-population" height="180" role="img" aria-label="Population growth from 4,198 in 1903 to 38,228 in 2024"></canvas>
       <table class="sr-only">
-        <caption>Population by census year</caption>
+        <caption>{STATISTICS_GROWTH_TITLE}</caption>
         <thead><tr><th scope="col">Year</th><th scope="col">Population</th></tr></thead>
         <tbody>
           <tr><td>1903</td><td>4,198</td></tr>
@@ -217,22 +217,22 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">About the Project</div>
-      <h2>What is Better Mapandan?</h2>
+      <h2>{ABOUT_PROJECT_WHAT}</h2>
       <p>Better Mapandan is an independent civic transparency portal built and maintained by volunteers. It is part of the <a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a> initiative to create open, accessible civic information websites for Philippine municipalities.</p>
     </div>
     <div class="grid grid-2">
       <div class="card">
-        <h3>Our Mission</h3>
+        <h3>{ABOUT_PROJECT_MISSION}</h3>
         <p>To make government information accessible, understandable, and actionable for every Mapandan resident. We believe that open data strengthens democracy and empowers communities to participate meaningfully in local governance.</p>
       </div>
       <div class="card">
-        <h3>How It Works</h3>
+        <h3>{ABOUT_PROJECT_HOW}</h3>
         <p>We compile publicly available government data &mdash; from COA audit reports, PSA census data, municipal disclosures, and provincial issuances &mdash; into a single, easy-to-navigate website. Every piece of information is sourced and attributed.</p>
       </div>
     </div>
     <div class="grid grid-3" style="margin-top:20px">
       <div class="card">
-        <h3>Open Source</h3>
+        <h3>{ABOUT_PROJECT_OPEN_SOURCE}</h3>
         <p>The source code is publicly available. Developers can contribute, audit, and improve the platform.</p>
         <a class="link-arrow" href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
@@ -241,7 +241,7 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
         <p>Better Mapandan is not an official government website. It is a community-run project that operates independently of the Local Government Unit.</p>
       </div>
       <div class="card">
-        <h3>Volunteer-Run</h3>
+        <h3>{ABOUT_PROJECT_VOLUNTEER}</h3>
         <p>Built and maintained entirely by volunteers. No government funding is used. Cost to the people of Mapandan: &#8369;0.</p>
       </div>
     </div>
@@ -252,27 +252,27 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Contribute</div>
-      <h2>Get involved</h2>
+      <h2>{ABOUT_CONTRIBUTE_GET_INVOLVED}</h2>
       <p>Better Mapandan thrives on community participation. Here's how you can help:</p>
     </div>
     <div class="grid grid-2">
       <div class="card">
-        <h3>Report Incorrect Information</h3>
+        <h3>{ABOUT_CONTRIBUTE_REPORT}</h3>
         <p>Spotted an error? Help us keep the data accurate by reporting mistakes.</p>
         <a class="link-arrow" href="support/report.html">Report an error &rarr;</a>
       </div>
       <div class="card">
-        <h3>Contribute Code</h3>
+        <h3>{ABOUT_CONTRIBUTE_CODE}</h3>
         <p>Developers can contribute features, fix bugs, or improve accessibility on GitHub.</p>
         <a class="link-arrow" href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Fork on GitHub &rarr;</a>
       </div>
       <div class="card">
-        <h3>Verify Data</h3>
+        <h3>{ABOUT_CONTRIBUTE_VERIFY}</h3>
         <p>Help verify government information by cross-referencing with official sources.</p>
         <a class="link-arrow" href="support/report.html">Submit verification &rarr;</a>
       </div>
       <div class="card">
-        <h3>Share with Residents</h3>
+        <h3>{ABOUT_CONTRIBUTE_SHARE}</h3>
         <p>Spread the word about Better Mapandan so more residents can access government information.</p>
       </div>
     </div>
@@ -283,7 +283,7 @@ hero_lede: An independent civic transparency portal for the Municipality of Mapa
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Disclaimer</div>
-      <h2>Important notice</h2>
+      <h2>{ABOUT_DISCLAIMER_NOTICE}</h2>
       <p>Better Mapandan is an independent community project and is <strong>not an official website of the Municipality of Mapandan</strong> or any government agency. Information presented on this site is compiled from publicly available government sources and community research. While we strive for accuracy, we cannot guarantee the completeness or timeliness of all data. For official government information, please visit <a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">mapandan.gov.ph</a> or contact the municipal government directly.</p>
     </div>
   </div>

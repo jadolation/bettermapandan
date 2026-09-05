@@ -11,6 +11,54 @@
       ink-soft     #4A5749  (secondary text)
      line         #E3DFCF  (hairline borders)
    Type: Fraunces (display) + Public Sans (body/UI)
+
+   Table of Contents
+   ---------------------------------------------------------------------------
+    01. Tokens & resets .............. :root custom props, box-sizing, base
+    02. Emergency bar / ticker ....... Scrolling red alert bar
+    03. Header / nav ................. Sticky header, hamburger, nav links
+    04. Hero .......................... Homepage hero section
+    05. Hero search card .............. Frosted-glass search widget
+    06. Buttons ....................... .btn-primary, .btn-ghost, .btn-outline
+    07. Page hero ..................... Interior page hero banners
+    08. Action hub .................... Homepage icon+text toolbar
+    09. History milestones ............ 4-card milestone grid
+    10. Mobile action bar ............. Fixed bottom nav (mobile)
+    11. Feedback widget ............... "Was this helpful?" on service pages
+    12. Stat strip .................... 5-column statistics bar
+    13. Sections ...................... Section layout, alternating bg
+    14. Cards / grids ................. .card, .grid-2/3/4, .card-photo
+    15. Leadership cards .............. Mayor, vice-mayor profile cards
+    16. SB member cards ............... Sangguniang Bayan member cards
+    17. Timeline ...................... Vertical timeline with year markers
+    18. History layout ................ Stacked gallery + carousel
+    19. History section additions ..... Accordion, source cite, chart
+    20. Barangay grid .................. 5-column clickable cards
+    21. Barangay modal ................. Overlay dialog with officials
+    22. Tables ......................... Striped rows, pill status badges
+    23. Step flow ...................... Numbered step cards
+    24. Trend step-flow ................ Legislative trends display
+    25. Bar chart ..................... Hand-rolled CSS bars
+    26. Figures & spacing ............. Large peso amounts, spacing utils
+    27. Footer ......................... 4-column footer grid
+    28. Utility ....................... .sr-only, .mt-0, .skip-link
+    29. Language switcher ............. EN/FIL pill toggle
+    30. Language suggestion banner .... Fixed bottom suggestion bar
+    31. Breadcrumbs ................... Inline breadcrumb trail
+    32. Weather widget ................ Current + forecast display
+    33. Map container ................. Google Maps embed wrapper
+    34. Verification labels .......... Badge pill system
+    35. Report button ................. Inline report action link
+    36. Search page ................... Search form, results, browse grid
+    37. Category directory ............ Services page category cards
+    38. Service directory cards ....... Service listing cards
+    39. Source tooltips ............... Hover tooltip on source labels
+    40. Service directory filter ...... Live search filter
+    41. Service detail ................ Two-column detail layout
+    42. Responsive .................... Breakpoints: 900px, 961px, 720px
+    43. Legislative page .............. Category pills, fiscal cards
+    44. Civic contribution hub ........ Segmented control, forms, preview
+    45. Accessibility ................. prefers-reduced-motion
    ========================================================================== */
 
 :root {

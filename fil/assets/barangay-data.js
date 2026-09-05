@@ -7,7 +7,7 @@ var BARANGAY_DATA = [
     "pop2020": "1,636",
     "landUse": "Agricultural / crop farming",
     "history": "One of the original barrios when Mapandan was established in 1887. The name Amanoaoac has local linguistic origins, and the community shares historical ties with Golden, which was formerly a sitio called Amanoaoac North. The barangay has maintained its agricultural character throughout its history.",
-    "source": "",
+    "source": "Municipality of Mapandan, Barangay Amanoaoac History",
     "punong": "Marben P. Calaunan",
     "kagawads": [
       {
