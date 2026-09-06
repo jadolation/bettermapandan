@@ -73,7 +73,7 @@ SECTION_ANCHORS = {
     ],
 }
 
-FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.S)
+FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.DOTALL)
 
 LANGUAGES = [
     ("en", ROOT, False),
@@ -101,13 +101,13 @@ def load_locale(lang: str) -> dict:
 def t(locale: dict, key: str, default: str = "") -> str:
     """Dot-notation locale lookup with fallback to default."""
     parts = key.split(".")
-    val = locale
+    val: object = locale
     for p in parts:
         if isinstance(val, dict) and p in val:
             val = val[p]
         else:
             return default
-    return val if val else default
+    return str(val) if val else default
 
 
 # ---------------------------------------------------------------------------
@@ -151,7 +151,7 @@ def strip_html(html_text: str) -> str:
     try:
         parser.feed(html_text)
         text = parser.get_text()
-    except Exception:
+    except Exception as _:  # noqa: BLE001 - intentional fallback to regex on any parse error
         text = re.sub(r"<[^>]+>", " ", html_text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
@@ -199,7 +199,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
     except KeyError as e:
         raise SystemExit(f"ERROR: Category missing 'slug' field in {data_path}: {e}")
 
-    by_category = {}
+    by_category: dict[str, list[dict]] = {}
     for svc in services:
         by_category.setdefault(svc.get("category", ""), []).append(svc)
 
@@ -302,7 +302,7 @@ def _generate_single_service(svc: dict, categories: dict, services: list, templa
 def _build_related_links(svc: dict, services: list, is_fil: bool) -> str:
     related = svc.get("related", [])
     if not related:
-        return f'<p>No related services available.</p>'
+        return '<p>No related services available.</p>'
     links = []
     for rel_slug in related:
         rel_svc = next((s for s in services if s.get("slug") == rel_slug), None)
@@ -318,14 +318,14 @@ def _build_photo_html(svc: dict, is_fil: bool) -> str:
         return ""
     photo_filename = photo_ref.split("/")[-1]
     img_prefix = "../" if not is_fil else "../../"
+    service_name = html.escape(svc.get("name", ""))
     return f'''
-            <figure class="service-photo-container" style="margin: 2rem 0; text-align: center;">
-                <img src="{img_prefix}{photo_ref}" alt="{html.escape(svc.get('name', ''))} Reference"
-                    style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+            <figure class="service-photo-container">
+                <img class="service-photo" src="{img_prefix}{photo_ref}" alt="Citizens Charter for {service_name}"
                     loading="lazy"
                     onerror="this.style.display='none'; this.nextElementSibling.style.display='none';">
-                <figcaption style="font-size: 0.875rem; color: #666; margin-top: 0.5rem; font-style: italic;">
-                    Reference: {html.escape(photo_filename)}
+                <figcaption class="service-photo-caption">
+                    Citizens Charter document: {html.escape(photo_filename)}
                 </figcaption>
             </figure>'''
 
@@ -346,8 +346,8 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
             f'        <p>{html.escape(cat_desc)}</p>\n'
             f'        <div class="service-links">\n'
             + "\n".join(f"          {link}" for link in service_links)
-            + f"\n        </div>\n"
-            f'      </div>'
+            + "\n        </div>\n"
+            '      </div>'
         )
         category_cards.append(card)
 
@@ -430,7 +430,7 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict, dict]:
 
     match = FRONT_MATTER_RE.match(template)
     if match:
-        meta_block, template_body = match.groups()
+        meta_block, _ = match.groups()
         hero_meta = {}
         for line in meta_block.splitlines():
             key, _, value = line.partition(":")
@@ -438,7 +438,6 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict, dict]:
             if key in ("hero_eyebrow", "hero_heading", "hero_lede"):
                 hero_meta[key] = value.strip()
     else:
-        template_body = template
         hero_meta = {}
 
     try:
@@ -525,7 +524,6 @@ def _build_ordinance_rows(ordinances: list, category_labels: dict) -> list:
     rows = []
     for o in ordinances:
         cat_label = category_labels.get(o.get("category", ""), o.get("category", "").title())
-        fiscal = _format_fiscal_value(o.get("fiscal_value"))
         status_class = _get_status_class(o.get("status", ""))
         status_text = o.get("status", "").title()
         source = _build_source_link(o.get("source_url", ""))
@@ -727,52 +725,74 @@ def generate_barangays() -> None:
 # Translation linter
 # ---------------------------------------------------------------------------
 
-def verify_translations() -> None:
-    """Compare EN vs FIL HTML output and flag untranslated English strings."""
+TRANSLATION_ALLOWLIST = {
+    "bettermapandan.org", "better mapandan", "github", "chart.js", "chart",
+    "open-meteo", "lucide", "svg", "pdf", "html", "css", "json", "js",
+    "philhealth", "pag-ibig", "gsis", "sss", "dswd", "doe", "da", "dar",
+    "denr", "dilg", "doj", "dof", "dbm", "neda", "psa", "comelec", "coe",
+    "coe-id", "philsys", "lgu", "bplo", "cenro", "menro", "ldrrmo", "lydo",
+    "sk", "sb", "rtc", "mctc", "mdrrmo", "aics", "pwd", "solo parent",
+    "birth certificate", "death certificate", "marriage certificate",
+    "certificate of", "clearance", "barangay", "mayor",
+    "mapandan", "pangasinan", "philippines", "luzon",
+    "cy 2020", "cy 2021", "cy 2022", "cy 2023", "cy 2024", "cy 2025", "cy 2026",
+    "res.", "res no.", "ordinance", "resolution", "executive order",
+    "republic act", "ra no.", "pd no.", "bp no.", " eo ",
+    "land bank", "landbank", "coa", "sglg", "fdp", "gf",
+    "unpkg.com", "cdn.jsdelivr.net",
+    "google maps", "google.com", "maps.app",
+    "16.03", "120.456", "openstreetmap",
+    "©", "© 2024", "© 2025", "© 2026",
+}
+
+
+def _strip_tags_for_comparison(html_text: str) -> str:
+    """Remove HTML tags and normalize whitespace for translation comparison."""
     import re as _re
+    text = _re.sub(r"<script[^>]*>.*?</script>", "", html_text, flags=_re.DOTALL)
+    text = _re.sub(r"<style[^>]*>.*?</style>", "", text, flags=_re.DOTALL)
+    text = _re.sub(r"<[^>]+>", " ", text)
+    return _re.sub(r"\s+", " ", text).strip()
 
-    def strip_tags(html_text: str) -> str:
-        text = _re.sub(r"<script[^>]*>.*?</script>", "", html_text, flags=_re.S)
-        text = _re.sub(r"<style[^>]*>.*?</style>", "", text, flags=_re.S)
-        text = _re.sub(r"<[^>]+>", " ", text)
-        return _re.sub(r"\s+", " ", text).strip()
 
-    def extract_segments(text: str, min_len: int = 20) -> list:
-        segs = _re.split(r"(?<=[.!?])\s+", text)
-        return [s.strip() for s in segs if len(s.strip()) >= min_len]
+def _extract_text_segments(text: str, min_len: int = 20) -> list:
+    """Split text into sentence segments."""
+    import re as _re
+    segs = _re.split(r"(?<=[.!?])\s+", text)
+    return [s.strip() for s in segs if len(s.strip()) >= min_len]
 
-    ALLOWLIST = {
-        "bettermapandan.org", "better mapandan", "github", "chart.js", "chart",
-        "open-meteo", "lucide", "svg", "pdf", "html", "css", "json", "js",
-        "philhealth", "pag-ibig", "gsis", "sss", "dswd", "doe", "da", "dar",
-        "denr", "dilg", "doj", "dof", "dbm", "neda", "psa", "comelec", "coe",
-        "coe-id", "philsys", "lgu", "bplo", "cenro", "menro", "ldrrmo", "lydo",
-        "sk", "sb", "rtc", "mctc", "mdrrmo", "aics", "pwd", "solo parent",
-        "birth certificate", "death certificate", "marriage certificate",
-        "certificate of", "clearance", "barangay", "mayor",
-        "mapandan", "pangasinan", "philippines", "luzon",
-        "cy 2020", "cy 2021", "cy 2022", "cy 2023", "cy 2024", "cy 2025", "cy 2026",
-        "res.", "res no.", "ordinance", "resolution", "executive order",
-        "republic act", "ra no.", "pd no.", "bp no.", " eo ",
-        "land bank", "landbank", "coa", "sglg", "fdp", "gf",
-        "chart.js", "unpkg.com", "cdn.jsdelivr.net",
-        "google maps", "google.com", "maps.app",
-        "16.03", "120.456", "openstreetmap",
-        "©", "© 2024", "© 2025", "© 2026",
-    }
 
-    print("\n--- Translation Linter ---\n")
+def _is_segment_translated(seg_lower: str, fil_text_lower: str, allowlist: set) -> bool:
+    """Check if a segment is likely untranslated (present in EN but not FIL)."""
+    if len(seg_lower) < 25:
+        return False
+    if any(term in seg_lower for term in allowlist):
+        return False
+    return seg_lower in fil_text_lower
 
-    en_dir = ROOT
-    fil_dir = FIL_DIR
 
-    if not fil_dir.exists():
-        print("  FIL output not found. Run build first.")
-        return
+def _compare_file_pair(en_path: Path, fil_path: Path) -> list:
+    """Compare EN and FIL files, return list of untranslated segments."""
+    en_text = _strip_tags_for_comparison(en_path.read_text(encoding="utf-8"))
+    fil_text = _strip_tags_for_comparison(fil_path.read_text(encoding="utf-8"))
+    fil_text_lower = fil_text.lower()
 
-    en_files = sorted(en_dir.glob("*.html")) + sorted((en_dir / "services").glob("*.html")) + sorted((en_dir / "support").glob("*.html"))
+    findings = []
+    for seg in _extract_text_segments(en_text):
+        seg_lower = seg.lower().strip()
+        if _is_segment_translated(seg_lower, fil_text_lower, TRANSLATION_ALLOWLIST):
+            findings.append(seg[:100] + ("..." if len(seg) > 100 else ""))
+    return findings
+
+
+def _collect_translation_findings(en_dir: Path, fil_dir: Path) -> tuple[list, int]:
+    """Collect all translation findings across all page pairs."""
     findings = []
     pages_checked = 0
+
+    en_files = sorted(en_dir.glob("*.html"))
+    en_files += sorted((en_dir / "services").glob("*.html"))
+    en_files += sorted((en_dir / "support").glob("*.html"))
 
     for en_path in en_files:
         rel = en_path.relative_to(en_dir)
@@ -780,29 +800,33 @@ def verify_translations() -> None:
         if not fil_path.exists():
             continue
 
-        en_text = strip_tags(en_path.read_text(encoding="utf-8"))
-        fil_text = strip_tags(fil_path.read_text(encoding="utf-8"))
-
-        for seg in extract_segments(en_text):
-            seg_lower = seg.lower().strip()
-            if len(seg_lower) < 25:
-                continue
-            if any(term in seg_lower for term in ALLOWLIST):
-                continue
-            if seg_lower in fil_text.lower():
-                findings.append((str(rel), seg[:100] + ("..." if len(seg) > 100 else "")))
-
+        file_findings = _compare_file_pair(en_path, fil_path)
+        if file_findings:
+            findings.append((str(rel), file_findings))
         pages_checked += 1
 
+    return findings, pages_checked
+
+
+def verify_translations() -> None:
+    """Compare EN vs FIL HTML output and flag untranslated English strings."""
+    print("\n--- Translation Linter ---\n")
+
+    fil_dir = FIL_DIR
+    if not fil_dir.exists():
+        print("  FIL output not found. Run build first.")
+        return
+
+    findings, pages_checked = _collect_translation_findings(ROOT, fil_dir)
+
     if findings:
-        print(f"  Found {len(findings)} potential untranslated segment(s) in {pages_checked} page pairs:\n")
-        prev_file = None
-        for file_path, segment in findings:
-            if file_path != prev_file:
-                print(f"  [{file_path}]")
-                prev_file = file_path
-            print(f'    - "{segment}"')
-        print(f"\n  Summary: {len(findings)} segment(s) across {pages_checked} pages may need translation.")
+        total_segments = sum(len(segments) for _, segments in findings)
+        print(f"  Found {total_segments} potential untranslated segment(s) in {pages_checked} page pairs:\n")
+        for file_path, segments in findings:
+            print(f"  [{file_path}]")
+            for segment in segments:
+                print(f'    - "{segment}"')
+        print(f"\n  Summary: {total_segments} segment(s) across {pages_checked} pages may need translation.")
     else:
         print(f"  No untranslated segments found across {pages_checked} page pairs.")
 
@@ -816,7 +840,7 @@ def generate_sitemap() -> None:
     import datetime
     from urllib.parse import quote
 
-    today = datetime.date.today().isoformat()
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
     base_url = "https://bettermapandan.org"
 
     en_files = sorted(ROOT.glob("*.html")) + sorted((ROOT / "services").glob("*.html")) + sorted((ROOT / "support").glob("*.html"))
@@ -970,6 +994,7 @@ main().catch(console.error);
         cwd=str(ROOT),
         capture_output=True,
         text=True,
+        check=False,
     )
     compress_script.unlink(missing_ok=True)
 
@@ -1184,7 +1209,7 @@ def _build_homepage_labels(locale: dict) -> dict:
         "HOMEPAGE_LEADERSHIP_TITLE": t(locale, "homepage.leadership_title", ""),
         "HOMEPAGE_MAP_TITLE": t(locale, "homepage.map_title", ""),
         "HOMEPAGE_MUNICIPALITY_AGRI": t(locale, "homepage.municipality_agri", ""),
-        "HOMEPAGE_MUNICIPALITY_FOUNDED": t(locale, "homepage.municipality_found", ""),
+        "HOMEPAGE_MUNICIPALITY_FOUNDED": t(locale, "homepage.municipality_founded", ""),
         "HOMEPAGE_MUNICIPALITY_REESTABLISHED": t(locale, "homepage.municipality_reestablished", ""),
         "HOMEPAGE_MUNICIPALITY_TITLE": t(locale, "homepage.municipality_title", ""),
         "HOMEPAGE_PLAZA_TITLE": t(locale, "homepage.plaza_title", ""),
@@ -1350,8 +1375,13 @@ def build_hero(meta: dict, page_hero_raw: str, asset_base: str) -> str:
     })
 
 
-def assemble_page(base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str, lang_code: str) -> str:
+def assemble_page(base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str, lang_code: str, page_url: str = "") -> str:
     """Assemble a complete page from its components."""
+    base_url = "https://bettermapandan.org"
+    if page_url:
+        canonical = f"{base_url}/{page_url}" if not page_url.startswith("http") else page_url
+    else:
+        canonical = base_url
     return fill(base, {
         "ASSET_BASE": asset_base,
         "TITLE": title,
@@ -1360,6 +1390,7 @@ def assemble_page(base: str, asset_base: str, title: str, description: str, head
         "BODY": body,
         "FOOTER": footer,
         "LANG_ATTR": f' lang="{lang_code}"',
+        "CANONICAL_URL": canonical,
     })
 
 
@@ -1369,7 +1400,7 @@ def build_search_entry(rel: Path, title: str, description: str, body: str, is_fi
     if is_fil:
         url = "fil/" + url
     plain_body = strip_html(body)
-    entry = {"title": title, "url": url, "description": description, "body": plain_body}
+    entry: dict[str, object] = {"title": title, "url": url, "description": description, "body": plain_body}
     if anchors_key:
         anchors = SECTION_ANCHORS.get(anchors_key, [])
         section_anchors = []
@@ -1377,7 +1408,7 @@ def build_search_entry(rel: Path, title: str, description: str, body: str, is_fi
             idx = plain_body.lower().find(heading.lower())
             if idx != -1:
                 section_anchors.append({"anchor": anchor_id, "pos": idx})
-        section_anchors.sort(key=lambda s: s["pos"])
+        section_anchors.sort(key=lambda s: s["pos"])  # type: ignore[arg-type, return-value]
         if section_anchors:
             entry["section_anchors"] = section_anchors
     return entry
@@ -1415,7 +1446,7 @@ def build() -> None:
         if not page_files:
             raise SystemExit(f"No page sources found in {SRC_PAGES}")
 
-        search_entries = []
+        search_entries: list[dict] = []
         count = 0
 
         for page_path in page_files:
@@ -1448,7 +1479,7 @@ def build() -> None:
         if assets_dst.exists():
             shutil.rmtree(assets_dst)
         shutil.copytree(assets_src, assets_dst)
-        print(f"\n  Copied assets to fil/assets/")
+        print("\n  Copied assets to fil/assets/")
 
     generate_sitemap()
     print(f"\nDone. {count * 2} page(s) written ({count} EN + {count} FIL)")
@@ -1466,7 +1497,8 @@ def _process_static_page(
     footer = build_footer(locale, asset_base)
     hero_html = build_hero(meta, page_hero_raw, asset_base)
     body = resolve_body_placeholders(hero_html + body, locale, asset_base)
-    page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code)
+    page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
+    page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
 
     out_path = out_root / rel
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1499,11 +1531,12 @@ def _process_generated_page(
         })
         body_content = hero_html + body_content
 
+    page_url = f"fil/{rel_path_str}" if lang_code == "fil" else rel_path_str
     page_html = assemble_page(
         base, asset_base,
         page_meta.get(rel_path_str, {}).get("title", "Better Mapandan"),
         page_meta.get(rel_path_str, {}).get("description", ""),
-        header, breadcrumbs + body_content, footer, lang_code
+        header, breadcrumbs + body_content, footer, lang_code, page_url
     )
 
     out_path = out_root / rel
