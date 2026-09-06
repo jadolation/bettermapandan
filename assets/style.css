@@ -738,7 +738,29 @@ p {
   color: var(--ink-soft);
   margin: 0;
 }
-
+.section-rice-bg {
+  position: relative;
+  background-image: linear-gradient(rgba(20, 30, 10, 0.55), rgba(20, 30, 10, 0.7)), url('rice-paddy.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* drop this line if you don't want the parallax scroll effect */
+  color: #fff;
+}
+.section-rice-bg .section-eyebrow,
+.section-rice-bg h2,
+.section-rice-bg p {
+  color: #fff;
+}
+.section-rice-bg .card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.section-rice-bg .card .icon,
+.section-rice-bg .card h3,
+.section-rice-bg .card p {
+  color: #fff;
+}
 /* ---------- Cards / grids ---------- */
 
 .grid {
