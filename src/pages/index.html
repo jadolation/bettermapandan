@@ -3,36 +3,34 @@ title: BetterMapandan.org — Mapandan, Pangasinan Transparency Portal
 description: An independent, citizen-run transparency portal for the Municipality of Mapandan, Pangasinan — officials, budget, ordinances, services, and emergency contacts, built under the BetterGov.ph BetterLGU initiative.
 ---
 <section class="hero">
-  <img class="hero-rays" src="assets/logo-no-white.svg" alt="" aria-hidden="true" />
+  <img class="hero-rays" src="{{ASSET_BASE}}/assets/logo-no-white.svg" alt="" aria-hidden="true" />
   <div class="wrap">
     <div class="hero-text">
-      <span class="eyebrow">Independent &middot; Citizen-Maintained &middot; Pangasinan</span>
-      <h1>Mapandan, in the open.</h1>
+      <span class="eyebrow">{HERO_EYEBROW}</span>
+      <h1>{HERO_TITLE}</h1>
       <p class="lede">
-        Officials, budgets, ordinances, and frontline services for the Municipality of
-        Mapandan &mdash; gathered from public records and kept in one place, so every
-        resident can find what their local government is doing.
+        {HERO_LEDE}
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="services.html">Browse Services</a>
-        <a class="btn btn-ghost" href="transparency.html">See the Budget</a>
+        <a class="btn btn-primary" href="services.html">{HERO_BROWSE_SERVICES}</a>
+        <a class="btn btn-ghost" href="transparency.html">{HERO_SEE_BUDGET}</a>
       </div>
     </div>
     <div class="hero-search" role="search" aria-label="Find a service">
       <div class="hero-search-inner">
         <h3>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          Find a Service
+          {HERO_SEARCH_TITLE}
         </h3>
-        <p class="hero-search-desc">Search every service Mapandan offers &mdash; by what you're trying to do, not which office handles it.</p>
-        <form class="hero-search-form" action="services.html" method="get">
-          <input class="hero-search-input" type="text" name="q" placeholder="business permit, barangay clearance, hospital..." aria-label="Search services" autocomplete="off" />
+        <p class="hero-search-desc">{HERO_SEARCH_DESC}</p>
+        <form class="hero-search-form" action="search.html" method="get">
+          <input class="hero-search-input" type="text" name="q" placeholder="{HERO_SEARCH_PLACEHOLDER}" aria-label="Search services" autocomplete="off" />
           <button class="hero-search-btn" type="submit" aria-label="Search">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </form>
         <div class="hero-search-tags">
-          <span class="hero-search-popular">Popular:</span>
+          <span class="hero-search-popular">{HERO_SEARCH_POPULAR}</span>
           <a href="services.html" class="hero-search-tag">business permit</a>
           <a href="government.html" class="hero-search-tag">local hospital</a>
           <a href="services.html" class="hero-search-tag">barangay clearance</a>
@@ -43,38 +41,57 @@ description: An independent, citizen-run transparency portal for the Municipalit
   </div>
 </section>
 
+<div class="action-hub-bar">
+  <a class="action-hub-item" href="services.html">
+    <span class="action-hub-icon"><i data-lucide="clipboard-list"></i></span>
+    <span>{ACTION_HUB_SERVICES}</span>
+  </a>
+  <a class="action-hub-item" href="transparency.html">
+    <span class="action-hub-icon"><i data-lucide="wallet"></i></span>
+    <span>{ACTION_HUB_BUDGET}</span>
+  </a>
+  <a class="action-hub-item" href="legislative.html">
+    <span class="action-hub-icon"><i data-lucide="scale"></i></span>
+    <span>{ACTION_HUB_LEGISLATION}</span>
+  </a>
+  <a class="action-hub-item" href="government.html">
+    <span class="action-hub-icon"><i data-lucide="phone"></i></span>
+    <span>{ACTION_HUB_HOTLINES}</span>
+  </a>
+</div>
+
 <section class="stat-strip">
   <div class="wrap">
     <div class="stat-grid">
       <div class="stat">
         <div class="num">38,228</div>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: PSA Census 2020</span>
-        <div class="label">Residents</div>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
+        <span class="source-label" data-tip="PSA 2020 Census of Population &amp; Housing &mdash; verified public record">Source: PSA Census 2020</span>
+        <div class="label">{STATS_RESIDENTS}</div>
       </div>
       <div class="stat">
         <div class="num">15</div>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: DILG / Comelec</span>
-        <div class="label">Barangays</div>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
+        <span class="source-label" data-tip="Department of the Interior and Local Government / Commission on Elections &mdash; official barangay count">Source: DILG / Comelec</span>
+        <div class="label">{STATS_BARANGAYS}</div>
       </div>
       <div class="stat">
         <div class="num">10,685</div>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: RHU Mapandan 2023</span>
-        <div class="label">Households</div>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
+        <span class="source-label" data-tip="Rural Health Unit Mapandan, 2023 household census &mdash; municipal records">Source: RHU Mapandan 2023</span>
+        <div class="label">{STATS_HOUSEHOLDS}</div>
       </div>
       <div class="stat">
         <div class="num">1,161.24/km&sup2;</div>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Computed: 38,228 &divide; 32.92 km&sup2;</span>
-        <div class="label">Pop. density</div>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
+        <span class="source-label" data-tip="Computed: 38,228 residents &divide; 32.92 km&sup2; land area &mdash; derived from PSA and MPDC data">Computed: 38,228 &divide; 32.92 km&sup2;</span>
+        <div class="label">{STATS_DENSITY}</div>
       </div>
       <div class="stat">
         <div class="num">32.92&sup2;</div>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Source: MPDC Land Use Plan 2024</span>
-        <div class="label">Land area</div>
+        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
+        <span class="source-label" data-tip="Municipal Planning and Development Office, Land Use Plan 2024 &mdash; official municipal boundary">Source: MPDC Land Use Plan 2024</span>
+        <div class="label">{STATS_LAND_AREA}</div>
       </div>
     </div>
   </div>
@@ -83,33 +100,27 @@ description: An independent, citizen-run transparency portal for the Municipalit
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Third-Class Municipality &middot; Region I</div>
-      <h2>A rice-growing town in Pangasinan's third district</h2>
+      <div class="section-eyebrow">{HOMEPAGE_MUNICIPALITY_EYEBROW}</div>
+      <h2>{HOMEPAGE_MUNICIPALITY_TITLE}</h2>
       <p>
-        Mapandan sits in the Third Congressional District of Pangasinan, bounded by
-        San Jacinto to the north, Mangaldan to the northwest, Manaoag to the east, and
-        Santa Barbara to the south. Covering 30.00 square kilometres, around three-quarters
-        of its land supports agriculture &mdash; mainly rice, alongside corn, livestock,
-        and seasonal vegetables. The municipal administration operates under the tagline
-        &ldquo;Kaakibat niyo ang Aktibo at Responsableng Liderato&rdquo;
-        (Partnering with you in Active and Responsible Leadership).
+        {HOMEPAGE_MUNICIPALITY_DESC}
       </p>
     </div>
     <div class="grid grid-3">
       <div class="card">
         <div class="icon">01</div>
-        <h3>Founded Dec. 28, 1887</h3>
-        <p>Separated from Mangaldan as an independent pueblo under Governor General Emilio Bravo, led by ten local leaders including Antonio Morales, Sabino Prado, and Andres Bongato.</p>
+        <h3>{HOMEPAGE_MUNICIPALITY_FOUNDED}</h3>
+        <p>{HOMEPAGE_FOUNDED_DESC}</p>
       </div>
       <div class="card">
         <div class="icon">02</div>
-        <h3>Re-established 1909</h3>
-        <p>A severe epidemic forced temporary re-annexation to Mangaldan. Full autonomy was restored via Executive Order No. 10 by Governor General James F. Smith.</p>
+        <h3>{HOMEPAGE_MUNICIPALITY_REESTABLISHED}</h3>
+        <p>{HOMEPAGE_REESTABLISHED_DESC}</p>
       </div>
       <div class="card">
         <div class="icon">03</div>
-        <h3>Agricultural heart</h3>
-        <p>Approximately 75% of the municipality's 30 km&sup2; is dedicated to lowland crop production, livestock, and poultry farming.</p>
+        <h3>{HOMEPAGE_MUNICIPALITY_AGRI}</h3>
+        <p>{HOMEPAGE_AGRI_DESC_FULL}</p>
       </div>
     </div>
   </div>
@@ -118,205 +129,53 @@ description: An independent, citizen-run transparency portal for the Municipalit
 <section class="section section-alt" id="history">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">A Brief History</div>
-      <h2>The Story of Mapandan</h2>
-      <p>From a new pueblo to a growing community</p>
+      <div class="section-eyebrow">{HOMEPAGE_HISTORY_EYEBROW}</div>
+      <h2>{HOMEPAGE_HISTORY_TITLE}</h2>
+      <p>{HOMEPAGE_HISTORY_SUBTITLE}</p>
     </div>
 
-    <div class="history-layout">
-      <div class="history-timeline">
-        <div class="timeline">
-
-          <div class="timeline-item" id="era-founding">
-            <span class="year">Before 1887</span>
-            <h3>Southern barrios of Mangaldan</h3>
-            <p>Before Mapandan existed, the area belonged to Mangaldan as southern communities including Payapay, Baloling, Apaya, and Amanoaoac.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read the founding story</button>
-            <div class="accordion-content" hidden>
-              <p>Ten local leaders &mdash; Antonio Morales, Sabino Prado, Andres Bongato, Ambrosio Calimlim, Valeriano Tamondong, Tomas Aquino, Fulgencio Nato, Filomeno Sarmiento, Jose Lalas, and Florencio Datuin &mdash; led the petition for a separate town.</p>
-              <p class="source-cite">Source: Municipality of Mapandan, Municipal Profile &mdash; Historical Background</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">Dec. 28, 1887</span>
-            <h3>Mapandan becomes a pueblo</h3>
-            <p>Established as an independent pueblo through Director General No. 39, signed by Governor General Emilio Bravo.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read more</button>
-            <div class="accordion-content" hidden>
-              <p>The new pueblo was initially composed of the southern barrios of Mangaldan. Its administrative seat was first set up in Barrio Torres, then relocated to present-day Poblacion on land donated by the Aquino family.</p>
-              <p class="source-cite">Source: Municipality of Mapandan, Municipal Profile &mdash; Historical Background</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">1887&ndash;1890s</span>
-            <h3>The first town center</h3>
-            <p>The first seat was in Barrio Torres, near a church where Fr. Jose Torres served. The town was named for the abundance of fragrant pandan plants.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read more</button>
-            <div class="accordion-content" hidden>
-              <p>The Torres location proved inconvenient &mdash; too close to the southern boundary. The center was eventually transferred to an area that had been a sitio of Apaya. Leon Hilario Aquino encouraged settlement by subdividing land into uniform lots.</p>
-              <p class="source-cite">Source: Municipality of Mapandan, Barangay Torres History; Barangay Poblacion History</p>
-            </div>
-          </div>
-
-          <div class="timeline-item" id="era-survival">
-            <span class="year">1903</span>
-            <h3>The epidemic</h3>
-            <p>A severe epidemic devastated the municipality, causing population loss, migration, and fiscal insolvency. The 1903 census recorded 4,198 residents.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read more</button>
-            <div class="accordion-content" hidden>
-              <p>The epidemic directly affected Mapandan&rsquo;s ability to function as a municipality, leading to its temporary return to Mangaldan.</p>
-              <p class="source-cite">Source: Municipality of Mapandan, Municipal Profile; PSA Census 1903</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">1905&ndash;1908</span>
-            <h3>Return to Mangaldan</h3>
-            <p>Due to financial insolvency, Mapandan temporarily surrendered its municipal status and was re-absorbed as part of Mangaldan.</p>
-            <p class="source-cite">Source: Municipality of Mapandan, Municipal Profile &mdash; Historical Background</p>
-          </div>
-
-          <div class="timeline-item" id="era-rebuilding">
-            <span class="year">1909</span>
-            <h3>Mapandan rises again</h3>
-            <p>Re-established as an independent municipality under Executive Order No. 10, issued by Governor General James F. Smith.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read more</button>
-            <div class="accordion-content" hidden>
-              <p>After years of demographic and financial difficulties, Mapandan was reorganized and re-established as an independent municipality, beginning a new chapter of growth.</p>
-              <p class="source-cite">Source: Municipality of Mapandan, Municipal Profile &mdash; Historical Background</p>
-            </div>
-          </div>
-
-          <div class="timeline-item" id="era-community">
-            <span class="year">1940s</span>
-            <h3>War and reconstruction</h3>
-            <p>The Second World War interrupted development across Pangasinan. Postwar years brought land ownership changes and community rebuilding.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read more</button>
-            <div class="accordion-content" hidden>
-              <p>In the postwar years, tenants gained opportunities to own land they had been farming. Communities like Sta. Maria developed from hacienda land into independent barrios.</p>
-              <p class="source-cite">Source: Municipality of Mapandan, Barangay Sta. Maria History</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">1965</span>
-            <h3>Sta. Maria becomes a barrio</h3>
-            <p>Formerly a sitio of Luyan on hacienda land, Sta. Maria was established as a separate barrio, marking the growth of Mapandan&rsquo;s community structure.</p>
-            <p class="source-cite">Source: Municipality of Mapandan, Barangay Sta. Maria History</p>
-          </div>
-
-          <div class="timeline-item" id="era-development">
-            <span class="year">1967</span>
-            <h3>Golden becomes a barangay</h3>
-            <p>Formerly Amanoaoac North, Golden was established as a separate barangay. Named after the Golden Distillery that operated after liberation.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read more</button>
-            <div class="accordion-content" hidden>
-              <p>Golden underwent substantial development including road improvement, waterworks, school construction, and cooperative organization. In 1972, it was recognized as a SEATO/PACD Model Village, with the award presented at Malaca&ntilde;ang.</p>
-              <p class="source-cite">Source: Municipality of Mapandan, Barangay Golden History</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">1972&ndash;1973</span>
-            <h3>Coral is established</h3>
-            <p>Created through Municipal Council Resolution No. 87 (1972), Provincial Board Resolution No. 155, and Proclamation No. 11 (1973). Named after the stone coral enclosure built during the Spanish era.</p>
-            <p class="source-cite">Source: Municipality of Mapandan, Barangay Coral History</p>
-          </div>
-
-          <div class="timeline-item" id="era-today">
-            <span class="year">2002</span>
-            <h3>Third-class municipality</h3>
-            <p>Mapandan was elevated to a third-class municipality, reflecting income and revenue growth under then-Mayor Jose Ferdinand Z. Calimlim Jr.</p>
-            <p class="source-cite">Source: Municipality of Mapandan, Physical Characteristics &mdash; Historical Development</p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">2010s</span>
-            <h3>The Pandan Festival grows</h3>
-            <p>The Pandan Festival developed into an important annual celebration of Mapandan&rsquo;s identity, culture, and community, held alongside the town fiesta.</p>
-            <p class="source-cite">Source: Municipality of Mapandan, Official Website</p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">2022&ndash;2024</span>
-            <h3>Expanding healthcare access</h3>
-            <p>National health infrastructure funding supported the Mapandan Super Health Center. Its first phase was inaugurated on March 15, 2024, serving residents of all 15 barangays.</p>
-            <button class="accordion-toggle" aria-expanded="false">Read more</button>
-            <div class="accordion-content" hidden>
-              <p>The 2022 General Appropriations Act included &₱circ;6.5 million for the facility. Phase 1 provides laboratory and dental services for Mapandan and nearby municipalities.</p>
-              <p class="source-cite">Source: Philippine News Agency, March 15, 2024; DBM General Appropriations Act 2022</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="year">2024</span>
-            <h3>Mapandan today</h3>
-            <p>More than 130 years after its establishment, Mapandan is a 15-barangay municipality with a population of 38,228, continuing to invest in public services and community development.</p>
-            <p class="source-cite">Source: Philippine Statistics Authority, 2024 POPCEN</p>
-          </div>
-
-        </div>
+    <div class="history-milestones">
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE1_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE1_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE1_DESC}</p>
       </div>
-
-      <div class="history-right">
-        <div class="history-carousel" role="region" aria-label="Historical photos of Mapandan">
-          <div class="carousel-track">
-            <div class="carousel-slide active">
-              <img src="assets/history/old-plaza.png" alt="Old Mapandan Town Plaza" />
-              <div class="carousel-caption">Mapandan Town Plaza</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/history/old-market.png" alt="Old Mapandan Public Market" />
-              <div class="carousel-caption">Old Mapandan Public Market</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/history/old-officials.png" alt="Early Mapandan Municipal Officials" />
-              <div class="carousel-caption">Early Municipal Officials</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/history/old-school.png" alt="Old Mapandan School Building" />
-              <div class="carousel-caption">Old Mapandan School</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/history/old-bridge.png" alt="Old Mapandan Bridge" />
-              <div class="carousel-caption">Old Baloling Bridge</div>
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn carousel-prev" aria-label="Previous photo">&#8592;</button>
-            <span class="carousel-counter"><span class="carousel-current">1</span> / 5</span>
-            <button class="carousel-btn carousel-next" aria-label="Next photo">&#8594;</button>
-          </div>
-        </div>
-        <p class="carousel-source">Source: Mayor Karl Vega, &ldquo;History of Mapandan&rdquo; &mdash; <a href="https://youtu.be/bSUt_H_fj_c" target="_blank" rel="noopener">YouTube</a></p>
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE2_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE2_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE2_DESC}</p>
+      </div>
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE3_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE3_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE3_DESC}</p>
+      </div>
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE4_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE4_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE4_DESC}</p>
       </div>
     </div>
 
-    <div class="history-chart">
-      <h3>Population through time</h3>
-      <canvas id="chart-history-population" height="180"></canvas>
-      <p class="source-cite">Source: Philippine Statistics Authority, Census of Population (1903&ndash;2024)</p>
-    </div>
+    <p class="cta-row">
+      <a class="link-arrow" href="about.html">{HOMEPAGE_HISTORY_CTA}</a>
+    </p>
 
     <div class="section-head" style="margin-top:48px">
-      <div class="section-eyebrow">Stories Behind Our Barangays</div>
-      <h2>15 communities, 15 histories</h2>
-      <p>Each of Mapandan&rsquo;s barangays has its own story of origin, growth, and community life.</p>
+      <div class="section-eyebrow">{HOMEPAGE_BARANGAY_EYEBROW}</div>
+      <h2>{HOMEPAGE_BARANGAY_TITLE}</h2>
+      <p>{HOMEPAGE_BARANGAY_SUBTITLE}</p>
     </div>
     <div class="barangay-grid" id="barangay-grid"></div>
 
     <div class="history-sources">
-      <h3>Sources &amp; Historical Notes</h3>
-      <p>Much of Mapandan&rsquo;s historical material comes from the Municipality of Mapandan&rsquo;s official website, including the Municipal Profile, Physical Characteristics, and individual barangay history pages. Population data is from the Philippine Statistics Authority. Development milestones reference the Philippine News Agency and Department of Budget and Management records.</p>
-      <p>Some barangay histories attribute parts of their narratives to &ldquo;old folks&rdquo; / local oral histories. These are labeled as local historical accounts rather than independently documented facts.</p>
+      <h3>{HOMEPAGE_SOURCES_TITLE}</h3>
+      <p>{HOMEPAGE_SOURCES_DESC}</p>
       <ul>
         <li>Municipality of Mapandan &mdash; <a href="https://mapandan.gov.ph/municipal-profile/" target="_blank" rel="noopener">Municipal Profile</a></li>
         <li>Municipality of Mapandan &mdash; <a href="https://mapandan.gov.ph/mapandan-physical-characteristic/" target="_blank" rel="noopener">Physical Characteristics</a></li>
         <li>Philippine Statistics Authority &mdash; <a href="https://psa.gov.ph/classification/psgc/barangays/0105528000" target="_blank" rel="noopener">Mapandan PSGC</a></li>
         <li>Philippine News Agency &mdash; <a href="https://www.pna.gov.ph/articles/1220917" target="_blank" rel="noopener">Super Health Center Inauguration</a></li>
-        <li>Historical photos: Mayor Karl Vega, &ldquo;History of Mapandan&rdquo; &mdash; <a href="https://youtu.be/bSUt_H_fj_c" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
     </div>
   </div>
@@ -325,30 +184,30 @@ description: An independent, citizen-run transparency portal for the Municipalit
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Cultural Heritage</div>
-      <h2>Local traditions and community life</h2>
+      <div class="section-eyebrow">{HOMEPAGE_CULTURAL_EYEBROW}</div>
+      <h2>{HOMEPAGE_CULTURAL_TITLE}</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card-photo" style="background-image:url('assets/Pandan.jpg')">
         <div class="card-photo-inner">
-          <h3>Pandan Festival</h3>
-          <p>Held annually during the second week of April, celebrating the town's agricultural harvest and its namesake plant, <em>Pandanus amaryllifolius</em>. Events include street-dancing pageants, trade fairs, and exhibitions of traditional pandan leaf weaving.</p>
+          <h3>{HOMEPAGE_PANDAN_TITLE}</h3>
+          <p>{HOMEPAGE_PANDAN_DESC}</p>
         </div>
-        <span class="card-photo-credit">Photo: IRISE Studios</span>
+        <span class="card-photo-credit">{HOMEPAGE_PANDAN_CREDIT}</span>
       </div>
       <div class="card card-photo" style="background-image:url('assets/plaza.jpg')">
         <div class="card-photo-inner">
-          <h3>Town Plaza</h3>
-          <p>Located in Poblacion, the Mapandan Town Plaza is widely regarded as one of Pangasinan's best-maintained civic parks, featuring an open-air auditorium, tennis courts, recreational children's playgrounds, and landscaped green space.</p>
+          <h3>{HOMEPAGE_PLAZA_TITLE}</h3>
+          <p>{HOMEPAGE_PLAZA_DESC}</p>
         </div>
-        <span class="card-photo-credit">Photo: Pangasinan Lakwatsero</span>
+        <span class="card-photo-credit">{HOMEPAGE_PLAZA_CREDIT}</span>
       </div>
       <div class="card card-photo" style="background-image:url('assets/luyan.png')">
         <div class="card-photo-inner">
-          <h3>Agri-Tourism in Luyan</h3>
-          <p>Barangay Luyan is highlighted in regional DOT farm-to-table culinary circuits, offering agri-tourism programs that showcase sustainable crop cultivation, local gastronomy, and rural life.</p>
+          <h3>{HOMEPAGE_AGRI_TITLE}</h3>
+          <p>{HOMEPAGE_AGRI_DESC}</p>
         </div>
-        <span class="card-photo-credit">Photo: Jenrie C. Del Rosario</span>
+        <span class="card-photo-credit">{HOMEPAGE_AGRI_CREDIT}</span>
       </div>
     </div>
   </div>
@@ -357,34 +216,35 @@ description: An independent, citizen-run transparency portal for the Municipalit
 <section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Leadership</div>
-      <h2>Currently in office</h2>
+      <div class="section-eyebrow">{HOMEPAGE_LEADERSHIP_EYEBROW}</div>
+      <h2>{HOMEPAGE_LEADERSHIP_TITLE}</h2>
     </div>
    <div class="grid grid-2">
       <div class="leader-card">
         <div class="leader-text">
-          <div class="name">Hon. Karl Christian F. Vega</div>
-          <span class="role">Municipal Mayor</span>
-          <div class="affil">Nacionalista Party (NP)</div>
-          <span class="source-label">Source: Mapandan.gov.ph</span>
+          <div class="name">{HOMEPAGE_MAYOR_NAME}</div>
+          <span class="role">{HOMEPAGE_MAYOR_ROLE}</span>
+          <div class="affil">{HOMEPAGE_MAYOR_AFFIL}</div>
+          <span class="source-label">{HOMEPAGE_LEADER_SOURCE}</span>
         </div>
         <div class="photo-wrap">
-          <img src="assets/mayor-vega.png" alt="Hon. Karl Christian F. Vega" class="photo">
+          <img src="assets/officials/mayor-vega.png" alt="{HOMEPAGE_MAYOR_NAME}" class="photo" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="leader-card vice">
         <div class="leader-text">
-        <div class="name">Hon. Anthony C. Penuliar</div>
-        <span class="role">Vice Mayor &middot; Presiding Officer</span>
-        <div class="affil">Independent (IND)</div>
-        <span class="source-label">Source: Mapandan.gov.ph</span>
+        <div class="name">{HOMEPAGE_VICE_MAYOR_NAME}</div>
+        <span class="role">{HOMEPAGE_VICE_MAYOR_ROLE}</span>
+        <div class="affil">{HOMEPAGE_VICE_MAYOR_AFFIL}</div>
+        <span class="source-label">{HOMEPAGE_LEADER_SOURCE}</span>
         </div>
         <div class="photo-wrap">
-          <img src="assets/vicemayor-penuliar.png" alt="Hon. Anthony C. Penuliar" class="photo">
+          <img src="assets/officials/vicemayor-penuliar.png" alt="{HOMEPAGE_VICE_MAYOR_NAME}" class="photo" loading="lazy" decoding="async">
         </div>
       </div>
+   </div>
     <p class="cta-row">
-      <a class="link-arrow" href="government.html">See the full Government Directory &rarr;</a>
+      <a class="link-arrow" href="government.html">{HOMEPAGE_LEADERSHIP_CTA}</a>
     </p>
   </div>
 </section>
@@ -392,30 +252,30 @@ description: An independent, citizen-run transparency portal for the Municipalit
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Explore Mapandan</div>
-      <h2>Weather &amp; map</h2>
+      <div class="section-eyebrow">{HOMEPAGE_EXPLORE_EYEBROW}</div>
+      <h2>{HOMEPAGE_EXPLORE_TITLE}</h2>
     </div>
     <div class="grid grid-2">
       <div>
         <div class="section-head">
-          <h3>Current weather</h3>
+          <h3>{HOMEPAGE_WEATHER_TITLE}</h3>
         </div>
         <div class="weather-widget" id="weather-widget" aria-label="Weather">
-          <div class="weather-loading">Loading weather data...</div>
+          <div class="weather-loading">{HOMEPAGE_WEATHER_LOADING}</div>
         </div>
         <div style="margin-top:10px">
-          <a class="link-arrow" href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">View PAGASA Advisories &rarr;</a>
+          <a class="link-arrow" href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">{HOMEPAGE_WEATHER_CTA}</a>
         </div>
       </div>
       <div>
         <div class="section-head">
-          <h3>Interactive map</h3>
+          <h3>{HOMEPAGE_MAP_TITLE}</h3>
         </div>
         <div class="map-container" aria-label="Interactive map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30679.4255940754!2d120.43267199043375!3d16.017252767882685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33916a0a19820b0d%3A0xf36309f55f2f1351!2sMapandan%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1787762411829!5m2!1sen!2sph" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Map of Mapandan, Pangasinan"></iframe>
         </div>
         <div style="margin-top:10px">
-          <a class="link-arrow" href="https://www.google.com/maps/place/Mapandan,+Pangasinan/@16.0300,120.4561,13z" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+          <a class="link-arrow" href="https://www.google.com/maps/place/Mapandan,+Pangasinan/@16.0300,120.4561,13z" target="_blank" rel="noopener">{HOMEPAGE_MAP_CTA}</a>
         </div>
       </div>
     </div>
@@ -425,33 +285,33 @@ description: An independent, citizen-run transparency portal for the Municipalit
 <section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Emergency Hotlines</div>
-      <h2>Who to call</h2>
+      <div class="section-eyebrow">{HOMEPAGE_EMERGENCY_EYEBROW}</div>
+      <h2>{HOMEPAGE_EMERGENCY_TITLE}</h2>
     </div>
       <div class="grid grid-3">
         <div class="card">
-          <h3>MDRRMO</h3>
-          <p>Municipal Disaster Risk Reduction and Management Office<br />
+          <h3>{EMERGENCY_MDRRMO}</h3>
+          <p>{HOMEPAGE_EMERGENCY_MDRRMO_DESC}<br />
           <a href="tel:+63756002564">(075) 600-2564</a> &middot; <a href="tel:911">911</a> / <a href="tel:+639692236912">0969-223-6912</a></p>
         </div>
         <div class="card">
-          <h3>Bureau of Fire Protection</h3>
+          <h3>{HOMEPAGE_EMERGENCY_BFP}</h3>
           <p><a href="tel:+63756321750">(075) 632-1750</a> &middot; <a href="tel:911">911</a> / <a href="tel:+639434242810">0943-424-2810</a></p>
         </div>
         <div class="card">
-          <h3>Philippine National Police</h3>
+          <h3>{HOMEPAGE_EMERGENCY_PNP}</h3>
           <p><a href="tel:+63756321754">(075) 632-1754</a> &middot; <a href="tel:911">911</a> / <a href="tel:+639159793390">0915-979-3390</a></p>
         </div>
         <div class="card">
-          <h3>Rural Health Unit</h3>
+          <h3>{HOMEPAGE_EMERGENCY_RHU}</h3>
           <p><a href="tel:+63756321874">(075) 632-1874</a></p>
         </div>
         <div class="card">
-          <h3>Mapandan Community Hospital</h3>
+          <h3>{HOMEPAGE_EMERGENCY_HOSPITAL}</h3>
           <p><a href="tel:+63756320491">(075) 632-0491</a> &middot; <a href="tel:+639165512522">0916-551-2522</a></p>
         </div>
         <div class="card">
-          <h3>Mapandan Water District</h3>
+          <h3>{HOMEPAGE_EMERGENCY_WATER}</h3>
           <p><a href="tel:+63756320445">(075) 632-0445</a> &middot; <a href="tel:+639493003375">0949-300-3375</a></p>
         </div>
       </div>

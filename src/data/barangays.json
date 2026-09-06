@@ -10,21 +10,66 @@
       "source": "Municipality of Mapandan, Barangay Amanoaoac History",
       "punong_barangay": "Marben P. Calaunan",
       "kagawads": [
-        { "name": "Sotero P. Burguillos Jr", "position": "Sangguniang Barangay Member", "email": "junjrburguillos@gmail.com", "contact": "09074323847" },
-        { "name": "Noblito S. Dela Cruz Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" },
-        { "name": "Jeffson C. Burguillos", "position": "Sangguniang Barangay Member", "email": "JEFFSON.BURGUILLOS@YAHOO.COM", "contact": "09074323847" },
-        { "name": "Victoria S. Erasquin", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" },
-        { "name": "Rony M. Zarcilla", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" },
-        { "name": "Jerriel Jaruh G. Dela Cruz", "position": "Sangguniang Barangay Member", "email": "jerrieljaruhd@gmail.com", "contact": "09074323847" },
-        { "name": "Jayson O. Penuliar", "position": "Sangguniang Barangay Member", "email": "", "contact": "09074323847" }
+        {
+          "name": "Sotero P. Burguillos Jr",
+          "position": "Sangguniang Barangay Member",
+          "email": "junjrburguillos@gmail.com",
+          "contact": "09074323847"
+        },
+        {
+          "name": "Noblito S. Dela Cruz Jr",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09074323847"
+        },
+        {
+          "name": "Jeffson C. Burguillos",
+          "position": "Sangguniang Barangay Member",
+          "email": "JEFFSON.BURGUILLOS@YAHOO.COM",
+          "contact": "09074323847"
+        },
+        {
+          "name": "Victoria S. Erasquin",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09074323847"
+        },
+        {
+          "name": "Rony M. Zarcilla",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09074323847"
+        },
+        {
+          "name": "Jerriel Jaruh G. Dela Cruz",
+          "position": "Sangguniang Barangay Member",
+          "email": "jerrieljaruhd@gmail.com",
+          "contact": "09074323847"
+        },
+        {
+          "name": "Jayson O. Penuliar",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09074323847"
+        }
       ],
       "officials": [
-        { "name": "Zyrene Khiza A. Castrene", "position": "SK Chairperson", "email": "khizacastrene@gmail.com", "contact": "N/A" },
-        { "name": "Gemma R. Visperas", "position": "Barangay Secretary", "email": "", "contact": "09074323847" },
         {
-        "name": "Robert Adolfo W. Chan",
-        "position": "Treasurer"
-      }
+          "name": "Zyrene Khiza A. Castrene",
+          "position": "SK Chairperson",
+          "email": "khizacastrene@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Gemma R. Visperas",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "09074323847"
+        },
+        {
+          "name": "Robert Adolfo W. Chan",
+          "position": "Treasurer"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=100094241576558",
       "phone": "09293626955"
@@ -39,24 +84,69 @@
       "history_source": "Municipality of Mapandan, Barangay Apaya History",
       "punong_barangay": "Albert P. Ferrer",
       "kagawads": [
-        { "name": "Roberto C. Siapno", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
-        { "name": "Salvador N. Bronuela", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Edgardo S. Garin", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Cecilio G. Serapion", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
-        { "name": "Juanito O. Santos Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Marivic L. Morado", "position": "Sangguniang Barangay Member", "email": "MIL070678@GMAIL.COM", "contact": "N/A" },
-        { "name": "Ronnie N. Sta. Ana Jr", "position": "Sangguniang Barangay Member", "email": "ronnie.staana@yahoo.com", "contact": "" }
+        {
+          "name": "Roberto C. Siapno",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": ""
+        },
+        {
+          "name": "Salvador N. Bronuela",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Edgardo S. Garin",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Cecilio G. Serapion",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": ""
+        },
+        {
+          "name": "Juanito O. Santos Jr",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Marivic L. Morado",
+          "position": "Sangguniang Barangay Member",
+          "email": "MIL070678@GMAIL.COM",
+          "contact": "N/A"
+        },
+        {
+          "name": "Ronnie N. Sta. Ana Jr",
+          "position": "Sangguniang Barangay Member",
+          "email": "ronnie.staana@yahoo.com",
+          "contact": ""
+        }
       ],
       "officials": [
-        { "name": "Angela Joy P. Bongato", "position": "SK Chairperson", "email": "bongatoangela682@gmail.com", "contact": "N/A" },
-        { "name": "Jennifer M. Aficial", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
-         {
-        "name": "Renato B. Rabina Jr.",
-        "position": "Treasurer"
-      }
+        {
+          "name": "Angela Joy P. Bongato",
+          "position": "SK Chairperson",
+          "email": "bongatoangela682@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Jennifer M. Aficial",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Renato B. Rabina Jr.",
+          "position": "Treasurer"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61554665935950",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "aserda",
@@ -68,21 +158,66 @@
       "history_source": "Municipality of Mapandan, Municipal Profile",
       "punong_barangay": "Francis S. Serafica",
       "kagawads": [
-        { "name": "Joel P. Trillado", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
-        { "name": "Bernardo H. Natan", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
-        { "name": "Ernesto V. Visperas", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
-        { "name": "Marilyn A. Almonte", "position": "Sangguniang Barangay Member", "email": "", "contact": "09338139368" },
-        { "name": "Roberto D. Tandingan", "position": "Sangguniang Barangay Member", "email": "TANDINGANROBERT16@GMAIL.COM", "contact": "09338139368" },
-        { "name": "Ernesto F. Vinluan", "position": "Sangguniang Barangay Member", "email": "NESTORVINLUAN1@GMAIL.COM", "contact": "09338139368" },
-        { "name": "Michael T. Peralta", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+        {
+          "name": "Joel P. Trillado",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09338139368"
+        },
+        {
+          "name": "Bernardo H. Natan",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09338139368"
+        },
+        {
+          "name": "Ernesto V. Visperas",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09338139368"
+        },
+        {
+          "name": "Marilyn A. Almonte",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09338139368"
+        },
+        {
+          "name": "Roberto D. Tandingan",
+          "position": "Sangguniang Barangay Member",
+          "email": "TANDINGANROBERT16@GMAIL.COM",
+          "contact": "09338139368"
+        },
+        {
+          "name": "Ernesto F. Vinluan",
+          "position": "Sangguniang Barangay Member",
+          "email": "NESTORVINLUAN1@GMAIL.COM",
+          "contact": "09338139368"
+        },
+        {
+          "name": "Michael T. Peralta",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "officials": [
-        { "name": "Hazel Gladys E. Peralta", "position": "SK Chairperson", "email": "HAZELPERALTA.MNHS@GMAIL.COM", "contact": "N/A" },
-        { "name": "Paz L. Serafica", "position": "Barangay Secretary", "email": "", "contact": "09338139368" },
         {
-        "name": "Ernesto M. Villanueva",
-        "position": "Treasurer"
-      }
+          "name": "Hazel Gladys E. Peralta",
+          "position": "SK Chairperson",
+          "email": "HAZELPERALTA.MNHS@GMAIL.COM",
+          "contact": "N/A"
+        },
+        {
+          "name": "Paz L. Serafica",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "09338139368"
+        },
+        {
+          "name": "Ernesto M. Villanueva",
+          "position": "Treasurer"
+        }
       ],
       "facebook": "",
       "phone": "09293877746"
@@ -97,20 +232,65 @@
       "history_source": "Municipality of Mapandan, Municipal Profile",
       "punong_barangay": "Rodel L. Casilang",
       "kagawads": [
-        { "name": "Jimson S. Lemon", "position": "Sangguniang Barangay Member", "email": "perlemon10@gmail.com", "contact": "N/A" },
-        { "name": "Ronald O. Manaois", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Carmelita C. Villamil", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Ma. Teresa L. Duterte", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
-        { "name": "Miguel C. Botuyan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Bobby D. Mosada", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Joel G. Deciles", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+        {
+          "name": "Jimson S. Lemon",
+          "position": "Sangguniang Barangay Member",
+          "email": "perlemon10@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Ronald O. Manaois",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Carmelita C. Villamil",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Ma. Teresa L. Duterte",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": ""
+        },
+        {
+          "name": "Miguel C. Botuyan",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Bobby D. Mosada",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Joel G. Deciles",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "officials": [
-        { "name": "Terence Jerome F. Manaois", "position": "SK Chairperson", "email": "terencejeromem@gmail.com", "contact": "N/A" },
-        { "name": "Romeo C. Camara", "position": "Barangay Secretary", "email": "", "contact": "N/A" }
+        {
+          "name": "Terence Jerome F. Manaois",
+          "position": "SK Chairperson",
+          "email": "terencejeromem@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Romeo C. Camara",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "facebook": "",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "coral",
@@ -122,17 +302,62 @@
       "history_source": "Municipality of Mapandan, Barangay Coral History",
       "punong_barangay": "Eduardo V. De Guzman",
       "kagawads": [
-        { "name": "Loreto S. Aquino", "position": "Sangguniang Barangay Member", "email": "", "contact": "5461307" },
-        { "name": "Reynaldo S. De Vera", "position": "Sangguniang Barangay Member", "email": "", "contact": "5401307" },
-        { "name": "Steven V. Querimit", "position": "Sangguniang Barangay Member", "email": "", "contact": "540-1307" },
-        { "name": "Erian Jo A. Quirimit", "position": "Sangguniang Barangay Member", "email": "", "contact": "540-1307" },
-        { "name": "Efren A. Aquino", "position": "Sangguniang Barangay Member", "email": "", "contact": "5401307" },
-        { "name": "Renan M. Sy", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Myrna V. Asunio", "position": "Sangguniang Barangay Member", "email": "", "contact": "09469797890" }
+        {
+          "name": "Loreto S. Aquino",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "5461307"
+        },
+        {
+          "name": "Reynaldo S. De Vera",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "5401307"
+        },
+        {
+          "name": "Steven V. Querimit",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "540-1307"
+        },
+        {
+          "name": "Erian Jo A. Quirimit",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "540-1307"
+        },
+        {
+          "name": "Efren A. Aquino",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "5401307"
+        },
+        {
+          "name": "Renan M. Sy",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Myrna V. Asunio",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09469797890"
+        }
       ],
       "officials": [
-        { "name": "Jeneveive Eillene T. Vega", "position": "SK Chairperson", "email": "jnvvllnvega@gmail.com", "contact": "N/A" },
-        { "name": "Elvira D. Velasquez", "position": "Barangay Secretary", "email": "", "contact": "540-1307" }
+        {
+          "name": "Jeneveive Eillene T. Vega",
+          "position": "SK Chairperson",
+          "email": "jnvvllnvega@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Elvira D. Velasquez",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "540-1307"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=100085067732976",
       "phone": "5401307"
@@ -147,20 +372,65 @@
       "history_source": "Municipality of Mapandan, Barangay Golden History",
       "punong_barangay": "Arturo M. Caramat",
       "kagawads": [
-        { "name": "Virginia S. Lopez", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
-        { "name": "Joseph S. Sison", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
-        { "name": "Danilo D. Tolentino", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
-        { "name": "Ariel M. Tolentino", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
-        { "name": "Leonardo S. Fernandez", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
-        { "name": "Eddieson C. De Guzman", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" },
-        { "name": "Angelo P. Lopez", "position": "Sangguniang Barangay Member", "email": "", "contact": "6320616" }
+        {
+          "name": "Virginia S. Lopez",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "6320616"
+        },
+        {
+          "name": "Joseph S. Sison",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "6320616"
+        },
+        {
+          "name": "Danilo D. Tolentino",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "6320616"
+        },
+        {
+          "name": "Ariel M. Tolentino",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "6320616"
+        },
+        {
+          "name": "Leonardo S. Fernandez",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "6320616"
+        },
+        {
+          "name": "Eddieson C. De Guzman",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "6320616"
+        },
+        {
+          "name": "Angelo P. Lopez",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "6320616"
+        }
       ],
       "officials": [
-        { "name": "Steven Michael V. Daroy", "position": "SK Chairperson", "email": "daroysteven156@gmail.com", "contact": "N/A" },
-        { "name": "Mylene S. Vale&ntilde;a", "position": "Barangay Secretary", "email": "", "contact": "6320616" }
+        {
+          "name": "Steven Michael V. Daroy",
+          "position": "SK Chairperson",
+          "email": "daroysteven156@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Mylene S. Vale&ntilde;a",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "6320616"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61560028545057",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "jimenez",
@@ -172,23 +442,69 @@
       "history_source": "Municipality of Mapandan, Barangay Torres History",
       "punong_barangay": "Bernard C. Antolin",
       "kagawads": [
-        { "name": "Teresita F. Navarro", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
-        { "name": "Sanny F. Easquin", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
-        { "name": "Elmar M. De Guzman", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Jayson D. Erasquin", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Mariano D. Peralta", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Jaime B. Revilla", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Mario P. Biala", "position": "Sangguniang Barangay Member", "email": "", "contact": "" }
+        {
+          "name": "Teresita F. Navarro",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": ""
+        },
+        {
+          "name": "Sanny F. Easquin",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": ""
+        },
+        {
+          "name": "Elmar M. De Guzman",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Jayson D. Erasquin",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Mariano D. Peralta",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Jaime B. Revilla",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Mario P. Biala",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": ""
+        }
       ],
       "officials": [
-        { "name": "Jay Mark P. Erasquin", "position": "SK Chairperson", "email": "jaymarkerasquin@gmail.com", "contact": "N/A" },
-        { "name": "Rechie P. Bravo", "position": "Barangay Secretary", "email": "", "contact": "N/A" },
         {
-        "name": "Edilbrto Espiritu Penuliar",
-        "position": "Treasurer"}
+          "name": "Jay Mark P. Erasquin",
+          "position": "SK Chairperson",
+          "email": "jaymarkerasquin@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Rechie P. Bravo",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Edilbrto Espiritu Penuliar",
+          "position": "Treasurer"
+        }
       ],
       "facebook": "",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "lambayan",
@@ -200,20 +516,65 @@
       "history_source": "Municipality of Mapandan, Barangay Torres History",
       "punong_barangay": "Alexander L. Aquino",
       "kagawads": [
-        { "name": "Jaypee D. Soria", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Jhonie V. Agustin", "position": "Sangguniang Barangay Member", "email": "jhon@gmail.com", "contact": "N/A" },
-        { "name": "Ronald C. Llena", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Lope U. Soriano", "position": "Sangguniang Barangay Member", "email": "", "contact": "" },
-        { "name": "Emilio L. Aquino Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Wennie O. Lu", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Ariel A. Marzan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+        {
+          "name": "Jaypee D. Soria",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Jhonie V. Agustin",
+          "position": "Sangguniang Barangay Member",
+          "email": "jhon@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Ronald C. Llena",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Lope U. Soriano",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": ""
+        },
+        {
+          "name": "Emilio L. Aquino Jr",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Wennie O. Lu",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Ariel A. Marzan",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "officials": [
-        { "name": "Carl Tristan C. Agustin", "position": "SK Chairperson", "email": "Agustin.CarlTristan@gmail.com", "contact": "N/A" },
-        { "name": "Manolet T. Revilla", "position": "Barangay Secretary", "email": "", "contact": "N/A" }
+        {
+          "name": "Carl Tristan C. Agustin",
+          "position": "SK Chairperson",
+          "email": "Agustin.CarlTristan@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Manolet T. Revilla",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61554475378408",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "luyan",
@@ -225,17 +586,62 @@
       "history_source": "Municipality of Mapandan, Barangay Luyan History",
       "punong_barangay": "Roger T. Castro",
       "kagawads": [
-        { "name": "Ramil I. Laitan", "position": "Sangguniang Barangay Member", "email": "ramil.laitan2010@gmail.com", "contact": "0755101283" },
-        { "name": "Lani C. Medrana", "position": "Sangguniang Barangay Member", "email": "medranalani@yahoo.com", "contact": "0755101283" },
-        { "name": "Samuel V. Calimlim", "position": "Sangguniang Barangay Member", "email": "CALIMLIMSAMUEL@GMAIL.COM", "contact": "0755101283" },
-        { "name": "Fernando T. Castro", "position": "Sangguniang Barangay Member", "email": "", "contact": "0755101283" },
-        { "name": "Restie D. Palma", "position": "Sangguniang Barangay Member", "email": "", "contact": "0755101283" },
-        { "name": "Evelyn S. Siapno", "position": "Sangguniang Barangay Member", "email": "evelynsiapno@gmail.com", "contact": "0755101283" },
-        { "name": "Eddie S. Nepacina", "position": "Sangguniang Barangay Member", "email": "", "contact": "0755101283" }
+        {
+          "name": "Ramil I. Laitan",
+          "position": "Sangguniang Barangay Member",
+          "email": "ramil.laitan2010@gmail.com",
+          "contact": "0755101283"
+        },
+        {
+          "name": "Lani C. Medrana",
+          "position": "Sangguniang Barangay Member",
+          "email": "medranalani@yahoo.com",
+          "contact": "0755101283"
+        },
+        {
+          "name": "Samuel V. Calimlim",
+          "position": "Sangguniang Barangay Member",
+          "email": "CALIMLIMSAMUEL@GMAIL.COM",
+          "contact": "0755101283"
+        },
+        {
+          "name": "Fernando T. Castro",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0755101283"
+        },
+        {
+          "name": "Restie D. Palma",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0755101283"
+        },
+        {
+          "name": "Evelyn S. Siapno",
+          "position": "Sangguniang Barangay Member",
+          "email": "evelynsiapno@gmail.com",
+          "contact": "0755101283"
+        },
+        {
+          "name": "Eddie S. Nepacina",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0755101283"
+        }
       ],
       "officials": [
-        { "name": "Roland B. Guba Jr.", "position": "SK Chairperson", "email": "rolandoguba123@gmail.com", "contact": "N/A" },
-        { "name": "Choilo B. Petrola", "position": "Barangay Secretary", "email": "choilopetrola18@gmail.com", "contact": "0755101283" }
+        {
+          "name": "Roland B. Guba Jr.",
+          "position": "SK Chairperson",
+          "email": "rolandoguba123@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Choilo B. Petrola",
+          "position": "Barangay Secretary",
+          "email": "choilopetrola18@gmail.com",
+          "contact": "0755101283"
+        }
       ],
       "facebook": "https://www.facebook.com/barangay.luyan",
       "phone": "0755101283"
@@ -250,20 +656,65 @@
       "history_source": "Municipality of Mapandan, Barangay Nilombot History",
       "punong_barangay": "Edgar R. Garin",
       "kagawads": [
-        { "name": "Abraham A. Langit", "position": "Sangguniang Barangay Member", "email": "abc_heaven@yahoo.com", "contact": "N/A" },
-        { "name": "Eduardo C. Embuido Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Ramil G. Aquino", "position": "Sangguniang Barangay Member", "email": "ramilaquino@gmail.com", "contact": "6343304" },
-        { "name": "Joel M. Loresco", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Dominador V. Langit", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Benjamin V. Petrola", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Flores Mendoza Noime", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+        {
+          "name": "Abraham A. Langit",
+          "position": "Sangguniang Barangay Member",
+          "email": "abc_heaven@yahoo.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Eduardo C. Embuido Jr",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Ramil G. Aquino",
+          "position": "Sangguniang Barangay Member",
+          "email": "ramilaquino@gmail.com",
+          "contact": "6343304"
+        },
+        {
+          "name": "Joel M. Loresco",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Dominador V. Langit",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Benjamin V. Petrola",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Flores Mendoza Noime",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "officials": [
-        { "name": "Irene Jane F. Barreto", "position": "SK Chairperson", "email": "irenejanebarreto@gmail.com", "contact": "N/A" },
-        { "name": "Lerma L. Legaspi", "position": "Barangay Secretary", "email": "", "contact": "N/A" }
+        {
+          "name": "Irene Jane F. Barreto",
+          "position": "SK Chairperson",
+          "email": "irenejanebarreto@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Lerma L. Legaspi",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61553828348087",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "pias",
@@ -275,20 +726,65 @@
       "history_source": "Municipality of Mapandan, Municipal Profile",
       "punong_barangay": "Rosette G. Soriano",
       "kagawads": [
-        { "name": "Rodrigo M. Biagtan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Mario C. Gatinga", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Teofilo E. Soriano Jr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "William G. Revilla", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Rufino G. Visperas", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Cesar G. Cerame", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Efren G. Aquino", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+        {
+          "name": "Rodrigo M. Biagtan",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Mario C. Gatinga",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Teofilo E. Soriano Jr",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "William G. Revilla",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Rufino G. Visperas",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Cesar G. Cerame",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Efren G. Aquino",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "officials": [
-        { "name": "Kenneth T. Abrigo", "position": "SK Chairperson", "email": "", "contact": "N/A" },
-        { "name": "Lorna A. Biason", "position": "Barangay Secretary", "email": "", "contact": "N/A" }
+        {
+          "name": "Kenneth T. Abrigo",
+          "position": "SK Chairperson",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Lorna A. Biason",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "facebook": "https://www.facebook.com/piaslgu",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "poblacion",
@@ -300,20 +796,65 @@
       "history_source": "Municipality of Mapandan, Barangay Poblacion History",
       "punong_barangay": "Cesario E. Quinto Jr",
       "kagawads": [
-        { "name": "Edison Jules F. Calimlim", "position": "Sangguniang Barangay Member", "email": "Ecalimlim31@gmail.com", "contact": "N/A" },
-        { "name": "Arnulfo B. Mejia", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Bernabe Jose T. Datuin", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Efren P. Revilla Sr", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Leo C. Tamayo", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Barbara N. Bronuela", "position": "Sangguniang Barangay Member", "email": "babronuela@gmail.com", "contact": "N/A" },
-        { "name": "Raymund E. Gabriel Jr.", "position": "Sangguniang Barangay Member", "email": "rjaygabriel777@gmail.com", "contact": "" }
+        {
+          "name": "Edison Jules F. Calimlim",
+          "position": "Sangguniang Barangay Member",
+          "email": "Ecalimlim31@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Arnulfo B. Mejia",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Bernabe Jose T. Datuin",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Efren P. Revilla Sr",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Leo C. Tamayo",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Barbara N. Bronuela",
+          "position": "Sangguniang Barangay Member",
+          "email": "babronuela@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Raymund E. Gabriel Jr.",
+          "position": "Sangguniang Barangay Member",
+          "email": "rjaygabriel777@gmail.com",
+          "contact": ""
+        }
       ],
       "officials": [
-        { "name": "John Manuel V. Landingin", "position": "SK Chairperson", "email": "johnmanuellandingin@gmail.com", "contact": "N/A" },
-        { "name": "Mary Joy T. Velasco", "position": "Barangay Secretary", "email": "", "contact": "N/A" }
+        {
+          "name": "John Manuel V. Landingin",
+          "position": "SK Chairperson",
+          "email": "johnmanuellandingin@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Mary Joy T. Velasco",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61584120474621",
-      "phone": "N/A"
+      "phone": null
     },
     {
       "slug": "primicias",
@@ -325,17 +866,62 @@
       "history_source": "Municipality of Mapandan, Barangay Torres History",
       "punong_barangay": "Ariel P. Palagud",
       "kagawads": [
-        { "name": "Mamerto P. Sison", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
-        { "name": "Freddie F. Valencia", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
-        { "name": "Fernando A. Soria", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
-        { "name": "Reynaldo C. Meneses", "position": "Sangguniang Barangay Member", "email": "mcley2424@yahoo.com", "contact": "09953375194" },
-        { "name": "Cesario M. Sotto", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" },
-        { "name": "Emerson D. Meneses", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Andres D. Paragas", "position": "Sangguniang Barangay Member", "email": "", "contact": "09953375194" }
+        {
+          "name": "Mamerto P. Sison",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09953375194"
+        },
+        {
+          "name": "Freddie F. Valencia",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09953375194"
+        },
+        {
+          "name": "Fernando A. Soria",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09953375194"
+        },
+        {
+          "name": "Reynaldo C. Meneses",
+          "position": "Sangguniang Barangay Member",
+          "email": "mcley2424@yahoo.com",
+          "contact": "09953375194"
+        },
+        {
+          "name": "Cesario M. Sotto",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09953375194"
+        },
+        {
+          "name": "Emerson D. Meneses",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Andres D. Paragas",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "09953375194"
+        }
       ],
       "officials": [
-        { "name": "Albert D. Aquino", "position": "SK Chairperson", "email": "aquinoalbert333@gmail.com", "contact": "N/A" },
-        { "name": "Anastacia M. Cabida", "position": "Barangay Secretary", "email": "anastacia051173@gmail.com", "contact": "09684453175" }
+        {
+          "name": "Albert D. Aquino",
+          "position": "SK Chairperson",
+          "email": "aquinoalbert333@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Anastacia M. Cabida",
+          "position": "Barangay Secretary",
+          "email": "anastacia051173@gmail.com",
+          "contact": "09684453175"
+        }
       ],
       "facebook": "https://www.facebook.com/profile/61552569993449",
       "phone": "09953375194"
@@ -350,17 +936,62 @@
       "history_source": "Municipality of Mapandan, Barangay Sta. Maria History",
       "punong_barangay": "Jihan M. Paulino",
       "kagawads": [
-        { "name": "Janray B. Fernandez", "position": "Sangguniang Barangay Member", "email": "fernandezjanray@gmail.com", "contact": "0756158597" },
-        { "name": "Jay-Ar V. Malanum", "position": "Sangguniang Barangay Member", "email": "jcobmalanum@gmail.com", "contact": "N/A" },
-        { "name": "Lorna C. Licuanan", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
-        { "name": "Rolly P. De Guzman", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
-        { "name": "Joseph F. Madayag", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
-        { "name": "Romeo G. Rodriguez", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" },
-        { "name": "Jim P. Bautista", "position": "Sangguniang Barangay Member", "email": "", "contact": "0756158597" }
+        {
+          "name": "Janray B. Fernandez",
+          "position": "Sangguniang Barangay Member",
+          "email": "fernandezjanray@gmail.com",
+          "contact": "0756158597"
+        },
+        {
+          "name": "Jay-Ar V. Malanum",
+          "position": "Sangguniang Barangay Member",
+          "email": "jcobmalanum@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Lorna C. Licuanan",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0756158597"
+        },
+        {
+          "name": "Rolly P. De Guzman",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0756158597"
+        },
+        {
+          "name": "Joseph F. Madayag",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0756158597"
+        },
+        {
+          "name": "Romeo G. Rodriguez",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0756158597"
+        },
+        {
+          "name": "Jim P. Bautista",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "0756158597"
+        }
       ],
       "officials": [
-        { "name": "Lian Joshua D. Tandingan", "position": "SK Chairperson", "email": "", "contact": "N/A" },
-        { "name": "Cyrine Jane D. Sadio", "position": "Barangay Secretary", "email": "", "contact": "075-615-8597" }
+        {
+          "name": "Lian Joshua D. Tandingan",
+          "position": "SK Chairperson",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Cyrine Jane D. Sadio",
+          "position": "Barangay Secretary",
+          "email": null,
+          "contact": "075-615-8597"
+        }
       ],
       "facebook": "https://www.facebook.com/BrgyStaMaria.MP.SolidCommunity",
       "phone": "0756158597"
@@ -375,17 +1006,62 @@
       "history_source": "Municipality of Mapandan, Barangay Torres History",
       "punong_barangay": "Noel S. Biala",
       "kagawads": [
-        { "name": "Christopher P. Castro", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Raymond V. Lacaste", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Joey G. Pascua", "position": "Sangguniang Barangay Member", "email": "JPASCUA896@GMAIL.COM", "contact": "N/A" },
-        { "name": "Juan C. Caagusan", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Philip F. Biala", "position": "Sangguniang Barangay Member", "email": "bialaphilip00@gmail.com", "contact": "N/A" },
-        { "name": "Abraham A. Visperas", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" },
-        { "name": "Renato S. Marquez", "position": "Sangguniang Barangay Member", "email": "", "contact": "N/A" }
+        {
+          "name": "Christopher P. Castro",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Raymond V. Lacaste",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Joey G. Pascua",
+          "position": "Sangguniang Barangay Member",
+          "email": "JPASCUA896@GMAIL.COM",
+          "contact": "N/A"
+        },
+        {
+          "name": "Juan C. Caagusan",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Philip F. Biala",
+          "position": "Sangguniang Barangay Member",
+          "email": "bialaphilip00@gmail.com",
+          "contact": "N/A"
+        },
+        {
+          "name": "Abraham A. Visperas",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Renato S. Marquez",
+          "position": "Sangguniang Barangay Member",
+          "email": null,
+          "contact": "N/A"
+        }
       ],
       "officials": [
-        { "name": "Diego G. Castro", "position": "SK Chairperson", "email": "", "contact": "N/A" },
-        { "name": "Leizl M. Ramirez", "position": "Barangay Secretary", "email": "lzielmangueramirez@gmail.com", "contact": "N/A" }
+        {
+          "name": "Diego G. Castro",
+          "position": "SK Chairperson",
+          "email": null,
+          "contact": "N/A"
+        },
+        {
+          "name": "Leizl M. Ramirez",
+          "position": "Barangay Secretary",
+          "email": "lzielmangueramirez@gmail.com",
+          "contact": "N/A"
+        }
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61583040407980",
       "phone": "09851311622"

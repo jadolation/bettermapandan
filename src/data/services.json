@@ -4,79 +4,105 @@
       "slug": "business-permitting",
       "name": "Business Permitting & Licensing",
       "description": "Starting or renewing a business in Mapandan.",
-      "icon": "📋"
+      "icon": "clipboard-list",
+      "name_fil": "Pagpapasyal at Lisensya ng Negosyo",
+      "description_fil": "Pagsisimula o pagbabago ng negosyo sa Mapandan."
     },
     {
       "slug": "civil-registry",
       "name": "Civil Registry & Vital Records",
       "description": "Birth, marriage, death certificates and corrections.",
-      "icon": "📜"
+      "icon": "scroll-text",
+      "name_fil": "Civil Registry at mga Vital Record",
+      "description_fil": "Mga sertipiko ng kapanganakan, kasal, pagkamatay, at mga pagwawasto."
     },
     {
       "slug": "building-engineering",
       "name": "Building, Engineering & Zoning",
       "description": "Construction permits and land-use clearances.",
-      "icon": "🏗️"
+      "icon": "hard-hat",
+      "name_fil": "Gusali, Engineering, at Zoning",
+      "description_fil": "Mga pahintulot sa konstruksyon at mga clearance sa paggamit ng lupa."
     },
     {
       "slug": "real-property",
       "name": "Real Property & Revenue",
       "description": "Property taxes, declarations, and transfers.",
-      "icon": "🏠"
+      "icon": "home",
+      "name_fil": "Real Property at Revenue",
+      "description_fil": "Mga buwis sa ari-arian, deklarasyon, at mga paglilipat."
     },
     {
       "slug": "health",
       "name": "Health Services",
       "description": "Consultations, permits, and public health programs.",
-      "icon": "🏥"
+      "icon": "heart-pulse",
+      "name_fil": "Mga Serbisyong Pangkalusugan",
+      "description_fil": "Mga konsultasyon, pahintulot, at mga programang pampublikong kalusugan."
     },
     {
       "slug": "social-welfare",
       "name": "Social Welfare — IDs & Certifications",
       "description": "Senior citizen, PWD, solo parent IDs and other certifications.",
-      "icon": "🪪"
+      "icon": "id-card",
+      "name_fil": "Serbisyong Panlipunan — Mga ID at Sertipikasyon",
+      "description_fil": "Mga ID para sa Senior Citizen, PWD, Solo Parent, at iba pang sertipikasyon."
     },
     {
       "slug": "agriculture",
       "name": "Agriculture",
       "description": "Farming subsidies and agricultural support programs.",
-      "icon": "🌾"
+      "icon": "wheat",
+      "name_fil": "Agrikultura",
+      "description_fil": "Mga subsidiya sa pagsasaka at mga programang suporta sa agrikultura."
     },
     {
       "slug": "social-assistance",
       "name": "Social Assistance & Protection",
       "description": "Financial aid, case studies, child welfare, and disaster relief.",
-      "icon": "🤝"
+      "icon": "handshake",
+      "name_fil": "Tulong Panlipunan at Proteksyon",
+      "description_fil": "Tulong pinansyal, mga pag-aaral ng kaso, kagalingan ng bata, at tulong sa disaster."
     },
     {
       "slug": "zoning",
       "name": "Zoning & Planning",
       "description": "Zoning clearances for electrical, business, and land use.",
-      "icon": "🗺️"
+      "icon": "map",
+      "name_fil": "Zoning at Planificación",
+      "description_fil": "Mga zoning clearance para sa electrical, negosyo, at paggamit ng lupa."
     },
     {
       "slug": "mayors-office",
       "name": "Mayor's Office",
       "description": "Clearances, certifications, affidavits, and other services from the Office of the Mayor.",
-      "icon": "🏛️"
+      "icon": "landmark",
+      "name_fil": "Opisyo ng Mayor",
+      "description_fil": "Mga clearance, sertipikasyon, mga affidavit, at iba pang serbisyo mula sa Opisyo ng Mayor."
     },
     {
       "slug": "disaster-risk-reduction",
       "name": "Disaster Risk Management",
       "description": "Emergency rescue, disaster response, and related services from the MDRRMO.",
-      "icon": "🚨"
+      "icon": "siren",
+      "name_fil": "Pamamahala ng Panganib sa Disaster",
+      "description_fil": "Mga rescue sa emergency, pagtugon sa disaster, at mga kaugnay na serbisyo mula sa MDRRMO."
     },
     {
       "slug": "youth-development",
       "name": "Youth Development",
       "description": "Youth organization registration and development programs.",
-      "icon": "👥"
+      "icon": "users",
+      "name_fil": "Pag-unlad ng Kabataan",
+      "description_fil": "Rehistrasyon ng mga organisasyon ng kabataan at mga programang pag-unlad."
     },
     {
       "slug": "environment",
       "name": "Environment",
       "description": "Environmental complaints and protection services.",
-      "icon": "🌿"
+      "icon": "leaf",
+      "name_fil": "Kapaligiran",
+      "description_fil": "Mga reklamo sa kapaligiran at mga serbisyong proteksyon."
     }
   ],
   "services": [
@@ -108,7 +134,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/agriculture-subsidy.jpg",
       "related": [],
-      "hero_lede": "Apply for agricultural subsidies in Mapandan. Seeds at 50% discount, plus technical assistance and livestock services."
+      "hero_lede": "Apply for agricultural subsidies in Mapandan. Seeds at 50% discount, plus technical assistance and livestock services.",
+      "delivery_mode": "in-person",
+      "name_fil": "Mga Subsidiya sa Agrikultura",
+      "description_fil": "Nag-aalok ang Municipal Agriculture Office ng mga subsidized na programa sa agrikultura kabilang ang mga binhi (hybrid at inbred na may 50% DA-RFU subsidy), pataba, kagamitan sa pagsasaka, at teknikal na tulong.",
+      "hero_lede_fil": "Mag-apply para sa mga subsidiya sa agrikultura sa Mapandan. Mga binhi na may 50% diskwento, kasama ang teknikal na tulong at serbisyo sa hayop."
     },
     {
       "slug": "aics",
@@ -140,7 +170,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/aics.jpg",
       "related": [],
-      "hero_lede": "Apply for Assistance to Individuals in Crisis Situations (AICS) in Mapandan. Learn about requirements, eligibility, and how to get help from the MSWDO."
+      "hero_lede": "Apply for Assistance to Individuals in Crisis Situations (AICS) in Mapandan. Learn about requirements, eligibility, and how to get help from the MSWDO.",
+      "delivery_mode": "in-person",
+      "name_fil": "Tulong sa AICS",
+      "description_fil": "Ang Assistance to Individuals in Crisis Situations (AICS) ay isang programa ng pamahalaan na nagbibigay ng tulong pinansyal sa mga indibidwal at pamilya na nahaharap sa mga emergency.",
+      "hero_lede_fil": "Mag-apply para sa Assistance to Individual sa Crisis Situations (AICS) sa Mapandan."
     },
     {
       "slug": "birth-certificate",
@@ -170,7 +204,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/birth-certificate.jpg",
       "related": [],
-      "hero_lede": "Request a birth certificate from the Mapandan MCR. Standard ₱115, late registration ₱315–₱1,015."
+      "hero_lede": "Request a birth certificate from the Mapandan MCR. Standard ₱115, late registration ₱315–₱1,015.",
+      "delivery_mode": "in-person",
+      "name_fil": "Certipiko ng Kapanganakan",
+      "description_fil": "Ang birth certificate ay isang vital record na inilalabas ng Municipal Civil Registrar. Saklaw ang standard registration (₱115), registration ng mga magulang na hindi kasal (₱215), hospital registration (₱100), at late registration (₱315–₱1,015).",
+      "hero_lede_fil": "Humiling ng birth certificate mula sa Mapandan MCR. Standard ₱115, late registration ₱315–₱1,015."
     },
     {
       "slug": "building-permit",
@@ -213,7 +251,11 @@
         "assessor-building-appraisal",
         "occupancy-permit"
       ],
-      "hero_lede": "Get a building permit from the Mapandan MEO. Simple: 3 days, Complex: 7 days, Highly Technical: 20 days per RA 11032."
+      "hero_lede": "Get a building permit from the Mapandan MEO. Simple: 3 days, Complex: 7 days, Highly Technical: 20 days per RA 11032.",
+      "delivery_mode": "in-person",
+      "name_fil": "Building Permit",
+      "description_fil": "Ang building permit ay kinakailangan sa ilalim ng National Building Code (PD 1096) at RA 11032. Oras ng pagproseso: Simple — 3 working days, Complex — 7 working days, Highly Technical — 20 working days.",
+      "hero_lede_fil": "Kumuha ng building permit mula sa Mapandan MEO. Simple: 3 araw, Complex: 7 araw, Highly Technical: 20 araw ayon sa RA 11032."
     },
     {
       "slug": "business-permit",
@@ -249,7 +291,11 @@
         "business-zoning",
         "mayors-clearance"
       ],
-      "hero_lede": "Apply for a new business permit at the BPLO in Mapandan. Includes endorsement to Engineering, MPDC, RHU, and BFP."
+      "hero_lede": "Apply for a new business permit at the BPLO in Mapandan. Includes endorsement to Engineering, MPDC, RHU, and BFP.",
+      "delivery_mode": "in-person",
+      "name_fil": "Bagong Business Permit",
+      "description_fil": "Ang business permit ay kinakailangan para sa lahat ng indibidwal o entity na nagpaplanong mag-operate ng negosyo sa loob ng Bayan ng Mapandan.",
+      "hero_lede_fil": "Mag-apply para sa bagong business permit sa BPLO sa Mapandan. Kabilang ang endorsement sa Engineering, MPDC, RHU, at BFP."
     },
     {
       "slug": "business-renewal",
@@ -284,7 +330,11 @@
         "business-permit",
         "business-zoning"
       ],
-      "hero_lede": "Renew your business permit at the BPLO in Mapandan. Annual renewal required to maintain compliance."
+      "hero_lede": "Renew your business permit at the BPLO in Mapandan. Annual renewal required to maintain compliance.",
+      "delivery_mode": "in-person",
+      "name_fil": "Pagbabago ng Business Permit",
+      "description_fil": "Ang mga negosyo na nag-operate sa loob ng Mapandan ay kinakailangang mag-renew ng kanilang business permit taun-taon.",
+      "hero_lede_fil": "I-renew ang iyong business permit sa BPLO sa Mapandan. Taunang renewal para sa compliance."
     },
     {
       "slug": "cedula",
@@ -311,7 +361,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/cedula.jpg",
       "related": [],
-      "hero_lede": "Get your Community Tax Certificate (cedula) in Mapandan. Individual: ₱5 + ₱1/₱1k; Juridical: ₱500 + ₱2/₱5k."
+      "hero_lede": "Get your Community Tax Certificate (cedula) in Mapandan. Individual: ₱5 + ₱1/₱1k; Juridical: ₱500 + ₱2/₱5k.",
+      "delivery_mode": "in-person",
+      "name_fil": "Cedula / Community Tax Certificate",
+      "description_fil": "Ang Community Tax Certificate (cedula) ay kinakailangan para sa iba't ibang transaksyon sa pamahalaan.",
+      "hero_lede_fil": "Kumuha ng iyong Community Tax Certificate (cedula) sa Mapandan. Individual: ₱5 + ₱1/₱1k; Juridical: ₱500 + ₱2/₱5k."
     },
     {
       "slug": "death-certificate",
@@ -340,7 +394,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/death-certificate.jpg",
       "related": [],
-      "hero_lede": "Request a death certificate from the Mapandan MCR. Late registration fee ₱215."
+      "hero_lede": "Request a death certificate from the Mapandan MCR. Late registration fee ₱215.",
+      "delivery_mode": "in-person",
+      "name_fil": "Certipiko ng Pagkamatay",
+      "description_fil": "Ang death certificate ay inilalabas ng Municipal Civil Registrar. Saklaw ang registration ng solemnizing officer, hospital, o authorized representative.",
+      "hero_lede_fil": "Humiling ng death certificate mula sa Mapandan MCR. Late registration fee ₱215."
     },
     {
       "slug": "health-consultation",
@@ -369,7 +427,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/health-consultation.jpg",
       "related": [],
-      "hero_lede": "Free health consultation at the Mapandan RHU. Walk-in service for all residents. 25 minutes per client."
+      "hero_lede": "Free health consultation at the Mapandan RHU. Walk-in service for all residents. 25 minutes per client.",
+      "delivery_mode": "in-person",
+      "name_fil": "Konsultasyong Pangkalusugan",
+      "description_fil": "Nag-aalok ang Municipal Health Office / Rural Health Unit ng libreng serbisyo ng konsultasyong pangkalusugan sa lahat ng residente ng Mapandan.",
+      "hero_lede_fil": "Libreng konsultasyong pangkalusugan sa Mapandan RHU. Walk-in service para sa lahat ng residente. 25 minuto bawat kliyente."
     },
     {
       "slug": "land-transfer",
@@ -407,7 +469,11 @@
         "rpt-payment",
         "assessor-true-copy"
       ],
-      "hero_lede": "Transfer land ownership in Mapandan at the Assessor's Office. ₱150 recording fee, 30 minutes for Assessor processing."
+      "hero_lede": "Transfer land ownership in Mapandan at the Assessor's Office. ₱150 recording fee, 30 minutes for Assessor processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Paglilipat ng Ownership ng Lupa",
+      "description_fil": "Ang paglilipat ng ownership ng lupa ay legal na proseso ng paglilipat ng mga karapatan sa ari-arian mula sa isang may-ari patungo sa isa pa.",
+      "hero_lede_fil": "Maglipat ng ownership ng lupa sa Mapandan sa Assessor's Office. ₱150 recording fee, 30 minuto para sa Assessor processing."
     },
     {
       "slug": "marriage-license",
@@ -444,7 +510,11 @@
         "solemnization-of-marriage",
         "pre-marriage-counseling-pop"
       ],
-      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862. Includes 10-day publication period."
+      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862. Includes 10-day publication period.",
+      "delivery_mode": "in-person",
+      "name_fil": "Marriage License",
+      "description_fil": "Ang marriage license ay kinakailangan bago masolemnize ang kasal. Bayad: ₱862. Kabilang ang 10-day publication period.",
+      "hero_lede_fil": "Mag-apply para sa marriage license sa Mapandan MCR. Bayad: ₱862. Kabilang ang 10-day publication period."
     },
     {
       "slug": "name-correction",
@@ -477,7 +547,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/name-correction.jpg",
       "related": [],
-      "hero_lede": "Correct your birth certificate under RA 9048. ₱3,000 for name change, ₱1,000 for clerical error."
+      "hero_lede": "Correct your birth certificate under RA 9048. ₱3,000 for name change, ₱1,000 for clerical error.",
+      "delivery_mode": "in-person",
+      "name_fil": "Pagwawasto ng Pangalan (RA 9048)",
+      "description_fil": "Ang RA 9048 ay nagpapahintulot sa pagwawasto ng mga clerical o typographical error.",
+      "hero_lede_fil": "Iwasto ang iyong birth certificate sa ilalim ng RA 9048. ₱3,000 para sa pagbabago ng pangalan, ₱1,000 para sa clerical error."
     },
     {
       "slug": "occupancy-permit",
@@ -506,7 +580,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/occupancy-permit.jpg",
       "related": [],
-      "hero_lede": "Get an occupancy permit from the Mapandan MEO. RA 11032 processing times: 3–20 working days."
+      "hero_lede": "Get an occupancy permit from the Mapandan MEO. RA 11032 processing times: 3–20 working days.",
+      "delivery_mode": "in-person",
+      "name_fil": "Occupancy Permit",
+      "description_fil": "Ang occupancy permit ay nagpapatunay na ang gusali ay nakumpleto at nainspekto.",
+      "hero_lede_fil": "Kumuha ng occupancy permit mula sa Mapandan MEO. RA 11032 processing times: 3–20 working days."
     },
     {
       "slug": "rpt-payment",
@@ -534,7 +612,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/rpt-payment.jpg",
       "related": [],
-      "hero_lede": "Pay your real property tax in Mapandan. Basic 1% + SEF 1% of assessed value. 10%–20% discount for prompt/advance payment."
+      "hero_lede": "Pay your real property tax in Mapandan. Basic 1% + SEF 1% of assessed value. 10%–20% discount for prompt/advance payment.",
+      "delivery_mode": "in-person",
+      "name_fil": "Bayad sa Real Property Tax",
+      "description_fil": "Ang real property tax (RPT) ay taunang buwis sa assessed value ng lupa, mga gusali, at mga pagpapabuti.",
+      "hero_lede_fil": "Magbayad ng iyong real property tax sa Mapandan. Basic 1% + SEF 1% ng assessed value. 10%–20% diskwento para sa prompt/advance payment."
     },
     {
       "slug": "sanitary-permit",
@@ -570,7 +652,11 @@
         "health-consultation",
         "business-permit"
       ],
-      "hero_lede": "Get a sanitary permit, health certificate, or medical certificate at the Mapandan RHU. 53 minutes processing time."
+      "hero_lede": "Get a sanitary permit, health certificate, or medical certificate at the Mapandan RHU. 53 minutes processing time.",
+      "delivery_mode": "in-person",
+      "name_fil": "Sanitary Permit",
+      "description_fil": "Ang sanitary permit ay kinakailangan para sa lahat ng negosyo na humawak ng pagkain, inumin, o iba pang consumable na produkto.",
+      "hero_lede_fil": "Kumuha ng sanitary permit, health certificate, o medical certificate sa Mapandan RHU. 53 minuto ang oras ng pagproseso."
     },
     {
       "slug": "senior-pwd-id",
@@ -601,7 +687,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/senior-pwd-id.jpg",
       "related": [],
-      "hero_lede": "Apply for a Senior Citizen or Persons with Disabilities (PWD) ID in Mapandan. Learn about requirements, eligibility, and where to apply."
+      "hero_lede": "Apply for a Senior Citizen or Persons with Disabilities (PWD) ID in Mapandan. Learn about requirements, eligibility, and where to apply.",
+      "delivery_mode": "in-person",
+      "name_fil": "Senior Citizen / PWD ID",
+      "description_fil": "Ang Senior Citizen ID at Persons with Disabilities (PWD) ID ay mga ID na inilalabas ng pamahalaan na nagbibigay ng mga benepisyo at pribilehiyo sa mga tagadala.",
+      "hero_lede_fil": "Mag-apply para sa Senior Citizen o Persons with Disabilities (PWD) ID sa Mapandan."
     },
     {
       "slug": "special-event-permit",
@@ -633,7 +723,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/special-event-permit.jpg",
       "related": [],
-      "hero_lede": "Obtain a permit for special events such as festivals, concerts, fairs, and other public gatherings in Mapandan."
+      "hero_lede": "Obtain a permit for special events such as festivals, concerts, fairs, and other public gatherings in Mapandan.",
+      "delivery_mode": "in-person",
+      "name_fil": "Special Event Permit",
+      "description_fil": "Ang special event permit ay kinakailangan para sa mga indibidwal o organisasyon na nagpaplanong maghos ng mga pampublikong kaganapan sa loob ng Mapandan.",
+      "hero_lede_fil": "Kumuha ng permit para sa mga espesyal na kaganapan tulad ng mga festival, konsert, fair, at iba pang pampublikong pagtitipon sa Mapandan."
     },
     {
       "slug": "tax-declaration",
@@ -663,9 +757,13 @@
       "photo-referenced": "assets/citizens-charter/assessor-true-copy.jpg",
       "related": [
         "rpt-payment",
-        "assessor-true-copy"
+        "assessor-improvement-certificate"
       ],
-      "hero_lede": "Request a copy of your tax declaration from the Municipal Assessor's Office in Mapandan. ₱100 per certified true copy, 15 minutes processing."
+      "hero_lede": "Request a copy of your tax declaration from the Municipal Assessor's Office in Mapandan. ₱100 per certified true copy, 15 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Kopya ng Tax Declaration",
+      "description_fil": "Ang tax declaration ay opisyal na dokumento na nagpapakita ng assessed value ng iyong real property para sa layunin ng buwis.",
+      "hero_lede_fil": "Humiling ng kopya ng iyong tax declaration mula sa Municipal Assessor's Office sa Mapandan. ₱100 bawat certified true copy, 15 minuto ang pagproseso."
     },
     {
       "slug": "zoning-clearance",
@@ -694,7 +792,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/zoning-clearance.jpg",
       "related": [],
-      "hero_lede": "Obtain a zoning clearance before constructing, renovating, or changing the use of a property in Mapandan."
+      "hero_lede": "Obtain a zoning clearance before constructing, renovating, or changing the use of a property in Mapandan.",
+      "delivery_mode": "in-person",
+      "name_fil": "Zoning Clearance",
+      "description_fil": "Ang zoning clearance ay nagpapatunay na ang ibinigay na paggamit o konstruksyon sa isang ari-arian ay sumusunod sa land use plan at zoning regulation ng bayan.",
+      "hero_lede_fil": "Kumuha ng zoning clearance bago magtayo, mag-renovation, o magbago ng paggamit ng isang ari-arian sa Mapandan."
     },
     {
       "slug": "certificate-of-indigency",
@@ -729,7 +831,11 @@
         "social-case-study",
         "philhealth-enrollment"
       ],
-      "hero_lede": "Get a Certificate of Indigency from the MSWDO for hospital discounts, legal aid, scholarships, and other social services."
+      "hero_lede": "Get a Certificate of Indigency from the MSWDO for hospital discounts, legal aid, scholarships, and other social services.",
+      "delivery_mode": "in-person",
+      "name_fil": "Certipiko ng Indigency",
+      "description_fil": "Ang Certificate of Indigency ay inilalabas sa mga indigent na pamilya na sertipikado ng Barangay Captain.",
+      "hero_lede_fil": "Kumuha ng Certificate of Indigency mula sa MSWDO para sa mga diskwento sa ospital, tulong sa legal, mga scholarship, at iba pang serbisyong panlipunan."
     },
     {
       "slug": "solo-parent-id",
@@ -761,7 +867,11 @@
         "certificate-of-indigency",
         "marriage-counseling"
       ],
-      "hero_lede": "Apply for a Solo Parent ID in Mapandan. Learn about eligibility, requirements, and the assessment process at the MSWDO."
+      "hero_lede": "Apply for a Solo Parent ID in Mapandan. Learn about eligibility, requirements, and the assessment process at the MSWDO.",
+      "delivery_mode": "in-person",
+      "name_fil": "Solo Parent ID",
+      "description_fil": "Ang Solo Parent ID ay inilalabas sa mga solo parent ayon sa RA 8972 (Solo Parents' Welfare Act of 2000).",
+      "hero_lede_fil": "Mag-apply para sa Solo Parent ID sa Mapandan. Alamin ang mga kinakailangan, eligibility, at proseso ng assessment sa MSWDO."
     },
     {
       "slug": "scholarship-certification",
@@ -791,7 +901,11 @@
       "related": [
         "certificate-of-indigency"
       ],
-      "hero_lede": "Get a Scholarship Certification from the MSWDO for educational assistance and tuition fee discounts."
+      "hero_lede": "Get a Scholarship Certification from the MSWDO for educational assistance and tuition fee discounts.",
+      "delivery_mode": "in-person",
+      "name_fil": "Sertipikasyon ng Scholarship",
+      "description_fil": "Nag-iisyu ang MSWDO ng mga sertipikasyon para sa mga estudyanteng nais mag-avail ng mga programa ng scholarship.",
+      "hero_lede_fil": "Kumuha ng sertipikasyon ng scholarship mula sa MSWDO para sa mga programa ng scholarship at tulong sa edukasyon."
     },
     {
       "slug": "pwd-assistive-devices",
@@ -824,7 +938,11 @@
       "related": [
         "senior-pwd-id"
       ],
-      "hero_lede": "Request assistive devices for PWDs from the MSWDO in Mapandan. Crutches, wheelchairs, and other devices available."
+      "hero_lede": "Request assistive devices for PWDs from the MSWDO in Mapandan. Crutches, wheelchairs, and other devices available.",
+      "delivery_mode": "in-person",
+      "name_fil": "PWD Assistive Devices",
+      "description_fil": "Nag-aalok ang MSWDO ng mga assistive device para sa mga Persons with Disabilities (PWD).",
+      "hero_lede_fil": "Mag-apply para sa mga assistive device mula sa MSWDO para sa mga PWD sa Mapandan."
     },
     {
       "slug": "osca-death-aid",
@@ -858,7 +976,11 @@
         "certificate-of-indigency",
         "aics"
       ],
-      "hero_lede": "Claim OSCA Death Aid Benefits for deceased senior citizens. Learn about requirements and the claims process at the MSWDO."
+      "hero_lede": "Claim OSCA Death Aid Benefits for deceased senior citizens. Learn about requirements and the claims process at the MSWDO.",
+      "delivery_mode": "in-person",
+      "name_fil": "OSCA Death Aid Benefits",
+      "description_fil": "Ang death aid ay ibinibigay sa pamilya ng namatay na senior citizen.",
+      "hero_lede_fil": "Mag-apply para sa death aid benefit mula sa OSCA para sa pamilya ng namatay na senior citizen sa Mapandan."
     },
     {
       "slug": "social-case-study",
@@ -895,7 +1017,11 @@
         "aics",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Get a Social Case Study Report from the MSWDO for PCSO, hospital, and foundation assistance applications."
+      "hero_lede": "Get a Social Case Study Report from the MSWDO for PCSO, hospital, and foundation assistance applications.",
+      "delivery_mode": "in-person",
+      "name_fil": "Social Case Study Report",
+      "description_fil": "Ang social case study report ay inihahanda ng MSWDO para sa mga kaso ng child welfare, domestic violence, at iba pang social welfare concerns.",
+      "hero_lede_fil": "Humiling ng social case study report mula sa MSWDO para sa mga kaso ng child welfare at social welfare."
     },
     {
       "slug": "marriage-counseling",
@@ -926,7 +1052,11 @@
       "related": [
         "marriage-license"
       ],
-      "hero_lede": "Complete your pre-marriage counseling requirement at the MSWDO in Mapandan. Required before applying for a marriage license."
+      "hero_lede": "Complete your pre-marriage counseling requirement at the MSWDO in Mapandan. Required before applying for a marriage license.",
+      "delivery_mode": "in-person",
+      "name_fil": "Pre-Marriage Counseling",
+      "description_fil": "Ang pre-marriage counseling ay ibinibigay ng MSWDO sa mga mag-asawa na magpapakasal.",
+      "hero_lede_fil": "Kumuha ng pre-marriage counseling mula sa MSWDO bago ang iyong kasal sa Mapandan."
     },
     {
       "slug": "cicl-services",
@@ -959,7 +1089,11 @@
         "women-welfare",
         "special-social-services"
       ],
-      "hero_lede": "MSWDO protection services for children in difficult circumstances in Mapandan. Counselling, shelter, and referral available."
+      "hero_lede": "MSWDO protection services for children in difficult circumstances in Mapandan. Counselling, shelter, and referral available.",
+      "delivery_mode": "in-person",
+      "name_fil": "Mga Serbisyo para sa Children in Difficult Circumstances (CICL)",
+      "description_fil": "Nag-aalok ang MSWDO ng mga serbisyo para sa mga bata na nasa mahirap na sitwasyon.",
+      "hero_lede_fil": "Mga serbisyo para sa Children in Difficult Circumstances (CICL) mula sa MSWDO sa Mapandan."
     },
     {
       "slug": "women-welfare",
@@ -991,7 +1125,11 @@
         "cicl-services",
         "special-social-services"
       ],
-      "hero_lede": "MSWDO welfare services for socially disadvantaged women in Mapandan. Counselling, shelter, and referral available."
+      "hero_lede": "MSWDO welfare services for socially disadvantaged women in Mapandan. Counselling, shelter, and referral available.",
+      "delivery_mode": "in-person",
+      "name_fil": "Kagalingan ng Kababaihan (WSDW)",
+      "description_fil": "Nag-aalok ang MSWDO ng mga serbisyo para sa kagalingan ng kababaihan.",
+      "hero_lede_fil": "Mga serbisyo para sa kagalingan ng kababaihan mula sa MSWDO sa Mapandan."
     },
     {
       "slug": "disaster-relief",
@@ -1029,7 +1167,11 @@
         "ldrrmo-rescue-operation",
         "environmental-complaint"
       ],
-      "hero_lede": "Disaster relief assistance for families affected by calamities in Mapandan. Relief goods and housing repair assistance available."
+      "hero_lede": "Disaster relief assistance for families affected by calamities in Mapandan. Relief goods and housing repair assistance available.",
+      "delivery_mode": "in-person",
+      "name_fil": "Tulong sa Disaster Relief",
+      "description_fil": "Nag-aalok ang MDRRMO ng mga serbisyo ng tulong sa disaster para sa mga apektadong residente.",
+      "hero_lede_fil": "Mag-apply para sa tulong sa disaster relief mula sa MDRRMO sa Mapandan."
     },
     {
       "slug": "special-social-services",
@@ -1066,7 +1208,11 @@
         "cicl-services",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Special social services for mentally challenged individuals in Mapandan. Counselling, referral, and PhilHealth coordination."
+      "hero_lede": "Special social services for mentally challenged individuals in Mapandan. Counselling, referral, and PhilHealth coordination.",
+      "delivery_mode": "in-person",
+      "name_fil": "Mga Espesyal na Serbisyong Panlipunan",
+      "description_fil": "Nag-aalok ang MSWDO ng mga espesyal na serbisyong panlipunan para sa mga nangangailangan.",
+      "hero_lede_fil": "Mga espesyal na serbisyong panlipunan mula sa MSWDO sa Mapandan."
     },
     {
       "slug": "day-care",
@@ -1096,7 +1242,11 @@
       "related": [
         "nutrition-immunization"
       ],
-      "hero_lede": "Enroll your pre-schooler in the Mapandan Day Care Program. Free early childhood education at barangay Day Care Centers."
+      "hero_lede": "Enroll your pre-schooler in the Mapandan Day Care Program. Free early childhood education at barangay Day Care Centers.",
+      "delivery_mode": "in-person",
+      "name_fil": "Programang Day Care",
+      "description_fil": "Nag-aalok ang MSWDO ng day care program para sa mga batang 0-4 taong gulang.",
+      "hero_lede_fil": "Mag-enroll sa programang day care mula sa MSWDO sa Mapandan."
     },
     {
       "slug": "pre-natal",
@@ -1128,7 +1278,11 @@
         "health-consultation",
         "family-planning"
       ],
-      "hero_lede": "Free pre-natal consultation for antenatal women at the Mapandan Rural Health Unit. Lab tests and health teaching included."
+      "hero_lede": "Free pre-natal consultation for antenatal women at the Mapandan Rural Health Unit. Lab tests and health teaching included.",
+      "delivery_mode": "in-person",
+      "name_fil": "Pre-Natal Consultation",
+      "description_fil": "Nag-aalok ang RHU ng mga pre-natal na konsultasyon para sa mga buntis na kababaihan.",
+      "hero_lede_fil": "Kumuha ng pre-natal na konsultasyon sa RHU sa Mapandan. Libre para sa lahat ng buntis."
     },
     {
       "slug": "family-planning",
@@ -1159,7 +1313,11 @@
         "pre-natal",
         "health-consultation"
       ],
-      "hero_lede": "Free family planning services at the Mapandan RHU. Counselling and provision of oral pills and injectables for couples."
+      "hero_lede": "Free family planning services at the Mapandan RHU. Counselling and provision of oral pills and injectables for couples.",
+      "delivery_mode": "in-person",
+      "name_fil": "Family Planning",
+      "description_fil": "Nag-aalok ang RHU ng mga serbisyo ng family planning.",
+      "hero_lede_fil": "Mga serbisyo ng family planning mula sa RHU sa Mapandan."
     },
     {
       "slug": "tb-dots",
@@ -1193,7 +1351,11 @@
         "health-consultation",
         "laboratory"
       ],
-      "hero_lede": "Free TB DOTS treatment at the Mapandan RHU. Sputum testing, GeneXpert, and anti-TB medication available."
+      "hero_lede": "Free TB DOTS treatment at the Mapandan RHU. Sputum testing, GeneXpert, and anti-TB medication available.",
+      "delivery_mode": "in-person",
+      "name_fil": "TB DOTS Treatment",
+      "description_fil": "Nag-aalok ang RHU ng TB DOTS treatment para sa mga pasyenteng may tuberculosis.",
+      "hero_lede_fil": "Kumuha ng TB DOTS treatment sa RHU sa Mapandan."
     },
     {
       "slug": "laboratory",
@@ -1225,7 +1387,11 @@
         "health-consultation",
         "tb-dots"
       ],
-      "hero_lede": "Laboratory services at the Mapandan RHU. CBC, urinalysis, fecalysis, pregnancy test, and more available at affordable rates."
+      "hero_lede": "Laboratory services at the Mapandan RHU. CBC, urinalysis, fecalysis, pregnancy test, and more available at affordable rates.",
+      "delivery_mode": "in-person",
+      "name_fil": "Laboratory Examination",
+      "description_fil": "Nag-aalok ang RHU ng mga laboratory examination.",
+      "hero_lede_fil": "Kumuha ng laboratory examination sa RHU sa Mapandan."
     },
     {
       "slug": "rabies",
@@ -1258,7 +1424,11 @@
         "health-consultation",
         "laboratory"
       ],
-      "hero_lede": "Free rabies treatment for animal bite patients at the Mapandan RHU Animal Bite Treatment Center. First dose free for residents."
+      "hero_lede": "Free rabies treatment for animal bite patients at the Mapandan RHU Animal Bite Treatment Center. First dose free for residents.",
+      "delivery_mode": "in-person",
+      "name_fil": "Rabies Treatment",
+      "description_fil": "Nag-aalok ang RHU ng mga serbisyo ng rabies treatment.",
+      "hero_lede_fil": "Kumuha ng rabies treatment sa RHU sa Mapandan."
     },
     {
       "slug": "nutrition-immunization",
@@ -1294,7 +1464,11 @@
         "pre-natal",
         "day-care"
       ],
-      "hero_lede": "Free nutrition and immunization programs for children at the Mapandan RHU. Malnourishment intervention and NIP vaccines available."
+      "hero_lede": "Free nutrition and immunization programs for children at the Mapandan RHU. Malnourishment intervention and NIP vaccines available.",
+      "delivery_mode": "in-person",
+      "name_fil": "Programang Nutrition at Immunization",
+      "description_fil": "Nag-aalok ang RHU ng mga programang nutrition at immunization.",
+      "hero_lede_fil": "Mga programang nutrition at immunization mula sa RHU sa Mapandan."
     },
     {
       "slug": "electrical-zoning",
@@ -1337,7 +1511,11 @@
         "building-permit",
         "business-zoning"
       ],
-      "hero_lede": "Get an electrical zoning clearance from the MPDC in Mapandan. Required before obtaining an electrical permit."
+      "hero_lede": "Get an electrical zoning clearance from the MPDC in Mapandan. Required before obtaining an electrical permit.",
+      "delivery_mode": "in-person",
+      "name_fil": "Electrical Zoning Clearance",
+      "description_fil": "Ang electrical zoning clearance ay kinakailangan para sa mga electrical installation.",
+      "hero_lede_fil": "Kumuha ng electrical zoning clearance mula sa MPDC sa Mapandan."
     },
     {
       "slug": "business-zoning",
@@ -1370,7 +1548,11 @@
         "business-renewal",
         "electrical-zoning"
       ],
-      "hero_lede": "Get a business zoning clearance from the MPDC in Mapandan. Required before applying for a business permit."
+      "hero_lede": "Get a business zoning clearance from the MPDC in Mapandan. Required before applying for a business permit.",
+      "delivery_mode": "in-person",
+      "name_fil": "Business Zoning Clearance",
+      "description_fil": "Ang business zoning clearance ay kinakailangan para sa mga bagong negosyo.",
+      "hero_lede_fil": "Kumuha ng business zoning clearance mula sa MPDC sa Mapandan."
     },
     {
       "slug": "public-information",
@@ -1398,7 +1580,11 @@
       ],
       "photo-referenced": "assets/citizens-charter/public-information.jpg",
       "related": [],
-      "hero_lede": "Request public information and data from the MPDC in Mapandan. Planning, land use, and development data available."
+      "hero_lede": "Request public information and data from the MPDC in Mapandan. Planning, land use, and development data available.",
+      "delivery_mode": "in-person",
+      "name_fil": "Public Information Request",
+      "description_fil": "Mga kahilingan para sa pampublikong impormasyon mula sa opisyo ng mayor.",
+      "hero_lede_fil": "Mag-request ng pampublikong impormasyon mula sa Opisyo ng Mayor sa Mapandan."
     },
     {
       "slug": "sb-certified-copy",
@@ -1430,7 +1616,11 @@
       "related": [
         "public-information"
       ],
-      "hero_lede": "Get certified true copies of Mapandan municipal ordinances, resolutions, and SB documents. ₱130 fee, ~13 minutes processing."
+      "hero_lede": "Get certified true copies of Mapandan municipal ordinances, resolutions, and SB documents. ₱130 fee, ~13 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Certified True Copy ng mga Ordinansa at Resolusyon",
+      "description_fil": "Mga certified true copy ng mga ordinances at resolutions ng Sangguniang Bayan.",
+      "hero_lede_fil": "Humiling ng certified true copy ng mga ordinances at resolutions mula sa SB sa Mapandan."
     },
     {
       "slug": "sb-financial-assistance",
@@ -1462,7 +1652,11 @@
         "aics",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Apply for financial assistance from the Sangguniang Bayan for indigent residents of Mapandan. Free service."
+      "hero_lede": "Apply for financial assistance from the Sangguniang Bayan for indigent residents of Mapandan. Free service.",
+      "delivery_mode": "in-person",
+      "name_fil": "SB Financial Assistance",
+      "description_fil": "Tulong pinansyal mula sa Sangguniang Bayan.",
+      "hero_lede_fil": "Mag-apply para sa tulong pinansyal mula sa Sangguniang Bayan sa Mapandan."
     },
     {
       "slug": "professional-tax-receipt",
@@ -1492,7 +1686,11 @@
         "cedula",
         "business-permit"
       ],
-      "hero_lede": "Get your Professional Tax Receipt at the Mapandan Treasury Office. ₱300 for professionals, ₱100 for non-professionals."
+      "hero_lede": "Get your Professional Tax Receipt at the Mapandan Treasury Office. ₱300 for professionals, ₱100 for non-professionals.",
+      "delivery_mode": "in-person",
+      "name_fil": "Professional Tax Receipt",
+      "description_fil": "Ang professional tax receipt ay kinakailangan para sa mga propesyonal.",
+      "hero_lede_fil": "Kumuha ng professional tax receipt sa Treasury Office sa Mapandan."
     },
     {
       "slug": "tax-clearance",
@@ -1523,7 +1721,11 @@
         "cedula",
         "rpt-payment"
       ],
-      "hero_lede": "Get a Tax Clearance Certificate at the Mapandan Treasury Office. ₱130 total fee, 20 minutes processing."
+      "hero_lede": "Get a Tax Clearance Certificate at the Mapandan Treasury Office. ₱130 total fee, 20 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Tax Clearance Certificate",
+      "description_fil": "Ang tax clearance certificate ay kinakailangan para sa iba't ibang transaksyon sa pamahalaan.",
+      "hero_lede_fil": "Kumuha ng tax clearance certificate mula sa Treasury Office sa Mapandan."
     },
     {
       "slug": "mtop",
@@ -1557,7 +1759,11 @@
         "business-permit",
         "cedula"
       ],
-      "hero_lede": "Get or renew your Motorized Tricycle Operator's Permit (MTOP) in Mapandan. ₱365/year annual fee."
+      "hero_lede": "Get or renew your Motorized Tricycle Operator's Permit (MTOP) in Mapandan. ₱365/year annual fee.",
+      "delivery_mode": "in-person",
+      "name_fil": "Motorized Tricycle Operator's Permit (MTOP)",
+      "description_fil": "Ang MTOP ay kinakailangan para sa mga operator ng motorized tricycle.",
+      "hero_lede_fil": "Mag-apply para sa Motorized Tricycle Operator's Permit (MTOP) sa Mapandan."
     },
     {
       "slug": "market-stall-fee",
@@ -1588,7 +1794,11 @@
         "business-permit",
         "cedula"
       ],
-      "hero_lede": "Pay your market booth or stall rental fees at the Mapandan Treasury Office. Rates from ₱475 to ₱1,950 per month."
+      "hero_lede": "Pay your market booth or stall rental fees at the Mapandan Treasury Office. Rates from ₱475 to ₱1,950 per month.",
+      "delivery_mode": "in-person",
+      "name_fil": "Bayad sa Market Booth at Stall",
+      "description_fil": "Mga bayad para sa mga booth at stall sa palengke.",
+      "hero_lede_fil": "Magbayad ng market booth at stall fee sa Mapandan."
     },
     {
       "slug": "cemetery-payment",
@@ -1617,7 +1827,11 @@
       "related": [
         "death-certificate"
       ],
-      "hero_lede": "Pay for cemetery lot rental or purchase a tomb at the Mapandan Treasury Office. ₱1,500/10yr rental, tombs from ₱10,000."
+      "hero_lede": "Pay for cemetery lot rental or purchase a tomb at the Mapandan Treasury Office. ₱1,500/10yr rental, tombs from ₱10,000.",
+      "delivery_mode": "in-person",
+      "name_fil": "Cemetery Lot Rental at Pagbili ng Libingan",
+      "description_fil": "Mga bayad para sa cemetery lot rental at pagbili ng libingan.",
+      "hero_lede_fil": "Magbayad ng cemetery lot rental o bumili ng libingan sa Mapandan."
     },
     {
       "slug": "cattle-registration",
@@ -1649,7 +1863,11 @@
       "related": [
         "agriculture-subsidy"
       ],
-      "hero_lede": "Register or transfer large cattle ownership in Mapandan. ₱155–₱160 including documentary stamps."
+      "hero_lede": "Register or transfer large cattle ownership in Mapandan. ₱155–₱160 including documentary stamps.",
+      "delivery_mode": "in-person",
+      "name_fil": "Large Cattle Ownership at Brand Registration",
+      "description_fil": "Rehistrasyon ng ownership at brand ng large cattle.",
+      "hero_lede_fil": "Mag-rehistro ng large cattle ownership at brand sa Mapandan."
     },
     {
       "slug": "financial-claims-payment",
@@ -1683,7 +1901,11 @@
         "sb-financial-assistance",
         "aics"
       ],
-      "hero_lede": "Claim financial assistance payments at the Mapandan Treasury Office. Cash for ≤₱3,000, check for >₱3,000."
+      "hero_lede": "Claim financial assistance payments at the Mapandan Treasury Office. Cash for ≤₱3,000, check for >₱3,000.",
+      "delivery_mode": "in-person",
+      "name_fil": "Financial Assistance Claims Payment",
+      "description_fil": "Mga bayad para sa financial assistance claims.",
+      "hero_lede_fil": "Mag-claim ng financial assistance payment sa Mapandan."
     },
     {
       "slug": "seed-certification",
@@ -1715,7 +1937,11 @@
         "agriculture-subsidy",
         "crop-protection"
       ],
-      "hero_lede": "Get seed certification services from the Mapandan MAO. Free lab analysis and seed tags for registered seed growers."
+      "hero_lede": "Get seed certification services from the Mapandan MAO. Free lab analysis and seed tags for registered seed growers.",
+      "delivery_mode": "in-person",
+      "name_fil": "Seed Certification Services",
+      "description_fil": "Mga serbisyo ng sertipikasyon ng binhi.",
+      "hero_lede_fil": "Kumuha ng seed certification mula sa MAO sa Mapandan."
     },
     {
       "slug": "animal-anti-rabies",
@@ -1743,7 +1969,11 @@
       "related": [
         "rabies"
       ],
-      "hero_lede": "Free anti-rabies vaccination for your pets at the Mapandan Municipal Agriculture Office."
+      "hero_lede": "Free anti-rabies vaccination for your pets at the Mapandan Municipal Agriculture Office.",
+      "delivery_mode": "in-person",
+      "name_fil": "Animal Anti-Rabies Vaccination",
+      "description_fil": "Mga anti-rabies vaccination para sa mga hayop.",
+      "hero_lede_fil": "Magpa-vaccinate ng anti-rabies para sa iyong hayop sa Mapandan."
     },
     {
       "slug": "crop-protection",
@@ -1775,7 +2005,11 @@
         "agriculture-subsidy",
         "seed-certification"
       ],
-      "hero_lede": "Free crop protection services from the Mapandan MAO. Farm inspection, plant analysis, and pest management recommendations."
+      "hero_lede": "Free crop protection services from the Mapandan MAO. Farm inspection, plant analysis, and pest management recommendations.",
+      "delivery_mode": "in-person",
+      "name_fil": "Crop Protection Technical Services",
+      "description_fil": "Mga teknikal na serbisyo para sa proteksyon ng mga pananim.",
+      "hero_lede_fil": "Kumuha ng crop protection technical services mula sa MAO sa Mapandan."
     },
     {
       "slug": "demolition-permit",
@@ -1809,7 +2043,11 @@
         "building-permit",
         "occupancy-permit"
       ],
-      "hero_lede": "Get a demolition permit from the Mapandan Municipal Engineer. Required before demolishing any building or structure."
+      "hero_lede": "Get a demolition permit from the Mapandan Municipal Engineer. Required before demolishing any building or structure.",
+      "delivery_mode": "in-person",
+      "name_fil": "Demolition Permit",
+      "description_fil": "Ang demolition permit ay kinakailangan para sa pag-demolish ng mga gusali.",
+      "hero_lede_fil": "Kumuha ng demolition permit mula sa MEO sa Mapandan."
     },
     {
       "slug": "electrical-permit",
@@ -1850,7 +2088,11 @@
         "building-permit",
         "electrical-zoning"
       ],
-      "hero_lede": "Get an electrical permit from the Mapandan Municipal Engineer. Required for all electrical installations and wiring."
+      "hero_lede": "Get an electrical permit from the Mapandan Municipal Engineer. Required for all electrical installations and wiring.",
+      "delivery_mode": "in-person",
+      "name_fil": "Electrical Permit",
+      "description_fil": "Ang electrical permit ay kinakailangan para sa mga electrical installation at maintenance.",
+      "hero_lede_fil": "Kumuha ng electrical permit mula sa MEO sa Mapandan."
     },
     {
       "slug": "birth-registration",
@@ -1886,7 +2128,11 @@
         "birth-certificate",
         "death-certificate"
       ],
-      "hero_lede": "Register a birth at the Mapandan MCR. Standard fee ₱115, late registration ₱315–₱1,015."
+      "hero_lede": "Register a birth at the Mapandan MCR. Standard fee ₱115, late registration ₱315–₱1,015.",
+      "delivery_mode": "in-person",
+      "name_fil": "Rehistrasyon ng Kapanganakan",
+      "description_fil": "Rehistrasyon ng kapanganakan sa Municipal Civil Registrar.",
+      "hero_lede_fil": "Mag-rehistro ng kapanganakan sa MCR sa Mapandan."
     },
     {
       "slug": "death-registration",
@@ -1920,7 +2166,11 @@
         "death-certificate",
         "birth-registration"
       ],
-      "hero_lede": "Register a death at the Mapandan MCR. Late registration fee ₱215."
+      "hero_lede": "Register a death at the Mapandan MCR. Late registration fee ₱215.",
+      "delivery_mode": "in-person",
+      "name_fil": "Rehistrasyon ng Pagkamatay",
+      "description_fil": "Rehistrasyon ng pagkamatay sa Municipal Civil Registrar.",
+      "hero_lede_fil": "Mag-rehistro ng pagkamatay sa MCR sa Mapandan."
     },
     {
       "slug": "marriage-registration",
@@ -1957,7 +2207,11 @@
         "marriage-license",
         "marriage-counseling"
       ],
-      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862."
+      "hero_lede": "Apply for a marriage license at the Mapandan MCR. Fee: ₱862.",
+      "delivery_mode": "in-person",
+      "name_fil": "Rehistrasyon ng Marriage License",
+      "description_fil": "Rehistrasyon ng marriage license sa Municipal Civil Registrar.",
+      "hero_lede_fil": "Mag-rehistro ng marriage license sa MCR sa Mapandan."
     },
     {
       "slug": "civil-registry-certifications",
@@ -1991,7 +2245,11 @@
         "death-certificate",
         "marriage-license"
       ],
-      "hero_lede": "Get certified copies of birth, marriage, or death certificates at the Mapandan MCR. ₱115 per copy."
+      "hero_lede": "Get certified copies of birth, marriage, or death certificates at the Mapandan MCR. ₱115 per copy.",
+      "delivery_mode": "in-person",
+      "name_fil": "Mga Sertipikasyon ng Birth / Marriage / Death",
+      "description_fil": "Mga sertipikasyon mula sa Civil Registry.",
+      "hero_lede_fil": "Humiling ng sertipikasyon ng birth, marriage, o death mula sa MCR sa Mapandan."
     },
     {
       "slug": "legal-document-registration",
@@ -2027,7 +2285,11 @@
         "birth-registration",
         "birth-certificate"
       ],
-      "hero_lede": "Register legal documents at the Mapandan MCR. Legitimation, acknowledgement, and RA 9255 services available."
+      "hero_lede": "Register legal documents at the Mapandan MCR. Legitimation, acknowledgement, and RA 9255 services available.",
+      "delivery_mode": "in-person",
+      "name_fil": "Rehistrasyon ng Legal Document",
+      "description_fil": "Rehistrasyon ng mga legal na dokumento.",
+      "hero_lede_fil": "Mag-rehistro ng legal na dokumento sa MCR sa Mapandan."
     },
     {
       "slug": "court-order-annotation",
@@ -2058,7 +2320,11 @@
         "name-correction",
         "birth-registration"
       ],
-      "hero_lede": "Annotate civil registry documents based on court order at the Mapandan MCR. ₱515 for corrections and adoption."
+      "hero_lede": "Annotate civil registry documents based on court order at the Mapandan MCR. ₱515 for corrections and adoption.",
+      "delivery_mode": "in-person",
+      "name_fil": "Court Order Annotation at Adoption",
+      "description_fil": "Mga annotation ng court order at mga proseso ng adoption.",
+      "hero_lede_fil": "Mag-file ng court order annotation o adoption sa MCR sa Mapandan."
     },
     {
       "slug": "mayors-clearance",
@@ -2091,7 +2357,11 @@
         "cedula",
         "business-permit"
       ],
-      "hero_lede": "Get a clearance or certificate signed by the Mayor of Mapandan. ₱130 fee, 15 minutes processing."
+      "hero_lede": "Get a clearance or certificate signed by the Mayor of Mapandan. ₱130 fee, 15 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Mayor's Clearance at Mga Sertipikasyon",
+      "description_fil": "Mga clearance at sertipikasyon mula sa Opisyo ng Mayor.",
+      "hero_lede_fil": "Kumuha ng mayor's clearance o sertipikasyon mula sa Opisyo ng Mayor sa Mapandan."
     },
     {
       "slug": "subscription-of-affidavits",
@@ -2124,7 +2394,11 @@
         "mayors-clearance",
         "cedula"
       ],
-      "hero_lede": "Have your affidavit subscribed and sworn before the Mayor of Mapandan. ₱130 fee, 15 minutes processing."
+      "hero_lede": "Have your affidavit subscribed and sworn before the Mayor of Mapandan. ₱130 fee, 15 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Subscription of Affidavits",
+      "description_fil": "Mga affidavit na isinusumite sa harap ng notary public.",
+      "hero_lede_fil": "Mag-file ng affidavit sa Mapandan."
     },
     {
       "slug": "solemnization-of-marriage",
@@ -2157,7 +2431,11 @@
         "marriage-license",
         "pre-marriage-counseling-pop"
       ],
-      "hero_lede": "Have your marriage solemnized by the Mayor of Mapandan. Free service for couples with a valid marriage license."
+      "hero_lede": "Have your marriage solemnized by the Mayor of Mapandan. Free service for couples with a valid marriage license.",
+      "delivery_mode": "in-person",
+      "name_fil": "Solemnization of Marriage",
+      "description_fil": "Ang solemnization ng kasal sa harap ng authorized na solemnizing officer.",
+      "hero_lede_fil": "Magpa-solemnize ng kasal sa Mapandan."
     },
     {
       "slug": "mayors-recommendation",
@@ -2190,7 +2468,11 @@
         "mayors-clearance",
         "certificate-of-indigency"
       ],
-      "hero_lede": "Get a recommendation letter from the Mayor for employment, scholarship, or other opportunities. Free service."
+      "hero_lede": "Get a recommendation letter from the Mayor for employment, scholarship, or other opportunities. Free service.",
+      "delivery_mode": "in-person",
+      "name_fil": "Mayor's Employment Recommendation",
+      "description_fil": "Rekomendasyon para sa employment mula sa Mayor.",
+      "hero_lede_fil": "Humiling ng employment recommendation mula sa Mayor sa Mapandan."
     },
     {
       "slug": "ldrrmo-document-request",
@@ -2221,7 +2503,11 @@
         "ldrrmo-rescue-operation",
         "disaster-relief"
       ],
-      "hero_lede": "Request disaster risk management documents and information from the MDRRMO in Mapandan. Free service."
+      "hero_lede": "Request disaster risk management documents and information from the MDRRMO in Mapandan. Free service.",
+      "delivery_mode": "in-person",
+      "name_fil": "MDRRMO Document at Information Request",
+      "description_fil": "Mga kahilingan para sa dokumento at impormasyon mula sa MDRRMO.",
+      "hero_lede_fil": "Mag-request ng dokumento o impormasyon mula sa MDRRMO sa Mapandan."
     },
     {
       "slug": "ldrrmo-training-seminar",
@@ -2253,7 +2539,11 @@
         "ldrrmo-rescue-operation",
         "disaster-relief"
       ],
-      "hero_lede": "Request a disaster preparedness training or seminar from the MDRRMO in Mapandan. Free for barangays and organizations."
+      "hero_lede": "Request a disaster preparedness training or seminar from the MDRRMO in Mapandan. Free for barangays and organizations.",
+      "delivery_mode": "in-person",
+      "name_fil": "MDRRMO Training, Seminar, at Workshop Request",
+      "description_fil": "Mga kahilingan para sa training, seminar, at workshop mula sa MDRRMO.",
+      "hero_lede_fil": "Mag-request ng training, seminar, o workshop mula sa MDRRMO sa Mapandan."
     },
     {
       "slug": "ldrrmo-rescue-operation",
@@ -2284,7 +2574,11 @@
         "health-consultation",
         "disaster-relief"
       ],
-      "hero_lede": "Emergency rescue and medical transport from the MDRRMO in Mapandan. Call the hotline for immediate assistance."
+      "hero_lede": "Emergency rescue and medical transport from the MDRRMO in Mapandan. Call the hotline for immediate assistance.",
+      "delivery_mode": "in-person",
+      "name_fil": "MDRRMO Rescue Operation at Emergency Medical Transport",
+      "description_fil": "Mga rescue operation at emergency medical transport mula sa MDRRMO.",
+      "hero_lede_fil": "Humingi ng rescue operation o emergency medical transport mula sa MDRRMO sa Mapandan."
     },
     {
       "slug": "ldrrmo-transportation",
@@ -2316,7 +2610,11 @@
         "ldrrmo-rescue-operation",
         "special-event-permit"
       ],
-      "hero_lede": "Request standby or transportation support from the MDRRMO for events and activities in Mapandan. Free service."
+      "hero_lede": "Request standby or transportation support from the MDRRMO for events and activities in Mapandan. Free service.",
+      "delivery_mode": "in-person",
+      "name_fil": "MDRRMO Standby / Transportation Request",
+      "description_fil": "Mga kahilingan para sa standby o transportation mula sa MDRRMO.",
+      "hero_lede_fil": "Mag-request ng standby o transportation mula sa MDRRMO sa Mapandan."
     },
     {
       "slug": "ldrrmo-walk-in",
@@ -2347,7 +2645,11 @@
         "ldrrmo-rescue-operation",
         "ldrrmo-document-request"
       ],
-      "hero_lede": "Walk in to the MDRRMO Office for disaster-related inquiries, complaints, and coordination assistance. Free service."
+      "hero_lede": "Walk in to the MDRRMO Office for disaster-related inquiries, complaints, and coordination assistance. Free service.",
+      "delivery_mode": "in-person",
+      "name_fil": "MDRRMO Walk-In Client Assistance",
+      "description_fil": "Mga walk-in na kliyente na humihingi ng tulong mula sa MDRRMO.",
+      "hero_lede_fil": "Pumunta sa MDRRMO para sa walk-in na tulong sa Mapandan."
     },
     {
       "slug": "youth-organization-registration",
@@ -2382,7 +2684,11 @@
         "certificate-of-indigency",
         "public-information"
       ],
-      "hero_lede": "Register your youth organization with the LYDO in Mapandan under the YORP. Free service, official recognition and program access."
+      "hero_lede": "Register your youth organization with the LYDO in Mapandan under the YORP. Free service, official recognition and program access.",
+      "delivery_mode": "in-person",
+      "name_fil": "Youth Organization Registration Program (YORP)",
+      "description_fil": "Programa ng rehistrasyon ng mga organisasyon ng kabataan.",
+      "hero_lede_fil": "Mag-rehistro ng youth organization sa LYDO sa Mapandan."
     },
     {
       "slug": "assessor-true-copy",
@@ -2414,7 +2720,11 @@
         "tax-declaration",
         "rpt-payment"
       ],
-      "hero_lede": "Get a certified true copy of your Tax Declaration from the Assessor's Office. ₱100, 15 minutes processing."
+      "hero_lede": "Get a certified true copy of your Tax Declaration from the Assessor's Office. ₱100, 15 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Certified True Copy ng Tax Declaration",
+      "description_fil": "Mga certified true copy ng Tax Declaration mula sa Assessor's Office.",
+      "hero_lede_fil": "Humiling ng certified true copy ng Tax Declaration mula sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-improvement-certificate",
@@ -2446,7 +2756,11 @@
         "assessor-true-copy",
         "assessor-building-appraisal"
       ],
-      "hero_lede": "Get a No Improvement or With Improvement Certificate from the Assessor's Office. Fees ₱100–₱600 based on assessed value."
+      "hero_lede": "Get a No Improvement or With Improvement Certificate from the Assessor's Office. Fees ₱100–₱600 based on assessed value.",
+      "delivery_mode": "in-person",
+      "name_fil": "No Improvement / With Improvement Certificate",
+      "description_fil": "Sertipikasyon na may o walang improvement sa ari-arian.",
+      "hero_lede_fil": "Kumuha ng No Improvement o With Improvement Certificate mula sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-landholdings",
@@ -2478,7 +2792,11 @@
         "assessor-true-copy",
         "rpt-payment"
       ],
-      "hero_lede": "Get a Landholdings Certificate showing all your registered properties in Mapandan. ₱100, 15 minutes processing."
+      "hero_lede": "Get a Landholdings Certificate showing all your registered properties in Mapandan. ₱100, 15 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Landholdings Certificate",
+      "description_fil": "Sertipikasyon ng mga hawak na lupa.",
+      "hero_lede_fil": "Humiling ng Landholdings Certificate mula sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-declare-undeclared",
@@ -2512,7 +2830,11 @@
         "assessor-true-copy",
         "assessor-appraisal-untitled"
       ],
-      "hero_lede": "Declare an undeclared property with the Assessor's Office. ₱700 appraisal fee, 30 minutes processing."
+      "hero_lede": "Declare an undeclared property with the Assessor's Office. ₱700 appraisal fee, 30 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Pagdeklara ng Mga Undeclared na Property",
+      "description_fil": "Pagdeklara ng mga hindi pa nade-deklara na ari-arian.",
+      "hero_lede_fil": "Mag-deklara ng undeclared property sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-declare-missing",
@@ -2546,7 +2868,11 @@
         "assessor-true-copy",
         "assessor-declare-undeclared"
       ],
-      "hero_lede": "Replace a lost or missing Tax Declaration at the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Replace a lost or missing Tax Declaration at the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Pagdeklara ng Mga Unrevised / Missing Tax Declaration",
+      "description_fil": "Pagdeklara ng mga hindi pa na-revise o nawawalang Tax Declaration.",
+      "hero_lede_fil": "Mag-deklara ng unrevised o missing Tax Declaration sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-appraisal-titled",
@@ -2581,7 +2907,11 @@
         "land-transfer",
         "rpt-payment"
       ],
-      "hero_lede": "Get your newly titled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Get your newly titled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Appraisal para sa Newly Declared Titled Property",
+      "description_fil": "Appraisal para sa mga bagong dineklara na titled na ari-arian.",
+      "hero_lede_fil": "Mag-request ng appraisal para sa newly declared titled property sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-appraisal-untitled",
@@ -2615,7 +2945,11 @@
         "assessor-declare-undeclared",
         "assessor-appraisal-titled"
       ],
-      "hero_lede": "Get your untitled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Get your untitled property appraised by the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Appraisal para sa Newly Declared Untitled Property",
+      "description_fil": "Appraisal para sa mga bagong dineklara na hindi pa titled na ari-arian.",
+      "hero_lede_fil": "Mag-request ng appraisal para sa newly declared titled property sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-building-appraisal",
@@ -2650,7 +2984,11 @@
         "building-permit",
         "occupancy-permit"
       ],
-      "hero_lede": "Get your building appraised and assessed by the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Get your building appraised and assessed by the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Building Appraisal / Assessment",
+      "description_fil": "Appraisal o assessment ng mga gusali.",
+      "hero_lede_fil": "Mag-request ng building appraisal mula sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-reclassification",
@@ -2684,7 +3022,11 @@
         "assessor-true-copy",
         "zoning-clearance"
       ],
-      "hero_lede": "Reclassify or reassess your land at the Assessor's Office. ₱700 fee, 30 minutes processing."
+      "hero_lede": "Reclassify or reassess your land at the Assessor's Office. ₱700 fee, 30 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Land Reclassification / Reassessment",
+      "description_fil": "Reclassification o reassessment ng lupa.",
+      "hero_lede_fil": "Mag-request ng land reclassification o reassessment sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-tax-map",
@@ -2716,7 +3058,11 @@
         "assessor-true-copy",
         "assessor-landholdings"
       ],
-      "hero_lede": "Get a tax map from the Assessor's Office showing your property's location and boundaries. ₱100, 15 minutes."
+      "hero_lede": "Get a tax map from the Assessor's Office showing your property's location and boundaries. ₱100, 15 minutes.",
+      "delivery_mode": "in-person",
+      "name_fil": "Tax Map Issuance",
+      "description_fil": "Pag-iisyu ng tax map.",
+      "hero_lede_fil": "Humiling ng tax map mula sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-inquiries",
@@ -2748,7 +3094,11 @@
         "assessor-true-copy",
         "assessor-tax-map"
       ],
-      "hero_lede": "Inquire or verify real property records at the Assessor's Office. ₱100 for printed verification, 15 minutes."
+      "hero_lede": "Inquire or verify real property records at the Assessor's Office. ₱100 for printed verification, 15 minutes.",
+      "delivery_mode": "in-person",
+      "name_fil": "Mga Inquiries at Verifications",
+      "description_fil": "Mga inquiries at verification tungkol sa mga ari-arian.",
+      "hero_lede_fil": "Mag-inquire o mag-verify ng impormasyon sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-certificates",
@@ -2781,7 +3131,11 @@
         "assessor-true-copy",
         "assessor-inquiries"
       ],
-      "hero_lede": "Get various property-related certificates from the Assessor's Office. ₱100 per certificate, 15 minutes."
+      "hero_lede": "Get various property-related certificates from the Assessor's Office. ₱100 per certificate, 15 minutes.",
+      "delivery_mode": "in-person",
+      "name_fil": "Iba pang mga Sertipikasyon ng Assessor",
+      "description_fil": "Iba pang mga sertipikasyon mula sa Assessor's Office.",
+      "hero_lede_fil": "Humiling ng iba pang sertipikasyon mula sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "assessor-annotations",
@@ -2815,7 +3169,11 @@
         "assessor-true-copy",
         "land-transfer"
       ],
-      "hero_lede": "Record or cancel annotations on your Tax Declaration at the Assessor's Office. ₱150, 20 minutes processing."
+      "hero_lede": "Record or cancel annotations on your Tax Declaration at the Assessor's Office. ₱150, 20 minutes processing.",
+      "delivery_mode": "in-person",
+      "name_fil": "Recording at Cancellation ng Mga Annotation",
+      "description_fil": "Recording at cancellation ng mga annotation sa Tax Declaration.",
+      "hero_lede_fil": "Mag-file ng recording o cancellation ng annotation sa Assessor's Office sa Mapandan."
     },
     {
       "slug": "environmental-complaint",
@@ -2848,7 +3206,11 @@
         "ldrrmo-walk-in",
         "ldrrmo-document-request"
       ],
-      "hero_lede": "File an environmental complaint with the MENRO in Mapandan. Report pollution, illegal dumping, and other violations. Free service."
+      "hero_lede": "File an environmental complaint with the MENRO in Mapandan. Report pollution, illegal dumping, and other violations. Free service.",
+      "delivery_mode": "in-person",
+      "name_fil": "Environmental Complaints Processing",
+      "description_fil": "Pagproseso ng mga reklamo sa kapaligiran.",
+      "hero_lede_fil": "Mag-file ng environmental complaint sa MENRO sa Mapandan."
     },
     {
       "slug": "pre-marriage-counseling-pop",
@@ -2879,7 +3241,11 @@
         "marriage-license",
         "solemnization-of-marriage"
       ],
-      "hero_lede": "Complete your pre-marriage counseling at the Population Office in Mapandan. Free session, certificate issued upon completion."
+      "hero_lede": "Complete your pre-marriage counseling at the Population Office in Mapandan. Free session, certificate issued upon completion.",
+      "delivery_mode": "in-person",
+      "name_fil": "Pre-Marriage Orientation at Counseling (Population Office)",
+      "description_fil": "Pre-marriage orientation at counseling mula sa Population Office.",
+      "hero_lede_fil": "Kumuha ng pre-marriage orientation at counseling mula sa Population Office sa Mapandan."
     },
     {
       "slug": "philhealth-enrollment",
@@ -2912,7 +3278,11 @@
         "certificate-of-indigency",
         "health-consultation"
       ],
-      "hero_lede": "Enroll in the LGU-sponsored PhilHealth program at the Population Office. Free health insurance for indigent residents."
+      "hero_lede": "Enroll in the LGU-sponsored PhilHealth program at the Population Office. Free health insurance for indigent residents.",
+      "delivery_mode": "in-person",
+      "name_fil": "LGU PhilHealth Group Enrollment",
+      "description_fil": "Group enrollment sa PhilHealth sa pamamagitan ng LGU.",
+      "hero_lede_fil": "Mag-enroll sa PhilHealth group enrollment sa MSWDO sa Mapandan."
     }
   ]
 }

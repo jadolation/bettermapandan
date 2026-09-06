@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com;" />
 <title>Government Directory — BetterMapandan.org</title>
 <meta name="description" content="Executive and legislative officials, department heads, and the full contact directory for the Municipality of Mapandan, Pangasinan." />
+<link rel="canonical" href="https://bettermapandan.org/government.html" />
+<meta property="og:title" content="Government Directory — BetterMapandan.org" />
+<meta property="og:description" content="Executive and legislative officials, department heads, and the full contact directory for the Municipality of Mapandan, Pangasinan." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bettermapandan.org/government.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Government Directory — BetterMapandan.org" />
+<meta name="twitter:description" content="Executive and legislative officials, department heads, and the full contact directory for the Municipality of Mapandan, Pangasinan." />
 <link rel="icon" href="./assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/android-chrome-192x192.png" />
@@ -12,13 +21,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./assets/style.css" />
+<link rel="stylesheet" href="./assets/style.min.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentOrganization",
+  "name": "Municipality of Mapandan",
+  "alternateName": "Mapandan LGU",
+  "url": "https://bettermapandan.org",
+  "logo": "https://bettermapandan.org/assets/logo.svg",
+  "description": "Official civic information portal for the Municipality of Mapandan, Pangasinan, Philippines.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mapandan",
+    "addressRegion": "Pangasinan",
+    "addressCountry": "PH"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Mapandan, Pangasinan, Philippines"
+  },
+  "sameAs": [
+    "https://www.facebook.com/MunicipalityofMapandan"
+  ]
+}
+</script>
 </head>
 <body>
 
 <a class="skip-link" href="#content">Skip to content</a>
 
-<div class="emergency-bar">
+<div class="emergency-bar" aria-label="Emergency contact numbers">
   <div class="wrap">
     <a href="tel:911"><span class="label">Emergency</span> 911</a>
     <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
@@ -37,7 +70,7 @@
       </span>
     </a>
     <nav class="nav" aria-label="Main">
-      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
         <span class="sr-only">Menu</span>
       </button>
       <ul class="nav-links">
@@ -48,7 +81,15 @@
         <li><a href="./statistics.html">Statistics</a></li>
         <li><a href="./transparency.html">Transparency</a></li>
         <li><a href="./about.html">About</a></li>
+        <li><a href="./search.html" class="nav-search-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search
+        </a></li>
       </ul>
+      <div class="lang-switcher">
+        <a href="government.html" class="lang-btn active" data-lang="en">EN</a>
+        <a href="fil/government.html" class="lang-btn " data-lang="fil">FIL</a>
+      </div>
       <a href="./search.html" class="nav-search" aria-label="Search">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </a>
@@ -66,7 +107,7 @@
     <p class="lede">The officials and offices serving Mapandan, from the Executive and Sangguniang Bayan down to the department heads who run day-to-day operations.</p>
   </div>
 </section>
-<section class="section">
+<section class="section" id="executive">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Leadership</div>
@@ -82,7 +123,7 @@
           <span class="source-label">Source: Mapandan.gov.ph</span>
         </div>
         <div class="photo-wrap">
-          <img src="assets/mayor-vega.png" alt="Hon. Karl Christian F. Vega" class="photo">
+          <img src="assets/officials/mayor-vega.png" alt="Hon. Karl Christian F. Vega" class="photo">
         </div>
       </div>
       <div class="leader-card vice">
@@ -93,13 +134,13 @@
         <span class="source-label">Source: Mapandan.gov.ph</span>
         </div>
         <div class="photo-wrap">
-          <img src="assets/vicemayor-penuliar.png" alt="Hon. Anthony C. Penuliar" class="photo">
+          <img src="assets/officials/vicemayor-penuliar.png" alt="Hon. Anthony C. Penuliar" class="photo">
         </div>
       </div>
     </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt" id="legislative">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Lawmakers</div>
@@ -114,7 +155,7 @@
         <div class="affil">Nacionalista Party (NP)</div>
       </div>
       <div class="photo-wrap">
-        <img src="assets/coun-mariano.png" alt="Hon. Alicia A. Mariano" class="photo">
+        <img src="assets/officials/coun-mariano.png" alt="Hon. Alicia A. Mariano" class="photo">
       </div>
     </div>
   <div class="sb-card">
@@ -124,7 +165,7 @@
       <div class="affil">Independent (IND)</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-biagtan.png" alt="Hon. Percival Z. Biagtan" class="photo">
+      <img src="assets/officials/coun-biagtan.png" alt="Hon. Percival Z. Biagtan" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -134,7 +175,7 @@
       <div class="affil">Nacionalista Party (NP)</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-quinto.png" alt="Hon. Blando B. Quinto" class="photo">
+      <img src="assets/officials/coun-quinto.png" alt="Hon. Blando B. Quinto" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -144,7 +185,7 @@
       <div class="affil">Independent (IND)</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-lalas.png" alt="Hon. Frederick G. Lalas" class="photo">
+      <img src="assets/officials/coun-lalas.png" alt="Hon. Frederick G. Lalas" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -154,7 +195,7 @@
       <div class="affil">Independent (IND)</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-calimlim.png" alt="Hon. Michael A. Calimlim" class="photo">
+      <img src="assets/officials/coun-calimlim.png" alt="Hon. Michael A. Calimlim" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -164,7 +205,7 @@
       <div class="affil">Local Slate</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-penuliar.png" alt="Hon. Freddie R. Penuliar" class="photo">
+      <img src="assets/officials/coun-penuliar.png" alt="Hon. Freddie R. Penuliar" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -174,7 +215,7 @@
       <div class="affil">Local Slate</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-parayno.png" alt="Hon. John Ericson L. Parayno" class="photo">
+      <img src="assets/officials/coun-parayno.png" alt="Hon. John Ericson L. Parayno" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -184,7 +225,7 @@
       <div class="affil">Local Slate</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-castro.png" alt="Hon. Gem T. Castro" class="photo">
+      <img src="assets/officials/coun-castro.png" alt="Hon. Gem T. Castro" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -194,7 +235,7 @@
       <div class="affil">Liga ng mga Barangay (ABC) President</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-aquino.png" alt="Hon. Alexander L. Aquino" class="photo">
+      <img src="assets/officials/coun-aquino.png" alt="Hon. Alexander L. Aquino" class="photo">
     </div>
   </div>
   <div class="sb-card">
@@ -204,14 +245,14 @@
       <div class="affil">SK Federation President</div>
     </div>
     <div class="photo-wrap">
-      <img src="assets/coun-landingin.png" alt="Hon. John Manuel V. Landingin" class="photo">
+      <img src="assets/officials/coun-landingin.png" alt="Hon. John Manuel V. Landingin" class="photo">
     </div>
   </div>
 </div>
 </section>
 
 
-<section class="section">
+<section class="section" id="barangay-councils">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Barangays</div>
@@ -540,11 +581,11 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="departments">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Departments</div>
-      <h2>Departments &amp; Key Offices</h2>
+      <h2>Departments & Key Offices</h2>
       <p>Appointed office heads and administrative staff who carry out frontline service delivery.</p>
     </div>
     <div class="table-wrap">
@@ -657,7 +698,7 @@
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt" id="contacts">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Reach Us</div>
@@ -807,14 +848,37 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 BetterMapandan.org. Community-run, independent of the LGU.</span>
+      <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
+        <img src="./assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo">
+        <span>A BetterGov.ph Community Portal</span>
+      </a>
       <span class="cost-chip">Cost to the People of Mapandan: <strong>&#8369;0</strong></span>
     </div>
   </div>
 </footer>
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" integrity="sha256-0e2326c6868072bec1592760c6729043caeea2960a2b46cee6a2192aac6abff0" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
 <script src="./assets/barangay-data.js"></script>
 <script src="./assets/script.js"></script>
+
+<div id="lang-banner" class="lang-banner" style="display:none"></div>
+
+<nav class="mobile-action-bar" aria-label="Quick actions">
+  <a href="tel:911" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Hotline</span>
+  </a>
+  <a href="./search.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+  </a>
+  <a href="./services.html" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <span>Services</span>
+  </a>
+</nav>
+
 </body>
 </html>
