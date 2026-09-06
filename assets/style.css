@@ -1275,6 +1275,7 @@ p {
   color: var(--ink-soft);
 }
 
+
 .barangay-modal-overlay {
   position: fixed;
   inset: 0;
@@ -1343,6 +1344,19 @@ p {
   border-top: 1px solid var(--line);
   flex-wrap: wrap;
 }
+.barangay-modal-photo-wrap {
+  margin: -28px -28px 16px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--line);
+}
+.barangay-modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* --- Barangay card punong --- */
 .barangay-card-punong {
@@ -1381,6 +1395,21 @@ p {
   color: var(--ink);
 }
 
+.barangay-card-photo-wrap {
+  margin: -16px -16px 12px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--line);
+}
+.barangay-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.barangay-card:hover .barangay-card-photo { transform: scale(1.04); }
+.barangay-card-no-photo { padding-top: 16px; }
 /* --- Text muted helper --- */
 .text-muted {
   color: var(--ink-soft);

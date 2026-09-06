@@ -328,6 +328,22 @@ document.addEventListener("DOMContentLoaded", function () {
     card.setAttribute("role", "button");
     card.setAttribute("aria-label", (name || "") + " \u2014 " + (d.pop2024 || "") + " residents, " + (d.landUse || "") + ". Read history.");
 
+        if (d.photo) {
+      var thumbWrap = document.createElement("div");
+      thumbWrap.className = "barangay-card-photo-wrap";
+      var thumb = document.createElement("img");
+      thumb.className = "barangay-card-photo";
+      thumb.src = "assets/barangays/" + d.photo;
+      thumb.alt = name + " barangay";
+      thumb.loading = "lazy";
+      thumb.decoding = "async";
+      thumb.onerror = function () {
+        thumbWrap.style.display = "none";
+        card.classList.add("barangay-card-no-photo");
+      };
+      thumbWrap.appendChild(thumb);
+      card.appendChild(thumbWrap);
+    }
     var h4 = document.createElement("h4");
     h4.textContent = name;
     card.appendChild(h4);
@@ -378,6 +394,19 @@ document.addEventListener("DOMContentLoaded", function () {
     closeBtn.textContent = "\u00D7";
     modalDiv.appendChild(closeBtn);
 
+        if (data.photo) {
+      var modalPhotoWrap = document.createElement("div");
+      modalPhotoWrap.className = "barangay-modal-photo-wrap";
+      var modalPhoto = document.createElement("img");
+      modalPhoto.className = "barangay-modal-photo";
+      modalPhoto.src = "assets/barangays/" + data.photo;
+      modalPhoto.alt = name + " barangay";
+      modalPhoto.loading = "lazy";
+      modalPhoto.decoding = "async";
+      modalPhoto.onerror = function () { modalPhotoWrap.style.display = "none"; };
+      modalPhotoWrap.appendChild(modalPhoto);
+      modalDiv.appendChild(modalPhotoWrap);
+    }
     var titleEl = document.createElement("h3");
     titleEl.textContent = name;
     modalDiv.appendChild(titleEl);

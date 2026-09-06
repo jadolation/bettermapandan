@@ -72,7 +72,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=100094241576558",
-    "phone": "09293626955"
+    "phone": "09293626955",
+    "photo": "assets/barangay-council/amanoaoac.jpg"
   },
   {
     "slug": "apaya",
@@ -146,7 +147,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61554665935950",
-    "phone": null
+    "phone": null,
+    "photo": "assets/barangay-council/apaya.jpg"
   },
   {
     "slug": "aserda",
@@ -220,7 +222,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "",
-    "phone": "09293877746"
+    "phone": "09293877746",
+    "photo": ""
   },
   {
     "slug": "baloling",
@@ -290,7 +293,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "",
-    "phone": null
+    "phone": null,
+    "photo": "baloling.jpg"
   },
   {
     "slug": "coral",
@@ -360,7 +364,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=100085067732976",
-    "phone": "5401307"
+    "phone": "5401307",
+    "photo": "assets/barangay-council/coral.jpg"
   },
   {
     "slug": "golden",
@@ -430,7 +435,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61560028545057",
-    "phone": null
+    "phone": null,
+    "photo": "assets/barangay-council/golden.jpg"
   },
   {
     "slug": "jimenez",
@@ -504,7 +510,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "",
-    "phone": null
+    "phone": null,
+    "photo": "assets/barangay-council/jimenez.jpg"
   },
   {
     "slug": "lambayan",
@@ -574,7 +581,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61554475378408",
-    "phone": null
+    "phone": null,
+    "photo": "assets/barangay-council/lambayan.jpg"
   },
   {
     "slug": "luyan",
@@ -644,7 +652,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/barangay.luyan",
-    "phone": "0755101283"
+    "phone": "0755101283",
+    "photo": "assets/barangay-council/luyan.jpg"
   },
   {
     "slug": "nilombot",
@@ -714,7 +723,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61553828348087",
-    "phone": null
+    "phone": null,
+    "photo": "assets/barangay-council/nilombot.jpg"
   },
   {
     "slug": "pias",
@@ -784,7 +794,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/piaslgu",
-    "phone": null
+    "phone": null,
+    "photo": "assets/barangay-council/pias.png"
   },
   {
     "slug": "poblacion",
@@ -854,7 +865,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61584120474621",
-    "phone": null
+    "phone": null,
+    "photo": "assets/barangay-council/poblacion.jpg"
   },
   {
     "slug": "primicias",
@@ -924,7 +936,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile/61552569993449",
-    "phone": "09953375194"
+    "phone": "09953375194",
+    "photo": "assets/barangay-council/primicias.jpg"
   },
   {
     "slug": "sta-maria",
@@ -994,7 +1007,8 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/BrgyStaMaria.MP.SolidCommunity",
-    "phone": "0756158597"
+    "phone": "0756158597",
+    "photo": "assets/barangay-council/stamaria.jpg"
   },
   {
     "slug": "torres",
@@ -1064,6 +1078,7 @@ var BARANGAY_DATA = [
       }
     ],
     "facebook": "https://www.facebook.com/profile.php?id=61583040407980",
-    "phone": "09851311622"
+    "phone": "09851311622",
+    "photo": "assets/barangay-council/torres.jpg"
   }
 ];
