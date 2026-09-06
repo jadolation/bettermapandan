@@ -3169,3 +3169,25 @@ canvas {
   .carousel-slide { transition: none; }
   .civic-toast { transition: none; }
 }
+
+/* Service photo container */
+.service-photo-container {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+/* Service photo image */
+.service-photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Service photo caption */
+.service-photo-caption {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
