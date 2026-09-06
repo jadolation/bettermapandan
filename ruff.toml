@@ -1,0 +1,21 @@
+target-version = "py39"
+line-length = 100
+
+[lint]
+select = [
+    "E",      # pycodestyle errors
+    "F",      # pyflakes
+    "I",      # isort
+    "BLE",    # flake8-blind-except
+    "DTZ",    # flake8-datetimez
+    "B",      # flake8-bugbear (structural issues)
+]
+ignore = [
+    "E501",   # line-too-long (handled separately if needed)
+    "B904",   # raise-from (style preference)
+    "FURB110", # ternary with or (style preference)
+    "PLW2901", # loop var overwrite (style)
+]
+
+[lint.per-file-ignores]
+"build.py" = ["BLE001"]  # Allow broad exception catch with fallback in strip_html
