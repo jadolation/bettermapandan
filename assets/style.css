@@ -3221,7 +3221,7 @@ canvas {
   .carousel-slide { transition: none; }
   .civic-toast { transition: none; }
 }
-<<<<<<< HEAD
+
 /* ========== Procurement Ledger Cards ========== */
 
 .procurement-ledger {
@@ -3418,7 +3418,7 @@ canvas {
     padding: 32px 40px;
   }
 }
-=======
+
 
 /* Service photo container */
 .service-photo-container {
@@ -3441,4 +3441,3 @@ canvas {
   margin-top: 0.5rem;
   font-style: italic;
 }
->>>>>>> b11365c254a740c51f77088fcac9de14032c2de6
