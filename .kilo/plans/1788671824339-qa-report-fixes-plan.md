@@ -1,196 +1,150 @@
-# Implementation Plan: QA Report Fixes
+# Implementation Plan: Additional QA Issues
 
 ## Context
 
-The QA analysis identified issues in priority order. This plan addresses them sequentially.
+Addressing 5 remaining issues identified after the previous implementation plan.
 
-## Priority 1: Alt Text for Service Charters (HIGH)
+---
 
-**Current state:** `_build_photo_html` generates `alt="{name} Reference"` — a generic placeholder.
+## Issue 1: Empty `<h3>` in Homepage Municipality Card
 
-**Expected state:** Descriptive alt text like "Citizens Charter for {Service Name}" or similar.
+**Location:** `src/pages/index.html:112` → generates `index.html:209`
 
-**Changes:**
-- `build.py:315` — Modify `_build_photo_html()` to use descriptive alt text
-- Alt format: `"Citizens Charter for {service_name}"` (from `svc.get('name', '')`)
-- Also update `figcaption` to be more descriptive
+**Root Cause:** Key mismatch in `build.py` locale lookup.
+
+| Locale key in JSON | Lookup in build.py |
+|---|---|
+| `municipality_founded` | `homepage.municipality_found` |
+| `municipality_reestablished` | `homepage.municipality_reestablished` |
+
+The build.py lookup uses `municipality_found` but locale has `municipality_founded` (typo - missing 'd').
+
+**Fix:** Update `build.py:1211-1212` to use correct key names:
+```python
+"HOMEPAGE_MUNICIPALITY_FOUNDED": t(locale, "homepage.municipality_founded", ""),
+"HOMEPAGE_MUNICIPALITY_REESTABLISHED": t(locale, "homepage.municipality_reestablished", ""),
+```
 
 **Validation:**
 ```bash
-# Rebuild and check generated alt attributes
 python3 build.py
-grep -o 'alt="[^"]*Reference"' services/*.html | head -10
+grep -A1 'class="icon">01</div>' index.html | head -2
+# Should show: <h3>Founded Dec. 28, 1887</h3>
 ```
 
 ---
 
-## Priority 2: Ruff Lint Errors (MEDIUM)
+## Issue 2: search-index.json Loaded on Every Page (INVESTIGATE)
 
-**Current state:** 13 errors, 8 auto-fixable.
+User reports 556KB search-index.json is loaded on every page.
+
+**grep shows only search.html references it:**
+- `search.html:223`
+- `fil/search.html:223`
+- `src/pages/search.html:126`
+
+**Action:** Investigate if there's a second loading mechanism (e.g., script.js loads it, or browser preloads it).
+
+**Validation:**
+```bash
+# Check script.js for any search-index loading
+grep -n "search-index" assets/script.js
+
+# Check if any other files load it
+grep -r "search-index" --include="*.js" --include="*.html" . | grep -v "search.html"
+
+# Check base.html for any global script that might load it
+grep -n "search" src/partials/base.html
+```
+
+If investigation finds no additional loading, mark as N/A (already optimized via lazy fetch).
+
+---
+
+## Issue 3: Inline Styles Contradict README Claim
+
+**Location:** `build.py:322-330` in `_build_photo_html()`
+
+**Current State:** Generates inline `style="..."` on `<figure>`, `<img>`, and `<figcaption>`
+
+**README Claim:** `assets/style.css` has "zero inline styles anywhere in the generated HTML"
+
+**Root Cause:** The `_build_photo_html()` function generates inline styles for:
+- figure: `margin: 2rem 0; text-align: center;`
+- img: `max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);`
+- figcaption: `font-size: 0.875rem; color: #666; margin-top: 0.5rem; font-style: italic;`
+
+**Fix Options:**
+1. **Add CSS classes** to `assets/style.css` and use class attributes instead
+2. **Update README** to clarify inline styles are used for citizen charter images only
+
+**Recommended:** Option 1 - Add CSS classes `.service-photo-container`, `.service-photo`, `.service-photo-caption`
 
 **Changes:**
+1. `assets/style.css` — Add:
+```css
+.service-photo-container {
+  margin: 2rem 0;
+  text-align: center;
+}
+.service-photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.service-photo-caption {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+```
 
-1. **Auto-fix 8 issues:**
-   ```bash
-   ruff check build.py --fix
-   ```
-
-2. **Manually fix remaining 5:**
-   - `BLE001` line 154: Replace blind `except Exception:` with specific exception handling
-   - `DTZ011` line 817: Use `datetime.datetime.now(tz=...).date()` instead of `datetime.date.today()`
-   - `PLW1510` line 966: Add `check=False` to `subprocess.run()` or handle return code
-   - `F841` line 441: Remove unused `template_body` variable
-   - `F841` line 528: Remove unused `fiscal` variable
-
-3. **Add ruff configuration** (`ruff.toml`):
-   ```toml
-   target-version = "py39"
-   line-length = 100
-   select = ["E", "F", "I", "BLE", "PLW", "DTZ", "FURB"]
-   ignore = ["E501"]  # line-too-long handled separately
-   ```
+2. `build.py:322-330` — Replace inline styles with class references
 
 **Validation:**
 ```bash
-ruff check build.py  # Should return 0 errors
+python3 build.py
+# Check generated service pages have class instead of style
+grep -c 'style=' services/aics.html
+# Should be 0 for service photo elements
 ```
 
 ---
 
-## Priority 3: verify_translations Complexity (MEDIUM)
+## Issues 4 & 5: onclick/onerror Inline Handlers — SKIPPED
 
-**Current state:** Complexity 13 (Grade C), 80 lines.
-
-**Expected state:** Complexity ≤ 10 (Grade A).
-
-**Changes:** Split into smaller functions:
-- `verify_translations()` — orchestrator (complexity 3)
-- `_strip_tags_for_comparison()` — tag stripping logic
-- `_extract_text_segments()` — segment extraction
-- `_compare_file_pair()` — per-file comparison
-- `_build_allowlist()` — allowlist definition (moved to module level)
-
-**Validation:**
-```bash
-radon cc build.py -a -s | grep verify_translations
-# Should show Grade B or lower
-```
-
----
-
-## Priority 4: CDN SRI (MEDIUM)
-
-**Current state:** CDN scripts in `src/partials/base.html` lack proper SRI hashes.
-
-**Expected state:** `integrity` and `crossorigin` attributes on CDN scripts.
-
-**Note:** The QA report claimed scripts were "without integrity attributes" but the actual base.html already has:
-- Chart.js: `integrity="sha256-0e2326c6868072..." crossorigin="anonymous"`
-- Lucide: `integrity="sha256-GyLGwEocabda..." crossorigin="anonymous"`
-
-**Changes (verify):**
-- Confirm SRI hashes are current for Chart.js 4.4.0 and Lucide 0.460.0
-- If stale, update to latest SRI hashes from jsdelivr/unpkg
-
-**Validation:**
-```bash
-# Check base.html has integrity attributes
-grep 'integrity=' src/partials/base.html
-```
-
----
-
-## Priority 5: Type Annotations (LOW)
-
-**Current state:** 6 mypy errors due to missing type annotations.
-
-**Changes:** Add gradual type annotations:
-- `build.py:88` `load_locale()` → `-> dict`
-- `build.py:101` `t()` → `-> str`
-- `build.py:117` `parse_page()` → `-> tuple[dict, str]`
-- `build.py:177` `generate_services()` → add all type hints
-- `build.py:1364` `build_search_entry()` sort key fix
-
-**Validation:**
-```bash
-mypy build.py  # Should have 0 errors
-```
-
----
-
-## Priority 6: SEO Enhancements (LOW)
-
-**Current state:** Missing Open Graph tags, canonical URLs, JSON-LD.
-
-**Changes:**
-1. **Open Graph tags** — Add to `src/partials/base.html`:
-   ```html
-   <meta property="og:title" content="{{TITLE}}">
-   <meta property="og:description" content="{{DESCRIPTION}}">
-   <meta property="og:type" content="website">
-   <meta property="og:url" content="{{CANONICAL_URL}}">
-   ```
-
-2. **Canonical URLs** — Add `{{CANONICAL_URL}}` placeholder to base template
-
-3. **JSON-LD** — Add `GovernmentOrganization` schema to base template:
-   ```html
-   <script type="application/ld+json">
-   {
-     "@context": "https://schema.org",
-     "@type": "GovernmentOrganization",
-     "name": "Municipality of Mapandan",
-     "url": "https://bettermapandan.org",
-     "address": { ... },
-     "areaServed": "Mapandan, Pangasinan, Philippines"
-   }
-   </script>
-   ```
-
-**Validation:**
-```bash
-grep -c 'og:' src/partials/base.html  # Should be > 0
-```
-
----
-
-## Priority 7: search-index.json Size (LOW)
-
-**Current state:** 544 KB loaded on search page.
-
-**Expected state:** Lazy loading or pagination.
-
-**Changes (if needed):**
-- Confirm search-index.json is loaded with `defer` or at bottom
-- Consider splitting into chunks if page load is slow
-
-**Validation:**
-```bash
-# Check search page loads index lazily
-grep -A5 'search-index' assets/script.js
-```
+Per user decision, inline onclick and onerror handlers are acceptable given the current CSP allows `'unsafe-inline'`. No changes needed.
 
 ---
 
 ## Execution Order
 
-1. Alt text fixes
-2. Ruff auto-fix + manual fixes
-3. Add ruff.toml
-4. verify_translations refactor
-5. SRI verification
-6. Type annotations (optional)
-7. SEO enhancements (optional)
-8. search-index optimization (optional)
+1. **Issue 1**: Fix locale key mismatch (`municipality_found` → `municipality_founded`)
+2. **Issue 2**: Investigate search-index.json loading (confirm or find hidden loading)
+3. **Issue 3**: Add CSS classes for service photo inline styles
+
+**Issues 4 & 5 skipped** — inline handlers acceptable given current CSP.
 
 ---
 
-## Risks & Open Questions
+## Validation Commands
 
-1. **Alt text change** — Will affect ~101 generated service pages. Ensure output matches expectations.
+```bash
+# Issue 1
+python3 build.py
+grep -A1 'class="icon">01</div>' index.html | head -2
+# Should show: <h3>Founded Dec. 28, 1887</h3>
 
-2. **verify_translations refactor** — Must preserve existing logic (substring matching, allowlist, output format).
+# Issue 3
+python3 build.py
+grep 'style=' services/aics.html | grep -v "font-size\|color\|margin" || echo "No inline styles on service photo"
+# Verify no inline styles on service photo elements
+```
 
-3. **SRI hashes** — If CDN versions change, SRI hashes must be regenerated.
+---
 
-4. **JSON-LD schema** — User confirmed `GovernmentOrganization` is appropriate. ✅ Resolved.
+## Open Questions
+
+None remaining — plan is ready for implementation.

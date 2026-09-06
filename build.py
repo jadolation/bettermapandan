@@ -320,12 +320,11 @@ def _build_photo_html(svc: dict, is_fil: bool) -> str:
     img_prefix = "../" if not is_fil else "../../"
     service_name = html.escape(svc.get("name", ""))
     return f'''
-            <figure class="service-photo-container" style="margin: 2rem 0; text-align: center;">
-                <img src="{img_prefix}{photo_ref}" alt="Citizens Charter for {service_name}"
-                    style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+            <figure class="service-photo-container">
+                <img class="service-photo" src="{img_prefix}{photo_ref}" alt="Citizens Charter for {service_name}"
                     loading="lazy"
                     onerror="this.style.display='none'; this.nextElementSibling.style.display='none';">
-                <figcaption style="font-size: 0.875rem; color: #666; margin-top: 0.5rem; font-style: italic;">
+                <figcaption class="service-photo-caption">
                     Citizens Charter document: {html.escape(photo_filename)}
                 </figcaption>
             </figure>'''
@@ -1208,7 +1207,7 @@ def _build_homepage_labels(locale: dict) -> dict:
         "HOMEPAGE_LEADERSHIP_TITLE": t(locale, "homepage.leadership_title", ""),
         "HOMEPAGE_MAP_TITLE": t(locale, "homepage.map_title", ""),
         "HOMEPAGE_MUNICIPALITY_AGRI": t(locale, "homepage.municipality_agri", ""),
-        "HOMEPAGE_MUNICIPALITY_FOUNDED": t(locale, "homepage.municipality_found", ""),
+        "HOMEPAGE_MUNICIPALITY_FOUNDED": t(locale, "homepage.municipality_founded", ""),
         "HOMEPAGE_MUNICIPALITY_REESTABLISHED": t(locale, "homepage.municipality_reestablished", ""),
         "HOMEPAGE_MUNICIPALITY_TITLE": t(locale, "homepage.municipality_title", ""),
         "HOMEPAGE_PLAZA_TITLE": t(locale, "homepage.plaza_title", ""),
