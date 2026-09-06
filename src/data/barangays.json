@@ -73,7 +73,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=100094241576558",
       "phone": "09293626955",
-      "photo":"amanoaoac.jpg"
+      "photo":"assets/barangay-council/amanoaoac.jpg"
     },
     {
       "slug": "apaya",
@@ -148,7 +148,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61554665935950",
       "phone": null,
-      "photo":"apaya.jpg"
+      "photo":"assets/barangay-council/apaya.jpg"
     },
     {
       "slug": "aserda",
@@ -365,7 +365,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=100085067732976",
       "phone": "5401307",
-      "photo":"coral.jpg"
+      "photo":"assets/barangay-council/coral.jpg"
     },
     {
       "slug": "golden",
@@ -436,7 +436,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61560028545057",
       "phone": null,
-      "photo":"golden.jpg"
+      "photo":"assets/barangay-council/golden.jpg"
     },
     {
       "slug": "jimenez",
@@ -511,7 +511,7 @@
       ],
       "facebook": "",
       "phone": null,
-      "photo":"jimenez.jpg"
+      "photo":"assets/barangay-council/jimenez.jpg"
     },
     {
       "slug": "lambayan",
@@ -582,7 +582,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61554475378408",
       "phone": null,
-      "photo":"lambayan.jpg"
+      "photo":"assets/barangay-council/lambayan.jpg"
     },
     {
       "slug": "luyan",
@@ -653,7 +653,7 @@
       ],
       "facebook": "https://www.facebook.com/barangay.luyan",
       "phone": "0755101283",
-      "photo":"luyan.jpg"
+      "photo":"assets/barangay-council/luyan.jpg"
     },
     {
       "slug": "nilombot",
@@ -724,7 +724,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61553828348087",
       "phone": null,
-      "photo":"nilombot.jpg"
+      "photo":"assets/barangay-council/nilombot.jpg"
     },
     {
       "slug": "pias",
@@ -795,7 +795,7 @@
       ],
       "facebook": "https://www.facebook.com/piaslgu",
       "phone": null,
-      "photo":"pias.png"
+      "photo":"assets/barangay-council/pias.png"
     },
     {
       "slug": "poblacion",
@@ -866,7 +866,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61584120474621",
       "phone": null,
-      "photo":"poblacion.jpg"
+      "photo":"assets/barangay-council/poblacion.jpg"
     },
     {
       "slug": "primicias",
@@ -937,7 +937,7 @@
       ],
       "facebook": "https://www.facebook.com/profile/61552569993449",
       "phone": "09953375194",
-      "photo":"primicias.jpg"
+      "photo":"assets/barangay-council/primicias.jpg"
     },
     {
       "slug": "sta-maria",
@@ -1008,7 +1008,7 @@
       ],
       "facebook": "https://www.facebook.com/BrgyStaMaria.MP.SolidCommunity",
       "phone": "0756158597",
-      "photo":"stamaria.jpg"
+      "photo":"assets/barangay-council/stamaria.jpg"
     },
     {
       "slug": "torres",
@@ -1079,7 +1079,7 @@
       ],
       "facebook": "https://www.facebook.com/profile.php?id=61583040407980",
       "phone": "09851311622",
-      "photo":"torres.jpg"
+      "photo":"assets/barangay-council/torres.jpg"
     }
   ]
 }
