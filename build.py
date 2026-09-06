@@ -688,6 +688,7 @@ def validate_barangays(barangays: list[dict]) -> list[dict]:
             "officials": brgy.get("officials", []),
             "facebook": brgy.get("facebook", ""),
             "phone": brgy.get("phone", ""),
+            "photo": brgy.get("photo", ""),
         })
     return normalized
 
@@ -714,6 +715,7 @@ def generate_barangays() -> None:
         "officials": brgy.get("officials", []),
         "facebook": brgy.get("facebook", ""),
         "phone": brgy.get("phone", ""),
+        "photo": brgy.get("photo", ""),
     } for brgy in barangays]
 
     js_content = "// Auto-generated from barangays.json — do not edit manually\nvar BARANGAY_DATA = " + json.dumps(js_data, ensure_ascii=False, indent=2) + ";\n"

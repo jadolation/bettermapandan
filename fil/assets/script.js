@@ -307,6 +307,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // BARANGAY_DATA is loaded from assets/barangay-data.js (generated from barangays.json)
   var barangays = typeof BARANGAY_DATA !== "undefined" ? BARANGAY_DATA : [];
+    var isFil = window.location.pathname.indexOf("/fil/") !== -1;
+  var barangayAssetBase = (isFil ? "../" : "") + "assets/barangay-council/";
   var byName = {};
   barangays.forEach(function (b) { byName[b.name] = b; });
 
@@ -332,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
       thumbWrap.className = "barangay-card-photo-wrap";
       var thumb = document.createElement("img");
       thumb.className = "barangay-card-photo";
-      thumb.src = "assets/barangays/" + d.photo;
+      thumb.src = barangayAssetBase + d.photo;
       thumb.alt = name + " barangay";
       thumb.loading = "lazy";
       thumb.decoding = "async";
@@ -398,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modalPhotoWrap.className = "barangay-modal-photo-wrap";
       var modalPhoto = document.createElement("img");
       modalPhoto.className = "barangay-modal-photo";
-      modalPhoto.src = "assets/barangays/" + data.photo;
+      modalPhoto.src = barangayAssetBase + data.photo;
       modalPhoto.alt = name + " barangay";
       modalPhoto.loading = "lazy";
       modalPhoto.decoding = "async";
