@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="Income, expenditure, assets, budget trends, and infrastructure project breakdown for the Municipality of Mapandan, Pangasinan, plus compliance status and Commission on Audit reports." />
 <link rel="icon" href="./assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="./assets/android-chrome-192x192.svg" />
+<link rel="icon" type="image/png" sizes="192x192" href="./assets/android-chrome-192x192.png" />
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -683,62 +683,194 @@
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section" id="recent-projects">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Procurement Ledger</div>
       <h2>Recent capital projects & procurements</h2>
       <p>Notable infrastructure and equipment acquisitions from municipal procurement records. Figures are based on PhilGEPS postings and COA-reported disbursements.</p>
     </div>
-    <div class="table-wrap">
-      <table aria-label="Capital projects and procurements">
-        <thead>
-          <tr>
-            <th scope="col">Project</th>
-            <th scope="col">Mode</th>
-            <th scope="col">Status</th>
-            <th scope="col">Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>16 Rescue Vehicles (manual transmission)</td>
-            <td>Public Bidding</td>
-            <td><span class="pill pill-completed">Completed</span></td>
-            <td>Acquired for MDRRMO disaster response and patient transport</td>
-          </tr>
-          <tr>
-            <td>Crop Fertilizer Assistance</td>
-            <td>Direct Procurement</td>
-            <td><span class="pill pill-completed">Completed</span></td>
-            <td>Distribution of farm inputs to local farmers</td>
-          </tr>
-          <tr>
-            <td>Hybrid Yellow Corn Seeds</td>
-            <td>Direct Procurement</td>
-            <td><span class="pill pill-completed">Completed</span></td>
-            <td>Agricultural production support program</td>
-          </tr>
-          <tr>
-            <td>Outdoor LED Information Board</td>
-            <td>Public Bidding</td>
-            <td><span class="pill pill-ongoing">Ongoing</span></td>
-            <td>Digital LED board for community advisories at municipal complex</td>
-          </tr>
-          <tr>
-            <td>Town Plaza Illumination (Phase 2)</td>
-            <td>Public Bidding</td>
-            <td><span class="pill pill-ongoing">Ongoing</span></td>
-            <td>Floodlighting expansion across Mapandan Town Plaza</td>
-          </tr>
-          <tr>
-            <td>Municipal Hall Roof Maintenance</td>
-            <td>Contracting</td>
-            <td><span class="pill pill-ongoing">Ongoing</span></td>
-            <td>Structural repairs and roof repainting of main Municipal Hall</td>
-          </tr>
-        </tbody>
-      </table>
+   
+    <div class="procurement-ledger">
+      <!-- Project Card 1 -->
+      <article class="procurement-card">
+        <div class="procurement-card-image">
+          <img src="assets/projects/rescue-vehicles.jpg" alt="Emergency rescue vehicles lined up" loading="lazy">
+        </div>
+        <div class="procurement-card-content">
+          <div class="procurement-card-header">
+            <span class="procurement-type">Capital Project</span>
+            <h3>Procurement of Emergency Rescue Vehicles</h3>
+          </div>
+          <div class="procurement-meta">
+            <span class="procurement-mode">
+              <svg class="lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Negotiated Procurement – Small Value Procurement
+            </span>
+            <span class="status-badge status-completed">
+              <span class="status-dot"></span>
+              Completed
+            </span>
+          </div>
+          <p class="procurement-description">Supply and delivery of two (2) units of emergency rescue vehicles to strengthen disaster response and emergency medical services.</p>
+        </div>
+      </article>
+
+      <!-- Project Card 2 -->
+      <article class="procurement-card">
+        <div class="procurement-card-image">
+          <img src="assets/projects/fertilizer-distribution.jpg" alt="Distribution of organic fertilizer to farmers" loading="lazy">
+        </div>
+        <div class="procurement-card-content">
+          <div class="procurement-card-header">
+            <span class="procurement-type">Goods Procurement</span>
+            <h3>Procurement of Organic Fertilizer for Farmers</h3>
+          </div>
+          <div class="procurement-meta">
+            <span class="procurement-mode">
+              <svg class="lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Public Bidding
+            </span>
+            <span class="status-badge status-completed">
+              <span class="status-dot"></span>
+              Completed
+            </span>
+          </div>
+          <p class="procurement-description">Distribution of organic fertilizer to support local farmers and promote sustainable agriculture productivity.</p>
+        </div>
+      </article>
+
+      <!-- Project Card 3 -->
+      <article class="procurement-card">
+        <div class="procurement-card-image">
+          <img src="assets/projects/corn.jpg" alt="Hybrid corn seeds in sacks" loading="lazy">
+        </div>
+        <div class="procurement-card-content">
+          <div class="procurement-card-header">
+            <span class="procurement-type">Goods Procurement</span>
+            <h3>Procurement of Hybrid Corn Seeds</h3>
+          </div>
+          <div class="procurement-meta">
+            <span class="procurement-mode">
+              <svg class="lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Public Bidding
+            </span>
+            <span class="status-badge status-completed">
+              <span class="status-dot"></span>
+              Completed
+            </span>
+          </div>
+          <p class="procurement-description">Supply of high-yield hybrid yellow corn seeds for the municipality's agricultural enhancement program.</p>
+        </div>
+      </article>
+
+      <!-- Project Card 4 -->
+      <article class="procurement-card">
+        <div class="procurement-card-image">
+          <img src="assets/projects/led.jpg" alt="LED community advisory board display" loading="lazy">
+        </div>
+        <div class="procurement-card-content">
+          <div class="procurement-card-header">
+            <span class="procurement-type">Capital Project</span>
+            <h3>Installation of LED Community Advisory Board</h3>
+          </div>
+          <div class="procurement-meta">
+            <span class="procurement-mode">
+              <svg class="lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Negotiated Procurement – Small Value Procurement
+            </span>
+            <span class="status-badge status-ongoing">
+              <span class="status-dot"></span>
+              Ongoing
+            </span>
+          </div>
+          <p class="procurement-description">Installation of a digital LED board at the municipal complex to provide timely public information and advisories.</p>
+        </div>
+      </article>
+
+      <!-- Project Card 5 -->
+      <article class="procurement-card">
+        <div class="procurement-card-image">
+          <img src="assets/plaza.svg" alt="Mapandan Town Plaza at dusk" loading="lazy">
+        </div>
+        <div class="procurement-card-content">
+          <div class="procurement-card-header">
+            <span class="procurement-type">Capital Project</span>
+            <h3>Improvement of Town Plaza</h3>
+          </div>
+          <div class="procurement-meta">
+            <span class="procurement-mode">
+              <svg class="lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Public Bidding
+            </span>
+            <span class="status-badge status-ongoing">
+              <span class="status-dot"></span>
+              Ongoing
+            </span>
+          </div>
+          <p class="procurement-description">Rehabilitation and beautification of the town plaza for community recreation, culture, and tourism.</p>
+        </div>
+      </article>
+
+      <!-- Project Card 6 -->
+      <article class="procurement-card">
+        <div class="procurement-card-image">
+          <img src="assets/projects/municipal-hall.jpg" alt="Roof repair work on Municipal Hall" loading="lazy">
+        </div>
+        <div class="procurement-card-content">
+          <div class="procurement-card-header">
+            <span class="procurement-type">Infrastructure Project</span>
+            <h3>Roof Repair and Restoration of Municipal Hall</h3>
+          </div>
+          <div class="procurement-meta">
+            <span class="procurement-mode">
+              <svg class="lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Public Bidding
+            </span>
+            <span class="status-badge status-ongoing">
+              <span class="status-dot"></span>
+              Ongoing
+            </span>
+            </div>
+          <p class="procurement-description">Repair and restoration of the roof of the historic municipal hall to preserve structural integrity and heritage value.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
