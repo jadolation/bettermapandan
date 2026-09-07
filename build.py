@@ -904,11 +904,14 @@ def minify_assets() -> None:
 
 
 def compress_images() -> None:
-    """Compress citizen's charter JPGs and history PNGs using sharp (Node.js).
-    
-    Applies aggressive compression:
-    - JPGs: quality 70 (from 82) with mozjpeg, max-width 1200px (from original)
-    - PNGs: quality 60 (from 80) with compressionLevel 9
+    """Compress images and convert to WebP using sharp (Node.js).
+
+    Operations:
+    - JPGs in citizens-charter: compress with mozjpeg, quality 70, max-width 1200
+    - PNGs in history/: compress with png compression, quality 60, max-width 1200
+    - Hero images: convert to WebP (luyan.png, Pandan.jpg, plaza.jpg)
+    - History PNGs: convert to WebP
+    - SVG seal: extract embedded PNG and convert to WebP
     """
     compress_script = ROOT / "compress.mjs"
     script_content = r"""import sharp from "sharp";
@@ -916,6 +919,8 @@ import fs from "fs";
 import path from "path";
 
 const MAX_WIDTH = 1200;
+const MAX_WIDTH_LOGO = 400;
+const WEBP_QUALITY = 80;
 
 async function compressJpg(dir) {
   const files = fs.readdirSync(dir).filter(f => f.endsWith(".jpg"));
@@ -967,19 +972,107 @@ async function compressPng(dir) {
   return { count, totalBefore, totalAfter };
 }
 
+async function convertToWebP(inputPath, outputPath, maxWidth) {
+  try {
+    const before = fs.statSync(inputPath).size;
+    const img = sharp(inputPath);
+    const meta = await img.metadata();
+    let pipeline = img.webp({ quality: WEBP_QUALITY });
+    if (meta.width && meta.width > maxWidth) {
+      pipeline = pipeline.resize(maxWidth, null, { withoutEnlargement: true });
+    }
+    const buf = await pipeline.toBuffer();
+    fs.writeFileSync(outputPath, buf);
+    const after = buf.length;
+    const savings = ((1 - after / before) * 100).toFixed(1);
+    console.log(`  ${path.basename(inputPath)}: ${(before / 1024).toFixed(1)} KB -> ${(after / 1024).toFixed(1)} KB (${savings}% reduction)`);
+    return { before, after, count: 1 };
+  } catch (err) {
+    console.error(`  ERROR converting ${inputPath}: ${err.message}`);
+    return { before: 0, after: 0, count: 0 };
+  }
+}
+
+async function extractPngFromSvg(svgPath, outputPath) {
+  try {
+    const svgContent = fs.readFileSync(svgPath, 'utf8');
+    const base64Match = svgContent.match(/xlink:href="data:image\/png;base64,([^"]+)"/);
+    if (!base64Match) {
+      console.error(`  Could not find embedded PNG in ${svgPath}`);
+      return { before: 0, after: 0, count: 0 };
+    }
+    const base64Data = base64Match[1];
+    const pngBuffer = Buffer.from(base64Data, 'base64');
+    fs.writeFileSync(outputPath, pngBuffer);
+    console.log(`  Extracted PNG from SVG: ${path.basename(outputPath)} (${(pngBuffer.length / 1024).toFixed(1)} KB)`);
+    return { before: pngBuffer.length, after: pngBuffer.length, count: 1 };
+  } catch (err) {
+    console.error(`  ERROR extracting from SVG ${svgPath}: ${err.message}`);
+    return { before: 0, after: 0, count: 0 };
+  }
+}
+
 async function main() {
-  console.log("=== Compressing images (aggressive) ===\n");
+  console.log("=== Optimizing images for performance ===\n");
+
+  console.log("1. Citizen's Charter JPGs (compression)...");
   const jpg = await compressJpg("assets/citizens-charter");
   const jpgPct = ((1 - jpg.totalAfter / jpg.totalBefore) * 100).toFixed(1);
-  console.log(`  JPGs: ${jpg.count} files, ${(jpg.totalBefore/1e6).toFixed(1)}MB → ${(jpg.totalAfter/1e6).toFixed(1)}MB (${jpgPct}%)`);
+  console.log(`  JPGs: ${jpg.count} files, ${(jpg.totalBefore/1e6).toFixed(2)}MB -> ${(jpg.totalAfter/1e6).toFixed(2)}MB (${jpgPct}%)`);
 
+  console.log("\n2. History PNGs (compression)...");
   const png = await compressPng("assets/history");
   const pngPct = ((1 - png.totalAfter / png.totalBefore) * 100).toFixed(1);
-  console.log(`  PNGs: ${png.count} files, ${(png.totalBefore/1e6).toFixed(1)}MB → ${(png.totalAfter/1e6).toFixed(1)}MB (${pngPct}%)`);
+  console.log(`  PNGs: ${png.count} files, ${(png.totalBefore/1e6).toFixed(2)}MB -> ${(png.totalAfter/1e6).toFixed(2)}MB (${pngPct}%)`);
 
-  const totalBefore = jpg.totalBefore + png.totalBefore;
-  const totalAfter = jpg.totalAfter + png.totalAfter;
-  console.log(`\n  Total: ${(totalBefore/1e6).toFixed(1)}MB → ${(totalAfter/1e6).toFixed(1)}MB (${((1-totalAfter/totalBefore)*100).toFixed(1)}% reduction)`);
+  console.log("\n3. Converting hero images to WebP...");
+  const heroImages = [
+    ["assets/luyan.png", "assets/luyan.webp", MAX_WIDTH],
+    ["assets/Pandan.jpg", "assets/Pandan.webp", MAX_WIDTH],
+    ["assets/plaza.jpg", "assets/plaza.webp", MAX_WIDTH],
+  ];
+  let heroTotalBefore = 0, heroTotalAfter = 0, heroCount = 0;
+  for (const [input, output, maxW] of heroImages) {
+    if (fs.existsSync(input)) {
+      const result = await convertToWebP(input, output, maxW);
+      heroTotalBefore += result.before;
+      heroTotalAfter += result.after;
+      heroCount += result.count;
+    }
+  }
+  console.log(`  Hero images: ${heroCount} files, ${(heroTotalBefore/1e6).toFixed(2)}MB -> ${(heroTotalAfter/1e6).toFixed(2)}MB`);
+
+  console.log("\n4. Extracting and converting municipal seal to WebP...");
+  const tempPng = "assets/municipal-seal-temp.png";
+  const svgResult = await extractPngFromSvg("assets/logo-no-white.svg", tempPng);
+  let sealBefore = 0, sealAfter = 0;
+  if (fs.existsSync(tempPng)) {
+    const webpResult = await convertToWebP(tempPng, "assets/municipal-seal.webp", MAX_WIDTH_LOGO);
+    sealBefore = webpResult.before;
+    sealAfter = webpResult.after;
+    fs.unlinkSync(tempPng);
+  }
+  console.log(`  Seal: ${(sealBefore/1e3).toFixed(1)} KB -> ${(sealAfter/1e3).toFixed(1)} KB`);
+
+  console.log("\n5. Converting history images to WebP...");
+  const historyDir = "assets/history";
+  if (fs.existsSync(historyDir)) {
+    const histFiles = fs.readdirSync(historyDir).filter(f => f.endsWith(".png"));
+    let histWebpBefore = 0, histWebpAfter = 0, histCount = 0;
+    for (const file of histFiles) {
+      const inputPath = path.join(historyDir, file);
+      const outputPath = path.join(historyDir, file.replace('.png', '.webp'));
+      const result = await convertToWebP(inputPath, outputPath, MAX_WIDTH);
+      histWebpBefore += result.before;
+      histWebpAfter += result.after;
+      histCount += result.count;
+    }
+    console.log(`  History WebP: ${histCount} files, ${(histWebpBefore/1e6).toFixed(2)}MB -> ${(histWebpAfter/1e6).toFixed(2)}MB`);
+  }
+
+  const totalBefore = jpg.totalBefore + png.totalBefore + heroTotalBefore + sealBefore + histWebpBefore;
+  const totalAfter = jpg.totalAfter + png.totalAfter + heroTotalAfter + sealAfter + histWebpAfter;
+  console.log(`\n=== Total: ${(totalBefore/1e6).toFixed(2)}MB -> ${(totalAfter/1e6).toFixed(2)}MB (${((1-totalAfter/totalBefore)*100).toFixed(1)}% reduction) ===`);
 }
 
 main().catch(console.error);
