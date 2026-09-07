@@ -1058,7 +1058,7 @@ async function main() {
   const svgResult = await extractPngFromSvg("assets/logo-no-white.svg", tempPng);
   let sealBefore = 0, sealAfter = 0;
   if (fs.existsSync(tempPng)) {
-    const webpResult = await convertToWebP(tempPng, "assets/municipal-seal.svg", MAX_WIDTH_LOGO);
+    const webpResult = await convertToWebP(tempPng, "assets/municipal-seal.webp", MAX_WIDTH_LOGO);
     sealBefore = webpResult.before;
     sealAfter = webpResult.after;
     fs.unlinkSync(tempPng);
