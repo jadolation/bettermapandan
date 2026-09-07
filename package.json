@@ -1,0 +1,23 @@
+{
+  "name": "bettermapandan",
+  "version": "1.0.0",
+  "description": "An independent transparency portal for the Municipality of Mapandan, Pangasinan,\r built under the [BetterGov.ph](https://bettergov.ph/) BetterLGU initiative.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadolation/bettermapandan.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jadolation/bettermapandan/issues"
+  },
+  "homepage": "https://github.com/jadolation/bettermapandan#readme",
+  "dependencies": {
+    "chrome-launcher": "^1.2.1",
+    "lighthouse": "^13.4.1"
+  }
+}
