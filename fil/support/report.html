@@ -101,7 +101,7 @@
 <main id="content">
 <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Tahanan</a> &rsaquo; <a href="../support.html">Support</a> &rsaquo; <span aria-current="page">Civic Contribution Hub</span></nav>
 <section class="page-hero">
-  <img class="hero-rays" src="..../assets/logo-no-white.svg" alt="" aria-hidden="true" />
+  <img class="hero-rays" src="..../assets/municipal-seal.webp" alt="" aria-hidden="true" fetchpriority="high" />
   <div class="wrap">
     <span class="eyebrow">Community</span>
     <h1>Civic Contribution Hub</h1>
@@ -134,20 +134,20 @@
         <div class="civic-form-panel active" id="panel-report" role="tabpanel">
           <div class="civic-form-field">
             <label for="field-report-page">Page / Item</label>
-            <input type="text" id="field-report-page" placeholder="e.g. Birth Certificate, Barangay Luyan, Statistics page...">
+            <input type="text" id="field-report-page" data-webmcp-tool="report-error" data-webmcp-field="page" placeholder="e.g. Birth Certificate, Barangay Luyan, Statistics page...">
             <div class="field-hint">Pre-filled if you clicked "Report issue" from a specific page.</div>
           </div>
           <div class="civic-form-field">
             <label for="field-report-error">What is incorrect? *</label>
-            <textarea id="field-report-error" required placeholder="Describe the error you found..."></textarea>
+            <textarea id="field-report-error" data-webmcp-tool="report-error" data-webmcp-field="error" required placeholder="Describe the error you found..."></textarea>
           </div>
           <div class="civic-form-field">
             <label for="field-report-correction">Correct information</label>
-            <textarea id="field-report-correction" placeholder="If you know the correct data, provide it here..."></textarea>
+            <textarea id="field-report-correction" data-webmcp-tool="report-error" data-webmcp-field="correction" placeholder="If you know the correct data, provide it here..."></textarea>
           </div>
           <div class="civic-form-field">
             <label for="field-report-source">Source / Proof Link</label>
-            <input type="url" id="field-report-source" placeholder="https://...">
+            <input type="url" id="field-report-source" data-webmcp-tool="report-error" data-webmcp-field="source" placeholder="https://...">
             <div class="field-hint">Link to an official document, announcement, or photo that supports your correction.</div>
           </div>
           <input type="text" name="website_hp" class="honeypot" tabindex="-1" aria-hidden="true" autocomplete="off">
@@ -161,7 +161,7 @@
         <div class="civic-form-panel" id="panel-contribute" role="tabpanel">
           <div class="civic-form-field">
             <label for="field-contribute-category">Category *</label>
-            <select id="field-contribute-category" required>
+            <select id="field-contribute-category" data-webmcp-tool="submit-information" data-webmcp-field="category" required>
               <option value="">Select a category...</option>
               <option value="Official">Official (officials, offices, contacts)</option>
               <option value="Service">Service (government services, fees, requirements)</option>
@@ -172,15 +172,15 @@
           </div>
           <div class="civic-form-field">
             <label for="field-contribute-title">Information Title / Name *</label>
-            <input type="text" id="field-contribute-title" required placeholder="e.g. Barangay Clearance, New Hotline Number...">
+            <input type="text" id="field-contribute-title" data-webmcp-tool="submit-information" data-webmcp-field="title" required placeholder="e.g. Barangay Clearance, New Hotline Number...">
           </div>
           <div class="civic-form-field">
             <label for="field-contribute-desc">Description &amp; Details *</label>
-            <textarea id="field-contribute-desc" required placeholder="Describe the information you want to add..."></textarea>
+            <textarea id="field-contribute-desc" data-webmcp-tool="submit-information" data-webmcp-field="description" required placeholder="Describe the information you want to add..."></textarea>
           </div>
           <div class="civic-form-field">
             <label for="field-contribute-source">Verification Source / Proof Link</label>
-            <input type="url" id="field-contribute-source" placeholder="https://...">
+            <input type="url" id="field-contribute-source" data-webmcp-tool="submit-information" data-webmcp-field="source" placeholder="https://...">
             <div class="field-hint">Link to an official LGU announcement, COA document, or other verifiable source.</div>
           </div>
           <input type="text" name="website_hp" class="honeypot" tabindex="-1" aria-hidden="true" autocomplete="off">
@@ -194,15 +194,15 @@
         <div class="civic-form-panel" id="panel-suggest" role="tabpanel">
           <div class="civic-form-field">
             <label for="field-suggest-name">Feature Name *</label>
-            <input type="text" id="field-suggest-name" required placeholder="e.g. Barangay Budget Tracker, Flood Map...">
+            <input type="text" id="field-suggest-name" data-webmcp-tool="suggest-feature" data-webmcp-field="name" required placeholder="e.g. Barangay Budget Tracker, Flood Map...">
           </div>
           <div class="civic-form-field">
             <label for="field-suggest-desc">Description *</label>
-            <textarea id="field-suggest-desc" required placeholder="Describe the feature you'd like to see..."></textarea>
+            <textarea id="field-suggest-desc" data-webmcp-tool="suggest-feature" data-webmcp-field="description" required placeholder="Describe the feature you'd like to see..."></textarea>
           </div>
           <div class="civic-form-field">
             <label for="field-suggest-usecase">Use Case / Why it matters</label>
-            <textarea id="field-suggest-usecase" placeholder="How would this help Mapandan residents?"></textarea>
+            <textarea id="field-suggest-usecase" data-webmcp-tool="suggest-feature" data-webmcp-field="usecase" placeholder="How would this help Mapandan residents?"></textarea>
           </div>
           <input type="text" name="website_hp" class="honeypot" tabindex="-1" aria-hidden="true" autocomplete="off">
           <div class="civic-submit-row">
@@ -518,6 +518,53 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+  // --- WebMCP Tool Registration ---
+  if (window.WebMCP && typeof WebMCP.registerTool === 'function') {
+    WebMCP.registerTool({
+      name: 'report-error',
+      label: 'Report Error',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          page: { type: 'string', label: 'Page / Item', description: 'The page or item where the error was found' },
+          error: { type: 'string', label: 'What is incorrect?', description: 'Description of the error' },
+          correction: { type: 'string', label: 'Correct information', description: 'The correct data if known' },
+          source: { type: 'string', label: 'Source / Proof Link', description: 'Link to supporting document' }
+        },
+        required: ['error']
+      }
+    });
+
+    WebMCP.registerTool({
+      name: 'submit-information',
+      label: 'Submit Missing Information',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          category: { type: 'string', label: 'Category', description: 'Type of information being submitted', enum: ['Official', 'Service', 'Hotline', 'Ordinance', 'Historical Detail'] },
+          title: { type: 'string', label: 'Information Title / Name', description: 'Title of the information' },
+          description: { type: 'string', label: 'Description & Details', description: 'Detailed description' },
+          source: { type: 'string', label: 'Verification Source / Proof Link', description: 'Link to verifiable source' }
+        },
+        required: ['category', 'title', 'description']
+      }
+    });
+
+    WebMCP.registerTool({
+      name: 'suggest-feature',
+      label: 'Suggest New Feature',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          name: { type: 'string', label: 'Feature Name', description: 'Name of the proposed feature' },
+          description: { type: 'string', label: 'Description', description: 'Detailed description of the feature' },
+          usecase: { type: 'string', label: 'Use Case / Why it matters', description: 'How this would help Mapandan residents' }
+        },
+        required: ['name', 'description']
+      }
+    });
+  }
 </script>
 </main>
 

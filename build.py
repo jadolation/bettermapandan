@@ -873,6 +873,17 @@ def generate_sitemap() -> None:
     print(f"  sitemap.xml: {len(all_paths)} URLs")
 
 
+def generate_llms_txt() -> None:
+    """Copy llms.txt to output root for AI agent discovery."""
+    llms_src = ROOT / "llms.txt"
+    if llms_src.exists():
+        llms_content = llms_src.read_text(encoding="utf-8")
+        (ROOT / "llms.txt").write_text(llms_content, encoding="utf-8")
+        print(f"  llms.txt: copied")
+    else:
+        print(f"  llms.txt: not found, skipping")
+
+
 CSS_COMMENT_RE = re.compile(r"/\*[^*]*\*+(?:[^/*][^*]*\*+)*/")
 CSS_WHITESPACE_RE = re.compile(r"\s+")
 CSS_BRACE_RE = re.compile(r"\s*([{}:;,])\s*")
@@ -1573,6 +1584,7 @@ def build() -> None:
         print("\n  Copied assets to fil/assets/")
 
     generate_sitemap()
+    generate_llms_txt()
     print(f"\nDone. {count * 2} page(s) written ({count} EN + {count} FIL)")
 
 

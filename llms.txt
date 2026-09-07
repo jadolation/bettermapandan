@@ -1,0 +1,30 @@
+# Better Mapandan
+
+> An independent, citizen-maintained civic transparency portal for the Municipality of Mapandan, Pangasinan, Philippines. Providing open access to government services, officials, ordinances, budgets, and community information.
+
+## Services
+- [Services Directory](https://bettermapandan.org/services.html): Browse all 70+ municipal services with requirements, procedures, fees, and office contacts.
+- [Business Permits](https://bettermapandan.org/services/business-permit.html): New and renewal business permitting.
+- [Civil Registry](https://bettermapandan.org/services/birth-certificate.html): Birth, marriage, death certificates and corrections.
+- [Health Services](https://bettermapandan.org/services/health-consultation.html): Consultations, permits, and public health programs.
+- [Social Welfare](https://bettermapandan.org/services/senior-pwd-id.html): Senior Citizen, PWD, and solo parent IDs.
+
+## Government
+- [Government Officials](https://bettermapandan.org/government.html): Mayor, Vice Mayor, Sanggunian members, and department contacts.
+- [Barangays](https://bettermapandan.org/government.html#barangays): All 15 barangays with officials, population, and history.
+- [Emergency Hotlines](https://bettermapandan.org/government.html#emergency): MDRRMO, BFP, PNP contact numbers.
+
+## Transparency
+- [Legislative](https://bettermapandan.org/legislative.html): Municipal ordinances, resolutions, and executive issuances.
+- [Transparency](https://bettermapandan.org/transparency.html): Budget reports, COA audits, and procurement data.
+- [Statistics](https://bettermapandan.org/statistics.html): Population, demographics, and development indicators.
+
+## Support
+- [Accessibility](https://bettermapandan.org/support/accessibility.html): Accessibility features and assistive technology support.
+- [FAQ](https://bettermapandan.org/support/faq.html): Frequently asked questions about using the portal.
+- [Report Errors](https://bettermapandan.org/support/report.html): Report incorrect information or suggest updates.
+- [Privacy Policy](https://bettermapandan.org/support/privacy.html): Data privacy and terms of use.
+
+## About
+- [About Better Mapandan](https://bettermapandan.org/about.html): Project mission, history of Mapandan, and civic tech initiative.
+- [Contact](https://bettermapandan.org/government.html): Municipal contacts and department directories.
