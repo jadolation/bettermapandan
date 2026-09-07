@@ -20,7 +20,16 @@
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+(function(){
+  var fontLink = document.createElement('link');
+  fontLink.rel = 'stylesheet';
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap';
+  fontLink.media = 'print';
+  fontLink.onload = function(){ this.media = 'all'; };
+  document.head.appendChild(fontLink);
+})();
+</script>
 <link rel="stylesheet" href="../assets/style.min.css" />
 <script type="application/ld+json">
 {
@@ -252,23 +261,23 @@
         <div class="history-carousel" role="region" aria-label="Historical photos of Mapandan">
           <div class="carousel-track">
             <div class="carousel-slide active">
-              <img src="../assets/history/old-plaza.webp" alt="Old Mapandan Town Plaza" loading="lazy" decoding="async" />
+              <img src="./assets/history/old-plaza.webp" alt="Old Mapandan Town Plaza" loading="lazy" decoding="async" />
               <div class="carousel-caption"></div>
             </div>
             <div class="carousel-slide">
-              <img src="../assets/history/old-market.webp" alt="Old Mapandan Public Market" loading="lazy" decoding="async" />
+              <img src="./assets/history/old-market.webp" alt="Old Mapandan Public Market" loading="lazy" decoding="async" />
               <div class="carousel-caption"></div>
             </div>
             <div class="carousel-slide">
-              <img src="../assets/history/old-officials.webp" alt="Early Mapandan Municipal Officials" loading="lazy" decoding="async" />
+              <img src="./assets/history/old-officials.webp" alt="Early Mapandan Municipal Officials" loading="lazy" decoding="async" />
               <div class="carousel-caption"></div>
             </div>
             <div class="carousel-slide">
-              <img src="../assets/history/old-school.webp" alt="Old Mapandan School Building" loading="lazy" decoding="async" />
+              <img src="./assets/history/old-school.webp" alt="Old Mapandan School Building" loading="lazy" decoding="async" />
               <div class="carousel-caption"></div>
             </div>
             <div class="carousel-slide">
-              <img src="../assets/history/old-bridge.webp" alt="Old Mapandan Bridge" loading="lazy" decoding="async" />
+              <img src="./assets/history/old-bridge.webp" alt="Old Mapandan Bridge" loading="lazy" decoding="async" />
               <div class="carousel-caption"></div>
             </div>
           </div>
@@ -455,7 +464,14 @@
 </footer>
 
 
-<script defer src="../assets/chart.umd.min.js"></script>
+<script>
+if (document.querySelector('canvas')) {
+  var sc = document.createElement('script');
+  sc.src = '../assets/chart.umd.min.js';
+  sc.defer = true;
+  document.head.appendChild(sc);
+}
+</script>
 <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
 <script src="../assets/barangay-data.js"></script>
 <script src="../assets/script.js"></script>
