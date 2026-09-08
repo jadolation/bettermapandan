@@ -221,7 +221,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
     dir_filled, dir_hero_meta = _generate_services_directory(
-        data, by_category, dir_template, svc_labels, is_fil
+        data, by_category, dir_template, svc_labels, is_fil, asset_base="."
     )
     pages["services.html"] = dir_filled
     meta["services.html"] = {
@@ -323,14 +323,14 @@ def _build_photo_html(svc: dict, is_fil: bool) -> str:
             <figure class="service-photo-container">
                 <img class="service-photo" src="{img_prefix}{photo_ref}" alt="Citizens Charter for {service_name}"
                     loading="lazy"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='none';">
+                    data-fallback="hide">
                 <figcaption class="service-photo-caption">
                     Citizens Charter document: {html.escape(photo_filename)}
                 </figcaption>
             </figure>'''
 
 
-def _generate_services_directory(data: dict, by_category: dict, template: str, labels: dict, is_fil: bool):
+def _generate_services_directory(data: dict, by_category: dict, template: str, labels: dict, is_fil: bool, asset_base: str = "."):
     category_cards = []
     for cat in data.get("categories", []):
         cat_services = by_category.get(cat.get("slug", ""), [])
@@ -352,6 +352,7 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
         category_cards.append(card)
 
     dir_filled = fill(template, {
+        "ASSET_BASE": asset_base,
         "CATEGORY_CARDS": "\n".join(category_cards),
         "SVC_TITLE": t(labels, "services_dir.title", "Services"),
         "SVC_EYEBROW": t(labels, "services_dir.eyebrow", "Citizen's Charter"),
@@ -879,9 +880,9 @@ def generate_llms_txt() -> None:
     if llms_src.exists():
         llms_content = llms_src.read_text(encoding="utf-8")
         (ROOT / "llms.txt").write_text(llms_content, encoding="utf-8")
-        print(f"  llms.txt: copied")
+        print("  llms.txt: copied")
     else:
-        print(f"  llms.txt: not found, skipping")
+        print("  llms.txt: not found, skipping")
 
 
 CSS_COMMENT_RE = re.compile(r"/\*[^*]*\*+(?:[^/*][^*]*\*+)*/")

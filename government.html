@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com;" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self';" />
 <title>Government Directory — BetterMapandan.org</title>
 <meta name="description" content="Executive and legislative officials, department heads, and the full contact directory for the Municipality of Mapandan, Pangasinan." />
 <link rel="canonical" href="https://bettermapandan.org/government.html" />
@@ -20,16 +20,8 @@
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<script>
-(function(){
-  var fontLink = document.createElement('link');
-  fontLink.rel = 'stylesheet';
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap';
-  fontLink.media = 'print';
-  fontLink.onload = function(){ this.media = 'all'; };
-  document.head.appendChild(fontLink);
-})();
-</script>
+<script>window.__CONFIG__ = { assetBase: '.' };</script>
+<script defer src="./assets/font-loader.js"></script>
 <link rel="stylesheet" href="./assets/style.min.css" />
 <script type="application/ld+json">
 {
@@ -867,14 +859,7 @@
 </footer>
 
 
-<script>
-if (document.querySelector('canvas')) {
-  var sc = document.createElement('script');
-  sc.src = './assets/chart.umd.min.js';
-  sc.defer = true;
-  document.head.appendChild(sc);
-}
-</script>
+<script defer src="./assets/chart-loader.js"></script>
 <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
 <script src="./assets/barangay-data.js"></script>
 <script src="./assets/script.js"></script>
