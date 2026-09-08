@@ -85,15 +85,15 @@ The SVG files contain embedded base64 PNG data (~1.3MB each). This is wasteful b
      .resize(400, 400, { fit: 'contain' }) // No need for 1254px
      .webp({ quality: 85 })
      .toBuffer();
-   fs.writeFileSync("assets/municipal-seal.webp", sealPng);
+   fs.writeFileSync("assets/municipal-seal.svg", sealPng);
    ```
 
 3. **Update hero references to use WebP**
-   - Change `logo-no-white.svg` to `municipal-seal.webp` in page-hero.html and pages
+   - Change `logo-no-white.svg` to `municipal-seal.svg` in page-hero.html and pages
    - Use proper `img` tag with alt text
 
 ### Validation
-- File size of `municipal-seal.webp` should be < 50KB
+- File size of `municipal-seal.svg` should be < 50KB
 - Hero section displays correctly
 - No broken images
 
@@ -178,7 +178,7 @@ The SVG files contain embedded base64 PNG data (~1.3MB each). This is wasteful b
 | Performance Score | 65 | ≥90 | ~92 |
 
 ### Estimated Savings
-- `logo-no-white.svg` (973KB) → `municipal-seal.webp` (~30KB): **-943KB**
+- `logo-no-white.svg` (973KB) → `municipal-seal.svg` (~30KB): **-943KB**
 - `luyan.png` (1,768KB) → `luyan.webp` (~180KB): **-1,588KB**
 - Total: **~2.5MB reduction**
 
