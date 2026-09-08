@@ -327,7 +327,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #ffd44f;
   margin-bottom: 14px;
 }
 
@@ -445,7 +445,7 @@ p {
 
 .hero-search-popular {
   font-size: 13px;
-  color: #a9c1a3;
+  color: #c7dccf;
   font-weight: 500;
 }
 
@@ -485,12 +485,12 @@ p {
 
 .btn-primary {
   background: var(--gold);
-  color: var(--green-deep);
+  color: var(--ink);
 }
 
 .btn-primary:hover {
   background: #f4bd3a;
-  color: var(--green-deep);
+  color: var(--ink);
 }
 
 .btn-ghost {
@@ -720,7 +720,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--green-bright);
+  color: var(--ink);
   margin-bottom: 8px;
 }
 
