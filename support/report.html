@@ -118,13 +118,13 @@
     </div>
 
     <div class="segmented-control" role="tablist" aria-label="Contribution type">
-      <button class="active" role="tab" aria-selected="true" data-mode="report" data-short="Report">
+      <button class="active" role="tab" aria-selected="true" data-mode="report" data-short="Report" aria-label="Report Error">
         <i data-lucide="flag"></i> <span class="label-text">Report Error</span>
       </button>
-      <button role="tab" aria-selected="false" data-mode="contribute" data-short="Add Info">
+      <button role="tab" aria-selected="false" data-mode="contribute" data-short="Add Info" aria-label="Submit Missing Info">
         <i data-lucide="circle-plus"></i> <span class="label-text">Submit Missing Info</span>
       </button>
-      <button role="tab" aria-selected="false" data-mode="suggest" data-short="Suggest">
+      <button role="tab" aria-selected="false" data-mode="suggest" data-short="Suggest" aria-label="Suggest Feature">
         <i data-lucide="lightbulb"></i> <span class="label-text">Suggest Feature</span>
       </button>
     </div>
@@ -217,7 +217,7 @@
       <div>
         <div class="civic-preview" id="civic-preview">
           <span class="civic-preview-mode mode-report" id="preview-mode">Report Error</span>
-          <h4 id="preview-title">Enter a title above...</h4>
+          <h3 id="preview-title">Enter a title above...</h3>
           <p id="preview-desc">Your submission preview will appear here as you type.</p>
           <div class="preview-footer">
             Submitted by a Mapandan resident &middot; Reviewed by volunteer team
@@ -294,7 +294,7 @@
         </div>
       </div>
       <div>
-        <h5>Quick Links</h5>
+        <p class="footer-heading">Quick Links</p>
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="../services.html">Services</a></li>
@@ -308,7 +308,7 @@
         </ul>
       </div>
       <div>
-        <h5>Resources</h5>
+        <p class="footer-heading">Resources</p>
         <ul>
           <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
           <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
@@ -321,7 +321,7 @@
         </ul>
       </div>
       <div>
-        <h5>Project</h5>
+        <p class="footer-heading">Project</p>
         <ul>
           <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
           <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>

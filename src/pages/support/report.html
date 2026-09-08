@@ -14,13 +14,13 @@ hero_lede: Help us keep Mapandan's data accurate and complete. Report errors, su
     </div>
 
     <div class="segmented-control" role="tablist" aria-label="Contribution type">
-      <button class="active" role="tab" aria-selected="true" data-mode="report" data-short="Report">
+      <button class="active" role="tab" aria-selected="true" data-mode="report" data-short="Report" aria-label="{{REPORT_ERROR}}">
         <i data-lucide="flag"></i> <span class="label-text">{{REPORT_ERROR}}</span>
       </button>
-      <button role="tab" aria-selected="false" data-mode="contribute" data-short="Add Info">
+      <button role="tab" aria-selected="false" data-mode="contribute" data-short="Add Info" aria-label="{{REPORT_SUBMIT_INFO}}">
         <i data-lucide="circle-plus"></i> <span class="label-text">{{REPORT_SUBMIT_INFO}}</span>
       </button>
-      <button role="tab" aria-selected="false" data-mode="suggest" data-short="Suggest">
+      <button role="tab" aria-selected="false" data-mode="suggest" data-short="Suggest" aria-label="{{REPORT_SUGGEST_FEATURE}}">
         <i data-lucide="lightbulb"></i> <span class="label-text">{{REPORT_SUGGEST_FEATURE}}</span>
       </button>
     </div>
@@ -113,7 +113,7 @@ hero_lede: Help us keep Mapandan's data accurate and complete. Report errors, su
       <div>
         <div class="civic-preview" id="civic-preview">
           <span class="civic-preview-mode mode-report" id="preview-mode">Report Error</span>
-          <h4 id="preview-title">Enter a title above...</h4>
+          <h3 id="preview-title">Enter a title above...</h3>
           <p id="preview-desc">Your submission preview will appear here as you type.</p>
           <div class="preview-footer">
             Submitted by a Mapandan resident &middot; Reviewed by volunteer team
