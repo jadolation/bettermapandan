@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'strict-dynamic' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; frame-ancestors 'none'; require-trusted-types-for 'script';" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self';" />
 <title>{{TITLE}}</title>
 <meta name="description" content="{{DESCRIPTION}}" />
 <link rel="canonical" href="{{CANONICAL_URL}}" />
@@ -20,8 +20,8 @@
 <link rel="apple-touch-icon" href="{{ASSET_BASE}}/assets/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap"></noscript>
+<script>window.__CONFIG__ = { assetBase: '{{ASSET_BASE}}' };</script>
+<script defer src="{{ASSET_BASE}}/assets/font-loader.js"></script>
 <link rel="stylesheet" href="{{ASSET_BASE}}/assets/style.min.css" />
 <script type="application/ld+json">
 {
@@ -60,24 +60,10 @@
 
 {{FOOTER}}
 
-<script>
-if (document.querySelector('canvas')) {
-  var sc = document.createElement('script');
-  sc.src = '{{ASSET_BASE}}/assets/chart.umd.min.js';
-  sc.defer = true;
-  document.head.appendChild(sc);
-}
-</script>
+<script defer src="{{ASSET_BASE}}/assets/chart-loader.js"></script>
 <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
-<script>
-if (document.getElementById('barangay-grid')) {
-  var bd = document.createElement('script');
-  bd.src = '{{ASSET_BASE}}/assets/barangay-data.js';
-  bd.defer = true;
-  document.head.appendChild(bd);
-}
-</script>
-<script defer src="{{ASSET_BASE}}/assets/script.js"></script>
+<script src="{{ASSET_BASE}}/assets/barangay-data.js"></script>
+<script src="{{ASSET_BASE}}/assets/script.js"></script>
 
 <div id="lang-banner" class="lang-banner" style="display:none"></div>
 
