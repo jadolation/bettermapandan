@@ -4,7 +4,9 @@
   "description": "An independent transparency portal for the Municipality of Mapandan, Pangasinan,\r built under the [BetterGov.ph](https://bettergov.ph/) BetterLGU initiative.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lighthouse": "lhci autorun",
+    "lighthouse:single": "lhci autorun --collect.numberOfRuns=1"
   },
   "repository": {
     "type": "git",
@@ -19,5 +21,8 @@
   "dependencies": {
     "chrome-launcher": "^1.2.1",
     "lighthouse": "^13.4.1"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.14.0"
   }
 }
