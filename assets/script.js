@@ -631,3 +631,15 @@ if (feedback) {
   banner.appendChild(inner);
   banner.style.display = "block";
 })();
+
+// Image fallback — hide img + figcaption on error when data-fallback="hide"
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('img[data-fallback="hide"]').forEach(function (img) {
+    img.addEventListener("error", function () {
+      this.style.display = "none";
+      if (this.nextElementSibling) {
+        this.nextElementSibling.style.display = "none";
+      }
+    });
+  });
+});

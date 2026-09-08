@@ -159,7 +159,7 @@
             <figure class="service-photo-container">
                 <img class="service-photo" src="../assets/citizens-charter/philhealth-enrollment.jpg" alt="Citizens Charter for LGU PhilHealth Group Enrollment"
                     loading="lazy"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='none';">
+                    data-fallback="hide">
                 <figcaption class="service-photo-caption">
                     Citizens Charter document: philhealth-enrollment.jpg
                 </figcaption>
@@ -248,14 +248,7 @@
 </footer>
 
 
-<script>
-if (document.querySelector('canvas')) {
-  var sc = document.createElement('script');
-  sc.src = '../assets/chart.umd.min.js';
-  sc.defer = true;
-  document.head.appendChild(sc);
-}
-</script>
+<script defer src="../assets/chart-loader.js"></script>
 <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
 <script>
 if (document.getElementById('barangay-grid')) {
