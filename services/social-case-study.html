@@ -64,7 +64,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../index.html">
-      <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+      <img src="../assets/logo.svg" alt="Better Mapandan seal" width="42" height="42" />
       <span class="brand-text">
         <span class="top">Better Mapandan</span>
         <span class="bottom">.org</span>
@@ -199,7 +199,7 @@
     <div class="footer-grid">
       <div class="footer-brand-col">
         <div class="footer-brand">
-          <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+          <img src="../assets/logo.svg" alt="Better Mapandan seal" width="42" height="42" />
           <div>
             <div class="name">Better Mapandan</div>
             <p>An independent civic transparency portal for Mapandan, Pangasinan, built and maintained by volunteers under the BetterGov.ph initiative &mdash; not an official government website.</p>
@@ -248,7 +248,7 @@
     <div class="footer-bottom">
       <span>&copy; 2026 BetterMapandan.org. Community-run, independent of the LGU.</span>
       <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
-        <img src="../assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo">
+        <img src="../assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo" width="18" height="18">
         <span>A BetterGov.ph Community Portal</span>
       </a>
       <span class="cost-chip">Cost to the People of Mapandan: <strong>&#8369;0</strong></span>
@@ -259,8 +259,15 @@
 
 <script defer src="../assets/chart-loader.js"></script>
 <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
-<script src="../assets/barangay-data.js"></script>
-<script src="../assets/script.js"></script>
+<script>
+if (document.getElementById('barangay-grid')) {
+  var bd = document.createElement('script');
+  bd.src = '../assets/barangay-data.js';
+  bd.defer = true;
+  document.head.appendChild(bd);
+}
+</script>
+<script defer src="../assets/script.js"></script>
 
 <div id="lang-banner" class="lang-banner" style="display:none"></div>
 
