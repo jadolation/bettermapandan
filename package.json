@@ -20,7 +20,8 @@
   "homepage": "https://github.com/jadolation/bettermapandan#readme",
   "dependencies": {
     "chrome-launcher": "^1.2.1",
-    "lighthouse": "^13.4.1"
+    "lighthouse": "^13.4.1",
+    "puppeteer-core": "^25.10.0"
   },
   "devDependencies": {
     "@lhci/cli": "^0.14.0"
