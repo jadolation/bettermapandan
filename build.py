@@ -341,7 +341,7 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
             f'      <div class="card service-category-card">\n'
             f'        <div class="service-card-head">\n'
             f'          <div class="service-icon"><i data-lucide="{html.escape(cat.get("icon", ""))}"></i></div>\n'
-            f'          <h3>{html.escape(cat_name)}</h3>\n'
+            f'          <h2>{html.escape(cat_name)}</h2>\n'
             f'        </div>\n'
             f'        <p>{html.escape(cat_desc)}</p>\n'
             f'        <div class="service-links">\n'
@@ -606,7 +606,7 @@ def _build_trend_cards(trends: list) -> list:
             f'<div class="trend-step">'
             f'<div class="n">{i}</div>'
             f'<div class="trend-body">'
-            f'<h4>{html.escape(tr.get("title", ""))}</h4>'
+            f'<h3>{html.escape(tr.get("title", ""))}</h3>'
             f'<ul class="trend-bullets">{bullets_html}</ul>'
             f'<span class="trend-refs">{refs}</span>'
             f'</div>'
@@ -624,7 +624,7 @@ def _build_process_steps(process_list: list) -> list:
         steps.append(
             f'<div class="step{final_class}">'
             f'<div class="n">{step_num}</div>'
-            f'<h4>{html.escape(s.get("title", ""))}</h4>'
+            f'<h3>{html.escape(s.get("title", ""))}</h3>'
             f'<p>{html.escape(s.get("description", ""))}</p>'
             f'</div>'
         )

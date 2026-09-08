@@ -1,20 +1,18 @@
 {
   "ci": {
     "collect": {
-      "startServerCommand": "python3 -m http.server 8080 --directory .",
-      "startServerReadyPattern": "Serving HTTP",
       "url": [
-        "/index.html",
-        "/services.html",
-        "/services/business-permit.html",
-        "/government.html",
-        "/legislative.html",
-        "/statistics.html",
-        "/transparency.html",
-        "/search.html",
-        "/support/report.html",
-        "/about.html",
-        "/fil/services/business-permit.html"
+        "https://jadolation.github.io/bettermapandan/index.html",
+        "https://jadolation.github.io/bettermapandan/services.html",
+        "https://jadolation.github.io/bettermapandan/services/business-permit.html",
+        "https://jadolation.github.io/bettermapandan/government.html",
+        "https://jadolation.github.io/bettermapandan/legislative.html",
+        "https://jadolation.github.io/bettermapandan/statistics.html",
+        "https://jadolation.github.io/bettermapandan/transparency.html",
+        "https://jadolation.github.io/bettermapandan/search.html",
+        "https://jadolation.github.io/bettermapandan/support/report.html",
+        "https://jadolation.github.io/bettermapandan/about.html",
+        "https://jadolation.github.io/bettermapandan/fil/services/business-permit.html"
       ],
       "numberOfRuns": 1,
       "settings": {

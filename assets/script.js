@@ -326,7 +326,6 @@ document.addEventListener("DOMContentLoaded", function () {
     card.className = "barangay-card";
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");
-    card.setAttribute("aria-label", (name || "") + " \u2014 " + (d.pop2024 || "") + " residents, " + (d.landUse || "") + ". Read history.");
 
     var h4 = document.createElement("h4");
     h4.textContent = name;
