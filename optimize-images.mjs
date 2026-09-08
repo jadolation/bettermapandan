@@ -50,7 +50,7 @@ async function main() {
     const tempPng = path.join(assetsDir, "municipal-seal-temp.png");
     if (fs.existsSync(path.join(assetsDir, "logo-no-white.svg"))) {
         await extractPngFromSvg(path.join(assetsDir, "logo-no-white.svg"), tempPng);
-        await convertToWebP(tempPng, path.join(assetsDir, "municipal-seal.svg"), MAX_WIDTH_LOGO);
+        await convertToWebP(tempPng, path.join(assetsDir, "municipal-seal.webp"), MAX_WIDTH_LOGO);
         fs.unlinkSync(tempPng);
     }
 
