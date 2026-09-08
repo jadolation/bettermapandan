@@ -20,16 +20,7 @@
 <link rel="apple-touch-icon" href="..../assets/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<script>
-(function(){
-  var fontLink = document.createElement('link');
-  fontLink.rel = 'stylesheet';
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap';
-  fontLink.media = 'print';
-  fontLink.onload = function(){ this.media = 'all'; };
-  document.head.appendChild(fontLink);
-})();
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="..../assets/style.min.css" />
 <script type="application/ld+json">
 {
@@ -640,14 +631,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </footer>
 
 
-<script>
-if (document.querySelector('canvas')) {
-  var sc = document.createElement('script');
-  sc.src = '..../assets/chart.umd.min.js';
-  sc.defer = true;
-  document.head.appendChild(sc);
-}
-</script>
+<script defer src="..../assets/chart.umd.min.js"></script>
 <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
 <script src="..../assets/barangay-data.js"></script>
 <script src="..../assets/script.js"></script>
