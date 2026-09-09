@@ -1477,43 +1477,50 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
     data = json.loads(data_path.read_text(encoding="utf-8"))
     metrics = data.get("metrics", {})
     contracts = data.get("contracts", [])
+    monthly_trend = data.get("monthly_trend", [])
+    top_awardees = data.get("top_awardees", [])
 
     total_amount = metrics.get("total_amount", 0)
     contract_count = metrics.get("contract_count", 0)
-    source = metrics.get("source", "PhilGEPS")
-    aggregator = metrics.get("aggregator", "BetterGov.ph")
+    average_cost = metrics.get("average_cost", 0)
+    unique_categories = metrics.get("unique_categories", 0)
     license_str = metrics.get("license", "")
 
     metric_cards = (
         f'      <div class="card">\n'
+        f'        <h2>{t(locale, "procurement.unique_categories", "Unique Categories")}</h2>\n'
+        f'        <p class="figure">{unique_categories:,}</p>\n'
+        f'        <span class="verification-badge badge-official">{t(locale, "common.official", "Official")}</span>\n'
+        f'        <span class="source-label">{t(locale, "procurement.category", "Category")}</span>\n'
+        f'      </div>\n'
+        f'      <div class="card">\n'
         f'        <h2>{t(locale, "procurement.total_spend", "Total Contract Value")}</h2>\n'
         f'        <p class="figure">&#8369;{total_amount:,.0f}</p>\n'
         f'        <span class="verification-badge badge-official">{t(locale, "common.official", "Official")}</span>\n'
-        f'        <span class="source-label">{t(locale, "procurement.source_philgeps", "Source: PhilGEPS")} | {t(locale, "procurement.source_aggregator", "Aggregated via: BetterGov.ph")}</span>\n'
+        f'        <span class="source-label">{t(locale, "procurement.source_philgeps", "Source: PhilGEPS")}</span>\n'
+        f'      </div>\n'
+        f'      <div class="card">\n'
+        f'        <h2>{t(locale, "procurement.average_cost", "Average Cost")}</h2>\n'
+        f'        <p class="figure">&#8369;{average_cost:,.0f}</p>\n'
+        f'        <span class="verification-badge badge-verified">{t(locale, "common.verified", "Verified")}</span>\n'
+        f'        <span class="source-label">{t(locale, "procurement.per_contract", "Per contract")}</span>\n'
         f'      </div>\n'
         f'      <div class="card">\n'
         f'        <h2>{t(locale, "procurement.contracts", "Contracts")}</h2>\n'
         f'        <p class="figure">{contract_count:,}</p>\n'
         f'        <span class="verification-badge badge-verified">{t(locale, "common.verified", "Verified")}</span>\n'
-        f'        <span class="source-label">License: {html.escape(license_str)}</span>\n'
+        f'        <span class="source-label">{t(locale, "procurement.source_aggregator", "Aggregated via: BetterGov.ph")}</span>\n'
         f'      </div>'
     )
 
-    rows = []
-    for c in contracts[:20]:
-        rows.append(
-            f'<tr>'
-            f'<td>{html.escape(str(c.get("reference_id", "")))}</td>'
-            f'<td>{html.escape(str(c.get("contract_no", "")))}</td>'
-            f'<td>{html.escape(str(c.get("awardee", "")))}</td>'
-            f'<td>&#8369;{c.get("amount", 0):,.0f}</td>'
-            f'<td>{html.escape(str(c.get("award_date", "")))}</td>'
-            f'<td><span class="pill">{html.escape(str(c.get("status", "")))}</span></td>'
-            f'</tr>'
-        )
-    table_body = "\n          ".join(rows) if rows else (
-        f'<tr><td colspan="6">{t(locale, "procurement.no_data", "No procurement records found for Mapandan.")}</td></tr>'
-    )
+    monthly_json = json.dumps(monthly_trend, ensure_ascii=False)
+    awardees_json = json.dumps(top_awardees, ensure_ascii=False)
+    contracts_json = json.dumps(contracts, ensure_ascii=False)
+
+    search_placeholder = t(locale, "procurement.search_placeholder", "Search contracts...")
+    showing_x_of_y = t(locale, "procurement.showing_x_of_y", "Showing 1-20 of {n}").replace("{n}", str(contract_count))
+    download_csv = t(locale, "procurement.download_csv", "CSV")
+    remove_duplicates = t(locale, "procurement.remove_duplicates", "Remove duplicate contracts")
 
     proc_html = (
         f'<section class="section" id="procurement">\n'
@@ -1523,27 +1530,70 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'      <h2>{t(locale, "procurement.title", "")}</h2>\n'
         f'      <p>Municipality of Mapandan &mdash; {contract_count:,} contracts totaling &#8369;{total_amount:,.0f}. Data from PhilGEPS via BetterGov.ph Open Data Portal.</p>\n'
         f'    </div>\n'
-        f'    <div class="grid grid-2 stack-gap-lg">\n'
+        f'    <div class="grid grid-4 stack-gap-lg">\n'
         f'      {metric_cards}\n'
         f'    </div>\n'
-        f'    <div class="table-wrap" style="margin-top:24px">\n'
-        f'      <table aria-label="Procurement contracts">\n'
-        f'        <thead>\n'
-        f'          <tr>\n'
-        f'            <th scope="col">{t(locale, "procurement.ref_no", "Reference No.")}</th>\n'
-        f'            <th scope="col">{t(locale, "procurement.contract_no", "Contract No.")}</th>\n'
-        f'            <th scope="col">{t(locale, "procurement.awardee", "")}</th>\n'
-        f'            <th scope="col">{t(locale, "procurement.amount", "")}</th>\n'
-        f'            <th scope="col">{t(locale, "procurement.date", "")}</th>\n'
-        f'            <th scope="col">{t(locale, "procurement.status", "")}</th>\n'
-        f'          </tr>\n'
-        f'        </thead>\n'
-        f'        <tbody>\n'
-        f'          {table_body}\n'
-        f'        </tbody>\n'
-        f'      </table>\n'
+        f'    <div class="grid grid-2 stack-gap-lg" style="margin-top:24px">\n'
+        f'      <div class="card">\n'
+        f'        <h3>{t(locale, "procurement.monthly_trend_title", "")}</h3>\n'
+        f'        <p class="source-label" style="margin-top:0">{t(locale, "procurement.monthly_trend_desc", "")}</p>\n'
+        f'        <canvas id="chart-procurement-trend" height="220" role="img" aria-label="Monthly procurement trend"></canvas>\n'
+        f'      </div>\n'
+        f'      <div class="card">\n'
+        f'        <h3>{t(locale, "procurement.top_awardees_title", "")}</h3>\n'
+        f'        <p class="source-label" style="margin-top:0">{t(locale, "procurement.top_awardees_desc", "")}</p>\n'
+        f'        <canvas id="chart-procurement-awardees" height="220" role="img" aria-label="Top 10 awardees"></canvas>\n'
+        f'      </div>\n'
         f'    </div>\n'
-        f'    <p class="source-label">{t(locale, "procurement.source_philgeps", "")} | {t(locale, "procurement.source_aggregator", "")} | License: {html.escape(license_str)}</p>\n'
+        f'      <div class="table-wrap" style="margin-top:24px">\n'
+        f'        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">\n'
+        f'          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">\n'
+        f'            <strong style="font-size:0.95rem">{t(locale, "procurement.results_count", "Results"):}</strong>\n'
+        f'            <span style="font-size:0.95rem">{contract_count:,} &nbsp;|&nbsp; &#8369;{total_amount:,.0f}</span>\n'
+        f'          </div>\n'
+        f'          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">\n'
+        f'            <input type="search" id="procurement-search" placeholder="{search_placeholder}" aria-label="{search_placeholder}" style="padding:10px 14px;font-size:0.95rem;border:1.5px solid var(--line);border-radius:var(--radius);min-width:240px">\n'
+        f'            <button class="btn btn-outline" id="procurement-dup-btn" style="padding:10px 14px;font-size:0.95rem">{remove_duplicates}</button>\n'
+        f'            <button class="btn btn-outline" id="procurement-csv-btn" style="padding:10px 14px;font-size:0.95rem">{download_csv}</button>\n'
+        f'          </div>\n'
+        f'        </div>\n'
+        f'      <div style="overflow-x:auto">\n'
+        f'        <table aria-label="Procurement contracts" id="procurement-table">\n'
+        f'          <thead>\n'
+        f'            <tr>\n'
+        f'              <th scope="col" data-column="reference_id" style="cursor:pointer">{t(locale, "procurement.ref_no", "Reference No.")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="contract_no" style="cursor:pointer">{t(locale, "procurement.contract_no", "Contract No.")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="title" style="cursor:pointer">{t(locale, "procurement.title_col", "Title")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="awardee" style="cursor:pointer">{t(locale, "procurement.awardee", "")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="organization_name" style="cursor:pointer">{t(locale, "procurement.organization_col", "Organization")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="amount" style="cursor:pointer">{t(locale, "procurement.amount", "")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="business_category" style="cursor:pointer">{t(locale, "procurement.category", "")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="award_date" style="cursor:pointer">{t(locale, "procurement.date", "")} <span class="sort-indicator"></span></th>\n'
+        f'              <th scope="col" data-column="status" style="cursor:pointer">{t(locale, "procurement.status", "")} <span class="sort-indicator"></span></th>\n'
+        f'            </tr>\n'
+        f'          </thead>\n'
+        f'          <tbody>\n'
+        f'          </tbody>\n'
+        f'        </table>\n'
+        f'      </div>\n'
+        f'      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px;flex-wrap:wrap">\n'
+        f'        <span class="source-label" id="procurement-page-info">{showing_x_of_y}</span>\n'
+        f'        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap" id="procurement-pagination">\n'
+        f'          <button class="btn btn-outline" data-page="prev" style="padding:10px 14px;font-size:0.95rem">&laquo; Prev</button>\n'
+        f'          <span class="source-label" id="procurement-page-indicator">1 / 1</span>\n'
+        f'          <button class="btn btn-outline" data-page="next" style="padding:10px 14px;font-size:0.95rem">Next &raquo;</button>\n'
+        f'        </div>\n'
+        f'      </div>\n'
+        f'    </div>\n'
+        f'    <p class="source-label">Source: PhilGEPS | Aggregated via: BetterGov.ph | License: {html.escape(license_str)}</p>\n'
+        f'    <script>\n'
+        f'      window.PROCUREMENT_DATA = {{ monthly: {monthly_json}, awardees: {awardees_json} }};\n'
+        f'      window.PROCUREMENT_CONTRACTS = {contracts_json};\n'
+        f'    </script>\n'
+        f'    <style>\n'
+        f'      #procurement-table th.sort-asc .sort-indicator::after {{ content: " ▲"; }}\n'
+        f'      #procurement-table th.sort-desc .sort-indicator::after {{ content: " ▼"; }}\n'
+        f'    </style>\n'
         f'  </div>\n'
         f'</section>'
     )
@@ -1691,7 +1741,7 @@ def _process_static_page(
     body = resolve_body_placeholders(hero_html + body, locale, asset_base)
     if rel.name == "transparency.html":
         proc_html, _, _ = generate_procurement(locale)
-        body = proc_html + "\n" + body
+        body = body.replace(hero_html, hero_html + "\n" + proc_html, 1)
     page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
 

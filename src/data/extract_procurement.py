@@ -1,11 +1,23 @@
 #!/usr/bin/env python3
 """Extract Mapandan procurement data from PhilGEPS parquet."""
 import json
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 
 CACHE_DIR = Path("datasets/PhilGEPS")
 OUTPUT = Path("src/data/procurement.json")
+
+
+def _clean(value):
+    if value is None:
+        return ""
+    try:
+        if pd.isna(value):
+            return ""
+    except Exception:
+        pass
+    return str(value)[:200]
 
 
 def main():
@@ -28,6 +40,34 @@ def main():
 
     total_amount = float(mapandan["contract_amount"].fillna(0).sum())
     contract_count = int(len(mapandan))
+    average_cost = total_amount / contract_count if contract_count > 0 else 0.0
+    unique_categories = int(mapandan["business_category"].nunique()) if "business_category" in mapandan.columns else 0
+
+    monthly = (
+        mapandan.dropna(subset=["award_date"])
+        .assign(month=lambda d: d["award_date"].dt.strftime("%Y-%m"))
+        .groupby("month", sort=False)["contract_amount"]
+        .sum()
+        .reset_index()
+        .sort_values("month")
+    )
+    monthly_trend = [
+        {"month": row["month"], "total": float(row["contract_amount"])}
+        for _, row in monthly.iterrows()
+    ]
+
+    awardee_totals = (
+        mapandan.groupby(mapandan["awardee_name"].fillna("").str.strip(), sort=False)["contract_amount"]
+        .sum()
+        .reset_index()
+        .rename(columns={"awardee_name": "name"})
+        .sort_values("contract_amount", ascending=False)
+        .head(10)
+    )
+    top_awardees = [
+        {"name": _clean(row["name"]), "total": float(row["contract_amount"])}
+        for _, row in awardee_totals.iterrows()
+    ]
 
     records = []
     for _, row in mapandan.iterrows():
@@ -44,33 +84,42 @@ def main():
             award_date_str = ""
 
         records.append({
-            "title": str(row.get("award_title", ""))[:200],
-            "awardee": str(row.get("awardee_name", ""))[:200],
+            "title": _clean(row.get("award_title", "")),
+            "awardee": _clean(row.get("awardee_name", "")),
             "amount": amount_f,
             "award_date": award_date_str,
-            "status": str(row.get("award_status", ""))[:50],
-            "area": str(row.get("area_of_delivery", ""))[:200],
-            "business_category": str(row.get("business_category", ""))[:100],
-            "reference_id": str(row.get("reference_id", ""))[:50],
-            "contract_no": str(row.get("contract_no", ""))[:50],
+            "status": _clean(row.get("award_status", "")),
+            "area": _clean(row.get("area_of_delivery", "")),
+            "business_category": _clean(row.get("business_category", "")),
+            "reference_id": _clean(row.get("reference_id", "")),
+            "contract_no": _clean(row.get("contract_no", "")),
+            "organization_name": _clean(row.get("organization_name", "")),
         })
 
     output = {
         "metrics": {
             "total_amount": total_amount,
             "contract_count": contract_count,
+            "average_cost": average_cost,
+            "unique_categories": unique_categories,
             "source": "PhilGEPS",
             "aggregator": "BetterGov.ph Open Data Portal",
             "dataset_id": 5,
             "license": "CC0 1.0 Universal",
             "last_updated": pd.Timestamp.now().isoformat()[:10],
         },
+        "monthly_trend": monthly_trend,
+        "top_awardees": top_awardees,
         "contracts": records[:100],
     }
 
     OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False))
     print(f"Wrote {len(records)} contracts to {OUTPUT}")
     print(f"Total: ₱{total_amount:,.0f} across {contract_count} contracts")
+    print(f"Unique categories: {unique_categories}")
+    print(f"Average cost: ₱{average_cost:,.0f}")
+    print(f"Monthly trend points: {len(monthly_trend)}")
+    print(f"Top awardees: {len(top_awardees)}")
 
 
 if __name__ == "__main__":

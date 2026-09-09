@@ -2,12 +2,442 @@
   "metrics": {
     "total_amount": 470203284.93000007,
     "contract_count": 277,
+    "average_cost": 1697484.7831407944,
+    "unique_categories": 38,
     "source": "PhilGEPS",
     "aggregator": "BetterGov.ph Open Data Portal",
     "dataset_id": 5,
     "license": "CC0 1.0 Universal",
     "last_updated": "2026-09-09"
   },
+  "monthly_trend": [
+    {
+      "month": "2011-06",
+      "total": 3364891.55
+    },
+    {
+      "month": "2012-02",
+      "total": 700000.0
+    },
+    {
+      "month": "2012-05",
+      "total": 995000.0
+    },
+    {
+      "month": "2012-08",
+      "total": 1984294.53
+    },
+    {
+      "month": "2012-10",
+      "total": 3547011.6
+    },
+    {
+      "month": "2013-04",
+      "total": 217000.0
+    },
+    {
+      "month": "2014-06",
+      "total": 5265665.98
+    },
+    {
+      "month": "2014-10",
+      "total": 7748743.9399999995
+    },
+    {
+      "month": "2014-11",
+      "total": 360000.0
+    },
+    {
+      "month": "2015-01",
+      "total": 2815776.25
+    },
+    {
+      "month": "2015-03",
+      "total": 1690298.0
+    },
+    {
+      "month": "2015-04",
+      "total": 2026007.34
+    },
+    {
+      "month": "2015-05",
+      "total": 2361000.0
+    },
+    {
+      "month": "2015-06",
+      "total": 198970.0
+    },
+    {
+      "month": "2015-07",
+      "total": 8282754.390000001
+    },
+    {
+      "month": "2015-09",
+      "total": 10147390.33
+    },
+    {
+      "month": "2015-10",
+      "total": 1786700.0
+    },
+    {
+      "month": "2015-11",
+      "total": 1856540.0
+    },
+    {
+      "month": "2015-12",
+      "total": 2747538.55
+    },
+    {
+      "month": "2016-01",
+      "total": 748604.0
+    },
+    {
+      "month": "2016-06",
+      "total": 1424877.18
+    },
+    {
+      "month": "2016-10",
+      "total": 11335063.84
+    },
+    {
+      "month": "2016-11",
+      "total": 2971400.0
+    },
+    {
+      "month": "2016-12",
+      "total": 12713981.82
+    },
+    {
+      "month": "2017-02",
+      "total": 5225166.7
+    },
+    {
+      "month": "2017-03",
+      "total": 1000000.0
+    },
+    {
+      "month": "2017-05",
+      "total": 11086686.5
+    },
+    {
+      "month": "2017-06",
+      "total": 4905501.38
+    },
+    {
+      "month": "2017-08",
+      "total": 15091773.11
+    },
+    {
+      "month": "2017-10",
+      "total": 1298393.27
+    },
+    {
+      "month": "2017-11",
+      "total": 4061285.59
+    },
+    {
+      "month": "2017-12",
+      "total": 6296165.26
+    },
+    {
+      "month": "2018-01",
+      "total": 920000.0
+    },
+    {
+      "month": "2018-04",
+      "total": 8998824.96
+    },
+    {
+      "month": "2018-05",
+      "total": 2378345.45
+    },
+    {
+      "month": "2018-06",
+      "total": 4552208.09
+    },
+    {
+      "month": "2018-07",
+      "total": 9527231.71
+    },
+    {
+      "month": "2018-08",
+      "total": 8620720.98
+    },
+    {
+      "month": "2018-09",
+      "total": 174000.0
+    },
+    {
+      "month": "2018-10",
+      "total": 828600.0
+    },
+    {
+      "month": "2018-11",
+      "total": 14433000.0
+    },
+    {
+      "month": "2019-02",
+      "total": 2339730.0
+    },
+    {
+      "month": "2019-03",
+      "total": 10803853.14
+    },
+    {
+      "month": "2019-05",
+      "total": 1998617.8
+    },
+    {
+      "month": "2019-06",
+      "total": 941576.5
+    },
+    {
+      "month": "2019-07",
+      "total": 547208.75
+    },
+    {
+      "month": "2019-08",
+      "total": 207340.0
+    },
+    {
+      "month": "2019-09",
+      "total": 4519620.4
+    },
+    {
+      "month": "2019-11",
+      "total": 14519417.83
+    },
+    {
+      "month": "2020-01",
+      "total": 100000.0
+    },
+    {
+      "month": "2020-02",
+      "total": 2297781.88
+    },
+    {
+      "month": "2020-08",
+      "total": 7355559.11
+    },
+    {
+      "month": "2020-09",
+      "total": 2481144.0
+    },
+    {
+      "month": "2020-11",
+      "total": 11607671.71
+    },
+    {
+      "month": "2020-12",
+      "total": 167850.0
+    },
+    {
+      "month": "2021-05",
+      "total": 7194852.83
+    },
+    {
+      "month": "2021-06",
+      "total": 7530572.91
+    },
+    {
+      "month": "2021-07",
+      "total": 119750.0
+    },
+    {
+      "month": "2021-09",
+      "total": 2397607.41
+    },
+    {
+      "month": "2021-10",
+      "total": 388480.0
+    },
+    {
+      "month": "2021-11",
+      "total": 5149721.04
+    },
+    {
+      "month": "2022-01",
+      "total": 58057776.88999999
+    },
+    {
+      "month": "2022-02",
+      "total": 15795761.759999998
+    },
+    {
+      "month": "2022-03",
+      "total": 1533416.0
+    },
+    {
+      "month": "2022-06",
+      "total": 3496104.4699999997
+    },
+    {
+      "month": "2022-08",
+      "total": 129900.0
+    },
+    {
+      "month": "2022-09",
+      "total": 1799176.5
+    },
+    {
+      "month": "2022-10",
+      "total": 6627612.699999999
+    },
+    {
+      "month": "2022-11",
+      "total": 10243889.01
+    },
+    {
+      "month": "2023-02",
+      "total": 4507721.88
+    },
+    {
+      "month": "2023-05",
+      "total": 1194982.71
+    },
+    {
+      "month": "2023-06",
+      "total": 638931.24
+    },
+    {
+      "month": "2023-07",
+      "total": 3446659.08
+    },
+    {
+      "month": "2023-08",
+      "total": 3505334.38
+    },
+    {
+      "month": "2023-09",
+      "total": 9408816.32
+    },
+    {
+      "month": "2023-10",
+      "total": 237000.0
+    },
+    {
+      "month": "2023-12",
+      "total": 3189606.65
+    },
+    {
+      "month": "2024-02",
+      "total": 1159726.71
+    },
+    {
+      "month": "2024-03",
+      "total": 4695498.46
+    },
+    {
+      "month": "2024-04",
+      "total": 4413218.22
+    },
+    {
+      "month": "2024-05",
+      "total": 1894770.0
+    },
+    {
+      "month": "2024-06",
+      "total": 3509635.0
+    },
+    {
+      "month": "2024-07",
+      "total": 462500.0
+    },
+    {
+      "month": "2024-08",
+      "total": 829600.0
+    },
+    {
+      "month": "2024-09",
+      "total": 2991689.46
+    },
+    {
+      "month": "2024-10",
+      "total": 5929620.0
+    },
+    {
+      "month": "2024-12",
+      "total": 33074630.47
+    },
+    {
+      "month": "2025-01",
+      "total": 9106164.63
+    },
+    {
+      "month": "2025-02",
+      "total": 1111419.0
+    },
+    {
+      "month": "2025-03",
+      "total": 172000.0
+    },
+    {
+      "month": "2025-06",
+      "total": 2502545.0
+    },
+    {
+      "month": "2025-07",
+      "total": 1626490.0
+    },
+    {
+      "month": "2025-08",
+      "total": 1403685.33
+    },
+    {
+      "month": "2025-09",
+      "total": 168000.0
+    },
+    {
+      "month": "2025-10",
+      "total": 1426650.0
+    },
+    {
+      "month": "2025-12",
+      "total": 556985.45
+    }
+  ],
+  "top_awardees": [
+    {
+      "name": "ALPHIN TRADING AND CONSTRUCTION",
+      "total": 142922053.42
+    },
+    {
+      "name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+      "total": 70047685.85
+    },
+    {
+      "name": "AQUINO-DELA CRUZ ENGINEERING AND CONSTRUCTION",
+      "total": 54967555.44
+    },
+    {
+      "name": "GLOBAL EIGHT BUILDERS & EQUIPMENT SUPPLIES",
+      "total": 28720000.0
+    },
+    {
+      "name": "J.L. DE GUZMAN ENTERPRISES",
+      "total": 14188359.91
+    },
+    {
+      "name": "MARKELL MACHINERIES MANUFACTURING",
+      "total": 13500000.0
+    },
+    {
+      "name": "UBET TRADING",
+      "total": 11083366.66
+    },
+    {
+      "name": "TOYOTA DAGUPAN CITY INC.",
+      "total": 11039920.0
+    },
+    {
+      "name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+      "total": 7613205.5600000005
+    },
+    {
+      "name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+      "total": 7394909.0
+    }
+  ],
   "contracts": [
     {
       "title": "Food and Hotel Accommodation for Three (3) days Tr",
@@ -17,8 +447,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Hotel and Lodging and Meeting Facilities",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Medicines for 2nd Quarter of 2025,",
@@ -28,8 +459,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Drugs and Medicines",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Support to Farmers-Fertilizer Assis",
@@ -39,8 +471,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Fertilizers",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Newspaper for Publishing for the Information of th",
@@ -50,8 +483,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Newspapers",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Additional Relief Goods Distributed to Victims of",
@@ -61,8 +495,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "General Merchandise",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Souvenir Programs for 2025 Cultural Presentation U",
@@ -72,8 +507,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Printing Services",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Office Equipment for Office of the Mayor and LYDO",
@@ -83,8 +519,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Office Equipment",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Various Materials for various events and programs",
@@ -94,8 +531,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Construction Materials and Supplies",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Materials for Improvement of Various Office in Map",
@@ -105,8 +543,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Construction Materials and Supplies",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Nutritious Food Products for Nutrition Program Ac",
@@ -116,8 +555,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Food Stuff",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Various Refreshments for walk in vi",
@@ -127,8 +567,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Grocery Items",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Solar Lights for the Maintenance/Improvement of Ma",
@@ -138,8 +579,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Electrical Systems and Lighting Components",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Stockpiling of Basic Emergency Goods (Food Item",
@@ -149,8 +591,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "General Merchandise",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Food and Accommodation for the Conduct of First Ai",
@@ -160,8 +603,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Travel, Food, Lodging and Entertainment Services",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Anti-Rabies Vaccine for Medical Use",
@@ -171,8 +615,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Drugs and Medicines",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Janitorial Equipment for Mapandan Public Plaza &",
@@ -182,8 +627,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Janitorial Equipment",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Learning Books for Child Development Learners SY.",
@@ -193,8 +639,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Printing Services",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "FOOD STUFF",
@@ -204,8 +651,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Food Stuff",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MAPANDAN WATER DISTRICT"
     },
     {
       "title": "Purchase of Meals for Government Affairs",
@@ -215,8 +663,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Catering Services",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Purchase of Customized Basketball Jersey(Sublimati",
@@ -226,8 +675,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Textiles",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement and Installation of CCTV Cameras",
@@ -237,8 +687,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Security Surveillance and Detection Equipment",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Medicines for 3rd Quarter of 2025",
@@ -248,8 +699,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Drugs and Medicines",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Hygiene Kits for Child Development Children for th",
@@ -259,8 +711,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "General Merchandise",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "FUEL, OIL AND LUBRICANTS FOR CY2025",
@@ -270,8 +723,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Fuels/Fuel Additives & Lubricants & Anti Corrosive",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MAPANDAN WATER DISTRICT"
     },
     {
       "title": "Procurement of Various Uniforms, GOODS-MUN-2025-01",
@@ -281,8 +735,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Textiles",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Delivery of FUEL, OIL & LUBRICANTS for CY2025",
@@ -292,8 +747,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Fuels/Fuel Additives & Lubricants & Anti Corrosive",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MAPANDAN WATER DISTRICT"
     },
     {
       "title": "Procurement of Medicines for 1st Quarter of 2025,",
@@ -304,7 +760,8 @@
       "area": "Pangasinan",
       "business_category": "Drugs and Medicines",
       "reference_id": "GOODS-MUN-2025-01-001",
-      "contract_no": "GOODS-MUN-2025-01-001"
+      "contract_no": "GOODS-MUN-2025-01-001",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of One (1) Stop Shop Building Phase 4",
@@ -315,7 +772,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2025-01-002",
-      "contract_no": "INFR-MUN-2025-01-002"
+      "contract_no": "INFR-MUN-2025-01-002",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Solar Lights to be Distributed to a",
@@ -326,7 +784,8 @@
       "area": "Pangasinan",
       "business_category": "Electrical Systems and Lighting Components",
       "reference_id": "GOODS-MUN-2024-11-034",
-      "contract_no": "GOODS-MUN-2024-11-034"
+      "contract_no": "GOODS-MUN-2024-11-034",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Various Goods for Government Affair",
@@ -337,7 +796,8 @@
       "area": "Pangasinan",
       "business_category": "Grocery Items",
       "reference_id": "GOODS-MUN-2024-11-031",
-      "contract_no": "GOODS-MUN-2024-11-031"
+      "contract_no": "GOODS-MUN-2024-11-031",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of Barangay Golden Child Development",
@@ -348,7 +808,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-11-032",
-      "contract_no": "INFR-MUN-2024-11-032"
+      "contract_no": "INFR-MUN-2024-11-032",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of RHU Chest Type Freezer for Vaccine/",
@@ -359,7 +820,8 @@
       "area": "Pangasinan",
       "business_category": "Laboratory Supplies and Equipment",
       "reference_id": "GOODS-MUN-2024-11-033",
-      "contract_no": "GOODS-MUN-2024-11-033"
+      "contract_no": "GOODS-MUN-2024-11-033",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "the Procurement of Various Materials use to Decora",
@@ -370,7 +832,8 @@
       "area": "Pangasinan",
       "business_category": "General Merchandise",
       "reference_id": "GOODS-MUN-2024-11-030",
-      "contract_no": "GOODS-MUN-2024-11-030"
+      "contract_no": "GOODS-MUN-2024-11-030",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement for Sixteen (16) Units Manual Transmis",
@@ -381,7 +844,8 @@
       "area": "Pangasinan",
       "business_category": "Vehicles",
       "reference_id": "GOODS-MUN-2024-10-029",
-      "contract_no": "GOODS-MUN-2024-10-029"
+      "contract_no": "GOODS-MUN-2024-10-029",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Support to Farmers- Fertilizer Assistance",
@@ -392,7 +856,8 @@
       "area": "Pangasinan",
       "business_category": "Agricultural Products (Seeds, Seedlings, Plants..)",
       "reference_id": "GOODS-MUN-2024-09-027",
-      "contract_no": "GOODS-MUN-2024-09-027"
+      "contract_no": "GOODS-MUN-2024-09-027",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Additional Office Equipment in Various Offices",
@@ -403,7 +868,8 @@
       "area": "Pangasinan",
       "business_category": "Office Supplies and Devices",
       "reference_id": "GOODS-MUN-2024-09-028",
-      "contract_no": "GOODS-MUN-2024-09-028"
+      "contract_no": "GOODS-MUN-2024-09-028",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement for Support to Farmers- Hybrid Yellow",
@@ -414,7 +880,8 @@
       "area": "Pangasinan",
       "business_category": "Agricultural Products (Seeds, Seedlings, Plants..)",
       "reference_id": "GOODS-MUN-2024-09-026",
-      "contract_no": "GOODS-MUN-2024-09-026"
+      "contract_no": "GOODS-MUN-2024-09-026",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Motor Vehicle for Vice Mayor and Sa",
@@ -425,7 +892,8 @@
       "area": "Pangasinan",
       "business_category": "Vehicles",
       "reference_id": "GOODS-MUN-2024-08-024",
-      "contract_no": "GOODS-MUN-2024-08-024"
+      "contract_no": "GOODS-MUN-2024-08-024",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Medicine Supplies for 4th Quarter 2",
@@ -436,7 +904,8 @@
       "area": "Pangasinan",
       "business_category": "Medical Supplies and Laboratory Instrument",
       "reference_id": "GOODS-MUN-2024-08-025",
-      "contract_no": "GOODS-MUN-2024-08-025"
+      "contract_no": "GOODS-MUN-2024-08-025",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of Perimeter Fence,Backfilling and Co",
@@ -447,7 +916,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-07-020",
-      "contract_no": "INFR-MUN-2024-07-020"
+      "contract_no": "INFR-MUN-2024-07-020",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement/Extension of Office for MDRRM Command",
@@ -458,7 +928,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-07-019",
-      "contract_no": "INFR-MUN-2024-07-019"
+      "contract_no": "INFR-MUN-2024-07-019",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of Air-conditioned Waiting Shed at Po",
@@ -469,7 +940,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-07-023",
-      "contract_no": "INFR-MUN-2024-07-023"
+      "contract_no": "INFR-MUN-2024-07-023",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement and Installation of Industrial Fan at",
@@ -480,7 +952,8 @@
       "area": "Pangasinan",
       "business_category": "Industrial Machinery and Equipment",
       "reference_id": "GOODS-MUN-2024-07-021",
-      "contract_no": "GOODS-MUN-2024-07-021"
+      "contract_no": "GOODS-MUN-2024-07-021",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Learner School ID",
@@ -491,7 +964,8 @@
       "area": "Pangasinan",
       "business_category": "Photography Services",
       "reference_id": "11137489",
-      "contract_no": "11137489"
+      "contract_no": "11137489",
+      "organization_name": "MAPANDAN NATIONAL HIGH SCHOOL"
     },
     {
       "title": "Procurement of Various Office Equipment GOODS-MUN-",
@@ -502,7 +976,8 @@
       "area": "Pangasinan",
       "business_category": "Office Equipment",
       "reference_id": "GOODS-MUN-2024-007-017",
-      "contract_no": "GOODS-MUN-2024-007-017"
+      "contract_no": "GOODS-MUN-2024-007-017",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Medicine for the Third Quarter of",
@@ -513,7 +988,8 @@
       "area": "Pangasinan",
       "business_category": "Medical Supplies and Laboratory Instrument",
       "reference_id": "GOODS-MUN-2024-06-015",
-      "contract_no": "GOODS-MUN-2024-06-015"
+      "contract_no": "GOODS-MUN-2024-06-015",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Two (2) units Mini Dump Truck",
@@ -524,7 +1000,8 @@
       "area": "Pangasinan",
       "business_category": "Vehicles",
       "reference_id": "GOODS-MUN-2024-04-015",
-      "contract_no": "GOODS-MUN-2024-04-015"
+      "contract_no": "GOODS-MUN-2024-04-015",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "PROCUREMENT OF SOLAR STREETLIGHTS FOR BRGY JIMENEZ (Direct Contracting Proprietary in Nature)",
@@ -535,7 +1012,8 @@
       "area": "Pangasinan",
       "business_category": "Electrical Systems and Lighting Components",
       "reference_id": "2024-01",
-      "contract_no": "2024-01"
+      "contract_no": "2024-01",
+      "organization_name": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement/Installation of CCTV Cameras",
@@ -546,7 +1024,8 @@
       "area": "Pangasinan",
       "business_category": "Security Surveillance and Detection Equipment",
       "reference_id": "GOODS-MUN-2024-04-014",
-      "contract_no": "GOODS-MUN-2024-04-014"
+      "contract_no": "GOODS-MUN-2024-04-014",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of Cross-drain Canal along Gondol St.",
@@ -557,7 +1036,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-04-010",
-      "contract_no": "INFR-MUN-2024-04-010"
+      "contract_no": "INFR-MUN-2024-04-010",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of Covered Drainage Canal along Lawin",
@@ -568,7 +1048,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-04-012",
-      "contract_no": "INFR-MUN-2024-04-012"
+      "contract_no": "INFR-MUN-2024-04-012",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Re-Constructioin of Drainage Canal along Pico Aven",
@@ -579,7 +1060,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-04-012",
-      "contract_no": "INFR-MUN-2024-04-012"
+      "contract_no": "INFR-MUN-2024-04-012",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Additional Illumination of Mapandan Town Plaza-Pha",
@@ -590,7 +1072,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-02-004",
-      "contract_no": "INFR-MUN-2024-02-004"
+      "contract_no": "INFR-MUN-2024-02-004",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Barangay Road and Drainage Canal at",
@@ -601,7 +1084,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-04-011",
-      "contract_no": "INFR-MUN-2024-04-011"
+      "contract_no": "INFR-MUN-2024-04-011",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Support to Farmers- Palay Seed Assistance",
@@ -612,7 +1096,8 @@
       "area": "Pangasinan",
       "business_category": "Agricultural Products (Seeds, Seedlings, Plants..)",
       "reference_id": "GOODS-MUN-2024-03-009",
-      "contract_no": "GOODS-MUN-2024-03-009"
+      "contract_no": "GOODS-MUN-2024-03-009",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Medicine for the Second Quarter of",
@@ -623,7 +1108,8 @@
       "area": "Pangasinan",
       "business_category": "Medical Supplies and Laboratory Instrument",
       "reference_id": "GOODS-MUN-2024-03-008",
-      "contract_no": "GOODS-MUN-2024-03-008"
+      "contract_no": "GOODS-MUN-2024-03-008",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Maintenance of Motor Vehicle",
@@ -633,8 +1119,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Vehicle Repair and Maintenance",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MAPANDAN WATER DISTRICT"
     },
     {
       "title": "Food Stuff",
@@ -644,8 +1131,9 @@
       "status": "active",
       "area": "Pangasinan",
       "business_category": "Food Stuff",
-      "reference_id": "nan",
-      "contract_no": "nan"
+      "reference_id": "",
+      "contract_no": "",
+      "organization_name": "MAPANDAN WATER DISTRICT"
     },
     {
       "title": "GOODS-MUN-2024-02-005",
@@ -656,7 +1144,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "GOODS-MUN-2024-02-005",
-      "contract_no": "GOODS-MUN-2024-02-005"
+      "contract_no": "GOODS-MUN-2024-02-005",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "INFR-MUN-2024-01-003",
@@ -667,7 +1156,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2024-01-003",
-      "contract_no": "INFR-MUN-2024-01-003"
+      "contract_no": "INFR-MUN-2024-01-003",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Sports Uniforms for Various Teams f",
@@ -678,7 +1168,8 @@
       "area": "Pangasinan",
       "business_category": "General Merchandise",
       "reference_id": "GOODS-MUN-2024-01-002",
-      "contract_no": "GOODS-MUN-2024-01-002"
+      "contract_no": "GOODS-MUN-2024-01-002",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Medicine for the First Quarter of 2",
@@ -689,7 +1180,8 @@
       "area": "Pangasinan",
       "business_category": "Medical Supplies and Laboratory Instrument",
       "reference_id": "GOODS-MUN-2024-01-001",
-      "contract_no": "GOODS-MUN-2024-01-001"
+      "contract_no": "GOODS-MUN-2024-01-001",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Mapandan Public Market Phase 3",
@@ -700,7 +1192,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-11-016",
-      "contract_no": "INFR-MUN-2023-11-016"
+      "contract_no": "INFR-MUN-2023-11-016",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Generator Equipment for Rural Heal",
@@ -711,7 +1204,8 @@
       "area": "Pangasinan",
       "business_category": "Power Generation and Distribution Machinery",
       "reference_id": "GOODS-MUN-2023-11-21",
-      "contract_no": "GOODS-MUN-2023-11-21"
+      "contract_no": "GOODS-MUN-2023-11-21",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Mapandan Tennis Club house",
@@ -722,7 +1216,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-11-018",
-      "contract_no": "INFR-MUN-2023-11-018"
+      "contract_no": "INFR-MUN-2023-11-018",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Additional Illumination at Mapandan Town Plaza",
@@ -733,7 +1228,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-11-017",
-      "contract_no": "INFR-MUN-2023-11-017"
+      "contract_no": "INFR-MUN-2023-11-017",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Support to Farmers- Fertilizer Assistance",
@@ -744,7 +1240,8 @@
       "area": "Pangasinan",
       "business_category": "Fertilizers",
       "reference_id": "GOODS-MUN-2023-11-020",
-      "contract_no": "GOODS-MUN-2023-11-020"
+      "contract_no": "GOODS-MUN-2023-11-020",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fertilizer Assistance for Local Tobacco Farmers",
@@ -755,7 +1252,8 @@
       "area": "Pangasinan",
       "business_category": "Fertilizers",
       "reference_id": "GOODS-MUN-2023-09-015",
-      "contract_no": "GOODS-MUN-2023-09-015"
+      "contract_no": "GOODS-MUN-2023-09-015",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of LandBank ATM Hub at Pandan Avenue,",
@@ -766,7 +1264,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-09-010",
-      "contract_no": "INFR-MUN-2023-09-010"
+      "contract_no": "INFR-MUN-2023-09-010",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Barangay Road and Drainage Canal at",
@@ -777,7 +1276,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-09-012",
-      "contract_no": "INFR-MUN-2023-09-012"
+      "contract_no": "INFR-MUN-2023-09-012",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Various Roads to Mitigate/Reduce Di",
@@ -788,7 +1288,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-09-013",
-      "contract_no": "INFR-MUN-2023-09-013"
+      "contract_no": "INFR-MUN-2023-09-013",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of One (1) Stop Shop Building Phase 3",
@@ -799,7 +1300,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-09-011",
-      "contract_no": "INFR-MUN-2023-09-011"
+      "contract_no": "INFR-MUN-2023-09-011",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of Covered Drainage Canal along Lawin",
@@ -810,7 +1312,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-08-009",
-      "contract_no": "INFR-MUN-2023-08-009"
+      "contract_no": "INFR-MUN-2023-08-009",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Support to Farmers- Palay Seed Assistance",
@@ -821,7 +1324,8 @@
       "area": "Pangasinan",
       "business_category": "Agricultural Products (Seeds, Seedlings, Plants..)",
       "reference_id": "GOODS-MUN-2023-08-007",
-      "contract_no": "GOODS-MUN-2023-08-007"
+      "contract_no": "GOODS-MUN-2023-08-007",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Support to Farmers- Hybrid Yellow Assistance",
@@ -832,7 +1336,8 @@
       "area": "Pangasinan",
       "business_category": "Agricultural Products (Seeds, Seedlings, Plants..)",
       "reference_id": "GOODS-MUN-2023-08-008",
-      "contract_no": "GOODS-MUN-2023-08-008"
+      "contract_no": "GOODS-MUN-2023-08-008",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Brgy. Road and Drainage Canal at (M",
@@ -843,7 +1348,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-07-005",
-      "contract_no": "INFR-MUN-2023-07-005"
+      "contract_no": "INFR-MUN-2023-07-005",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Multi-Purpose Covered Court at Brgy",
@@ -854,7 +1360,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-07-006",
-      "contract_no": "INFR-MUN-2023-07-006"
+      "contract_no": "INFR-MUN-2023-07-006",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Medicine for the 2nd and 3rd Qua",
@@ -865,7 +1372,8 @@
       "area": "Pangasinan",
       "business_category": "Medical Supplies and Laboratory Instrument",
       "reference_id": "GOODS-MUN-2023-06-004",
-      "contract_no": "GOODS-MUN-2023-06-004"
+      "contract_no": "GOODS-MUN-2023-06-004",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "INFR-MUN-2023-06-003",
@@ -876,7 +1384,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-06-003",
-      "contract_no": "INFR-MUN-2023-06-003"
+      "contract_no": "INFR-MUN-2023-06-003",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of Solar Lights",
@@ -887,7 +1396,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-06-001",
-      "contract_no": "INFR-BRGY-2023-06-001"
+      "contract_no": "INFR-BRGY-2023-06-001",
+      "organization_name": "BARANGAY PIAS, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of Solar Lights",
@@ -898,7 +1408,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-06-001",
-      "contract_no": "INFR-BRGY-2023-06-001"
+      "contract_no": "INFR-BRGY-2023-06-001",
+      "organization_name": "BARANGAY PIAS, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of Solar Lights",
@@ -909,7 +1420,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-06-001",
-      "contract_no": "INFR-BRGY-2023-06-001"
+      "contract_no": "INFR-BRGY-2023-06-001",
+      "organization_name": "BARANGAY PIAS, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of Solar Lights",
@@ -920,7 +1432,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-06-001",
-      "contract_no": "INFR-BRGY-2023-06-001"
+      "contract_no": "INFR-BRGY-2023-06-001",
+      "organization_name": "BARANGAY PIAS, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of Solar Lights",
@@ -931,7 +1444,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-06-001",
-      "contract_no": "INFR-BRGY-2023-06-001"
+      "contract_no": "INFR-BRGY-2023-06-001",
+      "organization_name": "BARANGAY PIAS, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of Solar Lights",
@@ -942,7 +1456,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-06-001",
-      "contract_no": "INFR-BRGY-2023-06-001"
+      "contract_no": "INFR-BRGY-2023-06-001",
+      "organization_name": "BARANGAY PIAS, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of Solar Lights",
@@ -953,7 +1468,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-06-001",
-      "contract_no": "INFR-BRGY-2023-06-001"
+      "contract_no": "INFR-BRGY-2023-06-001",
+      "organization_name": "BARANGAY PIAS, MAPANDAN, PANGASINAN"
     },
     {
       "title": "Honorarium of referees,timekeeper,scorekeeper and barker for 1st Vega's Cup inter-barangay Basketball Tournament 2023",
@@ -964,7 +1480,8 @@
       "area": "Pangasinan",
       "business_category": "Services",
       "reference_id": "09 209522527",
-      "contract_no": "09 209522527"
+      "contract_no": "09 209522527",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Concrete Paving",
@@ -972,10 +1489,11 @@
       "amount": 11481.96,
       "award_date": "2023-06-17",
       "status": "active",
-      "area": "nan",
+      "area": "",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-05-002",
-      "contract_no": "INFR-BRGY-2023-05-002"
+      "contract_no": "INFR-BRGY-2023-05-002",
+      "organization_name": "BARANGAY ASERDA - MAPANDAN, PANGASINAN"
     },
     {
       "title": "Concrete Paving",
@@ -983,10 +1501,11 @@
       "amount": 6706.85,
       "award_date": "2023-06-17",
       "status": "active",
-      "area": "nan",
+      "area": "",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-05-002",
-      "contract_no": "INFR-BRGY-2023-05-002"
+      "contract_no": "INFR-BRGY-2023-05-002",
+      "organization_name": "BARANGAY ASERDA - MAPANDAN, PANGASINAN"
     },
     {
       "title": "Concrete Paving",
@@ -994,10 +1513,11 @@
       "amount": 240957.06,
       "award_date": "2023-06-17",
       "status": "active",
-      "area": "nan",
+      "area": "",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-05-002",
-      "contract_no": "INFR-BRGY-2023-05-002"
+      "contract_no": "INFR-BRGY-2023-05-002",
+      "organization_name": "BARANGAY ASERDA - MAPANDAN, PANGASINAN"
     },
     {
       "title": "Concrete Paving",
@@ -1005,10 +1525,11 @@
       "amount": 40245.37,
       "award_date": "2023-06-17",
       "status": "active",
-      "area": "nan",
+      "area": "",
       "business_category": "Construction Projects",
       "reference_id": "INFR-BRGY-2023-05-002",
-      "contract_no": "INFR-BRGY-2023-05-002"
+      "contract_no": "INFR-BRGY-2023-05-002",
+      "organization_name": "BARANGAY ASERDA - MAPANDAN, PANGASINAN"
     },
     {
       "title": "Rehabilitation of Multi-Purpose Building at Brgy.",
@@ -1019,7 +1540,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2023-04-002",
-      "contract_no": "INFR-MUN-2023-04-002"
+      "contract_no": "INFR-MUN-2023-04-002",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of Motor Vehicle for Agriculture Offic",
@@ -1030,7 +1552,8 @@
       "area": "Pangasinan",
       "business_category": "Vehicles",
       "reference_id": "GOODS-MUN-2023-01-001",
-      "contract_no": "GOODS-MUN-2023-01-001"
+      "contract_no": "GOODS-MUN-2023-01-001",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of 1 unit of Backhoe",
@@ -1041,7 +1564,8 @@
       "area": "Pangasinan",
       "business_category": "Vehicles",
       "reference_id": "GOODS-MUN-2022-12-022",
-      "contract_no": "GOODS-MUN-2022-12-022"
+      "contract_no": "GOODS-MUN-2022-12-022",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Construction of Green House with Hydroponics",
@@ -1052,7 +1576,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2022-12-019",
-      "contract_no": "INFR-MUN-2022-12-019"
+      "contract_no": "INFR-MUN-2022-12-019",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Improvement of Rural Health Unit (RHU)",
@@ -1063,7 +1588,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2022-12-024",
-      "contract_no": "INFR-MUN-2022-12-024"
+      "contract_no": "INFR-MUN-2022-12-024",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Installation of Solar Lights along Pandan Avenue",
@@ -1074,7 +1600,8 @@
       "area": "Pangasinan",
       "business_category": "Construction Projects",
       "reference_id": "INFR-MUN-2022-12-025",
-      "contract_no": "INFR-MUN-2022-12-025"
+      "contract_no": "INFR-MUN-2022-12-025",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Procurement of 17 Water Pump 10hp for Tabacco F",
@@ -1085,7 +1612,8 @@
       "area": "Pangasinan",
       "business_category": "Agricultural Machinery and Equipment",
       "reference_id": "GOODS-MUN-2022-12-020",
-      "contract_no": "GOODS-MUN-2022-12-020"
+      "contract_no": "GOODS-MUN-2022-12-020",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Fabrication/Installation of various Christmas Deco",
@@ -1096,7 +1624,8 @@
       "area": "Pangasinan",
       "business_category": "Arts and Crafts Accessories and Supplies",
       "reference_id": "INFR-MUN-2022-10-01",
-      "contract_no": "INFR-MUN-2022-10-01"
+      "contract_no": "INFR-MUN-2022-10-01",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     },
     {
       "title": "Support to Farmers- Hybrid Yellow Corn Assistance",
@@ -1107,7 +1636,8 @@
       "area": "Pangasinan",
       "business_category": "Agricultural Products (Seeds, Seedlings, Plants..)",
       "reference_id": "GOODS-MUN-2022-10-015",
-      "contract_no": "GOODS-MUN-2022-10-015"
+      "contract_no": "GOODS-MUN-2022-10-015",
+      "organization_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN"
     }
   ]
 }
