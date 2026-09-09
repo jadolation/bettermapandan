@@ -1,4 +1,4 @@
-// Auto-generated from barangays.json — do not edit manually
+// Auto-generated from barangays.json â€” do not edit manually
 var BARANGAY_DATA = [
   {
     "slug": "amanoaoac",

@@ -455,6 +455,27 @@
     "external_title": "Transparency portals & resources",
     "external_desc": "National and provincial platforms for accessing government financial data and audit reports."
   },
+  "procurement": {
+    "eyebrow": "Public Procurement",
+    "title": "Government Contracts & Awards",
+    "total_spend": "Total Contract Value",
+    "contracts": "Contracts",
+    "recent_title": "Recent Procurement Awards",
+    "source_philgeps": "Source: PhilGEPS",
+    "source_aggregator": "Aggregated via: BetterGov.ph",
+    "mode": "Procurement Mode",
+    "status": "Status",
+    "awardee": "Contractor / Awardee",
+    "amount": "Contract Amount",
+    "date": "Award Date",
+    "area": "Area of Delivery",
+    "category": "Category",
+    "ref_no": "Reference No.",
+    "contract_no": "Contract No.",
+    "no_data": "No procurement records found for Mapandan.",
+    "license": "CC0 1.0 Universal",
+    "view_all": "View all contracts"
+  },
   "about": {
     "eyebrow": "About",
     "title": "About Better Mapandan",

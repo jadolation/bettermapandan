@@ -59,6 +59,7 @@
     43. Legislative page .............. Category pills, fiscal cards
     44. Civic contribution hub ........ Segmented control, forms, preview
     45. Accessibility ................. prefers-reduced-motion
+    46. Procurement Ledger ............ Table, status pills, search filter
    ========================================================================== */
 
 :root {
@@ -738,7 +739,29 @@ p {
   color: var(--ink-soft);
   margin: 0;
 }
-
+.section-rice-bg {
+  position: relative;
+  background-image: linear-gradient(rgba(20, 30, 10, 0.55), rgba(20, 30, 10, 0.7)), url('rice-paddy.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* drop this line if you don't want the parallax scroll effect */
+  color: #fff;
+}
+.section-rice-bg .section-eyebrow,
+.section-rice-bg h2,
+.section-rice-bg p {
+  color: #fff;
+}
+.section-rice-bg .card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.section-rice-bg .card .icon,
+.section-rice-bg .card h3,
+.section-rice-bg .card p {
+  color: #fff;
+}
 /* ---------- Cards / grids ---------- */
 
 .grid {
@@ -1257,6 +1280,7 @@ p {
   color: var(--ink-soft);
 }
 
+
 .barangay-modal-overlay {
   position: fixed;
   inset: 0;
@@ -1325,6 +1349,19 @@ p {
   border-top: 1px solid var(--line);
   flex-wrap: wrap;
 }
+.barangay-modal-photo-wrap {
+  margin: -28px -28px 16px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--line);
+}
+.barangay-modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* --- Barangay card punong --- */
 .barangay-card-punong {
@@ -1363,6 +1400,21 @@ p {
   color: var(--ink);
 }
 
+.barangay-card-photo-wrap {
+  margin: -16px -16px 12px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--line);
+}
+.barangay-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.barangay-card:hover .barangay-card-photo { transform: scale(1.04); }
+.barangay-card-no-photo { padding-top: 16px; }
 /* --- Text muted helper --- */
 .text-muted {
   color: var(--ink-soft);
@@ -3178,6 +3230,204 @@ canvas {
   .carousel-slide { transition: none; }
   .civic-toast { transition: none; }
 }
+
+/* ========== Procurement Ledger Cards ========== */
+
+.procurement-ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.procurement-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.procurement-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.procurement-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.procurement-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.procurement-card:hover .procurement-card-image img {
+  transform: scale(1.03);
+}
+
+.procurement-card-content {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.procurement-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.procurement-type {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+}
+
+.procurement-card-content h3 {
+  font-size: 20px;
+  margin: 0;
+  color: var(--green-deep);
+  line-height: 1.3;
+}
+
+.procurement-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.procurement-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.procurement-mode .lucide {
+  flex-shrink: 0;
+  color: var(--ink-faint);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-completed {
+  background: #e2ecda;
+  color: #245a1a;
+}
+
+.status-completed .status-dot {
+  background: #4c8a2e;
+}
+
+.status-ongoing {
+  background: #fef3cd;
+  color: #856404;
+}
+
+.status-ongoing .status-dot {
+  background: #e8a917;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.status-planned {
+  background: #e9f2e3;
+  color: var(--green-deep);
+}
+
+.status-planned .status-dot {
+  background: var(--green-mid);
+}
+
+.procurement-description {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .procurement-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .procurement-card-image {
+    min-height: 200px;
+  }
+  
+  .procurement-card-content {
+    padding: 22px 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .procurement-card-image {
+    min-height: 180px;
+  }
+  
+  .procurement-card-content {
+    padding: 20px;
+  }
+  
+  .procurement-card-content h3 {
+    font-size: 18px;
+  }
+  
+  .procurement-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Alternative: Side-by-side image layout for larger screens */
+@media (min-width: 1200px) {
+  .procurement-card {
+    grid-template-columns: 380px 1fr;
+  }
+  
+  .procurement-card-content {
+    padding: 32px 40px;
+  }
+}
+
 
 /* Service photo container */
 .service-photo-container {

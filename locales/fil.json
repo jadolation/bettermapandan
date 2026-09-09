@@ -455,6 +455,27 @@
     "external_title": "Mga Portal ng Pagiging Transparent at Mapagkukunan",
     "external_desc": "Mga pambansang at probinsyal na platform para sa pag-access sa datos ng pinansyal ng pamahalaan at mga ulat ng audyt."
   },
+  "procurement": {
+    "eyebrow": "Pampublikong Pamimili",
+    "title": "Mga Kontrata at Pagpapahayag ng Pamahalaan",
+    "total_spend": "Kabuuang Halaga ng Kontrata",
+    "contracts": "Mga Kontrata",
+    "recent_title": "Mga Kamakailang Pagpapahayag sa Pamimili",
+    "source_philgeps": "Pinagmulan: PhilGEPS",
+    "source_aggregator": "Naipisan sa pamamagitan ng: BetterGov.ph",
+    "mode": "Paraan ng Pamimili",
+    "status": "Katayuan",
+    "awardee": "Kontratista / Tagapagpatupad",
+    "amount": "Halaga ng Kontrata",
+    "date": "Petsa ng Pagpapahayag",
+    "area": "Lugar ng Paghahatid",
+    "category": "Kategorya",
+    "ref_no": "Reference No.",
+    "contract_no": "Contract No.",
+    "no_data": "Walang nahanap na record ng pamimili para sa Mapandan.",
+    "license": "CC0 1.0 Universal",
+    "view_all": "Tingnan ang lahat ng kontrata"
+  },
   "about": {
     "eyebrow": "Tungkol sa Amin",
     "title": "Tungkol sa Better Mapandan",
