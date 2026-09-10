@@ -22,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install Node dependencies
@@ -30,6 +30,11 @@ jobs:
 
       - name: Build static site
         run: python build.py
+
+      - name: Start local server
+        run: |
+          npx serve . -l 9001 &
+          sleep 3
 
       - name: Run Lighthouse CI
         run: npx @lhci/cli autorun
