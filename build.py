@@ -82,6 +82,13 @@ LANGUAGES = [
 ]
 
 
+def to_folder_index(rel: Path) -> Path:
+    """Convert page.html -> page/index.html, keep index.html as-is."""
+    if rel.name == "index.html":
+        return rel
+    return rel.parent / rel.stem / "index.html"
+
+
 # ---------------------------------------------------------------------------
 # Locale helpers
 # ---------------------------------------------------------------------------
@@ -273,7 +280,10 @@ def _generate_single_service(svc: dict, categories: dict, services: list, templa
     reqs_html = "\n".join(f"            <li>{html.escape(r)}</li>" for r in svc.get("requirements", []))
     proc_html = "\n".join(f"            <li>{html.escape(p)}</li>" for p in svc.get("procedure", []))
     related_html = _build_related_links(svc, services, is_fil)
-    photo_html = _build_photo_html(svc, is_fil)
+
+    svc_slug = svc.get("slug", "unknown")
+    asset_base = compute_asset_base(Path(f"services/{svc_slug}/index.html"), is_fil)
+    photo_html = _build_photo_html(svc, is_fil, asset_base)
 
     filled = fill(template, {
         "NAME": html.escape(svc_name),
@@ -298,9 +308,10 @@ def _generate_single_service(svc: dict, categories: dict, services: list, templa
         **labels,
     })
 
-    svc_slug = svc.get("slug", "unknown")
     hero_meta = _extract_hero_meta(filled)
     return svc_slug, filled, hero_meta
+
+
 
 
 
@@ -357,20 +368,19 @@ def _build_related_links(svc: dict, services: list, is_fil: bool) -> str:
         rel_svc = next((s for s in services if s.get("slug") == rel_slug), None)
         if rel_svc:
             rel_name = rel_svc.get("name_fil", rel_svc.get("name", "Unknown Service")) if is_fil else rel_svc.get("name", "Unknown Service")
-            links.append(f'<a href="{html.escape(rel_slug)}.html">{html.escape(rel_name)}</a>')
+            links.append(f'<a href="/services/{html.escape(rel_slug)}/">{html.escape(rel_name)}</a>')
     return '<div class="service-links">\n' + "\n".join(f"          {link}" for link in links) + "\n        </div>"
 
 
-def _build_photo_html(svc: dict, is_fil: bool) -> str:
+def _build_photo_html(svc: dict, is_fil: bool, asset_base: str) -> str:
     photo_ref = svc.get("photo-referenced", "")
     if not photo_ref:
         return ""
     photo_filename = photo_ref.split("/")[-1]
-    img_prefix = "../" if not is_fil else "../../"
     service_name = html.escape(svc.get("name", ""))
     return f'''
             <figure class="service-photo-container">
-                <img class="service-photo" src="{img_prefix}{photo_ref}" alt="Citizens Charter for {service_name}"
+                <img class="service-photo" src="{asset_base}/{photo_ref}" alt="Citizens Charter for {service_name}"
                     loading="lazy" width="600" height="800"
                     data-fallback="hide">
                 <figcaption class="service-photo-caption">
@@ -440,7 +450,7 @@ def _build_category_service_links(cat_services: list, is_fil: bool) -> list:
         meta_html = _build_service_meta_html(time_html, fee_html)
         service_links.append(
             f'<div class="service-link-wrap">'
-            f'<a class="service-link" href="services/{html.escape(s.get("slug", ""))}.html">{name_html}</a>'
+            f'<a class="service-link" href="/services/{html.escape(s.get("slug", ""))}/">{name_html}</a>'
             f'{meta_html}</div>'
         )
     return service_links
@@ -962,8 +972,17 @@ def generate_sitemap() -> None:
     today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
     base_url = "https://bettermapandan.org"
 
-    en_files = sorted(ROOT.glob("*.html")) + sorted((ROOT / "services").glob("*.html")) + sorted((ROOT / "support").glob("*.html"))
-    fil_files = sorted(FIL_DIR.glob("*.html")) + sorted((FIL_DIR / "services").glob("*.html")) + sorted((FIL_DIR / "support").glob("*.html"))
+    def _is_output_index(path: Path) -> bool:
+        """Check if an index.html is a build output, not a source/template file."""
+        parts = path.parts
+        if any(part in ("src", "node_modules", ".venv", ".git", "__pycache__") for part in parts):
+            return False
+        if path.name != "index.html":
+            return False
+        return True
+
+    en_files = sorted([f for f in ROOT.rglob("index.html") if _is_output_index(f)])
+    fil_files = sorted([f for f in FIL_DIR.rglob("index.html") if _is_output_index(f)]) if FIL_DIR.exists() else []
 
     en_paths = {f.relative_to(ROOT).as_posix() for f in en_files}
     fil_paths = {f.relative_to(FIL_DIR).as_posix() for f in fil_files}
@@ -976,8 +995,20 @@ def generate_sitemap() -> None:
     ]
 
     for path in all_paths:
-        en_url = f"{base_url}/{quote(path, safe='/')}"
-        fil_url = f"{base_url}/fil/{quote(path, safe='/')}"
+        rel = Path(path)
+        folder_path = to_folder_index(rel)
+        if str(folder_path) == "index.html":
+            en_url = f"{base_url}/"
+            fil_url = f"{base_url}/fil/"
+        else:
+            folder_str = quote(str(folder_path.parent), safe="/")
+            if folder_path.parts and folder_path.parts[0] == "fil":
+                en_folder = "/".join(folder_path.parts[1:-1])
+                en_url = f"{base_url}/{en_folder}/" if en_folder else f"{base_url}/"
+                fil_url = f"{base_url}/{folder_str}/"
+            else:
+                en_url = f"{base_url}/{folder_str}/"
+                fil_url = f"{base_url}/fil/{folder_str}/"
         lines.extend([
             "  <url>",
             f"    <loc>{en_url}</loc>",
@@ -1222,30 +1253,44 @@ main().catch(console.error);
 # ---------------------------------------------------------------------------
 
 def compute_asset_base(rel: Path, is_fil: bool) -> str:
-    """Compute the asset base path based on page location and language."""
     depth = len(rel.parts) - 1
-    if is_fil:
-        return "/".join([".."] * (depth + 1)) if depth >= 0 else ".."
-    return "/".join([".."] * depth) if depth > 0 else "."
+    if depth <= 0:
+        return "."
+    return "/".join([".."] * depth)
 
 
 def build_lang_switcher_urls(rel: Path, is_fil: bool) -> tuple[str, str]:
     """Build language switcher URLs for a page."""
-    if is_fil:
-        return "../" + rel.as_posix(), rel.as_posix()
-    return rel.as_posix(), "fil/" + rel.as_posix()
+    clean = to_folder_index(rel)
+    if clean.name == "index.html":
+        folder = "" if not clean.parent or clean.parent == Path(".") else str(clean.parent)
+    else:
+        folder = str(clean.parent / clean.stem)
+    en_path = f"/{folder}/" if folder else "/"
+    fil_path = f"/fil/{folder}/" if folder else "/fil/"
+    return en_path, fil_path
 
 
 def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
     """Build breadcrumb HTML for a page."""
-    depth = len(rel.parts) - 1
+    clean = to_folder_index(rel)
+    depth = len(clean.parts) - 1
     if depth <= 0:
         return ""
-    bc_items = [
-        f'<a href="../index.html">{t(locale, "nav.home", "Home")}</a>',
-        f'<a href="../{rel.parts[0]}.html">{rel.parts[0].replace("-", " ").title()}</a>',
-        f'<span aria-current="page">{page_title}</span>',
-    ]
+    home_href = "../" * depth
+    section_slug = clean.parts[0]
+    if depth == 1:
+        bc_items = [
+            f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
+            f'<span aria-current="page">{section_slug.replace("-", " ").title()}</span>',
+        ]
+    else:
+        section_href = "../" * (depth - 1) + section_slug + "/"
+        bc_items = [
+            f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
+            f'<a href="{section_href}">{section_slug.replace("-", " ").title()}</a>',
+            f'<span aria-current="page">{page_title}</span>',
+        ]
     return '<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb">' + " &rsaquo; ".join(bc_items) + "</nav></div>\n"
 
 
@@ -1822,7 +1867,12 @@ def assemble_page(base: str, asset_base: str, title: str, description: str, head
     """Assemble a complete page from its components."""
     base_url = "https://bettermapandan.org"
     if page_url:
-        canonical = f"{base_url}/{page_url}" if not page_url.startswith("http") else page_url
+        folder_path = to_folder_index(Path(page_url))
+        if folder_path.name == "index.html":
+            parent_name = folder_path.parent.name
+            canonical = f"{base_url}/" if not parent_name else f"{base_url}/{folder_path.parent}/"
+        else:
+            canonical = f"{base_url}/{folder_path}/"
     else:
         canonical = base_url
     return fill(base, {
@@ -1951,7 +2001,7 @@ def _process_static_page(
     page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
 
-    out_path = out_root / rel
+    out_path = out_root / to_folder_index(rel)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(page_html, encoding="utf-8")
     print(f"  [{lang_code.upper()}] built {rel}  ({len(page_html):,} bytes)")
@@ -1990,7 +2040,7 @@ def _process_generated_page(
         header, breadcrumbs + body_content, footer, lang_code, page_url
     )
 
-    out_path = out_root / rel
+    out_path = out_root / to_folder_index(rel)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(page_html, encoding="utf-8")
     print(f"  [{lang_code.upper()}] built {rel}  ({len(page_html):,} bytes)")

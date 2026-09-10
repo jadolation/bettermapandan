@@ -8,7 +8,7 @@ description: Search government services, officials, ordinances, and civic inform
     <span class="eyebrow">Search</span>
     <h1>{{SEARCH_TITLE}}</h1>
     <p class="lede">{{SEARCH_SUBTITLE}}</p>
-    <form class="search-form" role="search" action="search.html" method="get" toolname="search-services" tooldescription="Search for government services, officials, ordinances, and civic information in Mapandan municipality">
+    <form class="search-form" role="search" action="/search/" method="get" toolname="search-services" tooldescription="Search for government services, officials, ordinances, and civic information in Mapandan municipality">
       <label for="search-input" class="sr-only">Search query</label>
       <input id="search-input" class="search-input" type="search" name="q" placeholder="e.g. birth certificate, business permit, zoning..." autocomplete="off" />
       <button class="search-btn" type="submit" aria-label="Search">
@@ -29,8 +29,8 @@ description: Search government services, officials, ordinances, and civic inform
       <h3>No results found</h3>
       <p>Try different keywords or browse our pages directly.</p>
       <div style="margin-top:16px">
-        <a class="btn btn-primary" href="services.html">Browse Services</a>
-        <a class="btn btn-outline" href="government.html">View Government Directory</a>
+        <a class="btn btn-primary" href="/services/">Browse Services</a>
+        <a class="btn btn-outline" href="/government/">View Government Directory</a>
       </div>
     </div>
     <div id="search-browse">
@@ -40,27 +40,27 @@ description: Search government services, officials, ordinances, and civic inform
         <p>Jump to a section or explore popular services.</p>
       </div>
       <div class="search-browse-grid">
-        <a class="search-browse-card" href="services.html">
+        <a class="search-browse-card" href="/services/">
           <div class="search-browse-icon"><i data-lucide="clipboard-list"></i></div>
           <h3>Services</h3>
           <p>Citizen's charter, permits, and certifications.</p>
         </a>
-        <a class="search-browse-card" href="government.html">
+        <a class="search-browse-card" href="/government/">
           <div class="search-browse-icon"><i data-lucide="landmark"></i></div>
           <h3>Government</h3>
           <p>Officials, departments, and barangay directory.</p>
         </a>
-        <a class="search-browse-card" href="legislative.html">
+        <a class="search-browse-card" href="/legislative/">
           <div class="search-browse-icon"><i data-lucide="scale"></i></div>
           <h3>Legislative</h3>
           <p>Ordinances, resolutions, and executive issuances.</p>
         </a>
-        <a class="search-browse-card" href="statistics.html">
+        <a class="search-browse-card" href="/statistics/">
           <div class="search-browse-icon"><i data-lucide="chart-bar"></i></div>
           <h3>Statistics</h3>
           <p>Population, demographics, and fiscal data.</p>
         </a>
-        <a class="search-browse-card" href="transparency.html">
+        <a class="search-browse-card" href="/transparency/">
           <div class="search-browse-icon"><i data-lucide="wallet"></i></div>
           <h3>Transparency</h3>
           <p>Budget, expenditures, and audit reports.</p>
@@ -71,25 +71,25 @@ description: Search government services, officials, ordinances, and civic inform
         <div class="search-category-grid">
           <div class="search-category-card">
             <h4><i data-lucide="clipboard-list"></i> {{SEARCH_POPULAR_BIZ}}</h4>
-            <a href="services/business-permit.html">New Business Permit</a>
-            <a href="services/business-renewal.html">Business Renewal</a>
-            <a href="services/special-event-permit.html">Special Event Permit</a>
+            <a href="/services/business-permit/">New Business Permit</a>
+            <a href="/services/business-renewal/">Business Renewal</a>
+            <a href="/services/special-event-permit/">Special Event Permit</a>
           </div>
           <div class="search-category-card">
             <h4><i data-lucide="scroll-text"></i> {{SEARCH_POPULAR_CIVIL}}</h4>
-            <a href="services/birth-certificate.html">Birth Certificate</a>
-            <a href="services/marriage-license.html">Marriage License</a>
-            <a href="services/death-certificate.html">Death Certificate</a>
+            <a href="/services/birth-certificate/">Birth Certificate</a>
+            <a href="/services/marriage-license/">Marriage License</a>
+            <a href="/services/death-certificate/">Death Certificate</a>
           </div>
           <div class="search-category-card">
             <h4><i data-lucide="heart-pulse"></i> {{SEARCH_POPULAR_HEALTH}}</h4>
-            <a href="services/health-consultation.html">Health Consultation</a>
-            <a href="services/nutrition-immunization.html">Nutrition &amp; Immunization</a>
+            <a href="/services/health-consultation/">Health Consultation</a>
+            <a href="/services/nutrition-immunization/">Nutrition &amp; Immunization</a>
           </div>
           <div class="search-category-card">
             <h4><i data-lucide="id-card"></i> {{SEARCH_POPULAR_WELFARE}}</h4>
-            <a href="services/senior-pwd-id.html">Senior Citizen &amp; PWD ID</a>
-            <a href="services/solo-parent-id.html">Solo Parent ID</a>
+            <a href="/services/senior-pwd-id/">Senior Citizen &amp; PWD ID</a>
+            <a href="/services/solo-parent-id/">Solo Parent ID</a>
           </div>
         </div>
       </div>

@@ -2,811 +2,1619 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://bettermapandan.org/about.html</loc>
+    <loc>https://bettermapandan.org/about/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/about.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/about/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/about/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/government.html</loc>
+    <loc>https://bettermapandan.org/about/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/government.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/government.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/about/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/about/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/index.html</loc>
+    <loc>https://bettermapandan.org/government/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/index.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/government/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/government/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/legislative.html</loc>
+    <loc>https://bettermapandan.org/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/legislative.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/legislative.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/search.html</loc>
+    <loc>https://bettermapandan.org/legislative/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/search.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/search.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/legislative/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/legislative/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services.html</loc>
+    <loc>https://bettermapandan.org/search/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/search/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/search/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/agriculture-subsidy.html</loc>
+    <loc>https://bettermapandan.org/services/agriculture-subsidy/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/agriculture-subsidy.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/agriculture-subsidy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/agriculture-subsidy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/agriculture-subsidy/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/aics.html</loc>
+    <loc>https://bettermapandan.org/services/aics/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/aics.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/aics.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/aics/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/aics/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/animal-anti-rabies.html</loc>
+    <loc>https://bettermapandan.org/services/animal-anti-rabies/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/animal-anti-rabies.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/animal-anti-rabies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/animal-anti-rabies/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/animal-anti-rabies/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-annotations.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-annotations/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-annotations.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-annotations.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-annotations/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-annotations/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-appraisal-titled.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-appraisal-titled/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-appraisal-titled.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-appraisal-titled.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-appraisal-titled/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-appraisal-titled/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-appraisal-untitled.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-appraisal-untitled/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-appraisal-untitled.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-appraisal-untitled.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-appraisal-untitled/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-appraisal-untitled/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-building-appraisal.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-building-appraisal/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-building-appraisal.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-building-appraisal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-building-appraisal/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-building-appraisal/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-certificates.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-certificates/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-certificates.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-certificates.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-certificates/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-certificates/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-declare-missing.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-declare-missing/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-declare-missing.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-declare-missing.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-declare-missing/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-declare-missing/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-declare-undeclared.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-declare-undeclared/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-declare-undeclared.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-declare-undeclared.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-declare-undeclared/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-declare-undeclared/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-improvement-certificate.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-improvement-certificate/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-improvement-certificate.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-improvement-certificate.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-improvement-certificate/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-improvement-certificate/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-inquiries.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-inquiries/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-inquiries.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-inquiries.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-inquiries/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-inquiries/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-landholdings.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-landholdings/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-landholdings.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-landholdings.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-landholdings/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-landholdings/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-reclassification.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-reclassification/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-reclassification.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-reclassification.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-reclassification/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-reclassification/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-tax-map.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-tax-map/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-tax-map.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-tax-map.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-tax-map/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-tax-map/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/assessor-true-copy.html</loc>
+    <loc>https://bettermapandan.org/services/assessor-true-copy/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-true-copy.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-true-copy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-true-copy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-true-copy/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/birth-certificate.html</loc>
+    <loc>https://bettermapandan.org/services/birth-certificate/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/birth-certificate.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/birth-certificate.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/birth-certificate/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/birth-certificate/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/birth-registration.html</loc>
+    <loc>https://bettermapandan.org/services/birth-registration/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/birth-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/birth-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/birth-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/birth-registration/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/building-permit.html</loc>
+    <loc>https://bettermapandan.org/services/building-permit/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/building-permit.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/building-permit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/building-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/building-permit/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/business-permit.html</loc>
+    <loc>https://bettermapandan.org/services/business-permit/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-permit.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-permit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-permit/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/business-renewal.html</loc>
+    <loc>https://bettermapandan.org/services/business-renewal/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-renewal.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-renewal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-renewal/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-renewal/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/business-zoning.html</loc>
+    <loc>https://bettermapandan.org/services/business-zoning/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-zoning.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-zoning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-zoning/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-zoning/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/cattle-registration.html</loc>
+    <loc>https://bettermapandan.org/services/cattle-registration/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cattle-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cattle-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cattle-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cattle-registration/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/cedula.html</loc>
+    <loc>https://bettermapandan.org/services/cedula/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cedula.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cedula.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cedula/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cedula/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/cemetery-payment.html</loc>
+    <loc>https://bettermapandan.org/services/cemetery-payment/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cemetery-payment.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cemetery-payment.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cemetery-payment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cemetery-payment/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/certificate-of-indigency.html</loc>
+    <loc>https://bettermapandan.org/services/certificate-of-indigency/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/certificate-of-indigency.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/certificate-of-indigency.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/certificate-of-indigency/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/certificate-of-indigency/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/cicl-services.html</loc>
+    <loc>https://bettermapandan.org/services/cicl-services/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cicl-services.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cicl-services.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cicl-services/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cicl-services/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/civil-registry-certifications.html</loc>
+    <loc>https://bettermapandan.org/services/civil-registry-certifications/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/civil-registry-certifications.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/civil-registry-certifications.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/civil-registry-certifications/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/civil-registry-certifications/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/court-order-annotation.html</loc>
+    <loc>https://bettermapandan.org/services/court-order-annotation/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/court-order-annotation.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/court-order-annotation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/court-order-annotation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/court-order-annotation/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/crop-protection.html</loc>
+    <loc>https://bettermapandan.org/services/crop-protection/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/crop-protection.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/crop-protection.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/crop-protection/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/crop-protection/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/day-care.html</loc>
+    <loc>https://bettermapandan.org/services/day-care/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/day-care.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/day-care.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/day-care/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/day-care/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/death-certificate.html</loc>
+    <loc>https://bettermapandan.org/services/death-certificate/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/death-certificate.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/death-certificate.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/death-certificate/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/death-certificate/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/death-registration.html</loc>
+    <loc>https://bettermapandan.org/services/death-registration/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/death-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/death-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/death-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/death-registration/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/demolition-permit.html</loc>
+    <loc>https://bettermapandan.org/services/demolition-permit/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/demolition-permit.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/demolition-permit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/demolition-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/demolition-permit/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/disaster-relief.html</loc>
+    <loc>https://bettermapandan.org/services/disaster-relief/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/disaster-relief.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/disaster-relief.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/disaster-relief/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/disaster-relief/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/electrical-permit.html</loc>
+    <loc>https://bettermapandan.org/services/electrical-permit/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/electrical-permit.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/electrical-permit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/electrical-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/electrical-permit/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/electrical-zoning.html</loc>
+    <loc>https://bettermapandan.org/services/electrical-zoning/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/electrical-zoning.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/electrical-zoning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/electrical-zoning/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/electrical-zoning/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/environmental-complaint.html</loc>
+    <loc>https://bettermapandan.org/services/environmental-complaint/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/environmental-complaint.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/environmental-complaint.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/environmental-complaint/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/environmental-complaint/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/family-planning.html</loc>
+    <loc>https://bettermapandan.org/services/family-planning/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/family-planning.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/family-planning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/family-planning/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/family-planning/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/financial-claims-payment.html</loc>
+    <loc>https://bettermapandan.org/services/financial-claims-payment/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/financial-claims-payment.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/financial-claims-payment.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/financial-claims-payment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/financial-claims-payment/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/health-consultation.html</loc>
+    <loc>https://bettermapandan.org/services/health-consultation/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/health-consultation.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/health-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/health-consultation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/health-consultation/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/laboratory.html</loc>
+    <loc>https://bettermapandan.org/services/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/laboratory.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/laboratory.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/land-transfer.html</loc>
+    <loc>https://bettermapandan.org/services/laboratory/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/land-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/land-transfer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/laboratory/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/laboratory/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/ldrrmo-document-request.html</loc>
+    <loc>https://bettermapandan.org/services/land-transfer/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-document-request.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-document-request.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/land-transfer/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/land-transfer/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/ldrrmo-rescue-operation.html</loc>
+    <loc>https://bettermapandan.org/services/ldrrmo-document-request/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-rescue-operation.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-rescue-operation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-document-request/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-document-request/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/ldrrmo-training-seminar.html</loc>
+    <loc>https://bettermapandan.org/services/ldrrmo-rescue-operation/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-training-seminar.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-training-seminar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-rescue-operation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-rescue-operation/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/ldrrmo-transportation.html</loc>
+    <loc>https://bettermapandan.org/services/ldrrmo-training-seminar/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-transportation.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-transportation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-training-seminar/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-training-seminar/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/ldrrmo-walk-in.html</loc>
+    <loc>https://bettermapandan.org/services/ldrrmo-transportation/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-walk-in.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-walk-in.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-transportation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-transportation/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/legal-document-registration.html</loc>
+    <loc>https://bettermapandan.org/services/ldrrmo-walk-in/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/legal-document-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/legal-document-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-walk-in/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-walk-in/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/market-stall-fee.html</loc>
+    <loc>https://bettermapandan.org/services/legal-document-registration/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/market-stall-fee.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/market-stall-fee.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/legal-document-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/legal-document-registration/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/marriage-counseling.html</loc>
+    <loc>https://bettermapandan.org/services/market-stall-fee/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-counseling.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-counseling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/market-stall-fee/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/market-stall-fee/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/marriage-license.html</loc>
+    <loc>https://bettermapandan.org/services/marriage-counseling/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-license.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-license.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-counseling/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-counseling/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/marriage-registration.html</loc>
+    <loc>https://bettermapandan.org/services/marriage-license/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-license/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-license/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/mayors-clearance.html</loc>
+    <loc>https://bettermapandan.org/services/marriage-registration/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mayors-clearance.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mayors-clearance.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-registration/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/mayors-recommendation.html</loc>
+    <loc>https://bettermapandan.org/services/mayors-clearance/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mayors-recommendation.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mayors-recommendation.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mayors-clearance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mayors-clearance/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/mtop.html</loc>
+    <loc>https://bettermapandan.org/services/mayors-recommendation/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mtop.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mtop.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mayors-recommendation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mayors-recommendation/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/name-correction.html</loc>
+    <loc>https://bettermapandan.org/services/mtop/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/name-correction.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/name-correction.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mtop/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mtop/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/nutrition-immunization.html</loc>
+    <loc>https://bettermapandan.org/services/name-correction/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/nutrition-immunization.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/nutrition-immunization.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/name-correction/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/name-correction/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/occupancy-permit.html</loc>
+    <loc>https://bettermapandan.org/services/nutrition-immunization/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/occupancy-permit.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/occupancy-permit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/nutrition-immunization/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/nutrition-immunization/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/osca-death-aid.html</loc>
+    <loc>https://bettermapandan.org/services/occupancy-permit/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/osca-death-aid.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/osca-death-aid.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/occupancy-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/occupancy-permit/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/philhealth-enrollment.html</loc>
+    <loc>https://bettermapandan.org/services/osca-death-aid/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/philhealth-enrollment.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/philhealth-enrollment.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/osca-death-aid/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/osca-death-aid/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/pre-marriage-counseling-pop.html</loc>
+    <loc>https://bettermapandan.org/services/philhealth-enrollment/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pre-marriage-counseling-pop.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pre-marriage-counseling-pop.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/philhealth-enrollment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/philhealth-enrollment/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/pre-natal.html</loc>
+    <loc>https://bettermapandan.org/services/pre-marriage-counseling-pop/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pre-natal.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pre-natal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pre-marriage-counseling-pop/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pre-marriage-counseling-pop/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/professional-tax-receipt.html</loc>
+    <loc>https://bettermapandan.org/services/pre-natal/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/professional-tax-receipt.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/professional-tax-receipt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pre-natal/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pre-natal/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/public-information.html</loc>
+    <loc>https://bettermapandan.org/services/professional-tax-receipt/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/public-information.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/public-information.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/professional-tax-receipt/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/professional-tax-receipt/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/pwd-assistive-devices.html</loc>
+    <loc>https://bettermapandan.org/services/public-information/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pwd-assistive-devices.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pwd-assistive-devices.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/public-information/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/public-information/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/rabies.html</loc>
+    <loc>https://bettermapandan.org/services/pwd-assistive-devices/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/rabies.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/rabies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pwd-assistive-devices/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pwd-assistive-devices/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/rpt-payment.html</loc>
+    <loc>https://bettermapandan.org/services/rabies/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/rpt-payment.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/rpt-payment.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/rabies/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/rabies/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/sanitary-permit.html</loc>
+    <loc>https://bettermapandan.org/services/rpt-payment/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sanitary-permit.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sanitary-permit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/rpt-payment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/rpt-payment/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/sb-certified-copy.html</loc>
+    <loc>https://bettermapandan.org/services/sanitary-permit/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sb-certified-copy.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sb-certified-copy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sanitary-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sanitary-permit/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/sb-financial-assistance.html</loc>
+    <loc>https://bettermapandan.org/services/sb-certified-copy/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sb-financial-assistance.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sb-financial-assistance.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sb-certified-copy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sb-certified-copy/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/scholarship-certification.html</loc>
+    <loc>https://bettermapandan.org/services/sb-financial-assistance/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/scholarship-certification.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/scholarship-certification.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sb-financial-assistance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sb-financial-assistance/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/seed-certification.html</loc>
+    <loc>https://bettermapandan.org/services/scholarship-certification/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/seed-certification.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/seed-certification.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/scholarship-certification/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/scholarship-certification/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/senior-pwd-id.html</loc>
+    <loc>https://bettermapandan.org/services/seed-certification/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/senior-pwd-id.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/senior-pwd-id.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/seed-certification/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/seed-certification/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/social-case-study.html</loc>
+    <loc>https://bettermapandan.org/services/senior-pwd-id/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/social-case-study.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/social-case-study.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/senior-pwd-id/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/senior-pwd-id/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/solemnization-of-marriage.html</loc>
+    <loc>https://bettermapandan.org/services/social-case-study/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/solemnization-of-marriage.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/solemnization-of-marriage.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/social-case-study/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/social-case-study/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/solo-parent-id.html</loc>
+    <loc>https://bettermapandan.org/services/solemnization-of-marriage/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/solo-parent-id.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/solo-parent-id.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/solemnization-of-marriage/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/solemnization-of-marriage/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/special-event-permit.html</loc>
+    <loc>https://bettermapandan.org/services/solo-parent-id/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/special-event-permit.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/special-event-permit.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/solo-parent-id/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/solo-parent-id/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/special-social-services.html</loc>
+    <loc>https://bettermapandan.org/services/special-event-permit/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/special-social-services.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/special-social-services.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/special-event-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/special-event-permit/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/subscription-of-affidavits.html</loc>
+    <loc>https://bettermapandan.org/services/special-social-services/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/subscription-of-affidavits.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/subscription-of-affidavits.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/special-social-services/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/special-social-services/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/tax-clearance.html</loc>
+    <loc>https://bettermapandan.org/services/subscription-of-affidavits/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tax-clearance.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tax-clearance.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/subscription-of-affidavits/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/subscription-of-affidavits/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/tax-declaration.html</loc>
+    <loc>https://bettermapandan.org/services/tax-clearance/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tax-declaration.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tax-declaration.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tax-clearance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tax-clearance/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/tb-dots.html</loc>
+    <loc>https://bettermapandan.org/services/tax-declaration/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tb-dots.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tb-dots.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tax-declaration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tax-declaration/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/women-welfare.html</loc>
+    <loc>https://bettermapandan.org/services/tb-dots/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/women-welfare.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/women-welfare.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tb-dots/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tb-dots/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/youth-organization-registration.html</loc>
+    <loc>https://bettermapandan.org/services/women-welfare/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/youth-organization-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/youth-organization-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/women-welfare/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/women-welfare/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/services/zoning-clearance.html</loc>
+    <loc>https://bettermapandan.org/services/youth-organization-registration/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/zoning-clearance.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/zoning-clearance.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/youth-organization-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/youth-organization-registration/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/statistics.html</loc>
+    <loc>https://bettermapandan.org/services/zoning-clearance/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/statistics.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/statistics.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/zoning-clearance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/zoning-clearance/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/support.html</loc>
+    <loc>https://bettermapandan.org/statistics/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/statistics/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/statistics/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/support/accessibility.html</loc>
+    <loc>https://bettermapandan.org/support/accessibility/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/accessibility.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/accessibility.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/accessibility/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/accessibility/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/support/faq.html</loc>
+    <loc>https://bettermapandan.org/support/faq/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/faq/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/support/privacy.html</loc>
+    <loc>https://bettermapandan.org/support/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/support/report.html</loc>
+    <loc>https://bettermapandan.org/support/privacy/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/report.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/report.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/privacy/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/support/sitemap.html</loc>
+    <loc>https://bettermapandan.org/support/report/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/sitemap.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/sitemap.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/report/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/report/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/support/terms.html</loc>
+    <loc>https://bettermapandan.org/support/sitemap/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/terms.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/sitemap/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/sitemap/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/transparency.html</loc>
+    <loc>https://bettermapandan.org/support/terms/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/transparency.html"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/transparency.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/terms/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/transparency/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/transparency/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/transparency/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/government/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/government/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/government/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/legislative/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/legislative/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/legislative/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/search/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/search/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/search/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/agriculture-subsidy/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/agriculture-subsidy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/agriculture-subsidy/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/aics/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/aics/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/aics/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/animal-anti-rabies/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/animal-anti-rabies/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/animal-anti-rabies/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-annotations/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-annotations/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-annotations/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-appraisal-titled/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-appraisal-titled/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-appraisal-titled/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-appraisal-untitled/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-appraisal-untitled/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-appraisal-untitled/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-building-appraisal/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-building-appraisal/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-building-appraisal/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-certificates/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-certificates/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-certificates/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-declare-missing/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-declare-missing/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-declare-missing/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-declare-undeclared/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-declare-undeclared/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-declare-undeclared/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-improvement-certificate/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-improvement-certificate/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-improvement-certificate/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-inquiries/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-inquiries/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-inquiries/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-landholdings/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-landholdings/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-landholdings/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-reclassification/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-reclassification/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-reclassification/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-tax-map/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-tax-map/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-tax-map/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/assessor-true-copy/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/assessor-true-copy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/assessor-true-copy/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/birth-certificate/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/birth-certificate/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/birth-certificate/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/birth-registration/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/birth-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/birth-registration/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/building-permit/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/building-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/building-permit/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/business-permit/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-permit/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/business-renewal/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-renewal/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-renewal/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/business-zoning/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/business-zoning/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/business-zoning/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/cattle-registration/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cattle-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cattle-registration/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/cedula/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cedula/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cedula/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/cemetery-payment/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cemetery-payment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cemetery-payment/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/certificate-of-indigency/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/certificate-of-indigency/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/certificate-of-indigency/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/cicl-services/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/cicl-services/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/cicl-services/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/civil-registry-certifications/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/civil-registry-certifications/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/civil-registry-certifications/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/court-order-annotation/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/court-order-annotation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/court-order-annotation/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/crop-protection/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/crop-protection/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/crop-protection/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/day-care/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/day-care/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/day-care/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/death-certificate/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/death-certificate/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/death-certificate/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/death-registration/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/death-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/death-registration/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/demolition-permit/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/demolition-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/demolition-permit/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/disaster-relief/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/disaster-relief/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/disaster-relief/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/electrical-permit/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/electrical-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/electrical-permit/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/electrical-zoning/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/electrical-zoning/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/electrical-zoning/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/environmental-complaint/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/environmental-complaint/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/environmental-complaint/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/family-planning/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/family-planning/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/family-planning/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/financial-claims-payment/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/financial-claims-payment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/financial-claims-payment/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/health-consultation/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/health-consultation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/health-consultation/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/laboratory/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/laboratory/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/laboratory/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/land-transfer/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/land-transfer/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/land-transfer/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/ldrrmo-document-request/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-document-request/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-document-request/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/ldrrmo-rescue-operation/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-rescue-operation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-rescue-operation/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/ldrrmo-training-seminar/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-training-seminar/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-training-seminar/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/ldrrmo-transportation/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-transportation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-transportation/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/ldrrmo-walk-in/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/ldrrmo-walk-in/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/ldrrmo-walk-in/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/legal-document-registration/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/legal-document-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/legal-document-registration/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/market-stall-fee/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/market-stall-fee/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/market-stall-fee/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/marriage-counseling/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-counseling/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-counseling/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/marriage-license/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-license/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-license/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/marriage-registration/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/marriage-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/marriage-registration/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/mayors-clearance/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mayors-clearance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mayors-clearance/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/mayors-recommendation/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mayors-recommendation/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mayors-recommendation/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/mtop/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/mtop/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/mtop/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/name-correction/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/name-correction/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/name-correction/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/nutrition-immunization/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/nutrition-immunization/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/nutrition-immunization/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/occupancy-permit/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/occupancy-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/occupancy-permit/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/osca-death-aid/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/osca-death-aid/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/osca-death-aid/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/philhealth-enrollment/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/philhealth-enrollment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/philhealth-enrollment/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/pre-marriage-counseling-pop/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pre-marriage-counseling-pop/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pre-marriage-counseling-pop/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/pre-natal/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pre-natal/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pre-natal/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/professional-tax-receipt/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/professional-tax-receipt/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/professional-tax-receipt/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/public-information/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/public-information/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/public-information/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/pwd-assistive-devices/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/pwd-assistive-devices/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/pwd-assistive-devices/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/rabies/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/rabies/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/rabies/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/rpt-payment/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/rpt-payment/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/rpt-payment/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/sanitary-permit/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sanitary-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sanitary-permit/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/sb-certified-copy/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sb-certified-copy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sb-certified-copy/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/sb-financial-assistance/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/sb-financial-assistance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/sb-financial-assistance/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/scholarship-certification/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/scholarship-certification/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/scholarship-certification/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/seed-certification/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/seed-certification/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/seed-certification/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/senior-pwd-id/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/senior-pwd-id/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/senior-pwd-id/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/social-case-study/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/social-case-study/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/social-case-study/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/solemnization-of-marriage/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/solemnization-of-marriage/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/solemnization-of-marriage/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/solo-parent-id/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/solo-parent-id/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/solo-parent-id/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/special-event-permit/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/special-event-permit/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/special-event-permit/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/special-social-services/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/special-social-services/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/special-social-services/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/subscription-of-affidavits/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/subscription-of-affidavits/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/subscription-of-affidavits/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/tax-clearance/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tax-clearance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tax-clearance/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/tax-declaration/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tax-declaration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tax-declaration/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/tb-dots/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/tb-dots/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/tb-dots/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/women-welfare/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/women-welfare/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/women-welfare/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/youth-organization-registration/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/youth-organization-registration/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/youth-organization-registration/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/services/zoning-clearance/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/services/zoning-clearance/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/services/zoning-clearance/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/statistics/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/statistics/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/statistics/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/support/accessibility/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/accessibility/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/accessibility/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/support/faq/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/faq/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/support/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/support/privacy/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/privacy/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/support/report/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/report/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/report/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/support/sitemap/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/sitemap/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/sitemap/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/support/terms/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/support/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/support/terms/"/>
+  </url>
+  <url>
+    <loc>https://bettermapandan.org/transparency/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/transparency/"/>
+    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/transparency/"/>
   </url>
 </urlset>
