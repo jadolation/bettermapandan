@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", function () {
       thumbWrap.appendChild(thumb);
       card.appendChild(thumbWrap);
     }
-    var h4 = document.createElement("h4");
+    var h4 = document.createElement("div");
     h4.textContent = name;
     card.appendChild(h4);
 
