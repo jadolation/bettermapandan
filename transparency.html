@@ -165,19 +165,20 @@
       </div>
       <div id="category-legend" style="margin-top:16px"></div>
     </div>
-      <div class="table-wrap" style="margin-top:24px">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <strong style="font-size:0.95rem">Results</strong>
-            <span style="font-size:0.95rem">277 &nbsp;|&nbsp; &#8369;470,203,285</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <input type="search" id="procurement-search" placeholder="Search contracts..." aria-label="Search contracts..." style="padding:10px 14px;font-size:0.95rem;border:1.5px solid var(--line);border-radius:var(--radius);min-width:240px">
-            <button class="btn btn-outline" id="procurement-dup-btn" style="padding:10px 14px;font-size:0.95rem">Remove duplicate contracts</button>
-            <button class="btn btn-outline" id="procurement-csv-btn" style="padding:10px 14px;font-size:0.95rem">CSV</button>
-          </div>
+      <div class="procurement-toolbar" style="margin-top:24px">
+        <div class="procurement-toolbar-stats">
+          <span class="stat-label">Results</span>
+          <span class="stat-value">277</span>
+          <span class="stat-divider">&bull;</span>
+          <span class="stat-value">&#8369;470,203,285</span>
         </div>
-      <div style="overflow-x:auto">
+        <div class="procurement-toolbar-actions">
+          <input type="search" id="procurement-search" placeholder="Search contracts..." aria-label="Search contracts...">
+          <button class="btn btn-outline" id="procurement-dup-btn">Remove duplicate contracts</button>
+          <button class="btn btn-outline" id="procurement-csv-btn">CSV</button>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin-top:0">
         <table aria-label="Procurement contracts" id="procurement-table">
           <thead>
             <tr>

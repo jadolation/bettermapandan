@@ -1237,8 +1237,8 @@ def compute_asset_base(rel: Path, is_fil: bool) -> str:
     """Compute the asset base path based on page location and language."""
     depth = len(rel.parts) - 1
     if is_fil:
-        return ".." * (depth + 1) if depth >= 0 else ".."
-    return ".." * depth if depth > 0 else "."
+        return "/".join([".."] * (depth + 1)) if depth >= 0 else ".."
+    return "/".join([".."] * depth) if depth > 0 else "."
 
 
 def build_lang_switcher_urls(rel: Path, is_fil: bool) -> tuple[str, str]:
@@ -1711,19 +1711,20 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'      </div>\n'
         f'      <div id="category-legend" style="margin-top:16px"></div>\n'
         f'    </div>\n'
-        f'      <div class="table-wrap" style="margin-top:24px">\n'
-        f'        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">\n'
-        f'          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">\n'
-        f'            <strong style="font-size:0.95rem">{t(locale, "procurement.results_count", "Results"):}</strong>\n'
-        f'            <span style="font-size:0.95rem">{contract_count:,} &nbsp;|&nbsp; &#8369;{total_amount:,.0f}</span>\n'
-        f'          </div>\n'
-        f'          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">\n'
-        f'            <input type="search" id="procurement-search" placeholder="{search_placeholder}" aria-label="{search_placeholder}" style="padding:10px 14px;font-size:0.95rem;border:1.5px solid var(--line);border-radius:var(--radius);min-width:240px">\n'
-        f'            <button class="btn btn-outline" id="procurement-dup-btn" style="padding:10px 14px;font-size:0.95rem">{remove_duplicates}</button>\n'
-        f'            <button class="btn btn-outline" id="procurement-csv-btn" style="padding:10px 14px;font-size:0.95rem">{download_csv}</button>\n'
-        f'          </div>\n'
+        f'      <div class="procurement-toolbar" style="margin-top:24px">\n'
+        f'        <div class="procurement-toolbar-stats">\n'
+        f'          <span class="stat-label">{t(locale, "procurement.results_count", "Results")}</span>\n'
+        f'          <span class="stat-value">{contract_count:,}</span>\n'
+        f'          <span class="stat-divider">&bull;</span>\n'
+        f'          <span class="stat-value">&#8369;{total_amount:,.0f}</span>\n'
         f'        </div>\n'
-        f'      <div style="overflow-x:auto">\n'
+        f'        <div class="procurement-toolbar-actions">\n'
+        f'          <input type="search" id="procurement-search" placeholder="{search_placeholder}" aria-label="{search_placeholder}">\n'
+        f'          <button class="btn btn-outline" id="procurement-dup-btn">{remove_duplicates}</button>\n'
+        f'          <button class="btn btn-outline" id="procurement-csv-btn">{download_csv}</button>\n'
+        f'        </div>\n'
+        f'      </div>\n'
+        f'      <div class="table-wrap" style="margin-top:0">\n'
         f'        <table aria-label="Procurement contracts" id="procurement-table">\n'
         f'          <thead>\n'
         f'            <tr>\n'

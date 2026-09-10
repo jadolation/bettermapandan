@@ -67,6 +67,7 @@
   --green-bright: #2d6b1f;
   --green-mid: #3a7a28;
   --green-pale: #e2ecda;
+  --green: var(--green-bright);
   --gold: #f0c040;
   --gold-dark: #6b4a00;
   --gold-soft: #f6ecc9;
@@ -346,7 +347,7 @@ p {
 .hero .lede {
   max-width: 56ch;
   font-size: 18px;
-  color: #eaf1e8;
+  color: #f0f4ec;
 }
 
 .hero-actions {
@@ -551,7 +552,7 @@ p {
 }
 
 .page-hero .lede {
-  color: #e4ecdf;
+  color: #f0f4ec;
   margin: 0;
 }
 
@@ -3464,4 +3465,88 @@ canvas {
   color: #666;
   margin-top: 0.5rem;
   font-style: italic;
+}
+
+/* ---------- Procurement toolbar ---------- */
+
+.procurement-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.procurement-toolbar-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.procurement-toolbar-stats .stat-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.procurement-toolbar-stats .stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.procurement-toolbar-stats .stat-divider {
+  color: var(--ink-faint);
+}
+
+.procurement-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.procurement-toolbar-actions input[type="search"] {
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  min-width: 220px;
+  background: var(--paper);
+}
+
+.procurement-toolbar + .table-wrap {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+@media (max-width: 640px) {
+  .procurement-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .procurement-toolbar-stats {
+    justify-content: center;
+  }
+
+  .procurement-toolbar-actions {
+    flex-direction: column;
+  }
+
+  .procurement-toolbar-actions input[type="search"] {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .procurement-toolbar-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
