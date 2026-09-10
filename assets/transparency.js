@@ -120,6 +120,7 @@ window.addEventListener("load", function () {
   var catCtx = document.getElementById("chart-procurement-categories");
   if (catCtx && window.PROCUREMENT_CATEGORIES && window.PROCUREMENT_CATEGORIES.length) {
     var cats = window.PROCUREMENT_CATEGORIES;
+    var catTotal = window.PROCUREMENT_TOTAL || cats.reduce(function (s, d) { return s + d.total; }, 0);
     var catColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9","#16532c","#2d6b1f","#4c8a2e"];
     new Chart(catCtx, {
       type: "doughnut",
@@ -146,10 +147,25 @@ window.addEventListener("load", function () {
             display: true,
             position: "right",
             labels: {
-              boxWidth: 10,
-              padding: 5,
-              font: { size: 13 },
-              color: "#333333"
+              boxWidth: 14,
+              padding: 14,
+              font: { size: 12 },
+              color: "#333333",
+              generateLabels: function (chart) {
+                var data = chart.data;
+                var total = catTotal || data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
+                return data.labels.map(function (label, i) {
+                  var value = data.datasets[0].data[i];
+                  var pct = total > 0 ? ((value / total) * 100).toFixed(1) : "0.0";
+                  var amount = "\u20B1" + value.toLocaleString("en-PH", { maximumFractionDigits: 0 });
+                  return {
+                    text: label + "  " + amount + "  " + pct + "%",
+                    fillStyle: data.datasets[0].backgroundColor[i],
+                    hidden: false,
+                    index: i
+                  };
+                });
+              }
             }
           }
         }

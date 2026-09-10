@@ -1646,6 +1646,19 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         org_totals[org]["count"] += 1
         org_totals[org]["total"] += c.get("amount", 0) or 0
 
+    date_range = ""
+    award_dates = [c.get("award_date", "") for c in contracts if c.get("award_date")]
+    if award_dates:
+        min_date = min(award_dates)
+        max_date = max(award_dates)
+        from datetime import datetime as _dt
+        def _fmt_date(ds):
+            try:
+                return _dt.strptime(ds, "%Y-%m-%d").strftime("%b %Y")
+            except Exception:
+                return ds
+        date_range = f"{_fmt_date(min_date)} \u2013 {_fmt_date(max_date)}"
+
     categories_list = sorted(
         [{"name": k, "total": v} for k, v in cat_totals.items()],
         key=lambda x: x["total"],
@@ -1690,9 +1703,10 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'    <div class="card" style="margin-top:24px">\n'
         f'      <h3>Procurement by Category</h3>\n'
         f'      <p class="source-label" style="margin-top:0">Total spend by business category</p>\n'
+        f'      <p style="margin:4px 0 0;font-size:0.9rem;color:var(--ink-soft)">Total: &#8369;{total_amount:,.0f} &bull; {date_range}</p>\n'
         f'      <div style="display:flex;justify-content:center;margin-top:12px">\n'
-        f'        <div style="width:100%;max-width:680px;position:relative">\n'
-        f'          <canvas id="chart-procurement-categories" height="300" role="img" aria-label="Procurement by business category"></canvas>\n'
+        f'        <div style="width:100%;max-width:960px;position:relative">\n'
+        f'          <canvas id="chart-procurement-categories" height="700" role="img" aria-label="Procurement by business category"></canvas>\n'
         f'        </div>\n'
         f'      </div>\n'
         f'    </div>\n'
@@ -1742,6 +1756,8 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'      window.PROCUREMENT_CONTRACTS = {contracts_json};\n'
         f'      window.PROCUREMENT_CATEGORIES = {categories_json};\n'
         f'      window.PROCUREMENT_ORGS = {orgs_json};\n'
+        f'      window.PROCUREMENT_TOTAL = {total_amount};\n'
+        f'      window.PROCUREMENT_DATE_RANGE = {json.dumps(date_range)};\n'
         f'    </script>\n'
         f'    <style>\n'
         f'      #procurement-table th.sort-asc .sort-indicator::after {{ content: " ▲"; }}\n'
