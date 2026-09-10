@@ -120,7 +120,7 @@ window.addEventListener("load", function () {
   var catCtx = document.getElementById("chart-procurement-categories");
   if (catCtx && window.PROCUREMENT_CATEGORIES && window.PROCUREMENT_CATEGORIES.length) {
     var cats = window.PROCUREMENT_CATEGORIES;
-    var catTotal = window.PROCUREMENT_TOTAL || cats.reduce(function (s, d) { return s + d.total; }, 0);
+    var catTotal = cats.reduce(function (s, d) { return s + d.total; }, 0);
     var catColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9","#16532c","#2d6b1f","#4c8a2e"];
     new Chart(catCtx, {
       type: "doughnut",

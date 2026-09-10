@@ -110,7 +110,7 @@ def main():
         },
         "monthly_trend": monthly_trend,
         "top_awardees": top_awardees,
-        "contracts": records[:100],
+        "contracts": records,
     }
 
     OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False))
