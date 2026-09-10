@@ -1983,7 +1983,8 @@ def _process_static_page(
     lang_code: str, locale: dict, rel: Path, meta: dict, body: str,
     base: str, page_hero_raw: str, out_root: Path, search_entries: list
 ) -> int:
-    asset_base = compute_asset_base(rel, is_fil=(lang_code == "fil"))
+    out_rel = to_folder_index(rel)
+    asset_base = compute_asset_base(out_rel, is_fil=(lang_code == "fil"))
     en_url, fil_url = build_lang_switcher_urls(rel, is_fil=(lang_code == "fil"))
     page_title = meta["title"].split(" —")[0].split(" |")[0].strip()
     breadcrumbs = build_breadcrumbs(locale, rel, page_title)
@@ -2014,7 +2015,8 @@ def _process_generated_page(
     lang_code: str, locale: dict, rel: Path, body_content: str, page_meta: dict, hero_meta: dict,
     base: str, page_hero_raw: str, out_root: Path, search_entries: list
 ) -> int:
-    asset_base = compute_asset_base(rel, is_fil=(lang_code == "fil"))
+    out_rel = to_folder_index(rel)
+    asset_base = compute_asset_base(out_rel, is_fil=(lang_code == "fil"))
     en_url, fil_url = build_lang_switcher_urls(rel, is_fil=(lang_code == "fil"))
     page_title = rel.stem.replace("-", " ").title()
     breadcrumbs = build_breadcrumbs(locale, rel, page_title)
