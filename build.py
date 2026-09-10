@@ -507,7 +507,6 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict, dict]:
 
 
 def _fill_legislative_template(template: str, data: dict, locale: dict, is_fil: bool = False) -> str:
-    category_labels = data.get("category_labels", {})
     fiscal_cards = _build_fiscal_cards(data.get("fiscal", []))
     trend_cards = _build_trend_cards(data.get("legislative_trends", []))
     process_steps = _build_process_steps(data.get("legislative_process", []))

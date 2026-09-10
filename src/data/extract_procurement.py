@@ -15,7 +15,7 @@ def _clean(value):
     try:
         if pd.isna(value):
             return ""
-    except Exception:
+    except (ValueError, TypeError):
         pass
     return str(value)[:200]
 
