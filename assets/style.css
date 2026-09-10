@@ -1496,6 +1496,12 @@ tbody tr:hover {
   background: #faf8f0;
 }
 
+#ordinances-table th.sort-asc .sort-indicator::after,
+#resolutions-table th.sort-asc .sort-indicator::after,
+#executive-table th.sort-asc .sort-indicator::after { content: " ▲"; }
+#ordinances-table th.sort-desc .sort-indicator::after,
+#resolutions-table th.sort-desc .sort-indicator::after,
+#executive-table th.sort-desc .sort-indicator::after { content: " ▼"; }
 .pill {
   display: inline-block;
   font-size: 12px;
@@ -2076,6 +2082,14 @@ tbody tr:hover {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 20px 24px;
+  overflow: hidden;
+}
+.weather-widget {
+  position: relative;
+  min-height: 0;
+}
+.weather-widget canvas {
+  max-height: 220px;
 }
 
 .weather-widget .weather-loading {
@@ -2249,6 +2263,12 @@ canvas {
 
 .card canvas {
   margin-top: 10px;
+}
+
+#chart-procurement-categories {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---------- Verification labels ---------- */

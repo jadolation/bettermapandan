@@ -45,21 +45,26 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
       <h2>{{LEG_ORD_TITLE}}</h2>
       <p>{{LEG_ORD_DESC}}</p>
     </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <input type="search" id="legislative-search" placeholder="Search all tables..." aria-label="Search legislative documents" style="padding:10px 14px;font-size:0.95rem;border:1.5px solid var(--line);border-radius:var(--radius);min-width:240px">
+        <button class="btn btn-outline" id="legislative-csv-btn" style="padding:10px 14px;font-size:0.95rem">CSV</button>
+      </div>
+    </div>
     <div class="table-wrap">
-      <table aria-label="Municipal ordinances">
+      <table aria-label="Municipal ordinances" id="ordinances-table">
         <thead>
           <tr>
-            <th scope="col">{{LEG_ORD_NO}}</th>
-            <th scope="col">{{LEG_ORD_TITLE_COL}}</th>
-            <th scope="col">{{LEG_ORD_DATE}}</th>
-            <th scope="col">{{LEG_ORD_CATEGORY}}</th>
-            <th scope="col">{{LEG_ORD_SP_REVIEW}}</th>
-            <th scope="col">{{LEG_ORD_STATUS}}</th>
-            <th scope="col">{{LEG_ORD_SOURCE}}</th>
+            <th scope="col" data-column="number" style="cursor:pointer">{{LEG_ORD_NO}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="title" style="cursor:pointer">{{LEG_ORD_TITLE_COL}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="date_enacted" style="cursor:pointer">{{LEG_ORD_DATE}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="category" style="cursor:pointer">{{LEG_ORD_CATEGORY}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="sp_review" style="cursor:pointer">{{LEG_ORD_SP_REVIEW}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="status" style="cursor:pointer">{{LEG_ORD_STATUS}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="source_url" style="cursor:pointer">{{LEG_ORD_SOURCE}} <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody>
-          {{ORDINANCES_ROWS}}
         </tbody>
       </table>
     </div>
@@ -74,18 +79,17 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
       <p>{{LEG_RES_DESC}}</p>
     </div>
     <div class="table-wrap">
-      <table aria-label="Municipal resolutions">
+      <table aria-label="Municipal resolutions" id="resolutions-table">
         <thead>
           <tr>
-            <th scope="col">{{LEG_RES_NO}}</th>
-            <th scope="col">{{LEG_RES_TITLE_COL}}</th>
-            <th scope="col">{{LEG_RES_DATE}}</th>
-            <th scope="col">{{LEG_RES_FISCAL}}</th>
-            <th scope="col">{{LEG_RES_SOURCE}}</th>
+            <th scope="col" data-column="number" style="cursor:pointer">{{LEG_RES_NO}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="title" style="cursor:pointer">{{LEG_RES_TITLE_COL}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="date_approved" style="cursor:pointer">{{LEG_RES_DATE}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="fiscal_value" style="cursor:pointer">{{LEG_RES_FISCAL}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="source_url" style="cursor:pointer">{{LEG_RES_SOURCE}} <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody>
-          {{RESOLUTIONS_ROWS}}
         </tbody>
       </table>
     </div>
@@ -100,19 +104,26 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
       <p>{{LEG_EXEC_DESC}}</p>
     </div>
     <div class="table-wrap">
-      <table aria-label="Executive issuances">
+      <table aria-label="Executive issuances" id="executive-table">
         <thead>
           <tr>
-            <th scope="col">{{LEG_EXEC_NAME}}</th>
-            <th scope="col">{{LEG_EXEC_DATE}}</th>
-            <th scope="col">{{LEG_EXEC_AUTHORITY}}</th>
-            <th scope="col">{{LEG_EXEC_DESC_COL}}</th>
+            <th scope="col" data-column="title" style="cursor:pointer">{{LEG_EXEC_NAME}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="date" style="cursor:pointer">{{LEG_EXEC_DATE}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="authority" style="cursor:pointer">{{LEG_EXEC_AUTHORITY}} <span class="sort-indicator"></span></th>
+            <th scope="col" data-column="description" style="cursor:pointer">{{LEG_EXEC_DESC_COL}} <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody>
-          {{EXECUTIVE_ROWS}}
         </tbody>
       </table>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px;flex-wrap:wrap">
+      <span class="source-label" id="legislative-page-info">Showing 1-20 of 0</span>
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap" id="legislative-pagination">
+        <button class="btn btn-outline" data-page="prev" style="padding:10px 14px;font-size:0.95rem">&laquo; Prev</button>
+        <span class="source-label" id="legislative-page-indicator">1 / 1</span>
+        <button class="btn btn-outline" data-page="next" style="padding:10px 14px;font-size:0.95rem">Next &raquo;</button>
+      </div>
     </div>
   </div>
 </section>
@@ -127,6 +138,27 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
     <div class="grid grid-2">
       {{FISCAL_CARDS}}
     </div>
+    <div class="grid grid-2" style="margin-top:24px">
+      <div class="card">
+        <h3>Ordinance Categories</h3>
+        <p class="source-label" style="margin-top:0">Breakdown by category</p>
+        <canvas id="chart-legislative-categories" height="220" role="img" aria-label="Ordinance categories"></canvas>
+      </div>
+      <div class="card">
+        <h3>Revenue vs Expenditure</h3>
+        <p class="source-label" style="margin-top:0">BLGF fiscal data 2020–2025</p>
+        <canvas id="chart-blgf-trend" height="220" role="img" aria-label="Revenue vs expenditure trend"></canvas>
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top:24px">
+      <h3>Budget Growth</h3>
+      <p class="source-label" style="margin-top:0">Annual budget growth 2020–2026</p>
+      <canvas id="chart-budget-growth" height="220" role="img" aria-label="Budget growth chart"></canvas>
+    </div>
+    <script>window.LEGISLATIVE_ORDINANCES = {{LEGISLATIVE_ORDINANCES_JSON}};</script>
+    <script>window.LEGISLATIVE_RESOLUTIONS = {{LEGISLATIVE_RESOLUTIONS_JSON}};</script>
+    <script>window.LEGISLATIVE_EXECUTIVE = {{LEGISLATIVE_EXECUTIVE_JSON}};</script>
+    <script>window.LEGISLATIVE_CHARTS = {{LEGISLATIVE_CHARTS_JSON}};</script>
     <div class="cta-row" style="margin-top:24px">
       <a class="btn btn-outline" href="transparency.html">View detailed fiscal data &rarr;</a>
     </div>
@@ -178,3 +210,5 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
     </div>
   </div>
 </section>
+
+<script src="{{ASSET_BASE}}/assets/legislative.js"></script>

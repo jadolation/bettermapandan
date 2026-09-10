@@ -114,6 +114,36 @@ window.addEventListener("load", function () {
     });
   }
 
+
+  // Barangay Population Comparison (2020 vs 2024)
+  var brgyCompCtx = document.getElementById("chart-barangay-comparison");
+  if (brgyCompCtx && typeof BARANGAY_COMPARISON !== "undefined") {
+    new Chart(brgyCompCtx, {
+      type: "bar",
+      data: {
+        labels: BARANGAY_COMPARISON.names,
+        datasets: [
+          {
+            label: "2020",
+            data: BARANGAY_COMPARISON.pop2020,
+            backgroundColor: green
+          },
+          {
+            label: "2024",
+            data: BARANGAY_COMPARISON.pop2024,
+            backgroundColor: "#7cb342"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        indexAxis: "y",
+        plugins: { legend: { display: true } },
+        scales: { x: { beginAtZero: true } }
+      }
+    });
+  }
+
   // --- Make table rows clickable without showing the URL ---
   document.querySelectorAll('.clickable-row').forEach(function(row) {
     row.addEventListener('click', function(e) {

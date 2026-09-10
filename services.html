@@ -331,6 +331,38 @@
   </div>
 </section>
 
+<script>window.SERVICES_ANALYTICS = {"categories": {"agriculture": 5, "social-welfare": 7, "civil-registry": 10, "building-engineering": 5, "business-permitting": 3, "real-property": 23, "health": 8, "social-assistance": 11, "zoning": 3, "mayors-office": 4, "disaster-risk-reduction": 5, "youth-development": 1, "environment": 1}, "offices": {"Municipal Agriculture Office (MAO)": 1, "Municipal Social Welfare and Development Office (MSWDO)": 13, "Municipal Civil Registrar (MCR)": 10, "Municipal Engineering Office (MEO)": 2, "Business Permit and Licensing Office (BPLO)": 2, "Municipal Treasury Office (MTO)": 2, "Municipal Health Office (MHO / RHU)": 1, "Municipal Assessor's Office (MASSO)": 15, "Rural Health Unit (RHU)": 7, "MSWDO + MCR": 1, "Municipal Treasurer’s Office (MTO) + Mayor’s Office": 1, "Municipal Planning and Development Office (MPDC) / Zoning Office": 3, "Municipal Planning and Development Office (MPDC)": 1, "Office of the Sangguniang Bayan / Vice Mayor": 1, "Office of the Sangguniang Bayan": 1, "Municipal Treasurer's Office": 7, "Municipal Agriculturist Office (MAO)": 3, "Municipal Engineer's Office": 2, "Office of the Municipal Mayor": 4, "Municipal Disaster Risk Reduction and Management Office (MDRRMO)": 5, "Local Youth Development Office (LYDO)": 1, "Municipal Environment and Natural Resources Office (MENRO)": 1, "Municipal Population Office": 2}, "classifications": {"Simple": 83, "Complex": 3}, "delivery_modes": {"in-person": 86}, "fees": {"free": 38, "paid": 48, "average": 328.12}};</script>
+
+<script defer src="./assets/services.js"></script>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Service Analytics</div>
+      <h2>Services at a Glance</h2>
+      <p>Breakdown of services by category, office, classification, and delivery mode.</p>
+    </div>
+    <div class="grid grid-2 stack-gap-lg">
+      <div class="card">
+        <h3>Services by Category</h3>
+        <p class="source-label" style="margin-top:0">Number of services in each category</p>
+        <canvas id="chart-services-categories" height="260" role="img" aria-label="Services by category"></canvas>
+      </div>
+      <div class="card">
+        <h3>Services by Office</h3>
+        <p class="source-label" style="margin-top:0">Number of services handled by each office</p>
+        <canvas id="chart-services-offices" height="260" role="img" aria-label="Services by office"></canvas>
+      </div>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h3>Fees at a Glance</h3>
+      <p class="source-label" style="margin-top:0">Average fee for paid services</p>
+      <div id="services-fees-summary" style="display:flex;gap:32px;flex-wrap:wrap;align-items:center;padding:8px 0">
+      </div>
+    </div>
+  </div>
+</section>
+
 <script defer src="./assets/service-filter.js"></script>
 
 <section class="section">

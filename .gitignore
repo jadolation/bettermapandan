@@ -23,3 +23,9 @@ lhci-reports/
 .DS_Store
 Thumbs.db
 .venv/
+
+# Parquet datasets
+datasets/**/*.parquet
+
+__pycache__/
+.kilo/

@@ -169,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
           html += '</div>';
         }
         html += '</div>';
+        html += '<div style="position:relative;height:180px;width:100%;margin-top:16px"><canvas id="chart-weather-forecast"></canvas></div>';
 
         // Footer: timestamp + attribution
         html += '<div class="weather-footer">';
@@ -178,6 +179,102 @@ document.addEventListener("DOMContentLoaded", function () {
 
         weatherEl.innerHTML = html;
         if (typeof lucide !== "undefined") lucide.createIcons({ nodes: [weatherEl] });
+
+        var chartCanvas = document.getElementById("chart-weather-forecast");
+        if (chartCanvas && typeof Chart !== "undefined") {
+          try {
+            var chartLabels = [];
+            var minData = [];
+            var maxData = [];
+            var precipData = [];
+            for (var j = 0; j < WEATHER.days; j++) {
+              var cd = new Date(daily.time[j]);
+              chartLabels.push(j === 0 ? "Today" : dayNames[cd.getDay()]);
+              minData.push(Math.round(daily.temperature_2m_min[j]));
+              maxData.push(Math.round(daily.temperature_2m_max[j]));
+              precipData.push(daily.precipitation_probability_max ? daily.precipitation_probability_max[j] : 0);
+            }
+            new Chart(chartCanvas, {
+              type: "bar",
+              data: {
+                labels: chartLabels,
+                datasets: [
+                  {
+                    label: "Min Temp",
+                    data: minData,
+                    backgroundColor: "rgba(59,130,246,0.7)",
+                    borderColor: "rgba(59,130,246,1)",
+                    borderWidth: 1,
+                    borderRadius: 3
+                  },
+                  {
+                    label: "Max Temp",
+                    data: maxData,
+                    backgroundColor: "rgba(239,68,68,0.7)",
+                    borderColor: "rgba(239,68,68,1)",
+                    borderWidth: 1,
+                    borderRadius: 3
+                  },
+                  {
+                    label: "Rain chance",
+                    data: precipData,
+                    backgroundColor: "rgba(59,130,246,0.3)",
+                    borderColor: "rgba(59,130,246,0.5)",
+                    borderWidth: 1,
+                    borderRadius: 3,
+                    yAxisID: "y1"
+                  }
+                ]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                  legend: {
+                    display: true,
+                    labels: {
+                      color: "#4a5749"
+                    }
+                  }
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      color: "#4a5749",
+                      callback: function(value) { return value + "°C"; }
+                    },
+                    grid: {
+                      color: "#e3dfcf"
+                    }
+                  },
+                  y1: {
+                    position: "right",
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                      color: "#4a5749",
+                      callback: function(value) { return value + "%"; }
+                    },
+                    grid: {
+                      display: false
+                    }
+                  },
+                  x: {
+                    ticks: {
+                      color: "#4a5749"
+                    },
+                    grid: {
+                      display: false
+                    }
+                  }
+                }
+              }
+            });
+          } catch (e) {
+            console.warn("Weather chart initialization failed:", e);
+          }
+        }
       })
       .catch(function (err) {
         clearTimeout(timeout);

@@ -421,6 +421,11 @@
       </table>
       <button class="report-btn" data-download="barangay">Download CSV</button>
     </div>
+    <div class="card" aria-live="polite">
+      <h3>Barangay Population Comparison</h3>
+      <p style="margin-top:0; color: var(--muted); font-size: 0.9rem;">2020 vs 2024</p>
+      <canvas id="chart-barangay-comparison" height="300" role="img" aria-label="Barangay population comparison: 2020 vs 2024 for all 15 barangays"></canvas>
+    </div>
   </div>
 </section>
 
@@ -446,6 +451,8 @@
     </div>
   </div>
 </section>
+
+<script>window.BARANGAY_COMPARISON = {"names": ["Pias", "Poblacion", "Baloling", "Nilombot", "Torres", "Luyan (Luyan South)", "Jimenez", "Primicias", "Amanoaoac", "Lambayan", "Apaya", "Aserda", "Coral", "Golden", "Sta. Maria (Luyan North)"], "pop2020": [4699, 3622, 4393, 4411, 3112, 3730, 1995, 2071, 1636, 1756, 1467, 1108, 1389, 1399, 1270], "pop2024": [4827, 3509, 4238, 4199, 3061, 3344, 2008, 2218, 1656, 1682, 1650, 1414, 1405, 1432, 1585], "growth": [2.72, -3.12, -3.53, -4.81, -1.64, -10.35, 0.65, 7.1, 1.22, -4.21, 12.47, 27.62, 1.15, 2.36, 24.8]};</script>
 
 <script defer src="./assets/stats.js"></script>
 </main>

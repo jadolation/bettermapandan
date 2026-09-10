@@ -30,6 +30,7 @@ import json
 import re
 import shutil
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -199,6 +200,9 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
     except KeyError as e:
         raise SystemExit(f"ERROR: Category missing 'slug' field in {data_path}: {e}")
 
+    analytics = _build_services_analytics(services, categories)
+    analytics_json = json.dumps(analytics, ensure_ascii=False)
+
     by_category: dict[str, list[dict]] = {}
     for svc in services:
         by_category.setdefault(svc.get("category", ""), []).append(svc)
@@ -221,7 +225,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
     dir_filled, dir_hero_meta = _generate_services_directory(
-        data, by_category, dir_template, svc_labels, is_fil, asset_base="."
+        data, by_category, dir_template, svc_labels, is_fil, asset_base=".", analytics_json=analytics_json
     )
     pages["services.html"] = dir_filled
     meta["services.html"] = {
@@ -299,6 +303,51 @@ def _generate_single_service(svc: dict, categories: dict, services: list, templa
     return svc_slug, filled, hero_meta
 
 
+
+def _build_services_analytics(services: list, categories: dict) -> dict:
+    import re
+    cat_slugs = [svc.get("category", "") for svc in services]
+    categories_count = dict(Counter(cat_slugs))
+
+    office_count = dict(Counter(svc.get("office", "Unknown") for svc in services))
+
+    simple = sum(1 for svc in services if svc.get("classification") == "Simple")
+    complex_count = sum(1 for svc in services if svc.get("classification") in ("Complex", "Highly Technical"))
+    classifications = {"Simple": simple, "Complex": complex_count}
+
+    delivery_modes = dict(Counter(svc.get("delivery_mode", "in-person") for svc in services))
+
+    fee_count_free = 0
+    fee_amounts = []
+    for svc in services:
+        fee = svc.get("fee", "")
+        fee_lower = fee.lower()
+        if fee_lower.startswith("free"):
+            fee_count_free += 1
+        else:
+            m = re.search(r"[\u20B1Pp]?\s*([\d,]+(?:\s*[-–]\s*[\d,]+)?)", fee)
+            if m:
+                raw = m.group(1)
+                nums = [int(p.replace(",", "")) for p in re.split(r"\s*[-–]\s*", raw) if p.strip().isdigit()]
+                if nums:
+                    fee_amounts.append(sum(nums) / len(nums))
+    fees_free = fee_count_free
+    fees_paid = len(services) - fee_count_free
+    fees_average = round(sum(fee_amounts) / len(fee_amounts), 2) if fee_amounts else 0.0
+
+    return {
+        "categories": categories_count,
+        "offices": office_count,
+        "classifications": classifications,
+        "delivery_modes": delivery_modes,
+        "fees": {
+            "free": fees_free,
+            "paid": fees_paid,
+            "average": fees_average,
+        },
+    }
+
+
 def _build_related_links(svc: dict, services: list, is_fil: bool) -> str:
     related = svc.get("related", [])
     if not related:
@@ -330,7 +379,7 @@ def _build_photo_html(svc: dict, is_fil: bool) -> str:
             </figure>'''
 
 
-def _generate_services_directory(data: dict, by_category: dict, template: str, labels: dict, is_fil: bool, asset_base: str = "."):
+def _generate_services_directory(data: dict, by_category: dict, template: str, labels: dict, is_fil: bool, asset_base: str = ".", analytics_json: str = ""):
     category_cards = []
     for cat in data.get("categories", []):
         cat_services = by_category.get(cat.get("slug", ""), [])
@@ -354,6 +403,10 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
     dir_filled = fill(template, {
         "ASSET_BASE": asset_base,
         "CATEGORY_CARDS": "\n".join(category_cards),
+        "SERVICES_ANALYTICS_SCRIPT": (
+            f"<script>window.SERVICES_ANALYTICS = {analytics_json};</script>"
+            if analytics_json else ""
+        ),
         "SVC_TITLE": t(labels, "services_dir.title", "Services"),
         "SVC_EYEBROW": t(labels, "services_dir.eyebrow", "Citizen's Charter"),
         "SVC_LEDE": t(labels, "services_dir.lede", "Every service Mapandan offers."),
@@ -446,35 +499,40 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict, dict]:
     except json.JSONDecodeError as e:
         raise SystemExit(f"ERROR: Malformed JSON in {data_path}: {e}")
 
-    filled = _fill_legislative_template(template, data, locale)
+    filled = _fill_legislative_template(template, data, locale, is_fil)
     return filled, {
         "title": t(locale, "legislative.ord_title", "Municipal ordinances") + " — BetterMapandan.org",
         "description": t(locale, "legislative.ord_desc", "Ordinances, resolutions, and executive issuances for the Municipality of Mapandan."),
     }, hero_meta
 
 
-def _fill_legislative_template(template: str, data: dict, locale: dict) -> str:
+def _fill_legislative_template(template: str, data: dict, locale: dict, is_fil: bool = False) -> str:
     category_labels = data.get("category_labels", {})
-    ord_rows = _build_ordinance_rows(data.get("ordinances", []), category_labels)
-    res_rows = _build_resolution_rows(data.get("resolutions", []))
-    exec_rows = _build_executive_rows(data.get("executive_issuances", []))
     fiscal_cards = _build_fiscal_cards(data.get("fiscal", []))
     trend_cards = _build_trend_cards(data.get("legislative_trends", []))
     process_steps = _build_process_steps(data.get("legislative_process", []))
+    chart_data = _build_chart_data(data)
+    chart_json = json.dumps(chart_data, ensure_ascii=False)
+    ord_json = json.dumps(data.get("ordinances", []), ensure_ascii=False)
+    res_json = json.dumps(data.get("resolutions", []), ensure_ascii=False)
+    exec_json = json.dumps(data.get("executive_issuances", []), ensure_ascii=False)
 
     gw = data.get("governance_framework", {})
+    asset_base = ".." if is_fil else "."
 
     return fill(template, {
+        "ASSET_BASE": asset_base,
         "HISTORY": gw.get("history", ""),
         "MUNICIPAL_CLASS": gw.get("municipal_class", ""),
         "LAND_AREA": gw.get("land_area", ""),
         "BARANGAYS": str(gw.get("barangays", "")),
-        "ORDINANCES_ROWS": "\n          ".join(ord_rows),
-        "RESOLUTIONS_ROWS": "\n          ".join(res_rows),
-        "EXECUTIVE_ROWS": "\n          ".join(exec_rows),
         "FISCAL_CARDS": "\n      ".join(fiscal_cards),
         "TRENDS_CARDS": "\n      ".join(trend_cards),
         "PROCESS_STEPS": "\n      ".join(process_steps),
+        "LEGISLATIVE_ORDINANCES_JSON": ord_json,
+        "LEGISLATIVE_RESOLUTIONS_JSON": res_json,
+        "LEGISLATIVE_EXECUTIVE_JSON": exec_json,
+        "LEGISLATIVE_CHARTS_JSON": chart_json,
         ** _build_legislative_labels(locale),
     })
 
@@ -631,6 +689,22 @@ def _build_process_steps(process_list: list) -> list:
     return steps
 
 
+
+def _build_chart_data(data: dict) -> dict:
+    ordinances = data.get("ordinances", [])
+    cat_counts = dict(Counter(o.get("category", "other") for o in ordinances))
+    blgf = data.get("blgf_fiscal_data", [])
+    annual_budgets = [b for b in data.get("fiscal", []) if b.get("type") == "annual_budget"]
+    budget = []
+    for b in annual_budgets:
+        year = None
+        period = b.get("period", "")
+        m = re.search(r"20\d{2}", period)
+        if m:
+            year = int(m.group())
+        budget.append({"year": year, "amount": b.get("amount")})
+    return {"categories": cat_counts, "blgf": blgf, "budget": budget}
+
 def _format_fiscal_value(value, decimals=0) -> str:
     if value is None:
         return "—"
@@ -723,6 +797,51 @@ def generate_barangays() -> None:
 
 
 # ---------------------------------------------------------------------------
+def build_barangay_comparison_script() -> str:
+    data_path = SRC_DATA / "barangays.json"
+    try:
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"ERROR: Malformed JSON in {data_path}: {e}")
+    barangays = data.get("barangays", [])
+
+    desired_order = [
+        "Pias", "Poblacion", "Baloling", "Nilombot", "Torres",
+        "Luyan", "Jimenez", "Primicias", "Amanoaoac", "Lambayan",
+        "Apaya", "Aserda", "Coral", "Golden", "Sta. Maria"
+    ]
+    brgy_map = {b.get("name", ""): b for b in barangays}
+
+    names = []
+    pop2020 = []
+    pop2024 = []
+    growth = []
+
+    for name in desired_order:
+        b = brgy_map.get(name)
+        if not b:
+            b = next((v for k, v in brgy_map.items() if k.startswith(name)), None)
+        if not b:
+            continue
+        names.append(b.get("name", ""))
+        p20 = b.get("pop2020", "0")
+        p24 = b.get("pop2024", "0")
+        v20 = int(p20.replace(",", "")) if p20 else 0
+        v24 = int(p24.replace(",", "")) if p24 else 0
+        pop2020.append(v20)
+        pop2024.append(v24)
+        g = round((v24 - v20) / v20 * 100, 2) if v20 else 0.0
+        growth.append(g)
+
+    comparison_data = {
+        "names": names,
+        "pop2020": pop2020,
+        "pop2024": pop2024,
+        "growth": growth,
+    }
+    return f"<script>window.BARANGAY_COMPARISON = {json.dumps(comparison_data, ensure_ascii=False)};</script>\n"
+
+
 # Translation linter
 # ---------------------------------------------------------------------------
 
@@ -1517,6 +1636,30 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
     awardees_json = json.dumps(top_awardees, ensure_ascii=False)
     contracts_json = json.dumps(contracts, ensure_ascii=False)
 
+    cat_totals = {}
+    org_totals = {}
+    for c in contracts:
+        cat = c.get("business_category", "Other") or "Other"
+        cat_totals[cat] = cat_totals.get(cat, 0.0) + (c.get("amount", 0) or 0)
+        org = c.get("organization_name", "Unknown") or "Unknown"
+        if org not in org_totals:
+            org_totals[org] = {"count": 0, "total": 0.0}
+        org_totals[org]["count"] += 1
+        org_totals[org]["total"] += c.get("amount", 0) or 0
+
+    categories_list = sorted(
+        [{"name": k, "total": v} for k, v in cat_totals.items()],
+        key=lambda x: x["total"],
+        reverse=True,
+    )
+    orgs_list = sorted(
+        [{"name": k, "count": v["count"], "total": v["total"]} for k, v in org_totals.items()],
+        key=lambda x: x["total"],
+        reverse=True,
+    )
+    categories_json = json.dumps(categories_list, ensure_ascii=False)
+    orgs_json = json.dumps(orgs_list, ensure_ascii=False)
+
     search_placeholder = t(locale, "procurement.search_placeholder", "Search contracts...")
     showing_x_of_y = t(locale, "procurement.showing_x_of_y", "Showing 1-20 of {n}").replace("{n}", str(contract_count))
     download_csv = t(locale, "procurement.download_csv", "CSV")
@@ -1543,6 +1686,15 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'        <h3>{t(locale, "procurement.top_awardees_title", "")}</h3>\n'
         f'        <p class="source-label" style="margin-top:0">{t(locale, "procurement.top_awardees_desc", "")}</p>\n'
         f'        <canvas id="chart-procurement-awardees" height="220" role="img" aria-label="Top 10 awardees"></canvas>\n'
+        f'      </div>\n'
+        f'    </div>\n'
+        f'    <div class="card" style="margin-top:24px">\n'
+        f'      <h3>Procurement by Category</h3>\n'
+        f'      <p class="source-label" style="margin-top:0">Total spend by business category</p>\n'
+        f'      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:12px">\n'
+        f'        <div style="flex:1;min-width:300px;max-width:420px;position:relative">\n'
+        f'          <canvas id="chart-procurement-categories" height="280" role="img" aria-label="Procurement by business category"></canvas>\n'
+        f'        </div>\n'
         f'      </div>\n'
         f'    </div>\n'
         f'      <div class="table-wrap" style="margin-top:24px">\n'
@@ -1589,6 +1741,8 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'    <script>\n'
         f'      window.PROCUREMENT_DATA = {{ monthly: {monthly_json}, awardees: {awardees_json} }};\n'
         f'      window.PROCUREMENT_CONTRACTS = {contracts_json};\n'
+        f'      window.PROCUREMENT_CATEGORIES = {categories_json};\n'
+        f'      window.PROCUREMENT_ORGS = {orgs_json};\n'
         f'    </script>\n'
         f'    <style>\n'
         f'      #procurement-table th.sort-asc .sort-indicator::after {{ content: " ▲"; }}\n'
@@ -1742,6 +1896,10 @@ def _process_static_page(
     if rel.name == "transparency.html":
         proc_html, _, _ = generate_procurement(locale)
         body = body.replace(hero_html, hero_html + "\n" + proc_html, 1)
+    if rel.name == "statistics.html":
+        comparison_script = build_barangay_comparison_script()
+        stats_js_tag = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        body = body.replace(stats_js_tag, comparison_script + "\n" + stats_js_tag)
     page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
 

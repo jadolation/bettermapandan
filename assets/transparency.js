@@ -117,6 +117,42 @@ window.addEventListener("load", function () {
     });
   }
 
+  var catCtx = document.getElementById("chart-procurement-categories");
+  if (catCtx && window.PROCUREMENT_CATEGORIES && window.PROCUREMENT_CATEGORIES.length) {
+    var cats = window.PROCUREMENT_CATEGORIES;
+    var catColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9","#16532c","#2d6b1f","#4c8a2e"];
+    new Chart(catCtx, {
+      type: "doughnut",
+      data: {
+        labels: cats.map(function (d) { return d.name; }),
+        datasets: [{
+          data: cats.map(function (d) { return d.total; }),
+          backgroundColor: cats.map(function (_, i) {
+            return catColors[i % catColors.length];
+          }),
+          borderColor: "#fff",
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            display: true,
+            position: "right",
+            labels: {
+              boxWidth: 14,
+              padding: 10,
+              font: { size: 12 },
+              color: "#333333"
+            }
+          }
+        }
+      }
+    });
+  }
+
   // --- Make table rows clickable without showing the URL ---
   document.querySelectorAll('.clickable-row').forEach(function(row) {
     row.addEventListener('click', function(e) {
