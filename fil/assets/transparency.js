@@ -143,34 +143,28 @@ window.addEventListener("load", function () {
           padding: { left: 20, right: 20 }
         },
         plugins: {
-          legend: {
-            display: true,
-            position: "right",
-            labels: {
-              boxWidth: 14,
-              padding: 14,
-              font: { size: 12 },
-              color: "#333333",
-              generateLabels: function (chart) {
-                var data = chart.data;
-                var total = catTotal || data.datasets[0].data.reduce(function (a, b) { return a + b; }, 0);
-                return data.labels.map(function (label, i) {
-                  var value = data.datasets[0].data[i];
-                  var pct = total > 0 ? ((value / total) * 100).toFixed(1) : "0.0";
-                  var amount = "\u20B1" + value.toLocaleString("en-PH", { maximumFractionDigits: 0 });
-                  return {
-                    text: label + "  " + amount + "  " + pct + "%",
-                    fillStyle: data.datasets[0].backgroundColor[i],
-                    hidden: false,
-                    index: i
-                  };
-                });
-              }
-            }
-          }
+          legend: { display: false }
         }
       }
     });
+
+    var legendEl = document.getElementById("category-legend");
+    if (legendEl) {
+      var html = '<div style="display:flex;flex-direction:column;gap:6px">';
+      cats.forEach(function (d, i) {
+        var pct = catTotal > 0 ? ((d.total / catTotal) * 100).toFixed(1) : "0.0";
+        var amount = "\u20B1" + d.total.toLocaleString("en-PH", { maximumFractionDigits: 0 });
+        var color = catColors[i % catColors.length];
+        html += '<div style="display:flex;align-items:center;gap:8px;font-size:0.9rem;color:#333">';
+        html += '<span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:' + color + ';flex-shrink:0"></span>';
+        html += '<span style="flex:1;min-width:0">' + d.name + '</span>';
+        html += '<span style="white-space:nowrap;font-weight:600">' + amount + '</span>';
+        html += '<span style="white-space:nowrap;color:#666;width:52px;text-align:right">' + pct + '%</span>';
+        html += '</div>';
+      });
+      html += '</div>';
+      legendEl.innerHTML = html;
+    }
   }
 
   // --- Make table rows clickable without showing the URL ---
