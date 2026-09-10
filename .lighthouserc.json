@@ -22,14 +22,126 @@
     "assert": {
       "preset": "lighthouse:recommended",
       "assertions": {
-        "categories:performance": ["warn", { "minScore": 0.9 }],
-        "categories:accessibility": ["error", { "minScore": 0.95 }],
-        "categories:best-practices": ["warn", { "minScore": 0.9 }],
-        "categories:seo": ["error", { "minScore": 1.0 }],
-        "first-contentful-paint": ["warn", { "maxNumericValue": 2000 }],
-        "largest-contentful-paint": ["warn", { "maxNumericValue": 2500 }],
-        "cumulative-layout-shift": ["warn", { "maxNumericValue": 0.1 }],
-        "total-blocking-time": ["warn", { "maxNumericValue": 300 }]
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "categories:accessibility": [
+          "error",
+          {
+            "minScore": 0.95
+          }
+        ],
+        "categories:best-practices": [
+          "warn",
+          {
+            "minScore": 0.9
+          }
+        ],
+        "categories:seo": [
+          "error",
+          {
+            "minScore": 1.0
+          }
+        ],
+        "first-contentful-paint": [
+          "warn",
+          {
+            "maxNumericValue": 2000
+          }
+        ],
+        "largest-contentful-paint": [
+          "warn",
+          {
+            "maxNumericValue": 2500
+          }
+        ],
+        "cumulative-layout-shift": [
+          "warn",
+          {
+            "maxNumericValue": 0.1
+          }
+        ],
+        "total-blocking-time": [
+          "warn",
+          {
+            "maxNumericValue": 300
+          }
+        ],
+        "lcp-lazy-loaded": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "prioritize-lcp-image": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "non-composited-animations": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "redirects": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "heading-order": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "is-crawlable": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "unminified-javascript": [
+          "warn",
+          {
+            "maxLength": 50000
+          }
+        ],
+        "unused-javascript": [
+          "warn",
+          {
+            "maxLength": 50000
+          }
+        ],
+        "unsized-images": [
+          "warn",
+          {
+            "minScore": 0.5
+          }
+        ],
+        "uses-responsive-images": [
+          "warn",
+          {
+            "maxLength": 10
+          }
+        ],
+        "offscreen-images": [
+          "warn",
+          {
+            "maxLength": 10
+          }
+        ],
+        "uses-long-cache-ttl": [
+          "warn",
+          {
+            "maxLength": 50
+          }
+        ]
       }
     },
     "upload": {

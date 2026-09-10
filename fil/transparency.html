@@ -18,6 +18,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="../assets/android-chrome-192x192.png" />
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+<link rel="preload" href="../assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script>window.__CONFIG__ = { assetBase: '..' };</script>
@@ -64,7 +65,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../index.html">
-      <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+      <img src="../assets/logo.svg" alt="Better Mapandan seal" width="160" height="40" />
       <span class="brand-text">
         <span class="top">Better Mapandan</span>
         <span class="bottom">.org</span>
@@ -101,7 +102,7 @@
 
 <main id="content">
 <section class="page-hero">
-  <img class="hero-rays" src="../assets/municipal-seal.svg" alt="" aria-hidden="true" fetchpriority="high" />
+  <img class="hero-rays" src="../assets/municipal-seal.svg" alt="" aria-hidden="true" fetchpriority="high" width="120" height="120" />
   <div class="wrap">
     <span class="eyebrow">Government &middot; Open Data</span>
     <h1>Budget &amp; Fiscal Transparency</h1>
@@ -115,6 +116,15 @@
       <div class="section-eyebrow">Pampublikong Pamimili</div>
       <h2>Mga Kontrata at Pagpapahayag ng Pamahalaan</h2>
       <p>Municipality of Mapandan &mdash; 277 contracts totaling &#8369;470,203,285. Data from PhilGEPS via BetterGov.ph Open Data Portal.</p>
+    </div>
+    <div class="procurement-filters" id="procurement-filters">
+      <span class="filter-label">Time frame</span>
+      <button class="filter-pill active" data-range="all">All</button>
+      <button class="filter-pill" data-range="30d">Last 30 days</button>
+      <button class="filter-pill" data-range="3m">Last 3 months</button>
+      <button class="filter-pill" data-range="6m">Last 6 months</button>
+      <button class="filter-pill" data-range="1y">Last 1 year</button>
+      <button class="filter-pill" data-range="3y">Last 3 years</button>
     </div>
     <div class="grid grid-4 stack-gap-lg">
             <div class="card">
@@ -145,12 +155,12 @@
     <div class="grid grid-2 stack-gap-lg" style="margin-top:24px">
       <div class="card">
         <h3>Buwanang Trend ng Gastos</h3>
-        <p class="source-label" style="margin-top:0">Halaga ng kontrata ayon sa oras</p>
+        <p class="source-label" style="margin-top:0">Halaga ng kontrata ayon sa oras &bull; Jun 2011 – Dec 2025</p>
         <canvas id="chart-procurement-trend" height="220" role="img" aria-label="Monthly procurement trend"></canvas>
       </div>
       <div class="card">
         <h3>Pinakamataas na 10 na Nagpatupad</h3>
-        <p class="source-label" style="margin-top:0">Ayon sa kabuuang halaga ng kontrata</p>
+        <p class="source-label" style="margin-top:0">Ayon sa kabuuang halaga ng kontrata &bull; Jun 2011 – Dec 2025</p>
         <canvas id="chart-procurement-awardees" height="220" role="img" aria-label="Top 10 awardees"></canvas>
       </div>
     </div>
@@ -164,13 +174,15 @@
         </div>
       </div>
       <div id="category-legend" style="margin-top:16px"></div>
-    </div>
+      </div>
       <div class="procurement-toolbar" style="margin-top:24px">
         <div class="procurement-toolbar-stats">
           <span class="stat-label">Mga Resulta</span>
-          <span class="stat-value">277</span>
+          <span class="stat-value" id="toolbar-count">277</span>
           <span class="stat-divider">&bull;</span>
-          <span class="stat-value">&#8369;470,203,285</span>
+          <span class="stat-value" id="toolbar-total">&#8369;470,203,285</span>
+          <span class="stat-divider">&bull;</span>
+          <span class="stat-value" id="toolbar-daterange" style="font-size:0.95rem;font-weight:600">Jun 2011 – Dec 2025</span>
         </div>
         <div class="procurement-toolbar-actions">
           <input type="search" id="procurement-search" placeholder="Maghanap ng kontrata..." aria-label="Maghanap ng kontrata...">
@@ -814,7 +826,7 @@
       <!-- Project Card 1 -->
       <article class="procurement-card">
         <div class="procurement-card-image">
-          <img src="assets/projects/rescue-vehicles.jpg" alt="Emergency rescue vehicles lined up" loading="lazy">
+          <img src="assets/projects/rescue-vehicles.jpg" alt="Emergency rescue vehicles lined up" loading="lazy" width="320" height="220">
         </div>
         <div class="procurement-card-content">
           <div class="procurement-card-header">
@@ -844,7 +856,7 @@
       <!-- Project Card 2 -->
       <article class="procurement-card">
         <div class="procurement-card-image">
-          <img src="assets/projects/fertilizer-distribution.jpg" alt="Distribution of organic fertilizer to farmers" loading="lazy">
+          <img src="assets/projects/fertilizer-distribution.jpg" alt="Distribution of organic fertilizer to farmers" loading="lazy" width="320" height="220">
         </div>
         <div class="procurement-card-content">
           <div class="procurement-card-header">
@@ -874,7 +886,7 @@
       <!-- Project Card 3 -->
       <article class="procurement-card">
         <div class="procurement-card-image">
-          <img src="assets/projects/corn.jpg" alt="Hybrid corn seeds in sacks" loading="lazy">
+          <img src="assets/projects/corn.jpg" alt="Hybrid corn seeds in sacks" loading="lazy" width="320" height="220">
         </div>
         <div class="procurement-card-content">
           <div class="procurement-card-header">
@@ -904,7 +916,7 @@
       <!-- Project Card 4 -->
       <article class="procurement-card">
         <div class="procurement-card-image">
-          <img src="assets/projects/led.jpg" alt="LED community advisory board display" loading="lazy">
+          <img src="assets/projects/led.jpg" alt="LED community advisory board display" loading="lazy" width="320" height="220">
         </div>
         <div class="procurement-card-content">
           <div class="procurement-card-header">
@@ -934,7 +946,7 @@
       <!-- Project Card 5 -->
       <article class="procurement-card">
         <div class="procurement-card-image">
-          <img src="assets/plaza.svg" alt="Mapandan Town Plaza at dusk" loading="lazy">
+          <img src="assets/plaza.svg" alt="Mapandan Town Plaza at dusk" loading="lazy" width="320" height="220">
         </div>
         <div class="procurement-card-content">
           <div class="procurement-card-header">
@@ -964,7 +976,7 @@
       <!-- Project Card 6 -->
       <article class="procurement-card">
         <div class="procurement-card-image">
-          <img src="assets/projects/municipal-hall.jpg" alt="Roof repair work on Municipal Hall" loading="lazy">
+          <img src="assets/projects/municipal-hall.jpg" alt="Roof repair work on Municipal Hall" loading="lazy" width="320" height="220">
         </div>
         <div class="procurement-card-content">
           <div class="procurement-card-header">
@@ -1029,7 +1041,7 @@
     <div class="footer-grid">
       <div class="footer-brand-col">
         <div class="footer-brand">
-          <img src="../assets/logo.svg" alt="Better Mapandan seal" />
+          <img src="../assets/logo.svg" alt="Better Mapandan seal" width="160" height="40" />
           <div>
             <div class="name">Better Mapandan</div>
             <p>Isang independenteng civic transparency portal para sa Mapandan, Pangasinan, ginawa at pinapanatili ng mga volunteer sa ilalim ng BetterGov.ph initiative &mdash; hindi opisyal na website ng pamahalaan.</p>
@@ -1078,7 +1090,7 @@
     <div class="footer-bottom">
       <span>&copy; 2026 BetterMapandan.org. Pinamamahalaan ng komunidad, independent sa LGU.</span>
       <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
-        <img src="../assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo">
+        <img src="../assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo" width="120" height="40">
         <span>Isang BetterGov.ph Community Portal</span>
       </a>
       <span class="cost-chip">Gastos sa mga Tao ng Mapandan: <strong>&#8369;0</strong></span>

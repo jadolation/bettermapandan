@@ -67,6 +67,7 @@
   --green-bright: #2d6b1f;
   --green-mid: #3a7a28;
   --green-pale: #e2ecda;
+  --green: var(--green-bright);
   --gold: #f0c040;
   --gold-dark: #6b4a00;
   --gold-soft: #f6ecc9;
@@ -346,7 +347,7 @@ p {
 .hero .lede {
   max-width: 56ch;
   font-size: 18px;
-  color: #eaf1e8;
+  color: #f0f4ec;
 }
 
 .hero-actions {
@@ -551,7 +552,7 @@ p {
 }
 
 .page-hero .lede {
-  color: #e4ecdf;
+  color: #f0f4ec;
   margin: 0;
 }
 
@@ -2308,6 +2309,7 @@ canvas {
 /* ---------- Report button ---------- */
 
 .report-btn {
+   min-height: 44px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -2321,6 +2323,8 @@ canvas {
   cursor: pointer;
   transition: background 0.15s;
   margin-top: 12px;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .report-btn:hover {
@@ -2581,6 +2585,12 @@ canvas {
   flex-direction: column;
   gap: 8px;
   margin-top: 4px;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .service-link-wrap {
@@ -2916,6 +2926,7 @@ canvas {
   .btn { min-height: 44px; padding: 12px 20px; }
   .link-arrow { min-height: 44px; display: inline-flex; align-items: center; }
   .report-btn { min-height: 44px; }
+   min-height: 44px;
   .category-card { padding: 20px; }
   .search-result { padding: 14px 16px; }
   .barangay-grid { grid-template-columns: repeat(2, 1fr); }
@@ -3467,6 +3478,42 @@ canvas {
 }
 
 /* ---------- Procurement toolbar ---------- */
+
+.procurement-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 20px 0 16px;
+}
+
+.filter-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.filter-pill {
+  padding: 6px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-pill:hover {
+  border-color: var(--green-bright);
+  color: var(--green-deep);
+}
+
+.filter-pill.active {
+  background: var(--green-deep);
+  color: #fff;
+  border-color: var(--green-deep);
+}
 
 .procurement-toolbar {
   display: flex;

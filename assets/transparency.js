@@ -3,7 +3,7 @@ function downloadCSV(type) {
   if (type === "budget") {
     csv = "Fiscal Year,Total Enacted Budget (PHP)\nCY 2020,122402454\nCY 2021,129281542\nCY 2022,173142760\nCY 2023,151540728\nCY 2024,160828663\nCY 2025,193088074\nCY 2026,218209788";
   } else if (type === "procurement") {
-    var rows = window.PROCUREMENT_CONTRACTS || [];
+    var rows = window._filteredContracts || window.PROCUREMENT_CONTRACTS || [];
     if (!rows.length) return;
     var headers = ["reference_id","contract_no","title","awardee","organization_name","amount","business_category","award_date","status"];
     var lines = [headers.join(",")];
@@ -22,6 +22,143 @@ function downloadCSV(type) {
   a.href = URL.createObjectURL(blob);
   a.download = "mapandan-" + type + ".csv";
   a.click();
+}
+
+var trendChart, awardeesChart, catChart;
+var allContracts = [];
+var currentRange = "all";
+
+function filterByRange(contracts, range) {
+  if (range === "all") return contracts.slice();
+  var now = new Date();
+  var cutoff;
+  if (range === "30d") {
+    cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 30);
+  } else if (range === "3m") {
+    cutoff = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate());
+  } else if (range === "6m") {
+    cutoff = new Date(now.getFullYear(), now.getMonth() - 6, now.getDate());
+  } else if (range === "1y") {
+    cutoff = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+  } else if (range === "3y") {
+    cutoff = new Date(now.getFullYear() - 3, now.getMonth(), now.getDate());
+  } else {
+    return contracts.slice();
+  }
+  return contracts.filter(function(c) {
+    if (!c.award_date) return false;
+    var d = new Date(c.award_date);
+    return d >= cutoff;
+  });
+}
+
+function rebuildMonthly(contracts) {
+  var byMonth = {};
+  contracts.forEach(function(c) {
+    if (!c.award_date) return;
+    var m = c.award_date.slice(0, 7);
+    byMonth[m] = (byMonth[m] || 0) + (c.amount || 0);
+  });
+  var result = Object.keys(byMonth).sort().map(function(m) {
+    return { month: m, total: byMonth[m] };
+  });
+  return result;
+}
+
+function rebuildAwardees(contracts) {
+  var byAwardee = {};
+  contracts.forEach(function(c) {
+    var name = (c.awardee || "Unknown").trim();
+    if (!byAwardee[name]) byAwardee[name] = 0;
+    byAwardee[name] += c.amount || 0;
+  });
+  return Object.keys(byAwardee)
+    .map(function(name) { return { name: name, total: byAwardee[name] }; })
+    .sort(function(a, b) { return b.total - a.total; })
+    .slice(0, 10);
+}
+
+function rebuildCategories(contracts) {
+  var byCat = {};
+  contracts.forEach(function(c) {
+    var cat = c.business_category || "Other";
+    if (!cat) cat = "Other";
+    byCat[cat] = (byCat[cat] || 0) + (c.amount || 0);
+  });
+  return Object.keys(byCat)
+    .map(function(name) { return { name: name, total: byCat[name] }; })
+    .sort(function(a, b) { return b.total - a.total; });
+}
+
+function fmtDateRange(contracts) {
+  var dates = contracts.filter(function(c) { return c.award_date; }).map(function(c) { return c.award_date; });
+  if (!dates.length) return "";
+  dates.sort();
+  var minD = dates[0], maxD = dates[dates.length - 1];
+  var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function fmt(ds) {
+    var parts = ds.split("-");
+    return months[parseInt(parts[1], 10) - 1] + " " + parts[0];
+  }
+  return fmt(minD) + " \u2013 " + fmt(maxD);
+}
+
+function updateAll(range) {
+  currentRange = range;
+  var filtered = filterByRange(allContracts, range);
+  window._filteredContracts = filtered;
+
+  var monthly = rebuildMonthly(filtered);
+  var awardees = rebuildAwardees(filtered);
+  var cats = rebuildCategories(filtered);
+
+  if (trendChart) {
+    trendChart.data.labels = monthly.map(function(d) { return d.month; });
+    trendChart.data.datasets[0].data = monthly.map(function(d) { return d.total / 1000000; });
+    trendChart.update();
+  }
+
+  if (awardeesChart) {
+    awardeesChart.data.labels = awardees.map(function(d) { return d.name; });
+    awardeesChart.data.datasets[0].data = awardees.map(function(d) { return d.total; });
+    awardeesChart.update();
+  }
+
+  if (catChart) {
+    catChart.data.labels = cats.map(function(d) { return d.name; });
+    catChart.data.datasets[0].data = cats.map(function(d) { return d.total; });
+    catChart.update();
+
+    var catTotal = cats.reduce(function(s, d) { return s + d.total; }, 0);
+    var catColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9","#16532c","#2d6b1f","#4c8a2e"];
+    var legendEl = document.getElementById("category-legend");
+    if (legendEl) {
+      var html = '<div style="display:flex;flex-direction:column;gap:6px">';
+      cats.forEach(function(d, i) {
+        var pct = catTotal > 0 ? ((d.total / catTotal) * 100).toFixed(1) : "0.0";
+        var amount = "\u20B1" + d.total.toLocaleString("en-PH", { maximumFractionDigits: 0 });
+        var color = catColors[i % catColors.length];
+        html += '<div style="display:flex;align-items:center;gap:8px;font-size:0.95rem;color:#333">';
+        html += '<span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:' + color + ';flex-shrink:0"></span>';
+        html += '<span style="flex:1;min-width:0">' + d.name + '</span>';
+        html += '<span style="white-space:nowrap;font-weight:600">' + amount + '</span>';
+        html += '<span style="white-space:nowrap;color:#666;width:52px;text-align:right">' + pct + '%</span>';
+        html += '</div>';
+      });
+      html += '</div>';
+      legendEl.innerHTML = html;
+    }
+  }
+
+  var toolbarCount = document.getElementById("toolbar-count");
+  var toolbarTotal = document.getElementById("toolbar-total");
+  var toolbarDateRange = document.getElementById("toolbar-daterange");
+  if (toolbarCount) toolbarCount.textContent = filtered.length.toLocaleString();
+  var totalAmt = filtered.reduce(function(s, c) { return s + (c.amount || 0); }, 0);
+  if (toolbarTotal) toolbarTotal.innerHTML = "\u20B1" + totalAmt.toLocaleString("en-PH", { maximumFractionDigits: 0 });
+  if (toolbarDateRange) toolbarDateRange.textContent = fmtDateRange(filtered);
+
+  if (window._refreshTable) window._refreshTable();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -60,19 +197,20 @@ window.addEventListener("load", function () {
     });
   }
 
+  allContracts = (window.PROCUREMENT_CONTRACTS || []).slice();
+  window._filteredContracts = allContracts;
   var procurement = window.PROCUREMENT_DATA || {};
+
   var trendCtx = document.getElementById("chart-procurement-trend");
-  if (trendCtx && procurement.monthly && procurement.monthly.length) {
-    var monthly = procurement.monthly;
-    var labels = monthly.map(function (d) { return d.month; });
-    var values = monthly.map(function (d) { return d.total / 1_000_000; });
-    new Chart(trendCtx, {
+  if (trendCtx) {
+    var monthly = procurement.monthly || [];
+    trendChart = new Chart(trendCtx, {
       type: "line",
       data: {
-        labels: labels,
+        labels: monthly.map(function (d) { return d.month; }),
         datasets: [{
           label: "Contract Amount (PHP Millions)",
-          data: values,
+          data: monthly.map(function (d) { return d.total / 1000000; }),
           borderColor: green,
           backgroundColor: "rgba(76,138,46,0.1)",
           fill: true,
@@ -93,9 +231,10 @@ window.addEventListener("load", function () {
   }
 
   var awardeesCtx = document.getElementById("chart-procurement-awardees");
-  if (awardeesCtx && procurement.awardees && procurement.awardees.length) {
-    var awardees = procurement.awardees;
-    new Chart(awardeesCtx, {
+  if (awardeesCtx) {
+    var awardees = procurement.awardees || [];
+    var awardeeColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9"];
+    awardeesChart = new Chart(awardeesCtx, {
       type: "bar",
       data: {
         labels: awardees.map(function (d) { return d.name; }),
@@ -103,8 +242,7 @@ window.addEventListener("load", function () {
           label: "Total Contract Value (PHP)",
           data: awardees.map(function (d) { return d.total; }),
           backgroundColor: awardees.map(function (_, i) {
-            var colors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9"];
-            return colors[i % colors.length];
+            return awardeeColors[i % awardeeColors.length];
           })
         }]
       },
@@ -118,11 +256,11 @@ window.addEventListener("load", function () {
   }
 
   var catCtx = document.getElementById("chart-procurement-categories");
-  if (catCtx && window.PROCUREMENT_CATEGORIES && window.PROCUREMENT_CATEGORIES.length) {
-    var cats = window.PROCUREMENT_CATEGORIES;
+  if (catCtx) {
+    var cats = window.PROCUREMENT_CATEGORIES || [];
     var catTotal = cats.reduce(function (s, d) { return s + d.total; }, 0);
     var catColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9","#16532c","#2d6b1f","#4c8a2e"];
-    new Chart(catCtx, {
+    catChart = new Chart(catCtx, {
       type: "doughnut",
       data: {
         labels: cats.map(function (d) { return d.name; }),
@@ -139,12 +277,8 @@ window.addEventListener("load", function () {
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        layout: {
-          padding: { left: 20, right: 20 }
-        },
-        plugins: {
-          legend: { display: false }
-        }
+        layout: { padding: { left: 20, right: 20 } },
+        plugins: { legend: { display: false } }
       }
     });
 
@@ -155,7 +289,7 @@ window.addEventListener("load", function () {
         var pct = catTotal > 0 ? ((d.total / catTotal) * 100).toFixed(1) : "0.0";
         var amount = "\u20B1" + d.total.toLocaleString("en-PH", { maximumFractionDigits: 0 });
         var color = catColors[i % catColors.length];
-        html += '<div style="display:flex;align-items:center;gap:8px;font-size:0.9rem;color:#333">';
+        html += '<div style="display:flex;align-items:center;gap:8px;font-size:0.95rem;color:#333">';
         html += '<span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:' + color + ';flex-shrink:0"></span>';
         html += '<span style="flex:1;min-width:0">' + d.name + '</span>';
         html += '<span style="white-space:nowrap;font-weight:600">' + amount + '</span>';
@@ -167,7 +301,17 @@ window.addEventListener("load", function () {
     }
   }
 
-  // --- Make table rows clickable without showing the URL ---
+  var filterContainer = document.getElementById("procurement-filters");
+  if (filterContainer) {
+    filterContainer.addEventListener("click", function(e) {
+      var btn = e.target.closest(".filter-pill");
+      if (!btn) return;
+      filterContainer.querySelectorAll(".filter-pill").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      updateAll(btn.getAttribute("data-range"));
+    });
+  }
+
   document.querySelectorAll('.clickable-row').forEach(function(row) {
     row.addEventListener('click', function(e) {
       if (e.target.closest('a')) return;
@@ -217,7 +361,7 @@ function initProcurementTable() {
   }
 
   function getFilteredSorted() {
-    var data = contracts.slice();
+    var data = (window._filteredContracts || contracts).slice();
     if (searchQuery) {
       var q = searchQuery.toLowerCase();
       data = data.filter(function(r) {
@@ -319,20 +463,6 @@ function initProcurementTable() {
       pageIndicator.textContent = currentPage + " / " + totalPages;
     }
 
-    var orgCount = uniqueOrgs(filtered);
-    var orgLabel = orgCount + " org" + (orgCount !== 1 ? "s" : "");
-    var totalFiltered = filtered.reduce(function(sum, r) { return sum + ((r.amount && typeof r.amount === "number" ? r.amount : 0)); }, 0);
-    var resultsSummary = " " + filtered.length + " results | &#8369;" + totalFiltered.toLocaleString() + " | " + orgLabel;
-    var resultsStrong = document.querySelector("#procurement-table").closest(".table-wrap").previousElementSibling.querySelector("strong");
-    if (resultsStrong) {
-      resultsStrong.textContent = "Results:";
-      if (resultsStrong.nextSibling) {
-        resultsStrong.nextSibling.textContent = resultsSummary;
-      } else {
-        resultsStrong.insertAdjacentText("afterend", resultsSummary);
-      }
-    }
-
     var numberedWrap = document.createElement("span");
     numberedWrap.className = "numbered-pages";
     numberedWrap.style.cssText = "display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap";
@@ -350,6 +480,8 @@ function initProcurementTable() {
       }
     });
   }
+
+  window._refreshTable = function() { currentPage = 1; render(); };
 
   if (searchInput) {
     searchInput.addEventListener("input", function() {
