@@ -232,7 +232,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
     dir_filled, dir_hero_meta = _generate_services_directory(
-        data, by_category, dir_template, svc_labels, is_fil, asset_base=".", analytics_json=analytics_json
+        data, by_category, dir_template, svc_labels, is_fil, asset_base=compute_asset_base(Path("services/index.html"), is_fil), analytics_json=analytics_json
     )
     pages["services.html"] = dir_filled
     meta["services.html"] = {
@@ -527,7 +527,7 @@ def _fill_legislative_template(template: str, data: dict, locale: dict, is_fil: 
     exec_json = json.dumps(data.get("executive_issuances", []), ensure_ascii=False)
 
     gw = data.get("governance_framework", {})
-    asset_base = ".." if is_fil else "."
+    asset_base = compute_asset_base(Path("legislative/index.html"), is_fil)
 
     return fill(template, {
         "ASSET_BASE": asset_base,

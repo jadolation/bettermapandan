@@ -3,12 +3,18 @@
 An independent transparency portal for the Municipality of Mapandan, Pangasinan,
 built under the [BetterGov.ph](https://bettergov.ph/) BetterLGU initiative.
 
+Dual-language: English at root, Filipino under `/fil/`.
+
 
 ## Structure
 
 ```
 build.py                 Assembles src/pages/*.html + src/partials/*.html
                           into the final static pages below.
+                          Flags:
+                            (none)           Build all pages (EN + FIL)
+                            --compress       Optimize images, then build
+                            --verify-translations  Lint untranslated strings
 
 src/
   partials/
@@ -23,36 +29,57 @@ src/
     legislative.html
     transparency.html
 
+locales/
+  en.json                English locale strings (UI labels, page copy)
+  fil.json               Filipino locale strings
+
 assets/
   style.css              All design tokens and styles — zero inline styles
-                          anywhere in the generated HTML.
-  script.js               Mobile nav toggle (the only JS on the site).
+                           anywhere in the generated HTML.
+  script.js               Mobile nav toggle, weather widget, modals, accordions.
   logo.svg                Municipal seal — source for the header/footer marks
-                           and every generated favicon.
+                           and every generated favicon. DO NOT convert to WebP;
+                           the SVG uses mask+filter rendering pipelines.
+  municipal-seal.svg      Decorative hero watermark. DO NOT convert to WebP;
+                           the SVG uses embedded PNG with SVG filter pipeline.
+  Pandan.webp             Hero image (Pandan Festival)
+  plaza.webp              Hero image (Town Plaza)
+  luyan.webp              Hero image (Luyan)
   favicon.ico, favicon-*.png   Generated from logo.svg.
+  chart-loader.js         Lazy-loads Chart.js only on pages with <canvas>
+  barangay-data.js        Barangay population/household data
+  search.js, search-index.json   Client-side search
+
+fil/                     Filipino build output — mirrors root structure
+  assets/                Copied from assets/ at build time
+
+optimize-images.mjs     Standalone Node.js image optimization (alternative to --compress)
 
 index.html, services.html, government.html,        <- BUILD OUTPUT.
 legislative.html, transparency.html                    Don't hand-edit these;
-                                                        edit src/ and rebuild.
+fil/*.html                                                 edit src/ and rebuild.
 README.md
 ```
+
 
 ## Editing content
 
 1. Edit the relevant file in `src/pages/` (page copy, tables, cards — this is
    almost always where you want to be) or `src/partials/` (nav links, footer
    links, `<head>` boilerplate shared by every page).
-2. Regenerate the site:
+2. For UI strings (labels, headings, emergency numbers), edit `locales/en.json`
+   and/or `locales/fil.json`.
+3. Regenerate the site:
 
    ```bash
    python3 build.py
    ```
 
    This overwrites `index.html`, `services.html`, `government.html`,
-   `legislative.html`, and `transparency.html` at the project root. No other
-   tooling required — just Python 3, already on every dev machine and CI
-   runner.
-3. Commit both the `src/` change and the regenerated root `.html` files —
+   `legislative.html`, and `transparency.html` at the project root, plus
+   their Filipino counterparts under `fil/`. No other tooling required — just
+   Python 3, already on every dev machine and CI runner.
+4. Commit both the `src/` change and the regenerated root `.html` files —
    the root files are what actually gets served, so they need to be
    committed and up to date (this is a static-file build, not a build-on-
    deploy setup).
@@ -72,6 +99,61 @@ Styling changes go in `assets/style.css`, which is organized by component
 the top (`--green-deep`, `--gold`, `--red-flag`, etc.) — change a token once
 to re-theme the whole site.
 
+
+## Image optimization
+
+Run `python3 build.py --compress` to optimize images before building:
+
+- **JPG compression** — citizens-charter photos (mozjpeg, quality 70)
+- **PNG compression** — history photos (quality 60, compression level 9)
+- **Hero images → WebP** — `luyan.png`, `Pandan.jpg`, `plaza.jpg` converted
+  to WebP (quality 80, max-width 1200)
+- **History PNGs → WebP** — `assets/history/*.png` converted to WebP
+
+The following are **NOT** compressed and should stay as original SVGs:
+- `logo.svg` — uses `<mask>` + `feColorMatrix` filter pipeline that cannot
+  be faithfully extracted to a single raster format
+- `municipal-seal.svg` — embedded PNG with SVG filter rendering
+
+Alternatively, run `node optimize-images.mjs` for standalone image
+optimization (same pipeline, Node.js only).
+
+
+## Translation linting
+
+Run `python3 build.py --verify-translations` to check i18n parity between
+EN and FIL page outputs. The linter compares rendered HTML text and flags
+segments present in EN but absent in FIL.
+
+Known false positives (intentionally the same in both languages):
+- Historical dates, proper nouns, place names
+- Government acronyms (DILG, BLGF, COA, PhilGEPS)
+- Currency amounts and numbers
+
+
+## Code quality
+
+The project uses these tools to maintain code quality:
+
+```bash
+ruff check build.py          # Lint — target: 0 errors
+radon cc build.py -a -nc     # Cyclomatic complexity — target: < 10 per function
+radon mi build.py             # Maintainability index — target: Grade A
+```
+
+
+## CI/CD
+
+The GitHub Actions workflow (`.github/workflows/lighthouse.yml`) runs on
+every push to `main`:
+
+1. Sets up Python 3.11 + Node.js 22
+2. Builds the site (`python3 build.py`)
+3. Starts a local server on port 9001
+4. Runs Lighthouse CI against 11 URLs
+5. Asserts thresholds: accessibility ≥ 95, SEO = 100, performance ≥ 50
+
+
 ## Before you deploy
 
 1. **Rename this repository** to `bettermapandan` and set it up on GitHub,
@@ -87,6 +169,7 @@ to re-theme the whole site.
    `mapandan.gov.ph` and the Municipal Accountant/Budget Office, since local
    officials and budgets change.
 
+
 ## Deploying
 
 Any static host works — the root `.html` files plus `assets/` are the
@@ -98,6 +181,7 @@ production; they're only for maintainers.
 - **Netlify / Vercel**: connect the repo with no build command and `/` as
   the publish directory (or add `python3 build.py` as the build command if
   you'd rather have the host regenerate pages on every push).
+
 
 ## Once live
 
