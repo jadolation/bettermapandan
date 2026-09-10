@@ -1259,7 +1259,7 @@ def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
         f'<a href="../{rel.parts[0]}.html">{rel.parts[0].replace("-", " ").title()}</a>',
         f'<span aria-current="page">{page_title}</span>',
     ]
-    return '<nav class="breadcrumb" aria-label="Breadcrumb">' + " &rsaquo; ".join(bc_items) + "</nav>\n"
+    return '<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb">' + " &rsaquo; ".join(bc_items) + "</nav></div>\n"
 
 
 def build_header(locale: dict, asset_base: str, is_fil: bool, en_url: str, fil_url: str) -> str:
@@ -1691,9 +1691,9 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'    <div class="card" style="margin-top:24px">\n'
         f'      <h3>Procurement by Category</h3>\n'
         f'      <p class="source-label" style="margin-top:0">Total spend by business category</p>\n'
-        f'      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:12px">\n'
-        f'        <div style="flex:1;min-width:300px;max-width:420px;position:relative">\n'
-        f'          <canvas id="chart-procurement-categories" height="280" role="img" aria-label="Procurement by business category"></canvas>\n'
+        f'      <div style="display:flex;justify-content:center;margin-top:12px">\n'
+        f'        <div style="width:100%;max-width:680px;position:relative">\n'
+        f'          <canvas id="chart-procurement-categories" height="300" role="img" aria-label="Procurement by business category"></canvas>\n'
         f'        </div>\n'
         f'      </div>\n'
         f'    </div>\n'

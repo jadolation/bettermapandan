@@ -706,7 +706,7 @@ p {
 /* ---------- Sections ---------- */
 
 .section {
-  padding: 64px 0;
+  padding: 48px 0;
 }
 
 .section + .section {
@@ -2265,11 +2265,6 @@ canvas {
   margin-top: 10px;
 }
 
-#chart-procurement-categories {
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /* ---------- Verification labels ---------- */
 

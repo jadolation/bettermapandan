@@ -131,20 +131,24 @@ window.addEventListener("load", function () {
             return catColors[i % catColors.length];
           }),
           borderColor: "#fff",
-          borderWidth: 2
+          borderWidth: 2,
+          cutout: "65%"
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        layout: {
+          padding: { left: 20, right: 20 }
+        },
         plugins: {
           legend: {
             display: true,
             position: "right",
             labels: {
-              boxWidth: 14,
-              padding: 10,
-              font: { size: 12 },
+              boxWidth: 10,
+              padding: 5,
+              font: { size: 13 },
               color: "#333333"
             }
           }
