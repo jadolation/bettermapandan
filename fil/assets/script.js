@@ -288,8 +288,14 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // Initialize all Lucide icons on the page
-  if (typeof lucide !== "undefined") lucide.createIcons();
+  // Initialize all Lucide icons on the page (deferred to reduce TBT)
+  if (typeof lucide !== "undefined") {
+    if (typeof requestIdleCallback === "function") {
+      requestIdleCallback(() => lucide.createIcons());
+    } else {
+      setTimeout(() => lucide.createIcons(), 0);
+    }
+  }
 
 });
 

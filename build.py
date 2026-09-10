@@ -1174,23 +1174,11 @@ async function main() {
   }
   console.log(`  Hero images: ${heroCount} files, ${(heroTotalBefore/1e6).toFixed(2)}MB -> ${(heroTotalAfter/1e6).toFixed(2)}MB`);
 
-  console.log("\n4. Extracting and converting municipal seal to WebP...");
-  const tempPng = "assets/municipal-seal-temp.png";
-  const svgResult = await extractPngFromSvg("assets/logo-no-white.svg", tempPng);
-  let sealBefore = 0, sealAfter = 0;
-  if (fs.existsSync(tempPng)) {
-    const webpResult = await convertToWebP(tempPng, "assets/municipal-seal.svg", MAX_WIDTH_LOGO);
-    sealBefore = webpResult.before;
-    sealAfter = webpResult.after;
-    fs.unlinkSync(tempPng);
-  }
-  console.log(`  Seal: ${(sealBefore/1e3).toFixed(1)} KB -> ${(sealAfter/1e3).toFixed(1)} KB`);
-
-  console.log("\n5. Converting history images to WebP...");
+  console.log("\n4. Converting history images to WebP...");
   const historyDir = "assets/history";
+  let histWebpBefore = 0, histWebpAfter = 0, histCount = 0;
   if (fs.existsSync(historyDir)) {
     const histFiles = fs.readdirSync(historyDir).filter(f => f.endsWith(".png"));
-    let histWebpBefore = 0, histWebpAfter = 0, histCount = 0;
     for (const file of histFiles) {
       const inputPath = path.join(historyDir, file);
       const outputPath = path.join(historyDir, file.replace('.png', '.webp'));
@@ -1202,8 +1190,8 @@ async function main() {
     console.log(`  History WebP: ${histCount} files, ${(histWebpBefore/1e6).toFixed(2)}MB -> ${(histWebpAfter/1e6).toFixed(2)}MB`);
   }
 
-  const totalBefore = jpg.totalBefore + png.totalBefore + heroTotalBefore + sealBefore + histWebpBefore;
-  const totalAfter = jpg.totalAfter + png.totalAfter + heroTotalAfter + sealAfter + histWebpAfter;
+  const totalBefore = jpg.totalBefore + png.totalBefore + heroTotalBefore + histWebpBefore;
+  const totalAfter = jpg.totalAfter + png.totalAfter + heroTotalAfter + histWebpAfter;
   console.log(`\n=== Total: ${(totalBefore/1e6).toFixed(2)}MB -> ${(totalAfter/1e6).toFixed(2)}MB (${((1-totalAfter/totalBefore)*100).toFixed(1)}% reduction) ===`);
 }
 
@@ -1586,25 +1574,14 @@ def _build_search_labels(locale: dict) -> dict:
     }
 
 
-def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
-    """Generate procurement dashboard HTML. Returns (html, metadata, hero_meta)."""
-    data_path = SRC_DATA / "procurement.json"
-    if not data_path.exists():
-        return "", {}, {}
-
-    data = json.loads(data_path.read_text(encoding="utf-8"))
-    metrics = data.get("metrics", {})
-    contracts = data.get("contracts", [])
-    monthly_trend = data.get("monthly_trend", [])
-    top_awardees = data.get("top_awardees", [])
-
+def _build_procurement_metric_cards(locale: dict, metrics: dict) -> str:
+    """Build the 4 metric cards for the procurement dashboard."""
     total_amount = metrics.get("total_amount", 0)
     contract_count = metrics.get("contract_count", 0)
     average_cost = metrics.get("average_cost", 0)
     unique_categories = metrics.get("unique_categories", 0)
-    license_str = metrics.get("license", "")
 
-    metric_cards = (
+    return (
         f'      <div class="card">\n'
         f'        <h2>{t(locale, "procurement.unique_categories", "Unique Categories")}</h2>\n'
         f'        <p class="figure">{unique_categories:,}</p>\n'
@@ -1631,72 +1608,10 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'      </div>'
     )
 
-    monthly_json = json.dumps(monthly_trend, ensure_ascii=False)
-    awardees_json = json.dumps(top_awardees, ensure_ascii=False)
-    contracts_json = json.dumps(contracts, ensure_ascii=False)
 
-    cat_totals = {}
-    org_totals = {}
-    for c in contracts:
-        cat = c.get("business_category", "Other") or "Other"
-        cat_totals[cat] = cat_totals.get(cat, 0.0) + (c.get("amount", 0) or 0)
-        org = c.get("organization_name", "Unknown") or "Unknown"
-        if org not in org_totals:
-            org_totals[org] = {"count": 0, "total": 0.0}
-        org_totals[org]["count"] += 1
-        org_totals[org]["total"] += c.get("amount", 0) or 0
-
-    date_range = ""
-    award_dates = [c.get("award_date", "") for c in contracts if c.get("award_date")]
-    if award_dates:
-        min_date = min(award_dates)
-        max_date = max(award_dates)
-        from datetime import datetime as _dt
-        def _fmt_date(ds):
-            try:
-                return _dt.strptime(ds, "%Y-%m-%d").strftime("%b %Y")
-            except Exception:
-                return ds
-        date_range = f"{_fmt_date(min_date)} \u2013 {_fmt_date(max_date)}"
-
-    categories_list = sorted(
-        [{"name": k, "total": v} for k, v in cat_totals.items()],
-        key=lambda x: x["total"],
-        reverse=True,
-    )
-    orgs_list = sorted(
-        [{"name": k, "count": v["count"], "total": v["total"]} for k, v in org_totals.items()],
-        key=lambda x: x["total"],
-        reverse=True,
-    )
-    categories_json = json.dumps(categories_list, ensure_ascii=False)
-    orgs_json = json.dumps(orgs_list, ensure_ascii=False)
-
-    search_placeholder = t(locale, "procurement.search_placeholder", "Search contracts...")
-    showing_x_of_y = t(locale, "procurement.showing_x_of_y", "Showing 1-20 of {n}").replace("{n}", str(contract_count))
-    download_csv = t(locale, "procurement.download_csv", "CSV")
-    remove_duplicates = t(locale, "procurement.remove_duplicates", "Remove duplicate contracts")
-
-    proc_html = (
-        f'<section class="section" id="procurement">\n'
-        f'  <div class="wrap">\n'
-        f'    <div class="section-head">\n'
-        f'      <div class="section-eyebrow">{t(locale, "procurement.eyebrow", "")}</div>\n'
-        f'      <h2>{t(locale, "procurement.title", "")}</h2>\n'
-        f'      <p>Municipality of Mapandan &mdash; {contract_count:,} contracts totaling &#8369;{total_amount:,.0f}. Data from PhilGEPS via BetterGov.ph Open Data Portal.</p>\n'
-        f'    </div>\n'
-        f'    <div class="procurement-filters" id="procurement-filters">\n'
-        f'      <span class="filter-label">{t(locale, "procurement.time_frame", "Time frame")}</span>\n'
-        f'      <button class="filter-pill active" data-range="all">{t(locale, "procurement.filter_all", "All")}</button>\n'
-        f'      <button class="filter-pill" data-range="30d">{t(locale, "procurement.filter_30d", "Last 30 days")}</button>\n'
-        f'      <button class="filter-pill" data-range="3m">{t(locale, "procurement.filter_3m", "Last 3 months")}</button>\n'
-        f'      <button class="filter-pill" data-range="6m">{t(locale, "procurement.filter_6m", "Last 6 months")}</button>\n'
-        f'      <button class="filter-pill" data-range="1y">{t(locale, "procurement.filter_1y", "Last 1 year")}</button>\n'
-        f'      <button class="filter-pill" data-range="3y">{t(locale, "procurement.filter_3y", "Last 3 years")}</button>\n'
-        f'    </div>\n'
-        f'    <div class="grid grid-4 stack-gap-lg">\n'
-        f'      {metric_cards}\n'
-        f'    </div>\n'
+def _build_procurement_charts(locale: dict, date_range: str, total_amount: int, contract_count: int) -> str:
+    """Build the charts section (trend, awardees, categories)."""
+    return (
         f'    <div class="grid grid-2 stack-gap-lg" style="margin-top:24px">\n'
         f'      <div class="card">\n'
         f'        <h3>{t(locale, "procurement.monthly_trend_title", "")}</h3>\n'
@@ -1719,6 +1634,12 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'        </div>\n'
         f'      </div>\n'
         f'      <div id="category-legend" style="margin-top:16px"></div>\n'
+    )
+
+
+def _build_procurement_table(locale: dict, contract_count: int, total_amount: int, date_range: str, search_placeholder: str, showing_x_of_y: str, download_csv: str, remove_duplicates: str) -> str:
+    """Build the procurement table, toolbar, and pagination."""
+    return (
         f'      <div class="procurement-toolbar" style="margin-top:24px">\n'
         f'        <div class="procurement-toolbar-stats">\n'
         f'          <span class="stat-label">{t(locale, "procurement.results_count", "Results")}</span>\n'
@@ -1761,7 +1682,12 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'          <button class="btn btn-outline" data-page="next" style="padding:10px 14px;font-size:0.95rem">Next &raquo;</button>\n'
         f'        </div>\n'
         f'      </div>\n'
-        f'    </div>\n'
+    )
+
+
+def _build_procurement_scripts(monthly_json: str, awardees_json: str, contracts_json: str, categories_json: str, orgs_json: str, total_amount: int, date_range: str, license_str: str) -> str:
+    """Build the inline scripts and styles for the procurement dashboard."""
+    return (
         f'    <p class="source-label">Source: PhilGEPS | Aggregated via: BetterGov.ph | License: {html.escape(license_str)}</p>\n'
         f'    <script>\n'
         f'      window.PROCUREMENT_DATA = {{ monthly: {monthly_json}, awardees: {awardees_json} }};\n'
@@ -1775,6 +1701,101 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'      #procurement-table th.sort-asc .sort-indicator::after {{ content: " ▲"; }}\n'
         f'      #procurement-table th.sort-desc .sort-indicator::after {{ content: " ▼"; }}\n'
         f'    </style>\n'
+    )
+
+
+def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
+    """Generate procurement dashboard HTML. Returns (html, metadata, hero_meta)."""
+    data_path = SRC_DATA / "procurement.json"
+    if not data_path.exists():
+        return "", {}, {}
+
+    data = json.loads(data_path.read_text(encoding="utf-8"))
+    metrics = data.get("metrics", {})
+    contracts = data.get("contracts", [])
+    monthly_trend = data.get("monthly_trend", [])
+    top_awardees = data.get("top_awardees", [])
+
+    total_amount = metrics.get("total_amount", 0)
+    contract_count = metrics.get("contract_count", 0)
+    license_str = metrics.get("license", "")
+
+    metric_cards = _build_procurement_metric_cards(locale, metrics)
+
+    monthly_json = json.dumps(monthly_trend, ensure_ascii=False)
+    awardees_json = json.dumps(top_awardees, ensure_ascii=False)
+    contracts_json = json.dumps(contracts, ensure_ascii=False)
+
+    cat_totals = {}
+    org_totals = {}
+    for c in contracts:
+        cat = c.get("business_category", "Other") or "Other"
+        cat_totals[cat] = cat_totals.get(cat, 0.0) + (c.get("amount", 0) or 0)
+        org = c.get("organization_name", "Unknown") or "Unknown"
+        if org not in org_totals:
+            org_totals[org] = {"count": 0, "total": 0.0}
+        org_totals[org]["count"] += 1
+        org_totals[org]["total"] += c.get("amount", 0) or 0
+
+    date_range = ""
+    award_dates = [c.get("award_date", "") for c in contracts if c.get("award_date")]
+    if award_dates:
+        min_date = min(award_dates)
+        max_date = max(award_dates)
+        from datetime import datetime as _dt
+        from datetime import timezone
+        def _fmt_date(ds):
+            try:
+                return _dt.strptime(ds, "%Y-%m-%d").replace(tzinfo=timezone.utc).strftime("%b %Y")
+            except Exception:
+                return ds
+        date_range = f"{_fmt_date(min_date)} \u2013 {_fmt_date(max_date)}"
+
+    categories_list = sorted(
+        [{"name": k, "total": v} for k, v in cat_totals.items()],
+        key=lambda x: x["total"],
+        reverse=True,
+    )
+    orgs_list = sorted(
+        [{"name": k, "count": v["count"], "total": v["total"]} for k, v in org_totals.items()],
+        key=lambda x: x["total"],
+        reverse=True,
+    )
+    categories_json = json.dumps(categories_list, ensure_ascii=False)
+    orgs_json = json.dumps(orgs_list, ensure_ascii=False)
+
+    search_placeholder = t(locale, "procurement.search_placeholder", "Search contracts...")
+    showing_x_of_y = t(locale, "procurement.showing_x_of_y", "Showing 1-20 of {n}").replace("{n}", str(contract_count))
+    download_csv = t(locale, "procurement.download_csv", "CSV")
+    remove_duplicates = t(locale, "procurement.remove_duplicates", "Remove duplicate contracts")
+
+    charts_html = _build_procurement_charts(locale, date_range, total_amount, contract_count)
+    table_html = _build_procurement_table(locale, contract_count, total_amount, date_range, search_placeholder, showing_x_of_y, download_csv, remove_duplicates)
+    scripts_html = _build_procurement_scripts(monthly_json, awardees_json, contracts_json, categories_json, orgs_json, total_amount, date_range, license_str)
+
+    proc_html = (
+        f'<section class="section" id="procurement">\n'
+        f'  <div class="wrap">\n'
+        f'    <div class="section-head">\n'
+        f'      <div class="section-eyebrow">{t(locale, "procurement.eyebrow", "")}</div>\n'
+        f'      <h2>{t(locale, "procurement.title", "")}</h2>\n'
+        f'      <p>Municipality of Mapandan &mdash; {contract_count:,} contracts totaling &#8369;{total_amount:,.0f}. Data from PhilGEPS via BetterGov.ph Open Data Portal.</p>\n'
+        f'    </div>\n'
+        f'    <div class="procurement-filters" id="procurement-filters">\n'
+        f'      <span class="filter-label">{t(locale, "procurement.time_frame", "Time frame")}</span>\n'
+        f'      <button class="filter-pill active" data-range="all">{t(locale, "procurement.filter_all", "All")}</button>\n'
+        f'      <button class="filter-pill" data-range="30d">{t(locale, "procurement.filter_30d", "Last 30 days")}</button>\n'
+        f'      <button class="filter-pill" data-range="3m">{t(locale, "procurement.filter_3m", "Last 3 months")}</button>\n'
+        f'      <button class="filter-pill" data-range="6m">{t(locale, "procurement.filter_6m", "Last 6 months")}</button>\n'
+        f'      <button class="filter-pill" data-range="1y">{t(locale, "procurement.filter_1y", "Last 1 year")}</button>\n'
+        f'      <button class="filter-pill" data-range="3y">{t(locale, "procurement.filter_3y", "Last 3 years")}</button>\n'
+        f'    </div>\n'
+        f'    <div class="grid grid-4 stack-gap-lg">\n'
+        f'      {metric_cards}\n'
+        f'    </div>\n'
+        f'    {charts_html}\n'
+        f'    {table_html}\n'
+        f'    {scripts_html}\n'
         f'  </div>\n'
         f'</section>'
     )
