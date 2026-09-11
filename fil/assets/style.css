@@ -3596,3 +3596,69 @@ canvas {
     text-align: center;
   }
 }
+
+/* Emergency Card Styling */
+.emergency-card {
+  display: flex;
+  flex-direction: row; /* Changed from column to row */
+  align-items: flex-start; /* Align to top instead of center */
+  text-align: left; /* Left align text */
+  padding: 24px;
+  gap: 16px; /* Space between logo and content */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.emergency-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Office Logo Styling */
+.office-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0; /* Prevent logo from shrinking */
+  object-fit: contain;
+  /* Remove margin-bottom since we're using gap now */
+}
+
+/* Ensure headings and paragraphs inside the card have consistent spacing */
+.emergency-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+.emergency-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.emergency-card a {
+  color: var(--green-deep);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed var(--green-deep);
+}
+
+.emergency-card a:hover {
+  border-bottom-style: solid;
+  color: var(--green-bright);
+}
+
+/* Mobile responsive - stack vertically on small screens */
+@media (max-width: 600px) {
+  .emergency-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .office-logo {
+    margin-bottom: 12px;
+  }
+}
