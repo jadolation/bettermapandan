@@ -3596,15 +3596,13 @@ canvas {
     text-align: center;
   }
 }
-
 /* Emergency Card Styling */
 .emergency-card {
   display: flex;
-  flex-direction: row; /* Changed from column to row */
-  align-items: flex-start; /* Align to top instead of center */
-  text-align: left; /* Left align text */
+  flex-direction: row;
+  align-items: flex-start;
   padding: 24px;
-  gap: 16px; /* Space between logo and content */
+  gap: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -3617,25 +3615,46 @@ canvas {
 .office-logo {
   width: 64px;
   height: 64px;
-  flex-shrink: 0; /* Prevent logo from shrinking */
+  flex-shrink: 0;
   object-fit: contain;
-  /* Remove margin-bottom since we're using gap now */
 }
 
-/* Ensure headings and paragraphs inside the card have consistent spacing */
+/* Content wrapper for horizontal layout */
+.emergency-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.emergency-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .emergency-card h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--green-deep);
+  white-space: nowrap;
 }
 
-.emergency-card p {
+.emergency-card-description {
   margin: 0;
   font-size: 0.95rem;
-  line-height: 1.5;
   color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.emergency-card-phones {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+  white-space: nowrap;
 }
 
 .emergency-card a {
@@ -3651,14 +3670,19 @@ canvas {
 }
 
 /* Mobile responsive - stack vertically on small screens */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .emergency-card {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
   }
   
-  .office-logo {
-    margin-bottom: 12px;
+  .emergency-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .emergency-card h3,
+  .emergency-card-phones {
+    white-space: normal;
   }
 }
