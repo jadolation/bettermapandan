@@ -206,6 +206,22 @@ function updateAll(range, mayoralTermIndex) {
   var totalAmt = filtered.reduce(function(s, c) { return s + (c.amount || 0); }, 0);
   if (toolbarTotal) toolbarTotal.innerHTML = "\u20B1" + totalAmt.toLocaleString("en-PH", { maximumFractionDigits: 0 });
   if (toolbarDateRange) toolbarDateRange.textContent = fmtDateRange(filtered);
+  var trendSub = document.getElementById("chart-trend-subtitle");
+  var awardSub = document.getElementById("chart-awardees-subtitle");
+  var catSub = document.getElementById("chart-categories-subtitle");
+  var rangeText = fmtDateRange(filtered);
+  var totalText = filtered.reduce(function(s, c) { return s + (c.amount || 0); }, 0);
+  if (trendSub) {
+    var trendLabel = trendSub.textContent.split(" • ")[0];
+    trendSub.textContent = trendLabel + " • " + rangeText;
+  }
+  if (awardSub) {
+    var awardLabel = awardSub.textContent.split(" • ")[0];
+    awardSub.textContent = awardLabel + " • " + rangeText;
+  }
+  if (catSub) {
+    catSub.innerHTML = "Total: \u20B1" + totalText.toLocaleString("en-PH", { maximumFractionDigits: 0 }) + " &bull; " + rangeText;
+  }
 
   if (window._refreshTable) window._refreshTable();
 }
