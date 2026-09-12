@@ -5,6 +5,8 @@ built under the [BetterGov.ph](https://bettergov.ph/) BetterLGU initiative.
 
 Dual-language: English at root, Filipino under `/fil/`.
 
+**Live at:** [bettermapandan.org](https://bettermapandan.org) — deployed via GitHub Pages with a Hostinger-registered domain.
+
 
 ## Structure
 
@@ -13,30 +15,37 @@ build.py                 Assembles src/pages/*.html + src/partials/*.html
                           into the final static pages below.
                           Flags:
                             (none)           Build all pages (EN + FIL)
-                            --compress       Optimize images, then build
-                            --verify-translations  Lint untranslated strings
+                            --compress       Optimize images only (does not build)
+                            --verify-translations  Lint untranslated strings only (does not build)
 
 src/
   partials/
     base.html             <head> + <body> shell, with {{TITLE}}, {{DESCRIPTION}},
-                           {{HEADER}}, {{BODY}}, {{FOOTER}} placeholders
+                           {{HEADER}}, {{BODY}}, {{FOOTER}}, {{LANG_ATTR}},
+                           {{CANONICAL_URL}}, {{ASSET_BASE}} placeholders
     header.html            Emergency bar + site nav (single source of truth)
     footer.html            Site footer, incl. {{REPO_URL}}
   pages/
     index.html              Front matter (title/description) + body content only
-    services.html           for each page — no repeated header/footer here.
+    about.html              About the municipality
     government.html
-    legislative.html
-    transparency.html
+    search.html
+    statistics.html
+    support.html
+    support/                Sub-pages: accessibility, faq, privacy, report, sitemap, terms
+                            Note: services.html, legislative.html, and transparency.html
+                            are generated programmatically by build.py, not sourced here.
 
 locales/
   en.json                English locale strings (UI labels, page copy)
   fil.json               Filipino locale strings
 
 assets/
-  style.css              All design tokens and styles — zero inline styles
-                           anywhere in the generated HTML.
-  script.js               Mobile nav toggle, weather widget, modals, accordions.
+  style.css              Component-based design tokens and styles — inline styles
+                           are limited to data-driven elements (charts, dynamic layouts).
+  script.js               Mobile nav toggle, language switcher, weather widget,
+                           history carousel, barangay modals, accordions,
+                           feedback widget, Lucide icon init.
   logo.svg                Municipal seal — source for the header/footer marks
                            and every generated favicon. DO NOT convert to WebP;
                            the SVG uses mask+filter rendering pipelines.
@@ -45,7 +54,8 @@ assets/
   Pandan.webp             Hero image (Pandan Festival)
   plaza.webp              Hero image (Town Plaza)
   luyan.webp              Hero image (Luyan)
-  favicon.ico, favicon-*.png   Generated from logo.svg.
+  favicon.ico, favicon-32x32.png   Generated from logo.svg.
+                           Also: android-chrome-*.svg, apple-touch-icon.svg.
   chart-loader.js         Lazy-loads Chart.js only on pages with <canvas>
   barangay-data.js        Barangay population/household data
   search.js, search-index.json   Client-side search
@@ -144,14 +154,23 @@ radon mi build.py             # Maintainability index — target: Grade A
 
 ## CI/CD
 
-The GitHub Actions workflow (`.github/workflows/lighthouse.yml`) runs on
-every push to `main`:
+Two GitHub Actions workflows run Lighthouse audits:
+
+**CI workflow** (`.github/workflows/lighthouse.yml`) — runs on every push and
+pull request to `main`:
 
 1. Sets up Python 3.11 + Node.js 22
 2. Builds the site (`python3 build.py`)
 3. Starts a local server on port 9001
 4. Runs Lighthouse CI against 11 URLs
 5. Asserts thresholds: accessibility ≥ 95, SEO = 100, performance ≥ 50
+
+**Production monitor** (`.github/workflows/lighthouse-production.yml`) — runs
+weekly (Monday 8:00 UTC) or manually:
+
+1. Runs Lighthouse against the live site (`bettermapandan.org`)
+2. Tests 7 key pages for real-world performance
+3. Uploads reports to temporary public storage
 
 
 ## Before you deploy
@@ -172,12 +191,16 @@ every push to `main`:
 
 ## Deploying
 
+The site is deployed via **GitHub Pages** from the `main` branch root folder.
+The custom domain `bettermapandan.org` is registered through **Hostinger**
+and configured with DNS A records pointing to GitHub Pages.
+
 Any static host works — the root `.html` files plus `assets/` are the
 entire deployable site. `src/` and `build.py` don't need to ship to
 production; they're only for maintainers.
 
-- **GitHub Pages** (simplest): Settings → Pages → deploy from the `main`
-  branch, root folder.
+- **GitHub Pages**: Settings → Pages → deploy from the `main` branch, root
+  folder. Custom domain configured via Hostinger DNS.
 - **Netlify / Vercel**: connect the repo with no build command and `/` as
   the publish directory (or add `python3 build.py` as the build command if
   you'd rather have the host regenerate pages on every push).
