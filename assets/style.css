@@ -144,6 +144,7 @@ p {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 24px;
+  overflow-x: hidden;
 }
 
 /* ---------- Emergency bar / ticker ---------- */
@@ -707,6 +708,7 @@ p {
 
 .section {
   padding: 48px 0;
+  overflow-x: hidden;
 }
 
 .section + .section {
@@ -2047,6 +2049,46 @@ tbody tr:hover {
   .lang-banner { padding: 10px 12px; }
   .lang-banner-msg { font-size: 13px; }
   .lang-banner-btn { font-size: 12px; padding: 5px 10px; }
+}
+
+/* ---------- Mobile collapsible filters ---------- */
+@media (max-width: 720px) {
+  .section, .wrap {
+    overflow-x: hidden;
+  }
+  .procurement-filters, .mayoral-term-filters {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .filter-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .filter-toggle::after {
+    content: "▼";
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+  }
+  .filter-group.open .filter-toggle::after {
+    transform: rotate(180deg);
+  }
+  .filter-buttons {
+    display: none;
+  }
+  .filter-group.open .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+@media (min-width: 721px) {
+  .filter-toggle { display: none !important; }
+  .filter-buttons { display: flex !important; }
 }
 
 /* ---------- Breadcrumbs ---------- */
@@ -3493,14 +3535,16 @@ canvas {
 }
 
 .filter-pill {
-  padding: 6px 14px;
+  padding: 8px 18px;
   border: 1.5px solid var(--line);
-  border-radius: 20px;
+  border-radius: 24px;
   background: var(--paper);
   color: var(--ink-soft);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .filter-pill:hover {
@@ -3512,6 +3556,13 @@ canvas {
   background: var(--green-deep);
   color: #fff;
   border-color: var(--green-deep);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.filter-pill.active, .term-pill.active {
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
 }
 
 .mayoral-term-filters {
@@ -3523,14 +3574,16 @@ canvas {
 }
 
 .term-pill {
-  padding: 5px 12px;
+  padding: 7px 16px;
   border: 1.5px solid var(--line);
-  border-radius: 16px;
+  border-radius: 20px;
   background: var(--paper);
   color: var(--ink-soft);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .term-pill:hover {
@@ -3542,6 +3595,8 @@ canvas {
   background: var(--gold);
   color: #fff;
   border-color: var(--gold);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
 }
 
 #clear-mayoral-term {
@@ -3630,3 +3685,4 @@ canvas {
     text-align: center;
   }
 }
+@media (min-width: 961px) { .grid-4 { grid-template-columns: repeat(4, 1fr) !important; } }

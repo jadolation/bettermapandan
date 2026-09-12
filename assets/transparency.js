@@ -55,7 +55,7 @@ function filterByRange(contracts, range) {
 var mayoralTerms = [
   { start: "2010-06-30", end: "2016-06-29", mayor: "Maximo Calimlim Jr." },
   { start: "2016-06-30", end: "2019-06-29", mayor: "Gerald Glenn L. Tambaoan" },
-  { start: "2019-06-30", end: "2022-06-29", mayor: "Anthony \"Dooy\" C. Penuliar" },
+  { start: "2019-06-30", end: "2022-06-29", mayor: "Anthony C. Penuliar" },
   { start: "2022-06-30", end: "2099-12-31", mayor: "Karl Christian F. Vega" }
 ];
 var currentMayoralTerm = null;
@@ -230,6 +230,13 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('[data-download]').forEach(function(btn) {
     btn.addEventListener("click", function() {
       downloadCSV(this.getAttribute("data-download"));
+    });
+  });
+
+  document.querySelectorAll('.filter-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      var group = this.closest('.filter-group');
+      if (group) { group.classList.toggle('open'); }
     });
   });
 
