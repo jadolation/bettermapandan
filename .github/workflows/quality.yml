@@ -1,0 +1,66 @@
+name: Code Quality & Build Checks
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python Quality Tools
+        run: pip install ruff radon
+
+      - name: Lint & Function Length (Ruff)
+        run: ruff check .
+
+      - name: Cyclomatic Complexity (Radon)
+        run: radon cc . -nc --fail-on-C
+
+      - name: Maintainability Index (Radon)
+        run: radon mi .
+
+      - name: Check i18n Parity
+        run: python check_i18n.py
+
+  build:
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build site & measure time
+        run: time python build.py
+
+      - name: Check for oversized graphics
+        run: |
+          echo "Checking for SVGs > 100KB..."
+          LARGE_FILES=$(find . -type f -name "*.svg" -size +100k 2>/dev/null | grep -v node_modules)
+          if [ -n "$LARGE_FILES" ]; then
+            echo "Error: The following SVGs exceed 100KB:"
+            echo "$LARGE_FILES"
+            exit 1
+          fi
+          echo "All SVGs are optimized."
+
+      - name: Check Broken Links (Lychee)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: './**/*.html --offline'
+          fail: true
