@@ -556,7 +556,9 @@ p {
   color: #f0f4ec;
   margin: 0;
 }
-
+.page-hero + .section {
+  padding-top: 16px !important;
+}
 /* ---------- Action hub ---------- */
 
 .action-hub-bar {
@@ -2060,6 +2062,8 @@ tbody tr:hover {
   .procurement-filters, .mayoral-term-filters {
     max-width: 100%;
     overflow-x: auto;
+    margin: 0 !important;
+
   }
   .filter-toggle {
     display: inline-flex;
@@ -2090,7 +2094,7 @@ tbody tr:hover {
 @media (min-width: 721px) {
   .filter-toggle { display: none !important; }
   .filter-buttons { display: flex !important; }
-}
+
 
 /* ---------- Breadcrumbs ---------- */
 
@@ -3572,6 +3576,7 @@ canvas {
   gap: 8px;
   flex-wrap: wrap;
   margin-top: 12px;
+  
 }
 
 .term-pill {
