@@ -1948,6 +1948,14 @@ def build() -> None:
     if FIL_DIR.exists():
         shutil.rmtree(FIL_DIR)
 
+    cname_src = ROOT / "CNAME"
+    if cname_src.exists():
+        shutil.copy(cname_src, ROOT / "CNAME")
+        print("  CNAME: preserved")
+    else:
+        (ROOT / "CNAME").write_text("bettermapandan.org\n", encoding="utf-8")
+        print("  CNAME: generated")
+
     all_search_entries = []
 
     for lang_code, out_root, is_fil in LANGUAGES:
