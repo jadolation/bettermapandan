@@ -3734,10 +3734,9 @@ canvas {
 
 .emergency-card-header {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .emergency-card h3 {
@@ -3745,7 +3744,7 @@ canvas {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--green-deep);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .emergency-card-description {
@@ -3759,7 +3758,8 @@ canvas {
   margin: 0;
   font-size: 0.95rem;
   color: var(--ink);
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.5;
 }
 
 .emergency-card a {
@@ -3772,24 +3772,6 @@ canvas {
 .emergency-card a:hover {
   border-bottom-style: solid;
   color: var(--green-bright);
-}
-
-/* Mobile responsive - stack vertically on small screens */
-@media (max-width: 768px) {
-  .emergency-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .emergency-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .emergency-card h3,
-  .emergency-card-phones {
-    white-space: normal;
-  }
 }
 .agency-card { display: flex; align-items: flex-start; gap: 16px; }
 .agency-card-content { flex: 1; }
