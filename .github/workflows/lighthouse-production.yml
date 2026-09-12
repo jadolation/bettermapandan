@@ -1,0 +1,40 @@
+name: Production Lighthouse Monitor
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Every Monday at 8:00 UTC
+  workflow_dispatch:       # Allow manual trigger
+
+jobs:
+  lighthouse-production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse against production
+        run: |
+          lhci autorun \
+            --collect.url=https://bettermapandan.org/ \
+            --collect.url=https://bettermapandan.org/services.html \
+            --collect.url=https://bettermapandan.org/government.html \
+            --collect.url=https://bettermapandan.org/legislative.html \
+            --collect.url=https://bettermapandan.org/statistics.html \
+            --collect.url=https://bettermapandan.org/transparency.html \
+            --collect.url=https://bettermapandan.org/about.html \
+            --collect.numberOfRuns=1 \
+            --assert.config=lighthouserc.json \
+            --upload.target=temporary-public-storage
+
+      - name: Upload Lighthouse Reports Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-lighthouse-reports
+          path: .lighthouseci/

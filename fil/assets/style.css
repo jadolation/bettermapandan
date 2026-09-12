@@ -104,6 +104,7 @@ body {
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -144,6 +145,7 @@ p {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 24px;
+  overflow-x: hidden;
 }
 
 /* ---------- Emergency bar / ticker ---------- */
@@ -189,7 +191,6 @@ p {
 }
 
 .emergency-bar .label {
-  opacity: 0.82;
   font-weight: 400;
 }
 
@@ -708,6 +709,7 @@ p {
 
 .section {
   padding: 48px 0;
+  overflow-x: hidden;
 }
 
 .section + .section {
@@ -2048,6 +2050,46 @@ tbody tr:hover {
   .lang-banner { padding: 10px 12px; }
   .lang-banner-msg { font-size: 13px; }
   .lang-banner-btn { font-size: 12px; padding: 5px 10px; }
+}
+
+/* ---------- Mobile collapsible filters ---------- */
+@media (max-width: 720px) {
+  .section, .wrap {
+    overflow-x: hidden;
+  }
+  .procurement-filters, .mayoral-term-filters {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .filter-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .filter-toggle::after {
+    content: "▼";
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+  }
+  .filter-group.open .filter-toggle::after {
+    transform: rotate(180deg);
+  }
+  .filter-buttons {
+    display: none;
+  }
+  .filter-group.open .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+@media (min-width: 721px) {
+  .filter-toggle { display: none !important; }
+  .filter-buttons { display: flex !important; }
 }
 
 /* ---------- Breadcrumbs ---------- */
@@ -3494,14 +3536,16 @@ canvas {
 }
 
 .filter-pill {
-  padding: 6px 14px;
+  padding: 8px 18px;
   border: 1.5px solid var(--line);
-  border-radius: 20px;
+  border-radius: 24px;
   background: var(--paper);
   color: var(--ink-soft);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .filter-pill:hover {
@@ -3513,6 +3557,52 @@ canvas {
   background: var(--green-deep);
   color: #fff;
   border-color: var(--green-deep);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.filter-pill.active, .term-pill.active {
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.mayoral-term-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.term-pill {
+  padding: 7px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.term-pill:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.term-pill.active {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+#clear-mayoral-term {
+  font-size: 0.8rem;
+  padding: 5px 10px;
 }
 
 .procurement-toolbar {
@@ -3532,6 +3622,7 @@ canvas {
   display: flex;
   align-items: baseline;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .procurement-toolbar-stats .stat-label {
@@ -3570,7 +3661,7 @@ canvas {
   border-radius: 0 0 var(--radius) var(--radius);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .procurement-toolbar {
     flex-direction: column;
     align-items: stretch;
@@ -3595,6 +3686,7 @@ canvas {
     width: 100%;
     text-align: center;
   }
+<<<<<<< HEAD
 }
 
 /* Emergency Card Styling */
@@ -3662,3 +3754,19 @@ canvas {
     margin-bottom: 12px;
   }
 }
+=======
+
+  .filter-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .filter-row .filter-group {
+    flex: 1;
+    min-width: 0;
+  }
+}
+@media (min-width: 961px) { .grid-4 { grid-template-columns: repeat(4, 1fr) !important; } }
+>>>>>>> 888ce61a66bf0a8a63e89ea47d45f5a77e758389

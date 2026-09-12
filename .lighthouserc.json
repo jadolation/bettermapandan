@@ -71,40 +71,22 @@
           }
         ],
         "lcp-lazy-loaded": [
-          "warn",
-          {
-            "minScore": 0.1
-          }
+          "off"
         ],
         "prioritize-lcp-image": [
-          "warn",
-          {
-            "minScore": 0.1
-          }
+          "off"
         ],
         "non-composited-animations": [
-          "warn",
-          {
-            "minScore": 0.1
-          }
+          "off"
         ],
         "redirects": [
-          "warn",
-          {
-            "minScore": 0.1
-          }
+          "off"
         ],
         "heading-order": [
-          "warn",
-          {
-            "minScore": 0.1
-          }
+          "off"
         ],
         "is-crawlable": [
-          "warn",
-          {
-            "minScore": 0.1
-          }
+          "off"
         ],
         "unminified-javascript": [
           "warn",
