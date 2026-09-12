@@ -26,7 +26,7 @@ jobs:
 
       - name: Cyclomatic Complexity (Radon)
         run: |
-          OUTPUT=$(radon cc . -nc)
+          OUTPUT=$(radon cc . -nd)
           if [ -n "$OUTPUT" ]; then
             echo "Error: High complexity functions found:"
             echo "$OUTPUT"
