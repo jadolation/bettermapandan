@@ -282,40 +282,105 @@ description: An independent, citizen-run transparency portal for the Municipalit
     </div>
   </div>
 </section>
-
 <section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">{HOMEPAGE_EMERGENCY_EYEBROW}</div>
       <h2>{HOMEPAGE_EMERGENCY_TITLE}</h2>
     </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>{EMERGENCY_MDRRMO}</h3>
-          <p>{HOMEPAGE_EMERGENCY_MDRRMO_DESC}<br />
-          <a href="tel:+63756002564">(075) 600-2564</a> &middot; <a href="tel:911">911</a> / <a href="tel:+639692236912">0969-223-6912</a></p>
-        </div>
-        <div class="card">
-          <h3>{HOMEPAGE_EMERGENCY_BFP}</h3>
-          <p><a href="tel:+63756321750">(075) 632-1750</a> &middot; <a href="tel:911">911</a> / <a href="tel:+639434242810">0943-424-2810</a></p>
-        </div>
-        <div class="card">
-          <h3>{HOMEPAGE_EMERGENCY_PNP}</h3>
-          <p><a href="tel:+63756321754">(075) 632-1754</a> &middot; <a href="tel:911">911</a> / <a href="tel:+639159793390">0915-979-3390</a></p>
-        </div>
-        <div class="card">
-          <h3>{HOMEPAGE_EMERGENCY_RHU}</h3>
-          <p><a href="tel:+63756321874">(075) 632-1874</a></p>
-        </div>
-        <div class="card">
-          <h3>{HOMEPAGE_EMERGENCY_HOSPITAL}</h3>
-          <p><a href="tel:+63756320491">(075) 632-0491</a> &middot; <a href="tel:+639165512522">0916-551-2522</a></p>
-        </div>
-        <div class="card">
-          <h3>{HOMEPAGE_EMERGENCY_WATER}</h3>
-          <p><a href="tel:+63756320445">(075) 632-0445</a> &middot; <a href="tel:+639493003375">0949-300-3375</a></p>
+    <div class="grid grid-3">
+      
+      <!-- MDRRMO -->
+      <div class="card emergency-card">
+        <img src="{{ASSET_BASE}}/assets/mdrrmo.png" alt="MDRRMO Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>{EMERGENCY_MDRRMO}</h3>
+              <p class="emergency-card-description">{HOMEPAGE_EMERGENCY_MDRRMO_DESC}</p>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756002564">(075) 600-2564</a> · <a href="tel:911">911</a> / <a href="tel:+639692236912">0969-223-6912</a>
+            </p>
+          </div>
         </div>
       </div>
-   
+
+      <!-- BFP -->
+      <div class="card emergency-card">
+        <img src="{{ASSET_BASE}}/assets/bfp.png" alt="Bureau of Fire Protection Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>{HOMEPAGE_EMERGENCY_BFP}</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756321750">(075) 632-1750</a> · <a href="tel:911">911</a> / <a href="tel:+639434242810">0943-424-2810</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PNP -->
+      <div class="card emergency-card">
+        <img src="{{ASSET_BASE}}/assets/pnp.png" alt="Philippine National Police Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>{HOMEPAGE_EMERGENCY_PNP}</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756321754">(075) 632-1754</a> · <a href="tel:911">911</a> / <a href="tel:+639159793390">0915-979-3390</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RHU -->
+      <div class="card emergency-card">
+        <img src="{{ASSET_BASE}}/assets/rhu.png" alt="Rural Health Unit Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>{HOMEPAGE_EMERGENCY_RHU}</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756321874">(075) 632-1874</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hospital -->
+      <div class="card emergency-card">
+        <img src="{{ASSET_BASE}}/assets/community.png" alt="Local Hospital Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>{HOMEPAGE_EMERGENCY_HOSPITAL}</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756320491">(075) 632-0491</a> · <a href="tel:+639165512522">0916-551-2522</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Water District -->
+      <div class="card emergency-card">
+        <img src="{{ASSET_BASE}}/assets/mawadi.png" alt="Water District Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>{HOMEPAGE_EMERGENCY_WATER}</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756320445">(075) 632-0445</a> · <a href="tel:+639493003375">0949-300-3375</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
