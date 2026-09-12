@@ -127,28 +127,35 @@
       <button class="filter-pill" data-range="1y">Last 1 year</button>
       <button class="filter-pill" data-range="3y">Last 3 years</button>
     </div>
-    <div class="grid grid-4 stack-gap-lg">
-            <div class="card">
+    <div class="mayoral-term-filters" id="mayoral-term-filters" style="margin-top:12px">
+      <span class="filter-label">By Mayoral Term</span>
+      <button class="term-pill" data-term="0">Maximo Calimlim Jr.</button>
+      <button class="term-pill" data-term="1">Gerald Glenn L. Tambaoan</button>
+      <button class="term-pill" data-term="2">Anthony "Dooy" C. Penuliar</button>
+      <button class="term-pill" data-term="3">Karl Christian F. Vega</button>
+    </div>
+    <div class="grid grid-4 stack-gap-lg" style="margin-top:20px">
+            <div class="card" id="metric-categories">
         <h2>Mga Kategoryang Natatangi</h2>
-        <p class="figure">38</p>
+        <p class="figure" id="metric-categories-value">38</p>
         <span class="verification-badge badge-official">Opisyal</span>
         <span class="source-label">Kategorya</span>
       </div>
-      <div class="card">
+      <div class="card" id="metric-total">
         <h2>Kabuuang Halaga ng Kontrata</h2>
-        <p class="figure">&#8369;470,203,285</p>
+        <p class="figure" id="metric-total-value">&#8369;470,203,285</p>
         <span class="verification-badge badge-official">Opisyal</span>
         <span class="source-label">Pinagmulan: PhilGEPS</span>
       </div>
-      <div class="card">
+      <div class="card" id="metric-average">
         <h2>Karaniwang Halaga</h2>
-        <p class="figure">&#8369;1,697,485</p>
+        <p class="figure" id="metric-average-value">&#8369;1,697,485</p>
         <span class="verification-badge badge-verified">Napatunayan</span>
         <span class="source-label">Bawat kontrata</span>
       </div>
-      <div class="card">
+      <div class="card" id="metric-contracts">
         <h2>Mga Kontrata</h2>
-        <p class="figure">277</p>
+        <p class="figure" id="metric-contracts-value">277</p>
         <span class="verification-badge badge-verified">Napatunayan</span>
         <span class="source-label">Naipisan sa pamamagitan ng: BetterGov.ph</span>
       </div>
@@ -227,6 +234,7 @@
       window.PROCUREMENT_ORGS = [{"name": "MUNICIPALITY OF MAPANDAN, PANGASINAN", "count": 211, "total": 438912505.8999999}, {"name": "MAPANDAN WATER DISTRICT", "count": 20, "total": 17949459.68}, {"name": "MAPANDAN NATIONAL HIGH SCHOOL", "count": 6, "total": 7381893.15}, {"name": "BARANGAY PIAS, MAPANDAN, PANGASINAN", "count": 15, "total": 3043676.8499999996}, {"name": "BARANGAY ASERDA - MAPANDAN, PANGASINAN", "count": 11, "total": 865748.7}, {"name": "BARANGAY GOLDEN, MAPANDAN, PANGASINAN", "count": 3, "total": 554400.0}, {"name": "BARANGAY MAPANDAN, MAYANTOC, TARLAC", "count": 3, "total": 423470.65}, {"name": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN", "count": 3, "total": 349650.0}, {"name": "BARANGAY POBLACION, MAPANDAN, PANGASINAN", "count": 2, "total": 307930.0}, {"name": "BARANGAY AMANOAOAC, MAPANDAN, PANGASINAN", "count": 2, "total": 214700.0}, {"name": "BARANGAY APAYA, MAPANDAN, PANGASINAN", "count": 1, "total": 199850.0}];
       window.PROCUREMENT_TOTAL = 470203284.93000007;
       window.PROCUREMENT_DATE_RANGE = "Jun 2011 \u2013 Dec 2025";
+      window.MAYORAL_TERMS = [{"start": "2010-06-30", "end": "2016-06-29", "mayor": "Maximo Calimlim Jr."}, {"start": "2016-06-30", "end": "2019-06-29", "mayor": "Gerald Glenn L. Tambaoan"}, {"start": "2019-06-30", "end": "2022-06-29", "mayor": "Anthony \"Dooy\" C. Penuliar"}, {"start": "2022-06-30", "end": "2099-12-31", "mayor": "Karl Christian F. Vega"}];
     </script>
     <style>
       #procurement-table th.sort-asc .sort-indicator::after { content: " ▲"; }

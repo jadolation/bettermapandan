@@ -3514,6 +3514,41 @@ canvas {
   border-color: var(--green-deep);
 }
 
+.mayoral-term-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.term-pill {
+  padding: 5px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.term-pill:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.term-pill.active {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+}
+
+#clear-mayoral-term {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+
 .procurement-toolbar {
   display: flex;
   justify-content: space-between;
