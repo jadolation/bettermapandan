@@ -1627,27 +1627,27 @@ def _build_procurement_metric_cards(locale: dict, metrics: dict) -> str:
     unique_categories = metrics.get("unique_categories", 0)
 
     return (
-        f'      <div class="card">\n'
+        f'      <div class="card" id="metric-categories">\n'
         f'        <h2>{t(locale, "procurement.unique_categories", "Unique Categories")}</h2>\n'
-        f'        <p class="figure">{unique_categories:,}</p>\n'
+        f'        <p class="figure" id="metric-categories-value">{unique_categories:,}</p>\n'
         f'        <span class="verification-badge badge-official">{t(locale, "common.official", "Official")}</span>\n'
         f'        <span class="source-label">{t(locale, "procurement.category", "Category")}</span>\n'
         f'      </div>\n'
-        f'      <div class="card">\n'
+        f'      <div class="card" id="metric-total">\n'
         f'        <h2>{t(locale, "procurement.total_spend", "Total Contract Value")}</h2>\n'
-        f'        <p class="figure">&#8369;{total_amount:,.0f}</p>\n'
+        f'        <p class="figure" id="metric-total-value">&#8369;{total_amount:,.0f}</p>\n'
         f'        <span class="verification-badge badge-official">{t(locale, "common.official", "Official")}</span>\n'
         f'        <span class="source-label">{t(locale, "procurement.source_philgeps", "Source: PhilGEPS")}</span>\n'
         f'      </div>\n'
-        f'      <div class="card">\n'
+        f'      <div class="card" id="metric-average">\n'
         f'        <h2>{t(locale, "procurement.average_cost", "Average Cost")}</h2>\n'
-        f'        <p class="figure">&#8369;{average_cost:,.0f}</p>\n'
+        f'        <p class="figure" id="metric-average-value">&#8369;{average_cost:,.0f}</p>\n'
         f'        <span class="verification-badge badge-verified">{t(locale, "common.verified", "Verified")}</span>\n'
         f'        <span class="source-label">{t(locale, "procurement.per_contract", "Per contract")}</span>\n'
         f'      </div>\n'
-        f'      <div class="card">\n'
+        f'      <div class="card" id="metric-contracts">\n'
         f'        <h2>{t(locale, "procurement.contracts", "Contracts")}</h2>\n'
-        f'        <p class="figure">{contract_count:,}</p>\n'
+        f'        <p class="figure" id="metric-contracts-value">{contract_count:,}</p>\n'
         f'        <span class="verification-badge badge-verified">{t(locale, "common.verified", "Verified")}</span>\n'
         f'        <span class="source-label">{t(locale, "procurement.source_aggregator", "Aggregated via: BetterGov.ph")}</span>\n'
         f'      </div>'
@@ -1660,19 +1660,19 @@ def _build_procurement_charts(locale: dict, date_range: str, total_amount: int, 
         f'    <div class="grid grid-2 stack-gap-lg" style="margin-top:24px">\n'
         f'      <div class="card">\n'
         f'        <h3>{t(locale, "procurement.monthly_trend_title", "")}</h3>\n'
-        f'        <p class="source-label" style="margin-top:0">{t(locale, "procurement.monthly_trend_desc", "")} &bull; {date_range}</p>\n'
+        f'        <p class="source-label" style="margin-top:0" id="chart-trend-subtitle">{t(locale, "procurement.monthly_trend_desc", "")} &bull; {date_range}</p>\n'
         f'        <canvas id="chart-procurement-trend" height="220" role="img" aria-label="Monthly procurement trend"></canvas>\n'
         f'      </div>\n'
         f'      <div class="card">\n'
         f'        <h3>{t(locale, "procurement.top_awardees_title", "")}</h3>\n'
-        f'        <p class="source-label" style="margin-top:0">{t(locale, "procurement.top_awardees_desc", "")} &bull; {date_range}</p>\n'
+        f'        <p class="source-label" style="margin-top:0" id="chart-awardees-subtitle">{t(locale, "procurement.top_awardees_desc", "")} &bull; {date_range}</p>\n'
         f'        <canvas id="chart-procurement-awardees" height="220" role="img" aria-label="Top 10 awardees"></canvas>\n'
         f'      </div>\n'
         f'    </div>\n'
         f'    <div class="card" style="margin-top:24px">\n'
         f'      <h3>Procurement by Category</h3>\n'
         f'      <p class="source-label" style="margin-top:0">Total spend by business category</p>\n'
-        f'      <p style="margin:4px 0 0;font-size:0.9rem;color:var(--ink-soft)">Total: &#8369;{total_amount:,.0f} &bull; {date_range}</p>\n'
+        f'      <p style="margin:4px 0 0;font-size:0.9rem;color:var(--ink-soft)" id="chart-categories-subtitle">Total: &#8369;{total_amount:,.0f} &bull; {date_range}</p>\n'
         f'      <div style="display:flex;justify-content:center;margin-top:12px">\n'
         f'        <div style="width:100%;max-width:500px;position:relative">\n'
         f'          <canvas id="chart-procurement-categories" height="340" role="img" aria-label="Procurement by business category"></canvas>\n'
@@ -1730,8 +1730,9 @@ def _build_procurement_table(locale: dict, contract_count: int, total_amount: in
     )
 
 
-def _build_procurement_scripts(monthly_json: str, awardees_json: str, contracts_json: str, categories_json: str, orgs_json: str, total_amount: int, date_range: str, license_str: str) -> str:
+def _build_procurement_scripts(monthly_json: str, awardees_json: str, contracts_json: str, categories_json: str, orgs_json: str, total_amount: int, date_range: str, license_str: str, mayoral_terms_json: str = "") -> str:
     """Build the inline scripts and styles for the procurement dashboard."""
+    mayoral_terms_line = f"      window.MAYORAL_TERMS = {mayoral_terms_json};\n" if mayoral_terms_json else ""
     return (
         f'    <p class="source-label">Source: PhilGEPS | Aggregated via: BetterGov.ph | License: {html.escape(license_str)}</p>\n'
         f'    <script>\n'
@@ -1741,6 +1742,7 @@ def _build_procurement_scripts(monthly_json: str, awardees_json: str, contracts_
         f'      window.PROCUREMENT_ORGS = {orgs_json};\n'
         f'      window.PROCUREMENT_TOTAL = {total_amount};\n'
         f'      window.PROCUREMENT_DATE_RANGE = {json.dumps(date_range)};\n'
+        f'{mayoral_terms_line}'
         f'    </script>\n'
         f'    <style>\n'
         f'      #procurement-table th.sort-asc .sort-indicator::after {{ content: " ▲"; }}\n'
@@ -1816,7 +1818,13 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
 
     charts_html = _build_procurement_charts(locale, date_range, total_amount, contract_count)
     table_html = _build_procurement_table(locale, contract_count, total_amount, date_range, search_placeholder, showing_x_of_y, download_csv, remove_duplicates)
-    scripts_html = _build_procurement_scripts(monthly_json, awardees_json, contracts_json, categories_json, orgs_json, total_amount, date_range, license_str)
+    mayoral_terms_json = json.dumps([
+        {"start": "2010-06-30", "end": "2016-06-29", "mayor": "Maximo Calimlim Jr."},
+        {"start": "2016-06-30", "end": "2019-06-29", "mayor": "Gerald Glenn L. Tambaoan"},
+        {"start": "2019-06-30", "end": "2022-06-29", "mayor": 'Anthony C. Penuliar'},
+        {"start": "2022-06-30", "end": "2099-12-31", "mayor": "Karl Christian F. Vega"},
+    ], ensure_ascii=False)
+    scripts_html = _build_procurement_scripts(monthly_json, awardees_json, contracts_json, categories_json, orgs_json, total_amount, date_range, license_str, mayoral_terms_json)
 
     proc_html = (
         f'<section class="section" id="procurement">\n'
@@ -1826,16 +1834,35 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'      <h2>{t(locale, "procurement.title", "")}</h2>\n'
         f'      <p>Municipality of Mapandan &mdash; {contract_count:,} contracts totaling &#8369;{total_amount:,.0f}. Data from PhilGEPS via BetterGov.ph Open Data Portal.</p>\n'
         f'    </div>\n'
-        f'    <div class="procurement-filters" id="procurement-filters">\n'
-        f'      <span class="filter-label">{t(locale, "procurement.time_frame", "Time frame")}</span>\n'
-        f'      <button class="filter-pill active" data-range="all">{t(locale, "procurement.filter_all", "All")}</button>\n'
-        f'      <button class="filter-pill" data-range="30d">{t(locale, "procurement.filter_30d", "Last 30 days")}</button>\n'
-        f'      <button class="filter-pill" data-range="3m">{t(locale, "procurement.filter_3m", "Last 3 months")}</button>\n'
-        f'      <button class="filter-pill" data-range="6m">{t(locale, "procurement.filter_6m", "Last 6 months")}</button>\n'
-        f'      <button class="filter-pill" data-range="1y">{t(locale, "procurement.filter_1y", "Last 1 year")}</button>\n'
-        f'      <button class="filter-pill" data-range="3y">{t(locale, "procurement.filter_3y", "Last 3 years")}</button>\n'
+        f'    <div class="filter-row">\n'
+        f'    <div class="filter-group">\n'
+        f'      <span class="filter-toggle">{t(locale, "procurement.time_frame", "Time frame")}</span>\n'
+        f'      <div class="procurement-filters" id="procurement-filters">\n'
+        f'        <div class="filter-buttons">\n'
+        f'          <span class="filter-label">{t(locale, "procurement.time_frame", "Time frame")}</span>\n'
+        f'          <button class="filter-pill active" data-range="all">{t(locale, "procurement.filter_all", "All")}</button>\n'
+        f'          <button class="filter-pill" data-range="30d">{t(locale, "procurement.filter_30d", "Last 30 days")}</button>\n'
+        f'          <button class="filter-pill" data-range="3m">{t(locale, "procurement.filter_3m", "Last 3 months")}</button>\n'
+        f'          <button class="filter-pill" data-range="6m">{t(locale, "procurement.filter_6m", "Last 6 months")}</button>\n'
+        f'          <button class="filter-pill" data-range="1y">{t(locale, "procurement.filter_1y", "Last 1 year")}</button>\n'
+        f'          <button class="filter-pill" data-range="3y">{t(locale, "procurement.filter_3y", "Last 3 years")}</button>\n'
+        f'        </div>\n'
+        f'      </div>\n'
         f'    </div>\n'
-        f'    <div class="grid grid-4 stack-gap-lg">\n'
+        f'    <div class="filter-group">\n'
+        f'      <span class="filter-toggle">{t(locale, "procurement.mayoral_term", "By Mayoral Term")}</span>\n'
+        f'      <div class="mayoral-term-filters" id="mayoral-term-filters">\n'
+        f'        <div class="filter-buttons">\n'
+        f'          <span class="filter-label">{t(locale, "procurement.mayoral_term", "By Mayoral Term")}</span>\n'
+        f'          <button class="term-pill" data-term="0">{t(locale, "procurement.term_calimlim", "Maximo Calimlim Jr.")}</button>\n'
+        f'          <button class="term-pill" data-term="1">{t(locale, "procurement.term_tambaoan", "Gerald Glenn L. Tambaoan")}</button>\n'
+        f'          <button class="term-pill" data-term="2">{t(locale, "procurement.term_penuliar", "Anthony C. Penuliar")}</button>\n'
+        f'          <button class="term-pill" data-term="3">{t(locale, "procurement.term_vega", "Karl Christian F. Vega")}</button>\n'
+        f'        </div>\n'
+        f'      </div>\n'
+        f'    </div>\n'
+        f'    </div>\n'
+         f'    <div class="grid grid-4 stack-gap-lg" style="margin-top:20px">\n'
         f'      {metric_cards}\n'
         f'    </div>\n'
         f'    {charts_html}\n'
@@ -1922,6 +1949,11 @@ def build() -> None:
 
     if FIL_DIR.exists():
         shutil.rmtree(FIL_DIR)
+
+    cname_src = ROOT / "CNAME"
+    if not cname_src.exists():
+        (ROOT / "CNAME").write_text("bettermapandan.org\n", encoding="utf-8")
+        print("  CNAME: generated")
 
     all_search_entries = []
 

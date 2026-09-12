@@ -52,6 +52,28 @@ function filterByRange(contracts, range) {
   });
 }
 
+var mayoralTerms = [
+  { start: "2010-06-30", end: "2016-06-29", mayor: "Maximo Calimlim Jr." },
+  { start: "2016-06-30", end: "2019-06-29", mayor: "Gerald Glenn L. Tambaoan" },
+  { start: "2019-06-30", end: "2022-06-29", mayor: "Anthony C. Penuliar" },
+  { start: "2022-06-30", end: "2099-12-31", mayor: "Karl Christian F. Vega" }
+];
+var currentMayoralTerm = null;
+
+function filterByMayoralTerm(contracts, termIndex) {
+  if (termIndex === null || termIndex === undefined) return contracts.slice();
+  var term = mayoralTerms[termIndex];
+  if (!term) return contracts.slice();
+  var from = new Date(term.start);
+  var to = new Date(term.end);
+  to.setHours(23, 59, 59, 999);
+  return contracts.filter(function(c) {
+    if (!c.award_date) return false;
+    var d = new Date(c.award_date);
+    return d >= from && d <= to;
+  });
+}
+
 function rebuildMonthly(contracts) {
   var byMonth = {};
   contracts.forEach(function(c) {
@@ -103,9 +125,36 @@ function fmtDateRange(contracts) {
   return fmt(minD) + " \u2013 " + fmt(maxD);
 }
 
-function updateAll(range) {
+function updateMetrics(contracts) {
+  var total = contracts.reduce(function(s, c) { return s + (c.amount || 0); }, 0);
+  var count = contracts.length;
+  var avg = count > 0 ? total / count : 0;
+  var cats = {};
+  contracts.forEach(function(c) {
+    var cat = c.business_category || "Other";
+    if (!cat) cat = "Other";
+    cats[cat] = true;
+  });
+  var uniqueCats = Object.keys(cats).length;
+
+  var elTotal = document.getElementById("metric-total-value");
+  var elAvg = document.getElementById("metric-average-value");
+  var elCount = document.getElementById("metric-contracts-value");
+  var elCats = document.getElementById("metric-categories-value");
+  if (elTotal) elTotal.innerHTML = "₱" + total.toLocaleString("en-PH", { maximumFractionDigits: 0 });
+  if (elAvg) elAvg.innerHTML = "₱" + avg.toLocaleString("en-PH", { maximumFractionDigits: 0 });
+  if (elCount) elCount.textContent = count.toLocaleString();
+  if (elCats) elCats.textContent = uniqueCats.toLocaleString();
+}
+
+function updateAll(range, mayoralTermIndex) {
+  if (mayoralTermIndex === undefined) mayoralTermIndex = currentMayoralTerm;
+  currentMayoralTerm = mayoralTermIndex;
+  var byTerm = mayoralTermIndex !== null && mayoralTermIndex !== undefined ? filterByMayoralTerm(allContracts, mayoralTermIndex) : null;
+  var base = byTerm !== null ? byTerm : allContracts;
+  var filtered = filterByRange(base, range);
   currentRange = range;
-  var filtered = filterByRange(allContracts, range);
+  updateMetrics(filtered);
   window._filteredContracts = filtered;
 
   var monthly = rebuildMonthly(filtered);
@@ -157,6 +206,22 @@ function updateAll(range) {
   var totalAmt = filtered.reduce(function(s, c) { return s + (c.amount || 0); }, 0);
   if (toolbarTotal) toolbarTotal.innerHTML = "\u20B1" + totalAmt.toLocaleString("en-PH", { maximumFractionDigits: 0 });
   if (toolbarDateRange) toolbarDateRange.textContent = fmtDateRange(filtered);
+  var trendSub = document.getElementById("chart-trend-subtitle");
+  var awardSub = document.getElementById("chart-awardees-subtitle");
+  var catSub = document.getElementById("chart-categories-subtitle");
+  var rangeText = fmtDateRange(filtered);
+  var totalText = filtered.reduce(function(s, c) { return s + (c.amount || 0); }, 0);
+  if (trendSub) {
+    var trendLabel = trendSub.textContent.split(" • ")[0];
+    trendSub.textContent = trendLabel + " • " + rangeText;
+  }
+  if (awardSub) {
+    var awardLabel = awardSub.textContent.split(" • ")[0];
+    awardSub.textContent = awardLabel + " • " + rangeText;
+  }
+  if (catSub) {
+    catSub.innerHTML = "Total: \u20B1" + totalText.toLocaleString("en-PH", { maximumFractionDigits: 0 }) + " &bull; " + rangeText;
+  }
 
   if (window._refreshTable) window._refreshTable();
 }
@@ -165,6 +230,13 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('[data-download]').forEach(function(btn) {
     btn.addEventListener("click", function() {
       downloadCSV(this.getAttribute("data-download"));
+    });
+  });
+
+  document.querySelectorAll('.filter-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      var group = this.closest('.filter-group');
+      if (group) { group.classList.toggle('open'); }
     });
   });
 
@@ -302,15 +374,27 @@ window.addEventListener("load", function () {
   }
 
   var filterContainer = document.getElementById("procurement-filters");
+  var termContainer = document.getElementById("mayoral-term-filters");
   if (filterContainer) {
     filterContainer.addEventListener("click", function(e) {
       var btn = e.target.closest(".filter-pill");
       if (!btn) return;
       filterContainer.querySelectorAll(".filter-pill").forEach(function(b) { b.classList.remove("active"); });
       btn.classList.add("active");
-      updateAll(btn.getAttribute("data-range"));
+      updateAll(btn.getAttribute("data-range"), currentMayoralTerm);
     });
   }
+  if (termContainer) {
+    termContainer.addEventListener("click", function(e) {
+      var btn = e.target.closest(".term-pill");
+      if (!btn) return;
+      termContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var idx = parseInt(btn.getAttribute("data-term"), 10);
+      updateAll(currentRange, idx);
+    });
+  }
+
 
   document.querySelectorAll('.clickable-row').forEach(function(row) {
     row.addEventListener('click', function(e) {
