@@ -1834,6 +1834,7 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'      <h2>{t(locale, "procurement.title", "")}</h2>\n'
         f'      <p>Municipality of Mapandan &mdash; {contract_count:,} contracts totaling &#8369;{total_amount:,.0f}. Data from PhilGEPS via BetterGov.ph Open Data Portal.</p>\n'
         f'    </div>\n'
+        f'    <div class="filter-row">\n'
         f'    <div class="filter-group">\n'
         f'      <span class="filter-toggle">{t(locale, "procurement.time_frame", "Time frame")}</span>\n'
         f'      <div class="procurement-filters" id="procurement-filters">\n'
@@ -1850,7 +1851,7 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'    </div>\n'
         f'    <div class="filter-group">\n'
         f'      <span class="filter-toggle">{t(locale, "procurement.mayoral_term", "By Mayoral Term")}</span>\n'
-        f'      <div class="mayoral-term-filters" id="mayoral-term-filters" style="margin-top:12px">\n'
+        f'      <div class="mayoral-term-filters" id="mayoral-term-filters">\n'
         f'        <div class="filter-buttons">\n'
         f'          <span class="filter-label">{t(locale, "procurement.mayoral_term", "By Mayoral Term")}</span>\n'
         f'          <button class="term-pill" data-term="0">{t(locale, "procurement.term_calimlim", "Maximo Calimlim Jr.")}</button>\n'
@@ -1859,6 +1860,7 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'          <button class="term-pill" data-term="3">{t(locale, "procurement.term_vega", "Karl Christian F. Vega")}</button>\n'
         f'        </div>\n'
         f'      </div>\n'
+        f'    </div>\n'
         f'    </div>\n'
          f'    <div class="grid grid-4 stack-gap-lg" style="margin-top:20px">\n'
         f'      {metric_cards}\n'
@@ -1949,10 +1951,7 @@ def build() -> None:
         shutil.rmtree(FIL_DIR)
 
     cname_src = ROOT / "CNAME"
-    if cname_src.exists():
-        shutil.copy(cname_src, ROOT / "CNAME")
-        print("  CNAME: preserved")
-    else:
+    if not cname_src.exists():
         (ROOT / "CNAME").write_text("bettermapandan.org\n", encoding="utf-8")
         print("  CNAME: generated")
 

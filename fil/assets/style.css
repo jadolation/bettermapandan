@@ -3659,7 +3659,7 @@ canvas {
   border-radius: 0 0 var(--radius) var(--radius);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .procurement-toolbar {
     flex-direction: column;
     align-items: stretch;
@@ -3683,6 +3683,17 @@ canvas {
   .procurement-toolbar-actions .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .filter-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .filter-row .filter-group {
+    flex: 1;
+    min-width: 0;
   }
 }
 @media (min-width: 961px) { .grid-4 { grid-template-columns: repeat(4, 1fr) !important; } }
