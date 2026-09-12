@@ -3791,3 +3791,5 @@ canvas {
     white-space: normal;
   }
 }
+.agency-card { display: flex; align-items: flex-start; gap: 16px; }
+.agency-card-content { flex: 1; }
