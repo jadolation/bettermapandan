@@ -25,7 +25,13 @@ jobs:
         run: ruff check .
 
       - name: Cyclomatic Complexity (Radon)
-        run: radon cc . -nc --fail-on-C
+        run: |
+          OUTPUT=$(radon cc . -nc)
+          if [ -n "$OUTPUT" ]; then
+            echo "Error: High complexity functions found:"
+            echo "$OUTPUT"
+            exit 1
+          fi
 
       - name: Maintainability Index (Radon)
         run: radon mi .
