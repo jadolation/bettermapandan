@@ -3700,3 +3700,94 @@ canvas {
   }
 }
 @media (min-width: 961px) { .grid-4 { grid-template-columns: repeat(4, 1fr) !important; } }
+
+/* Emergency Card Styling */
+.emergency-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.emergency-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Office Logo Styling */
+.office-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Content wrapper for horizontal layout */
+.emergency-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.emergency-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.emergency-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  white-space: nowrap;
+}
+
+.emergency-card-description {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.emergency-card-phones {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.emergency-card a {
+  color: var(--green-deep);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed var(--green-deep);
+}
+
+.emergency-card a:hover {
+  border-bottom-style: solid;
+  color: var(--green-bright);
+}
+
+/* Mobile responsive - stack vertically on small screens */
+@media (max-width: 768px) {
+  .emergency-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .emergency-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .emergency-card h3,
+  .emergency-card-phones {
+    white-space: normal;
+  }
+}
