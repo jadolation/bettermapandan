@@ -104,6 +104,7 @@ body {
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -3621,6 +3622,7 @@ canvas {
   display: flex;
   align-items: baseline;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .procurement-toolbar-stats .stat-label {
@@ -3689,6 +3691,7 @@ canvas {
     display: flex;
     gap: 12px;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .filter-row .filter-group {
