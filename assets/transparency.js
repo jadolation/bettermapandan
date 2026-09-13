@@ -230,6 +230,7 @@ function updateAll(range, mayoralTermIndex) {
   }
 
   if (window._refreshTable) window._refreshTable();
+  if (window.refreshDpwhMap) window.refreshDpwhMap(currentRange, currentMayoralTerm);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -548,6 +549,23 @@ window.addEventListener("load", function () {
 
   var filterContainer = document.getElementById("procurement-filters");
   var termContainer = document.getElementById("mayoral-term-filters");
+  var dpwhFilterContainer = document.getElementById("dpwh-filters");
+  var dpwhTermContainer = document.getElementById("dpwh-term-filters");
+
+  function syncDpwhFilters(range, termIndex) {
+    if (dpwhFilterContainer) {
+      dpwhFilterContainer.querySelectorAll(".filter-pill").forEach(function(b) {
+        b.classList.toggle("active", b.getAttribute("data-range") === range);
+      });
+    }
+    if (dpwhTermContainer) {
+      dpwhTermContainer.querySelectorAll(".term-pill").forEach(function(b) {
+        var idx = parseInt(b.getAttribute("data-term"), 10);
+        b.classList.toggle("active", idx === termIndex);
+      });
+    }
+  }
+
   if (filterContainer) {
     filterContainer.addEventListener("click", function(e) {
       var btn = e.target.closest(".filter-pill");
@@ -564,6 +582,37 @@ window.addEventListener("load", function () {
       termContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
       btn.classList.add("active");
       var idx = parseInt(btn.getAttribute("data-term"), 10);
+      updateAll(currentRange, idx);
+    });
+  }
+  if (dpwhFilterContainer) {
+    dpwhFilterContainer.addEventListener("click", function(e) {
+      var btn = e.target.closest(".filter-pill");
+      if (!btn) return;
+      dpwhFilterContainer.querySelectorAll(".filter-pill").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var range = btn.getAttribute("data-range");
+      if (filterContainer) {
+        filterContainer.querySelectorAll(".filter-pill").forEach(function(b) {
+          b.classList.toggle("active", b.getAttribute("data-range") === range);
+        });
+      }
+      updateAll(range, currentMayoralTerm);
+    });
+  }
+  if (dpwhTermContainer) {
+    dpwhTermContainer.addEventListener("click", function(e) {
+      var btn = e.target.closest(".term-pill");
+      if (!btn) return;
+      dpwhTermContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var idx = parseInt(btn.getAttribute("data-term"), 10);
+      if (termContainer) {
+        termContainer.querySelectorAll(".term-pill").forEach(function(b) {
+          var bidx = parseInt(b.getAttribute("data-term"), 10);
+          b.classList.toggle("active", bidx === idx);
+        });
+      }
       updateAll(currentRange, idx);
     });
   }
