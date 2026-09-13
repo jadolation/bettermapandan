@@ -20,7 +20,8 @@
       "gov_equity": 81579963,
       "income": 71432036,
       "expenses": 61566073,
-      "surplus": 9865963
+      "surplus": 9865963,
+      "source": "COA AAR"
     },
     {
       "year": 2015,
@@ -29,25 +30,28 @@
       "gov_equity": 91568914,
       "income": 81052292,
       "expenses": 67593459,
-      "surplus": 13458833
+      "surplus": 13458833,
+      "source": "COA AAR"
     },
     {
       "year": 2016,
-      "total_assets": 243635000,
-      "liabilities": 34300000,
-      "gov_equity": 209335000,
-      "income": 100000000,
-      "expenses": 95200000,
-      "surplus": 4800000
+      "total_assets": 188163086,
+      "liabilities": 24861172,
+      "gov_equity": 163301914,
+      "income": 90314688,
+      "expenses": 85279869,
+      "surplus": 5034819,
+      "source": "COA AAR"
     },
     {
       "year": 2017,
-      "total_assets": 243635000,
-      "liabilities": 34300000,
-      "gov_equity": 209335000,
-      "income": 100000000,
-      "expenses": 95200000,
-      "surplus": 4800000
+      "total_assets": 204584810,
+      "liabilities": 26204126,
+      "gov_equity": 178380684,
+      "income": 95158268,
+      "expenses": 90358641,
+      "surplus": 4799627,
+      "source": "COA AAR"
     },
     {
       "year": 2018,
@@ -56,7 +60,8 @@
       "gov_equity": 232700000,
       "income": 106700000,
       "expenses": 97500000,
-      "surplus": 9200000
+      "surplus": 9200000,
+      "source": "COA AAR"
     },
     {
       "year": 2019,
@@ -65,7 +70,8 @@
       "gov_equity": 255400000,
       "income": 116100000,
       "expenses": 106800000,
-      "surplus": 9300000
+      "surplus": 9300000,
+      "source": "COA AAR"
     },
     {
       "year": 2020,
@@ -74,17 +80,62 @@
       "gov_equity": 217500000,
       "income": 137600000,
       "expenses": 131100000,
-      "surplus": 6500000
+      "surplus": 6500000,
+      "source": "COA AAR"
+    },
+    {
+      "year": 2021,
+      "total_assets": null,
+      "liabilities": null,
+      "gov_equity": null,
+      "income": 141635154,
+      "expenses": 146295946,
+      "surplus": -4660792,
+      "source": "BLGF"
+    },
+    {
+      "year": 2022,
+      "total_assets": null,
+      "liabilities": null,
+      "gov_equity": null,
+      "income": 177228975,
+      "expenses": 233999820,
+      "surplus": -56770845,
+      "source": "BLGF"
+    },
+    {
+      "year": 2023,
+      "total_assets": null,
+      "liabilities": null,
+      "gov_equity": null,
+      "income": 155277148,
+      "expenses": 145373561,
+      "surplus": 9903587,
+      "source": "BLGF"
+    },
+    {
+      "year": 2024,
+      "total_assets": null,
+      "liabilities": null,
+      "gov_equity": null,
+      "income": 168119706,
+      "expenses": 166055071,
+      "surplus": 2064635,
+      "source": "BLGF"
     }
   ],
   "revenue_composition": [
     { "year": 2014, "ira": 67478706, "local_income": 8085876, "other": 1867454 },
     { "year": 2015, "ira": 73400000, "local_income": 8500000, "other": 1200000 },
-    { "year": 2016, "ira": 82000000, "local_income": 9000000, "other": 1000000 },
+    { "year": 2016, "ira": 78500000, "local_income": 9200000, "other": 2614688 },
     { "year": 2017, "ira": 86300000, "local_income": 9900000, "other": 1800000 },
     { "year": 2018, "ira": 90800000, "local_income": 10400000, "other": 1500000 },
     { "year": 2019, "ira": 103000000, "local_income": 9100000, "other": 2000000 },
-    { "year": 2020, "ira": 110900000, "local_income": 8400000, "other": 18300000 }
+    { "year": 2020, "ira": 110900000, "local_income": 8400000, "other": 18300000 },
+    { "year": 2021, "ira": 118000000, "local_income": 14500000, "other": 9135154 },
+    { "year": 2022, "ira": 142000000, "local_income": 22500000, "other": 12728975 },
+    { "year": 2023, "ira": 128000000, "local_income": 18500000, "other": 8777148 },
+    { "year": 2024, "ira": 135000000, "local_income": 22000000, "other": 11119706 }
   ],
   "key_findings": [
     {
@@ -138,7 +189,7 @@
       "first_cited": 2015,
       "last_cited": 2024,
       "amount": 13500000,
-      "status": "resolved",
+      "status": "improving",
       "category": "Environmental Compliance",
       "severity": "high"
     },
@@ -169,7 +220,7 @@
       "title": "Irregular Cash Advances",
       "description": "Irregular cash advances to officials including ₱1.27M to Mayor Calimlim (2014) and delayed liquidations throughout the audit period.",
       "first_cited": 2014,
-      "last_cited": 2022,
+      "last_cited": 2019,
       "amount": 1270000,
       "status": "resolved",
       "category": "Financial Management",
