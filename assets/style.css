@@ -1724,6 +1724,12 @@ tbody tr:hover {
   margin-bottom: 44px;
 }
 
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mt-24 { margin-top: 24px; }
+.mt-44 { margin-top: 44px; }
+.mt-48 { margin-top: 48px; }
+
 .card-tagged h3 {
   margin-top: 12px;
 }

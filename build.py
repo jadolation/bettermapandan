@@ -779,16 +779,7 @@ def _dpwh_status_class(status: str) -> str:
 
 
 def _dpwh_category_icon(category: str) -> str:
-    c = category.lower()
-    if "road" in c:
-        return "🛣️"
-    if "building" in c or "school" in c or "health" in c:
-        return "🏫"
-    if "flood" in c or "drainage" in c or "water" in c:
-        return "🌊"
-    if "agriculture" in c or "farm" in c or "irrigation" in c:
-        return "🌾"
-    return "🏗️"
+    return '<svg class="lucide" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>'
 
 
 def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]:
@@ -1611,6 +1602,7 @@ def _build_page_body_labels(locale: dict) -> dict:
         ** _build_homepage_labels(locale),
         ** _build_statistics_labels(locale),
         ** _build_transparency_labels(locale),
+        ** _build_dpwh_labels(locale),
         ** _build_search_labels(locale),
     }
 
@@ -2201,8 +2193,7 @@ def _process_static_page(
     body = resolve_body_placeholders(hero_html + body, locale, asset_base)
     if rel.name == "transparency.html":
         proc_html, _, _ = generate_procurement(locale)
-        body = body.replace(hero_html, hero_html + "\n" + proc_html, 1)
-    if rel.name == "infrastructure.html":
+        body = body.replace("{PROCUREMENT_SECTION}", proc_html, 1)
         dpwh_html, _, _ = generate_dpwh(locale, asset_base)
         body = body.replace("{DPWH_SECTION}", dpwh_html, 1)
     if rel.name == "statistics.html":

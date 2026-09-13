@@ -11,67 +11,35 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <span>&#9432;</span>
       <span><strong>Data last updated:</strong> September 2026 &mdash; compiled from official municipal financial disclosures, Sangguniang Bayan resolutions, and Commission on Audit reports. CY 2024 figures are the most recent actuals; CY 2025&ndash;2026 figures are SP-approved appropriations. Volunteers should replace or supplement this with the Municipal Accountant's Office's published annual budget report as it becomes available.</span>
     </div>
-    <div class="grid grid-3 stack-gap-lg">
-      <a class="card" href="/transparency/infrastructure/" style="text-decoration:none;color:inherit">
-        <h2>Infrastructure</h2>
-        <p class="figure">40 contracts</p>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">DPWH Transparency Portal</span>
-      </a>
-      <a class="card" href="/transparency/fiscal/" style="text-decoration:none;color:inherit">
-        <h2>Local Finances</h2>
-        <p class="figure">BLGF</p>
-        <span class="verification-badge badge-verified">Verified</span>
-        <span class="source-label">DOF-BLGF Fiscal Data</span>
-      </a>
-      <a class="card" href="/transparency/audits/" style="text-decoration:none;color:inherit">
-        <h2>Audits</h2>
-        <p class="figure">COA</p>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Commission on Audit</span>
-      </a>
+    {PROCUREMENT_SECTION}
+    <div class="section-head">
+      <div class="section-eyebrow">{DPWH_EYEBROW}</div>
+      <h2>{DPWH_TITLE}</h2>
+      <p>{DPWH_LEDE}</p>
     </div>
-    <div class="grid grid-3 stack-gap-lg" style="margin-top:16px">
-      <a class="card" href="/transparency/national-funds/" style="text-decoration:none;color:inherit">
-        <h2>National Funds</h2>
-        <p class="figure">DBM</p>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">General Appropriations Act</span>
-      </a>
-      <a class="card" href="/transparency/disclosures/" style="text-decoration:none;color:inherit">
-        <h2>Disclosures</h2>
-        <p class="figure">DILG</p>
-        <span class="verification-badge badge-official">Official</span>
-        <span class="source-label">Full Disclosure Portal</span>
-      </a>
-      <a class="card" href="/transparency/procurement/" style="text-decoration:none;color:inherit">
-        <h2>Procurement</h2>
-        <p class="figure">277 contracts</p>
-        <span class="verification-badge badge-verified">Verified</span>
-        <span class="source-label">PhilGEPS / BetterGov.ph</span>
-      </a>
-    </div>
-    <p class="source-label" style="margin-top:16px">Each section links to a dedicated page with source documents and detailed records.</p>
-    <div class="grid grid-3 stack-gap-lg">
-      <div class="card">
-        <h2>{TRANSPARENCY_BUDGET_2026}</h2>
-        <p class="figure">&#8369;218.2M</p>
-        <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
-        <span class="source-label">Source: SP Res. No. 438-2026 / Approved Mar 30, 2026</span>
+      <div id="dpwh-map" style="height:420px;border-radius:8px;margin-bottom:24px"></div>
+      <p id="dpwh-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the project map. All projects are listed in the table below.</p>
+      {DPWH_SECTION}
+      <div class="grid grid-3 stack-gap-lg" style="margin-top:24px">
+        <div class="card">
+          <h2>{TRANSPARENCY_BUDGET_2026}</h2>
+          <p class="figure">&#8369;218.2M</p>
+          <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
+          <span class="source-label">Source: SP Res. No. 438-2026 / Approved Mar 30, 2026</span>
+        </div>
+        <div class="card">
+          <h2>{TRANSPARENCY_REVENUE_2025}</h2>
+          <p class="figure">&#8369;197.7M</p>
+          <span class="verification-badge badge-verified">{COMMON_VERIFIED}</span>
+          <span class="source-label">Source: Bureau of Local Government Finance</span>
+        </div>
+        <div class="card">
+          <h2>{TRANSPARENCY_EXPENDITURE_2025}</h2>
+          <p class="figure">&#8369;191.8M</p>
+          <span class="verification-badge badge-verified">{COMMON_VERIFIED}</span>
+          <span class="source-label">Source: Bureau of Local Government Finance</span>
+        </div>
       </div>
-      <div class="card">
-        <h2>{TRANSPARENCY_REVENUE_2025}</h2>
-        <p class="figure">&#8369;197.7M</p>
-        <span class="verification-badge badge-verified">{COMMON_VERIFIED}</span>
-        <span class="source-label">Source: Bureau of Local Government Finance</span>
-      </div>
-      <div class="card">
-        <h2>{TRANSPARENCY_EXPENDITURE_2025}</h2>
-        <p class="figure">&#8369;191.8M</p>
-        <span class="verification-badge badge-verified">{COMMON_VERIFIED}</span>
-        <span class="source-label">Source: Bureau of Local Government Finance</span>
-      </div>
-    </div>
   </div>
 </section>
 

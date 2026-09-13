@@ -818,14 +818,6 @@
     <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/transparency/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/transparency/infrastructure/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/transparency/infrastructure/"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/transparency/infrastructure/"/>
-  </url>
-  <url>
     <loc>https://bettermapandan.org/government/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -1624,13 +1616,5 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/transparency/"/>
     <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/transparency/"/>
-  </url>
-  <url>
-    <loc>https://bettermapandan.org/transparency/infrastructure/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/transparency/infrastructure/"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/transparency/infrastructure/"/>
   </url>
 </urlset>
