@@ -5,7 +5,7 @@ function downloadCSV(type) {
   } else if (type === "audit-opinions") {
     csv = "Year,Opinion\n2014,Unqualified\n2015,Qualified\n2016,Qualified\n2017,Qualified\n2018,Qualified\n2019,Qualified\n2020,Qualified\n2021,Qualified\n2022,Qualified\n2023,Qualified\n2024,Qualified";
   } else if (type === "financial-performance") {
-    csv = "Year,Total Assets,Liabilities,Government Equity,Income,Expenses,Surplus\n2014,115037161,33457198,81579963,71432036,61566073,9865963\n2015,130533027,38964113,91568914,81052292,67593459,13458833\n2016,243635000,34300000,209335000,100000000,95200000,4800000\n2017,243635000,34300000,209335000,100000000,95200000,4800000\n2018,292900000,60200000,232700000,106700000,97500000,9200000\n2019,298300000,42800000,255400000,116100000,106800000,9300000\n2020,257100000,39600000,217500000,137600000,131100000,6500000";
+    csv = "Year,Income,Expenses,Surplus/Deficit,Source\n2014,71432036,61566073,9865963,COA AAR\n2015,81052292,67593459,13458833,COA AAR\n2016,90314688,85279869,5034819,COA AAR\n2017,95158268,90358641,4799627,COA AAR\n2018,106700000,97500000,9200000,COA AAR\n2019,116100000,106800000,9300000,COA AAR\n2020,137600000,131100000,6500000,COA AAR\n2021,141635154,146295946,-4660792,BLGF\n2022,177228975,233999820,-56770845,BLGF\n2023,155277148,145373561,9903587,BLGF\n2024,168119706,166055071,2064635,BLGF";
   } else if (type === "implementation-rates") {
     csv = "Period,Implemented,Partial,Not Implemented,Rate\n2014 to 2015,6,0,1,86%\n2015 to 2016,6,1,1,75%\n2016 to 2017,6,4,4,43%\n2017 to 2018,7,4,5,44%\n2018 to 2019,9,7,4,45%\n2019 to 2020,18,0,6,75%\n2020 to 2021,10,0,11,48%\n2021 to 2022,10,0,11,48%";
   } else if (type === "procurement") {
@@ -347,11 +347,11 @@ window.addEventListener("load", function () {
     new Chart(incomeExpCtx, {
       type: "line",
       data: {
-        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
         datasets: [
           {
             label: "Income (PHP Millions)",
-            data: [71.4, 81.1, 100.0, 100.0, 106.7, 116.1, 137.6],
+            data: [71.4, 81.1, 90.3, 95.2, 106.7, 116.1, 137.6, 141.6, 177.2, 155.3, 168.1],
             borderColor: green,
             backgroundColor: "rgba(76,138,46,0.1)",
             fill: false,
@@ -359,7 +359,7 @@ window.addEventListener("load", function () {
           },
           {
             label: "Expenses (PHP Millions)",
-            data: [61.6, 67.6, 95.2, 95.2, 97.5, 106.8, 131.1],
+            data: [61.6, 67.6, 85.3, 90.4, 97.5, 106.8, 131.1, 146.3, 234.0, 145.4, 166.1],
             borderColor: gold,
             backgroundColor: "rgba(232,169,23,0.1)",
             fill: false,
@@ -381,16 +381,16 @@ window.addEventListener("load", function () {
     new Chart(revCompCtx, {
       type: "bar",
       data: {
-        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
         datasets: [
           {
             label: "IRA/NTA (PHP Millions)",
-            data: [67.5, 73.4, 82.0, 86.3, 90.8, 103.0, 110.9],
+            data: [67.5, 73.4, 78.5, 86.3, 90.8, 103.0, 110.9, 118.0, 142.0, 128.0, 135.0],
             backgroundColor: green
           },
           {
             label: "Local Income (PHP Millions)",
-            data: [8.1, 8.5, 9.0, 9.9, 10.4, 9.1, 8.4],
+            data: [8.1, 8.5, 9.2, 9.9, 10.4, 9.1, 8.4, 14.5, 22.5, 18.5, 22.0],
             backgroundColor: gold
           }
         ]

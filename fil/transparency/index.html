@@ -915,7 +915,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Pansaping Pagganap</div>
-      <h2>7-Taong Trend ng Pansapi (2014&ndash;2020)</h2>
+      <h2>11-Taong Trend ng Pansapi (2014&ndash;2024)</h2>
       <p>Pahabang datos ng pansapi mula sa mga Taunang Ulat ng Audit ng COA, nagpapakita ng paglago ng ari-arian, komposisyon ng kita, at balanseng pangsapi sa loob ng pitong taon.</p>
     </div>
     <div class="grid grid-3">
@@ -925,7 +925,7 @@
       </div>
       <div class="card">
         <h3>Kita vs Gastos</h3>
-        <canvas id="chart-income-expenses" height="200" role="img" aria-label="Income vs expenses comparison from 2014 to 2020"></canvas>
+        <canvas id="chart-income-expenses" height="200" role="img" aria-label="Income vs expenses comparison from 2014 to 2024"></canvas>
       </div>
       <div class="card">
         <h3>Komposisyon ng Kita (IRA vs Lokal)</h3>
@@ -935,31 +935,34 @@
     <div class="card" style="margin-top:24px">
       <h3>Detalyadong Datos ng Pansapi</h3>
       <div class="table-wrap">
-        <table aria-label="Financial performance 2014-2020">
+        <table aria-label="Financial performance 2014-2024">
           <thead>
             <tr>
               <th scope="col">Year</th>
-              <th scope="col">Total Assets</th>
-              <th scope="col">Liabilities</th>
               <th scope="col">Income</th>
               <th scope="col">Expenses</th>
-              <th scope="col">Surplus</th>
+              <th scope="col">Surplus / (Deficit)</th>
+              <th scope="col">Source</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>CY 2014</td><td>&#8369;115.0M</td><td>&#8369;33.5M</td><td>&#8369;71.4M</td><td>&#8369;61.6M</td><td style="color:var(--green-bright)">+&#8369;9.9M</td></tr>
-            <tr><td>CY 2015</td><td>&#8369;130.5M</td><td>&#8369;39.0M</td><td>&#8369;81.1M</td><td>&#8369;67.6M</td><td style="color:var(--green-bright)">+&#8369;13.5M</td></tr>
-            <tr><td>CY 2016</td><td>&#8369;243.6M</td><td>&#8369;34.3M</td><td>&#8369;100.0M</td><td>&#8369;95.2M</td><td style="color:var(--green-bright)">+&#8369;4.8M</td></tr>
-            <tr><td>CY 2017</td><td>&#8369;243.6M</td><td>&#8369;34.3M</td><td>&#8369;100.0M</td><td>&#8369;95.2M</td><td style="color:var(--green-bright)">+&#8369;4.8M</td></tr>
-            <tr><td>CY 2018</td><td>&#8369;292.9M</td><td>&#8369;60.2M</td><td>&#8369;106.7M</td><td>&#8369;97.5M</td><td style="color:var(--green-bright)">+&#8369;9.2M</td></tr>
-            <tr><td>CY 2019</td><td>&#8369;298.3M</td><td>&#8369;42.8M</td><td>&#8369;116.1M</td><td>&#8369;106.8M</td><td style="color:var(--green-bright)">+&#8369;9.3M</td></tr>
-            <tr><td>CY 2020</td><td>&#8369;257.1M</td><td>&#8369;39.6M</td><td>&#8369;137.6M</td><td>&#8369;131.1M</td><td style="color:var(--green-bright)">+&#8369;6.5M</td></tr>
+            <tr><td>CY 2014</td><td>&#8369;71.4M</td><td>&#8369;61.6M</td><td style="color:var(--green-bright)">+&#8369;9.9M</td><td>COA AAR</td></tr>
+            <tr><td>CY 2015</td><td>&#8369;81.1M</td><td>&#8369;67.6M</td><td style="color:var(--green-bright)">+&#8369;13.5M</td><td>COA AAR</td></tr>
+            <tr><td>CY 2016</td><td>&#8369;90.3M</td><td>&#8369;85.3M</td><td style="color:var(--green-bright)">+&#8369;5.0M</td><td>COA AAR</td></tr>
+            <tr><td>CY 2017</td><td>&#8369;95.2M</td><td>&#8369;90.4M</td><td style="color:var(--green-bright)">+&#8369;4.8M</td><td>COA AAR</td></tr>
+            <tr><td>CY 2018</td><td>&#8369;106.7M</td><td>&#8369;97.5M</td><td style="color:var(--green-bright)">+&#8369;9.2M</td><td>COA AAR</td></tr>
+            <tr><td>CY 2019</td><td>&#8369;116.1M</td><td>&#8369;106.8M</td><td style="color:var(--green-bright)">+&#8369;9.3M</td><td>COA AAR</td></tr>
+            <tr><td>CY 2020</td><td>&#8369;137.6M</td><td>&#8369;131.1M</td><td style="color:var(--green-bright)">+&#8369;6.5M</td><td>COA AAR</td></tr>
+            <tr><td>CY 2021</td><td>&#8369;141.6M</td><td>&#8369;146.3M</td><td style="color:#b5312a">&minus;&#8369;4.7M</td><td>BLGF</td></tr>
+            <tr><td>CY 2022</td><td>&#8369;177.2M</td><td>&#8369;234.0M</td><td style="color:#b5312a">&minus;&#8369;56.8M</td><td>BLGF</td></tr>
+            <tr><td>CY 2023</td><td>&#8369;155.3M</td><td>&#8369;145.4M</td><td style="color:var(--green-bright)">+&#8369;9.9M</td><td>BLGF</td></tr>
+            <tr><td><strong>CY 2024</strong></td><td><strong>&#8369;168.1M</strong></td><td><strong>&#8369;166.1M</strong></td><td style="color:var(--green-bright)"><strong>+&#8369;2.1M</strong></td><td>BLGF</td></tr>
           </tbody>
         </table>
       </div>
       <button class="report-btn" data-download="financial-performance">I-download ang CSV</button>
     </div>
-    <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2020 / Municipal Financial Statements. Revenue growth driven primarily by increases in Internal Revenue Allotment (IRA).</p>
+    <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2020 for income/expense data; BLGF Fiscal Data 2021&ndash;2024. CY 2022 deficit (&minus;&#8369;56.8M) driven by non-operating expenditures related to capital outlays and debt service.</p>
   </div>
 </section>
 
@@ -1027,7 +1030,7 @@
       </div>
       <div class="card">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
-          <span class="pill pill-completed" style="background:var(--green-bright);color:#fff;font-size:12px">Resolved</span>
+          <span class="pill pill-completed" style="background:var(--gold);color:var(--green-deep);font-size:12px">Improving</span>
           <span style="font-size:13px;color:var(--ink-soft)">2015&ndash;2024</span>
         </div>
         <h3>Solid Waste Non-Compliance</h3>
@@ -1037,7 +1040,7 @@
       <div class="card">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
           <span class="pill pill-completed" style="background:var(--green-bright);color:#fff;font-size:12px">Resolved</span>
-          <span style="font-size:13px;color:var(--ink-soft)">2014&ndash;2022</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2014&ndash;2019</span>
         </div>
         <h3>Irregular Cash Advances</h3>
         <p class="figure" style="font-size:1.3rem">&#8369;1.27M</p>
