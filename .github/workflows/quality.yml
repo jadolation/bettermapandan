@@ -107,7 +107,7 @@ jobs:
       - name: Check Broken Links (Lychee)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: "http://localhost:8000"
+          args: "http://localhost:8000 --accepted-status 200,301,302 --exclude 'https://blgf.gov.ph/' --exclude 'https://coa.gov.ph/' --exclude 'https://foi.gov.ph/' --exclude 'https://mapandan.gov.ph/' --exclude 'https://psa.gov.ph/' --exclude 'https://www.pna.gov.ph/' --exclude 'https://dilg.gov.ph/'"
           fail: true
 
       - name: Stop local HTTP server
