@@ -71,9 +71,11 @@ jobs:
           import http.server
           import socketserver
           import os
+          import mimetypes
 
-          class Handler(http.server.SimpleHTTPRequestHandler):
+          class Handler(http.server.BaseHTTPRequestHandler):
               def find_path(self, path):
+                  path = path.split('?', 1)[0].lstrip('/')
                   if path.endswith('/'):
                       path = path[:-1]
                   if path and os.path.exists(path):
@@ -87,11 +89,22 @@ jobs:
                   return path
 
               def do_GET(self):
-                  parsed = self.path.split('?', 1)[0]
-                  new_path = self.find_path(parsed.lstrip('/'))
-                  if new_path != parsed.lstrip('/'):
-                      self.path = '/' + new_path
-                  return super().do_GET()
+                  new_path = self.find_path(self.path)
+                  if not new_path or not os.path.exists(new_path):
+                      self.send_error(404, 'File not found')
+                      return
+                  ctype = mimetypes.guess_type(new_path)[0] or 'application/octet-stream'
+                  try:
+                      with open(new_path, 'rb') as f:
+                          content = f.read()
+                  except OSError:
+                      self.send_error(404, 'File not found')
+                      return
+                  self.send_response(200)
+                  self.send_header('Content-Type', ctype)
+                  self.send_header('Content-Length', str(len(content)))
+                  self.end_headers()
+                  self.wfile.write(content)
 
           with socketserver.TCPServer(('', 8000), Handler) as httpd:
               print('Serving at http://localhost:8000')
