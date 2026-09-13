@@ -1074,7 +1074,6 @@ def compress_images() -> None:
     - PNGs in history/: compress with png compression, quality 60, max-width 1200
     - Hero images: convert to WebP (luyan.png, Pandan.jpg, plaza.jpg)
     - History PNGs: convert to WebP
-    - SVG seal: extract embedded PNG and convert to WebP
     """
     compress_script = ROOT / "compress.mjs"
     script_content = r"""import sharp from "sharp";
