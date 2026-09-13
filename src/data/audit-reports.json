@@ -1,0 +1,224 @@
+{
+  "opinions": [
+    { "year": 2014, "opinion": "Unqualified", "color": "green", "note": "Clean opinion — no material misstatements" },
+    { "year": 2015, "opinion": "Qualified", "color": "gold", "note": "PPE account not reconciled (₱90.2M)" },
+    { "year": 2016, "opinion": "Qualified", "color": "gold", "note": "PPE not reconciled; Trust Fund projects not capitalized" },
+    { "year": 2017, "opinion": "Qualified", "color": "gold", "note": "PPE incomplete; breeding stocks ₱110K ghost account" },
+    { "year": 2018, "opinion": "Qualified", "color": "gold", "note": "PPE accounts still problematic" },
+    { "year": 2019, "opinion": "Qualified", "color": "gold", "note": "Road network misclassification; breeding stocks" },
+    { "year": 2020, "opinion": "Qualified", "color": "gold", "note": "Road network depreciation not provided; COVID-19 procurement issues" },
+    { "year": 2021, "opinion": "Qualified", "color": "gold", "note": "Misclassification of expenses; breeding stocks; land titling" },
+    { "year": 2022, "opinion": "Qualified", "color": "gold", "note": "Recurring issues plus MRF machineries unused" },
+    { "year": 2023, "opinion": "Qualified", "color": "gold", "note": "GAD fund; procurement; contract submission delays" },
+    { "year": 2024, "opinion": "Qualified", "color": "gold", "note": "Procurement irregularities; GAD; consulting services" }
+  ],
+  "financial_performance": [
+    {
+      "year": 2014,
+      "total_assets": 115037161,
+      "liabilities": 33457198,
+      "gov_equity": 81579963,
+      "income": 71432036,
+      "expenses": 61566073,
+      "surplus": 9865963
+    },
+    {
+      "year": 2015,
+      "total_assets": 130533027,
+      "liabilities": 38964113,
+      "gov_equity": 91568914,
+      "income": 81052292,
+      "expenses": 67593459,
+      "surplus": 13458833
+    },
+    {
+      "year": 2016,
+      "total_assets": 243635000,
+      "liabilities": 34300000,
+      "gov_equity": 209335000,
+      "income": 100000000,
+      "expenses": 95200000,
+      "surplus": 4800000
+    },
+    {
+      "year": 2017,
+      "total_assets": 243635000,
+      "liabilities": 34300000,
+      "gov_equity": 209335000,
+      "income": 100000000,
+      "expenses": 95200000,
+      "surplus": 4800000
+    },
+    {
+      "year": 2018,
+      "total_assets": 292900000,
+      "liabilities": 60200000,
+      "gov_equity": 232700000,
+      "income": 106700000,
+      "expenses": 97500000,
+      "surplus": 9200000
+    },
+    {
+      "year": 2019,
+      "total_assets": 298300000,
+      "liabilities": 42800000,
+      "gov_equity": 255400000,
+      "income": 116100000,
+      "expenses": 106800000,
+      "surplus": 9300000
+    },
+    {
+      "year": 2020,
+      "total_assets": 257100000,
+      "liabilities": 39600000,
+      "gov_equity": 217500000,
+      "income": 137600000,
+      "expenses": 131100000,
+      "surplus": 6500000
+    }
+  ],
+  "revenue_composition": [
+    { "year": 2014, "ira": 67478706, "local_income": 8085876, "other": 1867454 },
+    { "year": 2015, "ira": 73400000, "local_income": 8500000, "other": 1200000 },
+    { "year": 2016, "ira": 82000000, "local_income": 9000000, "other": 1000000 },
+    { "year": 2017, "ira": 86300000, "local_income": 9900000, "other": 1800000 },
+    { "year": 2018, "ira": 90800000, "local_income": 10400000, "other": 1500000 },
+    { "year": 2019, "ira": 103000000, "local_income": 9100000, "other": 2000000 },
+    { "year": 2020, "ira": 110900000, "local_income": 8400000, "other": 18300000 }
+  ],
+  "key_findings": [
+    {
+      "id": "ppe-reconciliation",
+      "title": "PPE Account Not Reconciled",
+      "description": "Property, Plant & Equipment records not reconciled with subsidiary ledgers. No complete Report on Physical Count of PPE submitted annually. Incomplete ledger cards and property cards.",
+      "first_cited": 2014,
+      "last_cited": 2019,
+      "amount": 90200000,
+      "status": "resolved",
+      "category": "Asset Management",
+      "severity": "high"
+    },
+    {
+      "id": "breeding-stocks",
+      "title": "Breeding Stocks Ghost Account",
+      "description": "₱110,000 in breeding stocks (11 cows) purchased before 2000 already dead and dispersed. Documents could not be located after Municipal Agriculturist passed away.",
+      "first_cited": 2016,
+      "last_cited": 2024,
+      "amount": 110000,
+      "status": "chronic",
+      "category": "Asset Management",
+      "severity": "medium"
+    },
+    {
+      "id": "dormant-receivables",
+      "title": "Dormant Receivables",
+      "description": "Outstanding receivables for 29+ years from livelihood projects, KKK recipients, and various programs. No subsidiary ledgers maintained.",
+      "first_cited": 2016,
+      "last_cited": 2024,
+      "amount": 613636,
+      "status": "chronic",
+      "category": "Revenue Collection",
+      "severity": "medium"
+    },
+    {
+      "id": "land-titling",
+      "title": "Land Titling Gaps",
+      "description": "Multiple parcels of land lacking Transfer Certificates of Title (TCTs), covered only by Tax Declarations contrary to GAAM requirements.",
+      "first_cited": 2016,
+      "last_cited": 2024,
+      "amount": 22600000,
+      "status": "partial",
+      "category": "Asset Management",
+      "severity": "high"
+    },
+    {
+      "id": "solid-waste",
+      "title": "Solid Waste Management Non-Compliance",
+      "description": "Non-compliance with RA 9003 — open dumpsite maintained, no sanitary landfill, MRF machineries unutilized for years.",
+      "first_cited": 2015,
+      "last_cited": 2024,
+      "amount": 13500000,
+      "status": "resolved",
+      "category": "Environmental Compliance",
+      "severity": "high"
+    },
+    {
+      "id": "delinquent-rpt",
+      "title": "Delinquent Real Property Taxes",
+      "description": "Persistent delinquencies in real property tax collection. LGU never fully enforced levy, advertisement, and sale remedies under RA 7160.",
+      "first_cited": 2016,
+      "last_cited": 2024,
+      "amount": 2630000,
+      "status": "chronic",
+      "category": "Revenue Collection",
+      "severity": "medium"
+    },
+    {
+      "id": "contract-docs",
+      "title": "Incomplete Contract Documentation",
+      "description": "Contracts submitted late beyond the 5-day prescribed period. Common missing documents: PhilGEPS certificates, construction safety programs, BAC resolutions.",
+      "first_cited": 2015,
+      "last_cited": 2024,
+      "amount": 0,
+      "status": "chronic",
+      "category": "Procurement Compliance",
+      "severity": "medium"
+    },
+    {
+      "id": "cash-advance-irregular",
+      "title": "Irregular Cash Advances",
+      "description": "Irregular cash advances to officials including ₱1.27M to Mayor Calimlim (2014) and delayed liquidations throughout the audit period.",
+      "first_cited": 2014,
+      "last_cited": 2022,
+      "amount": 1270000,
+      "status": "resolved",
+      "category": "Financial Management",
+      "severity": "high"
+    }
+  ],
+  "implementation_rates": [
+    { "period": "2014→2015", "implemented": 6, "partial": 0, "not_implemented": 1, "rate": 86 },
+    { "period": "2015→2016", "implemented": 6, "partial": 1, "not_implemented": 1, "rate": 75 },
+    { "period": "2016→2017", "implemented": 6, "partial": 4, "not_implemented": 4, "rate": 43 },
+    { "period": "2017→2018", "implemented": 7, "partial": 4, "not_implemented": 5, "rate": 44 },
+    { "period": "2018→2019", "implemented": 9, "partial": 7, "not_implemented": 4, "rate": 45 },
+    { "period": "2019→2020", "implemented": 18, "partial": 0, "not_implemented": 6, "rate": 75 },
+    { "period": "2020→2021", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48 },
+    { "period": "2021→2022", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48 }
+  ],
+  "ldrrmf": [
+    { "year": 2014, "available": 5072446, "utilized": 3553410 },
+    { "year": 2015, "available": 12580000, "utilized": 5290000 },
+    { "year": 2017, "available": 9520000, "utilized": 6780000 },
+    { "year": 2018, "available": 12000000, "utilized": 8500000 },
+    { "year": 2019, "available": 9520000, "utilized": 6780000 },
+    { "year": 2020, "available": 14110000, "utilized": 11180000 },
+    { "year": 2021, "available": 13210000, "utilized": 6130000 },
+    { "year": 2022, "available": 14030000, "utilized": 8170000 },
+    { "year": 2023, "available": 16310000, "utilized": 15180000 },
+    { "year": 2024, "available": 16370000, "utilized": 6940000 }
+  ],
+  "gad_utilization": [
+    { "year": 2017, "allocated": 3650000, "used": 2510000 },
+    { "year": 2018, "allocated": 3880000, "used": 3690000 },
+    { "year": 2019, "allocated": 3650000, "used": 3310000 },
+    { "year": 2020, "allocated": 4090000, "used": 3500000 },
+    { "year": 2021, "allocated": 3950000, "used": 3790000 },
+    { "year": 2022, "allocated": 4090000, "used": 3950000 },
+    { "year": 2023, "allocated": 4100000, "used": 3470000 },
+    { "year": 2024, "allocated": 4110000, "used": 3520000 }
+  ],
+  "delinquent_rpt": [
+    { "year": 2014, "amount": 2628219 },
+    { "year": 2015, "amount": 2260000 },
+    { "year": 2016, "amount": 2240000 },
+    { "year": 2017, "amount": 1260000 },
+    { "year": 2018, "amount": 1210000 },
+    { "year": 2019, "amount": 1210000 },
+    { "year": 2020, "amount": 1380000 },
+    { "year": 2021, "amount": 1450000 },
+    { "year": 2022, "amount": 1310000 },
+    { "year": 2023, "amount": 1260000 },
+    { "year": 2024, "amount": 552000 }
+  ]
+}

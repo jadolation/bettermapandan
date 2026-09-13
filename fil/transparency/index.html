@@ -877,6 +877,221 @@
     </div>
   </div>
 </section>
+
+<section class="section" id="audit-opinion-timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Kasaysayan ng Audit</div>
+      <h2>Opinyon ng Audit ng COA (2014&ndash;2024)</h2>
+      <p>Taunang trend ng opinyon ng audit na nagpapakita ng pagtatasa ng Commission on Audit sa mga pansapi ng Mapandan sa loob ng 11 magkakasunod na taon.</p>
+    </div>
+    <div class="card" style="margin-top:24px" aria-live="polite">
+      <h3>Opinyon ng Audit bawat Taon</h3>
+      <canvas id="chart-audit-opinion" height="200" role="img" aria-label="Audit opinion trend from 2014 to 2024: 1 clean opinion followed by 10 qualified opinions"></canvas>
+      <table class="sr-only">
+        <caption>Audit opinions 2014-2024</caption>
+        <thead><tr><th scope="col">Year</th><th scope="col">Opinion</th></tr></thead>
+        <tbody>
+          <tr><td>2014</td><td>Unqualified (Clean)</td></tr>
+          <tr><td>2015</td><td>Qualified</td></tr>
+          <tr><td>2016</td><td>Qualified</td></tr>
+          <tr><td>2017</td><td>Qualified</td></tr>
+          <tr><td>2018</td><td>Qualified</td></tr>
+          <tr><td>2019</td><td>Qualified</td></tr>
+          <tr><td>2020</td><td>Qualified</td></tr>
+          <tr><td>2021</td><td>Qualified</td></tr>
+          <tr><td>2022</td><td>Qualified</td></tr>
+          <tr><td>2023</td><td>Qualified</td></tr>
+          <tr><td>2024</td><td>Qualified</td></tr>
+        </tbody>
+      </table>
+      <button class="report-btn" data-download="audit-opinions">I-download ang CSV</button>
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2024. A &ldquo;Qualified&rdquo; opinion indicates material misstatements or scope limitations in specific account areas.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="financial-performance">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Pansaping Pagganap</div>
+      <h2>7-Taong Trend ng Pansapi (2014&ndash;2020)</h2>
+      <p>Pahabang datos ng pansapi mula sa mga Taunang Ulat ng Audit ng COA, nagpapakita ng paglago ng ari-arian, komposisyon ng kita, at balanseng pangsapi sa loob ng pitong taon.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Paglago ng Kabuuang Ari-arian</h3>
+        <canvas id="chart-total-assets" height="200" role="img" aria-label="Total assets growth from 115 million in 2014 to 257 million in 2020"></canvas>
+      </div>
+      <div class="card">
+        <h3>Kita vs Gastos</h3>
+        <canvas id="chart-income-expenses" height="200" role="img" aria-label="Income vs expenses comparison from 2014 to 2020"></canvas>
+      </div>
+      <div class="card">
+        <h3>Komposisyon ng Kita (IRA vs Lokal)</h3>
+        <canvas id="chart-revenue-composition" height="200" role="img" aria-label="Revenue composition showing IRA dependency versus locally sourced income"></canvas>
+      </div>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <h3>Detalyadong Datos ng Pansapi</h3>
+      <div class="table-wrap">
+        <table aria-label="Financial performance 2014-2020">
+          <thead>
+            <tr>
+              <th scope="col">Year</th>
+              <th scope="col">Total Assets</th>
+              <th scope="col">Liabilities</th>
+              <th scope="col">Income</th>
+              <th scope="col">Expenses</th>
+              <th scope="col">Surplus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>CY 2014</td><td>&#8369;115.0M</td><td>&#8369;33.5M</td><td>&#8369;71.4M</td><td>&#8369;61.6M</td><td style="color:var(--green-bright)">+&#8369;9.9M</td></tr>
+            <tr><td>CY 2015</td><td>&#8369;130.5M</td><td>&#8369;39.0M</td><td>&#8369;81.1M</td><td>&#8369;67.6M</td><td style="color:var(--green-bright)">+&#8369;13.5M</td></tr>
+            <tr><td>CY 2016</td><td>&#8369;243.6M</td><td>&#8369;34.3M</td><td>&#8369;100.0M</td><td>&#8369;95.2M</td><td style="color:var(--green-bright)">+&#8369;4.8M</td></tr>
+            <tr><td>CY 2017</td><td>&#8369;243.6M</td><td>&#8369;34.3M</td><td>&#8369;100.0M</td><td>&#8369;95.2M</td><td style="color:var(--green-bright)">+&#8369;4.8M</td></tr>
+            <tr><td>CY 2018</td><td>&#8369;292.9M</td><td>&#8369;60.2M</td><td>&#8369;106.7M</td><td>&#8369;97.5M</td><td style="color:var(--green-bright)">+&#8369;9.2M</td></tr>
+            <tr><td>CY 2019</td><td>&#8369;298.3M</td><td>&#8369;42.8M</td><td>&#8369;116.1M</td><td>&#8369;106.8M</td><td style="color:var(--green-bright)">+&#8369;9.3M</td></tr>
+            <tr><td>CY 2020</td><td>&#8369;257.1M</td><td>&#8369;39.6M</td><td>&#8369;137.6M</td><td>&#8369;131.1M</td><td style="color:var(--green-bright)">+&#8369;6.5M</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="report-btn" data-download="financial-performance">I-download ang CSV</button>
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2020 / Municipal Financial Statements. Revenue growth driven primarily by increases in Internal Revenue Allotment (IRA).</p>
+  </div>
+</section>
+
+<section class="section" id="audit-findings">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Mga Natuklasan sa Audit</div>
+      <h2>Mga Pangunahing Natuklasan sa Audit (2014&ndash;2024)</h2>
+      <p>Mga paulit-ulit at matatagal na isyu na natuklasan sa loob ng 11 taon ng mga audit ng COA, nakaayos ayon sa tindi at katayuan ng resolusyon.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:#b5312a;color:#fff;font-size:12px">Chronic</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2016&ndash;2024</span>
+        </div>
+        <h3>Breeding Stocks Ghost Account</h3>
+        <p class="figure" style="font-size:1.3rem">&#8369;110K</p>
+        <p>11 cows purchased before 2000 already dead and dispersed. Documents could not be located after Municipal Agriculturist passed away. Unresolved for 9 consecutive years.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:#b5312a;color:#fff;font-size:12px">Chronic</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2016&ndash;2024</span>
+        </div>
+        <h3>Dormant Receivables</h3>
+        <p class="figure" style="font-size:1.3rem">&#8369;613K</p>
+        <p>Outstanding for 29+ years from livelihood projects, KKK recipients, and various programs. No subsidiary ledgers maintained.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:#b5312a;color:#fff;font-size:12px">Chronic</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2016&ndash;2024</span>
+        </div>
+        <h3>Delinquent Real Property Taxes</h3>
+        <p class="figure" style="font-size:1.3rem">&#8369;552K&ndash;2.6M</p>
+        <p>Persistent delinquencies in RPT collection. LGU never fully enforced levy, advertisement, and sale remedies under RA 7160.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:#b5312a;color:#fff;font-size:12px">Chronic</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2015&ndash;2024</span>
+        </div>
+        <h3>Incomplete Contract Documentation</h3>
+        <p class="figure" style="font-size:1.3rem">10 Years</p>
+        <p>Contracts submitted late beyond the 5-day prescribed period. Missing PhilGEPS certificates, construction safety programs, and BAC resolutions.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:var(--gold);color:var(--green-deep);font-size:12px">Partial</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2016&ndash;2024</span>
+        </div>
+        <h3>Land Titling Gaps</h3>
+        <p class="figure" style="font-size:1.3rem">&#8369;22.6M</p>
+        <p>Multiple parcels of land lacking TCTs, covered only by Tax Declarations. Management acquired titles one by one due to budget limitations.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:var(--green-bright);color:#fff;font-size:12px">Resolved</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2014&ndash;2019</span>
+        </div>
+        <h3>PPE Account Not Reconciled</h3>
+        <p class="figure" style="font-size:1.3rem">&#8369;90.2M</p>
+        <p>Property, Plant &amp; Equipment records not reconciled with subsidiary ledgers. This was the primary cause of the Qualified Opinion from 2015&ndash;2019.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:var(--green-bright);color:#fff;font-size:12px">Resolved</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2015&ndash;2024</span>
+        </div>
+        <h3>Solid Waste Non-Compliance</h3>
+        <p class="figure" style="font-size:1.3rem">RA 9003</p>
+        <p>Non-compliance with RA 9003 &mdash; open dumpsite, no sanitary landfill. MRF machineries finally operational by 2024. All 15 barangays now have MRFs.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span class="pill pill-completed" style="background:var(--green-bright);color:#fff;font-size:12px">Resolved</span>
+          <span style="font-size:13px;color:var(--ink-soft)">2014&ndash;2022</span>
+        </div>
+        <h3>Irregular Cash Advances</h3>
+        <p class="figure" style="font-size:1.3rem">&#8369;1.27M</p>
+        <p>Irregular cash advances to officials and delayed liquidations throughout the audit period. Addressed through improved financial controls.</p>
+      </div>
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2024. Severity reflects impact and duration of the finding.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="implementation-rate">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Pananagutan</div>
+      <h2>Tingin ng Pagpapatupad ng mga Rekomendasyon ng Audit</h2>
+      <p>Talaan ng kung paano tumutugon ang LGU sa mga rekomendasyon ng audit ng COA sa magkakaibang panahon ng pag-uulat.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Trend ng Pagpapatupad</h3>
+        <canvas id="chart-implementation-rate" height="200" role="img" aria-label="Audit recommendation implementation rate trend showing decline from 86% to 48%"></canvas>
+      </div>
+      <div class="card">
+        <h3>Pagkasira bawat Panahon</h3>
+        <div class="table-wrap">
+          <table aria-label="Audit recommendation implementation rates">
+            <thead>
+              <tr>
+                <th scope="col">Period</th>
+                <th scope="col">Implemented</th>
+                <th scope="col">Partial</th>
+                <th scope="col">Not Implemented</th>
+                <th scope="col">Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2014&rarr;2015</td><td>6</td><td>0</td><td>1</td><td style="color:var(--green-bright)">86%</td></tr>
+              <tr><td>2015&rarr;2016</td><td>6</td><td>1</td><td>1</td><td style="color:var(--green-bright)">75%</td></tr>
+              <tr><td>2016&rarr;2017</td><td>6</td><td>4</td><td>4</td><td style="color:var(--gold)">43%</td></tr>
+              <tr><td>2017&rarr;2018</td><td>7</td><td>4</td><td>5</td><td style="color:var(--gold)">44%</td></tr>
+              <tr><td>2018&rarr;2019</td><td>9</td><td>7</td><td>4</td><td style="color:var(--gold)">45%</td></tr>
+              <tr><td>2019&rarr;2020</td><td>18</td><td>0</td><td>6</td><td style="color:var(--green-bright)">75%</td></tr>
+              <tr><td>2020&rarr;2021</td><td>10</td><td>0</td><td>11</td><td style="color:var(--gold)">48%</td></tr>
+              <tr><td>2021&rarr;2022</td><td>10</td><td>0</td><td>11</td><td style="color:var(--gold)">48%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button class="report-btn" data-download="implementation-rates">I-download ang CSV</button>
+    <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2022. Implementation rate = (Implemented &divide; Total Recommendations) &times; 100. Includes both fully and partially implemented recommendations.</p>
+  </div>
+</section>
+
 <section class="section section-alt" id="capital-projects">
   <div class="wrap">
     <div class="section-head">

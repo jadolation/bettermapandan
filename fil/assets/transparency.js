@@ -2,6 +2,12 @@ function downloadCSV(type) {
   var csv = "";
   if (type === "budget") {
     csv = "Fiscal Year,Total Enacted Budget (PHP)\nCY 2020,122402454\nCY 2021,129281542\nCY 2022,173142760\nCY 2023,151540728\nCY 2024,160828663\nCY 2025,193088074\nCY 2026,218209788";
+  } else if (type === "audit-opinions") {
+    csv = "Year,Opinion\n2014,Unqualified\n2015,Qualified\n2016,Qualified\n2017,Qualified\n2018,Qualified\n2019,Qualified\n2020,Qualified\n2021,Qualified\n2022,Qualified\n2023,Qualified\n2024,Qualified";
+  } else if (type === "financial-performance") {
+    csv = "Year,Total Assets,Liabilities,Government Equity,Income,Expenses,Surplus\n2014,115037161,33457198,81579963,71432036,61566073,9865963\n2015,130533027,38964113,91568914,81052292,67593459,13458833\n2016,243635000,34300000,209335000,100000000,95200000,4800000\n2017,243635000,34300000,209335000,100000000,95200000,4800000\n2018,292900000,60200000,232700000,106700000,97500000,9200000\n2019,298300000,42800000,255400000,116100000,106800000,9300000\n2020,257100000,39600000,217500000,137600000,131100000,6500000";
+  } else if (type === "implementation-rates") {
+    csv = "Period,Implemented,Partial,Not Implemented,Rate\n2014 to 2015,6,0,1,86%\n2015 to 2016,6,1,1,75%\n2016 to 2017,6,4,4,43%\n2017 to 2018,7,4,5,44%\n2018 to 2019,9,7,4,45%\n2019 to 2020,18,0,6,75%\n2020 to 2021,10,0,11,48%\n2021 to 2022,10,0,11,48%";
   } else if (type === "procurement") {
     var rows = window._filteredContracts || window.PROCUREMENT_CONTRACTS || [];
     if (!rows.length) return;
@@ -265,6 +271,173 @@ window.addEventListener("load", function () {
         responsive: true,
         plugins: { legend: { display: false } },
         scales: { y: { beginAtZero: true } }
+      }
+    });
+  }
+
+  // Audit Opinion Timeline Chart
+  var auditOpCtx = document.getElementById("chart-audit-opinion");
+  if (auditOpCtx) {
+    new Chart(auditOpCtx, {
+      type: "bar",
+      data: {
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+        datasets: [{
+          label: "Audit Opinion (1=Unqualified, 2=Qualified)",
+          data: [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+          backgroundColor: [green, gold, gold, gold, gold, gold, gold, gold, gold, gold, gold]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.raw === 1 ? "Unqualified (Clean)" : "Qualified";
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 3,
+            ticks: {
+              callback: function(value) {
+                if (value === 1) return "Unqualified";
+                if (value === 2) return "Qualified";
+                return "";
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Total Assets Growth Chart
+  var assetsCtx = document.getElementById("chart-total-assets");
+  if (assetsCtx) {
+    new Chart(assetsCtx, {
+      type: "line",
+      data: {
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        datasets: [{
+          label: "Total Assets (PHP Millions)",
+          data: [115.0, 130.5, 243.6, 243.6, 292.9, 298.3, 257.1],
+          borderColor: green,
+          backgroundColor: "rgba(76,138,46,0.1)",
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: false } }
+      }
+    });
+  }
+
+  // Income vs Expenses Chart
+  var incomeExpCtx = document.getElementById("chart-income-expenses");
+  if (incomeExpCtx) {
+    new Chart(incomeExpCtx, {
+      type: "line",
+      data: {
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        datasets: [
+          {
+            label: "Income (PHP Millions)",
+            data: [71.4, 81.1, 100.0, 100.0, 106.7, 116.1, 137.6],
+            borderColor: green,
+            backgroundColor: "rgba(76,138,46,0.1)",
+            fill: false,
+            tension: 0.3
+          },
+          {
+            label: "Expenses (PHP Millions)",
+            data: [61.6, 67.6, 95.2, 95.2, 97.5, 106.8, 131.1],
+            borderColor: gold,
+            backgroundColor: "rgba(232,169,23,0.1)",
+            fill: false,
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true } },
+        scales: { y: { beginAtZero: false } }
+      }
+    });
+  }
+
+  // Revenue Composition Chart
+  var revCompCtx = document.getElementById("chart-revenue-composition");
+  if (revCompCtx) {
+    new Chart(revCompCtx, {
+      type: "bar",
+      data: {
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        datasets: [
+          {
+            label: "IRA/NTA (PHP Millions)",
+            data: [67.5, 73.4, 82.0, 86.3, 90.8, 103.0, 110.9],
+            backgroundColor: green
+          },
+          {
+            label: "Local Income (PHP Millions)",
+            data: [8.1, 8.5, 9.0, 9.9, 10.4, 9.1, 8.4],
+            backgroundColor: gold
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true } },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true, beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  // Implementation Rate Chart
+  var implCtx = document.getElementById("chart-implementation-rate");
+  if (implCtx) {
+    new Chart(implCtx, {
+      type: "bar",
+      data: {
+        labels: ["14→15", "15→16", "16→17", "17→18", "18→19", "19→20", "20→21", "21→22"],
+        datasets: [
+          {
+            label: "Implemented",
+            data: [6, 6, 6, 7, 9, 18, 10, 10],
+            backgroundColor: green
+          },
+          {
+            label: "Partial",
+            data: [0, 1, 4, 4, 7, 0, 0, 0],
+            backgroundColor: "#8fbc5f"
+          },
+          {
+            label: "Not Implemented",
+            data: [1, 1, 4, 5, 4, 6, 11, 11],
+            backgroundColor: gold
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true } },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true, beginAtZero: true }
+        }
       }
     });
   }

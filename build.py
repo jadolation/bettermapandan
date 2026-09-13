@@ -71,6 +71,10 @@ SECTION_ANCHORS = {
         ("revenue", "Revenue"),
         ("fiscal-snapshot", "Fiscal snapshot"),
         ("compliance", "Audit"),
+        ("audit-opinion-timeline", "Audit History"),
+        ("financial-performance", "Financial Performance"),
+        ("audit-findings", "Audit Findings"),
+        ("implementation-rate", "Accountability"),
     ],
 }
 
@@ -1763,6 +1767,25 @@ def _build_transparency_labels(locale: dict) -> dict:
         "TRANSPARENCY_SOCIAL_EYEBROW": t(locale, "transparency.social_eyebrow", ""),
         "TRANSPARENCY_SOCIAL_TITLE": t(locale, "transparency.social_title", ""),
         "TRANSPARENCY_TITLE": t(locale, "transparency.title", ""),
+        "AUDIT_OPINION_EYEBROW": t(locale, "transparency.audit_opinion_eyebrow", ""),
+        "AUDIT_OPINION_TITLE": t(locale, "transparency.audit_opinion_title", ""),
+        "AUDIT_OPINION_DESC": t(locale, "transparency.audit_opinion_desc", ""),
+        "AUDIT_OPINION_CHART_TITLE": t(locale, "transparency.audit_opinion_chart_title", ""),
+        "FINANCIAL_PERF_EYEBROW": t(locale, "transparency.financial_perf_eyebrow", ""),
+        "FINANCIAL_PERF_TITLE": t(locale, "transparency.financial_perf_title", ""),
+        "FINANCIAL_PERF_DESC": t(locale, "transparency.financial_perf_desc", ""),
+        "FINANCIAL_PERF_ASSETS_TITLE": t(locale, "transparency.financial_perf_assets_title", ""),
+        "FINANCIAL_PERF_INCOME_TITLE": t(locale, "transparency.financial_perf_income_title", ""),
+        "FINANCIAL_PERF_REVENUE_TITLE": t(locale, "transparency.financial_perf_revenue_title", ""),
+        "FINANCIAL_PERF_TABLE_TITLE": t(locale, "transparency.financial_perf_table_title", ""),
+        "AUDIT_FINDINGS_EYEBROW": t(locale, "transparency.audit_findings_eyebrow", ""),
+        "AUDIT_FINDINGS_TITLE": t(locale, "transparency.audit_findings_title", ""),
+        "AUDIT_FINDINGS_DESC": t(locale, "transparency.audit_findings_desc", ""),
+        "IMPL_RATE_EYEBROW": t(locale, "transparency.impl_rate_eyebrow", ""),
+        "IMPL_RATE_TITLE": t(locale, "transparency.impl_rate_title", ""),
+        "IMPL_RATE_DESC": t(locale, "transparency.impl_rate_desc", ""),
+        "IMPL_RATE_CHART_TITLE": t(locale, "transparency.impl_rate_chart_title", ""),
+        "IMPL_RATE_TABLE_TITLE": t(locale, "transparency.impl_rate_table_title", ""),
     }
 
 
