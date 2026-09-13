@@ -65,8 +65,24 @@ jobs:
           fi
           echo "Oversized brand assets are excluded from this check."
 
+      - name: Start local HTTP server for link checks
+        run: |
+          python3 -m http.server 8000 >/tmp/http.log 2>&1 &
+          echo $! > /tmp/http.pid
+          for i in 1 2 3 4 5; do
+            curl -fsS http://localhost:8000/ >/dev/null && break
+            sleep 1
+          done
+
       - name: Check Broken Links (Lychee)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: "./**/*.html --offline --exclude '^/'"
+          args: "http://localhost:8000"
           fail: true
+
+      - name: Stop local HTTP server
+        if: always()
+        run: |
+          if [ -f /tmp/http.pid ]; then
+            kill "$(cat /tmp/http.pid)" || true
+          fi
