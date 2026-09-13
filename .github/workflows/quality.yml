@@ -67,7 +67,37 @@ jobs:
 
       - name: Start local HTTP server for link checks
         run: |
-          python3 -m http.server 8000 >/tmp/http.log 2>&1 &
+          cat > /tmp/server.py << 'PYEOF'
+          import http.server
+          import socketserver
+          import os
+
+          class Handler(http.server.SimpleHTTPRequestHandler):
+              def find_path(self, path):
+                  if path.endswith('/'):
+                      path = path[:-1]
+                  if path and os.path.exists(path):
+                      return path
+                  html = path + '.html'
+                  if path and os.path.exists(html):
+                      return html
+                  index = os.path.join(path or '', 'index.html')
+                  if os.path.exists(index):
+                      return index
+                  return path
+
+              def do_GET(self):
+                  parsed = self.path.split('?', 1)[0]
+                  new_path = self.find_path(parsed.lstrip('/'))
+                  if new_path != parsed.lstrip('/'):
+                      self.path = '/' + new_path
+                  return super().do_GET()
+
+          with socketserver.TCPServer(('', 8000), Handler) as httpd:
+              print('Serving at http://localhost:8000')
+              httpd.serve_forever()
+          PYEOF
+          python3 /tmp/server.py >/tmp/http.log 2>&1 &
           echo $! > /tmp/http.pid
           for i in 1 2 3 4 5; do
             curl -fsS http://localhost:8000/ >/dev/null && break
