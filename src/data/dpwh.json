@@ -84,9 +84,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2019-05-25",
       "barangay_location": "Brgy. Primicias",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0008887355112,
+      "longitude": 120.47886673914,
+      "project_components": [
+        {
+          "id": "P00273700LZ-CW1",
+          "name": "Construction of Classrooms - Construction of 4STY8CL School Building, Primicias NHS, Mapandan, Pangasinan",
+          "type": "Buildings and Facilities",
+          "latitude": 16.0008887355112,
+          "longitude": 120.47886673914
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -111,9 +119,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2023-11-17",
       "barangay_location": "Coral",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0346736111111,
+      "longitude": 120.452061388889,
+      "project_components": [
+        {
+          "id": "P00726066LZ-CW1",
+          "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection Works along Angalacan River, Coral, Mapandan, Pangasinan",
+          "type": "Flood Control and Drainage",
+          "latitude": 16.0346736111111,
+          "longitude": 120.452061388889
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -138,9 +154,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2023-06-23",
       "barangay_location": "Brgy. Baloling",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0311994444444,
+      "longitude": 120.457986388889,
+      "project_components": [
+        {
+          "id": "P00737430LZ-CW1",
+          "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection at Barangay Baloling Phase IV, Mapandan, Pangasinan",
+          "type": "Flood Control and Drainage",
+          "latitude": 16.0311994444444,
+          "longitude": 120.457986388889
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -165,9 +189,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2021-04-16",
       "barangay_location": "Brgy. Luyan",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0048647222222,
+      "longitude": 120.476868333333,
+      "project_components": [
+        {
+          "id": "P00562997LZ-CW1",
+          "name": "Construction of Concrete Road - Concreting of Local Road, Sitio Centro, Barangay Luyan, Mapandan, Pangasinan",
+          "type": "Roads",
+          "latitude": 16.0048647222222,
+          "longitude": 120.476868333333
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -192,9 +224,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2022-04-08",
       "barangay_location": "Brgy. Baloling",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0314941666667,
+      "longitude": 120.4583475,
+      "project_components": [
+        {
+          "id": "P00637769LZ-CW1",
+          "name": "Construction of Revetment - Construction of Slope Protection along Brgy. Baloling, Mapandan, Pangasinan",
+          "type": "Flood Control and Drainage",
+          "latitude": 16.0314941666667,
+          "longitude": 120.4583475
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -219,9 +259,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2020-07-20",
       "barangay_location": "Brgy. Baloling",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0316136111111,
+      "longitude": 120.458161666667,
+      "project_components": [
+        {
+          "id": "P00421634LZ-CW1",
+          "name": "Construction of Flood Mitigation Structure - Construction of Protection Works along Angalacan River, Brgy. Baloling, Mapandan, Pangasinan",
+          "type": "Flood Control and Drainage",
+          "latitude": 16.0316136111111,
+          "longitude": 120.458161666667
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -246,9 +294,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2023-02-22",
       "barangay_location": "Brgy. Primicias",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0011183333333,
+      "longitude": 120.478911666667,
+      "project_components": [
+        {
+          "id": "P00699088LZ-CW1",
+          "name": "Construction of Concrete Road - Concreting of Farm to Market Road, Brgy. Primicias, Mapandan, Pangasinan",
+          "type": "Roads",
+          "latitude": 16.0011183333333,
+          "longitude": 120.478911666667
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -273,9 +329,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2018-12-12",
       "barangay_location": "Mapandan NHS",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.028775118,
+      "longitude": 120.453284041,
+      "project_components": [
+        {
+          "id": "P00270279LZ-CW1",
+          "name": "Construction of Classrooms - Construction of 2STY4CL, Mapandan National High School, Mapandan, Pangasinan",
+          "type": "Buildings and Facilities",
+          "latitude": 16.028775118,
+          "longitude": 120.453284041
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -300,9 +364,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2023-02-10",
       "barangay_location": "Brgy. Jimenez",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0137380555556,
+      "longitude": 120.462043055556,
+      "project_components": [
+        {
+          "id": "P00699089LZ-CW1",
+          "name": "Construction of Concrete Road - Concreting of Farm to Market Road, Brgy. Jimenez, Mapandan, Pangasinan",
+          "type": "Roads",
+          "latitude": 16.0137380555556,
+          "longitude": 120.462043055556
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -327,9 +399,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2023-04-18",
       "barangay_location": "Brgy. Baloling",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.0314125,
+      "longitude": 120.458201666667,
+      "project_components": [
+        {
+          "id": "P00726070LZ-CW1",
+          "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection along Angalacan River, Barangay Baloling, Mapandan, Pangasinan",
+          "type": "Flood Control and Drainage",
+          "latitude": 16.0314125,
+          "longitude": 120.458201666667
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -354,9 +434,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2021-02-02",
       "barangay_location": "Brgy. Primicias",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 15.9957552777778,
+      "longitude": 120.479448611111,
+      "project_components": [
+        {
+          "id": "P00470095LZ-CW1",
+          "name": "Construction of Classrooms - Construction of 4STY8CL, Primicias NHS, Mapandan, Pangasinan",
+          "type": "Buildings and Facilities",
+          "latitude": 15.9957552777778,
+          "longitude": 120.479448611111
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
@@ -381,9 +469,17 @@
       "actual_start_date": null,
       "actual_completion_date": "2018-06-30",
       "barangay_location": "Brgy. Baloling",
-      "latitude": null,
-      "longitude": null,
-      "project_components": [],
+      "latitude": 16.03047199,
+      "longitude": 120.45698099,
+      "project_components": [
+        {
+          "id": "P00222534LZ-CW1",
+          "name": "Construction of Flood Mitigation Structure - Construction of Protection works along Angalacan River, Baloling Section, Mapandan, Pangasinan",
+          "type": "Flood Control and Drainage",
+          "latitude": 16.03047199,
+          "longitude": 120.45698099
+        }
+      ],
       "bidders": [],
       "procurement_activities": [],
       "source_document_url": "https://transparency.dpwh.gov.ph/",
