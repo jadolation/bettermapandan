@@ -137,14 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return "mailto:" + TO_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   }
 
-  // --- Build plain text draft ---
-  function buildDraftText(mode) {
-    return buildMailto(mode)
-      .replace(/^mailto:[^?]+/, "")
-      .replace(/\?subject=/, "Subject: ")
-      .replace(/&body=/, "\n\n");
-  }
-
   // --- Toast ---
   var toastEl = document.getElementById("civic-toast");
   var toastTimer = null;
@@ -157,29 +149,39 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // --- Submit buttons (mailto) ---
-  document.getElementById("submit-report").addEventListener("click", function (e) {
-    e.preventDefault();
-    var url = buildMailto("report");
-    if (!url) return;
-    window.location.href = url;
-    showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
-  });
+  var submitReport = document.getElementById("submit-report");
+  var submitContribute = document.getElementById("submit-contribute");
+  var submitSuggest = document.getElementById("submit-suggest");
 
-  document.getElementById("submit-contribute").addEventListener("click", function (e) {
-    e.preventDefault();
-    var url = buildMailto("contribute");
-    if (!url) return;
-    window.location.href = url;
-    showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
-  });
+  if (submitReport) {
+    submitReport.addEventListener("click", function (e) {
+      e.preventDefault();
+      var url = buildMailto("report");
+      if (!url) return;
+      window.location.href = url;
+      showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
+    });
+  }
 
-  document.getElementById("submit-suggest").addEventListener("click", function (e) {
-    e.preventDefault();
-    var url = buildMailto("suggest");
-    if (!url) return;
-    window.location.href = url;
-    showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
-  });
+  if (submitContribute) {
+    submitContribute.addEventListener("click", function (e) {
+      e.preventDefault();
+      var url = buildMailto("contribute");
+      if (!url) return;
+      window.location.href = url;
+      showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
+    });
+  }
+
+  if (submitSuggest) {
+    submitSuggest.addEventListener("click", function (e) {
+      e.preventDefault();
+      var url = buildMailto("suggest");
+      if (!url) return;
+      window.location.href = url;
+      showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
+    });
+  }
 
   // --- Copy buttons (clipboard) ---
   function copyToClipboard(text) {
@@ -198,45 +200,54 @@ document.addEventListener("DOMContentLoaded", function () {
     return Promise.resolve();
   }
 
-  document.getElementById("copy-report").addEventListener("click", function () {
-    if (isHoneypotFilled()) return;
-    var url = buildMailto("report");
-    if (!url) return;
-    // Decode the mailto body for clipboard
-    var parts = url.split("?subject=");
-    var subject = decodeURIComponent(parts[1].split("&body=")[0]);
-    var body = decodeURIComponent(parts[1].split("&body=")[1]);
-    var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
-    copyToClipboard(draft).then(function () {
-      showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
-    });
-  });
+  var copyReport = document.getElementById("copy-report");
+  var copyContribute = document.getElementById("copy-contribute");
+  var copySuggest = document.getElementById("copy-suggest");
 
-  document.getElementById("copy-contribute").addEventListener("click", function () {
-    if (isHoneypotFilled()) return;
-    var url = buildMailto("contribute");
-    if (!url) return;
-    var parts = url.split("?subject=");
-    var subject = decodeURIComponent(parts[1].split("&body=")[0]);
-    var body = decodeURIComponent(parts[1].split("&body=")[1]);
-    var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
-    copyToClipboard(draft).then(function () {
-      showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+  if (copyReport) {
+    copyReport.addEventListener("click", function () {
+      if (isHoneypotFilled()) return;
+      var url = buildMailto("report");
+      if (!url) return;
+      var parts = url.split("?subject=");
+      var subject = decodeURIComponent(parts[1].split("&body=")[0]);
+      var body = decodeURIComponent(parts[1].split("&body=")[1]);
+      var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
+      copyToClipboard(draft).then(function () {
+        showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+      });
     });
-  });
+  }
 
-  document.getElementById("copy-suggest").addEventListener("click", function () {
-    if (isHoneypotFilled()) return;
-    var url = buildMailto("suggest");
-    if (!url) return;
-    var parts = url.split("?subject=");
-    var subject = decodeURIComponent(parts[1].split("&body=")[0]);
-    var body = decodeURIComponent(parts[1].split("&body=")[1]);
-    var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
-    copyToClipboard(draft).then(function () {
-      showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+  if (copyContribute) {
+    copyContribute.addEventListener("click", function () {
+      if (isHoneypotFilled()) return;
+      var url = buildMailto("contribute");
+      if (!url) return;
+      var parts = url.split("?subject=");
+      var subject = decodeURIComponent(parts[1].split("&body=")[0]);
+      var body = decodeURIComponent(parts[1].split("&body=")[1]);
+      var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
+      copyToClipboard(draft).then(function () {
+        showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+      });
     });
-  });
+  }
+
+  if (copySuggest) {
+    copySuggest.addEventListener("click", function () {
+      if (isHoneypotFilled()) return;
+      var url = buildMailto("suggest");
+      if (!url) return;
+      var parts = url.split("?subject=");
+      var subject = decodeURIComponent(parts[1].split("&body=")[0]);
+      var body = decodeURIComponent(parts[1].split("&body=")[1]);
+      var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
+      copyToClipboard(draft).then(function () {
+        showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+      });
+    });
+  }
 });
 
 // --- WebMCP Tool Registration ---

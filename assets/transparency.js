@@ -1,4 +1,4 @@
-function downloadCSV(type) {
+function downloadTransparencyCSV(type) {
   var csv = "";
   if (type === "budget") {
     csv = "Fiscal Year,Total Enacted Budget (PHP)\nCY 2020,122402454\nCY 2021,129281542\nCY 2022,173142760\nCY 2023,151540728\nCY 2024,160828663\nCY 2025,193088074\nCY 2026,218209788";
@@ -323,7 +323,7 @@ function updateAll(range, mayoralTermIndex) {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('[data-download]').forEach(function(btn) {
     btn.addEventListener("click", function() {
-      downloadCSV(this.getAttribute("data-download"));
+      downloadTransparencyCSV(this.getAttribute("data-download"));
     });
   });
 
@@ -891,7 +891,7 @@ function initProcurementTable() {
 
   if (csvBtn) {
     csvBtn.addEventListener("click", function() {
-      downloadCSV("procurement");
+      downloadTransparencyCSV("procurement");
     });
   }
 

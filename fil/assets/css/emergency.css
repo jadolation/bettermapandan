@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Emergency — emergency-bar ticker, emergency contact details
+   ========================================================================== */
+
+/* ---------- Ticker bar (header) ---------- */
+
+.emergency-bar {
+  background: var(--red-flag);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  position: relative;
+}
+
+.emergency-bar .wrap {
+  display: flex;
+  padding: 9px 0;
+  align-items: center;
+  width: max-content;
+  animation: ticker 20s linear infinite;
+}
+
+.emergency-bar:hover .wrap {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.emergency-bar a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 0 22px;
+}
+
+.emergency-bar a:hover {
+  text-decoration: underline;
+}
+
+.emergency-bar .label {
+  font-weight: 400;
+}
+
+/* ---------- Emergency contacts detail ---------- */
+
+.emergency-contacts {
+  margin-top: 24px;
+}
+
+.emergency-contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Office logos in emergency cards ---------- */
+
+.office-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+}

@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Layout — .wrap container, .section, alternating backgrounds, .grid system
+   ========================================================================== */
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  overflow-x: hidden;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding: 48px 0;
+  overflow-x: hidden;
+}
+
+.section + .section {
+  border-top: 1px solid var(--line);
+}
+
+.section-alt {
+  background: #f4f1e7;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-eyebrow {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 8px;
+}
+
+.section-head h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin-bottom: 10px;
+}
+
+.section-head p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Rice paddy parallax background section */
+.section-rice-bg {
+  position: relative;
+  background-image: linear-gradient(rgba(20, 30, 10, 0.55), rgba(20, 30, 10, 0.7)), url('rice-paddy.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+}
+.section-rice-bg .section-eyebrow,
+.section-rice-bg h2,
+.section-rice-bg p {
+  color: #fff;
+}
+.section-rice-bg .card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.section-rice-bg .card .icon,
+.section-rice-bg .card h3,
+.section-rice-bg .card p {
+  color: #fff;
+}
+
+/* ---------- Grid system ---------- */
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ---------- Data note ---------- */
+
+.data-note {
+  display: flex;
+  gap: 10px;
+  background: #f4f1e7;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-bottom: 30px;
+}
+
+/* ---------- Link arrow ---------- */
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 14px;
+}

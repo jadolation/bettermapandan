@@ -21,6 +21,7 @@
 <link rel="preload" href="../assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.open-meteo.com" />
 <script>window.__CONFIG__ = { assetBase: '..' };</script>
 <script defer src="../assets/font-loader.js"></script>
 <link rel="stylesheet" href="../assets/style.min.css" />
@@ -88,7 +89,7 @@
           Search
         </a></li>
       </ul>
-      <div class="lang-switcher">
+      <div class="lang-switcher" role="group" aria-label="Language">
         <a href="/transparency/" class="lang-btn active" data-lang="en">EN</a>
         <a href="/fil/transparency/" class="lang-btn " data-lang="fil">FIL</a>
       </div>
@@ -296,7 +297,7 @@
       <div class="card">
         <h2>Status</h2>
         <p class="figure" id="dpwh-status-value" style="font-size:1.1rem;line-height:1.6">
-          37 Completed &bull; 1 Ongoing &bull; 2 Not Started
+          37 Completed &bull; 1 Ongoing &bull; 2 Not Yet Started
         </p>
         <span class="verification-badge badge-official">Official</span>
         <span class="source-label">DPWH Transparency Portal</span>
@@ -371,7 +372,7 @@
   </table>
 </div>
 
-<p class="source-label">Source: <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a> &mdash; Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded.</p>
+<p class="source-label">Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded. <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a></p>
 <style>.highlight-project{outline:3px solid var(--green-bright);outline-offset:4px;border-radius:6px;transition:outline .2s}</style>
       <div class="grid grid-3 stack-gap-lg" style="margin-top:24px">
         <div class="card">

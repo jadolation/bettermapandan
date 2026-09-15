@@ -47,8 +47,8 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-        <input type="search" id="legislative-search" placeholder="Search all tables..." aria-label="Search legislative documents" style="padding:10px 14px;font-size:0.95rem;border:1.5px solid var(--line);border-radius:var(--radius);min-width:240px">
-        <button class="btn btn-outline" id="legislative-csv-btn" style="padding:10px 14px;font-size:0.95rem">CSV</button>
+        <input type="search" id="legislative-search" placeholder="{{LEG_SEARCH_PLACEHOLDER}}" aria-label="{{LEG_SEARCH_LABEL}}" style="padding:10px 14px;font-size:0.95rem;border:1.5px solid var(--line);border-radius:var(--radius);min-width:240px">
+        <button class="btn btn-outline" id="legislative-csv-btn" style="padding:10px 14px;font-size:0.95rem">{{LEG_CSV_BTN}}</button>
       </div>
     </div>
     <div class="table-wrap">
@@ -118,11 +118,11 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
       </table>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px;flex-wrap:wrap">
-      <span class="source-label" id="legislative-page-info">Showing 1-20 of 0</span>
+      <span class="source-label" id="legislative-page-info">{{LEG_PAGE_INFO}}</span>
       <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap" id="legislative-pagination">
-        <button class="btn btn-outline" data-page="prev" style="padding:10px 14px;font-size:0.95rem">&laquo; Prev</button>
+        <button class="btn btn-outline" data-page="prev" style="padding:10px 14px;font-size:0.95rem">&laquo; {{LEG_PREV}}</button>
         <span class="source-label" id="legislative-page-indicator">1 / 1</span>
-        <button class="btn btn-outline" data-page="next" style="padding:10px 14px;font-size:0.95rem">Next &raquo;</button>
+        <button class="btn btn-outline" data-page="next" style="padding:10px 14px;font-size:0.95rem">{{LEG_NEXT}} &raquo;</button>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
 <section class="section" id="fiscal">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Fiscal</div>
+      <div class="section-eyebrow">{{LEG_FISCAL_EYEBROW}}</div>
       <h2>{{LEG_BUDGET_TITLE}}</h2>
       <p>{{LEG_BUDGET_DESC}}</p>
     </div>
@@ -140,19 +140,19 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
     </div>
     <div class="grid grid-2" style="margin-top:24px">
       <div class="card">
-        <h3>Ordinance Categories</h3>
-        <p class="source-label" style="margin-top:0">Breakdown by category</p>
-        <canvas id="chart-legislative-categories" height="220" role="img" aria-label="Ordinance categories"></canvas>
+        <h3>{{LEG_ORD_CATEGORIES}}</h3>
+        <p class="source-label" style="margin-top:0">{{LEG_ORD_CATEGORIES_DESC}}</p>
+        <canvas id="chart-legislative-categories" height="220" role="img" aria-label="{{LEG_ORD_CATEGORIES}}"></canvas>
       </div>
       <div class="card">
-        <h3>Revenue vs Expenditure</h3>
-        <p class="source-label" style="margin-top:0">BLGF fiscal data 2020–2025</p>
-        <canvas id="chart-blgf-trend" height="220" role="img" aria-label="Revenue vs expenditure trend"></canvas>
+        <h3>{{LEG_REVENUE_VS_EXPENDITURE}}</h3>
+        <p class="source-label" style="margin-top:0">{{LEG_BLGF_DATA}}</p>
+        <canvas id="chart-blgf-trend" height="220" role="img" aria-label="{{LEG_REVENUE_VS_EXPENDITURE}}"></canvas>
       </div>
     </div>
     <div class="table-wrap" style="margin-top:24px">
-      <h3>Budget Growth</h3>
-      <p class="source-label" style="margin-top:0">Annual budget growth 2020–2026</p>
+      <h3>{{LEG_BUDGET_GROWTH}}</h3>
+      <p class="source-label" style="margin-top:0">{{LEG_BUDGET_GROWTH_DESC}}</p>
       <canvas id="chart-budget-growth" height="220" role="img" aria-label="Budget growth chart"></canvas>
     </div>
     <script>window.LEGISLATIVE_ORDINANCES = {{LEGISLATIVE_ORDINANCES_JSON}};</script>
@@ -160,7 +160,7 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
     <script>window.LEGISLATIVE_EXECUTIVE = {{LEGISLATIVE_EXECUTIVE_JSON}};</script>
     <script>window.LEGISLATIVE_CHARTS = {{LEGISLATIVE_CHARTS_JSON}};</script>
     <div class="cta-row" style="margin-top:24px">
-      <a class="btn btn-outline" href="/transparency/">View detailed fiscal data &rarr;</a>
+      <a class="btn btn-outline" href="/transparency/">{{LEG_VIEW_FISCAL}} &rarr;</a>
     </div>
   </div>
 </section>
@@ -168,7 +168,7 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
 <section class="section section-alt" id="trends">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Analysis</div>
+      <div class="section-eyebrow">{{LEG_ANALYSIS_EYEBROW}}</div>
       <h2>{{LEG_TRENDS_TITLE}}</h2>
       <p>{{LEG_TRENDS_DESC}}</p>
     </div>
@@ -181,9 +181,9 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Process Flow</div>
-      <h2>How an ordinance becomes law</h2>
-      <p>The legislative pipeline under the Local Government Code of 1991.</p>
+      <div class="section-eyebrow">{{LEG_PIPELINE_EYEBROW}}</div>
+      <h2>{{LEG_PIPELINE_TITLE}}</h2>
+      <p>{{LEG_PIPELINE_DESC}}</p>
     </div>
     <div class="steps">
       {{PROCESS_STEPS}}
@@ -194,9 +194,9 @@ hero_lede: A comprehensive database of municipal ordinances, resolutions, execut
 <section class="section section-alt">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Key Distinction</div>
-      <h2>Ordinance vs. Resolution</h2>
-      <p>Under the Local Government Code of 1991, the Sangguniang Bayan enacts two types of legislative measures:</p>
+      <div class="section-eyebrow">{{LEG_KEY_DISTINCTION}}</div>
+      <h2>{{LEG_ORD_VS_RESOLUTION}}</h2>
+      <p>{{LEG_ORD_VS_RESOLUTION_DESC}}</p>
     </div>
     <div class="grid grid-2">
       <div class="card">

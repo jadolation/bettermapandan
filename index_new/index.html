@@ -21,6 +21,7 @@
 <link rel="preload" href="../assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.open-meteo.com" />
 <script>window.__CONFIG__ = { assetBase: '..' };</script>
 <script defer src="../assets/font-loader.js"></script>
 <link rel="stylesheet" href="../assets/style.min.css" />
@@ -88,7 +89,7 @@
           Search
         </a></li>
       </ul>
-      <div class="lang-switcher">
+      <div class="lang-switcher" role="group" aria-label="Language">
         <a href="/index_new/" class="lang-btn active" data-lang="en">EN</a>
         <a href="/fil/index_new/" class="lang-btn " data-lang="fil">FIL</a>
       </div>
@@ -360,7 +361,7 @@
         <div class="section-head">
           <h3>Current weather</h3>
         </div>
-        <div class="weather-widget" id="weather-widget" aria-label="Weather">
+        <div class="weather-widget" id="weather-widget" aria-label="Weather" aria-live="polite">
           <div class="weather-loading">Loading weather data...</div>
           <div style="position:relative;height:180px;width:100%;margin-top:16px"><canvas id="chart-weather-forecast"></canvas></div>
         </div>

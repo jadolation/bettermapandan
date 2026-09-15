@@ -21,6 +21,7 @@
 <link rel="preload" href="../assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.open-meteo.com" />
 <script>window.__CONFIG__ = { assetBase: '..' };</script>
 <script defer src="../assets/font-loader.js"></script>
 <link rel="stylesheet" href="../assets/style.min.css" />
@@ -88,7 +89,7 @@
           Search
         </a></li>
       </ul>
-      <div class="lang-switcher">
+      <div class="lang-switcher" role="group" aria-label="Language">
         <a href="/search/" class="lang-btn active" data-lang="en">EN</a>
         <a href="/fil/search/" class="lang-btn " data-lang="fil">FIL</a>
       </div>
@@ -120,11 +121,11 @@
 
 <section class="section">
   <div class="wrap">
-    <div id="search-status" class="data-note" style="display:none">
+    <div id="search-status" class="data-note" style="display:none" aria-live="polite">
       <span>&#9432;</span>
       <span id="search-status-text"></span>
     </div>
-    <div id="search-results"></div>
+    <div id="search-results" aria-live="polite" aria-atomic="false"></div>
     <div id="search-empty" class="search-empty" style="display:none">
       <h3>No results found</h3>
       <p>Try different keywords or browse our pages directly.</p>

@@ -1,4 +1,4 @@
-function downloadCSV(type) {
+function downloadStatsCSV(type) {
   var csv = "";
   if (type === "population") {
     csv = "Year,Population\n2000,30775\n2007,32905\n2010,34439\n2015,37059\n2020,38058";
@@ -22,7 +22,7 @@ function downloadCSV(type) {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('[data-download]').forEach(function(btn) {
     btn.addEventListener("click", function() {
-      downloadCSV(this.getAttribute("data-download"));
+      downloadStatsCSV(this.getAttribute("data-download"));
     });
   });
 });

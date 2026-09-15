@@ -445,6 +445,15 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
         "SVC_EGOV_DESC": t(labels, "services_dir.national_egov_desc", ""),
         "SVC_ELGU": t(labels, "services_dir.national_elgu", "e-LGU Portal"),
         "SVC_ELGU_DESC": t(labels, "services_dir.national_elgu_desc", ""),
+        "SVC_ANALYTICS_EYEBROW": t(labels, "services_dir.analytics_eyebrow", "Service Analytics"),
+        "SVC_ANALYTICS_TITLE": t(labels, "services_dir.analytics_title", "Services at a Glance"),
+        "SVC_ANALYTICS_DESC": t(labels, "services_dir.analytics_desc", "Breakdown of services by category, office, classification, and delivery mode."),
+        "SVC_ANALYTICS_BY_CATEGORY": t(labels, "services_dir.analytics_by_category", "Services by Category"),
+        "SVC_ANALYTICS_BY_CATEGORY_DESC": t(labels, "services_dir.analytics_by_category_desc", "Number of services in each category"),
+        "SVC_ANALYTICS_BY_OFFICE": t(labels, "services_dir.analytics_by_office", "Services by Office"),
+        "SVC_ANALYTICS_BY_OFFICE_DESC": t(labels, "services_dir.analytics_by_office_desc", "Number of services handled by each office"),
+        "SVC_ANALYTICS_FEES": t(labels, "services_dir.analytics_fees", "Fees at a Glance"),
+        "SVC_ANALYTICS_FEES_DESC": t(labels, "services_dir.analytics_fees_desc", "Average fee for paid services"),
     })
     hero_meta = _extract_hero_meta(dir_filled)
     return dir_filled, hero_meta
@@ -595,6 +604,31 @@ def _build_legislative_labels(locale: dict) -> dict:
         "LEG_BUDGET_DESC": t(locale, "legislative.budget_desc", ""),
         "LEG_TRENDS_TITLE": t(locale, "legislative.trends_title", "Legislative trends"),
         "LEG_TRENDS_DESC": t(locale, "legislative.trends_desc", ""),
+        "LEG_SEARCH_PLACEHOLDER": t(locale, "legislative.search_placeholder", "Search all tables..."),
+        "LEG_SEARCH_LABEL": t(locale, "legislative.search_label", "Search legislative documents"),
+        "LEG_CSV_BTN": t(locale, "legislative.csv_btn", "CSV"),
+        "LEG_PAGE_INFO": t(locale, "legislative.page_info", "Showing 1-20 of 0"),
+        "LEG_PREV": t(locale, "legislative.prev", "Prev"),
+        "LEG_NEXT": t(locale, "legislative.next", "Next"),
+        "LEG_FISCAL_EYEBROW": t(locale, "legislative.fiscal_eyebrow", "Fiscal"),
+        "LEG_ORD_CATEGORIES": t(locale, "legislative.ord_categories", "Ordinance Categories"),
+        "LEG_ORD_CATEGORIES_DESC": t(locale, "legislative.ord_categories_desc", "Breakdown by category"),
+        "LEG_REVENUE_VS_EXPENDITURE": t(locale, "legislative.revenue_vs_expenditure", "Revenue vs Expenditure"),
+        "LEG_BLGF_DATA": t(locale, "legislative.blgf_data", "BLGF fiscal data 2020–2025"),
+        "LEG_BUDGET_GROWTH": t(locale, "legislative.budget_growth", "Budget Growth"),
+        "LEG_BUDGET_GROWTH_DESC": t(locale, "legislative.budget_growth_desc", "Annual budget growth 2020–2026"),
+        "LEG_VIEW_FISCAL": t(locale, "legislative.view_fiscal", "View detailed fiscal data"),
+        "LEG_ANALYSIS_EYEBROW": t(locale, "legislative.analysis_eyebrow", "Analysis"),
+        "LEG_PIPELINE_EYEBROW": t(locale, "legislative.pipeline_eyebrow", "Pipeline"),
+        "LEG_PIPELINE_TITLE": t(locale, "legislative.pipeline_title", "Legislative pipeline"),
+        "LEG_PIPELINE_DESC": t(locale, "legislative.pipeline_desc", "The legislative pipeline under the Local Government Code of 1991."),
+        "LEG_ORDINANCE": t(locale, "legislative.ordinance", "Ordinance"),
+        "LEG_ORDINANCE_DESC": t(locale, "legislative.ordinance_desc", ""),
+        "LEG_RESOLUTION": t(locale, "legislative.resolution", "Resolution"),
+        "LEG_RESOLUTION_DESC": t(locale, "legislative.resolution_desc", ""),
+        "LEG_KEY_DISTINCTION": t(locale, "legislative.key_distinction", "Key Distinction"),
+        "LEG_ORD_VS_RESOLUTION": t(locale, "legislative.ord_vs_resolution", "Ordinance vs. Resolution"),
+        "LEG_ORD_VS_RESOLUTION_DESC": t(locale, "legislative.ord_vs_resolution_desc", "Under the Local Government Code of 1991, the Sangguniang Bayan enacts two types of legislative measures:"),
     }
 
 
@@ -777,6 +811,11 @@ def _build_dpwh_labels(locale: dict) -> dict:
         "DPWH_CUSTOM_RANGE": t(locale, "transparency.infrastructure_custom_range", "Custom Range"),
         "DPWH_FROM": t(locale, "transparency.infrastructure_from", "From"),
         "DPWH_TO": t(locale, "transparency.infrastructure_to", "To"),
+        "DPWH_AGGREGATED": t(locale, "transparency.infrastructure_aggregated", "Aggregated from published contracts"),
+        "DPWH_STATUS_CARD": t(locale, "transparency.infrastructure_status_card", "Status"),
+        "DPWH_ACCOMPLISHMENT": t(locale, "transparency.infrastructure_accomplishment", "Accomplishment"),
+        "DPWH_MAP": t(locale, "transparency.infrastructure_map", "Map"),
+        "DPWH_SOURCE_NOTE": t(locale, "transparency.infrastructure_source_note", "Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded."),
     }
 
 
@@ -823,12 +862,12 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         <h2>{labels['DPWH_TOTAL_VALUE']}</h2>
         <p class="figure" id="dpwh-value-value">&#8369;{total_value:,.0f}</p>
         <span class="verification-badge badge-verified">{t(locale, 'common.verified', 'Verified')}</span>
-        <span class="source-label">Aggregated from published contracts</span>
+        <span class="source-label">{labels['DPWH_AGGREGATED']}</span>
       </div>
       <div class="card">
-        <h2>Status</h2>
+        <h2>{labels['DPWH_STATUS_CARD']}</h2>
         <p class="figure" id="dpwh-status-value" style="font-size:1.1rem;line-height:1.6">
-          {completed} Completed &bull; {ongoing} Ongoing &bull; {not_started} Not Started
+          {completed} {labels['DPWH_COMPLETED']} &bull; {ongoing} {labels['DPWH_ONGOING']} &bull; {not_started} {labels['DPWH_NOT_STARTED']}
         </p>
         <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
         <span class="source-label">DPWH Transparency Portal</span>
@@ -896,9 +935,9 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         <th scope="col">{labels['DPWH_CONTRACTOR']}</th>
         <th scope="col" class="num">{labels['DPWH_AMOUNT']}</th>
         <th scope="col">{labels['DPWH_STATUS']}</th>
-        <th scope="col" class="num">Accomplishment</th>
+        <th scope="col" class="num">{labels['DPWH_ACCOMPLISHMENT']}</th>
         <th scope="col">{labels['DPWH_DATE']}</th>
-        <th scope="col">Map</th>
+        <th scope="col">{labels['DPWH_MAP']}</th>
       </tr>
     </thead>
     <tbody>
@@ -907,7 +946,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
   </table>
 </div>
 
-<p class="source-label">Source: <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a> &mdash; Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded.</p>
+<p class="source-label">{labels['DPWH_SOURCE_NOTE']} <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a></p>
 """
 
     meta = {
@@ -1236,12 +1275,55 @@ def minify_css(css_text: str) -> str:
     return CSS_LEADING_RE.sub("", css).strip()
 
 
+def resolve_css_imports(css_text: str, base_path: Path) -> str:
+    """Resolve @import url(...) directives by inlining the referenced files.
+
+    Processes imports sequentially so that ordering is preserved.
+    Handles nested imports up to 5 levels deep to prevent infinite loops.
+    """
+    import_re = re.compile(r'@import\s+url\(["\']?([^"\')]+)["\']?\)\s*;')
+    resolved = []
+    seen = set()
+
+    def _resolve(text: str, depth: int = 0) -> str:
+        if depth > 5:
+            return text
+
+        def _replace(match):
+            import_path = match.group(1)
+            abs_path = (base_path / import_path).resolve()
+
+            if abs_path in seen:
+                return ""
+            seen.add(abs_path)
+
+            if not abs_path.exists():
+                print(f"  WARNING: CSS import not found: {import_path}")
+                return ""
+
+            partial = abs_path.read_text(encoding="utf-8")
+            return _resolve(partial, depth + 1)
+
+        return import_re.sub(_replace, text)
+
+    return _resolve(css_text)
+
+
 def minify_assets() -> None:
-    """Minify CSS and JS assets."""
+    """Minify CSS and JS assets.
+
+    Resolves @import directives in style.css manifest, inlining all partials
+    into a single minified style.min.css for production.
+    """
     css_path = ROOT / "assets" / "style.css"
     css_min_path = ROOT / "assets" / "style.min.css"
     if css_path.exists():
         css = css_path.read_text(encoding="utf-8")
+
+        # Resolve @import directives if manifest uses them
+        if "@import" in css:
+            css = resolve_css_imports(css, css_path.parent)
+
         css_min = minify_css(css)
         css_min_path.write_text(css_min, encoding="utf-8")
         orig_size = len(css.encode("utf-8"))

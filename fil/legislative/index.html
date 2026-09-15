@@ -21,6 +21,7 @@
 <link rel="preload" href="../assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.open-meteo.com" />
 <script>window.__CONFIG__ = { assetBase: '..' };</script>
 <script defer src="../assets/font-loader.js"></script>
 <link rel="stylesheet" href="../assets/style.min.css" />
@@ -88,7 +89,7 @@
           Hanapin
         </a></li>
       </ul>
-      <div class="lang-switcher">
+      <div class="lang-switcher" role="group" aria-label="Language">
         <a href="/legislative/" class="lang-btn " data-lang="en">EN</a>
         <a href="/fil/legislative/" class="lang-btn active" data-lang="fil">FIL</a>
       </div>
@@ -257,12 +258,12 @@
       <div class="card">
         <h3>Ordinance Categories</h3>
         <p class="source-label" style="margin-top:0">Breakdown by category</p>
-        <canvas id="chart-legislative-categories" height="220" role="img" aria-label="Ordinance categories"></canvas>
+        <canvas id="chart-legislative-categories" height="220" role="img" aria-label="Ordinance Categories"></canvas>
       </div>
       <div class="card">
         <h3>Revenue vs Expenditure</h3>
         <p class="source-label" style="margin-top:0">BLGF fiscal data 2020–2025</p>
-        <canvas id="chart-blgf-trend" height="220" role="img" aria-label="Revenue vs expenditure trend"></canvas>
+        <canvas id="chart-blgf-trend" height="220" role="img" aria-label="Revenue vs Expenditure"></canvas>
       </div>
     </div>
     <div class="table-wrap" style="margin-top:24px">
@@ -299,8 +300,8 @@
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Process Flow</div>
-      <h2>How an ordinance becomes law</h2>
+      <div class="section-eyebrow">Pipeline</div>
+      <h2>Legislative pipeline</h2>
       <p>The legislative pipeline under the Local Government Code of 1991.</p>
     </div>
     <div class="steps">

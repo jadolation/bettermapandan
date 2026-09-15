@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Milestones — 4-card milestone grid on homepage
+   ========================================================================== */
+
+.history-milestones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.milestone {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.milestone:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.milestone-year {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gold-dark);
+  background: var(--gold-soft);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.milestone h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+  color: var(--green-deep);
+}
+
+.milestone p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}

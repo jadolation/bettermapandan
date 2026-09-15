@@ -1,4 +1,4 @@
-function downloadCSV(type) {
+function downloadLegislativeCSV(type) {
   var csv = "";
   if (type === "legislative") {
     var data = window.LEGISLATIVE_CHARTS || {};
@@ -280,7 +280,7 @@ function initLegislativeTables() {
 
   if (csvBtn) {
     csvBtn.addEventListener("click", function() {
-      downloadCSV("ordinances");
+      downloadLegislativeCSV("ordinances");
     });
   }
 

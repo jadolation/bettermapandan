@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Responsive — all @media queries consolidated by breakpoint
+
+   Breakpoint tokens:
+     720px  — mobile
+     900px  — tablet
+     961px  — desktop / wide carousel
+     1200px — large screens
+   ========================================================================== */
+
+/* ==========================================================================
+   MOBILE ≤ 720px — language banner, nav, grids, stat strip, civic hub,
+   procurement toolbar, mobile action bar
+   ========================================================================== */
+
+@media (max-width: 720px) {
+
+  /* Language banner */
+  .lang-banner { padding: 10px 12px; }
+  .lang-banner-msg { font-size: 13px; }
+  .lang-banner-btn { font-size: 12px; padding: 5px 10px; }
+
+  /* Mobile collapsible filters */
+  .section, .wrap {
+    overflow-x: hidden;
+  }
+  .procurement-filters, .mayoral-term-filters {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 0 !important;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+  }
+
+  /* Nav — mobile dropdown */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 24px 14px;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Grids collapse */
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+
+  /* Stat strip */
+  .stat-grid { grid-template-columns: repeat(2, 1fr); padding: 22px 0; }
+  .stat { border-left: none; padding: 10px 20px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; }
+
+  /* Bar chart */
+  .bars { gap: 14px; padding: 16px 12px 0; }
+  .bar-col .name { font-size: 10.5px; }
+
+  /* Hero */
+  .hero .wrap { padding: 44px 20px 40px; }
+  .hero-search-inner { padding: 22px 20px 20px; }
+  .hero-search-input { font-size: 14px; padding: 10px 14px; }
+  .hero-search-btn { width: 44px; }
+
+  /* Map */
+  .map-container { height: 280px; }
+
+  /* Weather */
+  .weather-forecast { grid-template-columns: 1fr; }
+
+  /* Buttons — touch targets */
+  .btn { min-height: 44px; padding: 12px 20px; }
+  .link-arrow { min-height: 44px; display: inline-flex; align-items: center; }
+  .report-btn { min-height: 44px; }
+  .service-link { min-height: 44px; }
+
+  /* Cards */
+  .category-card { padding: 20px; }
+  .search-result { padding: 14px 16px; }
+  .barangay-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Stat strip: hide badges and source labels, reduce number size */
+  .stat .verification-badge { display: none; }
+  .stat .source-label { display: none; }
+  .stat .num { font-size: 24px; }
+
+  /* Leader cards: tighter padding, smaller photo */
+  .leader-card { padding: 20px 16px; min-height: 180px; }
+  .leader-card .leader-text { padding: 16px; }
+  .leader-card .name { font-size: 18px; }
+  .leader-card .photo { max-width: 50%; }
+
+  /* Nav: hide search icon, show search link in dropdown */
+  .nav-search { display: none; }
+  .nav-search-link {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+  }
+  .nav-search-link svg { flex-shrink: 0; }
+  .nav { gap: 12px; }
+
+  /* Search browse grid */
+  .search-browse-grid { grid-template-columns: 1fr 1fr; }
+  .search-category-grid { grid-template-columns: 1fr; }
+
+  /* Action hub */
+  .action-hub-item { flex: 1 1 50%; padding: 12px 14px; font-size: 13px; }
+  .action-hub-item:nth-child(2) { border-right: none; }
+  .action-hub-item:nth-child(3) { border-right: 1px solid var(--line); }
+  .action-hub-item:nth-child(4) { border-right: none; }
+
+  /* History milestones */
+  .history-milestones { grid-template-columns: 1fr; }
+  .milestone { padding: 18px 16px; }
+
+  /* Mobile quick-action bar */
+  .mobile-action-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    z-index: 100;
+    padding: 6px 0;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+  }
+  .mobile-action-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 0;
+  }
+  .mobile-action-item svg { color: var(--green-deep); }
+  main#content { padding-bottom: 72px; }
+
+  /* Civic contribution hub mobile */
+  .segmented-control { flex-wrap: wrap; }
+  .segmented-control button { flex: 1 1 33%; min-height: 44px; padding: 8px 10px; font-size: 12px; }
+  .segmented-control button .label-text { display: none; }
+  .segmented-control button::after { content: attr(data-short); }
+  .civic-preview { position: static; margin-top: 24px; }
+  .civic-toast { left: 16px; right: 16px; bottom: 80px; }
+  .civic-submit-row { flex-direction: column; align-items: stretch; }
+  .civic-submit-row .btn, .civic-submit-row .btn-copy { width: 100%; justify-content: center; }
+
+  /* Procurement card */
+  .procurement-card-image { min-height: 180px; }
+  .procurement-card-content { padding: 20px; }
+  .procurement-card-content h3 { font-size: 18px; }
+  .procurement-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Procurement toolbar */
+  .procurement-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+  .procurement-toolbar-stats { justify-content: center; }
+  .procurement-toolbar-actions { flex-direction: column; }
+  .procurement-toolbar-actions input[type="search"] { min-width: 0; width: 100%; }
+  .procurement-toolbar-actions .btn { width: 100%; text-align: center; }
+  .filter-row { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+  .filter-row .filter-group { flex: 1; min-width: 0; }
+}
+
+/* ==========================================================================
+   TABLET ≤ 900px — grids, stat strip, steps, footer, hero, weather,
+   history layout, barangay, milestones, procurement card
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid { grid-template-columns: repeat(3, 1fr); }
+  .stat:nth-child(4) { border-left: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px 48px; }
+  .hero-search { order: 2; }
+  .weather-forecast { grid-template-columns: repeat(3, 1fr); }
+  .history-layout { grid-template-columns: 1fr; }
+  .barangay-grid { grid-template-columns: repeat(3, 1fr); }
+  .search-browse-grid { grid-template-columns: repeat(3, 1fr); }
+  .action-hub-bar { flex-wrap: wrap; }
+  .action-hub-item { flex: 1 1 50%; border-bottom: 1px solid var(--line); }
+  .action-hub-item:nth-child(2) { border-right: none; }
+  .history-milestones { grid-template-columns: repeat(2, 1fr); }
+
+  /* Procurement card */
+  .procurement-card { grid-template-columns: 1fr; }
+  .procurement-card-image { min-height: 200px; }
+  .procurement-card-content { padding: 22px 24px; }
+}
+
+/* ==========================================================================
+   DESKTOP ≥ 961px — wide carousel (stack images vertically)
+   ========================================================================== */
+
+@media (min-width: 961px) {
+  .carousel-track {
+    position: static;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .carousel-slide {
+    position: static;
+    opacity: 1;
+    transition: none;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+  .carousel-slide img {
+    height: auto;
+    object-fit: contain;
+  }
+  .carousel-caption {
+    position: static;
+    padding: 8px 0 0;
+    text-align: left;
+    min-height: 0;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+  .carousel-controls {
+    display: none;
+  }
+
+  /* Desktop grid override */
+  .grid-4 { grid-template-columns: repeat(4, 1fr) !important; }
+}
+
+/* ==========================================================================
+   LARGE SCREENS ≥ 1200px — procurement card wider image column
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+  .procurement-card { grid-template-columns: 380px 1fr; }
+  .procurement-card-content { padding: 32px 40px; }
+}
+
+/* ==========================================================================
+   REDUCED MOTION — respect user preference
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .carousel-slide { transition: none; }
+  .civic-toast { transition: none; }
+  .emergency-bar .wrap { animation: none; }
+}

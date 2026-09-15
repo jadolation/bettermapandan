@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Utilities — screen-reader only, spacing, skip link, misc helpers
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.mt-0 { margin-top: 0; }
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mt-24 { margin-top: 24px; }
+.mt-44 { margin-top: 44px; }
+.mt-48 { margin-top: 48px; }
+
+.stack-gap-lg {
+  margin-bottom: 44px;
+}
+
+.note-inline {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.cta-row {
+  margin-top: 22px;
+}
+
+.text-muted {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.card-tagged h3 {
+  margin-top: 12px;
+}
+
+.table-wrap--chart {
+  padding-bottom: 8px;
+}
+
+/* ---------- Skip link ---------- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--green-deep);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  z-index: 100;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.skip-link:focus {
+  top: 8px;
+}

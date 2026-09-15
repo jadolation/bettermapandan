@@ -776,3 +776,51 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Scroll fade-in animations via IntersectionObserver
+(function () {
+  if (typeof IntersectionObserver === "undefined") return;
+
+  var fadeObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".fade-in-section, .stagger-children").forEach(function (el) {
+    fadeObserver.observe(el);
+  });
+})();
+
+// Lazy image load observer — adds .loaded class when image enters viewport
+(function () {
+  if (typeof IntersectionObserver === "undefined") {
+    // Fallback: show all images immediately
+    document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+      img.classList.add("loaded");
+    });
+    return;
+  }
+
+  var imgObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var img = entry.target;
+        if (img.complete) {
+          img.classList.add("loaded");
+        } else {
+          img.addEventListener("load", function () { img.classList.add("loaded"); });
+          img.addEventListener("error", function () { img.classList.add("loaded"); });
+        }
+        imgObserver.unobserve(img);
+      }
+    });
+  }, { rootMargin: "100px" });
+
+  document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+    imgObserver.observe(img);
+  });
+})();
