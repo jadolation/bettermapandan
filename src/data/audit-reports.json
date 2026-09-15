@@ -178,7 +178,7 @@
       "description": "Multiple parcels of land lacking Transfer Certificates of Title (TCTs), covered only by Tax Declarations contrary to GAAM requirements.",
       "first_cited": 2016,
       "last_cited": 2024,
-      "amount": 22600000,
+      "amount": 25699460,
       "status": "partial",
       "category": "Asset Management",
       "severity": "high"
@@ -200,7 +200,7 @@
       "description": "Persistent delinquencies in real property tax collection. LGU never fully enforced levy, advertisement, and sale remedies under RA 7160.",
       "first_cited": 2016,
       "last_cited": 2024,
-      "amount": 2630000,
+      "amount": 839214,
       "status": "chronic",
       "category": "Revenue Collection",
       "severity": "medium"
@@ -226,6 +226,50 @@
       "status": "resolved",
       "category": "Financial Management",
       "severity": "high"
+    },
+    {
+      "id": "ldrrmf-underallocation",
+      "title": "LDRRMF Under-Allocation",
+      "description": "Required 5% LDRRMF based on regular income excluded ₱7.6M Economic Enterprise receipts, resulting in ₱380K under-allocation. QRF understated by ₱114K, Mitigation Fund by ₱266K.",
+      "first_cited": 2025,
+      "last_cited": 2025,
+      "amount": 380000,
+      "status": "open",
+      "category": "Fund Management",
+      "severity": "medium"
+    },
+    {
+      "id": "idle-mrf-equipment",
+      "title": "Idle MRF Equipment",
+      "description": "₱13.5M compactor and granulator purchased in 2019 remained unused through 2022, generating ₱5.13M in wasted depreciation and ₱2.62M in dead interest charges.",
+      "first_cited": 2020,
+      "last_cited": 2024,
+      "amount": 13500000,
+      "status": "chronic",
+      "category": "Asset Management",
+      "severity": "high"
+    },
+    {
+      "id": "manual-payroll",
+      "title": "Manual Payroll Cash Advances",
+      "description": "JO and COS personnel paid through manual payroll system and cash advances totaling ₱14.85M in CY 2024, including ₱534K clothing and ₱1.6M communication allowances. ATM payroll adopted May 2025.",
+      "first_cited": 2018,
+      "last_cited": 2024,
+      "amount": 14853746,
+      "status": "improving",
+      "category": "Financial Management",
+      "severity": "high"
+    },
+    {
+      "id": "unnecessary-expenses",
+      "title": "Unnecessary and Unallowable Expenses",
+      "description": "Disbursements for unnecessary advertising (₱85.5K), SB session snacks (₱122K), and unauthorized rice subsidy to national officials (₱62.1K). SEF used for non-priority items (₱108K).",
+      "first_cited": 2024,
+      "last_cited": 2024,
+      "amount": 269675,
+      "status": "open",
+      "category": "Financial Management",
+      "severity": "low"
     }
   ],
   "implementation_rates": [
@@ -236,7 +280,9 @@
     { "period": "2018→2019", "implemented": 9, "partial": 7, "not_implemented": 4, "rate": 45 },
     { "period": "2019→2020", "implemented": 18, "partial": 0, "not_implemented": 6, "rate": 75 },
     { "period": "2020→2021", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48 },
-    { "period": "2021→2022", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48 }
+    { "period": "2021→2022", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48 },
+    { "period": "2022→2023", "implemented": 11, "partial": 0, "not_implemented": 20, "rate": 35 },
+    { "period": "2023→2024", "implemented": 14, "partial": 0, "not_implemented": 23, "rate": 38 }
   ],
   "ldrrmf": [
     { "year": 2014, "available": 5072446, "utilized": 3553410 },
@@ -248,7 +294,8 @@
     { "year": 2021, "available": 13210000, "utilized": 6130000 },
     { "year": 2022, "available": 14030000, "utilized": 8170000 },
     { "year": 2023, "available": 16310000, "utilized": 15180000 },
-    { "year": 2024, "available": 16370000, "utilized": 6940000 }
+    { "year": 2024, "available": 16370000, "utilized": 6940000 },
+    { "year": 2025, "available": 9689081, "utilized": 9309081 }
   ],
   "gad_utilization": [
     { "year": 2017, "allocated": 3650000, "used": 2510000 },
@@ -270,7 +317,7 @@
     { "year": 2020, "amount": 1380000 },
     { "year": 2021, "amount": 1450000 },
     { "year": 2022, "amount": 1310000 },
-    { "year": 2023, "amount": 1260000 },
-    { "year": 2024, "amount": 552000 }
+    { "year": 2023, "amount": 552545 },
+    { "year": 2024, "amount": 839214 }
   ]
 }
