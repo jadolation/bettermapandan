@@ -9,7 +9,7 @@
     { "year": 2020, "opinion": "Qualified", "color": "gold", "note": "Road network depreciation not provided; COVID-19 procurement issues" },
     { "year": 2021, "opinion": "Qualified", "color": "gold", "note": "Misclassification of expenses; breeding stocks; land titling" },
     { "year": 2022, "opinion": "Qualified", "color": "gold", "note": "Recurring issues plus MRF machineries unused" },
-    { "year": 2023, "opinion": "Qualified", "color": "gold", "note": "GAD fund; procurement; contract submission delays" },
+    { "year": 2023, "opinion": "Unqualified", "color": "green", "note": "Clean opinion under new management" },
     { "year": 2024, "opinion": "Qualified", "color": "gold", "note": "Procurement irregularities; GAD; consulting services" }
   ],
   "financial_performance": [
@@ -85,43 +85,43 @@
     },
     {
       "year": 2021,
-      "total_assets": null,
-      "liabilities": null,
-      "gov_equity": null,
+      "total_assets": 289066906,
+      "liabilities": 46888593,
+      "gov_equity": 242178313,
       "income": 141635154,
       "expenses": 146295946,
       "surplus": -4660792,
-      "source": "BLGF"
+      "source": "COA AAR"
     },
     {
       "year": 2022,
-      "total_assets": null,
-      "liabilities": null,
-      "gov_equity": null,
+      "total_assets": 578523734,
+      "liabilities": 134750376,
+      "gov_equity": 443773358,
       "income": 177228975,
       "expenses": 233999820,
       "surplus": -56770845,
-      "source": "BLGF"
+      "source": "COA AAR"
     },
     {
       "year": 2023,
-      "total_assets": null,
-      "liabilities": null,
-      "gov_equity": null,
+      "total_assets": 563474053,
+      "liabilities": 126865514,
+      "gov_equity": 436608538,
       "income": 155277148,
       "expenses": 145373561,
       "surplus": 9903587,
-      "source": "BLGF"
+      "source": "COA AAR"
     },
     {
       "year": 2024,
-      "total_assets": null,
-      "liabilities": null,
-      "gov_equity": null,
+      "total_assets": 555420148,
+      "liabilities": 110739187,
+      "gov_equity": 444680961,
       "income": 168119706,
       "expenses": 166055071,
       "surplus": 2064635,
-      "source": "BLGF"
+      "source": "COA AAR"
     }
   ],
   "revenue_composition": [

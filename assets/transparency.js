@@ -3,7 +3,7 @@ function downloadCSV(type) {
   if (type === "budget") {
     csv = "Fiscal Year,Total Enacted Budget (PHP)\nCY 2020,122402454\nCY 2021,129281542\nCY 2022,173142760\nCY 2023,151540728\nCY 2024,160828663\nCY 2025,193088074\nCY 2026,218209788";
   } else if (type === "audit-opinions") {
-    csv = "Year,Opinion\n2014,Unqualified\n2015,Qualified\n2016,Qualified\n2017,Qualified\n2018,Qualified\n2019,Qualified\n2020,Qualified\n2021,Qualified\n2022,Qualified\n2023,Qualified\n2024,Qualified";
+    csv = "Year,Opinion\n2014,Unqualified\n2015,Qualified\n2016,Qualified\n2017,Qualified\n2018,Qualified\n2019,Qualified\n2020,Qualified\n2021,Qualified\n2022,Qualified\n2023,Unqualified\n2024,Qualified";
   } else if (type === "financial-performance") {
     csv = "Year,Income,Expenses,Surplus/Deficit,Source\n2014,71432036,61566073,9865963,COA AAR\n2015,81052292,67593459,13458833,COA AAR\n2016,88255537,78852072,9403465,COA AAR\n2017,99989387,95214375,4775012,COA AAR\n2018,106700000,97500000,9200000,COA AAR\n2019,116100000,106800000,9300000,COA AAR\n2020,128331255,131058342,6552809,COA AAR\n2021,144503846,133834650,10669196,COA AAR\n2022,180618300,166571000,14047290,COA AAR\n2023,159409832,168264248,-8854416,COA AAR\n2024,173759470,183574901,-9815431,COA AAR";
   } else if (type === "implementation-rates") {
@@ -357,7 +357,7 @@ window.addEventListener("load", function () {
         datasets: [{
           label: "Total Enacted Budget (PHP Millions)",
           data: [122.40, 129.28, 173.14, 151.54, 160.83, 193.09, 218.21],
-          backgroundColor: [green, green, gold, green, green, gold, gold]
+          backgroundColor: [green, green, green, green, green, green, green]
         }]
       },
       options: {
@@ -378,7 +378,7 @@ window.addEventListener("load", function () {
         datasets: [{
           label: "Audit Opinion (1=Unqualified, 2=Qualified)",
           data: [1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2],
-          backgroundColor: [green, gold, gold, gold, gold, gold, gold, gold, gold, gold, gold]
+          backgroundColor: [green, gold, gold, gold, gold, gold, gold, gold, gold, green, gold]
         }]
       },
       options: {
@@ -416,10 +416,10 @@ window.addEventListener("load", function () {
     new Chart(assetsCtx, {
       type: "line",
       data: {
-        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020"],
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
         datasets: [{
           label: "Total Assets (PHP Millions)",
-          data: [115.0, 130.5, 243.6, 243.6, 292.9, 298.3, 257.1],
+          data: [115.0, 130.5, 243.6, 243.6, 292.9, 298.3, 257.1, 289.1, 578.5, 563.5, 555.4],
           borderColor: green,
           backgroundColor: "rgba(76,138,46,0.1)",
           fill: true,
