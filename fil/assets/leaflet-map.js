@@ -1,3 +1,5 @@
+/* Depends on: assets/js/common.js */
+
 /* Mapandan DPWH Infrastructure Map — Leaflet + OpenStreetMap */
 (function () {
   "use strict";
@@ -42,13 +44,7 @@
   function filterDpwhProjects(projects, range, termIndex, dateFrom, dateTo) {
     var filtered = projects.slice();
     if (termIndex !== null && termIndex !== undefined) {
-      var terms = [
-        { start: "2010-06-30", end: "2016-06-29" },
-        { start: "2016-06-30", end: "2019-06-29" },
-        { start: "2019-06-30", end: "2022-06-29" },
-        { start: "2022-06-30", end: "2099-12-31" }
-      ];
-      var term = terms[termIndex];
+      var term = MapandanCommon.MAYORAL_TERMS[termIndex];
       if (term) {
         var from = new Date(term.start);
         var to = new Date(term.end);
@@ -62,19 +58,7 @@
       }
     }
     if (range && range !== "all") {
-      var now = new Date();
-      var cutoff;
-      if (range === "30d") {
-        cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 30);
-      } else if (range === "3m") {
-        cutoff = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate());
-      } else if (range === "6m") {
-        cutoff = new Date(now.getFullYear(), now.getMonth() - 6, now.getDate());
-      } else if (range === "1y") {
-        cutoff = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
-      } else if (range === "3y") {
-        cutoff = new Date(now.getFullYear() - 3, now.getMonth(), now.getDate());
-      }
+      var cutoff = MapandanCommon.computeCutoff(range);
       if (cutoff) {
         filtered = filtered.filter(function (p) {
           var dStr = getProjectDate(p);
@@ -83,16 +67,8 @@
         });
       }
     }
-    if (dateFrom || dateTo) {
-      filtered = filtered.filter(function (p) {
-        var dStr = getProjectDate(p);
-        if (!dStr) return false;
-        var d = new Date(dStr);
-        if (dateFrom && d < dateFrom) return false;
-        if (dateTo && d > dateTo) return false;
-        return true;
-      });
-    }
+    var dates = MapandanCommon.getCustomDateRange();
+    filtered = MapandanCommon.filterByCustomDate(filtered, dates.from, dates.to, "actual_completion_date");
     return filtered;
   }
 

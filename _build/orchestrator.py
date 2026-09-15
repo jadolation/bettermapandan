@@ -1,0 +1,686 @@
+import shutil
+import json
+import sys
+from pathlib import Path
+
+from _build.config import (
+    SRC_PAGES,
+    ROOT,
+    SRC_PARTIALS,
+    SRC_DATA,
+    SRC_TEMPLATES,
+    FIL_DIR,
+    SITE_CONFIG,
+    SECTION_ANCHORS,
+    FRONT_MATTER_RE,
+    LANGUAGES,
+    validate_all,
+    HAS_SCHEMA_VALIDATION,
+)
+from _build.locales import load_locale, t
+from _build.templates import parse_page, fill, strip_html, strip_front_matter, compute_url, compute_asset_base, to_folder_index
+from _build.generators.services import generate_services
+from _build.generators.legislative import generate_legislative
+from _build.generators.dpwh import generate_dpwh
+from _build.generators.procurement import generate_procurement, generate_homepage_procurement_data, generate_homepage_dpwh_data
+from _build.generators.barangays import validate_barangays, generate_barangays, build_barangay_comparison_script, generate_barangay_councils_table
+from _build.assets import minify_assets, compress_images, generate_sitemap, generate_llms_txt
+from _build.lint import verify_translations
+
+
+
+def build_lang_switcher_urls(rel: Path, is_fil: bool) -> tuple[str, str]:
+    """Build language switcher URLs for a page."""
+    clean = to_folder_index(rel)
+    if clean.name == "index.html":
+        folder = "" if not clean.parent or clean.parent == Path(".") else str(clean.parent)
+    else:
+        folder = str(clean.parent / clean.stem)
+    en_path = f"/{folder}/" if folder else "/"
+    fil_path = f"/fil/{folder}/" if folder else "/fil/"
+    return en_path, fil_path
+
+
+def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
+    """Build breadcrumb HTML for a page."""
+    clean = to_folder_index(rel)
+    depth = len(clean.parts) - 1
+    if depth <= 0:
+        return ""
+    home_href = "../" * depth
+    section_slug = clean.parts[0]
+    if depth == 1:
+        bc_items = [
+            f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
+            f'<span aria-current="page">{section_slug.replace("-", " ").title()}</span>',
+        ]
+    else:
+        section_href = "../" * (depth - 1) + section_slug + "/"
+        bc_items = [
+            f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
+            f'<a href="{section_href}">{section_slug.replace("-", " ").title()}</a>',
+            f'<span aria-current="page">{page_title}</span>',
+        ]
+    return '<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb">' + " &rsaquo; ".join(bc_items) + "</nav></div>\n"
+
+
+def build_header(locale: dict, asset_base: str, is_fil: bool, en_url: str, fil_url: str) -> str:
+    """Build the site header with navigation and locale strings."""
+    header_raw = (SRC_PARTIALS / "header.html").read_text(encoding="utf-8")
+    return fill(header_raw, {
+        "ASSET_BASE": asset_base,
+        "NAV_HOME": t(locale, "nav.home", "Home"),
+        "NAV_SERVICES": t(locale, "nav.services", "Services"),
+        "NAV_GOVERNMENT": t(locale, "nav.government", "Government"),
+        "NAV_LEGISLATIVE": t(locale, "nav.legislative", "Legislative"),
+        "NAV_STATISTICS": t(locale, "nav.statistics", "Statistics"),
+        "NAV_TRANSPARENCY": t(locale, "nav.transparency", "Transparency"),
+        "NAV_ABOUT": t(locale, "nav.about", "About"),
+        "NAV_SEARCH": t(locale, "nav.search", "Search"),
+        "NAV_MENU": t(locale, "nav.menu", "Menu"),
+        "EMERGENCY_LABEL": t(locale, "emergency.label", "Emergency"),
+        "EMERGENCY_MDRRMO": t(locale, "emergency.mdrrmo", "MDRRMO"),
+        "EMERGENCY_FIRE": t(locale, "emergency.fire", "Fire (BFP)"),
+        "EMERGENCY_POLICE": t(locale, "emergency.police", "Police (PNP)"),
+        "LANG_EN_URL": en_url,
+        "LANG_FIL_URL": fil_url,
+        "LANG_ACTIVE_EN": "" if is_fil else "active",
+        "LANG_ACTIVE_FIL": "active" if is_fil else "",
+        "LANG_LABEL_EN": t(locale, "lang_switch.en", "EN"),
+        "LANG_LABEL_FIL": t(locale, "lang_switch.fil", "FIL"),
+    })
+
+
+def build_footer(locale: dict, asset_base: str) -> str:
+    """Build the site footer with locale strings."""
+    footer_raw = (SRC_PARTIALS / "footer.html").read_text(encoding="utf-8")
+    return fill(footer_raw, {
+        "ASSET_BASE": asset_base,
+        **SITE_CONFIG,
+        "NAV_HOME": t(locale, "nav.home", "Home"),
+        "NAV_SERVICES": t(locale, "nav.services", "Services"),
+        "NAV_GOVERNMENT": t(locale, "nav.government", "Government"),
+        "NAV_LEGISLATIVE": t(locale, "nav.legislative", "Legislative"),
+        "NAV_STATISTICS": t(locale, "nav.statistics", "Statistics"),
+        "NAV_TRANSPARENCY": t(locale, "nav.transparency", "Transparency"),
+        "NAV_ABOUT": t(locale, "nav.about", "About"),
+        "FOOTER_BRAND_DESC": t(locale, "footer.brand_desc", ""),
+        "FOOTER_QUICK_LINKS": t(locale, "footer.quick_links", "Quick Links"),
+        "FOOTER_RESOURCES": t(locale, "footer.resources", "Resources"),
+        "FOOTER_PROJECT": t(locale, "footer.project", "Project"),
+        "FOOTER_SITEMAP": t(locale, "footer.sitemap", "Sitemap"),
+        "FOOTER_FAQ": t(locale, "footer.faq", "FAQ"),
+        "FOOTER_SOURCE_CODE": t(locale, "footer.source_code", "Source Code (GitHub)"),
+        "FOOTER_PRIVACY": t(locale, "footer.privacy", "Privacy Policy"),
+        "FOOTER_TERMS": t(locale, "footer.terms", "Terms of Use"),
+        "FOOTER_ACCESSIBILITY": t(locale, "footer.accessibility", "Accessibility"),
+        "FOOTER_REPORT": t(locale, "footer.report", "Report Incorrect Info"),
+        "FOOTER_COPYRIGHT": t(locale, "footer.copyright", ""),
+        "FOOTER_COMMUNITY": t(locale, "footer.community", ""),
+        "FOOTER_COST": t(locale, "footer.cost", "Cost to the People of Mapandan:"),
+        "FOOTER_COST_AMOUNT": t(locale, "footer.cost_amount", "₱0"),
+        "FOOTER_MUNICIPALITY": t(locale, "footer.municipality_of", "Municipality of Mapandan"),
+        "FOOTER_PROVINCE": t(locale, "footer.province_of", "Province of Pangasinan"),
+        "FOOTER_COA": t(locale, "footer.coa", "Commission on Audit"),
+        "FOOTER_PSA": t(locale, "footer.psa", "Philippine Statistics Authority"),
+    })
+
+
+def resolve_body_placeholders(body: str, locale: dict, asset_base: str) -> str:
+    """Resolve all locale placeholders in page body content."""
+    return fill(body, {
+        "ASSET_BASE": asset_base,
+        ** _build_page_body_labels(locale),
+    })
+
+
+def _build_page_body_labels(locale: dict) -> dict:
+    return {
+        "ABOUT_CONTRIBUTE_CODE": t(locale, "about.contribute_code", ""),
+        "ABOUT_CONTRIBUTE_GET_INVOLVED": t(locale, "about.contribute_get_involved", ""),
+        "ABOUT_CONTRIBUTE_REPORT": t(locale, "about.contribute_report", ""),
+        "ABOUT_CONTRIBUTE_SHARE": t(locale, "about.contribute_share", ""),
+        "ABOUT_CONTRIBUTE_VERIFY": t(locale, "about.contribute_verify", ""),
+        "ABOUT_DISCLAIMER_NOTICE": t(locale, "about.disclaimer_notice", ""),
+        "ABOUT_GEOGRAPHY": t(locale, "about.geography", ""),
+        "ABOUT_HISTORY": t(locale, "about.history", ""),
+        "ABOUT_HISTORY_ERA1": t(locale, "about.history_era1", ""),
+        "ABOUT_HISTORY_ERA2": t(locale, "about.history_era2", ""),
+        "ABOUT_HISTORY_ERA3": t(locale, "about.history_era3", ""),
+        "ABOUT_HISTORY_ERA5": t(locale, "about.history_era5", ""),
+        "ABOUT_HISTORY_TITLE": t(locale, "about.history_title", ""),
+        "ABOUT_MUNICIPALITY_TITLE": t(locale, "about.municipality_title", ""),
+        "ABOUT_PHOTO_BRIDGE": t(locale, "about.photo_bridge", ""),
+        "ABOUT_PHOTO_MARKET": t(locale, "about.photo_market", ""),
+        "ABOUT_PHOTO_OFFICIALS": t(locale, "about.photo_officials", ""),
+        "ABOUT_PHOTO_PLAZA": t(locale, "about.photo_plaza", ""),
+        "ABOUT_PHOTO_SCHOOL": t(locale, "about.photo_school", ""),
+        "ABOUT_POPULATION_GROWTH": t(locale, "about.population_growth", ""),
+        "ABOUT_POPULATION_SUBTITLE": t(locale, "about.population_subtitle", ""),
+        "ABOUT_PROJECT_HOW": t(locale, "about.project_how", ""),
+        "ABOUT_PROJECT_MISSION": t(locale, "about.project_mission", ""),
+        "ABOUT_PROJECT_OPEN_SOURCE": t(locale, "about.project_open_source", ""),
+        "ABOUT_PROJECT_VOLUNTEER": t(locale, "about.project_volunteer", ""),
+        "ABOUT_PROJECT_WHAT": t(locale, "about.project_what", ""),
+        "ABOUT_READ_MORE": t(locale, "about.read_more", ""),
+        "ABOUT_SHOW_LESS": t(locale, "about.show_less", ""),
+        "ABOUT_TITLE": t(locale, "about.title", ""),
+        "COMMON_COMMUNITY_VERIFIED": t(locale, "common.community_verified", ""),
+        "COMMON_MUNICIPAL_ESTIMATE": t(locale, "common.municipal_estimate", ""),
+        "COMMON_NEEDS_VERIFICATION": t(locale, "common.needs_verification", ""),
+        "COMMON_OFFICIAL": t(locale, "common.official", ""),
+        "COMMON_PLACEHOLDER": t(locale, "common.placeholder", ""),
+        "COMMON_PROVINCIAL_ESTIMATE": t(locale, "common.provincial_estimate", ""),
+        "COMMON_STATUTORY": t(locale, "common.statutory", ""),
+        "COMMON_UNOFFICIAL": t(locale, "common.unofficial", ""),
+        "COMMON_VERIFIED": t(locale, "common.verified", ""),
+        "EMERGENCY_FIRE": t(locale, "emergency.fire", ""),
+        "EMERGENCY_LABEL": t(locale, "emergency.label", ""),
+        "EMERGENCY_MDRRMO": t(locale, "emergency.mdrrmo", ""),
+        "EMERGENCY_POLICE": t(locale, "emergency.police", ""),
+        "GOVERNMENT_BARANGAY_COUNCILS_TITLE": t(locale, "government.barangay_councils_title", ""),
+        "GOVERNMENT_CONTACT_COL_LANDLINE": t(locale, "government.contact_col_landline", ""),
+        "GOVERNMENT_CONTACT_COL_MOBILE": t(locale, "government.contact_col_mobile", ""),
+        "GOVERNMENT_CONTACT_COL_OFFICE": t(locale, "government.contact_col_office", ""),
+        "GOVERNMENT_CONTACT_TITLE": t(locale, "government.contact_title", ""),
+        "GOVERNMENT_DEPARTMENTS_TITLE": t(locale, "government.departments_title", ""),
+        "GOVERNMENT_DEPT_COL_ACRONYM": t(locale, "government.dept_col_acronym", ""),
+        "GOVERNMENT_DEPT_COL_LOCATION": t(locale, "government.dept_col_location", ""),
+        "GOVERNMENT_DEPT_COL_OFFICE": t(locale, "government.dept_col_office", ""),
+        "GOVERNMENT_EXECUTIVE_TITLE": t(locale, "government.executive_title", ""),
+        "GOVERNMENT_EXTERNAL_TITLE": t(locale, "government.external_title", ""),
+        "GOVERNMENT_LEGISLATIVE_TITLE": t(locale, "government.legislative_title", ""),
+        "HERO_BROWSE_SERVICES": t(locale, "hero.browse_services", ""),
+        "HERO_EYEBROW": t(locale, "hero.eyebrow", ""),
+        "HERO_SEARCH_TITLE": t(locale, "hero.search_title", ""),
+        "HERO_SEE_BUDGET": t(locale, "hero.see_budget", ""),
+        "HERO_TITLE": t(locale, "hero.title", ""),
+        "ACTION_HUB_SERVICES": t(locale, "action_hub.services", "Services"),
+        "ACTION_HUB_BUDGET": t(locale, "action_hub.budget", "Budget"),
+        "ACTION_HUB_LEGISLATION": t(locale, "action_hub.legislation", "Legislation"),
+        "ACTION_HUB_HOTLINES": t(locale, "action_hub.hotlines", "Hotlines"),
+        "HERO_LEDE": t(locale, "hero.subtitle", ""),
+        "HERO_SEARCH_DESC": t(locale, "hero.search_desc", ""),
+        "HERO_SEARCH_PLACEHOLDER": t(locale, "hero.search_placeholder", ""),
+        "HERO_SEARCH_POPULAR": t(locale, "hero.search_popular", "Popular:"),
+        ** _build_homepage_labels(locale),
+        ** _build_statistics_labels(locale),
+        ** _build_transparency_labels(locale),
+        ** _build_dpwh_labels(locale),
+        ** _build_search_labels(locale),
+    }
+
+
+def _build_homepage_labels(locale: dict) -> dict:
+    return {
+        "HOMEPAGE_AGRI_TITLE": t(locale, "homepage.agri_title", ""),
+        "HOMEPAGE_BARANGAY_EYEBROW": t(locale, "homepage.barangay_eyebrow", ""),
+        "HOMEPAGE_BARANGAY_TITLE": t(locale, "homepage.barangay_title", ""),
+        "HOMEPAGE_CULTURAL_EYEBROW": t(locale, "homepage.cultural_eyebrow", ""),
+        "HOMEPAGE_CULTURAL_TITLE": t(locale, "homepage.cultural_title", ""),
+        "HOMEPAGE_EMERGENCY_BFP": t(locale, "homepage.emergency_bfp", ""),
+        "HOMEPAGE_EMERGENCY_EYEBROW": t(locale, "homepage.emergency_eyebrow", ""),
+        "HOMEPAGE_EMERGENCY_HOSPITAL": t(locale, "homepage.emergency_hospital", ""),
+        "HOMEPAGE_EMERGENCY_MDRRMO_DESC": t(locale, "homepage.emergency_mdrmmo_desc", ""),
+        "HOMEPAGE_EMERGENCY_PNP": t(locale, "homepage.emergency_pnp", ""),
+        "HOMEPAGE_EMERGENCY_RHU": t(locale, "homepage.emergency_rhu", ""),
+        "HOMEPAGE_EMERGENCY_TITLE": t(locale, "homepage.emergency_title", ""),
+        "HOMEPAGE_EMERGENCY_WATER": t(locale, "homepage.emergency_water", ""),
+        "HOMEPAGE_EXPLORE_EYEBROW": t(locale, "homepage.explore_eyebrow", ""),
+        "HOMEPAGE_EXPLORE_TITLE": t(locale, "homepage.explore_title", ""),
+        "HOMEPAGE_HISTORY_CTA": t(locale, "homepage.history_cta", ""),
+        "HOMEPAGE_HISTORY_EYEBROW": t(locale, "homepage.history_eyebrow", ""),
+        "HOMEPAGE_HISTORY_TITLE": t(locale, "homepage.history_title", ""),
+        "HOMEPAGE_LEADERSHIP_CTA": t(locale, "homepage.leadership_cta", ""),
+        "HOMEPAGE_LEADERSHIP_EYEBROW": t(locale, "homepage.leadership_eyebrow", ""),
+        "HOMEPAGE_LEADERSHIP_TITLE": t(locale, "homepage.leadership_title", ""),
+        "HOMEPAGE_MAP_TITLE": t(locale, "homepage.map_title", ""),
+        "HOMEPAGE_MUNICIPALITY_AGRI": t(locale, "homepage.municipality_agri", ""),
+        "HOMEPAGE_MUNICIPALITY_FOUNDED": t(locale, "homepage.municipality_founded", ""),
+        "HOMEPAGE_MUNICIPALITY_REESTABLISHED": t(locale, "homepage.municipality_reestablished", ""),
+        "HOMEPAGE_MUNICIPALITY_TITLE": t(locale, "homepage.municipality_title", ""),
+        "HOMEPAGE_PLAZA_TITLE": t(locale, "homepage.plaza_title", ""),
+        "HOMEPAGE_WEATHER_TITLE": t(locale, "homepage.weather_title", ""),
+        "HOMEPAGE_MUNICIPALITY_EYEBROW": t(locale, "homepage.municipality_eyebrow", ""),
+        "HOMEPAGE_MUNICIPALITY_DESC": t(locale, "homepage.municipality_desc", ""),
+        "HOMEPAGE_FOUNDED_DESC": t(locale, "homepage.founded_desc", ""),
+        "HOMEPAGE_REESTABLISHED_DESC": t(locale, "homepage.reestablished_desc", ""),
+        "HOMEPAGE_AGRI_DESC_FULL": t(locale, "homepage.agri_desc_full", ""),
+        "HOMEPAGE_HISTORY_SUBTITLE": t(locale, "homepage.history_subtitle", ""),
+        "HOMEPAGE_MILESTONE1_ERA": t(locale, "homepage.milestone1_era", ""),
+        "HOMEPAGE_MILESTONE1_TITLE": t(locale, "homepage.milestone1_title", ""),
+        "HOMEPAGE_MILESTONE1_DESC": t(locale, "homepage.milestone1_desc", ""),
+        "HOMEPAGE_MILESTONE2_ERA": t(locale, "homepage.milestone2_era", ""),
+        "HOMEPAGE_MILESTONE2_TITLE": t(locale, "homepage.milestone2_title", ""),
+        "HOMEPAGE_MILESTONE2_DESC": t(locale, "homepage.milestone2_desc", ""),
+        "HOMEPAGE_MILESTONE3_ERA": t(locale, "homepage.milestone3_era", ""),
+        "HOMEPAGE_MILESTONE3_TITLE": t(locale, "homepage.milestone3_title", ""),
+        "HOMEPAGE_MILESTONE3_DESC": t(locale, "homepage.milestone3_desc", ""),
+        "HOMEPAGE_MILESTONE4_ERA": t(locale, "homepage.milestone4_era", ""),
+        "HOMEPAGE_MILESTONE4_TITLE": t(locale, "homepage.milestone4_title", ""),
+        "HOMEPAGE_MILESTONE4_DESC": t(locale, "homepage.milestone4_desc", ""),
+        "HOMEPAGE_BARANGAY_SUBTITLE": t(locale, "homepage.barangay_subtitle", ""),
+        "HOMEPAGE_SOURCES_TITLE": t(locale, "homepage.sources_title", "Sources & Historical Notes"),
+        "HOMEPAGE_SOURCES_DESC": t(locale, "homepage.sources_desc", ""),
+        "HOMEPAGE_PANDAN_TITLE": t(locale, "homepage.pandan_title", "Pandan Festival"),
+        "HOMEPAGE_PANDAN_DESC": t(locale, "homepage.pandan_desc", ""),
+        "HOMEPAGE_PANDAN_CREDIT": t(locale, "homepage.pandan_credit", ""),
+        "HOMEPAGE_PLAZA_DESC": t(locale, "homepage.plaza_desc", ""),
+        "HOMEPAGE_PLAZA_CREDIT": t(locale, "homepage.plaza_credit", ""),
+        "HOMEPAGE_AGRI_DESC": t(locale, "homepage.agri_desc", ""),
+        "HOMEPAGE_AGRI_CREDIT": t(locale, "homepage.agri_credit", ""),
+        "HOMEPAGE_MAYOR_NAME": t(locale, "homepage.mayor_name", ""),
+        "HOMEPAGE_MAYOR_ROLE": t(locale, "homepage.mayor_role", "Municipal Mayor"),
+        "HOMEPAGE_MAYOR_AFFIL": t(locale, "homepage.mayor_affil", ""),
+        "HOMEPAGE_VICE_MAYOR_NAME": t(locale, "homepage.vice_mayor_name", ""),
+        "HOMEPAGE_VICE_MAYOR_ROLE": t(locale, "homepage.vice_mayor_role", "Vice Mayor &middot; Presiding Officer"),
+        "HOMEPAGE_VICE_MAYOR_AFFIL": t(locale, "homepage.vice_mayor_affil", "Independent (IND)"),
+        "HOMEPAGE_LEADER_SOURCE": t(locale, "homepage.leader_source", "Source: Mapandan.gov.ph"),
+        "HOMEPAGE_WEATHER_LOADING": t(locale, "homepage.weather_loading", "Loading weather data..."),
+        "HOMEPAGE_WEATHER_CTA": t(locale, "homepage.weather_cta", "View PAGASA Advisories &rarr;"),
+        "HOMEPAGE_MAP_CTA": t(locale, "homepage.map_cta", "Open in Google Maps &rarr;"),
+        "HOMEPAGE_TRANSPARENCY_DESC": t(locale, "homepage.transparency_desc", ""),
+        "HOMEPAGE_TRANSPARENCY_EYEBROW": t(locale, "homepage.transparency_eyebrow", ""),
+        "HOMEPAGE_TRANSPARENCY_TITLE": t(locale, "homepage.transparency_title", ""),
+        "STATS_BARANGAYS": t(locale, "stats.barangays", ""),
+        "STATS_DENSITY": t(locale, "stats.density", ""),
+        "STATS_HOUSEHOLDS": t(locale, "stats.households", ""),
+        "STATS_LAND_AREA": t(locale, "stats.land_area", ""),
+        "STATS_RESIDENTS": t(locale, "stats.residents", ""),
+    }
+
+
+def _build_statistics_labels(locale: dict) -> dict:
+    return {
+        "STATISTICS_AGRI_CROPS": t(locale, "statistics.agri_crops", ""),
+        "STATISTICS_AGRI_IRRIGATED": t(locale, "statistics.agri_irrigated", ""),
+        "STATISTICS_AGRI_TITLE": t(locale, "statistics.agri_title", ""),
+        "STATISTICS_CHART_DOWNLOAD": t(locale, "statistics.chart_download", ""),
+        "STATISTICS_CHART_POP_TREND": t(locale, "statistics.chart_pop_trend", ""),
+        "STATISTICS_ECON_AGRI_EMP": t(locale, "statistics.econ_agri_emp", ""),
+        "STATISTICS_ECON_DYNAMISM": t(locale, "statistics.econ_dynamism", ""),
+        "STATISTICS_ECON_LABOR": t(locale, "statistics.econ_labor", ""),
+        "STATISTICS_ECON_POVERTY": t(locale, "statistics.econ_poverty", ""),
+        "STATISTICS_ECON_TITLE": t(locale, "statistics.econ_title", ""),
+        "STATISTICS_FISCAL_BALANCE_2025": t(locale, "statistics.fiscal_balance_2025", ""),
+        "STATISTICS_FISCAL_BLGF": t(locale, "statistics.fiscal_blgf", ""),
+        "STATISTICS_FISCAL_BLGF_TITLE": t(locale, "statistics.fiscal_blgf_title", ""),
+        "STATISTICS_FISCAL_EXP_2025": t(locale, "statistics.fiscal_exp_2025", ""),
+        "STATISTICS_FISCAL_REV_2025": t(locale, "statistics.fiscal_rev_2025", ""),
+        "STATISTICS_FISCAL_TITLE": t(locale, "statistics.fiscal_title", ""),
+        "STATISTICS_GROWTH_TITLE": t(locale, "statistics.growth_title", ""),
+        "STATISTICS_LAND_BARANGAYS": t(locale, "statistics.land_barangays", ""),
+        "STATISTICS_LAND_EYEBROW": t(locale, "statistics.land_eyebrow", ""),
+        "STATISTICS_LAND_TITLE": t(locale, "statistics.land_title", ""),
+        "STATISTICS_LAND_TOTAL": t(locale, "statistics.land_total", ""),
+        "STATISTICS_LAND_URBAN_RURAL": t(locale, "statistics.land_urban_rural", ""),
+        "STATISTICS_POP_DENSITY": t(locale, "statistics.pop_density", ""),
+        "STATISTICS_POP_HOUSEHOLDS": t(locale, "statistics.pop_households", ""),
+        "STATISTICS_POP_TITLE": t(locale, "statistics.pop_title", ""),
+        "STATISTICS_POP_TOTAL": t(locale, "statistics.pop_total", ""),
+        "STATISTICS_TITLE": t(locale, "statistics.title", ""),
+        "STATISTICS_TRENDS_TITLE": t(locale, "statistics.trends_title", ""),
+    }
+
+
+def _build_transparency_labels(locale: dict) -> dict:
+    return {
+        "TRANSPARENCY_APPROPRIATIONS_EYEBROW": t(locale, "transparency.appropriations_eyebrow", ""),
+        "TRANSPARENCY_APPROPRIATIONS_TITLE": t(locale, "transparency.appropriations_title", ""),
+        "TRANSPARENCY_AUDIT_TITLE": t(locale, "transparency.audit_title", ""),
+        "TRANSPARENCY_BALANCE_ASSETS": t(locale, "transparency.balance_assets", ""),
+        "TRANSPARENCY_BALANCE_EYEBROW": t(locale, "transparency.balance_eyebrow", ""),
+        "TRANSPARENCY_BALANCE_LIABILITIES": t(locale, "transparency.balance_liabilities", ""),
+        "TRANSPARENCY_BALANCE_NET": t(locale, "transparency.balance_net", ""),
+        "TRANSPARENCY_BALANCE_TITLE": t(locale, "transparency.balance_title", ""),
+        "TRANSPARENCY_BUDGET_2026": t(locale, "transparency.budget_2026", ""),
+        "TRANSPARENCY_BUDGET_TREND_EYEBROW": t(locale, "transparency.budget_trend_eyebrow", ""),
+        "TRANSPARENCY_CAPEX_EYEBROW": t(locale, "transparency.capex_eyebrow", ""),
+        "TRANSPARENCY_CAPEX_TITLE": t(locale, "transparency.capex_title", ""),
+        "TRANSPARENCY_COMPLIANCE_COA": t(locale, "transparency.compliance_coa", ""),
+        "TRANSPARENCY_COMPLIANCE_FDP": t(locale, "transparency.compliance_fdp", ""),
+        "TRANSPARENCY_COMPLIANCE_SGLG": t(locale, "transparency.compliance_sglg", ""),
+        "TRANSPARENCY_COMPLIANCE_TITLE": t(locale, "transparency.compliance_title", ""),
+        "TRANSPARENCY_CREDIT_EYEBROW": t(locale, "transparency.credit_eyebrow", ""),
+        "TRANSPARENCY_CREDIT_TITLE": t(locale, "transparency.credit_title", ""),
+        "TRANSPARENCY_EXPENDITURE_2025": t(locale, "transparency.expenditure_2025", ""),
+        "TRANSPARENCY_EXTERNAL_EYEBROW": t(locale, "transparency.external_eyebrow", ""),
+        "TRANSPARENCY_EXTERNAL_TITLE": t(locale, "transparency.external_title", ""),
+        "TRANSPARENCY_FISCAL_DEV_FUND": t(locale, "transparency.fiscal_dev_fund", ""),
+        "TRANSPARENCY_FISCAL_LDRRMF": t(locale, "transparency.fiscal_ldrrmf", ""),
+        "TRANSPARENCY_FISCAL_NTA": t(locale, "transparency.fiscal_nta", ""),
+        "TRANSPARENCY_FISCAL_PS_CAP": t(locale, "transparency.fiscal_ps_cap", ""),
+        "TRANSPARENCY_FISCAL_SEF": t(locale, "transparency.fiscal_sef", ""),
+        "TRANSPARENCY_FISCAL_SNAPSHOT_TITLE": t(locale, "transparency.fiscal_snapshot_title", ""),
+        "TRANSPARENCY_FISCAL_STRUCTURE_EYEBROW": t(locale, "transparency.fiscal_structure_eyebrow", ""),
+        "TRANSPARENCY_FISCAL_STRUCTURE_TITLE": t(locale, "transparency.fiscal_structure_title", ""),
+        "TRANSPARENCY_HISTORICAL_EYEBROW": t(locale, "transparency.historical_eyebrow", ""),
+        "TRANSPARENCY_HISTORICAL_INC_OPS": t(locale, "transparency.historical_inc_ops", ""),
+        "TRANSPARENCY_HISTORICAL_MOOE": t(locale, "transparency.historical_mooe", ""),
+        "TRANSPARENCY_HISTORICAL_TAX_REV": t(locale, "transparency.historical_tax_rev", ""),
+        "TRANSPARENCY_HISTORICAL_TITLE": t(locale, "transparency.historical_title", ""),
+        "TRANSPARENCY_HISTORICAL_TOTAL_EQUITY": t(locale, "transparency.historical_total_equity", ""),
+        "TRANSPARENCY_HISTORICAL_TOTAL_OP_EXP": t(locale, "transparency.historical_total_op_exp", ""),
+        "TRANSPARENCY_HISTORICAL_TOTAL_OP_INC": t(locale, "transparency.historical_total_op_inc", ""),
+        "TRANSPARENCY_PROCUREMENT_EYEBROW": t(locale, "transparency.procurement_eyebrow", ""),
+        "TRANSPARENCY_PROCUREMENT_TITLE": t(locale, "transparency.procurement_title", ""),
+        "TRANSPARENCY_REVENUE_2025": t(locale, "transparency.revenue_2025", ""),
+        "TRANSPARENCY_REVENUE_TITLE": t(locale, "transparency.revenue_title", ""),
+        "TRANSPARENCY_SOCIAL_AGRI": t(locale, "transparency.social_agri", ""),
+        "TRANSPARENCY_SOCIAL_EYEBROW": t(locale, "transparency.social_eyebrow", ""),
+        "TRANSPARENCY_SOCIAL_TITLE": t(locale, "transparency.social_title", ""),
+        "TRANSPARENCY_TITLE": t(locale, "transparency.title", ""),
+        "AUDIT_OPINION_EYEBROW": t(locale, "transparency.audit_opinion_eyebrow", ""),
+        "AUDIT_OPINION_TITLE": t(locale, "transparency.audit_opinion_title", ""),
+        "AUDIT_OPINION_DESC": t(locale, "transparency.audit_opinion_desc", ""),
+        "AUDIT_OPINION_CHART_TITLE": t(locale, "transparency.audit_opinion_chart_title", ""),
+        "FINANCIAL_PERF_EYEBROW": t(locale, "transparency.financial_perf_eyebrow", ""),
+        "FINANCIAL_PERF_TITLE": t(locale, "transparency.financial_perf_title", ""),
+        "FINANCIAL_PERF_DESC": t(locale, "transparency.financial_perf_desc", ""),
+        "FINANCIAL_PERF_ASSETS_TITLE": t(locale, "transparency.financial_perf_assets_title", ""),
+        "FINANCIAL_PERF_INCOME_TITLE": t(locale, "transparency.financial_perf_income_title", ""),
+        "FINANCIAL_PERF_REVENUE_TITLE": t(locale, "transparency.financial_perf_revenue_title", ""),
+        "FINANCIAL_PERF_TABLE_TITLE": t(locale, "transparency.financial_perf_table_title", ""),
+        "AUDIT_FINDINGS_EYEBROW": t(locale, "transparency.audit_findings_eyebrow", ""),
+        "AUDIT_FINDINGS_TITLE": t(locale, "transparency.audit_findings_title", ""),
+        "AUDIT_FINDINGS_DESC": t(locale, "transparency.audit_findings_desc", ""),
+        "IMPL_RATE_EYEBROW": t(locale, "transparency.impl_rate_eyebrow", ""),
+        "IMPL_RATE_TITLE": t(locale, "transparency.impl_rate_title", ""),
+        "IMPL_RATE_DESC": t(locale, "transparency.impl_rate_desc", ""),
+        "IMPL_RATE_CHART_TITLE": t(locale, "transparency.impl_rate_chart_title", ""),
+        "IMPL_RATE_TABLE_TITLE": t(locale, "transparency.impl_rate_table_title", ""),
+    }
+
+
+def _build_dpwh_labels(locale: dict) -> dict:
+    return {
+        "DPWH_TITLE": t(locale, "transparency.infrastructure_title", "Infrastructure Projects"),
+        "DPWH_EYEBROW": t(locale, "transparency.infrastructure_eyebrow", "DPWH &middot; Infrastructure"),
+        "DPWH_LEDE": t(locale, "transparency.infrastructure_lede", "DPWH contracts, road and flood-control projects, school buildings, and health facilities in Mapandan."),
+        "DPWH_TOTAL_CONTRACTS": t(locale, "transparency.infrastructure_total_contracts", "Total Contracts"),
+        "DPWH_TOTAL_VALUE": t(locale, "transparency.infrastructure_total_value", "Total Contract Value"),
+        "DPWH_CATEGORY": t(locale, "transparency.infrastructure_category", "Category"),
+        "DPWH_STATUS": t(locale, "transparency.infrastructure_status", "Status"),
+        "DPWH_CONTRACTOR": t(locale, "transparency.infrastructure_contractor", "Contractor"),
+        "DPWH_AMOUNT": t(locale, "transparency.infrastructure_amount", "Amount"),
+        "DPWH_DATE": t(locale, "transparency.infrastructure_date", "Date"),
+        "DPWH_PROJECT": t(locale, "transparency.infrastructure_project", "Project"),
+        "DPWH_AGENCY": t(locale, "transparency.infrastructure_agency", "Implementing Agency"),
+        "DPWH_SOURCE": t(locale, "transparency.infrastructure_source", "Source"),
+        "DPWH_NO_LOCATION": t(locale, "transparency.infrastructure_no_location", "Projects without coordinates"),
+        "DPWH_VIEW_MAP": t(locale, "transparency.infrastructure_view_map", "View on map"),
+        "DPWH_FILTER_ALL": t(locale, "transparency.infrastructure_filter_all", "All"),
+        "DPWH_COMPLETED": t(locale, "transparency.infrastructure_completed", "Completed"),
+        "DPWH_ONGOING": t(locale, "transparency.infrastructure_ongoing", "Ongoing"),
+        "DPWH_NOT_STARTED": t(locale, "transparency.infrastructure_not_started", "Not Yet Started"),
+        "DPWH_CUSTOM_RANGE": t(locale, "transparency.infrastructure_custom_range", "Custom Range"),
+        "DPWH_FROM": t(locale, "transparency.infrastructure_from", "From"),
+        "DPWH_TO": t(locale, "transparency.infrastructure_to", "To"),
+        "DPWH_AGGREGATED": t(locale, "transparency.infrastructure_aggregated", "Aggregated from published contracts"),
+        "DPWH_STATUS_CARD": t(locale, "transparency.infrastructure_status_card", "Status"),
+        "DPWH_ACCOMPLISHMENT": t(locale, "transparency.infrastructure_accomplishment", "Accomplishment"),
+        "DPWH_MAP": t(locale, "transparency.infrastructure_map", "Map"),
+        "DPWH_SOURCE_NOTE": t(locale, "transparency.infrastructure_source_note", "Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded."),
+    }
+
+
+def _build_search_labels(locale: dict) -> dict:
+    return {
+        "SEARCH_TITLE": t(locale, "search_page.title", ""),
+        "SEARCH_SUBTITLE": t(locale, "search_page.subtitle", ""),
+        "SEARCH_BROWSE_EYEBROW": t(locale, "search_page.browse_eyebrow", ""),
+        "SEARCH_BROWSE_TITLE": t(locale, "search_page.browse_title", ""),
+        "SEARCH_POPULAR_TITLE": t(locale, "search_page.popular_title", ""),
+        "SEARCH_POPULAR_BIZ": t(locale, "search_page.popular_biz", ""),
+        "SEARCH_POPULAR_CIVIL": t(locale, "search_page.popular_civil", ""),
+        "SEARCH_POPULAR_HEALTH": t(locale, "search_page.popular_health", ""),
+        "SEARCH_POPULAR_WELFARE": t(locale, "search_page.popular_welfare", ""),
+        "REPORT_CHOOSE_TITLE": t(locale, "report_hub.choose_title", ""),
+        "REPORT_ERROR": t(locale, "report_hub.report_error", ""),
+        "REPORT_SUBMIT_INFO": t(locale, "report_hub.submit_info", ""),
+        "REPORT_SUGGEST_FEATURE": t(locale, "report_hub.suggest_feature", ""),
+        "REPORT_NEXT_TITLE": t(locale, "report_hub.next_title", ""),
+        "REPORT_VERIFICATION_TITLE": t(locale, "report_hub.verification_title", ""),
+    }
+
+
+def build_hero(meta: dict, page_hero_raw: str, asset_base: str) -> str:
+    """Build hero HTML if page has hero metadata."""
+    if not any(meta.get(k) for k in ("hero_eyebrow", "hero_heading", "hero_lede")):
+        return ""
+    return fill(page_hero_raw, {
+        "ASSET_BASE": asset_base,
+        "HERO_EYEBROW": meta.get("hero_eyebrow", ""),
+        "HERO_HEADING": meta.get("hero_heading", ""),
+        "HERO_LEDE": meta.get("hero_lede", ""),
+    })
+
+
+def assemble_page(base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str, lang_code: str, page_url: str = "") -> str:
+    """Assemble a complete page from its components."""
+    base_url = "https://bettermapandan.org"
+    if page_url:
+        folder_path = to_folder_index(Path(page_url))
+        if folder_path.name == "index.html":
+            parent_name = folder_path.parent.name
+            canonical = f"{base_url}/" if not parent_name else f"{base_url}/{folder_path.parent}/"
+        else:
+            canonical = f"{base_url}/{folder_path}/"
+    else:
+        canonical = base_url
+    return fill(base, {
+        "ASSET_BASE": asset_base,
+        "TITLE": title,
+        "DESCRIPTION": description,
+        "HEADER": header,
+        "BODY": body,
+        "FOOTER": footer,
+        "LANG_ATTR": f' lang="{lang_code}"',
+        "CANONICAL_URL": canonical,
+    })
+
+
+def build_search_entry(rel: Path, title: str, description: str, body: str, is_fil: bool, anchors_key: str = "") -> dict:
+    """Build a search index entry from page content."""
+    url = compute_url(rel)
+    if is_fil:
+        url = "fil/" + url
+    plain_body = strip_html(body)
+    entry: dict[str, object] = {"title": title, "url": url, "description": description, "body": plain_body}
+    if anchors_key:
+        anchors = SECTION_ANCHORS.get(anchors_key, [])
+        section_anchors = []
+        for anchor_id, heading in anchors:
+            idx = plain_body.lower().find(heading.lower())
+            if idx != -1:
+                section_anchors.append({"anchor": anchor_id, "pos": idx})
+        section_anchors.sort(key=lambda s: s["pos"])  # type: ignore[arg-type, return-value]
+        if section_anchors:
+            entry["section_anchors"] = section_anchors
+    return entry
+
+
+def _process_static_page(
+    lang_code: str, locale: dict, rel: Path, meta: dict, body: str,
+    base: str, page_hero_raw: str, out_root: Path, search_entries: list
+) -> int:
+    out_rel = to_folder_index(rel)
+    asset_base = compute_asset_base(out_rel, is_fil=(lang_code == "fil"))
+    en_url, fil_url = build_lang_switcher_urls(rel, is_fil=(lang_code == "fil"))
+    page_title = meta["title"].split(" —")[0].split(" |")[0].strip()
+    breadcrumbs = build_breadcrumbs(locale, rel, page_title)
+    header = build_header(locale, asset_base, lang_code == "fil", en_url, fil_url)
+    footer = build_footer(locale, asset_base)
+    hero_html = build_hero(meta, page_hero_raw, asset_base)
+    body = resolve_body_placeholders(hero_html + body, locale, asset_base)
+    if rel.name == "transparency.html":
+        proc_html, _, _ = generate_procurement(locale)
+        body = body.replace("{PROCUREMENT_SECTION}", proc_html, 1)
+        dpwh_html, _, _ = generate_dpwh(locale, asset_base)
+        body = body.replace("{DPWH_SECTION}", dpwh_html, 1)
+    if rel.name == "index.html":
+        proc_data = generate_homepage_procurement_data()
+        body = body.replace("{HOMEPAGE_PROCUREMENT_DATA}", proc_data, 1)
+        dpwh_data = generate_homepage_dpwh_data()
+        body = body.replace("{HOMEPAGE_DPWH_DATA}", dpwh_data, 1)
+    if rel.name == "statistics.html":
+        comparison_script = build_barangay_comparison_script()
+        stats_js_tag = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        body = body.replace(stats_js_tag, comparison_script + "\n" + stats_js_tag)
+    if rel.name == "government.html":
+        body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
+    page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
+    page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
+
+    if rel.name == "transparency.html":
+        transparency_js = (
+            '<script defer src="' + asset_base + '/assets/transparency.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/transparency-charts.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/procurement-table.js"></script>\n'
+        )
+        csv_data_path = SRC_DATA / "transparency-csv.json"
+        if csv_data_path.exists():
+            csv_data = json.loads(csv_data_path.read_text(encoding="utf-8"))
+            transparency_js += '<script>window.TRANSPARENCY_CSV_DATA = ' + json.dumps(csv_data, ensure_ascii=False) + ';</script>\n'
+        page_html = page_html.replace("</body>", transparency_js + "</body>", 1)
+    if rel.name == "index.html":
+        homepage_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        page_html = page_html.replace("</body>", homepage_js + "\n</body>", 1)
+
+    out_path = out_root / to_folder_index(rel)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(page_html, encoding="utf-8")
+    print(f"  [{lang_code.upper()}] built {rel}  ({len(page_html):,} bytes)")
+
+    search_entries.append(build_search_entry(rel, meta["title"], meta["description"], body, lang_code == "fil", rel.name))
+    return 1
+
+
+def _process_generated_page(
+    lang_code: str, locale: dict, rel: Path, body_content: str, page_meta: dict, hero_meta: dict,
+    base: str, page_hero_raw: str, out_root: Path, search_entries: list
+) -> int:
+    out_rel = to_folder_index(rel)
+    asset_base = compute_asset_base(out_rel, is_fil=(lang_code == "fil"))
+    en_url, fil_url = build_lang_switcher_urls(rel, is_fil=(lang_code == "fil"))
+    page_title = rel.stem.replace("-", " ").title()
+    breadcrumbs = build_breadcrumbs(locale, rel, page_title)
+    header = build_header(locale, asset_base, lang_code == "fil", en_url, fil_url)
+    footer = build_footer(locale, asset_base)
+
+    rel_path_str = str(rel)
+    page_hero = hero_meta.get(rel_path_str, {})
+    if page_hero:
+        hero_html = fill(page_hero_raw, {
+            "ASSET_BASE": asset_base,
+            "HERO_EYEBROW": page_hero.get("hero_eyebrow", ""),
+            "HERO_HEADING": page_hero.get("hero_heading", ""),
+            "HERO_LEDE": page_hero.get("hero_lede", ""),
+        })
+        body_content = hero_html + body_content
+
+    page_url = f"fil/{rel_path_str}" if lang_code == "fil" else rel_path_str
+    page_html = assemble_page(
+        base, asset_base,
+        page_meta.get(rel_path_str, {}).get("title", "Better Mapandan"),
+        page_meta.get(rel_path_str, {}).get("description", ""),
+        header, breadcrumbs + body_content, footer, lang_code, page_url
+    )
+
+    out_path = out_root / to_folder_index(rel)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(page_html, encoding="utf-8")
+    print(f"  [{lang_code.upper()}] built {rel}  ({len(page_html):,} bytes)")
+
+    search_entries.append(build_search_entry(rel, rel.stem.replace("-", " ").title(), "", body_content, lang_code == "fil"))
+    return 1
+
+
+def build() -> None:
+    generate_barangays()
+
+    en_locale = load_locale("en")
+    fil_locale = load_locale("fil")
+
+    if HAS_SCHEMA_VALIDATION:
+        schema_errors = validate_all(SRC_DATA)
+        if schema_errors:
+            print("\nWARNING: Data validation errors found:")
+            for err in schema_errors:
+                print(f"  - {err}")
+            print("")
+
+    base = (SRC_PARTIALS / "base.html").read_text(encoding="utf-8")
+    page_hero_raw = (SRC_PARTIALS / "page-hero.html").read_text(encoding="utf-8")
+
+    if FIL_DIR.exists():
+        shutil.rmtree(FIL_DIR)
+
+    cname_src = ROOT / "CNAME"
+    if not cname_src.exists():
+        (ROOT / "CNAME").write_text("bettermapandan.org\n", encoding="utf-8")
+        print("  CNAME: generated")
+
+    all_search_entries = []
+
+    for lang_code, out_root, is_fil in LANGUAGES:
+        locale = en_locale if not is_fil else fil_locale
+        print(f"\n--- Building [{lang_code.upper()}] ---")
+
+        svc_pages, svc_meta, svc_hero_meta = generate_services(locale, lang_code, is_fil)
+        leg_html, leg_meta, leg_hero_meta = generate_legislative(locale, is_fil)
+        svc_pages["legislative.html"] = leg_html
+        svc_meta["legislative.html"] = leg_meta
+        svc_hero_meta["legislative.html"] = leg_hero_meta
+
+        page_files = sorted(SRC_PAGES.rglob("*.html"))
+        if not page_files:
+            raise SystemExit(f"No page sources found in {SRC_PAGES}")
+
+        search_entries: list[dict] = []
+        count = 0
+
+        for page_path in page_files:
+            rel = page_path.relative_to(SRC_PAGES)
+            meta, body = parse_page(page_path.read_text(encoding="utf-8"))
+            count += _process_static_page(
+                lang_code, locale, rel, meta, body, base, page_hero_raw, out_root, search_entries
+            )
+
+        for rel_path, body_content in svc_pages.items():
+            body_content = strip_front_matter(body_content)
+            rel = Path(rel_path)
+            count += _process_generated_page(
+                lang_code, locale, rel, body_content, svc_meta, svc_hero_meta, base, page_hero_raw, out_root, search_entries
+            )
+
+        all_search_entries.extend(search_entries)
+        print(f"  [{lang_code.upper()}] search index: {len(search_entries)} entries")
+
+    (ROOT / "assets" / "search-index.json").write_text(
+        json.dumps(all_search_entries, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(f"\nSearch index: {len(all_search_entries)} total entries")
+
+    minify_assets()
+
+    assets_src = ROOT / "assets"
+    assets_dst = FIL_DIR / "assets"
+    if assets_src.exists():
+        if assets_dst.exists():
+            shutil.rmtree(assets_dst)
+        shutil.copytree(assets_src, assets_dst)
+        print("\n  Copied assets to fil/assets/")
+
+    generate_sitemap()
+    generate_llms_txt()
+    print(f"\nDone. {count * 2} page(s) written ({count} EN + {count} FIL)")
+
+
+def main():
+    if "--compress" in sys.argv:
+        compress_images()
+    if "--verify-translations" in sys.argv:
+        verify_translations()
+    if "--compress" not in sys.argv and "--verify-translations" not in sys.argv:
+        build()

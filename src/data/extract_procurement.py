@@ -4,20 +4,10 @@ import json
 from pathlib import Path
 
 import pandas as pd
+from ._utils import clean, write_json
 
 CACHE_DIR = Path("datasets/PhilGEPS")
 OUTPUT = Path("src/data/procurement.json")
-
-
-def _clean(value):
-    if value is None:
-        return ""
-    try:
-        if pd.isna(value):
-            return ""
-    except (ValueError, TypeError):
-        pass
-    return str(value)[:200]
 
 
 def main():
@@ -65,7 +55,7 @@ def main():
         .head(10)
     )
     top_awardees = [
-        {"name": _clean(row["name"]), "total": float(row["contract_amount"])}
+        {"name": clean(row["name"]), "total": float(row["contract_amount"])}
         for _, row in awardee_totals.iterrows()
     ]
 
@@ -84,16 +74,16 @@ def main():
             award_date_str = ""
 
         records.append({
-            "title": _clean(row.get("award_title", "")),
-            "awardee": _clean(row.get("awardee_name", "")),
+            "title": clean(row.get("award_title", "")),
+            "awardee": clean(row.get("awardee_name", "")),
             "amount": amount_f,
             "award_date": award_date_str,
-            "status": _clean(row.get("award_status", "")),
-            "area": _clean(row.get("area_of_delivery", "")),
-            "business_category": _clean(row.get("business_category", "")),
-            "reference_id": _clean(row.get("reference_id", "")),
-            "contract_no": _clean(row.get("contract_no", "")),
-            "organization_name": _clean(row.get("organization_name", "")),
+            "status": clean(row.get("award_status", "")),
+            "area": clean(row.get("area_of_delivery", "")),
+            "business_category": clean(row.get("business_category", "")),
+            "reference_id": clean(row.get("reference_id", "")),
+            "contract_no": clean(row.get("contract_no", "")),
+            "organization_name": clean(row.get("organization_name", "")),
         })
 
     output = {
@@ -113,7 +103,8 @@ def main():
         "contracts": records,
     }
 
-    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False))
+    from ._utils import write_json
+    write_json(OUTPUT, output)
     print(f"Wrote {len(records)} contracts to {OUTPUT}")
     print(f"Total: ₱{total_amount:,.0f} across {contract_count} contracts")
     print(f"Unique categories: {unique_categories}")

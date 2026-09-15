@@ -67,3 +67,46 @@
 .skip-link:focus {
   top: 8px;
 }
+
+/* ---------- Layout ---------- */
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mb-12 { margin-bottom: 12px; }
+
+/* ---------- Color ---------- */
+
+.text-green-bright { color: var(--green-bright); }
+.text-red-flag { color: var(--red-flag); }
+.text-ink-soft { color: var(--ink-soft); }
+
+/* ---------- Typography ---------- */
+
+.text-xs { font-size: 12px; }
+.text-sm { font-size: 13px; }
+.text-lg { font-size: 1.3rem; }
+.text-xl { font-size: 1.4rem; }
+
+/* ---------- Audit severity pills ---------- */
+
+.pill-severity-high {
+  background: var(--red-flag);
+  color: #fff;
+  font-size: 12px;
+}
+
+.pill-severity-medium {
+  background: var(--gold);
+  color: var(--green-deep);
+  font-size: 12px;
+}
+
+.pill-severity-low {
+  background: var(--green-bright);
+  color: #fff;
+  font-size: 12px;
+}

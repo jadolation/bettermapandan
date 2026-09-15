@@ -4,58 +4,10 @@ import json
 from pathlib import Path
 
 import pandas as pd
+from ._utils import clean, parse_date, parse_money, fiscal_year_from_contract_id, to_float
 
 CACHE_DIR = Path("datasets/dpwh")
 OUTPUT = Path("src/data/dpwh.json")
-
-
-def _clean(value):
-    if value is None:
-        return ""
-    try:
-        if pd.isna(value):
-            return ""
-    except (ValueError, TypeError):
-        pass
-    return str(value)[:500]
-
-
-def _parse_date(value):
-    if value is None:
-        return None
-    try:
-        ts = pd.to_datetime(value)
-        return ts.strftime("%Y-%m-%d")
-    except Exception:
-        return None
-
-
-def _parse_money(value):
-    if value is None:
-        return 0.0
-    if isinstance(value, (int, float)):
-        return float(value)
-    s = str(value).replace("₱", "").replace(",", "").strip()
-    try:
-        return float(s)
-    except ValueError:
-        return 0.0
-
-
-def _fiscal_year(value):
-    if value is None:
-        return None
-    s = str(value)
-    if len(s) >= 2 and s[:2].isdigit():
-        prefix = int(s[:2])
-        return 2000 + prefix if prefix < 100 else prefix
-    return None
-
-
-def _coerce_bool(value):
-    if value is None:
-        return False
-    return bool(value)
 
 
 def main():
@@ -84,27 +36,27 @@ def main():
 
     projects = []
     for _, row in mapandan.iterrows():
-        contract_id = _clean(row.get("contract_id") or row.get("reference_id") or "")
-        project_name = _clean(row.get("project_name") or row.get("contract_description") or "")
-        category = _clean(row.get("category") or row.get("project_category") or "")
-        executing_agency = _clean(row.get("executing_agency") or row.get("implementing_office") or "")
-        contractor = _clean(row.get("contractor") or row.get("winning_contractor") or "")
-        contractor_id = _clean(row.get("contractor_id") or "")
-        approved_budget = _parse_money(row.get("approved_budget"))
-        contract_amount = _parse_money(row.get("contract_amount") or row.get("contract_cost"))
+        contract_id = clean(row.get("contract_id") or row.get("reference_id") or "", max_len=500)
+        project_name = clean(row.get("project_name") or row.get("contract_description") or "", max_len=500)
+        category = clean(row.get("category") or row.get("project_category") or "", max_len=500)
+        executing_agency = clean(row.get("executing_agency") or row.get("implementing_office") or "", max_len=500)
+        contractor = clean(row.get("contractor") or row.get("winning_contractor") or "", max_len=500)
+        contractor_id = clean(row.get("contractor_id") or "", max_len=500)
+        approved_budget = parse_money(row.get("approved_budget"))
+        contract_amount = parse_money(row.get("contract_amount") or row.get("contract_cost"))
         accomplishment = row.get("accomplishment_percent") or row.get("accomplishment")
         try:
             accomplishment_percent = float(accomplishment) if pd.notna(accomplishment) else 0.0
         except (ValueError, TypeError):
             accomplishment_percent = 0.0
-        status = _clean(row.get("status") or row.get("contract_status") or "")
-        fiscal_year = _fiscal_year(contract_id)
-        source_of_funds = _clean(row.get("source_of_funds") or row.get("funding_source") or "")
-        contract_effectivity_date = _parse_date(row.get("contract_effectivity_date") or row.get("effectivity_date"))
-        contract_expiry_date = _parse_date(row.get("contract_expiry_date") or row.get("expiry_date"))
-        actual_start_date = _parse_date(row.get("actual_start_date") or row.get("start_date"))
-        actual_completion_date = _parse_date(row.get("actual_completion_date") or row.get("completion_date"))
-        barangay_location = _clean(row.get("barangay_location") or "")
+        status = clean(row.get("status") or row.get("contract_status") or "", max_len=500)
+        fiscal_year = fiscal_year_from_contract_id(contract_id)
+        source_of_funds = clean(row.get("source_of_funds") or row.get("funding_source") or "", max_len=500)
+        contract_effectivity_date = parse_date(row.get("contract_effectivity_date") or row.get("effectivity_date"))
+        contract_expiry_date = parse_date(row.get("contract_expiry_date") or row.get("expiry_date"))
+        actual_start_date = parse_date(row.get("actual_start_date") or row.get("start_date"))
+        actual_completion_date = parse_date(row.get("actual_completion_date") or row.get("completion_date"))
+        barangay_location = clean(row.get("barangay_location") or "", max_len=500)
         latitude = row.get("latitude")
         longitude = row.get("longitude")
         try:
@@ -118,7 +70,7 @@ def main():
         project_components = []
         bidders = []
         procurement_activities = []
-        source_document_url = _clean(row.get("source_document_url") or "https://transparency.dpwh.gov.ph/")
+        source_document_url = clean(row.get("source_document_url") or "https://transparency.dpwh.gov.ph/", max_len=500)
 
         projects.append({
             "transaction_id": f"DPWH-{fiscal_year or 0000}-{contract_id}" if fiscal_year else f"DPWH-{contract_id}",
@@ -149,7 +101,8 @@ def main():
         })
 
     output = {"projects": projects}
-    OUTPUT.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    from ._utils import write_json
+    write_json(OUTPUT, output)
     print(f"Wrote {len(projects)} projects to {OUTPUT}")
 
 

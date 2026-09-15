@@ -34,14 +34,6 @@
     <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/"/>
   </url>
   <url>
-    <loc>https://bettermapandan.org/index_new/</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/index_new/"/>
-    <xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/index_new/"/>
-  </url>
-  <url>
     <loc>https://bettermapandan.org/legislative/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
