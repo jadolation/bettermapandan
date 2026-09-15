@@ -11,6 +11,8 @@
 /* Desktop default: hide mobile-only UI */
 .mobile-action-bar { display: none; }
 
+.nav-backdrop { display: none; }
+
 /* ==========================================================================
    MOBILE ≤ 720px — language banner, nav, grids, stat strip, civic hub,
    procurement toolbar, mobile action bar
@@ -57,6 +59,25 @@
 
   .nav-links.open {
     display: flex;
+    z-index: 200;
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 199;
+    display: none;
+  }
+
+  .nav-backdrop.open {
+    display: block;
   }
 
   .nav-links a {
@@ -76,9 +97,47 @@
   /* Grids collapse */
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 
+  /* Stack specific sections on mobile */
+  #emergency-contacts .grid-3,
+  #sangguniang-bayan .grid-3,
+  #economic-indicators .grid-3,
+  #appropriations .grid-3,
+  #fiscal-structure .grid-3,
+  #fiscal-snapshot .grid-3,
+  #financial-performance .grid-3,
+  #compliance .grid-3,
+  #implementation-rate .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Stat strip */
-  .stat-grid { grid-template-columns: repeat(2, 1fr); padding: 22px 0; }
-  .stat { border-left: none; padding: 10px 20px; }
+  .stat-grid { 
+    grid-template-columns: repeat(3, 1fr); 
+    padding: 20px 0;
+    gap: 10px;
+  }
+  .stat { 
+    border-left: none; 
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+  .stat .num {
+    font-size: clamp(20px, 4.5vw, 26px);
+    line-height: 1.1;
+  }
+  .stat .label {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.25;
+  }
+
+  /* Stat strip: hide badges and source labels on mobile */
+  .stat .verification-badge { display: none; }
+  .stat .source-label { display: none; }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr; }
@@ -88,8 +147,8 @@
   .bar-col .name { font-size: 10.5px; }
 
   /* Hero */
-  .hero .wrap { padding: 44px 20px 40px; }
-  .hero-search-inner { padding: 22px 20px 20px; }
+  .hero .wrap { padding: 32px 20px 28px; }
+  .hero-search-inner { padding: 18px 16px 16px; }
   .hero-search-input { font-size: 14px; padding: 10px 14px; }
   .hero-search-btn { width: 44px; }
 
@@ -105,15 +164,22 @@
   .report-btn { min-height: 44px; }
   .service-link { min-height: 44px; }
 
+  /* Touch feedback */
+  .btn:active, .link-arrow:active, .report-btn:active, .service-link:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  .card:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
   /* Cards */
   .category-card { padding: 20px; }
   .search-result { padding: 14px 16px; }
   .barangay-grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Stat strip: hide badges and source labels, reduce number size */
-  .stat .verification-badge { display: none; }
-  .stat .source-label { display: none; }
-  .stat .num { font-size: 24px; }
+
 
   /* Leader cards: tighter padding, smaller photo */
   .leader-card { padding: 20px 16px; min-height: 180px; }
@@ -155,23 +221,44 @@
     background: var(--paper);
     border-top: 1px solid var(--line);
     z-index: 100;
-    padding: 6px 0;
-    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    padding: 8px 0;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
   }
   .mobile-action-item {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    justify-content: center;
+    gap: 3px;
     font-size: 11px;
     font-weight: 500;
     color: var(--ink);
     text-decoration: none;
-    padding: 6px 0;
+    padding: 7px 0;
+    min-height: 44px;
+    transition: color var(--transition-fast), background var(--transition-fast);
+    border-radius: 8px;
+    margin: 0 4px;
   }
-  .mobile-action-item svg { color: var(--green-deep); }
-  main#content { padding-bottom: 72px; }
+  .mobile-action-item:active {
+    background: var(--gold-soft);
+    color: var(--green-deep);
+  }
+  .mobile-action-item.active {
+    color: var(--green-deep);
+  }
+  .mobile-action-item.active svg {
+    stroke: var(--green-deep);
+  }
+  .mobile-action-item svg {
+    color: var(--green-deep);
+    transition: transform var(--transition-fast);
+  }
+  .mobile-action-item:active svg {
+    transform: scale(1.1);
+  }
+  main#content { padding-bottom: 80px; }
 
   /* Civic contribution hub mobile */
   .segmented-control { flex-wrap: wrap; }
@@ -224,6 +311,19 @@
   .action-hub-item { flex: 1 1 50%; border-bottom: 1px solid var(--line); }
   .action-hub-item:nth-child(2) { border-right: none; }
   .history-milestones { grid-template-columns: repeat(2, 1fr); }
+
+  /* Stack specific sections on tablet */
+  #emergency-contacts .grid-3,
+  #sangguniang-bayan .grid-3,
+  #economic-indicators .grid-3,
+  #appropriations .grid-3,
+  #fiscal-structure .grid-3,
+  #fiscal-snapshot .grid-3,
+  #financial-performance .grid-3,
+  #compliance .grid-3,
+  #implementation-rate .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
 
   /* Procurement card */
   .procurement-card { grid-template-columns: 1fr; }

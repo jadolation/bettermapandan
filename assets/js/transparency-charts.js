@@ -1,12 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-  if (typeof Chart === "undefined") return;
+  console.log('[transparency-charts.js] DOMContentLoaded fired');
+  console.log('[transparency-charts.js] Chart available:', typeof Chart !== 'undefined');
+  
+  if (typeof Chart === "undefined") {
+    console.error('[transparency-charts.js] Chart.js is not loaded!');
+    return;
+  }
+
+  function initChart(canvas, config) {
+    if (!canvas) {
+      console.warn('[transparency-charts.js] Canvas not found');
+      return null;
+    }
+    if (canvas.chart) {
+      canvas.chart.destroy();
+    }
+    try {
+      var chart = new Chart(canvas, config);
+      console.log('[transparency-charts.js] Chart created on', canvas.id);
+      return chart;
+    } catch (e) {
+      console.error('[transparency-charts.js] Failed to create chart on', canvas.id, e);
+      return null;
+    }
+  }
 
   var green = "#4c8a2e";
   var gold = "#e8a917";
 
+  // Budget trend
   var budgetCtx = document.getElementById("chart-budget-trend");
   if (budgetCtx) {
-    new Chart(budgetCtx, {
+    initChart(budgetCtx, {
       type: "bar",
       data: {
         labels: ["CY 2020", "CY 2021", "CY 2022", "CY 2023", "CY 2024", "CY 2025", "CY 2026"],
@@ -26,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var auditOpCtx = document.getElementById("chart-audit-opinion");
   if (auditOpCtx) {
-    new Chart(auditOpCtx, {
+    initChart(auditOpCtx, {
       type: "bar",
       data: {
         labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
@@ -67,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var assetsCtx = document.getElementById("chart-total-assets");
   if (assetsCtx) {
-    new Chart(assetsCtx, {
+    initChart(assetsCtx, {
       type: "line",
       data: {
         labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
@@ -90,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var incomeExpCtx = document.getElementById("chart-income-expenses");
   if (incomeExpCtx) {
-    new Chart(incomeExpCtx, {
+    initChart(incomeExpCtx, {
       type: "line",
       data: {
         labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
@@ -123,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var revCompCtx = document.getElementById("chart-revenue-composition");
   if (revCompCtx) {
-    new Chart(revCompCtx, {
+    initChart(revCompCtx, {
       type: "bar",
       data: {
         labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
@@ -153,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var implCtx = document.getElementById("chart-implementation-rate");
   if (implCtx) {
-    new Chart(implCtx, {
+    initChart(implCtx, {
       type: "bar",
       data: {
         labels: ["14→15", "15→16", "16→17", "17→18", "18→19", "19→20", "20→21", "21→22", "22→23", "23→24"],
@@ -193,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var trendCtx = document.getElementById("chart-procurement-trend");
   if (trendCtx) {
     var monthly = procurement.monthly || [];
-    trendChart = new Chart(trendCtx, {
+    trendChart = initChart(trendCtx, {
       type: "line",
       data: {
         labels: monthly.map(function (d) { return d.month; }),
@@ -223,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (awardeesCtx) {
     var awardees = procurement.awardees || [];
     var awardeeColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9"];
-    awardeesChart = new Chart(awardeesCtx, {
+    awardeesChart = initChart(awardeesCtx, {
       type: "bar",
       data: {
         labels: awardees.map(function (d) { return d.name; }),
@@ -249,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var cats = window.PROCUREMENT_CATEGORIES || [];
     var catTotal = cats.reduce(function (s, d) { return s + d.total; }, 0);
     var catColors = ["#16532c","#2d6b1f","#4c8a2e","#6ba34e","#8fbc5f","#b3d47a","#d4e89e","#e8f3b8","#f0c040","#f6ecc9","#16532c","#2d6b1f","#4c8a2e"];
-    catChart = new Chart(catCtx, {
+    catChart = initChart(catCtx, {
       type: "doughnut",
       data: {
         labels: cats.map(function (d) { return d.name; }),

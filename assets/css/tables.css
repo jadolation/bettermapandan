@@ -101,3 +101,24 @@ tbody tr:hover {
   border-radius: 4px;
   font-size: 0.9em;
 }
+
+/* ---------- Mobile: sticky first column ---------- */
+
+@media (max-width: 720px) {
+  .table-wrap table {
+    min-width: 640px;
+  }
+  .table-wrap table thead th:first-child,
+  .table-wrap table tbody td:first-child {
+    position: sticky;
+    left: 0;
+    background: #f4f1e7;
+    z-index: 1;
+  }
+  .table-wrap table tbody td:first-child {
+    background: var(--paper);
+  }
+  .table-wrap table tbody tr:hover td:first-child {
+    background: #faf8f0;
+  }
+}

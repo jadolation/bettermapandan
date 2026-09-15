@@ -55,7 +55,7 @@ def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
             f'<span aria-current="page">{section_slug.replace("-", " ").title()}</span>',
         ]
     else:
-        section_href = "../" * (depth - 1) + section_slug + "/"
+        section_href = "../" * (depth - 1)
         bc_items = [
             f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
             f'<a href="{section_href}">{section_slug.replace("-", " ").title()}</a>',

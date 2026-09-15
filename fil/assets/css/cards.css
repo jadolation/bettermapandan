@@ -18,6 +18,11 @@
   box-shadow: var(--shadow-sm);
 }
 
+.card:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 .card h2,
 .card h3 {
   font-size: 18px;

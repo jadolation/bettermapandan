@@ -7,18 +7,21 @@
 .emergency-bar {
   background: var(--red-flag);
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   overflow: hidden;
   position: relative;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .emergency-bar .wrap {
   display: flex;
-  padding: 9px 0;
+  padding: 10px 0;
   align-items: center;
   width: max-content;
-  animation: ticker 20s linear infinite;
+  animation: ticker 30s linear infinite;
 }
 
 .emergency-bar:hover .wrap {
@@ -37,7 +40,8 @@
   align-items: center;
   gap: 6px;
   white-space: nowrap;
-  padding: 0 22px;
+  padding: 0 24px;
+  min-height: 44px;
 }
 
 .emergency-bar a:hover {

@@ -1,3 +1,6 @@
+// Test if stats.js loads and runs
+console.log('[stats.js] File loaded, Chart available:', typeof Chart !== 'undefined');
+
 function downloadStatsCSV(type) {
   var csv = "";
   if (type === "population") {
@@ -27,8 +30,32 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-window.addEventListener("load", function () {
-  if (typeof Chart === "undefined") return;
+document.addEventListener("DOMContentLoaded", function () {
+  console.log('[stats.js] DOMContentLoaded fired');
+  console.log('[stats.js] Chart available:', typeof Chart !== 'undefined');
+  
+  if (typeof Chart === "undefined") {
+    console.error('[stats.js] Chart.js is not loaded!');
+    return;
+  }
+
+  function initChart(canvas, config) {
+    if (!canvas) {
+      console.warn('[stats.js] Canvas not found');
+      return;
+    }
+    // Destroy any existing Chart.js instance on this canvas (e.g. from script.js)
+    if (canvas.chart) {
+      console.log('[stats.js] Destroying existing chart on canvas');
+      canvas.chart.destroy();
+    }
+    try {
+      new Chart(canvas, config);
+      console.log('[stats.js] Chart created successfully on', canvas.id);
+    } catch (e) {
+      console.error('[stats.js] Failed to create chart on', canvas.id, e);
+    }
+  }
 
   var green = "#4c8a2e";
   var gold = "#e8a917";
@@ -37,7 +64,7 @@ window.addEventListener("load", function () {
   // Population trend
   var popCtx = document.getElementById("chart-history-population");
   if (popCtx) {
-    new Chart(popCtx, {
+    initChart(popCtx, {
       type: "line",
       data: {
         labels: ["1995", "2000", "2007", "2010", "2015", "2020", "2024"],
@@ -84,7 +111,7 @@ window.addEventListener("load", function () {
 
   var fiscalCtx = document.getElementById("chart-fiscal");
   if (fiscalCtx) {
-    new Chart(fiscalCtx, {
+    initChart(fiscalCtx, {
       type: "bar",
       data: {
         labels: ["CY 2020", "CY 2022", "CY 2023", "CY 2024", "CY 2025", "CY 2026"],
@@ -133,7 +160,7 @@ window.addEventListener("load", function () {
   // Population by Barangay
   var brgyCtx = document.getElementById("chart-barangay");
   if (brgyCtx) {
-    new Chart(brgyCtx, {
+    initChart(brgyCtx, {
       type: "bar",
       data: {
         labels: ["Pias", "Poblacion", "Baloling", "Nilombot", "Torres", "Luyan", "Jimenez", "Primicias", "Amanoaoac", "Lambayan", "Apaya", "Aserda", "Coral", "Golden", "Sta. Maria"],
@@ -176,7 +203,7 @@ window.addEventListener("load", function () {
   // Barangay Population Comparison (2020 vs 2024)
   var brgyCompCtx = document.getElementById("chart-barangay-comparison");
   if (brgyCompCtx && typeof BARANGAY_COMPARISON !== "undefined") {
-    new Chart(brgyCompCtx, {
+    initChart(brgyCompCtx, {
       type: "bar",
       data: {
         labels: BARANGAY_COMPARISON.names,
@@ -228,111 +255,10 @@ window.addEventListener("load", function () {
   }
 
   // Homepage mini charts
-  var homeBudgetCtx = document.getElementById("chart-homepage-budget");
-  if (homeBudgetCtx) {
-    new Chart(homeBudgetCtx, {
-      type: "bar",
-      data: {
-        labels: ["CY 2020", "CY 2021", "CY 2022", "CY 2023", "CY 2024", "CY 2025", "CY 2026"],
-        datasets: [{
-          label: "Annual Budget (PHP Millions)",
-          data: [122.4, 129.3, 173.1, 151.5, 160.8, 193.1, 218.2],
-          backgroundColor: [green, green, gold, green, green, green, gold]
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(ctx) {
-                return "₱" + ctx.raw.toFixed(1) + " Million";
-              }
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: "PHP Millions" }
-          },
-          x: {
-            title: { display: true, text: "Fiscal Year" }
-          }
-        }
-      }
-    });
-  }
-
-  var homePopCtx = document.getElementById("chart-homepage-population");
-  if (homePopCtx) {
-    new Chart(homePopCtx, {
-      type: "line",
-      data: {
-        labels: ["1995", "2000", "2007", "2010", "2015", "2020", "2024"],
-        datasets: [{
-          label: "Population",
-          data: [27439, 30775, 32905, 34439, 37059, 38058, 38228],
-          borderColor: green,
-          backgroundColor: "rgba(76,138,46,0.1)",
-          fill: true,
-          tension: 0.3
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: function(ctx) {
-                return "Population: " + ctx.raw.toLocaleString();
-              }
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: false,
-            title: { display: true, text: "Population" }
-          },
-          x: {
-            title: { display: true, text: "Year" }
-          }
-        }
-      }
-    });
-  }
-
-  // --- Make table rows clickable without showing the URL ---
-  document.querySelectorAll('.clickable-row').forEach(function(row) {
-    row.addEventListener('click', function(e) {
-      // If the user clicks an actual link inside the row, let the link handle it normally
-      if (e.target.closest('a')) return;
-
-      var url = this.getAttribute('data-href');
-      if (url) {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      }
-    });
-
-    // Accessibility: allow keyboard users to trigger the click with Enter or Space
-    row.setAttribute('tabindex', '0');
-    row.setAttribute('role', 'link');
-    row.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        this.click();
-      }
-    });
-  });
-
-  // Homepage procurement charts
   var homeMonthlyCtx = document.getElementById("chart-homepage-monthly");
   if (homeMonthlyCtx && window.PROCUREMENT_DATA) {
     var monthly = window.PROCUREMENT_DATA.monthly || [];
-    new Chart(homeMonthlyCtx, {
+    initChart(homeMonthlyCtx, {
       type: "bar",
       data: {
         labels: monthly.map(function(d) { return d.month; }),
@@ -370,7 +296,7 @@ window.addEventListener("load", function () {
   var homeAwardeesCtx = document.getElementById("chart-homepage-awardees");
   if (homeAwardeesCtx && window.PROCUREMENT_DATA) {
     var awardees = window.PROCUREMENT_DATA.awardees || [];
-    new Chart(homeAwardeesCtx, {
+    initChart(homeAwardeesCtx, {
       type: "bar",
       data: {
         labels: awardees.map(function(d) { return d.name; }),
@@ -405,5 +331,4 @@ window.addEventListener("load", function () {
       }
     });
   }
-
 });
