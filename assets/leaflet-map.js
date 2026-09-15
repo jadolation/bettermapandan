@@ -159,6 +159,18 @@
       maxZoom: 19,
     }).addTo(window._dpwhMap);
 
+    var legend = L.control({ position: "bottomright" });
+    legend.onAdd = function() {
+      var div = L.DomUtil.create("div", "dpwh-map-legend");
+      div.style.cssText = "background:#fff;padding:10px 14px;border:2px solid #888;border-radius:6px;font:12px/1.5 sans-serif;box-shadow:0 1px 5px rgba(0,0,0,0.3);";
+      div.innerHTML = "<strong>Status</strong><br>";
+      div.innerHTML += '<span style="display:inline-block;width:12px;height:12px;background:#22c55e;border-radius:50%;margin-right:6px"></span> Completed<br>';
+      div.innerHTML += '<span style="display:inline-block;width:12px;height:12px;background:#eab308;border-radius:50%;margin-right:6px"></span> Ongoing<br>';
+      div.innerHTML += '<span style="display:inline-block;width:12px;height:12px;background:#ef4444;border-radius:50%;margin-right:6px"></span> Not Yet Started';
+      return div;
+    };
+    legend.addTo(window._dpwhMap);
+
     renderMarkers(hasCoords);
   }
 

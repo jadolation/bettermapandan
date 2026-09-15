@@ -52,8 +52,32 @@ window.addEventListener("load", function () {
       },
       options: {
         responsive: true,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: false } }
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: function(ctx) {
+                var idx = ctx[0].dataIndex;
+                var years = [1995, 2000, 2007, 2010, 2015, 2020, 2024];
+                var pops = [27439, 30775, 32905, 34439, 37059, 38058, 38228];
+                if (idx > 0) {
+                  var growth = ((pops[idx] - pops[idx - 1]) / pops[idx - 1] * 100).toFixed(2);
+                  return "Year: " + years[idx] + " | Population: " + pops[idx].toLocaleString() + " | Growth since previous census: " + growth + "%";
+                }
+                return "Year: " + years[idx] + " | Population: " + pops[idx].toLocaleString();
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: { display: true, text: "Population" }
+          },
+          x: {
+            title: { display: true, text: "Year" }
+          }
+        }
       }
     });
   }
@@ -75,19 +99,33 @@ window.addEventListener("load", function () {
       options: {
         responsive: true,
         plugins: {
-          legend: { display: true },
+          legend: { display: false },
           tooltip: {
             callbacks: {
+              label: function(ctx) {
+                return "Budget: ₱" + ctx.raw.toFixed(1) + " Million";
+              },
               afterLabel: function(ctx) {
-                if (ctx.label === "CY 2026*" && ctx.dataset.label.indexOf("AIP") !== -1) {
-                  return "Unverified — see data note above";
+                if (ctx.label === "CY 2022") {
+                  return "Note: 2022 spike reflects one-time infrastructure transfers";
+                }
+                if (ctx.label === "CY 2026") {
+                  return "Note: CY 2026 figure is SP-approved appropriation";
                 }
                 return "";
               }
             }
           }
         },
-        scales: { y: { beginAtZero: true } }
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: "PHP Millions" }
+          },
+          x: {
+            title: { display: true, text: "Fiscal Year" }
+          }
+        }
       }
     });
   }
@@ -108,8 +146,28 @@ window.addEventListener("load", function () {
       options: {
         responsive: true,
         indexAxis: "y",
-        plugins: { legend: { display: false } },
-        scales: { x: { beginAtZero: true } }
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: function(ctx) {
+                return "Barangay: " + ctx[0].label;
+              },
+              label: function(ctx) {
+                return "Population (2024): " + ctx.raw.toLocaleString();
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: { display: true, text: "Population" }
+          },
+          y: {
+            title: { display: true, text: "Barangay" }
+          }
+        }
       }
     });
   }
@@ -138,8 +196,33 @@ window.addEventListener("load", function () {
       options: {
         responsive: true,
         indexAxis: "y",
-        plugins: { legend: { display: true } },
-        scales: { x: { beginAtZero: true } }
+        plugins: {
+          legend: { display: true },
+          tooltip: {
+            callbacks: {
+              title: function(ctx) {
+                return "Barangay: " + ctx[0].label;
+              },
+              label: function(ctx) {
+                var label = ctx.dataset.label + ": " + ctx.raw.toLocaleString();
+                if (ctx.datasetIndex === 1 && BARANGAY_COMPARISON.growth && BARANGAY_COMPARISON.growth[ctx[0].dataIndex] !== undefined) {
+                  var growth = BARANGAY_COMPARISON.growth[ctx[0].dataIndex];
+                  label += " | Change: " + (growth >= 0 ? "+" : "") + growth.toFixed(2) + "%";
+                }
+                return label;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: { display: true, text: "Population" }
+          },
+          y: {
+            title: { display: true, text: "Barangay" }
+          }
+        }
       }
     });
   }
