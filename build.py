@@ -68,13 +68,19 @@ SECTION_ANCHORS = {
     ],
     "transparency.html": [
         ("appropriations", "Current budget"),
+        ("budget-trend", "Multi-year appropriations"),
         ("revenue", "Revenue"),
         ("fiscal-snapshot", "Fiscal snapshot"),
-        ("compliance", "Audit"),
-        ("audit-opinion-timeline", "Audit History"),
         ("financial-performance", "Financial Performance"),
+        ("audit-opinion-timeline", "Audit History"),
         ("audit-findings", "Audit Findings"),
         ("implementation-rate", "Accountability"),
+        ("compliance", "Compliance"),
+        ("audit-reports", "Audit Reports"),
+        ("capital-projects", "Capital Projects"),
+        ("recent-projects", "Recent Projects"),
+        ("social", "Social Programs"),
+        ("external-links", "External Platforms"),
     ],
 }
 
@@ -2243,6 +2249,10 @@ def _process_static_page(
         body = body.replace(stats_js_tag, comparison_script + "\n" + stats_js_tag)
     page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
+
+    if rel.name == "transparency.html":
+        transparency_js = '<script defer src="' + asset_base + '/assets/transparency.js"></script>'
+        page_html = page_html.replace("</body>", transparency_js + "\n</body>", 1)
 
     out_path = out_root / to_folder_index(rel)
     out_path.parent.mkdir(parents=True, exist_ok=True)

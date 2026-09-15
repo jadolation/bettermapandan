@@ -5,9 +5,9 @@ function downloadCSV(type) {
   } else if (type === "audit-opinions") {
     csv = "Year,Opinion\n2014,Unqualified\n2015,Qualified\n2016,Qualified\n2017,Qualified\n2018,Qualified\n2019,Qualified\n2020,Qualified\n2021,Qualified\n2022,Qualified\n2023,Qualified\n2024,Qualified";
   } else if (type === "financial-performance") {
-    csv = "Year,Income,Expenses,Surplus/Deficit,Source\n2014,71432036,61566073,9865963,COA AAR\n2015,81052292,67593459,13458833,COA AAR\n2016,88255537,78852072,9403465,COA AAR\n2017,99989387,95214375,4775012,COA AAR\n2018,106700000,97500000,9200000,COA AAR\n2019,116100000,106800000,9300000,COA AAR\n2020,137600000,131100000,6500000,COA AAR\n2021,141635154,146295946,-4660792,BLGF\n2022,177228975,233999820,-56770845,BLGF\n2023,155277148,145373561,9903587,BLGF\n2024,168119706,166055071,2064635,BLGF";
+    csv = "Year,Income,Expenses,Surplus/Deficit,Source\n2014,71432036,61566073,9865963,COA AAR\n2015,81052292,67593459,13458833,COA AAR\n2016,88255537,78852072,9403465,COA AAR\n2017,99989387,95214375,4775012,COA AAR\n2018,106700000,97500000,9200000,COA AAR\n2019,116100000,106800000,9300000,COA AAR\n2020,128331255,131058342,6552809,COA AAR\n2021,144503846,133834650,10669196,COA AAR\n2022,180618300,166571000,14047290,COA AAR\n2023,159409832,168264248,-8854416,COA AAR\n2024,173759470,183574901,-9815431,COA AAR";
   } else if (type === "implementation-rates") {
-    csv = "Period,Implemented,Partial,Not Implemented,Rate\n2014 to 2015,6,0,1,86%\n2015 to 2016,6,1,1,75%\n2016 to 2017,6,4,4,43%\n2017 to 2018,7,4,5,44%\n2018 to 2019,9,7,4,45%\n2019 to 2020,18,0,6,75%\n2020 to 2021,10,0,11,48%\n2021 to 2022,10,0,11,48%";
+    csv = "Period,Implemented,Partial,Not Implemented,Rate\n2014 to 2015,6,0,1,86%\n2015 to 2016,6,1,1,75%\n2016 to 2017,6,4,4,43%\n2017 to 2018,7,4,5,44%\n2018 to 2019,9,7,4,45%\n2019 to 2020,18,0,6,75%\n2020 to 2021,10,0,11,48%\n2021 to 2022,12,0,16,43%\n2022 to 2023,11,0,20,35%\n2023 to 2024,14,0,23,38%";
   } else if (type === "procurement") {
     var rows = window._filteredContracts || window.PROCUREMENT_CONTRACTS || [];
     if (!rows.length) return;
@@ -377,7 +377,7 @@ window.addEventListener("load", function () {
         labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
         datasets: [{
           label: "Audit Opinion (1=Unqualified, 2=Qualified)",
-          data: [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+          data: [1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2],
           backgroundColor: [green, gold, gold, gold, gold, gold, gold, gold, gold, gold, gold]
         }]
       },
@@ -444,7 +444,7 @@ window.addEventListener("load", function () {
         datasets: [
           {
             label: "Income (PHP Millions)",
-            data: [71.4, 81.1, 88.3, 100.0, 106.7, 116.1, 137.6, 141.6, 177.2, 155.3, 168.1],
+            data: [71.4, 81.1, 88.3, 100.0, 106.7, 116.1, 128.3, 144.5, 180.6, 159.4, 173.8],
             borderColor: green,
             backgroundColor: "rgba(76,138,46,0.1)",
             fill: false,
@@ -452,7 +452,7 @@ window.addEventListener("load", function () {
           },
           {
             label: "Expenses (PHP Millions)",
-            data: [61.6, 67.6, 78.9, 95.2, 97.5, 106.8, 131.1, 146.3, 234.0, 145.4, 166.1],
+            data: [61.6, 67.6, 78.9, 95.2, 97.5, 107.3, 131.1, 133.8, 166.6, 168.3, 183.6],
             borderColor: gold,
             backgroundColor: "rgba(232,169,23,0.1)",
             fill: false,
@@ -505,21 +505,21 @@ window.addEventListener("load", function () {
     new Chart(implCtx, {
       type: "bar",
       data: {
-        labels: ["14→15", "15→16", "16→17", "17→18", "18→19", "19→20", "20→21", "21→22"],
+        labels: ["14→15", "15→16", "16→17", "17→18", "18→19", "19→20", "20→21", "21→22", "22→23", "23→24"],
         datasets: [
           {
             label: "Implemented",
-            data: [6, 6, 6, 7, 9, 18, 10, 10],
+            data: [6, 6, 6, 7, 9, 18, 10, 12, 11, 14],
             backgroundColor: green
           },
           {
             label: "Partial",
-            data: [0, 1, 4, 4, 7, 0, 0, 0],
+            data: [0, 1, 4, 4, 7, 0, 0, 0, 0, 0],
             backgroundColor: "#8fbc5f"
           },
           {
             label: "Not Implemented",
-            data: [1, 1, 4, 5, 4, 6, 11, 11],
+            data: [1, 1, 4, 5, 4, 6, 11, 16, 20, 23],
             backgroundColor: gold
           }
         ]
