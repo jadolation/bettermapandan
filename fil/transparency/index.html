@@ -117,51 +117,41 @@
       <span>&#9432;</span>
       <span><strong>Data last updated:</strong> September 2026 &mdash; compiled from official municipal financial disclosures, Sangguniang Bayan resolutions, and Commission on Audit reports. CY 2024 figures are the most recent actuals; CY 2025&ndash;2026 figures are SP-approved appropriations.</span>
     </div>
-    <section class="section" id="procurement">
-  <div class="wrap">
-    <div class="section-head">
+        <div class="section-head">
       <div class="section-eyebrow">Pampublikong Pamimili</div>
       <h2>Mga Kontrata at Pagpapahayag ng Pamahalaan</h2>
       <p>Municipality of Mapandan &mdash; 277 contracts totaling &#8369;470,203,285. Data from PhilGEPS via BetterGov.ph Open Data Portal.</p>
     </div>
     <div class="filter-row">
-    <div class="filter-group">
-      <span class="filter-toggle">Time frame</span>
-      <div class="procurement-filters" id="procurement-filters">
-        <div class="filter-buttons">
-          <span class="filter-label">Time frame</span>
+      <div class="filter-section">
+        <div class="filter-section-head">Time Frame</div>
+        <div class="filter-pills" id="procurement-filters">
           <button class="filter-pill active" data-range="all">All</button>
           <button class="filter-pill" data-range="30d">Last 30 days</button>
           <button class="filter-pill" data-range="3m">Last 3 months</button>
           <button class="filter-pill" data-range="6m">Last 6 months</button>
           <button class="filter-pill" data-range="1y">Last 1 year</button>
           <button class="filter-pill" data-range="3y">Last 3 years</button>
+          <button class="filter-pill filter-pill-custom" data-range="custom">Custom</button>
+        </div>
+        <div class="custom-range-inline" id="custom-range-inline">
+          <label>Mula</label>
+          <input type="date" id="custom-date-from" />
+          <label>Hanggang</label>
+          <input type="date" id="custom-date-to" />
+          <button class="btn btn-primary btn-sm" id="custom-range-apply">Apply</button>
         </div>
       </div>
-    </div>
-    <div class="filter-group">
-      <span class="filter-toggle">By Mayoral Term</span>
-      <div class="mayoral-term-filters" id="mayoral-term-filters">
-        <div class="filter-buttons">
-          <span class="filter-label">By Mayoral Term</span>
+      <div class="filter-section">
+        <div class="filter-section-head">Mayoral Term</div>
+        <div class="filter-pills" id="mayoral-term-filters">
           <button class="term-pill" data-term="0">Maximo Calimlim Jr.</button>
           <button class="term-pill" data-term="1">Gerald Glenn L. Tambaoan</button>
           <button class="term-pill" data-term="2">Anthony C. Penuliar</button>
           <button class="term-pill" data-term="3">Karl Christian F. Vega</button>
+          <button class="filter-clear" id="clear-mayoral-term" style="display:none">Clear &times;</button>
         </div>
       </div>
-    </div>
-    <div class="filter-group">
-      <span class="filter-toggle">Pasadyang Saklaw</span>
-      <div class="custom-range-filters" id="custom-range-filters">
-        <div class="filter-buttons" style="display:flex;align-items:center;gap:8px">
-          <label style="font-size:0.85rem;color:var(--ink-soft)">Mula</label>
-          <input type="date" id="custom-date-from" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:0.85rem;background:var(--bg-card);color:var(--ink)" />
-          <label style="font-size:0.85rem;color:var(--ink-soft)">Hanggang</label>
-          <input type="date" id="custom-date-to" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:0.85rem;background:var(--bg-card);color:var(--ink)" />
-        </div>
-      </div>
-    </div>
     </div>
     <div class="grid grid-4 stack-gap-lg" style="margin-top:20px">
             <div class="card" id="metric-categories">
@@ -270,8 +260,7 @@
       #procurement-table th.sort-desc .sort-indicator::after { content: " ▼"; }
     </style>
 
-  </div>
-</section>
+
     <div class="section-head">
       <div class="section-eyebrow">DPWH &middot; Imprastraktura</div>
       <h2>Mga Proyektong Imprastraktura</h2>

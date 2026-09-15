@@ -211,21 +211,37 @@
   border-radius: 0 0 var(--radius) var(--radius);
 }
 
-/* ---------- Procurement filters ---------- */
+/* ---------- Filter layout ---------- */
 
-.procurement-filters {
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-section-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.filter-pills {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  margin: 20px 0 16px;
 }
 
-.filter-label {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--ink);
-}
+/* ---------- Filter pills ---------- */
 
 .filter-pill {
   padding: 8px 18px;
@@ -253,13 +269,56 @@
   transform: translateY(-1px);
 }
 
-.mayoral-term-filters {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 12px;
+.filter-pill-custom {
+  border-style: dashed;
 }
+
+.filter-pill-custom.active {
+  border-style: solid;
+}
+
+/* ---------- Custom range inline ---------- */
+
+.custom-range-inline {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 0 0;
+}
+
+.custom-range-inline.open {
+  display: flex;
+}
+
+.custom-range-inline label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.custom-range-inline input[type="date"] {
+  padding: 6px 10px;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--paper);
+  min-height: 36px;
+}
+
+.custom-range-inline input[type="date"]:focus {
+  border-color: var(--green-deep);
+  outline: none;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+  min-height: 36px;
+}
+
+/* ---------- Mayoral term pills ---------- */
 
 .term-pill {
   padding: 7px 16px;
@@ -287,7 +346,20 @@
   transform: translateY(-1px);
 }
 
-#clear-mayoral-term {
-  font-size: 0.8rem;
-  padding: 5px 10px;
+/* ---------- Filter clear button ---------- */
+
+.filter-clear {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-clear:hover {
+  border-color: var(--red-flag);
+  color: var(--red-flag);
 }

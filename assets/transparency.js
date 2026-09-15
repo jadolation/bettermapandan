@@ -36,6 +36,10 @@ var currentRange = "all";
 
 function filterByRange(contracts, range) {
   if (range === "all") return contracts.slice();
+  if (range === "custom") {
+    var dates = getCustomDateRange();
+    return filterByCustomDate(contracts, dates.from, dates.to);
+  }
   var now = new Date();
   var cutoff;
   if (range === "30d") {
@@ -228,7 +232,7 @@ function updateAll(range, mayoralTermIndex) {
       return d >= tFrom && d <= tTo;
     });
   }
-  if (range && range !== "all") {
+  if (range && range !== "all" && range !== "custom") {
     var now = new Date();
     var cutoff;
     if (range === "30d") cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 30);
@@ -244,8 +248,10 @@ function updateAll(range, mayoralTermIndex) {
       });
     }
   }
-  var customDates = getCustomDateRange();
-  dpwhFiltered = filterByCustomDate(dpwhFiltered, customDates.from, customDates.to);
+  if (range === "custom") {
+    var customDates = getCustomDateRange();
+    dpwhFiltered = filterByCustomDate(dpwhFiltered, customDates.from, customDates.to);
+  }
   updateDpwhCards(dpwhFiltered);
   filterDpwhTable(dpwhFiltered);
   window._filteredContracts = filtered;
@@ -327,17 +333,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.querySelectorAll('.filter-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function() {
-      var group = this.closest('.filter-group');
-      if (group) { group.classList.toggle('open'); }
-    });
-  });
+  var customRangeInline = document.getElementById("custom-range-inline");
+  var customApplyBtn = document.getElementById("custom-range-apply");
+  var clearTermBtn = document.getElementById("clear-mayoral-term");
 
-  var customFrom = document.getElementById("custom-date-from");
-  var customTo = document.getElementById("custom-date-to");
-  if (customFrom) customFrom.addEventListener("change", function() { updateAll(currentRange, currentMayoralTerm); });
-  if (customTo) customTo.addEventListener("change", function() { updateAll(currentRange, currentMayoralTerm); });
+  if (customApplyBtn) {
+    customApplyBtn.addEventListener("click", function() {
+      updateAll("custom", currentMayoralTerm);
+    });
+  }
+
+  if (clearTermBtn) {
+    clearTermBtn.addEventListener("click", function() {
+      termContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
+      clearTermBtn.style.display = "none";
+      updateAll(currentRange, null);
+    });
+  }
 
   initProcurementTable();
 });
@@ -641,6 +653,8 @@ window.addEventListener("load", function () {
 
   var filterContainer = document.getElementById("procurement-filters");
   var termContainer = document.getElementById("mayoral-term-filters");
+  var customRangeInline = document.getElementById("custom-range-inline");
+  var clearTermBtn = document.getElementById("clear-mayoral-term");
   var dpwhFilterContainer = document.getElementById("dpwh-filters");
   var dpwhTermContainer = document.getElementById("dpwh-term-filters");
 
@@ -662,9 +676,15 @@ window.addEventListener("load", function () {
     filterContainer.addEventListener("click", function(e) {
       var btn = e.target.closest(".filter-pill");
       if (!btn) return;
+      var range = btn.getAttribute("data-range");
       filterContainer.querySelectorAll(".filter-pill").forEach(function(b) { b.classList.remove("active"); });
       btn.classList.add("active");
-      updateAll(btn.getAttribute("data-range"), currentMayoralTerm);
+      if (range === "custom") {
+        if (customRangeInline) customRangeInline.classList.add("open");
+      } else {
+        if (customRangeInline) customRangeInline.classList.remove("open");
+        updateAll(range, currentMayoralTerm);
+      }
     });
   }
   if (termContainer) {
@@ -674,6 +694,7 @@ window.addEventListener("load", function () {
       termContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
       btn.classList.add("active");
       var idx = parseInt(btn.getAttribute("data-term"), 10);
+      if (clearTermBtn) clearTermBtn.style.display = "inline-block";
       updateAll(currentRange, idx);
     });
   }

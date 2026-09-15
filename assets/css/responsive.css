@@ -20,17 +20,22 @@
   .lang-banner-msg { font-size: 13px; }
   .lang-banner-btn { font-size: 12px; padding: 5px 10px; }
 
-  /* Mobile collapsible filters */
+  /* Mobile filter layout */
   .section, .wrap {
     overflow-x: hidden;
   }
-  .procurement-filters, .mayoral-term-filters {
-    max-width: 100%;
+  .filter-pills {
     overflow-x: auto;
-    margin: 0 !important;
     flex-wrap: nowrap;
     padding-bottom: 4px;
     scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .custom-range-inline.open {
+    flex-wrap: wrap;
+  }
+  .custom-range-inline input[type="date"] {
+    flex: 1 1 120px;
   }
 
   /* Nav — mobile dropdown */
@@ -192,8 +197,6 @@
   .procurement-toolbar-actions { flex-direction: column; }
   .procurement-toolbar-actions input[type="search"] { min-width: 0; width: 100%; }
   .procurement-toolbar-actions .btn { width: 100%; text-align: center; }
-  .filter-row { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
-  .filter-row .filter-group { flex: 1; min-width: 0; }
 }
 
 /* ==========================================================================
