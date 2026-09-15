@@ -39,7 +39,7 @@
     return null;
   }
 
-  function filterDpwhProjects(projects, range, termIndex) {
+  function filterDpwhProjects(projects, range, termIndex, dateFrom, dateTo) {
     var filtered = projects.slice();
     if (termIndex !== null && termIndex !== undefined) {
       var terms = [
@@ -83,6 +83,16 @@
         });
       }
     }
+    if (dateFrom || dateTo) {
+      filtered = filtered.filter(function (p) {
+        var dStr = getProjectDate(p);
+        if (!dStr) return false;
+        var d = new Date(dStr);
+        if (dateFrom && d < dateFrom) return false;
+        if (dateTo && d > dateTo) return false;
+        return true;
+      });
+    }
     return filtered;
   }
 
@@ -122,9 +132,9 @@
     }
   }
 
-  window.refreshDpwhMap = function (range, termIndex) {
+  window.refreshDpwhMap = function (range, termIndex, dateFrom, dateTo) {
     var projects = window.DPWH_PROJECTS || [];
-    var filtered = filterDpwhProjects(projects, range, termIndex);
+    var filtered = filterDpwhProjects(projects, range, termIndex, dateFrom, dateTo);
     renderMarkers(filtered);
   };
 

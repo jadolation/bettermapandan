@@ -35,22 +35,22 @@
     },
     {
       "year": 2016,
-      "total_assets": 188163086,
-      "liabilities": 24861172,
-      "gov_equity": 163301914,
-      "income": 90314688,
-      "expenses": 85279869,
-      "surplus": 5034819,
+      "total_assets": 239662412,
+      "liabilities": 51507434,
+      "gov_equity": 188154978,
+      "income": 88255537,
+      "expenses": 78852072,
+      "surplus": 9403465,
       "source": "COA AAR"
     },
     {
       "year": 2017,
-      "total_assets": 204584810,
-      "liabilities": 26204126,
-      "gov_equity": 178380684,
-      "income": 95158268,
-      "expenses": 90358641,
-      "surplus": 4799627,
+      "total_assets": 243600350,
+      "liabilities": 34316721,
+      "gov_equity": 209283629,
+      "income": 99989387,
+      "expenses": 95214375,
+      "surplus": 4775012,
       "source": "COA AAR"
     },
     {
@@ -125,17 +125,17 @@
     }
   ],
   "revenue_composition": [
-    { "year": 2014, "ira": 67478706, "local_income": 8085876, "other": 1867454 },
-    { "year": 2015, "ira": 73400000, "local_income": 8500000, "other": 1200000 },
-    { "year": 2016, "ira": 78500000, "local_income": 9200000, "other": 2614688 },
-    { "year": 2017, "ira": 86300000, "local_income": 9900000, "other": 1800000 },
-    { "year": 2018, "ira": 90800000, "local_income": 10400000, "other": 1500000 },
-    { "year": 2019, "ira": 103000000, "local_income": 9100000, "other": 2000000 },
-    { "year": 2020, "ira": 110900000, "local_income": 8400000, "other": 18300000 },
-    { "year": 2021, "ira": 118000000, "local_income": 14500000, "other": 9135154 },
-    { "year": 2022, "ira": 142000000, "local_income": 22500000, "other": 12728975 },
-    { "year": 2023, "ira": 128000000, "local_income": 18500000, "other": 8777148 },
-    { "year": 2024, "ira": 135000000, "local_income": 22000000, "other": 11119706 }
+    { "year": 2014, "ira": 67478706, "local_income": 8085876, "other": 1867454, "source": "precise" },
+    { "year": 2015, "ira": 73400000, "local_income": 8500000, "other": 1200000, "source": "estimated" },
+    { "year": 2016, "ira": 78500000, "local_income": 9200000, "other": 2614688, "source": "estimated" },
+    { "year": 2017, "ira": 86300000, "local_income": 9900000, "other": 1800000, "source": "estimated" },
+    { "year": 2018, "ira": 90800000, "local_income": 10400000, "other": 1500000, "source": "estimated" },
+    { "year": 2019, "ira": 103000000, "local_income": 9100000, "other": 2000000, "source": "estimated" },
+    { "year": 2020, "ira": 110900000, "local_income": 8400000, "other": 18300000, "source": "estimated" },
+    { "year": 2021, "ira": 118000000, "local_income": 14500000, "other": 9135154, "source": "BLGF" },
+    { "year": 2022, "ira": 142000000, "local_income": 22500000, "other": 12728975, "source": "BLGF" },
+    { "year": 2023, "ira": 128000000, "local_income": 18500000, "other": 8777148, "source": "BLGF" },
+    { "year": 2024, "ira": 135000000, "local_income": 22000000, "other": 11119706, "source": "BLGF" }
   ],
   "key_findings": [
     {
@@ -145,6 +145,7 @@
       "first_cited": 2014,
       "last_cited": 2019,
       "amount": 90200000,
+      "amount_note": "2015 peak; 2014 figure was ₱85,516,514",
       "status": "resolved",
       "category": "Asset Management",
       "severity": "high"
@@ -166,7 +167,7 @@
       "description": "Outstanding receivables for 29+ years from livelihood projects, KKK recipients, and various programs. No subsidiary ledgers maintained.",
       "first_cited": 2016,
       "last_cited": 2024,
-      "amount": 613636,
+      "amount": 613635.81,
       "status": "chronic",
       "category": "Revenue Collection",
       "severity": "medium"
@@ -260,7 +261,7 @@
     { "year": 2024, "allocated": 4110000, "used": 3520000 }
   ],
   "delinquent_rpt": [
-    { "year": 2014, "amount": 2628219 },
+    { "year": 2014, "amount": 2628219.47 },
     { "year": 2015, "amount": 2260000 },
     { "year": 2016, "amount": 2240000 },
     { "year": 2017, "amount": 1260000 },

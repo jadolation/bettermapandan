@@ -491,7 +491,10 @@
     "infrastructure_filter_all": "All",
     "infrastructure_completed": "Completed",
     "infrastructure_ongoing": "Ongoing",
-    "infrastructure_not_started": "Not Yet Started"
+    "infrastructure_not_started": "Not Yet Started",
+    "infrastructure_custom_range": "Custom Range",
+    "infrastructure_from": "From",
+    "infrastructure_to": "To"
   },
   "procurement": {
     "eyebrow": "Public Procurement",

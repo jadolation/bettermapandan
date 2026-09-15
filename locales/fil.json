@@ -491,7 +491,10 @@
     "infrastructure_filter_all": "Lahat",
     "infrastructure_completed": "Nakumpleto",
     "infrastructure_ongoing": "Isinasagawa",
-    "infrastructure_not_started": "Hindi pa Nagsisimula"
+    "infrastructure_not_started": "Hindi pa Nagsisimula",
+    "infrastructure_custom_range": "Pasadyang Saklaw",
+    "infrastructure_from": "Mula",
+    "infrastructure_to": "Hanggang"
   },
   "procurement": {
     "eyebrow": "Pampublikong Pamimili",

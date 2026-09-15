@@ -5,7 +5,7 @@ function downloadCSV(type) {
   } else if (type === "audit-opinions") {
     csv = "Year,Opinion\n2014,Unqualified\n2015,Qualified\n2016,Qualified\n2017,Qualified\n2018,Qualified\n2019,Qualified\n2020,Qualified\n2021,Qualified\n2022,Qualified\n2023,Qualified\n2024,Qualified";
   } else if (type === "financial-performance") {
-    csv = "Year,Income,Expenses,Surplus/Deficit,Source\n2014,71432036,61566073,9865963,COA AAR\n2015,81052292,67593459,13458833,COA AAR\n2016,90314688,85279869,5034819,COA AAR\n2017,95158268,90358641,4799627,COA AAR\n2018,106700000,97500000,9200000,COA AAR\n2019,116100000,106800000,9300000,COA AAR\n2020,137600000,131100000,6500000,COA AAR\n2021,141635154,146295946,-4660792,BLGF\n2022,177228975,233999820,-56770845,BLGF\n2023,155277148,145373561,9903587,BLGF\n2024,168119706,166055071,2064635,BLGF";
+    csv = "Year,Income,Expenses,Surplus/Deficit,Source\n2014,71432036,61566073,9865963,COA AAR\n2015,81052292,67593459,13458833,COA AAR\n2016,88255537,78852072,9403465,COA AAR\n2017,99989387,95214375,4775012,COA AAR\n2018,106700000,97500000,9200000,COA AAR\n2019,116100000,106800000,9300000,COA AAR\n2020,137600000,131100000,6500000,COA AAR\n2021,141635154,146295946,-4660792,BLGF\n2022,177228975,233999820,-56770845,BLGF\n2023,155277148,145373561,9903587,BLGF\n2024,168119706,166055071,2064635,BLGF";
   } else if (type === "implementation-rates") {
     csv = "Period,Implemented,Partial,Not Implemented,Rate\n2014 to 2015,6,0,1,86%\n2015 to 2016,6,1,1,75%\n2016 to 2017,6,4,4,43%\n2017 to 2018,7,4,5,44%\n2018 to 2019,9,7,4,45%\n2019 to 2020,18,0,6,75%\n2020 to 2021,10,0,11,48%\n2021 to 2022,10,0,11,48%";
   } else if (type === "procurement") {
@@ -153,6 +153,57 @@ function updateMetrics(contracts) {
   if (elCats) elCats.textContent = uniqueCats.toLocaleString();
 }
 
+function getCustomDateRange() {
+  var fromEl = document.getElementById("custom-date-from");
+  var toEl = document.getElementById("custom-date-to");
+  var from = fromEl && fromEl.value ? new Date(fromEl.value) : null;
+  var to = toEl && toEl.value ? new Date(toEl.value) : null;
+  if (to) to.setHours(23, 59, 59, 999);
+  return { from: from, to: to };
+}
+
+function filterByCustomDate(projects, dateFrom, dateTo) {
+  if (!dateFrom && !dateTo) return projects;
+  return projects.filter(function(p) {
+    var dStr = p.actual_completion_date || p.contract_effectivity_date || (p.fiscal_year ? p.fiscal_year + "-01-01" : null);
+    if (!dStr) return false;
+    var d = new Date(dStr);
+    if (dateFrom && d < dateFrom) return false;
+    if (dateTo && d > dateTo) return false;
+    return true;
+  });
+}
+
+function updateDpwhCards(filtered) {
+  var count = filtered.length;
+  var total = filtered.reduce(function(s, p) { return s + (p.contract_amount || 0); }, 0);
+  var completed = 0, ongoing = 0, notStarted = 0;
+  filtered.forEach(function(p) {
+    var st = (p.status || "").toLowerCase();
+    if (st.indexOf("completed") !== -1) completed++;
+    else if (st.indexOf("ongoing") !== -1) ongoing++;
+    else if (st.indexOf("not yet") !== -1) notStarted++;
+  });
+
+  var elCount = document.getElementById("dpwh-count-value");
+  var elValue = document.getElementById("dpwh-value-value");
+  var elStatus = document.getElementById("dpwh-status-value");
+  if (elCount) elCount.textContent = count.toLocaleString();
+  if (elValue) elValue.innerHTML = "\u20B1" + total.toLocaleString("en-PH", { maximumFractionDigits: 0 });
+  if (elStatus) elStatus.innerHTML = completed + " Completed \u2022 " + ongoing + " Ongoing \u2022 " + notStarted + " Not Started";
+}
+
+function filterDpwhTable(filtered) {
+  var table = document.getElementById("dpwh-table");
+  if (!table) return;
+  var visibleIds = {};
+  filtered.forEach(function(p) { visibleIds["dpwh-project-" + p.transaction_id] = true; });
+  var rows = table.querySelectorAll("tbody tr");
+  rows.forEach(function(row) {
+    row.style.display = visibleIds[row.id] ? "" : "none";
+  });
+}
+
 function updateAll(range, mayoralTermIndex) {
   if (mayoralTermIndex === undefined) mayoralTermIndex = currentMayoralTerm;
   currentMayoralTerm = mayoralTermIndex;
@@ -161,6 +212,42 @@ function updateAll(range, mayoralTermIndex) {
   var filtered = filterByRange(base, range);
   currentRange = range;
   updateMetrics(filtered);
+
+  var dpwhProjects = window.DPWH_PROJECTS || [];
+  var dpwhFiltered = dpwhProjects.slice();
+  if (mayoralTermIndex !== null && mayoralTermIndex !== undefined) {
+    var termStarts = ["2010-06-30","2016-06-30","2019-06-30","2022-06-30"];
+    var termEnds = ["2016-06-29","2019-06-29","2022-06-29","2099-12-31"];
+    var tFrom = new Date(termStarts[mayoralTermIndex]);
+    var tTo = new Date(termEnds[mayoralTermIndex]);
+    tTo.setHours(23,59,59,999);
+    dpwhFiltered = dpwhFiltered.filter(function(p) {
+      var dStr = p.actual_completion_date || p.contract_effectivity_date || (p.fiscal_year ? p.fiscal_year + "-01-01" : null);
+      if (!dStr) return false;
+      var d = new Date(dStr);
+      return d >= tFrom && d <= tTo;
+    });
+  }
+  if (range && range !== "all") {
+    var now = new Date();
+    var cutoff;
+    if (range === "30d") cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 30);
+    else if (range === "3m") cutoff = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate());
+    else if (range === "6m") cutoff = new Date(now.getFullYear(), now.getMonth() - 6, now.getDate());
+    else if (range === "1y") cutoff = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+    else if (range === "3y") cutoff = new Date(now.getFullYear() - 3, now.getMonth(), now.getDate());
+    if (cutoff) {
+      dpwhFiltered = dpwhFiltered.filter(function(p) {
+        var dStr = p.actual_completion_date || p.contract_effectivity_date || (p.fiscal_year ? p.fiscal_year + "-01-01" : null);
+        if (!dStr) return false;
+        return new Date(dStr) >= cutoff;
+      });
+    }
+  }
+  var customDates = getCustomDateRange();
+  dpwhFiltered = filterByCustomDate(dpwhFiltered, customDates.from, customDates.to);
+  updateDpwhCards(dpwhFiltered);
+  filterDpwhTable(dpwhFiltered);
   window._filteredContracts = filtered;
 
   var monthly = rebuildMonthly(filtered);
@@ -230,7 +317,7 @@ function updateAll(range, mayoralTermIndex) {
   }
 
   if (window._refreshTable) window._refreshTable();
-  if (window.refreshDpwhMap) window.refreshDpwhMap(currentRange, currentMayoralTerm);
+  if (window.refreshDpwhMap) window.refreshDpwhMap(currentRange, currentMayoralTerm, customDates.from, customDates.to);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -246,6 +333,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (group) { group.classList.toggle('open'); }
     });
   });
+
+  var customFrom = document.getElementById("custom-date-from");
+  var customTo = document.getElementById("custom-date-to");
+  if (customFrom) customFrom.addEventListener("change", function() { updateAll(currentRange, currentMayoralTerm); });
+  if (customTo) customTo.addEventListener("change", function() { updateAll(currentRange, currentMayoralTerm); });
 
   initProcurementTable();
 });
@@ -352,7 +444,7 @@ window.addEventListener("load", function () {
         datasets: [
           {
             label: "Income (PHP Millions)",
-            data: [71.4, 81.1, 90.3, 95.2, 106.7, 116.1, 137.6, 141.6, 177.2, 155.3, 168.1],
+            data: [71.4, 81.1, 88.3, 100.0, 106.7, 116.1, 137.6, 141.6, 177.2, 155.3, 168.1],
             borderColor: green,
             backgroundColor: "rgba(76,138,46,0.1)",
             fill: false,
@@ -360,7 +452,7 @@ window.addEventListener("load", function () {
           },
           {
             label: "Expenses (PHP Millions)",
-            data: [61.6, 67.6, 85.3, 90.4, 97.5, 106.8, 131.1, 146.3, 234.0, 145.4, 166.1],
+            data: [61.6, 67.6, 78.9, 95.2, 97.5, 106.8, 131.1, 146.3, 234.0, 145.4, 166.1],
             borderColor: gold,
             backgroundColor: "rgba(232,169,23,0.1)",
             fill: false,

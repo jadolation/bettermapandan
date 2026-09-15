@@ -768,6 +768,9 @@ def _build_dpwh_labels(locale: dict) -> dict:
         "DPWH_COMPLETED": t(locale, "transparency.infrastructure_completed", "Completed"),
         "DPWH_ONGOING": t(locale, "transparency.infrastructure_ongoing", "Ongoing"),
         "DPWH_NOT_STARTED": t(locale, "transparency.infrastructure_not_started", "Not Yet Started"),
+        "DPWH_CUSTOM_RANGE": t(locale, "transparency.infrastructure_custom_range", "Custom Range"),
+        "DPWH_FROM": t(locale, "transparency.infrastructure_from", "From"),
+        "DPWH_TO": t(locale, "transparency.infrastructure_to", "To"),
     }
 
 
@@ -806,19 +809,19 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     <div class="grid grid-3 stack-gap-lg" style="margin-top:24px">
       <div class="card">
         <h2>{labels['DPWH_TOTAL_CONTRACTS']}</h2>
-        <p class="figure">{total_count:,}</p>
+        <p class="figure" id="dpwh-count-value">{total_count:,}</p>
         <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
         <span class="source-label">DPWH Transparency Portal</span>
       </div>
       <div class="card">
         <h2>{labels['DPWH_TOTAL_VALUE']}</h2>
-        <p class="figure">&#8369;{total_value:,.0f}</p>
+        <p class="figure" id="dpwh-value-value">&#8369;{total_value:,.0f}</p>
         <span class="verification-badge badge-verified">{t(locale, 'common.verified', 'Verified')}</span>
         <span class="source-label">Aggregated from published contracts</span>
       </div>
       <div class="card">
         <h2>Status</h2>
-        <p class="figure" style="font-size:1.1rem;line-height:1.6">
+        <p class="figure" id="dpwh-status-value" style="font-size:1.1rem;line-height:1.6">
           {completed} Completed &bull; {ongoing} Ongoing &bull; {not_started} Not Started
         </p>
         <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
@@ -839,7 +842,11 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         amount = p.get("contract_amount") or 0
         amount_str = f"&#8369;{float(amount):,.0f}" if amount else "—"
         status = html.escape(p.get("status", "") or "—")
+        status_raw = (p.get("status") or "").lower()
         date = html.escape(p.get("actual_completion_date") or p.get("contract_effectivity_date") or "")
+        date_raw = p.get("actual_completion_date") or p.get("contract_effectivity_date") or p.get("fiscal_year", "")
+        if isinstance(date_raw, int):
+            date_raw = f"{date_raw}-01-01"
         acc = p.get("accomplishment_percent") or 0
         acc_str = f"{float(acc):.0f}%" if acc else "—"
         lat = p.get("latitude")
@@ -848,7 +855,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         map_link = f'<a href="https://www.openstreetmap.org/?mlat={lat}&mlon={lng}#map=16/{lat}/{lng}" target="_blank" rel="noopener">{labels["DPWH_VIEW_MAP"]} &rarr;</a>' if has_map else ""
 
         projects_rows.append(
-            f'<tr id="dpwh-project-{tid}">'
+            f'<tr id="dpwh-project-{tid}" data-date="{html.escape(str(date_raw))}" data-status="{html.escape(status_raw)}" data-amount="{float(amount):.0f}">'
             f'<td>{_dpwh_category_icon(category)} {category}</td>'
             f'<td>{name}</td>'
             f'<td>{agency}</td>'
@@ -2051,6 +2058,17 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
         f'        </div>\n'
         f'      </div>\n'
         f'    </div>\n'
+    f'    <div class="filter-group">\n'
+    f'      <span class="filter-toggle">{t(locale, "transparency.infrastructure_custom_range", "Custom Range")}</span>\n'
+    f'      <div class="custom-range-filters" id="custom-range-filters">\n'
+    f'        <div class="filter-buttons" style="display:flex;align-items:center;gap:8px">\n'
+    f'          <label style="font-size:0.85rem;color:var(--ink-soft)">{t(locale, "transparency.infrastructure_from", "From")}</label>\n'
+    f'          <input type="date" id="custom-date-from" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:0.85rem;background:var(--bg-card);color:var(--ink)" />\n'
+    f'          <label style="font-size:0.85rem;color:var(--ink-soft)">{t(locale, "transparency.infrastructure_to", "To")}</label>\n'
+    f'          <input type="date" id="custom-date-to" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:0.85rem;background:var(--bg-card);color:var(--ink)" />\n'
+    f'        </div>\n'
+    f'      </div>\n'
+    f'    </div>\n'
         f'    </div>\n'
          f'    <div class="grid grid-4 stack-gap-lg" style="margin-top:20px">\n'
         f'      {metric_cards}\n'
