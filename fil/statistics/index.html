@@ -365,7 +365,7 @@
     <div class="grid grid-2" style="margin-bottom:32px" aria-live="polite">
       <div class="card">
         <h3>Trend ng Populasyon</h3>
-        <canvas id="chart-population" height="200" role="img" aria-label="Population trend: 27,439 in 1995 growing to 38,228 in 2024"></canvas>
+        <canvas id="chart-history-population" height="200" role="img" aria-label="Population trend: 27,439 in 1995 growing to 38,228 in 2024"></canvas>
         <table class="sr-only">
           <caption>Population trend</caption>
           <thead><tr><th scope="col">Year</th><th scope="col">Population</th></tr></thead>
@@ -457,10 +457,6 @@
     </div>
   </div>
 </section>
-
-<script>window.BARANGAY_COMPARISON = {"names": ["Pias", "Poblacion", "Baloling", "Nilombot", "Torres", "Luyan (Luyan South)", "Jimenez", "Primicias", "Amanoaoac", "Lambayan", "Apaya", "Aserda", "Coral", "Golden", "Sta. Maria (Luyan North)"], "pop2020": [4699, 3622, 4393, 4411, 3112, 3730, 1995, 2071, 1636, 1756, 1467, 1108, 1389, 1399, 1270], "pop2024": [4827, 3509, 4238, 4199, 3061, 3344, 2008, 2218, 1656, 1682, 1650, 1414, 1405, 1432, 1585], "growth": [2.72, -3.12, -3.53, -4.81, -1.64, -10.35, 0.65, 7.1, 1.22, -4.21, 12.47, 27.62, 1.15, 2.36, 24.8]};</script>
-
-<script defer src="../assets/stats.js"></script>
 </main>
 
 <footer class="site-footer">
@@ -526,7 +522,7 @@
 </footer>
 
 
-<script defer src="../assets/chart-loader.js"></script>
+<script defer src="../assets/chart.umd.min.js"></script>
 <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
 <script defer src="../assets/barangay-data.js"></script>
 <script defer src="../assets/script.js"></script>
@@ -548,5 +544,8 @@
   </a>
 </nav>
 
+<script>window.BARANGAY_COMPARISON = {"names": ["Pias", "Poblacion", "Baloling", "Nilombot", "Torres", "Luyan (Luyan South)", "Jimenez", "Primicias", "Amanoaoac", "Lambayan", "Apaya", "Aserda", "Coral", "Golden", "Sta. Maria (Luyan North)"], "pop2020": [4699, 3622, 4393, 4411, 3112, 3730, 1995, 2071, 1636, 1756, 1467, 1108, 1389, 1399, 1270], "pop2024": [4827, 3509, 4238, 4199, 3061, 3344, 2008, 2218, 1656, 1682, 1650, 1414, 1405, 1432, 1585], "growth": [2.72, -3.12, -3.53, -4.81, -1.64, -10.35, 0.65, 7.1, 1.22, -4.21, 12.47, 27.62, 1.15, 2.36, 24.8]};</script>
+
+<script defer src="../assets/stats.js"></script>
 </body>
 </html>

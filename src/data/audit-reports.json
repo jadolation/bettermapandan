@@ -10,7 +10,8 @@
     { "year": 2021, "opinion": "Qualified", "color": "gold", "note": "Misclassification of expenses; breeding stocks; land titling" },
     { "year": 2022, "opinion": "Qualified", "color": "gold", "note": "Recurring issues plus MRF machineries unused" },
     { "year": 2023, "opinion": "Unqualified", "color": "green", "note": "Clean opinion under new management" },
-    { "year": 2024, "opinion": "Qualified", "color": "gold", "note": "Procurement irregularities; GAD; consulting services" }
+    { "year": 2024, "opinion": "Qualified", "color": "gold", "note": "Procurement irregularities; GAD; consulting services" },
+    { "year": 2025, "opinion": "Non-Compliant", "color": "red", "note": "LDRRMF special compliance audit — ₱380K under-allocation" }
   ],
   "financial_performance": [
     {
@@ -18,10 +19,10 @@
       "total_assets": 115037161,
       "liabilities": 33457198,
       "gov_equity": 81579963,
-      "income": 71432036,
-      "expenses": 61566073,
-      "surplus": 9865963,
-      "source": "COA AAR"
+      "income": 71432016,
+      "expenses": 56386883,
+      "surplus": 9856623,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2015,
@@ -29,9 +30,9 @@
       "liabilities": 38964113,
       "gov_equity": 91568914,
       "income": 81052292,
-      "expenses": 67593459,
-      "surplus": 13458833,
-      "source": "COA AAR"
+      "expenses": 65369475,
+      "surplus": 13455903,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2016,
@@ -39,9 +40,9 @@
       "liabilities": 51507434,
       "gov_equity": 188154978,
       "income": 88255537,
-      "expenses": 78852072,
+      "expenses": 74919484,
       "surplus": 9403465,
-      "source": "COA AAR"
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2017,
@@ -49,79 +50,79 @@
       "liabilities": 34316721,
       "gov_equity": 209283629,
       "income": 99989387,
-      "expenses": 95214375,
+      "expenses": 91126488,
       "surplus": 4775012,
-      "source": "COA AAR"
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2018,
       "total_assets": 292900000,
       "liabilities": 60200000,
       "gov_equity": 232700000,
-      "income": 106700000,
-      "expenses": 97500000,
-      "surplus": 9200000,
-      "source": "COA AAR"
+      "income": 106698612,
+      "expenses": 95980935,
+      "surplus": 9184505,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2019,
       "total_assets": 298300000,
       "liabilities": 42800000,
       "gov_equity": 255400000,
-      "income": 116100000,
-      "expenses": 106800000,
-      "surplus": 9300000,
-      "source": "COA AAR"
+      "income": 116102805,
+      "expenses": 103775515,
+      "surplus": 9343635,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2020,
       "total_assets": 257100000,
       "liabilities": 39600000,
       "gov_equity": 217500000,
-      "income": 137600000,
-      "expenses": 131100000,
-      "surplus": 6500000,
-      "source": "COA AAR"
+      "income": 128331255,
+      "expenses": 126932705,
+      "surplus": 6505710,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2021,
       "total_assets": 289066906,
       "liabilities": 46888593,
       "gov_equity": 242178313,
-      "income": 141635154,
-      "expenses": 146295946,
-      "surplus": -4660792,
-      "source": "COA AAR"
+      "income": 144503846,
+      "expenses": 126953569,
+      "surplus": 10669196,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2022,
       "total_assets": 578523734,
       "liabilities": 134750376,
       "gov_equity": 443773358,
-      "income": 177228975,
-      "expenses": 233999820,
-      "surplus": -56770845,
-      "source": "COA AAR"
+      "income": 180618300,
+      "expenses": 153097409,
+      "surplus": 14047300,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2023,
       "total_assets": 563474053,
       "liabilities": 126865514,
       "gov_equity": 436608538,
-      "income": 155277148,
-      "expenses": 145373561,
-      "surplus": 9903587,
-      "source": "COA AAR"
+      "income": 159409832,
+      "expenses": 160670250,
+      "surplus": -8854416,
+      "source": "COA AAR (Audited)"
     },
     {
       "year": 2024,
       "total_assets": 555420148,
       "liabilities": 110739187,
       "gov_equity": 444680961,
-      "income": 168119706,
-      "expenses": 166055071,
-      "surplus": 2064635,
-      "source": "COA AAR"
+      "income": 173759470,
+      "expenses": 183574901,
+      "surplus": -9815430,
+      "source": "COA AAR (Audited)"
     }
   ],
   "revenue_composition": [
@@ -295,7 +296,7 @@
     { "year": 2022, "available": 14030000, "utilized": 8170000 },
     { "year": 2023, "available": 16310000, "utilized": 15180000 },
     { "year": 2024, "available": 16370000, "utilized": 6940000 },
-    { "year": 2025, "available": 9689081, "utilized": 9309081 }
+    { "year": 2025, "available": 9689008, "utilized": 9309008 }
   ],
   "gad_utilization": [
     { "year": 2017, "allocated": 3650000, "used": 2510000 },
@@ -319,5 +320,159 @@
     { "year": 2022, "amount": 1310000 },
     { "year": 2023, "amount": 552545 },
     { "year": 2024, "amount": 839214 }
+  ],
+  "disallowances": [
+    { "year": 2015, "amount": 360000, "status": "under_appeal", "note": "Pending resolution" },
+    { "year": 2016, "amount": 47000, "status": "under_appeal", "note": "Pending resolution" },
+    { "year": 2017, "amount": 47000, "status": "under_appeal", "note": "Pending resolution" },
+    { "year": 2018, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018" },
+    { "year": 2019, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018" },
+    { "year": 2020, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018" },
+    { "year": 2021, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018" },
+    { "year": 2022, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018" },
+    { "year": 2023, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018" },
+    { "year": 2024, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018" }
+  ],
+  "infrastructure_projects": [
+    {
+      "id": "cemetery-extension-2",
+      "name": "Cemetery Extension Project Phase II",
+      "description": "Construction of crematorium, communal vault, roads, drainage, fencing and landscaping at the municipal cemetery",
+      "cost": 54970000,
+      "year_started": 2022,
+      "year_completed": 2022,
+      "category": "Social Services",
+      "source": "COA AAR 2022",
+      "status": "completed"
+    },
+    {
+      "id": "market-improvement",
+      "name": "Municipal Market Improvement",
+      "description": "Construction of new market building to replace the old wooden structure damaged by fire",
+      "cost": 15590000,
+      "year_started": 2021,
+      "year_completed": 2022,
+      "category": "Economic",
+      "source": "COA AAR 2021-2022",
+      "status": "completed"
+    },
+    {
+      "id": "abattoir-motorpool",
+      "name": "Abattoir and Motorpool Building",
+      "description": "Construction of new abattoir and motorpool building with meat inspection facilities",
+      "cost": 12890000,
+      "year_started": 2022,
+      "year_completed": 2023,
+      "category": "Economic",
+      "source": "COA AAR 2022-2023",
+      "status": "completed"
+    },
+    {
+      "id": "town-plaza-fountain",
+      "name": "Town Plaza Dancing Fountain",
+      "description": "Construction of dancing fountain and improvement of the town plaza as a public attraction",
+      "cost": 5190000,
+      "year_started": 2016,
+      "year_completed": 2016,
+      "category": "Tourism",
+      "source": "COA AAR 2016",
+      "status": "completed"
+    },
+    {
+      "id": "road-network",
+      "name": "DPWH Road Network Improvement",
+      "description": "Construction of road network connecting barangays to the national highway",
+      "cost": 4840000,
+      "year_started": 2023,
+      "year_completed": 2024,
+      "category": "Infrastructure",
+      "source": "COA AAR 2023-2024",
+      "status": "completed"
+    },
+    {
+      "id": "mdrrmo-excavator",
+      "name": "MDRRMO Backhoe Excavator",
+      "description": "Procurement of backhoe excavator for disaster response and clearing operations",
+      "cost": 3390000,
+      "year_started": 2023,
+      "year_completed": 2024,
+      "category": "Disaster Response",
+      "source": "COA AAR 2023-2024",
+      "status": "completed"
+    },
+    {
+      "id": "mini-dump-trucks",
+      "name": "Mini-Dump Trucks Procurement",
+      "description": "Procurement of two mini-dump trucks for waste collection and disposal operations",
+      "cost": 3510000,
+      "year_started": 2023,
+      "year_completed": 2024,
+      "category": "Environmental",
+      "source": "COA AAR 2023-2024",
+      "status": "completed"
+    }
+  ],
+  "reform_trackers": [
+    {
+      "id": "atm-payroll",
+      "title": "ATM Payroll System",
+      "description": "Transition from manual payroll and cash advances to electronic ATM payroll for JO and COS personnel",
+      "finding_year": 2018,
+      "finding_amount": 14853746,
+      "category": "Financial Management",
+      "milestones": [
+        { "year": 2018, "label": "COA cites manual payroll", "status": "completed" },
+        { "year": 2024, "label": "₱14.85M cash advances documented", "status": "completed" },
+        { "year": 2025, "label": "ATM payroll system adopted", "status": "completed", "date": "May 2025" },
+        { "year": 2025, "label": "100% JO/COS enrolled", "status": "completed", "date": "July 2025" }
+      ],
+      "status": "resolved",
+      "status_label": "Resolved"
+    },
+    {
+      "id": "land-titling",
+      "title": "Land Titling Completion",
+      "description": "Obtain Transfer Certificates of Title (TCTs) for 8 parcels of LGU-owned land covered only by Tax Declarations",
+      "finding_year": 2024,
+      "finding_amount": 25699460,
+      "category": "Asset Management",
+      "milestones": [
+        { "year": 2016, "label": "COA first cites untitled parcels", "status": "completed" },
+        { "year": 2024, "label": "8 parcels identified (₱25.70M)", "status": "completed" },
+        { "year": 2025, "label": "Titling process initiated", "status": "in_progress" }
+      ],
+      "status": "in_progress",
+      "status_label": "In Progress"
+    },
+    {
+      "id": "consultant-hiring",
+      "title": "Consultant Hiring Efficiency",
+      "description": "Excessive consultancy fees for 25% of population survey; COA recommended competitive bidding for future engagements",
+      "finding_year": 2024,
+      "finding_amount": 875000,
+      "category": "Procurement",
+      "milestones": [
+        { "year": 2024, "label": "COA cites irregular consulting fees", "status": "completed" },
+        { "year": 2025, "label": "Management commits to competitive bidding", "status": "completed", "date": "July 2025" },
+        { "year": 2025, "label": "No new consultancy contracts issued", "status": "completed" }
+      ],
+      "status": "resolved",
+      "status_label": "Resolved"
+    },
+    {
+      "id": "solid-waste-compliance",
+      "title": "Solid Waste Management Compliance",
+      "description": "RA 9003 compliance — closure of open dumpsite, activation of MRF equipment, and establishment of sanitary landfill",
+      "finding_year": 2015,
+      "finding_amount": 13500000,
+      "category": "Environmental",
+      "milestones": [
+        { "year": 2015, "label": "COA cites open dumpsite", "status": "completed" },
+        { "year": 2019, "label": "MRF equipment purchased (₱13.5M)", "status": "completed" },
+        { "year": 2024, "label": "Equipment still idle", "status": "in_progress" }
+      ],
+      "status": "in_progress",
+      "status_label": "In Progress"
+    }
   ]
 }

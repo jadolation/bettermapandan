@@ -35,7 +35,7 @@ window.addEventListener("load", function () {
   var red = "#b5312a";
 
   // Population trend
-  var popCtx = document.getElementById("chart-population");
+  var popCtx = document.getElementById("chart-history-population");
   if (popCtx) {
     new Chart(popCtx, {
       type: "line",

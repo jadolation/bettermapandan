@@ -366,6 +366,20 @@ def _build_transparency_labels(locale: dict) -> dict:
         "TRANSPARENCY_PROCUREMENT_TITLE": t(locale, "transparency.procurement_title", ""),
         "TRANSPARENCY_REVENUE_2025": t(locale, "transparency.revenue_2025", ""),
         "TRANSPARENCY_REVENUE_TITLE": t(locale, "transparency.revenue_title", ""),
+        "TRANSPARENCY_COA_PROJECTS_EYEBROW": t(locale, "transparency.coa_projects_eyebrow", ""),
+        "TRANSPARENCY_COA_PROJECTS_TITLE": t(locale, "transparency.coa_projects_title", ""),
+        "TRANSPARENCY_COA_PROJECTS_DESC": t(locale, "transparency.coa_projects_desc", ""),
+        "TRANSPARENCY_COA_PROJECT_NAME": t(locale, "transparency.coa_project_name", ""),
+        "TRANSPARENCY_COA_PROJECT_COST": t(locale, "transparency.coa_project_cost", ""),
+        "TRANSPARENCY_COA_PROJECT_YEAR": t(locale, "transparency.coa_project_year", ""),
+        "TRANSPARENCY_COA_PROJECT_CATEGORY": t(locale, "transparency.coa_project_category", ""),
+        "TRANSPARENCY_COA_PROJECT_STATUS": t(locale, "transparency.coa_project_status", ""),
+        "TRANSPARENCY_REFORM_EYEBROW": t(locale, "transparency.reform_eyebrow", ""),
+        "TRANSPARENCY_REFORM_TITLE": t(locale, "transparency.reform_title", ""),
+        "TRANSPARENCY_REFORM_DESC": t(locale, "transparency.reform_desc", ""),
+        "TRANSPARENCY_DISALLOWANCES_EYEBROW": t(locale, "transparency.disallowances_eyebrow", ""),
+        "TRANSPARENCY_DISALLOWANCES_TITLE": t(locale, "transparency.disallowances_title", ""),
+        "TRANSPARENCY_DISALLOWANCES_DESC": t(locale, "transparency.disallowances_desc", ""),
         "TRANSPARENCY_SOCIAL_AGRI": t(locale, "transparency.social_agri", ""),
         "TRANSPARENCY_SOCIAL_EYEBROW": t(locale, "transparency.social_eyebrow", ""),
         "TRANSPARENCY_SOCIAL_TITLE": t(locale, "transparency.social_title", ""),
@@ -523,25 +537,31 @@ def _process_static_page(
         body = body.replace("{HOMEPAGE_PROCUREMENT_DATA}", proc_data, 1)
         dpwh_data = generate_homepage_dpwh_data()
         body = body.replace("{HOMEPAGE_DPWH_DATA}", dpwh_data, 1)
-    if rel.name == "statistics.html":
-        comparison_script = build_barangay_comparison_script()
-        stats_js_tag = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
-        body = body.replace(stats_js_tag, comparison_script + "\n" + stats_js_tag)
     if rel.name == "government.html":
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
     page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
 
+    if rel.name == "statistics.html":
+        comparison_script = build_barangay_comparison_script()
+        stats_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        page_html = page_html.replace("</body>", comparison_script + "\n" + stats_js + "\n</body>", 1)
+
     if rel.name == "transparency.html":
         transparency_js = (
+            '<script defer src="' + asset_base + '/assets/js/common.js"></script>\n'
             '<script defer src="' + asset_base + '/assets/transparency.js"></script>\n'
-            '<script defer src="' + asset_base + '/assets/transparency-charts.js"></script>\n'
-            '<script defer src="' + asset_base + '/assets/procurement-table.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/transparency-charts.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/procurement-table.js"></script>\n'
         )
         csv_data_path = SRC_DATA / "transparency-csv.json"
         if csv_data_path.exists():
             csv_data = json.loads(csv_data_path.read_text(encoding="utf-8"))
             transparency_js += '<script>window.TRANSPARENCY_CSV_DATA = ' + json.dumps(csv_data, ensure_ascii=False) + ';</script>\n'
+        audit_data_path = SRC_DATA / "audit-reports.json"
+        if audit_data_path.exists():
+            audit_data = json.loads(audit_data_path.read_text(encoding="utf-8"))
+            transparency_js += '<script>window.AUDIT_DATA = ' + json.dumps(audit_data, ensure_ascii=False) + ';</script>\n'
         page_html = page_html.replace("</body>", transparency_js + "</body>", 1)
     if rel.name == "index.html":
         homepage_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'

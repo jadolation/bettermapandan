@@ -17,9 +17,10 @@
   right: -140px;
   width: 620px;
   height: 620px;
-  opacity: 0.16;
+  opacity: 0.18;
   pointer-events: none;
   object-fit: contain;
+  mix-blend-mode: soft-light;
 }
 
 .hero .wrap {

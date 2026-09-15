@@ -557,13 +557,13 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
     <div class="section-head">
       <div class="section-eyebrow">{AUDIT_OPINION_EYEBROW}</div>
       <h2>{AUDIT_OPINION_TITLE}</h2>
-      <p>{AUDIT_OPINION_DESC}</p>
+      <p>{AUDIT_OPINION_DESC} The 2025 entry reflects the LDRRMF special compliance audit, not a full financial statement audit.</p>
     </div>
     <div class="card mt-24" aria-live="polite">
       <h3>{AUDIT_OPINION_CHART_TITLE}</h3>
-      <canvas id="chart-audit-opinion" height="200" role="img" aria-label="Audit opinion trend from 2014 to 2024: 1 clean opinion, 1 unmodified opinion, and 9 qualified opinions"></canvas>
+      <canvas id="chart-audit-opinion" height="200" role="img" aria-label="Audit opinion trend from 2014 to 2025: 1 clean opinion, 1 unmodified opinion, 9 qualified opinions, and 1 non-compliant"></canvas>
       <table class="sr-only">
-        <caption>Audit opinions 2014-2024</caption>
+        <caption>Audit opinions 2014-2025</caption>
         <thead><tr><th scope="col">Year</th><th scope="col">Opinion</th></tr></thead>
         <tbody>
           <tr><td>2014</td><td>Unqualified (Clean)</td></tr>
@@ -575,8 +575,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
           <tr><td>2020</td><td>Qualified</td></tr>
           <tr><td>2021</td><td>Qualified</td></tr>
           <tr><td>2022</td><td>Qualified</td></tr>
-          <tr><td>2023</td><td>Unmodified</td></tr>
+          <tr><td>2023</td><td>Unqualified</td></tr>
           <tr><td>2024</td><td>Qualified</td></tr>
+          <tr><td>2025</td><td>Non-Compliant (LDRRMF)</td></tr>
         </tbody>
       </table>
       <button class="report-btn" data-download="audit-opinions">{STATISTICS_CHART_DOWNLOAD}</button>
@@ -809,5 +810,56 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
         <p style="margin-top:8px;font-size:0.85rem;color:var(--ink-soft)">AAPSI/APMT tracking documents are also available in the audit-reports folder.</p>
       </div>
     </div>
+  </div>
+</section>
+<section class="section" id="coa-projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{TRANSPARENCY_COA_PROJECTS_EYEBROW}</div>
+      <h2>{TRANSPARENCY_COA_PROJECTS_TITLE}</h2>
+      <p>{TRANSPARENCY_COA_PROJECTS_DESC}</p>
+    </div>
+    <div class="table-wrap">
+      <table aria-label="COA highlighted infrastructure projects">
+        <thead>
+          <tr>
+            <th scope="col">Project</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Year</th>
+            <th scope="col">Category</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="coa-projects-table-body">
+        </tbody>
+      </table>
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports 2016&ndash;2024. Projects identified through Operational Highlights sections of audit reports.</p>
+  </div>
+</section>
+<section class="section section-alt" id="disallowances">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{TRANSPARENCY_DISALLOWANCES_EYEBROW}</div>
+      <h2>{TRANSPARENCY_DISALLOWANCES_TITLE}</h2>
+      <p>{TRANSPARENCY_DISALLOWANCES_DESC}</p>
+    </div>
+    <div class="card mt-24" aria-live="polite">
+      <h3>Disallowances Trend (2015&ndash;2024)</h3>
+      <canvas id="chart-disallowances" height="200" role="img" aria-label="Disallowances trend from 360K in 2015 decreasing to 35K persistent since 2018"></canvas>
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports 2015&ndash;2024. Disallowances represent amounts charged against accountable officers pending final resolution.</p>
+  </div>
+</section>
+<section class="section" id="reform-trackers">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{TRANSPARENCY_REFORM_EYEBROW}</div>
+      <h2>{TRANSPARENCY_REFORM_TITLE}</h2>
+      <p>{TRANSPARENCY_REFORM_DESC}</p>
+    </div>
+    <div id="reform-trackers-container">
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports and Management Action Plans. Reform status tracked through audit findings and subsequent compliance actions.</p>
   </div>
 </section>

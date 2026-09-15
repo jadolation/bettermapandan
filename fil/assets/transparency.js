@@ -24,8 +24,7 @@ function downloadTransparencyCSV(type) {
       });
       lines.push(vals.join(","));
     }
-    csv = lines.join("
-");
+    csv = lines.join("\n");
   }
   var blob = new Blob([csv], { type: "text/csv" });
   var a = document.createElement("a");
@@ -170,6 +169,22 @@ function updateDpwhCards(filtered) {
   if (elStatus) elStatus.innerHTML = completed + " Completed \u2022 " + ongoing + " Ongoing \u2022 " + notStarted + " Not Started";
 }
 
+function syncDpwhFilters(range, termIndex) {
+  var dpwhFilterContainer = document.getElementById("dpwh-filters");
+  var dpwhTermContainer = document.getElementById("dpwh-term-filters");
+  if (dpwhFilterContainer) {
+    dpwhFilterContainer.querySelectorAll(".filter-pill").forEach(function(b) {
+      b.classList.toggle("active", b.getAttribute("data-range") === range);
+    });
+  }
+  if (dpwhTermContainer) {
+    dpwhTermContainer.querySelectorAll(".term-pill").forEach(function(b) {
+      var idx = parseInt(b.getAttribute("data-term"), 10);
+      b.classList.toggle("active", idx === termIndex);
+    });
+  }
+}
+
 function filterDpwhTable(filtered) {
   var table = document.getElementById("dpwh-table");
   if (!table) return;
@@ -291,7 +306,11 @@ function updateAll(range, mayoralTermIndex) {
   }
 
   if (window._refreshTable) window._refreshTable();
-  if (window.refreshDpwhMap) window.refreshDpwhMap(currentRange, currentMayoralTerm, customDates.from, customDates.to);
+  syncDpwhFilters(currentRange, currentMayoralTerm);
+  if (window.refreshDpwhMap) {
+    var cd = getCustomDateRange();
+    window.refreshDpwhMap(currentRange, currentMayoralTerm, cd.from, cd.to);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -301,9 +320,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  var filterContainer = document.getElementById("procurement-filters");
+  var termContainer = document.getElementById("mayoral-term-filters");
   var customRangeInline = document.getElementById("custom-range-inline");
   var customApplyBtn = document.getElementById("custom-range-apply");
   var clearTermBtn = document.getElementById("clear-mayoral-term");
+
+  if (filterContainer) {
+    filterContainer.addEventListener("click", function(e) {
+      var btn = e.target.closest(".filter-pill");
+      if (!btn) return;
+      var range = btn.getAttribute("data-range");
+      filterContainer.querySelectorAll(".filter-pill").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      if (range === "custom") {
+        if (customRangeInline) customRangeInline.classList.add("open");
+      } else {
+        if (customRangeInline) customRangeInline.classList.remove("open");
+        updateAll(range, currentMayoralTerm);
+      }
+    });
+  }
+
+  if (termContainer) {
+    termContainer.addEventListener("click", function(e) {
+      var btn = e.target.closest(".term-pill");
+      if (!btn) return;
+      termContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var idx = parseInt(btn.getAttribute("data-term"), 10);
+      if (clearTermBtn) clearTermBtn.style.display = "inline-block";
+      updateAll(currentRange, idx);
+    });
+  }
 
   if (customApplyBtn) {
     customApplyBtn.addEventListener("click", function() {
@@ -313,9 +362,136 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (clearTermBtn) {
     clearTermBtn.addEventListener("click", function() {
-      termContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
+      if (termContainer) {
+        termContainer.querySelectorAll(".term-pill").forEach(function(b) { b.classList.remove("active"); });
+      }
       clearTermBtn.style.display = "none";
       updateAll(currentRange, null);
     });
+  }
+
+  // COA Projects Table
+  var projectsBody = document.getElementById("coa-projects-table-body");
+  if (projectsBody && window.AUDIT_DATA && window.AUDIT_DATA.infrastructure_projects) {
+    var projects = window.AUDIT_DATA.infrastructure_projects;
+    var html = "";
+    projects.forEach(function(p) {
+      var costFormatted = "\u20B1" + (p.cost / 1000000).toFixed(1) + "M";
+      var statusClass = p.status === "completed" ? "pill-completed" : "pill-ongoing";
+      html += "<tr>";
+      html += "<td><strong>" + p.name + "</strong><br><span class='text-xs text-ink-soft'>" + p.description + "</span></td>";
+      html += "<td>" + costFormatted + "</td>";
+      html += "<td>" + p.year_started + (p.year_completed !== p.year_started ? "\u2013" + p.year_completed : "") + "</td>";
+      html += "<td>" + p.category + "</td>";
+      html += "<td><span class='pill " + statusClass + "'>" + p.status.charAt(0).toUpperCase() + p.status.slice(1) + "</span></td>";
+      html += "</tr>";
+    });
+    projectsBody.innerHTML = html;
+  }
+
+  // Disallowances Chart
+  var disallowCanvas = document.getElementById("chart-disallowances");
+  if (disallowCanvas && window.AUDIT_DATA && window.AUDIT_DATA.disallowances) {
+    var disallowances = window.AUDIT_DATA.disallowances;
+    var dLabels = disallowances.map(function(d) { return d.year; });
+    var dData = disallowances.map(function(d) { return d.amount / 1000; });
+    var dColors = disallowances.map(function(d) {
+      return d.status === "under_appeal" ? "#f0c040" : (d.status === "persistent" ? "#d9534f" : "#5cb85c");
+    });
+    new Chart(disallowCanvas.getContext("2d"), {
+      type: "bar",
+      data: {
+        labels: dLabels,
+        datasets: [{
+          label: "Disallowances (PHP Thousands)",
+          data: dData,
+          backgroundColor: dColors,
+          borderColor: dColors,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var item = disallowances[ctx.dataIndex];
+                return "\u20B1" + item.amount.toLocaleString() + " (" + item.status.replace("_", " ") + ")";
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: function(v) { return "\u20B1" + v + "K"; }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Reform Trackers
+  var reformContainer = document.getElementById("reform-trackers-container");
+  if (reformContainer && window.AUDIT_DATA && window.AUDIT_DATA.reform_trackers) {
+    var trackers = window.AUDIT_DATA.reform_trackers;
+    var html = '<div class="grid grid-2">';
+    trackers.forEach(function(t) {
+      var statusClass = t.status === "resolved" ? "pill-completed" : (t.status === "in_progress" ? "pill-ongoing" : "pill-pending");
+      html += '<div class="card">';
+      html += '<div class="flex-center mb-12">';
+      html += '<span class="pill ' + statusClass + '">' + t.status_label + '</span>';
+      html += '<span class="text-sm text-ink-soft">' + t.category + '</span>';
+      html += '</div>';
+      html += '<h3>' + t.title + '</h3>';
+      html += '<p class="text-sm">' + t.description + '</p>';
+      if (t.finding_amount > 0) {
+        html += '<p class="figure text-lg">\u20B1' + (t.finding_amount / 1000000).toFixed(1) + 'M</p>';
+      }
+      html += '<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">';
+      t.milestones.forEach(function(m) {
+        var icon = m.status === "completed" ? "\u2713" : (m.status === "in_progress" ? "\u25CB" : "\u25CB");
+        var color = m.status === "completed" ? "var(--green-deep)" : (m.status === "in_progress" ? "var(--blue)" : "var(--ink-soft)");
+        html += '<div style="display:flex;align-items:center;gap:8px;font-size:0.85rem">';
+        html += '<span style="color:' + color + ';font-weight:600;min-width:18px">' + icon + '</span>';
+        html += '<span>' + m.label;
+        if (m.date) html += ' <span class="text-xs text-ink-soft">(' + m.date + ')</span>';
+        html += '</span>';
+        html += '</div>';
+      });
+      html += '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+    reformContainer.innerHTML = html;
+  }
+
+  // Audit Opinion Chart - add 2025 data point
+  var opinionCanvas = document.getElementById("chart-audit-opinion");
+  if (opinionCanvas && window.AUDIT_DATA && window.AUDIT_DATA.opinions) {
+    var opinions = window.AUDIT_DATA.opinions;
+    var oLabels = opinions.map(function(o) { return o.year; });
+    var oData = opinions.map(function(o) {
+      if (o.opinion === "Unqualified" || o.opinion === "Unmodified") return 3;
+      if (o.opinion === "Non-Compliant") return 0;
+      return 1;
+    });
+    var oColors = opinions.map(function(o) {
+      if (o.color === "green") return "#16532c";
+      if (o.color === "red") return "#d9534f";
+      return "#f0c040";
+    });
+    // Check if chart already exists and update
+    if (window._auditOpinionChart) {
+      window._auditOpinionChart.data.labels = oLabels;
+      window._auditOpinionChart.data.datasets[0].data = oData;
+      window._auditOpinionChart.data.datasets[0].backgroundColor = oColors;
+      window._auditOpinionChart.update();
+    }
   }
 });
