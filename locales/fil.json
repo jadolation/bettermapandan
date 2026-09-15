@@ -43,7 +43,7 @@
     "residents": "Mamamayan",
     "barangays": "Barangay",
     "households": "Mga Pamamahay",
-    "density": "Populasyon/km²",
+    "density": "Populasyon/km\u00b2",
     "land_area": "Lupang area"
   },
   "homepage": {
@@ -83,7 +83,7 @@
     "emergency_rhu": "Rural Health Unit",
     "emergency_hospital": "Mapandan Community Hospital",
     "emergency_water": "Mapandan Water District",
-    "municipality_desc_full": "Matatagpuan ang Mapandan sa Ikatlong Kongresonal na Distrito ng Pangasinan, hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. Sakop nito ang 32.92 square kilometro, kung saan halos tatlo sa apat na bahagi ng lupain ay suportado ang agrikultura — pangunahin ang palay, kasama ang mais, hayop, at mga panahong gulay.",
+    "municipality_desc_full": "Matatagpuan ang Mapandan sa Ikatlong Kongresonal na Distrito ng Pangasinan, hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. Sakop nito ang 32.92 square kilometro, kung saan halos tatlo sa apat na bahagi ng lupain ay suportado ang agrikultura \u2014 pangunahin ang palay, kasama ang mais, hayop, at mga panahong gulay.",
     "milestone1_era": "Bago 1887",
     "milestone1_era_desc": "Ang Mapandan ay nilikha bilang isang independenteng pueblo sa pamamagitan ng Director General Blg. 39, nilagdaan noong Disyembre 28, 1887, hiwalay sa bayan ng Mangaldan.",
     "milestone2_era": "Dis. 28, 1887",
@@ -120,7 +120,10 @@
     "mayor_affil": "Nacionalista Party (NP)",
     "vice_mayor_name": "Hon. Anthony C. Penuliar",
     "vice_mayor_role": "Punong Bayan-Pangalawa &middot; Tagapangulo",
-    "vice_mayor_affil": "Independent (IND)"
+    "vice_mayor_affil": "Independent (IND)",
+    "transparency_eyebrow": "Transparency",
+    "transparency_title": "Budget, Kontrata, at Audit",
+    "transparency_desc": "Mga datos para sa financial accountability ng Mapandan \u2014 budgets, procurement, infrastructure, at mga COA audit report \u2014 lahat ay nasa isang lugar."
   },
   "service_page": {
     "description": "Paglalarawan",
@@ -391,7 +394,13 @@
     "fiscal_balance": "Piskal na Balanse",
     "budget_trend_note": "Tala tungkol sa spike ng CY 2022: Sumasalamin sa mga one-time infrastructure transfer at supplemental appropriation.",
     "budget_trend_chart": "Paglago ng Badyet (CY 2020-2026)",
-    "budget_trend_table_headers": ["Taon ng Piskal", "Kita", "Gastos", "Balanse", "Paglago"],
+    "budget_trend_table_headers": [
+      "Taon ng Piskal",
+      "Kita",
+      "Gastos",
+      "Balanse",
+      "Paglago"
+    ],
     "fiscal_structure_eyebrow": "Istruktura ng Piskal",
     "fiscal_structure_title": "Dependensya sa kita at mga itinakdang pondo ayon sa batas",
     "fiscal_structure_desc": "Ang arkitektura ng piskal ng Mapandan ay malaki ang pag-asa sa mga intergovernmental transfer, na may mga itinakdang pondo ayon sa batas na naglilimita sa discretionary spending.",
@@ -469,7 +478,12 @@
     "procurement_eyebrow": "Talaan ng Pagbili",
     "procurement_title": "Mga Kamakailang Proyektong Kapital at Pagbili",
     "procurement_desc": "Mga kapansin-pansing imprastraktura at kagamitan na binili sa pamamagitan ng taunang badyet.",
-    "procurement_headers": ["Proyekto", "Halaga", "Katayuan", "Pinagmulan"],
+    "procurement_headers": [
+      "Proyekto",
+      "Halaga",
+      "Katayuan",
+      "Pinagmulan"
+    ],
     "external_eyebrow": "Mga Panlabas na Link",
     "external_title": "Mga Portal ng Pagiging Transparent at Mapagkukunan",
     "external_desc": "Mga pambansang at probinsyal na platform para sa pag-access sa datos ng pinansyal ng pamahalaan at mga ulat ng audyt.",

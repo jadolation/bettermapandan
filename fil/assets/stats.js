@@ -227,6 +227,84 @@ window.addEventListener("load", function () {
     });
   }
 
+  // Homepage mini charts
+  var homeBudgetCtx = document.getElementById("chart-homepage-budget");
+  if (homeBudgetCtx) {
+    new Chart(homeBudgetCtx, {
+      type: "bar",
+      data: {
+        labels: ["CY 2020", "CY 2021", "CY 2022", "CY 2023", "CY 2024", "CY 2025", "CY 2026"],
+        datasets: [{
+          label: "Annual Budget (PHP Millions)",
+          data: [122.4, 129.3, 173.1, 151.5, 160.8, 193.1, 218.2],
+          backgroundColor: [green, green, gold, green, green, green, gold]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return "₱" + ctx.raw.toFixed(1) + " Million";
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: "PHP Millions" }
+          },
+          x: {
+            title: { display: true, text: "Fiscal Year" }
+          }
+        }
+      }
+    });
+  }
+
+  var homePopCtx = document.getElementById("chart-homepage-population");
+  if (homePopCtx) {
+    new Chart(homePopCtx, {
+      type: "line",
+      data: {
+        labels: ["1995", "2000", "2007", "2010", "2015", "2020", "2024"],
+        datasets: [{
+          label: "Population",
+          data: [27439, 30775, 32905, 34439, 37059, 38058, 38228],
+          borderColor: green,
+          backgroundColor: "rgba(76,138,46,0.1)",
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return "Population: " + ctx.raw.toLocaleString();
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: { display: true, text: "Population" }
+          },
+          x: {
+            title: { display: true, text: "Year" }
+          }
+        }
+      }
+    });
+  }
+
   // --- Make table rows clickable without showing the URL ---
   document.querySelectorAll('.clickable-row').forEach(function(row) {
     row.addEventListener('click', function(e) {
@@ -249,4 +327,83 @@ window.addEventListener("load", function () {
       }
     });
   });
+
+  // Homepage procurement charts
+  var homeMonthlyCtx = document.getElementById("chart-homepage-monthly");
+  if (homeMonthlyCtx && window.PROCUREMENT_DATA) {
+    var monthly = window.PROCUREMENT_DATA.monthly || [];
+    new Chart(homeMonthlyCtx, {
+      type: "bar",
+      data: {
+        labels: monthly.map(function(d) { return d.month; }),
+        datasets: [{
+          label: "Contract Amount",
+          data: monthly.map(function(d) { return d.total / 1000000; }),
+          backgroundColor: green
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return "₱" + ctx.raw.toFixed(1) + " Million";
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: "PHP Millions" }
+          },
+          x: {
+            title: { display: true, text: "Month" }
+          }
+        }
+      }
+    });
+  }
+
+  var homeAwardeesCtx = document.getElementById("chart-homepage-awardees");
+  if (homeAwardeesCtx && window.PROCUREMENT_DATA) {
+    var awardees = window.PROCUREMENT_DATA.awardees || [];
+    new Chart(homeAwardeesCtx, {
+      type: "bar",
+      data: {
+        labels: awardees.map(function(d) { return d.name; }),
+        datasets: [{
+          label: "Total Contract Value",
+          data: awardees.map(function(d) { return d.total / 1000000; }),
+          backgroundColor: green
+        }]
+      },
+      options: {
+        responsive: true,
+        indexAxis: "y",
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return "₱" + ctx.raw.toFixed(1) + " Million";
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            title: { display: true, text: "PHP Millions" }
+          },
+          y: {
+            title: { display: true, text: "Awardee" }
+          }
+        }
+      }
+    });
+  }
+
 });

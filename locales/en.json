@@ -90,7 +90,7 @@
     "milestone2_era": "Dec. 28, 1887",
     "milestone3_era": "1905&ndash;1909",
     "milestone4_era": "2020s",
-    "municipality_desc_full": "Mapandan sits in the Third Congressional District of Pangasinan, bounded by San Jacinto to the north, Mangaldan to the northwest, Manaoag to the east, and Santa Barbara to the south. Covering 32.92 square kilometres, around three-quarters of its land supports agriculture — mainly rice, alongside corn, livestock, and seasonal vegetables.",
+    "municipality_desc_full": "Mapandan sits in the Third Congressional District of Pangasinan, bounded by San Jacinto to the north, Mangaldan to the northwest, Manaoag to the east, and Santa Barbara to the south. Covering 32.92 square kilometres, around three-quarters of its land supports agriculture \u2014 mainly rice, alongside corn, livestock, and seasonal vegetables.",
     "milestone1_era_desc": "Mapandan was created as an independent pueblo through Director General No. 39, signed on December 28, 1887, separating from the town of Mangaldan.",
     "milestone2_era_desc": "After being re-annexed to Mangaldan due to financial insolvency, Mapandan regained its independence in 1909 through Executive Order No. 10 by Governor General James F. Smith.",
     "milestone3_era_desc": "The municipality's economy centers on rice cultivation, with irrigation systems supporting year-round farming across its lowland barangays.",
@@ -120,7 +120,10 @@
     "mayor_affil": "Nacionalista Party (NP)",
     "vice_mayor_name": "Hon. Anthony C. Penuliar",
     "vice_mayor_role": "Vice Mayor &middot; Presiding Officer",
-    "vice_mayor_affil": "Independent (IND)"
+    "vice_mayor_affil": "Independent (IND)",
+    "transparency_eyebrow": "Transparency",
+    "transparency_title": "Budget, Contracts & Audit",
+    "transparency_desc": "Financial accountability data for Mapandan \u2014 budgets, procurement, infrastructure, and COA audit reports \u2014 all in one place."
   },
   "service_page": {
     "description": "Description",
@@ -391,7 +394,13 @@
     "fiscal_balance": "Fiscal Balance",
     "budget_trend_note": "Note about CY 2022 spike: Reflects one-time infrastructure transfers and supplemental appropriations.",
     "budget_trend_chart": "Budget Growth (CY 2020-2026)",
-    "budget_trend_table_headers": ["Fiscal Year", "Revenue", "Expenditure", "Balance", "Growth"],
+    "budget_trend_table_headers": [
+      "Fiscal Year",
+      "Revenue",
+      "Expenditure",
+      "Balance",
+      "Growth"
+    ],
     "fiscal_structure_eyebrow": "Fiscal Structure",
     "fiscal_structure_title": "Revenue sources & required spending",
     "fiscal_structure_desc": "Mapandan gets most of its budget from national government transfers. By law, some money must be spent on specific programs.",
@@ -469,7 +478,12 @@
     "procurement_eyebrow": "Procurement Ledger",
     "procurement_title": "Recent capital projects & procurements",
     "procurement_desc": "Notable infrastructure and equipment acquisitions funded through the annual budget.",
-    "procurement_headers": ["Project", "Amount", "Status", "Source"],
+    "procurement_headers": [
+      "Project",
+      "Amount",
+      "Status",
+      "Source"
+    ],
     "external_eyebrow": "External Links",
     "external_title": "Transparency portals & resources",
     "external_desc": "National and provincial platforms for accessing government financial data and audit reports.",

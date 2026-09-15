@@ -1692,6 +1692,9 @@ def _build_homepage_labels(locale: dict) -> dict:
         "HOMEPAGE_WEATHER_LOADING": t(locale, "homepage.weather_loading", "Loading weather data..."),
         "HOMEPAGE_WEATHER_CTA": t(locale, "homepage.weather_cta", "View PAGASA Advisories &rarr;"),
         "HOMEPAGE_MAP_CTA": t(locale, "homepage.map_cta", "Open in Google Maps &rarr;"),
+        "HOMEPAGE_TRANSPARENCY_DESC": t(locale, "homepage.transparency_desc", ""),
+        "HOMEPAGE_TRANSPARENCY_EYEBROW": t(locale, "homepage.transparency_eyebrow", ""),
+        "HOMEPAGE_TRANSPARENCY_TITLE": t(locale, "homepage.transparency_title", ""),
         "STATS_BARANGAYS": t(locale, "stats.barangays", ""),
         "STATS_DENSITY": t(locale, "stats.density", ""),
         "STATS_HOUSEHOLDS": t(locale, "stats.households", ""),
@@ -2148,6 +2151,41 @@ def build_search_entry(rel: Path, title: str, description: str, body: str, is_fi
     return entry
 
 
+def generate_homepage_procurement_data() -> str:
+    data_path = SRC_DATA / "procurement.json"
+    if not data_path.exists():
+        return "{\"monthly\":[],\"awardees\":[]}"
+    data = json.loads(data_path.read_text(encoding="utf-8"))
+    contracts = data.get("contracts", [])
+    
+    monthly = {}
+    for c in contracts:
+        if c.get("award_date"):
+            m = c["award_date"][:7]
+            monthly[m] = monthly.get(m, 0) + (c.get("amount") or 0)
+    monthly_list = [{"month": k, "total": v} for k, v in sorted(monthly.items())]
+    
+    awardees = {}
+    for c in contracts:
+        name = (c.get("awardee") or "Unknown").strip()
+        awardees[name] = awardees.get(name, 0) + (c.get("amount") or 0)
+    awardees_list = sorted(
+        [{"name": k, "total": v} for k, v in awardees.items()],
+        key=lambda x: x["total"],
+        reverse=True
+    )[:10]
+    
+    return json.dumps({"monthly": monthly_list, "awardees": awardees_list}, ensure_ascii=False)
+
+
+def generate_homepage_dpwh_data() -> str:
+    data_path = SRC_DATA / "dpwh.json"
+    if not data_path.exists():
+        return "[]"
+    data = json.loads(data_path.read_text(encoding="utf-8"))
+    return json.dumps(data.get("projects", []), ensure_ascii=False)
+
+
 # ---------------------------------------------------------------------------
 # Main build orchestrator (refactored)
 # ---------------------------------------------------------------------------
@@ -2243,6 +2281,11 @@ def _process_static_page(
         body = body.replace("{PROCUREMENT_SECTION}", proc_html, 1)
         dpwh_html, _, _ = generate_dpwh(locale, asset_base)
         body = body.replace("{DPWH_SECTION}", dpwh_html, 1)
+    if rel.name == "index.html":
+        proc_data = generate_homepage_procurement_data()
+        body = body.replace("{HOMEPAGE_PROCUREMENT_DATA}", proc_data, 1)
+        dpwh_data = generate_homepage_dpwh_data()
+        body = body.replace("{HOMEPAGE_DPWH_DATA}", dpwh_data, 1)
     if rel.name == "statistics.html":
         comparison_script = build_barangay_comparison_script()
         stats_js_tag = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
@@ -2253,6 +2296,9 @@ def _process_static_page(
     if rel.name == "transparency.html":
         transparency_js = '<script defer src="' + asset_base + '/assets/transparency.js"></script>'
         page_html = page_html.replace("</body>", transparency_js + "\n</body>", 1)
+    if rel.name == "index.html":
+        homepage_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        page_html = page_html.replace("</body>", homepage_js + "\n</body>", 1)
 
     out_path = out_root / to_folder_index(rel)
     out_path.parent.mkdir(parents=True, exist_ok=True)

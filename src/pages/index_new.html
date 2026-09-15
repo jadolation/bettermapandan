@@ -1,8 +1,46 @@
 ---
 title: BetterMapandan.org — Mapandan, Pangasinan Transparency Portal
-description: An independent civic transparency portal for Mapandan, Pangasinan, offering officials, budgets, ordinances, frontline services, and emergency contacts, built under the BetterGov.ph BetterLGU initiative.
+description: An independe<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{HOMEPAGE_TRANSPARENCY_EYEBROW}</div>
+      <h2>{HOMEPAGE_TRANSPARENCY_TITLE}</h2>
+      <p>{HOMEPAGE_TRANSPARENCY_DESC}</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>FY 2026 Budget</h3>
+        <p class="figure">₱218.2M</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: SP Res. No. 438-2026 / Approved Mar 30, 2026</span>
+        <a class="link-arrow" href="/transparency/">View budget details →</a>
+      </div>
+      <div class="card">
+        <h3>Active Contracts</h3>
+        <p class="figure">277</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: PhilGEPS / BetterGov.ph</span>
+        <a class="link-arrow" href="/transparency/">View contracts →</a>
+      </div>
+      <div class="card">
+        <h3>Infrastructure Projects</h3>
+        <p class="figure">45</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: DPWH Transparency Portal</span>
+        <a class="link-arrow" href="/transparency/">View map →</a>
+      </div>
+      <div class="card">
+        <h3>COA Audit Status</h3>
+        <p class="figure">Qualified</p>
+        <span class="verification-badge badge-official">Official</span>
+        <span class="source-label">Source: COA AAR 2024</span>
+        <a class="link-arrow" href="/transparency/">View findings →</a>
+      </div>
+    </div>
+  </div>
+</section>
+t, citizen-run transparency vices, and emergency contacts, buil under the BetterGov.ph BetterLGU initiative.
 ---
-
 <section class="hero">
   <img class="hero-rays" src="{{ASSET_BASE}}/assets/municipal-seal.svg" alt="" aria-hidden="true" fetchpriority="high" width="120" height="120" />
   <div class="wrap">
@@ -100,46 +138,6 @@ description: An independent civic transparency portal for Mapandan, Pangasinan, 
 
 <section class="section">
   <div class="wrap">
-    <script>
-      window.PROCUREMENT_DATA = {HOMEPAGE_PROCUREMENT_DATA};
-      window.DPWH_PROJECTS = {HOMEPAGE_DPWH_DATA};
-    </script>
-    <div class="section-head">
-      <div class="section-eyebrow">{HOMEPAGE_TRANSPARENCY_EYEBROW}</div>
-      <h2>{HOMEPAGE_TRANSPARENCY_TITLE}</h2>
-      <p>{HOMEPAGE_TRANSPARENCY_DESC}</p>
-    </div>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Monthly Cost Trend</h3>
-        <p class="source-label" style="margin-top:0">Contract amounts over time &bull; Jun 2011 – Dec 2025</p>
-        <canvas id="chart-homepage-monthly" height="220" role="img" aria-label="Monthly contract amounts"></canvas>
-      </div>
-      <div class="card">
-        <h3>Top 10 Awardees</h3>
-        <p class="source-label" style="margin-top:0">By total contract value &bull; Jun 2011 – Dec 2025</p>
-        <canvas id="chart-homepage-awardees" height="220" role="img" aria-label="Top 10 awardees by contract value"></canvas>
-      </div>
-    </div>
-    <div style="margin-top:24px">
-      <div class="section-head">
-        <div class="section-eyebrow">DPWH &middot; Infrastructure</div>
-        <h2>Infrastructure Projects</h2>
-      </div>
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-      <div id="dpwh-map" style="height:420px;border-radius:8px;margin-bottom:24px"></div>
-      <p id="dpwh-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the project map.</p>
-      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-      <script defer src="{{ASSET_BASE}}/assets/leaflet-map.js"></script>
-    </div>
-    <div style="margin-top:16px; text-align:center">
-      <a class="btn btn-outline" href="/transparency/">View full transparency dashboard →</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">{HOMEPAGE_MUNICIPALITY_EYEBROW}</div>
       <h2>{HOMEPAGE_MUNICIPALITY_TITLE}</h2>
@@ -167,7 +165,92 @@ description: An independent civic transparency portal for Mapandan, Pangasinan, 
   </div>
 </section>
 
+<section class="section section-alt" id="history">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{HOMEPAGE_HISTORY_EYEBROW}</div>
+      <h2>{HOMEPAGE_HISTORY_TITLE}</h2>
+      <p>{HOMEPAGE_HISTORY_SUBTITLE}</p>
+    </div>
 
+    <div class="history-milestones">
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE1_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE1_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE1_DESC}</p>
+      </div>
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE2_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE2_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE2_DESC}</p>
+      </div>
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE3_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE3_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE3_DESC}</p>
+      </div>
+      <div class="milestone">
+        <span class="milestone-year">{HOMEPAGE_MILESTONE4_ERA}</span>
+        <h3>{HOMEPAGE_MILESTONE4_TITLE}</h3>
+        <p>{HOMEPAGE_MILESTONE4_DESC}</p>
+      </div>
+    </div>
+
+    <p class="cta-row">
+      <a class="link-arrow" href="/about/">{HOMEPAGE_HISTORY_CTA}</a>
+    </p>
+
+    <div class="section-head" style="margin-top:48px">
+      <div class="section-eyebrow">{HOMEPAGE_BARANGAY_EYEBROW}</div>
+      <h2>{HOMEPAGE_BARANGAY_TITLE}</h2>
+      <p>{HOMEPAGE_BARANGAY_SUBTITLE}</p>
+    </div>
+    <div class="barangay-grid" id="barangay-grid"></div>
+
+    <div class="history-sources">
+      <h3>{HOMEPAGE_SOURCES_TITLE}</h3>
+      <p>{HOMEPAGE_SOURCES_DESC}</p>
+      <ul>
+        <li>Municipality of Mapandan &mdash; <a href="https://mapandan.gov.ph/municipal-profile/" target="_blank" rel="noopener">Municipal Profile</a></li>
+        <li>Municipality of Mapandan &mdash; <a href="https://mapandan.gov.ph/mapandan-physical-characteristic/" target="_blank" rel="noopener">Physical Characteristics</a></li>
+        <li>Philippine Statistics Authority &mdash; <a href="https://psa.gov.ph/classification/psgc/barangays/0105528000" target="_blank" rel="noopener">Mapandan PSGC</a></li>
+        <li>Philippine News Agency &mdash; <a href="https://www.pna.gov.ph/articles/1220917" target="_blank" rel="noopener">Super Health Center Inauguration</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{HOMEPAGE_CULTURAL_EYEBROW}</div>
+      <h2>{HOMEPAGE_CULTURAL_TITLE}</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-photo" style="background-image:url('{{ASSET_BASE}}/assets/Pandan.webp')">
+        <div class="card-photo-inner">
+          <h3>{HOMEPAGE_PANDAN_TITLE}</h3>
+          <p>{HOMEPAGE_PANDAN_DESC}</p>
+        </div>
+        <span class="card-photo-credit">{HOMEPAGE_PANDAN_CREDIT}</span>
+      </div>
+      <div class="card card-photo" style="background-image:url('{{ASSET_BASE}}/assets/plaza.webp')">
+        <div class="card-photo-inner">
+          <h3>{HOMEPAGE_PLAZA_TITLE}</h3>
+          <p>{HOMEPAGE_PLAZA_DESC}</p>
+        </div>
+        <span class="card-photo-credit">{HOMEPAGE_PLAZA_CREDIT}</span>
+      </div>
+      <div class="card card-photo" style="background-image:url('{{ASSET_BASE}}/assets/luyan.webp')">
+        <div class="card-photo-inner">
+          <h3>{HOMEPAGE_AGRI_TITLE}</h3>
+          <p>{HOMEPAGE_AGRI_DESC}</p>
+        </div>
+        <span class="card-photo-credit">{HOMEPAGE_AGRI_CREDIT}</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section section-alt">
   <div class="wrap">
