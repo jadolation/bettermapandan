@@ -8,6 +8,9 @@
      1200px — large screens
    ========================================================================== */
 
+/* Desktop default: hide mobile-only UI */
+.mobile-action-bar { display: none; }
+
 /* ==========================================================================
    MOBILE ≤ 720px — language banner, nav, grids, stat strip, civic hub,
    procurement toolbar, mobile action bar

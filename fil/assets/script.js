@@ -282,8 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (err.name === "AbortError") {
           msg = "Weather request timed out.";
         }
-        weatherEl.innerHTML = '<div class="weather-error">' + msg +
-          ' <a href="https://www.open-meteo.com/" target="_blank" rel="noopener">Try Open-Meteo directly</a></div>' +
+        weatherEl.innerHTML = '<div class="weather-error">' + msg + '</div>' +
           '<div class="weather-pagasa-fallback"><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">View PAGASA Advisories &rarr;</a></div>';
       });
   }

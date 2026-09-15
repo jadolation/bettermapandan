@@ -546,6 +546,9 @@ def _process_static_page(
     if rel.name == "index.html":
         homepage_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
         page_html = page_html.replace("</body>", homepage_js + "\n</body>", 1)
+    if rel.name == "about.html":
+        about_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        page_html = page_html.replace("</body>", about_js + "\n</body>", 1)
 
     out_path = out_root / to_folder_index(rel)
     out_path.parent.mkdir(parents=True, exist_ok=True)
