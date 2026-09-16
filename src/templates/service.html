@@ -5,6 +5,29 @@ hero_eyebrow: {{CATEGORY_NAME}}
 hero_heading: {{NAME}}
 hero_lede: {{HERO_LEDE}}
 ---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentService",
+  "name": "{{NAME}}",
+  "description": "{{DESCRIPTION}}",
+  "provider": {
+    "@type": "GovernmentOrganization",
+    "name": "Municipality of Mapandan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mapandan",
+      "addressRegion": "Pangasinan",
+      "addressCountry": "PH"
+    }
+  },
+  "serviceType": "{{CATEGORY_NAME}}",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Mapandan, Pangasinan, Philippines"
+  }
+}
+</script>
 <section class="section">
   <div class="wrap">
     <div class="grid grid-2" style="align-items:start; gap:32px">

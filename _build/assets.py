@@ -23,6 +23,9 @@ def generate_sitemap() -> None:
             return False
         if path.name != "index.html":
             return False
+        # Skip development artifacts
+        if "index_new" in parts:
+            return False
         return True
 
     en_files = sorted([f for f in ROOT.rglob("index.html") if _is_output_index(f)])
@@ -32,6 +35,27 @@ def generate_sitemap() -> None:
     fil_paths = {f.relative_to(FIL_DIR).as_posix() for f in fil_files}
     all_paths = sorted(en_paths | fil_paths)
 
+    def _get_priority(path_str: str) -> str:
+        """Set priority based on page type."""
+        if path_str == "index.html":
+            return "1.0"
+        # Section pages - check if it's a direct child like "about/index.html"
+        section_pages = ["about", "government", "legislative", "statistics", "transparency", "search"]
+        parts = Path(path_str).parts
+        if len(parts) == 2 and parts[0] in section_pages and parts[1] == "index.html":
+            return "0.8"
+        # Support pages
+        if "support" in parts:
+            return "0.5"
+        # Service detail pages
+        if "services" in parts and len(parts) > 2:
+            return "0.6"
+        # Services directory
+        if len(parts) == 2 and parts[0] == "services" and parts[1] == "index.html":
+            return "0.8"
+        return "0.7"
+
+    seen_urls = set()
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
@@ -53,12 +77,17 @@ def generate_sitemap() -> None:
             else:
                 en_url = f"{base_url}/{folder_str}/"
                 fil_url = f"{base_url}/fil/{folder_str}/"
+        # Deduplicate by en_url
+        if en_url in seen_urls:
+            continue
+        seen_urls.add(en_url)
+        priority = _get_priority(path)
         lines.extend([
             "  <url>",
             f"    <loc>{en_url}</loc>",
             f"    <lastmod>{today}</lastmod>",
             "    <changefreq>monthly</changefreq>",
-            "    <priority>0.8</priority>",
+            f"    <priority>{priority}</priority>",
             f'    <xhtml:link rel="alternate" hreflang="en" href="{en_url}"/>',
             f'    <xhtml:link rel="alternate" hreflang="fil" href="{fil_url}"/>',
             "  </url>",
@@ -66,7 +95,7 @@ def generate_sitemap() -> None:
 
     lines.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"  sitemap.xml: {len(all_paths)} URLs")
+    print(f"  sitemap.xml: {len(seen_urls)} URLs")
 
 
 def generate_llms_txt() -> None:
