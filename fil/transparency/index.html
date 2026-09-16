@@ -304,8 +304,8 @@
       <h2>Mga Proyektong Imprastraktura</h2>
       <p>Mga kontrata ng DPWH, mga proyekto ng kalsada at flood control, mga gusali ng paaralan, at pasilidad ng kalusugan sa Mapandan.</p>
     </div>
-      <div id="dpwh-map" style="height:420px;border-radius:8px;margin-bottom:24px"></div>
-      <p id="dpwh-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the project map. All projects are listed in the table below.</p>
+      <div id="dpwh-map" class="map-container"></div>
+      <p id="dpwh-map-fallback" class="source-label hidden">Enable JavaScript to view the project map. All projects are listed in the table below.</p>
       
 
     <div class="grid grid-3 stack-gap-lg" style="margin-top:24px">
@@ -401,7 +401,7 @@
 
 <p class="source-label">Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded. <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a></p>
 <style>.highlight-project{outline:3px solid var(--green-bright);outline-offset:4px;border-radius:6px;transition:outline .2s}</style>
-      <div class="grid grid-3 stack-gap-lg" style="margin-top:24px">
+      <div class="grid grid-3 stack-gap-lg mt-24">
         <div class="card">
           <h2>CY 2026 Taunang Badyet</h2>
           <p class="figure">&#8369;218.2M</p>
@@ -592,7 +592,7 @@
         <span class="verification-badge badge-official">Statutory</span>
       </div>
     </div>
-    <div class="grid grid-2" style="margin-top:24px">
+    <div class="grid grid-2 mt-24">
       <div class="card">
         <h3>Pondong Panspesyal na Edukasyon (SEF)</h3>
         <p>Financed through a 1% tax levy on assessed real property values under Section 235 of R.A. 7160. Co-administered by the Municipal School Board. Restricted to supplementary funding for public schools: facility construction, educational materials, instructional support, and sports development.</p>
@@ -868,7 +868,7 @@
       <h2>Opinyon ng Audit ng COA (2014&ndash;2024)</h2>
       <p>Taunang trend ng opinyon ng audit na nagpapakita ng pagtatasa ng Commission on Audit sa mga pansapi ng Mapandan sa loob ng 11 magkakasunod na taon. The 2025 entry reflects the LDRRMF special compliance audit, not a full financial statement audit.</p>
     </div>
-    <div class="card mt-24" style="overflow-x:hidden" aria-live="polite">
+    <div class="card mt-24 overflow-x-hidden" aria-live="polite">
       <h3>Opinyon ng Audit bawat Taon</h3>
       <canvas id="chart-audit-opinion" height="200" role="img" aria-label="Audit opinion trend from 2014 to 2025: 1 clean opinion, 1 unmodified opinion, 9 qualified opinions, and 1 non-compliant"></canvas>
       <table class="sr-only">
@@ -1074,14 +1074,14 @@
             <tbody>
               <tr><td>2014&rarr;2015</td><td>6</td><td>0</td><td>1</td><td class="text-green-bright">86%</td></tr>
               <tr><td>2015&rarr;2016</td><td>6</td><td>1</td><td>1</td><td class="text-green-bright">75%</td></tr>
-              <tr><td>2016&rarr;2017</td><td>6</td><td>4</td><td>4</td><td style="color:var(--gold)">43%</td></tr>
-              <tr><td>2017&rarr;2018</td><td>7</td><td>4</td><td>5</td><td style="color:var(--gold)">44%</td></tr>
-              <tr><td>2018&rarr;2019</td><td>9</td><td>7</td><td>4</td><td style="color:var(--gold)">45%</td></tr>
+              <tr><td>2016&rarr;2017</td><td>6</td><td>4</td><td>4</td><td class="text-gold">43%</td></tr>
+              <tr><td>2017&rarr;2018</td><td>7</td><td>4</td><td>5</td><td class="text-gold">44%</td></tr>
+              <tr><td>2018&rarr;2019</td><td>9</td><td>7</td><td>4</td><td class="text-gold">45%</td></tr>
               <tr><td>2019&rarr;2020</td><td>18</td><td>0</td><td>6</td><td class="text-green-bright">75%</td></tr>
-              <tr><td>2020&rarr;2021</td><td>10</td><td>0</td><td>11</td><td style="color:var(--gold)">48%</td></tr>
-              <tr><td>2021&rarr;2022</td><td>12</td><td>0</td><td>16</td><td style="color:var(--gold)">43%</td></tr>
-              <tr><td>2022&rarr;2023</td><td>11</td><td>0</td><td>20</td><td style="color:var(--gold)">35%</td></tr>
-              <tr><td>2023&rarr;2024</td><td>14</td><td>0</td><td>23</td><td style="color:var(--gold)">38%</td></tr>
+              <tr><td>2020&rarr;2021</td><td>10</td><td>0</td><td>11</td><td class="text-gold">48%</td></tr>
+              <tr><td>2021&rarr;2022</td><td>12</td><td>0</td><td>16</td><td class="text-gold">43%</td></tr>
+              <tr><td>2022&rarr;2023</td><td>11</td><td>0</td><td>20</td><td class="text-gold">35%</td></tr>
+              <tr><td>2023&rarr;2024</td><td>14</td><td>0</td><td>23</td><td class="text-gold">38%</td></tr>
             </tbody>
           </table>
         </div>
@@ -1102,7 +1102,7 @@
       <div class="card">
         <h3>Annual Audit Reports &amp; Action Plans (2014&ndash;2025)</h3>
         <p>Official COA annual audit reports, financial statements, and action plan monitoring tools organized by year.</p>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
+        <div class="flex-col gap-6 mt-8">
           <a class="link-arrow" href="/datasets/audit-reports/Mapandan2025_car.docx" target="_blank" rel="noopener">CY 2025 Compliance Audit (LDRRMF) &rarr;</a>
           <a class="link-arrow" href="/datasets/Mapandan-Annual-Audit-Report-2024/" target="_blank" rel="noopener">CY 2024 Audit Report &amp; Annexes &rarr;</a>
           <a class="link-arrow" href="/datasets/Mapandan-Annual-Audit-Report-2023/" target="_blank" rel="noopener">CY 2023 Audit Report &amp; Annexes &rarr;</a>
@@ -1116,7 +1116,7 @@
           <a class="link-arrow" href="/datasets/Mapandan-Annual-Audit-Report-2015/" target="_blank" rel="noopener">CY 2015 Audit Report &amp; Annexes &rarr;</a>
           <a class="link-arrow" href="/datasets/Mapandan-Annual-Audit-Report-2014/" target="_blank" rel="noopener">CY 2014 Audit Report &amp; Annexes &rarr;</a>
         </div>
-        <p style="margin-top:8px;font-size:0.85rem;color:var(--ink-soft)">AAPSI/APMT tracking documents are also available in the audit-reports folder.</p>
+        <p class="mt-8 text-sm text-ink-soft">AAPSI/APMT tracking documents are also available in the audit-reports folder.</p>
       </div>
     </div>
   </div>

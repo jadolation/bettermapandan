@@ -110,3 +110,23 @@
   color: #fff;
   font-size: 12px;
 }
+
+/* ---------- Layout helpers ---------- */
+
+.hidden { display: none; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-6 { gap: 6px; }
+.mt-8 { margin-top: 8px; }
+.overflow-x-hidden { overflow-x: hidden; }
+
+/* ---------- Color ---------- */
+
+.text-gold { color: var(--gold); }
+
+/* ---------- Map container ---------- */
+
+.map-container {
+  height: 420px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}

@@ -21,7 +21,7 @@ from _build.locales import load_locale, t
 from _build.templates import parse_page, fill, strip_html, strip_front_matter, compute_url, compute_asset_base, to_folder_index
 from _build.generators.services import generate_services
 from _build.generators.legislative import generate_legislative
-from _build.generators.dpwh import generate_dpwh
+from _build.generators.dpwh import generate_dpwh, _build_dpwh_labels
 from _build.generators.procurement import generate_procurement, generate_homepage_procurement_data, generate_homepage_dpwh_data
 from _build.generators.barangays import validate_barangays, generate_barangays, build_barangay_comparison_script, generate_barangay_councils_table
 from _build.assets import minify_assets, compress_images, generate_sitemap, generate_llms_txt
@@ -483,36 +483,6 @@ def _build_transparency_labels(locale: dict) -> dict:
     }
 
 
-def _build_dpwh_labels(locale: dict) -> dict:
-    return {
-        "DPWH_TITLE": t(locale, "transparency.infrastructure_title", "Infrastructure Projects"),
-        "DPWH_EYEBROW": t(locale, "transparency.infrastructure_eyebrow", "DPWH &middot; Infrastructure"),
-        "DPWH_LEDE": t(locale, "transparency.infrastructure_lede", "DPWH contracts, road and flood-control projects, school buildings, and health facilities in Mapandan."),
-        "DPWH_TOTAL_CONTRACTS": t(locale, "transparency.infrastructure_total_contracts", "Total Contracts"),
-        "DPWH_TOTAL_VALUE": t(locale, "transparency.infrastructure_total_value", "Total Contract Value"),
-        "DPWH_CATEGORY": t(locale, "transparency.infrastructure_category", "Category"),
-        "DPWH_STATUS": t(locale, "transparency.infrastructure_status", "Status"),
-        "DPWH_CONTRACTOR": t(locale, "transparency.infrastructure_contractor", "Contractor"),
-        "DPWH_AMOUNT": t(locale, "transparency.infrastructure_amount", "Amount"),
-        "DPWH_DATE": t(locale, "transparency.infrastructure_date", "Date"),
-        "DPWH_PROJECT": t(locale, "transparency.infrastructure_project", "Project"),
-        "DPWH_AGENCY": t(locale, "transparency.infrastructure_agency", "Implementing Agency"),
-        "DPWH_SOURCE": t(locale, "transparency.infrastructure_source", "Source"),
-        "DPWH_NO_LOCATION": t(locale, "transparency.infrastructure_no_location", "Projects without coordinates"),
-        "DPWH_VIEW_MAP": t(locale, "transparency.infrastructure_view_map", "View on map"),
-        "DPWH_FILTER_ALL": t(locale, "transparency.infrastructure_filter_all", "All"),
-        "DPWH_COMPLETED": t(locale, "transparency.infrastructure_completed", "Completed"),
-        "DPWH_ONGOING": t(locale, "transparency.infrastructure_ongoing", "Ongoing"),
-        "DPWH_NOT_STARTED": t(locale, "transparency.infrastructure_not_started", "Not Yet Started"),
-        "DPWH_CUSTOM_RANGE": t(locale, "transparency.infrastructure_custom_range", "Custom Range"),
-        "DPWH_FROM": t(locale, "transparency.infrastructure_from", "From"),
-        "DPWH_TO": t(locale, "transparency.infrastructure_to", "To"),
-        "DPWH_AGGREGATED": t(locale, "transparency.infrastructure_aggregated", "Aggregated from published contracts"),
-        "DPWH_STATUS_CARD": t(locale, "transparency.infrastructure_status_card", "Status"),
-        "DPWH_ACCOMPLISHMENT": t(locale, "transparency.infrastructure_accomplishment", "Accomplishment"),
-        "DPWH_MAP": t(locale, "transparency.infrastructure_map", "Map"),
-        "DPWH_SOURCE_NOTE": t(locale, "transparency.infrastructure_source_note", "Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded."),
-    }
 
 
 def _build_search_labels(locale: dict) -> dict:
