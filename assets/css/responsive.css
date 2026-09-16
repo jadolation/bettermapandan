@@ -290,6 +290,17 @@
 }
 
 /* ==========================================================================
+   AUDIT OPINION — prevent chart card from expanding
+   ========================================================================== */
+
+@media (min-width: 721px) {
+  #audit-opinion-timeline .card {
+    max-height: 420px;
+    overflow-y: auto;
+  }
+}
+
+/* ==========================================================================
    TABLET ≤ 900px — grids, stat strip, steps, footer, hero, weather,
    history layout, barangay, milestones, procurement card
    ========================================================================== */

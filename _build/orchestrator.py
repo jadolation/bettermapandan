@@ -42,13 +42,15 @@ def build_lang_switcher_urls(rel: Path, is_fil: bool) -> tuple[str, str]:
 
 
 def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
-    """Build breadcrumb HTML for a page."""
+    """Build breadcrumb HTML for a page. Only shown on service pages."""
     clean = to_folder_index(rel)
     depth = len(clean.parts) - 1
     if depth <= 0:
         return ""
-    home_href = "../" * depth
     section_slug = clean.parts[0]
+    if section_slug != "services":
+        return ""
+    home_href = "../" * depth
     if depth == 1:
         bc_items = [
             f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
