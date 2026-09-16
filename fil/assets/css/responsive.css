@@ -25,13 +25,18 @@
   .lang-banner-msg { font-size: 13px; }
   .lang-banner-btn { font-size: 12px; padding: 5px 10px; }
 
-  /* Prevent body/page from expanding due to wide children */
-  body { min-width: 0; }
+  /* Prevent mobile chrome rubber-band from creating visual gap */
+  html, body {
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  body { 
+    position: relative; 
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
 
   /* Mobile filter layout */
-  .section, .wrap {
-    overflow-x: hidden;
-  }
   .filter-pills {
     overflow-x: auto;
     flex-wrap: nowrap;
@@ -221,6 +226,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    width: 100%;
     max-width: 100%;
     overflow-x: hidden;
     background: var(--paper);
@@ -228,6 +234,8 @@
     z-index: 100;
     padding: 8px 0;
     padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box;
+    gap: 4px;
   }
   .mobile-action-item {
     flex: 1;
@@ -244,7 +252,7 @@
     min-height: 44px;
     transition: color var(--transition-fast), background var(--transition-fast);
     border-radius: 8px;
-    margin: 0 4px;
+    margin: 0;
   }
   .mobile-action-item:active {
     background: var(--gold-soft);
@@ -263,7 +271,6 @@
   .mobile-action-item:active svg {
     transform: scale(1.1);
   }
-  main#content { padding-bottom: 80px; }
 
   /* Civic contribution hub mobile */
   .segmented-control { flex-wrap: wrap; }
