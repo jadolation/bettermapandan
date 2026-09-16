@@ -25,6 +25,9 @@
   .lang-banner-msg { font-size: 13px; }
   .lang-banner-btn { font-size: 12px; padding: 5px 10px; }
 
+  /* Prevent body/page from expanding due to wide children */
+  body { min-width: 0; }
+
   /* Mobile filter layout */
   .section, .wrap {
     overflow-x: hidden;
@@ -218,6 +221,8 @@
     bottom: 0;
     left: 0;
     right: 0;
+    max-width: 100%;
+    overflow-x: hidden;
     background: var(--paper);
     border-top: 1px solid var(--line);
     z-index: 100;

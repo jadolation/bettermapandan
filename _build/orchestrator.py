@@ -208,6 +208,10 @@ def resolve_body_placeholders(body: str, locale: dict, asset_base: str) -> str:
     return fill(body, {
         "ASSET_BASE": asset_base,
         ** _build_page_body_labels(locale),
+        ** _build_homepage_labels(locale),
+        ** _build_statistics_labels(locale),
+        ** _build_transparency_labels(locale),
+        ** _build_search_labels(locale),
     })
 
 
@@ -402,6 +406,9 @@ def _build_statistics_labels(locale: dict) -> dict:
 
 def _build_transparency_labels(locale: dict) -> dict:
     return {
+        "DPWH_EYEBROW": t(locale, "transparency.infrastructure_eyebrow", "DPWH &middot; Infrastructure"),
+        "DPWH_TITLE": t(locale, "transparency.infrastructure_title", "Infrastructure Projects"),
+        "DPWH_LEDE": t(locale, "transparency.infrastructure_lede", "DPWH contracts, road and flood-control projects, school buildings, and health facilities in Mapandan."),
         "TRANSPARENCY_APPROPRIATIONS_EYEBROW": t(locale, "transparency.appropriations_eyebrow", ""),
         "TRANSPARENCY_APPROPRIATIONS_TITLE": t(locale, "transparency.appropriations_title", ""),
         "TRANSPARENCY_AUDIT_TITLE": t(locale, "transparency.audit_title", ""),

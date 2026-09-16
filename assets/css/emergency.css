@@ -16,6 +16,9 @@
   min-height: 44px;
   display: flex;
   align-items: center;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
 }
 
 .emergency-bar .wrap {

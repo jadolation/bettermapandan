@@ -591,6 +591,10 @@
     "disclaimer_title": "Terms of use",
     "read_more": "Read more",
     "show_less": "Show less",
+    "history_era1": "Founding & Early Governance",
+    "history_era2": "Agricultural Growth & Wartime",
+    "history_era3": "Post-War Community Development",
+    "history_era5": "21st Century Development",
     "history_timeline": [
       {
         "era": "1887",
