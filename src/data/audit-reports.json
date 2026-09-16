@@ -15,6 +15,16 @@
   ],
   "financial_performance": [
     {
+      "year": 2013,
+      "total_assets": 101056441,
+      "liabilities": 27843206,
+      "gov_equity": 73213235,
+      "income": 64849668,
+      "expenses": 54145928,
+      "surplus": 10703740,
+      "source": "COA AAR (Audited)"
+    },
+    {
       "year": 2014,
       "total_assets": 115037161,
       "liabilities": 33457198,
