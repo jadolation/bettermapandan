@@ -10,7 +10,9 @@
   font-size: 14px;
   font-weight: 600;
   overflow: hidden;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
   min-height: 44px;
   display: flex;
   align-items: center;
@@ -21,6 +23,7 @@
   padding: 10px 0;
   align-items: center;
   width: max-content;
+  max-width: none;
   animation: ticker 30s linear infinite;
 }
 
