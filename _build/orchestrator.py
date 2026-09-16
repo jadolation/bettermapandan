@@ -66,6 +66,81 @@ def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
     return '<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb">' + " &rsaquo; ".join(bc_items) + "</nav></div>\n"
 
 
+SECTION_NAMES = {
+    "about": "nav.about",
+    "government": "nav.government",
+    "legislative": "nav.legislative",
+    "statistics": "nav.statistics",
+    "transparency": "nav.transparency",
+    "search": "nav.search",
+    "support": "nav.support",
+    "services": "nav.services",
+}
+
+
+def build_breadcrumb_jsonld(locale: dict, rel: Path, page_title: str, is_fil: bool) -> str:
+    """Build BreadcrumbList JSON-LD for a page. Returns empty string for homepage."""
+    clean = to_folder_index(rel)
+    depth = len(clean.parts) - 1
+    if depth <= 0:
+        return ""
+
+    base_url = "https://bettermapandan.org"
+    lang_prefix = "/fil/" if is_fil else "/"
+    home_name = t(locale, "nav.home", "Home")
+
+    items: list[dict[str, object]] = []
+
+    def _add(position: int, name: str, url: str | None = None) -> None:
+        entry: dict[str, object] = {
+            "@type": "ListItem",
+            "position": position,
+            "name": name,
+        }
+        if url is not None:
+            entry["item"] = url
+        items.append(entry)
+
+    _add(1, home_name, f"{base_url}{lang_prefix}")
+
+    section_slug = clean.parts[0]
+
+    if section_slug == "services":
+        svc_name = t(locale, "nav.services", "Services")
+        svc_url = f"{base_url}{lang_prefix}services/"
+        if depth == 1:
+            _add(2, svc_name)
+        else:
+            _add(2, svc_name, svc_url)
+            _add(3, page_title)
+    elif section_slug == "support":
+        support_name = t(locale, "nav.support", "Support")
+        support_url = f"{base_url}{lang_prefix}support/"
+        if depth == 1:
+            _add(2, support_name)
+        else:
+            _add(2, support_name, support_url)
+            _add(3, page_title)
+    else:
+        key = SECTION_NAMES.get(section_slug)
+        if key:
+            section_name = t(locale, key, section_slug.replace("-", " ").title())
+        else:
+            section_name = section_slug.replace("-", " ").title()
+        _add(2, section_name)
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": items,
+    }
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(schema, indent=2, ensure_ascii=False)
+        + "\n</script>\n"
+    )
+
+
 def build_header(locale: dict, asset_base: str, is_fil: bool, en_url: str, fil_url: str) -> str:
     """Build the site header with navigation and locale strings."""
     header_raw = (SRC_PARTIALS / "header.html").read_text(encoding="utf-8")
@@ -472,7 +547,7 @@ def build_hero(meta: dict, page_hero_raw: str, asset_base: str) -> str:
     })
 
 
-def assemble_page(base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str, lang_code: str, page_url: str = "") -> str:
+def assemble_page(base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str, lang_code: str, page_url: str = "", breadcrumb_jsonld: str = "") -> str:
     """Assemble a complete page from its components."""
     base_url = "https://bettermapandan.org"
     if page_url:
@@ -493,6 +568,7 @@ def assemble_page(base: str, asset_base: str, title: str, description: str, head
         "FOOTER": footer,
         "LANG_ATTR": f' lang="{lang_code}"',
         "CANONICAL_URL": canonical,
+        "BREADCRUMB_JSONLD": breadcrumb_jsonld,
     })
 
 
@@ -542,7 +618,8 @@ def _process_static_page(
     if rel.name == "government.html":
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
     page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
-    page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url)
+    breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code == "fil")
+    page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url, breadcrumb_jsonld)
 
     if rel.name == "statistics.html":
         comparison_script = build_barangay_comparison_script()
@@ -605,11 +682,12 @@ def _process_generated_page(
         body_content = hero_html + body_content
 
     page_url = f"fil/{rel_path_str}" if lang_code == "fil" else rel_path_str
+    breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code == "fil")
     page_html = assemble_page(
         base, asset_base,
         page_meta.get(rel_path_str, {}).get("title", "Better Mapandan"),
         page_meta.get(rel_path_str, {}).get("description", ""),
-        header, breadcrumbs + body_content, footer, lang_code, page_url
+        header, breadcrumbs + body_content, footer, lang_code, page_url, breadcrumb_jsonld
     )
 
     out_path = out_root / to_folder_index(rel)
