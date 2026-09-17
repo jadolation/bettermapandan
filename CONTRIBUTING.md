@@ -77,6 +77,8 @@ python3 build.py
 
 Build output is written to the project root (EN pages) and `fil/` (FIL pages). Output is git-ignored and deployed automatically by the Pages workflow — always run the build before serving locally or running Lighthouse.
 
+> **Warning:** generated output is git-ignored, so never run `git clean -fdx` here — the `-x` flag deletes ignored files and will wipe your entire built site. Use `git clean -fd` (safe) and rebuild with `python3 build.py` if output ever goes missing.
+
 ---
 
 ## How to Make Changes
