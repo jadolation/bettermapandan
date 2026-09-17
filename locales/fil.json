@@ -529,7 +529,8 @@
     "disallowances_title": "Mga Nakabinbing COA Disallowance",
     "disallowances_desc": "Mga halagang sinisingil laban sa mga accountable officer na naghihintay ng resolusyon. Ang pababang trend ay nagpapakita ng pinabuting mga kontrol sa pananalapi.",
     "audit_opinion_2025": "2025: Hindi Sumusunod (LDRRMF)",
-    "equity_2024": "Equity"
+    "equity_2024": "Equity",
+    "latest_coa_note": "Pinakabagong natuklasan ng COA: ang CY 2025 LDRRMF special compliance audit (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Maglalathala kami ng higit pang mga ulat at datos dito kapag may mga pampublikong dokumentong available &mdash; <a href=\"/support/report/?page=transparency&amp;mode=contribute\">magpadala ng mga dokumento</a>."
   },
   "procurement": {
     "eyebrow": "Pampublikong Pamimili",

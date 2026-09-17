@@ -449,6 +449,7 @@ def _build_transparency_labels(locale: dict) -> dict:
         "TRANSPARENCY_HISTORICAL_TOTAL_EQUITY": t(locale, "transparency.historical_total_equity", ""),
         "TRANSPARENCY_HISTORICAL_TOTAL_OP_EXP": t(locale, "transparency.historical_total_op_exp", ""),
         "TRANSPARENCY_HISTORICAL_TOTAL_OP_INC": t(locale, "transparency.historical_total_op_inc", ""),
+        "TRANSPARENCY_LATEST_COA_NOTE": t(locale, "transparency.latest_coa_note", ""),
         "TRANSPARENCY_PROCUREMENT_EYEBROW": t(locale, "transparency.procurement_eyebrow", ""),
         "TRANSPARENCY_PROCUREMENT_TITLE": t(locale, "transparency.procurement_title", ""),
         "TRANSPARENCY_REVENUE_2025": t(locale, "transparency.revenue_2025", ""),

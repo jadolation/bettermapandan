@@ -529,7 +529,8 @@
     "disallowances_title": "Outstanding COA Disallowances",
     "disallowances_desc": "Amounts charged against accountable officers pending resolution. Decreasing trend shows improved financial controls.",
     "audit_opinion_2025": "2025: Non-Compliant (LDRRMF)",
-    "equity_2024": "Equity"
+    "equity_2024": "Equity",
+    "latest_coa_note": "Latest COA finding: the CY 2025 LDRRMF special compliance audit (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). We will publish more reports and figures here as publicly accessible documents become available &mdash; <a href=\"/support/report/?page=transparency&amp;mode=contribute\">send us documents</a>."
   },
   "procurement": {
     "eyebrow": "Public Procurement",
