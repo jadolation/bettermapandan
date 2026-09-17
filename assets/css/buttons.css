@@ -49,6 +49,12 @@
   color: #fff;
 }
 
+.btn-outline.btn-active {
+  background: var(--green-deep);
+  color: #fff;
+  border-color: var(--green-deep);
+}
+
 .btn-copy {
   display: inline-flex;
   align-items: center;

@@ -82,10 +82,10 @@ function initProcurementTable() {
     for (var i = 0; i < pages.length; i++) {
       var p = pages[i];
       if (p === "...") {
-        html += '<span style="padding:0 6px;font-weight:bold;color:var(--ink)">...</span>';
+        html += '<span class="page-ellipsis">...</span>';
       } else {
-        var active = p === current ? ' style="font-weight:bold;background:var(--green-deep);color:#fff;border-color:var(--green-deep)"' : '';
-        html += '<button class="btn btn-outline" data-page="' + p + '" style="padding:10px 14px;font-size:0.95rem;min-width:44px"' + active + '>' + p + '</button>';
+        var active = p === current ? ' btn-active' : '';
+        html += '<button class="btn btn-outline' + active + '" data-page="' + p + '">' + p + '</button>';
       }
     }
     return html;
@@ -132,7 +132,6 @@ function initProcurementTable() {
 
     var numberedWrap = document.createElement("span");
     numberedWrap.className = "numbered-pages";
-    numberedWrap.style.cssText = "display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap";
     numberedWrap.innerHTML = renderPageNumbers(totalPages, currentPage);
     var existingNumbered = pagination.querySelector(".numbered-pages");
     if (existingNumbered) existingNumbered.remove();

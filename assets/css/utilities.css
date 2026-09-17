@@ -119,6 +119,10 @@
 .mt-8 { margin-top: 8px; }
 .overflow-x-hidden { overflow-x: hidden; }
 
+.source-label--flush {
+  margin-top: 0;
+}
+
 /* ---------- Color ---------- */
 
 .text-gold { color: var(--gold); }

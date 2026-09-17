@@ -71,7 +71,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     labels = _build_dpwh_labels(locale)
 
     cards_html = f"""
-    <div class="grid grid-3 stack-gap-lg" style="margin-top:24px">
+    <div class="grid grid-3 stack-gap-lg mt-24">
       <div class="card">
         <h2>{labels['DPWH_TOTAL_CONTRACTS']}</h2>
         <p class="figure" id="dpwh-count-value">{total_count:,}</p>
@@ -86,7 +86,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
       </div>
       <div class="card">
         <h2>{labels['DPWH_STATUS_CARD']}</h2>
-        <p class="figure" id="dpwh-status-value" style="font-size:1.1rem;line-height:1.6">
+        <p class="figure" id="dpwh-status-value">
           {completed} {labels['DPWH_COMPLETED']} &bull; {ongoing} {labels['DPWH_ONGOING']} &bull; {not_started} {labels['DPWH_NOT_STARTED']}
         </p>
         <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
@@ -145,7 +145,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
   window.DPWH_PROJECTS = {projects_json};
 </script>
 
-<div class="table-wrap" style="margin-top:24px">
+<div class="table-wrap mt-24">
   <table aria-label="DPWH infrastructure projects" id="dpwh-table">
     <thead>
       <tr>

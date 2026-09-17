@@ -52,6 +52,10 @@ tbody tr:hover {
 #resolutions-table th.sort-desc .sort-indicator::after,
 #executive-table th.sort-desc .sort-indicator::after { content: " \25BC"; }
 
+.sortable {
+  cursor: pointer;
+}
+
 /* ---------- Status pills ---------- */
 
 .pill {

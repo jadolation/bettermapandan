@@ -363,3 +363,50 @@
   border-color: var(--red-flag);
   color: var(--red-flag);
 }
+
+/* ---------- Procurement category chart ---------- */
+
+.chart-categories-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.chart-categories-inner {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.chart-categories-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Procurement pagination ---------- */
+
+.procurement-pagination-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+#procurement-pagination {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+#procurement-pagination .numbered-pages {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  align-items: center;
+}
