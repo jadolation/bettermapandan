@@ -118,6 +118,7 @@
   #fiscal-structure .grid-3,
   #fiscal-snapshot .grid-3,
   #financial-performance .grid-3,
+  #audit-reports .grid-3,
   #compliance .grid-3,
   #implementation-rate .grid-2 {
     grid-template-columns: 1fr !important;
@@ -337,6 +338,7 @@
   #fiscal-structure .grid-3,
   #fiscal-snapshot .grid-3,
   #financial-performance .grid-3,
+  #audit-reports .grid-3,
   #compliance .grid-3,
   #implementation-rate .grid-2 {
     grid-template-columns: 1fr !important;

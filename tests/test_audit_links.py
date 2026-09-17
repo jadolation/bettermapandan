@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 ROOT = Path(__file__).resolve().parent.parent
 TRANSPARENCY_PAGE = ROOT / "src" / "pages" / "transparency.html"
 HREF_RE = re.compile(r'href="(/datasets/[^"]+)"')
+ANCHOR_RE = re.compile(r'<a[^>]*href="(/datasets/[^"]+)"[^>]*>(.*?)</a>', re.DOTALL)
 
 
 def _dataset_hrefs():
@@ -32,3 +33,12 @@ def test_dataset_links_point_at_files():
     for href in hrefs:
         assert "." in Path(href).name, f"{href} has no file extension"
         assert (ROOT / href.lstrip("/")).is_file(), f"{href} target missing on disk"
+
+
+def test_dataset_links_have_badge_and_size():
+    """Every /datasets/ anchor must carry a type badge and a size label."""
+    anchors = ANCHOR_RE.findall(TRANSPARENCY_PAGE.read_text(encoding="utf-8"))
+    assert anchors, "expected /datasets/ anchors in transparency.html"
+    for href, inner in anchors:
+        assert 'class="file-badge file-' in inner, f"{href} missing type badge"
+        assert 'class="file-size"' in inner, f"{href} missing size label"
