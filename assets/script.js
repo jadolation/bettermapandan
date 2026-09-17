@@ -421,7 +421,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ["1903", "1918", "1939", "1948", "1960", "1970", "1980", "1990", "2000", "2010", "2020", "2024"],
         datasets: [{
           label: "Population",
-          data: [4198, 6049, 7286, 9836, 13065, 16653, 20094, 25622, 30775, 34077, 38058, 38228],
+          data: [4198, 6049, 7286, 9836, 13065, 16653, 20094, 25622, 30775, 34439, 38058, 38228],
           backgroundColor: "rgba(76,138,46,0.6)",
           borderColor: "#4c8a2e",
           borderWidth: 1,

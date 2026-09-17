@@ -29,7 +29,6 @@ SECTION_ANCHORS = {
         ("executive", "Executive Branch"),
         ("legislative", "Legislative Branch"),
         ("barangay-councils", "Barangay Councils"),
-        ("departments", "Departments"),
         ("contacts", "Contact Directory"),
     ],
     "legislative.html": [

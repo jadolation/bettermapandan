@@ -24,7 +24,7 @@ description: Population, demographics, economy, and key development indicators f
     <div class="grid grid-3 stack-gap-lg">
       <div class="card">
         <h3>{STATISTICS_POP_TOTAL}</h3>
-        <p class="figure">38,228</p>
+        <p class="figure">{POP_2024}</p>
         <span class="source-label">Source: PSA Census of Population 2024</span>
         <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
       </div>
@@ -36,8 +36,8 @@ description: Population, demographics, economy, and key development indicators f
       </div>
       <div class="card">
         <h3>{STATISTICS_POP_DENSITY}</h3>
-        <p class="figure">1,161/km&sup2;</p>
-        <span class="source-label">Computed: 38,228 &divide; 32.92 km&sup2;</span>
+        <p class="figure">{DENSITY}/km&sup2;</p>
+        <span class="source-label">Computed: {POP_2024} &divide; {LAND_AREA}</span>
         <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
       </div>
     </div>
@@ -55,7 +55,7 @@ description: Population, demographics, economy, and key development indicators f
         <tbody>
           <tr class="clickable-row" data-href="https://psa.gov.ph/classification/psgc/barangays/0105528000">
             <td>2024</td>
-            <td>38,228</td>
+            <td>{POP_2024}</td>
             <td>+0.11%/yr</td>
             <td>PSA Census 2024 <span class="verification-badge badge-official">Official</span></td>
           </tr>
@@ -198,7 +198,7 @@ description: Population, demographics, economy, and key development indicators f
         <div class="clickable-row" data-href="https://blgf.gov.ph/lgu-fiscal-data/">        
         <h3>{STATISTICS_FISCAL_REV_2025}</h3>
         <p class="figure">&#8369;197.70M</p>
-        <p class="note-inline">About &#8369;5,170 per resident (38,228 people)</p>
+        <p class="note-inline">About &#8369;5,170 per resident ({POP_2024} people)</p>
         <span class="source-label">Source: BLGF LGU Fiscal Data 2025</span>
         <span class="verification-badge badge-official">Official</span>
         </div>
@@ -207,7 +207,7 @@ description: Population, demographics, economy, and key development indicators f
         <div class="clickable-row" data-href="https://blgf.gov.ph/lgu-fiscal-data/">        
         <h3>{STATISTICS_FISCAL_EXP_2025}</h3>
         <p class="figure">&#8369;191.79M</p>
-        <p class="note-inline">About &#8369;5,016 per resident (38,228 people)</p>
+        <p class="note-inline">About &#8369;5,016 per resident ({POP_2024} people)</p>
         <span class="source-label">Source: BLGF LGU Fiscal Data 2025 (OPE + Non-OPE)</span>
         <span class="verification-badge badge-official">Official</span>
         </div>
@@ -224,7 +224,7 @@ description: Population, demographics, economy, and key development indicators f
     <div class="section-head" style="margin-top: 48px;">
       <div class="section-eyebrow">{STATISTICS_FISCAL_BLGF}</div>
       <h2>Annual Revenue vs. Expenditure (2020–2025)</h2>
-      <p>Official fiscal performance data sourced from the Bureau of Local Government Finance (BLGF). Total Expenditure reflects the sum of Operating (OPE) and Non-Operating expenditures.</p>
+      <p>Official fiscal performance data sourced from the Bureau of Local Government Finance (BLGF). Total Expenditure reflects the sum of Operating (OPE) and Non-Operating expenditures. The <a href="/transparency/">Transparency page</a> is the canonical source for fiscal breakdowns; figures here match it exactly.</p>
     </div>
     <div class="table-wrap">
       <table aria-label="BLGF Annual Revenue and Expenditure 2020-2025">
@@ -264,7 +264,7 @@ description: Population, demographics, economy, and key development indicators f
     <div class="grid grid-2" style="margin-bottom:32px" aria-live="polite">
       <div class="card">
         <h3>{STATISTICS_CHART_POP_TREND}</h3>
-        <canvas id="chart-history-population" height="200" role="img" aria-label="Population trend: 27,439 in 1995 growing to 38,228 in 2024"></canvas>
+        <canvas id="chart-history-population" height="200" role="img" aria-label="Population trend: 27,439 in 1995 growing to {POP_2024} in 2024"></canvas>
         <table class="sr-only">
           <caption>Population trend</caption>
           <thead><tr><th scope="col">Year</th><th scope="col">Population</th></tr></thead>
@@ -275,7 +275,7 @@ description: Population, demographics, economy, and key development indicators f
             <tr><td>2010</td><td>34,439</td></tr>
             <tr><td>2015</td><td>37,059</td></tr>
             <tr><td>2020</td><td>38,058</td></tr>
-            <tr><td>2024</td><td>38,228</td></tr>
+            <tr><td>2024</td><td>{POP_2024}</td></tr>
           </tbody>
         </table>
         <button class="report-btn" data-download="population">{STATISTICS_CHART_DOWNLOAD}</button>

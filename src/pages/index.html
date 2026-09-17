@@ -65,7 +65,7 @@ description: An independent civic transparency portal for Mapandan, Pangasinan, 
   <div class="wrap">
     <div class="stat-grid">
       <div class="stat">
-        <div class="num">38,228</div>
+        <div class="num">{POP_2024}</div>
         <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
         <span class="source-label" data-tip="PSA Census of Population 2024 &mdash; verified public record">Source: PSA Census 2024</span>
         <div class="label">{STATS_RESIDENTS}</div>
@@ -83,15 +83,15 @@ description: An independent civic transparency portal for Mapandan, Pangasinan, 
         <div class="label">{STATS_HOUSEHOLDS}</div>
       </div>
       <div class="stat">
-        <div class="num">32.92 km&sup2;</div>
+        <div class="num">{LAND_AREA}</div>
         <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
-        <span class="source-label" data-tip="Municipal Planning and Development Office, Land Use Plan 2024 &mdash; official municipal boundary">Source: MPDC Land Use Plan 2024 &mdash; 32.92 km²</span>
+        <span class="source-label" data-tip="Municipal Planning and Development Office, Land Use Plan 2024 &mdash; official municipal boundary">Source: MPDC Land Use Plan 2024 &mdash; {LAND_AREA}</span>
         <div class="label">{STATS_LAND_AREA}</div>
       </div>
       <div class="stat">
-        <div class="num">1,161.24/km&sup2;</div>
+        <div class="num">{DENSITY}/km&sup2;</div>
         <span class="verification-badge badge-official">{COMMON_OFFICIAL}</span>
-        <span class="source-label" data-tip="Computed: 38,228 residents &divide; 32.92 km&sup2; land area &mdash; derived from PSA and MPDC data">Computed: 38,228 &divide; 32.92 km&sup2;</span>
+        <span class="source-label" data-tip="Computed: {POP_2024} residents &divide; {LAND_AREA} land area &mdash; derived from PSA and MPDC data">Computed: {POP_2024} &divide; {LAND_AREA}</span>
         <div class="label">{STATS_DENSITY}</div>
       </div>
     </div>

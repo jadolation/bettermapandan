@@ -18,6 +18,7 @@ from _build.config import (
     HAS_SCHEMA_VALIDATION,
 )
 from _build.locales import load_locale, t
+from _build.facts import facts_placeholders
 from _build.templates import parse_page, fill, strip_html, strip_front_matter, compute_url, compute_asset_base, to_folder_index
 from _build.generators.services import generate_services
 from _build.generators.legislative import generate_legislative
@@ -207,6 +208,7 @@ def resolve_body_placeholders(body: str, locale: dict, asset_base: str) -> str:
     """Resolve all locale placeholders in page body content."""
     return fill(body, {
         "ASSET_BASE": asset_base,
+        **facts_placeholders(),
         ** _build_page_body_labels(locale),
         ** _build_homepage_labels(locale),
         ** _build_statistics_labels(locale),
@@ -247,6 +249,7 @@ def _build_page_body_labels(locale: dict) -> dict:
         "ABOUT_SHOW_LESS": t(locale, "about.show_less", ""),
         "ABOUT_TITLE": t(locale, "about.title", ""),
         "COMMON_COMMUNITY_VERIFIED": t(locale, "common.community_verified", ""),
+        "COMMON_DISCLAIMER": t(locale, "common.disclaimer", ""),
         "COMMON_MUNICIPAL_ESTIMATE": t(locale, "common.municipal_estimate", ""),
         "COMMON_NEEDS_VERIFICATION": t(locale, "common.needs_verification", ""),
         "COMMON_OFFICIAL": t(locale, "common.official", ""),

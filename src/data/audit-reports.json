@@ -30,8 +30,8 @@
       "liabilities": 33457198,
       "gov_equity": 81579963,
       "income": 71432016,
-      "expenses": 56386883,
-      "surplus": 9856623,
+      "expenses": 61566073,
+      "surplus": 9865943,
       "source": "COA AAR (Audited)"
     },
     {
@@ -40,8 +40,8 @@
       "liabilities": 38964113,
       "gov_equity": 91568914,
       "income": 81052292,
-      "expenses": 65369475,
-      "surplus": 13455903,
+      "expenses": 67593459,
+      "surplus": 13458833,
       "source": "COA AAR (Audited)"
     },
     {
@@ -50,7 +50,7 @@
       "liabilities": 51507434,
       "gov_equity": 188154978,
       "income": 88255537,
-      "expenses": 74919484,
+      "expenses": 78852072,
       "surplus": 9403465,
       "source": "COA AAR (Audited)"
     },
@@ -60,7 +60,7 @@
       "liabilities": 34316721,
       "gov_equity": 209283629,
       "income": 99989387,
-      "expenses": 91126488,
+      "expenses": 95214375,
       "surplus": 4775012,
       "source": "COA AAR (Audited)"
     },
@@ -70,8 +70,8 @@
       "liabilities": 60200000,
       "gov_equity": 232700000,
       "income": 106698612,
-      "expenses": 95980935,
-      "surplus": 9184505,
+      "expenses": 97500000,
+      "surplus": 9198612,
       "source": "COA AAR (Audited)"
     },
     {
@@ -80,8 +80,8 @@
       "liabilities": 42800000,
       "gov_equity": 255400000,
       "income": 116102805,
-      "expenses": 103775515,
-      "surplus": 9343635,
+      "expenses": 106800000,
+      "surplus": 9302805,
       "source": "COA AAR (Audited)"
     },
     {
@@ -90,8 +90,8 @@
       "liabilities": 39600000,
       "gov_equity": 217500000,
       "income": 128331255,
-      "expenses": 126932705,
-      "surplus": 6505710,
+      "expenses": 131058342,
+      "surplus": -2727087,
       "source": "COA AAR (Audited)"
     },
     {
@@ -100,7 +100,7 @@
       "liabilities": 46888593,
       "gov_equity": 242178313,
       "income": 144503846,
-      "expenses": 126953569,
+      "expenses": 133834650,
       "surplus": 10669196,
       "source": "COA AAR (Audited)"
     },
@@ -110,7 +110,7 @@
       "liabilities": 134750376,
       "gov_equity": 443773358,
       "income": 180618300,
-      "expenses": 153097409,
+      "expenses": 166571000,
       "surplus": 14047300,
       "source": "COA AAR (Audited)"
     },
@@ -120,7 +120,7 @@
       "liabilities": 126865514,
       "gov_equity": 436608538,
       "income": 159409832,
-      "expenses": 160670250,
+      "expenses": 168264248,
       "surplus": -8854416,
       "source": "COA AAR (Audited)"
     },
@@ -131,22 +131,22 @@
       "gov_equity": 444680961,
       "income": 173759470,
       "expenses": 183574901,
-      "surplus": -9815430,
+      "surplus": -9815431,
       "source": "COA AAR (Audited)"
     }
   ],
   "revenue_composition": [
-    { "year": 2014, "ira": 67478706, "local_income": 8085876, "other": 1867454, "source": "precise" },
+    { "year": 2014, "ira": 67478706, "local_income": 8085876, "other": 1867454, "source": "estimated" },
     { "year": 2015, "ira": 73400000, "local_income": 8500000, "other": 1200000, "source": "estimated" },
     { "year": 2016, "ira": 78500000, "local_income": 9200000, "other": 2614688, "source": "estimated" },
     { "year": 2017, "ira": 86300000, "local_income": 9900000, "other": 1800000, "source": "estimated" },
     { "year": 2018, "ira": 90800000, "local_income": 10400000, "other": 1500000, "source": "estimated" },
     { "year": 2019, "ira": 103000000, "local_income": 9100000, "other": 2000000, "source": "estimated" },
     { "year": 2020, "ira": 110900000, "local_income": 8400000, "other": 18300000, "source": "estimated" },
-    { "year": 2021, "ira": 118000000, "local_income": 14500000, "other": 9135154, "source": "BLGF" },
-    { "year": 2022, "ira": 142000000, "local_income": 22500000, "other": 12728975, "source": "BLGF" },
-    { "year": 2023, "ira": 128000000, "local_income": 18500000, "other": 8777148, "source": "BLGF" },
-    { "year": 2024, "ira": 135000000, "local_income": 22000000, "other": 11119706, "source": "BLGF" }
+    { "year": 2021, "ira": 118000000, "local_income": 14500000, "other": 9135154, "source": "estimated" },
+    { "year": 2022, "ira": 142000000, "local_income": 22500000, "other": 12728975, "source": "estimated" },
+    { "year": 2023, "ira": 128000000, "local_income": 18500000, "other": 8777148, "source": "estimated" },
+    { "year": 2024, "ira": 135000000, "local_income": 22000000, "other": 11119706, "source": "estimated" }
   ],
   "key_findings": [
     {
@@ -291,7 +291,7 @@
     { "period": "2018→2019", "implemented": 9, "partial": 7, "not_implemented": 4, "rate": 45 },
     { "period": "2019→2020", "implemented": 18, "partial": 0, "not_implemented": 6, "rate": 75 },
     { "period": "2020→2021", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48 },
-    { "period": "2021→2022", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48 },
+    { "period": "2021→2022", "implemented": 12, "partial": 0, "not_implemented": 16, "rate": 43 },
     { "period": "2022→2023", "implemented": 11, "partial": 0, "not_implemented": 20, "rate": 35 },
     { "period": "2023→2024", "implemented": 14, "partial": 0, "not_implemented": 23, "rate": 38 }
   ],
