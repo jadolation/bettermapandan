@@ -30,8 +30,8 @@
     overscroll-behavior-x: none;
     -webkit-overflow-scrolling: touch;
   }
-  body { 
-    position: relative; 
+  body {
+    position: relative;
     padding-right: 0 !important;
     margin-right: 0 !important;
   }
@@ -410,5 +410,5 @@
   html { scroll-behavior: auto; }
   .carousel-slide { transition: none; }
   .civic-toast { transition: none; }
-  .emergency-bar .wrap { animation: none; }
+  .emergency-bar .emergency-ticker { animation: none; }
 }

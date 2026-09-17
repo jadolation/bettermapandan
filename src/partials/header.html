@@ -1,13 +1,15 @@
 <div class="emergency-bar" aria-label="Emergency contact numbers">
   <div class="wrap">
-    <a href="tel:911"><span class="label">{{EMERGENCY_LABEL}}</span> 911</a>
-    <a href="tel:09692236912"><span class="label">{{EMERGENCY_MDRRMO}}</span> 0969-223-6912</a>
-    <a href="tel:09434242810"><span class="label">{{EMERGENCY_FIRE}}</span> 0943-424-2810</a>
-    <a href="tel:09159793390"><span class="label">{{EMERGENCY_POLICE}}</span> 0915-979-3390</a>
-    <a href="tel:911" aria-hidden="true"><span class="label">{{EMERGENCY_LABEL}}</span> 911</a>
-    <a href="tel:09692236912" aria-hidden="true"><span class="label">{{EMERGENCY_MDRRMO}}</span> 0969-223-6912</a>
-    <a href="tel:09434242810" aria-hidden="true"><span class="label">{{EMERGENCY_FIRE}}</span> 0943-424-2810</a>
-    <a href="tel:09159793390" aria-hidden="true"><span class="label">{{EMERGENCY_POLICE}}</span> 0915-979-3390</a>
+    <div class="emergency-ticker">
+      <a href="tel:911"><span class="label">{{EMERGENCY_LABEL}}</span> 911</a>
+      <a href="tel:09692236912"><span class="label">{{EMERGENCY_MDRRMO}}</span> 0969-223-6912</a>
+      <a href="tel:09434242810"><span class="label">{{EMERGENCY_FIRE}}</span> 0943-424-2810</a>
+      <a href="tel:09159793390"><span class="label">{{EMERGENCY_POLICE}}</span> 0915-979-3390</a>
+      <a href="tel:911" aria-hidden="true" tabindex="-1"><span class="label">{{EMERGENCY_LABEL}}</span> 911</a>
+      <a href="tel:09692236912" aria-hidden="true" tabindex="-1"><span class="label">{{EMERGENCY_MDRRMO}}</span> 0969-223-6912</a>
+      <a href="tel:09434242810" aria-hidden="true" tabindex="-1"><span class="label">{{EMERGENCY_FIRE}}</span> 0943-424-2810</a>
+      <a href="tel:09159793390" aria-hidden="true" tabindex="-1"><span class="label">{{EMERGENCY_POLICE}}</span> 0915-979-3390</a>
+    </div>
   </div>
 </div>
 
@@ -21,10 +23,11 @@
       </span>
     </a>
     <nav class="nav" aria-label="Main">
-      <button class="nav-toggle" aria-label="{{NAV_MENU}}" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="{{NAV_MENU}}" aria-expanded="false" aria-controls="primary-nav">
         <span class="sr-only">{{NAV_MENU}}</span>
+        <span class="nav-bar" aria-hidden="true"></span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
         <li><a href="/">{{NAV_HOME}}</a></li>
         <li><a href="/services/">{{NAV_SERVICES}}</a></li>
         <li><a href="/government/">{{NAV_GOVERNMENT}}</a></li>
@@ -37,6 +40,7 @@
           {{NAV_SEARCH}}
         </a></li>
       </ul>
+      <div class="nav-backdrop" hidden></div>
       <div class="lang-switcher" role="group" aria-label="Language">
         <a href="{{LANG_EN_URL}}" class="lang-btn {{LANG_ACTIVE_EN}}" data-lang="en">{{LANG_LABEL_EN}}</a>
         <a href="{{LANG_FIL_URL}}" class="lang-btn {{LANG_ACTIVE_FIL}}" data-lang="fil">{{LANG_LABEL_FIL}}</a>

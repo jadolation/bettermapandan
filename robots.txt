@@ -1,21 +1,8 @@
 User-agent: *
 Allow: /
 
-# Allow CSS, JS, and images needed for rendering
-Allow: /assets/*.css
-Allow: /assets/*.js
-Allow: /assets/*.svg
-Allow: /assets/*.png
-Allow: /assets/*.jpg
-Allow: /assets/*.webp
-Allow: /assets/*.ico
-Allow: /assets/css/
-Allow: /assets/js/
-Allow: /assets/officials/
-Allow: /assets/logos/
-Allow: /assets/barangay-council/
-Allow: /assets/citizens-charter/
-Allow: /assets/history/
+# Allow assets needed for rendering (CSS, JS, images, icons)
+Allow: /assets/
 
 # Block build-time data files
 Disallow: /assets/data/

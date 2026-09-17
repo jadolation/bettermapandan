@@ -16,6 +16,7 @@
   min-height: 44px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   max-width: 100%;
   min-width: 0;
   width: 100%;
@@ -23,18 +24,33 @@
 
 .emergency-bar .wrap {
   display: flex;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: 10px 0;
+  overflow: visible;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.emergency-ticker {
+  display: flex;
   align-items: center;
   width: max-content;
   max-width: none;
-  animation: ticker 30s linear infinite;
+  margin: 0;
+  flex: 0 0 auto;
+  will-change: transform;
+  animation: emergency-ticker 30s linear infinite;
 }
 
-.emergency-bar:hover .wrap {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .emergency-bar:hover .emergency-ticker {
+    animation-play-state: paused;
+  }
 }
 
-@keyframes ticker {
+@keyframes emergency-ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }

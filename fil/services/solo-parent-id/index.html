@@ -11,17 +11,19 @@
 <meta property="og:description" content="The Solo Parent ID is issued to solo parents as mandated by RA 8972 (Solo Parents' Welfare Act of 2000). The ID provides benefits including flexible work arrang" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://bettermapandan.org/fil/services/solo-parent-id/" />
-<meta property="og:image" content="https://bettermapandan.org/assets/og-image.svg" />
+<meta property="og:image" content="https://bettermapandan.org/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Solo Parent ID — BetterMapandan.org" />
 <meta name="twitter:description" content="The Solo Parent ID is issued to solo parents as mandated by RA 8972 (Solo Parents' Welfare Act of 2000). The ID provides benefits including flexible work arrang" />
-<meta name="twitter:image" content="https://bettermapandan.org/assets/og-image.svg" />
-<link rel="icon" href="../../assets/favicon.ico" />
-<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="../../assets/android-chrome-192x192.svg" />
-<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.svg" />
+<meta name="twitter:image" content="https://bettermapandan.org/assets/og-image.png" />
+<link rel="icon" href="https://bettermapandan.org/assets/favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://bettermapandan.org/assets/favicon-48x48.png" />
+<link rel="icon" type="image/svg+xml" sizes="any" href="https://bettermapandan.org/assets/logo.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://bettermapandan.org/assets/apple-touch-icon.png" />
+<link rel="manifest" href="https://bettermapandan.org/site.webmanifest" />
+<meta name="theme-color" content="#16532c" />
 <link rel="preload" href="../../assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,7 +43,7 @@
     "@type": "Organization",
     "name": "Better Mapandan",
     "url": "https://bettermapandan.org",
-    "logo": "https://bettermapandan.org/assets/logo.svg",
+      "logo": "https://bettermapandan.org/assets/android-chrome-512x512.png",
     "description": "A volunteer-run civic tech project under the BetterGov.ph initiative.",
     "sameAs": [
       "https://github.com/jadolation/bettermapandan"
@@ -92,14 +94,16 @@
 
 <div class="emergency-bar" aria-label="Emergency contact numbers">
   <div class="wrap">
-    <a href="tel:911"><span class="label">Emergency</span> 911</a>
-    <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
-    <a href="tel:09434242810"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
-    <a href="tel:09159793390"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
-    <a href="tel:911" aria-hidden="true"><span class="label">Emergency</span> 911</a>
-    <a href="tel:09692236912" aria-hidden="true"><span class="label">MDRRMO</span> 0969-223-6912</a>
-    <a href="tel:09434242810" aria-hidden="true"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
-    <a href="tel:09159793390" aria-hidden="true"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+    <div class="emergency-ticker">
+      <a href="tel:911"><span class="label">Emergency</span> 911</a>
+      <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+      <a href="tel:09434242810"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+      <a href="tel:09159793390"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+      <a href="tel:911" aria-hidden="true" tabindex="-1"><span class="label">Emergency</span> 911</a>
+      <a href="tel:09692236912" aria-hidden="true" tabindex="-1"><span class="label">MDRRMO</span> 0969-223-6912</a>
+      <a href="tel:09434242810" aria-hidden="true" tabindex="-1"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+      <a href="tel:09159793390" aria-hidden="true" tabindex="-1"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+    </div>
   </div>
 </div>
 
@@ -113,10 +117,11 @@
       </span>
     </a>
     <nav class="nav" aria-label="Main">
-      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
         <span class="sr-only">Menu</span>
+        <span class="nav-bar" aria-hidden="true"></span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
         <li><a href="/">Tahanan</a></li>
         <li><a href="/services/">Mga Serbisyo</a></li>
         <li><a href="/government/">Pamahalaan</a></li>
@@ -129,6 +134,7 @@
           Hanapin
         </a></li>
       </ul>
+      <div class="nav-backdrop" hidden></div>
       <div class="lang-switcher" role="group" aria-label="Language">
         <a href="/services/solo-parent-id/" class="lang-btn " data-lang="en">EN</a>
         <a href="/fil/services/solo-parent-id/" class="lang-btn active" data-lang="fil">FIL</a>
