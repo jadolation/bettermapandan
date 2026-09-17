@@ -530,7 +530,16 @@
     "disallowances_desc": "Mga halagang sinisingil laban sa mga accountable officer na naghihintay ng resolusyon. Ang pababang trend ay nagpapakita ng pinabuting mga kontrol sa pananalapi.",
     "audit_opinion_2025": "2025: Hindi Sumusunod (LDRRMF)",
     "equity_2024": "Equity",
-    "latest_coa_note": "Pinakabagong natuklasan ng COA: ang CY 2025 LDRRMF compliance audit &mdash; panahon ng pag-awdit Enero 1&ndash;Disyembre 31, 2025, inilathala Mayo 5, 2026 (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Isa pa lang na ulat para sa Mapandan para sa CY 2025 ang nakalista sa publiko; maaaring may iba pang rekord sa pinagsama-samang mga ulat. Maglalathala kami ng higit pang mga ulat at datos dito kapag may mga pampublikong dokumentong available &mdash; <a href=\"/support/report/?page=transparency&amp;mode=contribute\">magpadala ng mga dokumento</a>."
+    "latest_coa_note": "Pinakabagong natuklasan ng COA: ang CY 2025 LDRRMF compliance audit &mdash; panahon ng pag-awdit Enero 1&ndash;Disyembre 31, 2025, inilathala Mayo 5, 2026 (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Isa pa lang na ulat para sa Mapandan para sa CY 2025 ang nakalista sa publiko; maaaring may iba pang rekord sa pinagsama-samang mga ulat. Maglalathala kami ng higit pang mga ulat at datos dito kapag may mga pampublikong dokumentong available &mdash; <a href=\"/support/report/?page=transparency&amp;mode=contribute\">magpadala ng mga dokumento</a>.",
+    "fdp_eyebrow": "Full Disclosure",
+    "fdp_title": "Mga Isinumiteng Dokumento sa DILG",
+    "fdp_lede": "Mga quarterly financial disclosure na isinumite ng Munisipalidad ng Mapandan sa DILG Full Disclosure Policy Portal: mga resibo at gastusin, special funds, mga iginawad na bid, cash advances, at staffing.",
+    "fdp_source": "Pinagmulan:",
+    "fdp_latest": "Pinakabagong filing",
+    "fdp_older": "Filing",
+    "fdp_nil": "Walang naiulat para sa panahong ito.",
+    "fdp_undated": "Snapshot na walang petsa",
+    "infrastructure_search_placeholder": "Maghanap ng mga proyekto..."
   },
   "procurement": {
     "eyebrow": "Pampublikong Pamimili",

@@ -36,6 +36,7 @@ def _build_dpwh_labels(locale: dict) -> dict:
         "DPWH_ACCOMPLISHMENT": t(locale, "transparency.infrastructure_accomplishment", "Accomplishment"),
         "DPWH_MAP": t(locale, "transparency.infrastructure_map", "Map"),
         "DPWH_SOURCE_NOTE": t(locale, "transparency.infrastructure_source_note", "Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded."),
+        "DPWH_SEARCH_PLACEHOLDER": t(locale, "transparency.infrastructure_search_placeholder", "Search projects..."),
     }
 
 
@@ -120,7 +121,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         map_link = f'<a href="https://www.openstreetmap.org/?mlat={lat}&mlon={lng}#map=16/{lat}/{lng}" target="_blank" rel="noopener">{labels["DPWH_VIEW_MAP"]} &rarr;</a>' if has_map else ""
 
         projects_rows.append(
-            f'<tr id="dpwh-project-{tid}" data-date="{html.escape(str(date_raw))}" data-status="{html.escape(status_raw)}" data-amount="{float(amount):.0f}">'
+            f'<tr id="dpwh-project-{tid}" data-project_name="{html.escape(p.get('project_name', ''))}" data-agency="{html.escape(p.get('executing_agency', ''))}" data-contractor="{html.escape(p.get('contractor', '') or '—')}" data-amount="{float(amount):.0f}" data-status="{html.escape(status_raw)}" data-accomplishment="{float(acc):.0f}" data-date="{html.escape(str(date_raw))}">'
             f'<td>{_dpwh_category_icon(category)} {category}</td>'
             f'<td>{name}</td>'
             f'<td>{agency}</td>'
@@ -145,19 +146,20 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
   window.DPWH_PROJECTS = {projects_json};
 </script>
 
+<input type="search" id="dpwh-search" placeholder="{labels['DPWH_SEARCH_PLACEHOLDER']}" aria-label="{labels['DPWH_SEARCH_PLACEHOLDER']}" style="margin-bottom:12px">
 <div class="table-wrap mt-24">
   <table aria-label="DPWH infrastructure projects" id="dpwh-table">
     <thead>
       <tr>
-        <th scope="col">{labels['DPWH_CATEGORY']}</th>
-        <th scope="col">{labels['DPWH_PROJECT']}</th>
-        <th scope="col">{labels['DPWH_AGENCY']}</th>
-        <th scope="col">{labels['DPWH_CONTRACTOR']}</th>
-        <th scope="col" class="num">{labels['DPWH_AMOUNT']}</th>
-        <th scope="col">{labels['DPWH_STATUS']}</th>
-        <th scope="col" class="num">{labels['DPWH_ACCOMPLISHMENT']}</th>
-        <th scope="col">{labels['DPWH_DATE']}</th>
-        <th scope="col">{labels['DPWH_MAP']}</th>
+        <th scope="col" data-column="category">{labels['DPWH_CATEGORY']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="project_name">{labels['DPWH_PROJECT']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="agency">{labels['DPWH_AGENCY']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="contractor">{labels['DPWH_CONTRACTOR']} <span class="sort-indicator"></span></th>
+        <th scope="col" class="num" data-column="amount">{labels['DPWH_AMOUNT']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="status">{labels['DPWH_STATUS']} <span class="sort-indicator"></span></th>
+        <th scope="col" class="num" data-column="accomplishment">{labels['DPWH_ACCOMPLISHMENT']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="date">{labels['DPWH_DATE']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="map">{labels['DPWH_MAP']} <span class="sort-indicator"></span></th>
       </tr>
     </thead>
     <tbody>

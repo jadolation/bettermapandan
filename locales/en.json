@@ -530,7 +530,16 @@
     "disallowances_desc": "Amounts charged against accountable officers pending resolution. Decreasing trend shows improved financial controls.",
     "audit_opinion_2025": "2025: Non-Compliant (LDRRMF)",
     "equity_2024": "Equity",
-    "latest_coa_note": "Latest COA finding: the CY 2025 LDRRMF compliance audit &mdash; audit period January 1&ndash;December 31, 2025, published May 5, 2026 (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Only one Mapandan-specific CY 2025 report is publicly indexed so far; more records may exist in consolidated reports. We will publish more reports and figures here as publicly accessible documents become available &mdash; <a href=\"/support/report/?page=transparency&amp;mode=contribute\">send us documents</a>."
+    "latest_coa_note": "Latest COA finding: the CY 2025 LDRRMF compliance audit &mdash; audit period January 1&ndash;December 31, 2025, published May 5, 2026 (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Only one Mapandan-specific CY 2025 report is publicly indexed so far; more records may exist in consolidated reports. We will publish more reports and figures here as publicly accessible documents become available &mdash; <a href=\"/support/report/?page=transparency&amp;mode=contribute\">send us documents</a>.",
+    "fdp_eyebrow": "Full Disclosure",
+    "fdp_title": "DILG Disclosure Filings",
+    "fdp_lede": "Quarterly financial disclosures the Municipality of Mapandan posts to the DILG Full Disclosure Policy Portal: receipts and expenditures, special funds, bids awarded, cash advances, and staffing.",
+    "fdp_source": "Source:",
+    "fdp_latest": "Latest filing",
+    "fdp_older": "Filing",
+    "fdp_nil": "Nil filing \u2014 nothing to report for this period.",
+    "fdp_undated": "Undated snapshot",
+    "infrastructure_search_placeholder": "Search projects..."
   },
   "procurement": {
     "eyebrow": "Public Procurement",

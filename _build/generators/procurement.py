@@ -41,7 +41,6 @@ def _build_procurement_labels(locale: dict) -> dict:
         "PROC_SEARCH_PLACEHOLDER": t(locale, "procurement.search_placeholder", "Search contracts..."),
         "PROC_SHOWING_X_OF_Y": t(locale, "procurement.showing_x_of_y", "Showing 1-20 of {n}"),
         "PROC_DOWNLOAD_CSV": t(locale, "procurement.download_csv", "CSV"),
-        "PROC_REMOVE_DUPLICATES": t(locale, "procurement.remove_duplicates", "Remove duplicate contracts"),
         "PROC_RESULTS_COUNT": t(locale, "procurement.results_count", "Results"),
         "PROC_MONTHLY_TREND_TITLE": t(locale, "procurement.monthly_trend_title", ""),
         "PROC_MONTHLY_TREND_DESC": t(locale, "procurement.monthly_trend_desc", ""),
@@ -119,7 +118,7 @@ def _build_procurement_charts(locale: dict, date_range: str, total_amount: int, 
     )
 
 
-def _build_procurement_table(locale: dict, contract_count: int, total_amount: int, date_range: str, search_placeholder: str, showing_x_of_y: str, download_csv: str, remove_duplicates: str) -> str:
+def _build_procurement_table(locale: dict, contract_count: int, total_amount: int, date_range: str, search_placeholder: str, showing_x_of_y: str, download_csv: str) -> str:
     """Build the procurement table, toolbar, and pagination."""
     return (
         f'      <div class="procurement-toolbar mt-24">\n'
@@ -133,7 +132,6 @@ def _build_procurement_table(locale: dict, contract_count: int, total_amount: in
         f'        </div>\n'
         f'        <div class="procurement-toolbar-actions">\n'
         f'          <input type="search" id="procurement-search" placeholder="{search_placeholder}" aria-label="{search_placeholder}">\n'
-        f'          <button class="btn btn-outline" id="procurement-dup-btn">{remove_duplicates}</button>\n'
         f'          <button class="btn btn-outline" id="procurement-csv-btn">{download_csv}</button>\n'
         f'        </div>\n'
         f'      </div>\n'
@@ -251,10 +249,9 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
     search_placeholder = t(locale, "procurement.search_placeholder", "Search contracts...")
     showing_x_of_y = t(locale, "procurement.showing_x_of_y", "Showing 1-20 of {n}").replace("{n}", str(contract_count))
     download_csv = t(locale, "procurement.download_csv", "CSV")
-    remove_duplicates = t(locale, "procurement.remove_duplicates", "Remove duplicate contracts")
 
     charts_html = _build_procurement_charts(locale, date_range, total_amount, contract_count)
-    table_html = _build_procurement_table(locale, contract_count, total_amount, date_range, search_placeholder, showing_x_of_y, download_csv, remove_duplicates)
+    table_html = _build_procurement_table(locale, contract_count, total_amount, date_range, search_placeholder, showing_x_of_y, download_csv)
     # Mayoral terms: single source is src/data/mayoral-terms.json.
     # Rollover rule: when a new mayor takes office, close the incumbent row
     # with its real end date and append a new row with "end": null.

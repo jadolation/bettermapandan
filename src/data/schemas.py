@@ -156,7 +156,28 @@ SCHEMAS = {
                 }
             }
         }
-    }
+    },
+    "fdp_disclosures.json": {
+        "type": "object",
+        "required": ["meta", "sre", "sef", "ldrrmf", "bids", "dev_fund"],
+        "properties": {
+            "meta": {"type": "object"},
+            "sre": {"type": "array"},
+            "sef": {"type": "array"},
+            "ldrrmf": {"type": "array"},
+            "cash_flows": {"type": "array"},
+            "cash_advances": {"type": "array"},
+            "trust_fund": {"type": "array"},
+            "lgsf": {"type": "array"},
+            "dev_fund": {"type": "array"},
+            "bids": {"type": "array"},
+            "manpower": {"type": "array"},
+            "indebtedness": {"type": "array"},
+            "budget": {"type": "array"},
+            "budget_book": {"type": "array"},
+            "spp": {"type": "array"}
+        }
+    },
 }
 
 

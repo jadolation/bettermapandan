@@ -5,23 +5,15 @@ function initProcurementTable() {
   var sortCol = "award_date";
   var sortDir = "desc";
   var searchQuery = "";
-  var dedupe = false;
 
   var tableBody = document.querySelector("#procurement-table tbody");
   var pageInfo = document.getElementById("procurement-page-info");
   var pageIndicator = document.getElementById("procurement-page-indicator");
   var searchInput = document.getElementById("procurement-search");
   var csvBtn = document.getElementById("procurement-csv-btn");
-  var dupBtn = document.getElementById("procurement-dup-btn");
   var pagination = document.getElementById("procurement-pagination");
 
   if (!tableBody) return;
-
-  function uniqueOrgs(data) {
-    var s = {};
-    data.forEach(function(r) { s[r.organization_name || ""] = 1; });
-    return Object.keys(s).length;
-  }
 
   function norm(v) {
     return String(v !== undefined ? v : "").toLowerCase().trim();
@@ -37,15 +29,7 @@ function initProcurementTable() {
         });
       });
     }
-    if (dedupe) {
-      var seen = {};
-      data = data.filter(function(r) {
-        var key = norm(r.title) + "|" + norm(r.awardee) + "|" + norm(r.amount);
-        if (seen[key]) return false;
-        seen[key] = true;
-        return true;
-      });
-    }
+
     data.sort(function(a, b) {
       var va = a[sortCol] !== undefined ? a[sortCol] : "";
       var vb = b[sortCol] !== undefined ? b[sortCol] : "";
@@ -147,8 +131,6 @@ function initProcurementTable() {
     });
   }
 
-  window._refreshTable = function() { currentPage = 1; render(); };
-
   if (searchInput) {
     searchInput.addEventListener("input", function() {
       searchQuery = this.value;
@@ -160,22 +142,6 @@ function initProcurementTable() {
   if (csvBtn) {
     csvBtn.addEventListener("click", function() {
       downloadTransparencyCSV("procurement");
-    });
-  }
-
-  if (dupBtn) {
-    var dupOriginal = dupBtn.textContent;
-    dupBtn.addEventListener("click", function() {
-      dedupe = !dedupe;
-      if (dedupe) {
-        dupBtn.classList.add("btn-primary");
-        dupBtn.textContent = "Showing deduped";
-      } else {
-        dupBtn.classList.remove("btn-primary");
-        dupBtn.textContent = dupOriginal;
-      }
-      currentPage = 1;
-      render();
     });
   }
 
