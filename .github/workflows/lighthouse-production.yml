@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Lighthouse
         uses: ./.github/actions/setup-lighthouse
 
@@ -20,14 +23,14 @@ jobs:
         run: |
           lhci autorun \
             --collect.url=https://bettermapandan.org/ \
-            --collect.url=https://bettermapandan.org/services.html \
-            --collect.url=https://bettermapandan.org/government.html \
-            --collect.url=https://bettermapandan.org/legislative.html \
-            --collect.url=https://bettermapandan.org/statistics.html \
-            --collect.url=https://bettermapandan.org/transparency.html \
-            --collect.url=https://bettermapandan.org/about.html \
+            --collect.url=https://bettermapandan.org/services/ \
+            --collect.url=https://bettermapandan.org/government/ \
+            --collect.url=https://bettermapandan.org/legislative/ \
+            --collect.url=https://bettermapandan.org/statistics/ \
+            --collect.url=https://bettermapandan.org/transparency/ \
+            --collect.url=https://bettermapandan.org/about/ \
             --collect.numberOfRuns=1 \
-            --assert.config=lighthouserc.json \
+            --assert.config=.lighthouserc.json \
             --upload.target=temporary-public-storage
 
       - name: Upload Lighthouse Reports Artifact

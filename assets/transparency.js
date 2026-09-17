@@ -60,7 +60,7 @@ function filterByMayoralTerm(contracts, termIndex) {
   var term = MapandanCommon.MAYORAL_TERMS[termIndex];
   if (!term) return contracts.slice();
   var from = new Date(term.start);
-  var to = new Date(term.end);
+  var to = MapandanCommon.termEndDate(term);
   to.setHours(23, 59, 59, 999);
   return contracts.filter(function(c) {
     if (!c.award_date) return false;
@@ -211,7 +211,7 @@ function updateAll(range, mayoralTermIndex) {
     var term = MapandanCommon.MAYORAL_TERMS[mayoralTermIndex];
     if (term) {
       var tFrom = new Date(term.start);
-      var tTo = new Date(term.end);
+      var tTo = MapandanCommon.termEndDate(term);
       tTo.setHours(23, 59, 59, 999);
       dpwhFiltered = dpwhFiltered.filter(function(p) {
         var dStr = p.actual_completion_date || p.contract_effectivity_date || (p.fiscal_year ? p.fiscal_year + "-01-01" : null);

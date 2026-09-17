@@ -19,9 +19,12 @@ def generate_sitemap() -> None:
     def _is_output_index(path: Path) -> bool:
         """Check if an index.html is a build output, not a source/template file."""
         parts = path.parts
-        if any(part in ("src", "node_modules", ".venv", ".git", "__pycache__") for part in parts):
+        if any(part in ("src", "node_modules", ".venv", ".git", "__pycache__", ".kilo") for part in parts):
             return False
         if path.name != "index.html":
+            return False
+        # Skip hidden directories (worktrees, tooling) and development artifacts
+        if any(part.startswith(".") for part in parts):
             return False
         # Skip development artifacts
         if "index_new" in parts:
@@ -163,7 +166,8 @@ def minify_assets() -> None:
     """Minify CSS and JS assets.
 
     Resolves @import directives in style.css manifest, inlining all partials
-    into a single minified style.min.css for production.
+    into a single minified style.min.css for production. Minifies first-party
+    JS to .min.js sidecars (vendored chart.umd.min.js is already minified).
     """
     css_path = ROOT / "assets" / "style.css"
     css_min_path = ROOT / "assets" / "style.min.css"
@@ -180,6 +184,62 @@ def minify_assets() -> None:
         min_size = len(css_min.encode("utf-8"))
         pct = ((1 - min_size / orig_size) * 100) if orig_size > 0 else 0
         print(f"  style.css: {orig_size:,} → {min_size:,} bytes ({pct:.1f}% reduction)")
+
+    minify_js_assets()
+
+
+# First-party scripts minified to .min.js sidecars. Vendored
+# chart.umd.min.js ships minified already and is intentionally excluded.
+JS_SOURCES = [
+    "assets/script.js",
+    "assets/barangay-data.js",
+    "assets/services.js",
+    "assets/service-filter.js",
+    "assets/legislative.js",
+    "assets/stats.js",
+    "assets/transparency.js",
+    "assets/search.js",
+    "assets/report.js",
+    "assets/leaflet-map.js",
+    "assets/font-loader.js",
+    "assets/chart-loader.js",
+    "assets/js/common.js",
+    "assets/js/procurement-table.js",
+    "assets/js/transparency-charts.js",
+]
+
+
+def minify_js_assets() -> None:
+    """Minify first-party JS via esbuild, falling back to copy-through.
+
+    Always writes <name>.min.js next to each source so HTML references stay
+    valid even when esbuild is unavailable (offline CI). Never modifies
+    the original sources.
+    """
+    total_orig, total_new, count = 0, 0, 0
+    for rel in JS_SOURCES:
+        src = ROOT / rel
+        if not src.exists():
+            print(f"  WARNING: JS source not found: {rel}")
+            continue
+        dst = src.with_name(src.stem + ".min.js")
+        try:
+            proc = subprocess.run(
+                ["npx", "--yes", "esbuild", str(src), "--minify",
+                 f"--outfile={dst}"],
+                capture_output=True, text=True, timeout=90, cwd=ROOT,
+            )
+            if proc.returncode != 0:
+                raise RuntimeError(proc.stderr.strip()[:200])
+        except (OSError, subprocess.SubprocessError, RuntimeError) as exc:  # offline/esbuild missing
+            print(f"  WARNING: esbuild failed for {rel} ({exc}); copying unminified")
+            dst.write_bytes(src.read_bytes())
+        total_orig += src.stat().st_size
+        total_new += dst.stat().st_size
+        count += 1
+    if count:
+        pct = ((1 - total_new / total_orig) * 100) if total_orig else 0
+        print(f"  JS: {total_orig:,} → {total_new:,} bytes across {count} files ({pct:.1f}% reduction)")
 
 
 def compress_images() -> None:

@@ -293,17 +293,19 @@ The site uses a pre-built `assets/js/search-index.json` (generated at build time
 
 ## Deploying
 
-The site is deployed via **GitHub Pages** from the `main` branch root folder. The custom domain `bettermapandan.org` is registered through **Hostinger** and configured with DNS A records pointing to GitHub Pages.
+The site is deployed via **GitHub Pages with GitHub Actions** (`.github/workflows/pages.yml` builds with `python3 build.py` and deploys the artifact). The custom domain `bettermapandan.org` is registered through **Hostinger** and configured with DNS A records pointing to GitHub Pages.
 
-Any static host works — the root `.html` files plus `assets/`, `locales/`, `fil/`, and top-level files (`sitemap.xml`, `robots.txt`, `CNAME`) are the entire deployable site.
+Generated output (`index.html`, section folders, `services/`, `fil/`, `sitemap.xml`, `style.min.css`, `search-index.json`, `*.min.js`) is **not committed** — it is rebuilt on every push. Run `python3 build.py` locally to preview.
+
+Any static host works — run `python3 build.py`, then deploy the root `.html` files plus `assets/`, `locales/`, `fil/`, and top-level files (`sitemap.xml`, `robots.txt`, `CNAME`).
 
 ### GitHub Pages
 
-Settings → Pages → deploy from the `main` branch, root folder. Custom domain configured via Hostinger DNS.
+Settings → Pages → **Source: GitHub Actions**. Custom domain configured via Hostinger DNS. Deployment runs automatically on every push to `main` via `pages.yml`.
 
 ### Other hosts
 
-- **Netlify / Vercel**: connect the repo with no build command and `/` as the publish directory (or add `python3 build.py` as the build command to regenerate on every push).
+- **Netlify / Vercel**: set the build command to `python3 build.py` and `/` as the publish directory.
 
 ### Before first deploy
 
@@ -319,7 +321,7 @@ This project is part of the BetterLGU initiative. If you want to contribute:
 
 1. Fork and clone the repo.
 2. Make your changes in `src/` or `locales/`.
-3. Run `python3 build.py` and commit both the source change and the regenerated output.
+3. Run `python3 build.py` to preview locally (generated output is git-ignored — commit source changes only).
 4. Open a pull request to `main`.
 
 Once live, update this LGU's entry in the [BetterLGU directory](https://directory.bettergov.ph/) from 🔵 Planned to 🟢 Active.

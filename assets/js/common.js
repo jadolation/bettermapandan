@@ -1,12 +1,22 @@
 /* Shared utilities for BetterMapandan transparency and stats pages. */
 var MapandanCommon = window.MapandanCommon || {};
 
-MapandanCommon.MAYORAL_TERMS = [
+// Canonical terms live in src/data/mayoral-terms.json and are injected as
+// window.MAYORAL_TERMS at build time. This literal is a fallback only.
+// Rollover rule: close the incumbent row with its real end date and append
+// a new row with end null — never use a far-future sentinel date.
+MapandanCommon.MAYORAL_TERMS = window.MAYORAL_TERMS || [
   { start: "2010-06-30", end: "2016-06-29", mayor: "Maximo Calimlim Jr." },
   { start: "2016-06-30", end: "2019-06-29", mayor: "Gerald Glenn L. Tambaoan" },
   { start: "2019-06-30", end: "2022-06-29", mayor: "Anthony C. Penuliar" },
-  { start: "2022-06-30", end: "2099-12-31", mayor: "Karl Christian F. Vega" }
+  { start: "2022-06-30", end: null, mayor: "Karl Christian F. Vega", incumbent: true }
 ];
+
+// null end means "incumbent" — resolve to today so filters never expire.
+MapandanCommon.termEndDate = function (term) {
+  if (term && term.end) return new Date(term.end);
+  return new Date();
+};
 
 MapandanCommon.getCustomDateRange = function () {
   var fromEl = document.getElementById("custom-date-from");
@@ -42,7 +52,7 @@ MapandanCommon.filterByMayoralTerm = function (contracts, termIndex) {
   var term = MapandanCommon.MAYORAL_TERMS[termIndex];
   if (!term) return contracts.slice();
   var from = new Date(term.start);
-  var to = new Date(term.end);
+  var to = MapandanCommon.termEndDate(term);
   to.setHours(23, 59, 59, 999);
   return contracts.filter(function (c) {
     var dateStr = c.award_date || (c.fiscal_year ? c.fiscal_year + "-01-01" : null);

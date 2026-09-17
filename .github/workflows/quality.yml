@@ -49,7 +49,7 @@ jobs:
       - name: Check for oversized graphics
         run: |
           echo "Checking for SVGs > 100KB..."
-          LARGE_FILES=$(find . -type f -name "*.svg" -size +100k 2>/dev/null | grep -v node_modules | grep -v '/assets/logo.svg' | grep -v '/assets/logo-no-white.svg' | grep -v '/assets/municipal-seal.svg' | grep -v '/assets/Pandan.svg' | grep -v '/fil/assets/logo.svg' | grep -v '/fil/assets/logo-no-white.svg' | grep -v '/fil/assets/municipal-seal.svg' | grep -v '/fil/assets/Pandan.svg' || true)
+          LARGE_FILES=$(find . -type f -name "*.svg" -size +100k 2>/dev/null | grep -v node_modules | grep -v '/assets/logo.svg' | grep -v '/assets/logo-no-white.svg' | grep -v '/assets/municipal-seal.svg' | grep -v '/assets/Pandan.svg' || true)
           if [ -n "$LARGE_FILES" ]; then
             echo "Error: The following SVGs exceed 100KB:"
             echo "$LARGE_FILES"

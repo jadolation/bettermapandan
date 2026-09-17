@@ -19,6 +19,23 @@ C:\Users\jeydi\AppData\Local\lighthouse.*/
 *.deb
 lhci-reports/
 
+# Generated site output (rebuild with `python3 build.py`; deployed via Pages workflow)
+/index.html
+/about/
+/government/
+/legislative/
+/statistics/
+/transparency/
+/search/
+/support/
+/services/
+/fil/
+/sitemap.xml
+/assets/search-index.json
+/assets/style.min.css
+/assets/*.min.js
+/assets/js/*.min.js
+
 # OS files
 .DS_Store
 Thumbs.db

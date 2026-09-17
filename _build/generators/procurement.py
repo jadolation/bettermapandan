@@ -255,12 +255,13 @@ def generate_procurement(locale: dict) -> tuple[str, dict, dict]:
 
     charts_html = _build_procurement_charts(locale, date_range, total_amount, contract_count)
     table_html = _build_procurement_table(locale, contract_count, total_amount, date_range, search_placeholder, showing_x_of_y, download_csv, remove_duplicates)
-    mayoral_terms_json = json.dumps([
-        {"start": "2010-06-30", "end": "2016-06-29", "mayor": "Maximo Calimlim Jr."},
-        {"start": "2016-06-30", "end": "2019-06-29", "mayor": "Gerald Glenn L. Tambaoan"},
-        {"start": "2019-06-30", "end": "2022-06-29", "mayor": 'Anthony C. Penuliar'},
-        {"start": "2022-06-30", "end": "2099-12-31", "mayor": "Karl Christian F. Vega"},
-    ], ensure_ascii=False)
+    # Mayoral terms: single source is src/data/mayoral-terms.json.
+    # Rollover rule: when a new mayor takes office, close the incumbent row
+    # with its real end date and append a new row with "end": null.
+    # A null end means "incumbent" — JS treats it as today (see common.js).
+    terms_path = SRC_DATA / "mayoral-terms.json"
+    mayoral_terms = json.loads(terms_path.read_text(encoding="utf-8"))
+    mayoral_terms_json = json.dumps(mayoral_terms, ensure_ascii=False)
     scripts_html = _build_procurement_scripts(monthly_json, awardees_json, contracts_json, categories_json, orgs_json, total_amount, date_range, license_str, mayoral_terms_json)
 
     proc_html = (

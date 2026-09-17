@@ -75,7 +75,7 @@ npm install
 python3 build.py
 ```
 
-Build output is written to the project root (EN pages) and `fil/` (FIL pages).
+Build output is written to the project root (EN pages) and `fil/` (FIL pages). Output is git-ignored and deployed automatically by the Pages workflow — always run the build before serving locally or running Lighthouse.
 
 ---
 
@@ -232,10 +232,10 @@ This compresses citizens-charter photos (mozjpeg, quality 70), history photos (P
    ruff check .
    ```
 
-7. **Stage and commit** your changes (both source and regenerated output):
+7. **Stage and commit** your source changes (generated output is git-ignored — do not commit it):
 
    ```bash
-   git add .
+   git add src/ locales/ assets/ _build/ tests/
    git commit -m "type(scope): description"
    ```
 

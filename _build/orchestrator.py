@@ -604,15 +604,15 @@ def _process_static_page(
 
     if rel.name == "statistics.html":
         comparison_script = build_barangay_comparison_script()
-        stats_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        stats_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", comparison_script + "\n" + stats_js + "\n</body>", 1)
 
     if rel.name == "transparency.html":
         transparency_js = (
-            '<script defer src="' + asset_base + '/assets/js/common.js"></script>\n'
-            '<script defer src="' + asset_base + '/assets/transparency.js"></script>\n'
-            '<script defer src="' + asset_base + '/assets/js/transparency-charts.js"></script>\n'
-            '<script defer src="' + asset_base + '/assets/js/procurement-table.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/common.min.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/transparency.min.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/transparency-charts.min.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/procurement-table.min.js"></script>\n'
         )
         csv_data_path = SRC_DATA / "transparency-csv.json"
         if csv_data_path.exists():
@@ -624,10 +624,10 @@ def _process_static_page(
             transparency_js += '<script>window.AUDIT_DATA = ' + json.dumps(audit_data, ensure_ascii=False) + ';</script>\n'
         page_html = page_html.replace("</body>", transparency_js + "</body>", 1)
     if rel.name == "index.html":
-        homepage_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        homepage_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", homepage_js + "\n</body>", 1)
     if rel.name == "about.html":
-        about_js = '<script defer src="' + asset_base + '/assets/stats.js"></script>'
+        about_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", about_js + "\n</body>", 1)
 
     out_path = out_root / to_folder_index(rel)
