@@ -55,6 +55,25 @@
   100% { transform: translateX(-50%); }
 }
 
+/* ---------- Reduced motion: swipeable static strip, nothing clipped ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-bar {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .emergency-bar .wrap {
+    width: auto;
+  }
+
+  .emergency-ticker {
+    animation: none;
+    width: auto;
+    will-change: auto;
+  }
+}
+
 .emergency-bar a {
   color: #fff;
   text-decoration: none;

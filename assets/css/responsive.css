@@ -102,6 +102,11 @@
     display: block;
   }
 
+  /* Let the mobile dropdown escape the header (generic .wrap clips it) */
+  .site-header .wrap {
+    overflow: visible;
+  }
+
   /* Grids collapse */
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 
@@ -410,5 +415,5 @@
   html { scroll-behavior: auto; }
   .carousel-slide { transition: none; }
   .civic-toast { transition: none; }
-  .emergency-bar .emergency-ticker { animation: none; }
+  /* Emergency ticker fallback lives in emergency.css (swipeable static strip) */
 }
