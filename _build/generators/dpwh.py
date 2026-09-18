@@ -74,7 +74,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     labels = _build_dpwh_labels(locale)
 
     cards_html = f"""
-<div class="grid grid-3 stack-gap-lg mt-24">
+<div class="grid grid-3 stack-gap-lg mt-12">
   <div class="card">
     <h2>{labels['DPWH_TOTAL_CONTRACTS']}</h2>
     <p class="figure" id="dpwh-count-value">{total_count:,}</p>
@@ -146,8 +146,6 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
 <script>
   window.DPWH_PROJECTS = {projects_json};
 </script>
-<div id="dpwh-map" class="map-container"></div>
-<p id="dpwh-map-fallback" class="source-label hidden">Enable JavaScript to view the project map. All projects are listed in the table below.</p>
 <input type="search" id="dpwh-search" placeholder="{labels['DPWH_SEARCH_PLACEHOLDER']}" aria-label="{labels['DPWH_SEARCH_PLACEHOLDER']}" class="form-input mb-24">
 <div class="table-wrap">
   <table aria-label="DPWH infrastructure projects" id="dpwh-table">
@@ -174,13 +172,11 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
 """
 
     html_content = f"""
+<div class="map-container">
+  <div id="dpwh-map" class="map"></div>
+</div>
 {cards_html}
-
-<button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-dpwh">{trigger_label}</button>
-<dialog data-modal id="modal-dpwh" aria-label="DPWH Infrastructure (details)">
-  <div class="fdp-dialog-head"><strong>DPWH Infrastructure (details)</strong><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
-  {dialog_body}
-</dialog>
+{dialog_body}
 """
 
     meta = {

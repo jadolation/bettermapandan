@@ -590,7 +590,7 @@ def _process_static_page(
     footer = build_footer(locale, asset_base)
     hero_html = build_hero(meta, page_hero_raw, asset_base)
     body = resolve_body_placeholders(hero_html + body, locale, asset_base)
-    if rel.name == "transparency.html":
+    if rel.name == "transparency.html" or (len(rel.parts) > 1 and rel.parts[0] == "transparency"):
         proc_html, _, _ = generate_procurement(locale)
         body = body.replace("{PROCUREMENT_SECTION}", proc_html, 1)
         dpwh_html, _, _ = generate_dpwh(locale, asset_base)
@@ -613,7 +613,7 @@ def _process_static_page(
         stats_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", comparison_script + "\n" + stats_js + "\n</body>", 1)
 
-    if rel.name == "transparency.html":
+    if rel.name == "transparency.html" or (len(rel.parts) > 1 and rel.parts[0] == "transparency"):
         transparency_js = (
             '<script defer src="' + asset_base + '/assets/js/common.min.js"></script>\n'
             '<script defer src="' + asset_base + '/assets/transparency.min.js"></script>\n'
@@ -632,6 +632,13 @@ def _process_static_page(
             audit_data = json.loads(audit_data_path.read_text(encoding="utf-8"))
             transparency_js += '<script>window.AUDIT_DATA = ' + json.dumps(audit_data, ensure_ascii=False) + ';</script>\n'
         page_html = page_html.replace("</body>", transparency_js + "</body>", 1)
+
+    if len(rel.parts) > 1 and rel.parts[0] == "transparency":
+        transparency_sub_js = (
+            '<script defer src="' + asset_base + '/assets/js/dashboard-tabs.min.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/transparency-data.min.js"></script>\n'
+        )
+        page_html = page_html.replace("</body>", transparency_sub_js + "</body>", 1)
     if rel.name == "index.html":
         homepage_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", homepage_js + "\n</body>", 1)
@@ -687,6 +694,96 @@ def _process_generated_page(
 
     search_entries.append(build_search_entry(rel, rel.stem.replace("-", " ").title(), "", body_content, lang_code == "fil"))
     return 1
+
+
+def _write_transparency_data_bundle() -> None:
+    out_path = ROOT / "assets" / "js" / "transparency-data.js"
+    parts: list[str] = []
+
+    data_path = SRC_DATA / "procurement.json"
+    if data_path.exists():
+        data = json.loads(data_path.read_text(encoding="utf-8"))
+        contracts = data.get("contracts", [])
+        monthly_trend = data.get("monthly_trend", [])
+        top_awardees = data.get("top_awardees", [])
+        metrics = data.get("metrics", {})
+        total_amount = metrics.get("total_amount", 0)
+
+        cat_totals: dict[str, float] = {}
+        org_totals: dict[str, dict] = {}
+        for c in contracts:
+            cat = c.get("business_category", "Other") or "Other"
+            cat_totals[cat] = cat_totals.get(cat, 0.0) + (c.get("amount", 0) or 0)
+            org = c.get("organization_name", "Unknown") or "Unknown"
+            if org not in org_totals:
+                org_totals[org] = {"count": 0, "total": 0.0}
+            org_totals[org]["count"] += 1
+            org_totals[org]["total"] += c.get("amount", 0) or 0
+
+        categories_list = sorted(
+            [{"name": k, "total": v} for k, v in cat_totals.items()],
+            key=lambda x: x["total"],
+            reverse=True,
+        )
+        orgs_list = sorted(
+            [{"name": k, "count": v["count"], "total": v["total"]} for k, v in org_totals.items()],
+            key=lambda x: x["total"],
+            reverse=True,
+        )
+
+        award_dates = [c.get("award_date", "") for c in contracts if c.get("award_date")]
+        date_range = ""
+        if award_dates:
+            min_date = min(award_dates)
+            max_date = max(award_dates)
+            from datetime import datetime as _dt
+            from datetime import timezone
+            def _fmt_date(ds):
+                try:
+                    return _dt.strptime(ds, "%Y-%m-%d").replace(tzinfo=timezone.utc).strftime("%b %Y")
+                except Exception:
+                    return ds
+            date_range = f"{_fmt_date(min_date)} – {_fmt_date(max_date)}"
+
+        terms_path = SRC_DATA / "mayoral-terms.json"
+        mayoral_terms = []
+        if terms_path.exists():
+            mayoral_terms = json.loads(terms_path.read_text(encoding="utf-8"))
+
+        parts.append('window.PROCUREMENT_DATA = { monthly: ' + json.dumps(monthly_trend, ensure_ascii=False) + ', awardees: ' + json.dumps(top_awardees, ensure_ascii=False) + ' };')
+        parts.append('window.PROCUREMENT_MONTHLY_TREND = ' + json.dumps(monthly_trend, ensure_ascii=False) + ';')
+        parts.append('window.PROCUREMENT_TOP_AWARDEES = ' + json.dumps(top_awardees, ensure_ascii=False) + ';')
+        parts.append('window.PROCUREMENT_CONTRACTS = ' + json.dumps(contracts, ensure_ascii=False) + ';')
+        parts.append('window.PROCUREMENT_CATEGORIES = ' + json.dumps(categories_list, ensure_ascii=False) + ';')
+        parts.append('window.PROCUREMENT_ORGS = ' + json.dumps(orgs_list, ensure_ascii=False) + ';')
+        parts.append('window.PROCUREMENT_TOTAL = ' + str(total_amount) + ';')
+        parts.append('window.PROCUREMENT_DATE_RANGE = ' + json.dumps(date_range) + ';')
+        parts.append('window.MAYORAL_TERMS = ' + json.dumps(mayoral_terms, ensure_ascii=False) + ';')
+
+    fdp_summary = generate_fdp_summary()
+    parts.append('window.FDP_SUMMARY = ' + json.dumps(fdp_summary, ensure_ascii=False) + ';')
+
+    csv_data_path = SRC_DATA / "transparency-csv.json"
+    if csv_data_path.exists():
+        csv_data = json.loads(csv_data_path.read_text(encoding="utf-8"))
+        parts.append('window.TRANSPARENCY_CSV_DATA = ' + json.dumps(csv_data, ensure_ascii=False) + ';')
+
+    audit_data_path = SRC_DATA / "audit-reports.json"
+    if audit_data_path.exists():
+        audit_data = json.loads(audit_data_path.read_text(encoding="utf-8"))
+        parts.append('window.AUDIT_DATA = ' + json.dumps(audit_data, ensure_ascii=False) + ';')
+
+    dpwh_path = SRC_DATA / "dpwh.json"
+    if dpwh_path.exists():
+        dpwh_data = json.loads(dpwh_path.read_text(encoding="utf-8"))
+        projects = dpwh_data.get("projects", [])
+        parts.append('window.DPWH_PROJECTS = ' + json.dumps(projects, ensure_ascii=False) + ';')
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    content = "\n".join(parts) + "\n"
+    out_path.write_text(content, encoding="utf-8")
+    size = len(content.encode("utf-8"))
+    print(f"  transparency-data.js: {size:,} bytes")
 
 
 def build() -> None:
@@ -754,6 +851,8 @@ def build() -> None:
         json.dumps(all_search_entries, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print(f"\nSearch index: {len(all_search_entries)} total entries")
+
+    _write_transparency_data_bundle()
 
     minify_assets()
 

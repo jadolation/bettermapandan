@@ -108,6 +108,8 @@
     }
   }
 
+  window._initDpwhMap = initMap;
+
   window.refreshDpwhMap = function (range, termIndex, dateFrom, dateTo) {
     var projects = window.DPWH_PROJECTS || [];
     var filtered = filterDpwhProjects(projects, range, termIndex, dateFrom, dateTo);

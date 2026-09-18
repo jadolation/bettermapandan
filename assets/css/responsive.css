@@ -359,6 +359,22 @@
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
   }
+  /* Mobile nav: swap burger and language order, make language smaller */
+  .lang-switcher {
+    order: -1;
+    border-radius: 6px;
+    padding: 1px;
+    margin-left: 0;
+  }
+  .nav-toggle {
+    order: 0;
+  }
+  .lang-switcher .lang-btn {
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 12px;
+    min-height: 36px;
+  }
 }
 
 /* ==========================================================================
