@@ -175,7 +175,11 @@ SCHEMAS = {
             "indebtedness": {"type": "array"},
             "budget": {"type": "array"},
             "budget_book": {"type": "array"},
-            "spp": {"type": "array"}
+            "spp": {"type": "array"},
+            "app": {"type": "array"},
+            "gad": {"type": "array"},
+            "fund_matrix": {"type": "array"},
+            "spa": {"type": "array"}
         }
     },
 }

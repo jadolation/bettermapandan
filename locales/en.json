@@ -539,7 +539,9 @@
     "fdp_older": "Filing",
     "fdp_nil": "Nil filing \u2014 nothing to report for this period.",
     "fdp_undated": "Undated snapshot",
-    "infrastructure_search_placeholder": "Search projects..."
+    "infrastructure_search_placeholder": "Search projects...",
+    "fdp_app_title": "Annual Procurement Plan",
+    "fdp_gad_title": "Gender and Development Report"
   },
   "procurement": {
     "eyebrow": "Public Procurement",

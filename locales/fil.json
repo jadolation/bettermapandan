@@ -539,7 +539,9 @@
     "fdp_older": "Filing",
     "fdp_nil": "Walang naiulat para sa panahong ito.",
     "fdp_undated": "Snapshot na walang petsa",
-    "infrastructure_search_placeholder": "Maghanap ng mga proyekto..."
+    "infrastructure_search_placeholder": "Maghanap ng mga proyekto...",
+    "fdp_app_title": "Taunang Plano sa Pagbili",
+    "fdp_gad_title": "Ulat sa Gender and Development"
   },
   "procurement": {
     "eyebrow": "Pampublikong Pamimili",

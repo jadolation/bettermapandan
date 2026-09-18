@@ -113,8 +113,9 @@ description: Meta description
 
 ### Data
 
-- Edit JSON files in `src/data/` (`services.json`, `legislative.json`, `procurement.json`, `dpwh.json`, `audit-reports.json`, `barangays.json`, `transparency-csv.json`)
-- Data extraction scripts: `src/data/extract_procurement.py`, `src/data/extract_dpwh.py`, `src/data/generate_dpwh_seed.py`
+- Edit JSON files in `src/data/` (`services.json`, `legislative.json`, `procurement.json`, `dpwh.json`, `audit-reports.json`, `barangays.json`, `transparency-csv.json`, `fdp_disclosures.json`)
+- Data extraction scripts: `src/data/extract_procurement.py`, `src/data/extract_dpwh.py`, `src/data/generate_dpwh_seed.py`, `src/data/extract_fdp.py`
+- FDP refresh is two steps (CSVs are git-ignored local intermediates): `python3 src/data/fdp_to_csv.py` converts `datasets/fdp/*/*.xlsx` to `datasets/fdp-csv/`, then `python3 src/data/extract_fdp.py` rebuilds `src/data/fdp_disclosures.json` — commit the JSON, never the CSVs
 - JSON Schema validators are defined in `src/data/schemas.py` — validation runs automatically during `python3 build.py` if `jsonschema` is installed
 
 ### Partial Templates

@@ -1,28 +1,26 @@
 """Extract DILG Full Disclosure Policy filings for Mapandan into fdp_disclosures.json.
 
-Reads datasets/fdp/<year>/*.xlsx (FDP Forms 6/7/8/9/10/12/13/14, SRE, SEF,
-LBP budget, SIPB indebtedness), normalizes them into quarterly records, and
+Reads per-sheet CSVs in datasets/fdp-csv/<year>/*.csv (generated from the
+FDP workbooks by src/data/fdp_to_csv.py; one CSV per worksheet, sheet name
+in the filename after "__"), normalizes them into quarterly records, and
 writes src/data/fdp_disclosures.json for the site generators.
+
+Sheet routing is by filename suffix, with content-sniffing for ambiguous
+Sheet1 files. Amounts arrive as comma-quoted text; dates as ISO strings.
 
 Usage: python3 src/data/extract_fdp.py
 """
+import csv
 import hashlib
 import re
 import sys
-import zipfile
-from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-try:
-    import openpyxl
-except ImportError:
-    sys.exit("openpyxl is required: pip install openpyxl")
-
 from src.data._utils import write_json
 
-CACHE_DIR = Path("datasets/fdp")
+CACHE_DIR = Path("datasets/fdp-csv")
 OUTPUT = Path("src/data/fdp_disclosures.json")
 
 CERTIFY_RE = re.compile(r"we hereby certify", re.I)
@@ -35,7 +33,7 @@ def to_float(value):
         return None
     if isinstance(value, (int, float)):
         return float(value)
-    text = str(value).strip().replace(",", "").replace("\u00b1", "")
+    text = str(value).strip().replace(",", "")
     text = re.sub(r"^(p|php|₱)\s*", "", text, flags=re.I).strip()
     if text in ("", "-", "N/A", "n/a", "NONE", "none", "not yet started"):
         return None
@@ -48,31 +46,30 @@ def to_float(value):
 def clean_text(value):
     if value is None:
         return ""
-    if isinstance(value, datetime):
-        return value.date().isoformat()
     text = str(value).strip()
     return re.sub(r"\s+", " ", text)
 
 
-def sheet_rows(ws, max_col=12):
-    for row in ws.iter_rows(values_only=True):
-        yield [c for c in row[:max_col]]
+def read_rows(path: Path):
+    with path.open(encoding="utf-8-sig", newline="") as fh:
+        return [[c for c in row] for row in csv.reader(fh)]
 
 
-def find_row(rows, *needles):
-    """Return first row whose col-A text starts with any needle (case-insensitive)."""
-    for row in rows:
-        label = clean_text(row[0]).lower() if len(row) > 0 else ""
-        for needle in needles:
-            if label.startswith(needle.lower()):
-                return row
-    return None
+def sheet_of(path: Path) -> str:
+    """Sheet identifier from '<workbook>__<Sheet>.csv' filename."""
+    stem = path.stem
+    return stem.split("__", 1)[1] if "__" in stem else stem
+
+
+def workbook_of(path: Path) -> str:
+    stem = path.stem
+    return stem.split("__", 1)[0] if "__" in stem else stem
 
 
 def parse_year_quarter(ws, rows):
     """FDP header blocks carry CALENDAR YEAR / QUARTER cells or 'Period Covered:'."""
     year, quarter = None, None
-    for row in rows[:8]:
+    for row in rows[:10]:
         cells = [clean_text(c) for c in row]
         joined = " ".join(cells)
         if "period covered" in joined.lower():
@@ -102,18 +99,37 @@ def period_key(year, quarter):
     return "undated"
 
 
-def money_row(row, cols):
-    """Pull floats from given 0-indexed columns."""
-    return [to_float(row[i]) if i < len(row) else None for i in cols]
+def first_number(row, start=0):
+    for cell in row[start:]:
+        value = to_float(cell)
+        if value is not None:
+            return value
+    return None
+
+
+def last_number(row):
+    for cell in reversed(row):
+        value = to_float(cell)
+        if value is not None:
+            return value
+    return None
+
+
+def split_date(value):
+    """Normalize '2026-02-10 00:00:00' text (or datetime) to YYYY-MM-DD."""
+    if value is None:
+        return ""
+    text = clean_text(value)
+    match = re.match(r"(\d{4}-\d{2}-\d{2})", text)
+    return match.group(1) if match else text
 
 
 # ----------------------------------------------------------------------------
-# Form parsers (each returns a record dict or None)
+# Form parsers (rows = list of string lists; each returns a record or None)
 # ----------------------------------------------------------------------------
 
-def parse_sre(ws):
-    rows = list(sheet_rows(ws))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_sre(rows, form="sre"):
+    year, quarter = parse_year_quarter(None, rows)
     header_idx = next((i for i, r in enumerate(rows)
                        if clean_text(r[0]).lower().startswith("particulars")
                        or (len(r) > 1 and clean_text(r[1]).lower().startswith("particulars"))), None)
@@ -135,21 +151,12 @@ def parse_sre(ws):
                         "sef": vals[2], "trust_fund": vals[3], "trust_liability": vals[4]})
     if not records:
         return None
-    return {"form": "sre", "period": period_key(year, quarter), "year": year,
+    return {"form": form, "period": period_key(year, quarter), "year": year,
             "quarter": quarter, "rows": records}
 
 
-def last_number(row):
-    nums = [to_float(c) for c in row]
-    for v in reversed(nums):
-        if v is not None:
-            return v
-    return None
-
-
-def parse_sef(ws):
-    rows = list(sheet_rows(ws, 9))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_sef(rows):
+    year, quarter = parse_year_quarter(None, rows)
     receipt, items, subtotal, balance = None, [], None, None
     in_items = False
     for row in rows:
@@ -180,9 +187,8 @@ def parse_sef(ws):
             "subtotal": subtotal, "balance": balance}
 
 
-def parse_ldrrmf(ws):
-    rows = list(sheet_rows(ws, 10))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_ldrrmf(rows):
+    year, quarter = parse_year_quarter(None, rows)
     sources, utilization = [], []
     section = None
     for row in rows:
@@ -197,24 +203,25 @@ def parse_ldrrmf(ws):
         if CERTIFY_RE.search(a):
             break
         if section == "sources" and a:
-            qrf, mit = money_row(row, [1, 2])
+            qrf = to_float(row[1]) if len(row) > 1 else None
+            mit = to_float(row[2]) if len(row) > 2 else None
             total = to_float(row[6]) if len(row) > 6 else None
             if qrf is not None or mit is not None or total is not None:
                 sources.append({"label": a, "qrf": qrf, "mitigation": mit, "total": total})
         elif section == "util" and a and not low.startswith("total utilization") and not low.startswith("unutilized"):
             qrf = to_float(row[1]) if len(row) > 1 else None
             total = to_float(row[6]) if len(row) > 6 else None
-            if qrf not in (None, 0) or (total not in (None, 0)):
+            if qrf not in (None, 0) or total not in (None, 0):
                 utilization.append({"label": a, "qrf": qrf, "total": total})
     totals = {}
     for row in rows:
         a = clean_text(row[0]).lower() if len(row) > 0 else ""
         if a.startswith("total utilization"):
-            totals["utilization"] = to_float(row[6]) if len(row) > 6 else None
+            totals["utilization"] = last_number(row)
         elif a.startswith("unutilized balance"):
-            totals["unutilized"] = to_float(row[6]) if len(row) > 6 else None
+            totals["unutilized"] = last_number(row)
         elif a.startswith("total funds avail"):
-            totals["available"] = to_float(row[6]) if len(row) > 6 else None
+            totals["available"] = last_number(row)
     if not sources and not utilization:
         return None
     return {"form": "ldrrmf", "period": period_key(year, quarter), "year": year,
@@ -222,9 +229,8 @@ def parse_ldrrmf(ws):
             "totals": totals}
 
 
-def parse_scf(ws):
-    rows = list(sheet_rows(ws, 13))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_scf(rows):
+    year, quarter = parse_year_quarter(None, rows)
     section, entries, key = None, [], {}
     for row in rows:
         cells = [clean_text(c) for c in row]
@@ -237,8 +243,7 @@ def parse_scf(ws):
         label = next((c for c in cells[:4] if c), "")
         if not label:
             continue
-        nums = [to_float(c) for c in cells[4:]]
-        value = next((v for v in reversed(nums) if v is not None), None)
+        value = first_number(cells[4:])
         low = label.lower()
         entries.append({"label": label, "section": section, "value": value})
         if low.startswith("net cash from operating"):
@@ -259,9 +264,8 @@ def parse_scf(ws):
             "quarter": quarter, "key": key, "rows": entries}
 
 
-def parse_uca(ws):
-    rows = list(sheet_rows(ws, 11))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_uca(rows):
+    year, quarter = parse_year_quarter(None, rows)
     debtors, total, started = [], None, False
     for row in rows:
         a = clean_text(row[0]) if len(row) > 0 else ""
@@ -273,13 +277,13 @@ def parse_uca(ws):
         if CERTIFY_RE.search(a):
             break
         if a.lower().startswith("total"):
-            total = to_float(row[1]) if len(row) > 1 else None
+            total = first_number(row[1:])
             continue
         if not a or a.upper() in ("NONE", "N/A"):
             continue
         debtors.append({"debtor": a,
                         "balance": to_float(row[1]) if len(row) > 1 else None,
-                        "date_granted": clean_text(row[2]) if len(row) > 2 else "",
+                        "date_granted": split_date(row[2]) if len(row) > 2 else "",
                         "purpose": clean_text(row[3]) if len(row) > 3 else ""})
     if not debtors and total in (None, 0):
         return {"form": "cash_advances", "period": period_key(year, quarter),
@@ -289,64 +293,77 @@ def parse_uca(ws):
             "year": year, "quarter": quarter, "debtors": debtors, "total": total}
 
 
-def parse_trust(ws, suffix):
-    rows = list(sheet_rows(ws, 13))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_trust(rows, suffix):
+    year, quarter = parse_year_quarter(None, rows)
+    form = "trust_fund" if suffix == "6a" else "lgsf"
     header_idx = next((i for i, r in enumerate(rows)
                        if clean_text(r[0]).lower().startswith(("program or project", "fund source"))), None)
     items = []
     if header_idx is not None:
         for row in rows[header_idx + 2:]:
-            a = clean_text(row[0]) if len(row) > 0 else ""
-            if CERTIFY_RE.search(" ".join(clean_text(c) for c in row)) or a.lower().startswith("certified correct"):
+            cells = [clean_text(c) for c in row]
+            a = cells[0] if cells else ""
+            if CERTIFY_RE.search(" ".join(cells)) or "certified correct" in " ".join(cells).lower():
                 break
             if not a or a.upper() in ("N/A", "NONE"):
                 continue
             items.append({"program": a,
-                          "location": clean_text(row[1]) if len(row) > 1 else "",
+                          "location": cells[1] if len(cells) > 1 else "",
                           "cost": to_float(row[2]) if len(row) > 2 else None,
-                          "started": clean_text(row[3]) if len(row) > 3 else "",
-                          "completion": clean_text(row[4]) if len(row) > 4 else "",
-                          "progress": clean_text(row[5]) if len(row) > 5 else ""})
+                          "started": split_date(row[3]) if len(row) > 3 else "",
+                          "completion": split_date(row[4]) if len(row) > 4 else "",
+                          "progress": cells[5] if len(cells) > 5 else ""})
     if not items:
-        return {"form": "trust_fund" if suffix == "6a" else "lgsf",
-                "period": period_key(year, quarter), "year": year,
+        return {"form": form, "period": period_key(year, quarter), "year": year,
                 "quarter": quarter, "status": "nil", "items": []}
-    return {"form": "trust_fund" if suffix == "6a" else "lgsf",
-            "period": period_key(year, quarter), "year": year,
+    return {"form": form, "period": period_key(year, quarter), "year": year,
             "quarter": quarter, "items": items}
 
 
-def parse_dfu_sheet(ws):
-    rows = list(sheet_rows(ws, 12))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_dfu_rows(rows):
+    """Parse one DFU quarter-sheet: returns (year, quarter, projects, totals)."""
+    year, quarter = parse_year_quarter(None, rows)
     header_idx = next((i for i, r in enumerate(rows)
                        if clean_text(r[0]).lower().startswith("program or")), None)
-    projects = []
+    projects, totals = [], {}
     if header_idx is not None:
         for row in rows[header_idx + 2:]:
             a = clean_text(row[0]) if len(row) > 0 else ""
             if CERTIFY_RE.search(a) or a.lower().startswith("we hereby"):
                 break
-            if not a or a.upper() in ("N/A", "NONE"):
+            if not a:
+                continue
+            if a.upper() == "TOTAL":
+                nums = [to_float(c) for c in row[1:]]
+                nums = [v for v in nums if v is not None]
+                if nums:
+                    totals = {"cost": nums[0] if len(nums) > 0 else None,
+                              "pct": nums[1] if len(nums) > 1 else None,
+                              "incurred": nums[2] if len(nums) > 2 else None}
                 continue
             if a.lower() in ("social development", "econimic development", "economic development"):
                 continue
+            nums = [to_float(c) for c in row[3:]]
+            nums = [v for v in nums if v is not None]
+            cost = to_float(row[2]) if len(row) > 2 else None
+            pct = incurred = None
+            if len(nums) >= 2:
+                pct, incurred = nums[-2], nums[-1]
+            elif len(nums) == 1:
+                incurred = nums[0]
+            if cost is None and pct is None and incurred is None:
+                continue
             projects.append({"project": a,
                              "location": clean_text(row[1]) if len(row) > 1 else "",
-                             "cost": to_float(row[2]) if len(row) > 2 else None,
-                             "started": clean_text(row[3]) if len(row) > 3 else "",
-                             "completion": clean_text(row[4]) if len(row) > 4 else "",
-                             "status": clean_text(row[5]) if len(row) > 5 else "",
-                             "pct": to_float(row[6]) if len(row) > 6 else None,
-                             "incurred": to_float(row[7]) if len(row) > 7 else None})
-    return {"form": "dev_fund", "period": period_key(year, quarter), "year": year,
-            "quarter": quarter, "sheet": ws.title, "projects": projects}
+                             "cost": cost,
+                             "started": split_date(row[3]) if len(row) > 3 else "",
+                             "completion": split_date(row[4]) if len(row) > 4 else "",
+                             "pct": pct, "incurred": incurred})
+    return year, quarter, projects, totals
 
 
-def parse_bids_sheet(ws, kind):
-    rows = list(sheet_rows(ws, 12))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_bids_rows(rows):
+    """Parse one 10a/10b/10c sheet: returns list of bids."""
     header_idx = next((i for i, r in enumerate(rows)
                        if "reference" in clean_text(r[1]).lower() or "reference" in clean_text(r[0]).lower()), None)
     bids = []
@@ -363,39 +380,12 @@ def parse_bids_sheet(ws, kind):
                          "location": clean_text(row[4]) if len(row) > 4 else "",
                          "bidder": clean_text(row[5]) if len(row) > 5 else "",
                          "bid_amount": to_float(row[7]) if len(row) > 7 else None,
-                         "award_date": clean_text(row[8]) if len(row) > 8 else ""})
-    return {"kind": kind, "bids": bids,
-            "status": "nil" if not bids else "reported"}
+                         "award_date": split_date(row[8]) if len(row) > 8 else ""})
+    return bids
 
 
-def parse_bids_file(path):
-    wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-    year = quarter = None
-    parts = {}
-    for ws in wb.worksheets:
-        if ws.title == "FDPP LICENSE":
-            continue
-        low = ws.title.lower()
-        kind = "civil_works" if "10a" in low else "goods" if "10b" in low else "consulting" if "10c" in low else None
-        if not kind:
-            continue
-        parsed = parse_bids_sheet(ws, kind)
-        parts[kind] = parsed["bids"]
-        rows = list(sheet_rows(ws, 6))
-        y, q = parse_year_quarter(ws, rows)
-        year, quarter = y or year, q or quarter
-    if not parts:
-        return None
-    return {"form": "bids", "period": period_key(year, quarter), "year": year,
-            "quarter": quarter,
-            "civil_works": parts.get("civil_works", []),
-            "goods": parts.get("goods", []),
-            "consulting": parts.get("consulting", [])}
-
-
-def parse_manpower(ws):
-    rows = list(sheet_rows(ws, 8))
-    year, quarter = parse_year_quarter(ws, rows)
+def parse_manpower(rows):
+    year, quarter = parse_year_quarter(None, rows)
     items, total = [], None
     for row in rows:
         a = clean_text(row[0]) if len(row) > 0 else ""
@@ -408,7 +398,7 @@ def parse_manpower(ws):
             if low.startswith("grand total"):
                 total = {"count": count, "amount": amount}
             else:
-                items.append({"class": b, "count": count, "amount": amount})
+                items.append({"class": label, "count": count, "amount": amount})
     if not items:
         return None
     return {"form": "manpower", "period": period_key(year, quarter) if year else "undated",
@@ -416,26 +406,23 @@ def parse_manpower(ws):
             "note": None if year else "Snapshot date not stated in filing"}
 
 
-def parse_sipb_file(path):
-    wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-    loans = []
-    for ws in wb.worksheets:
-        items, report_date = {}, ""
-        for row in sheet_rows(ws, 4):
-            a = clean_text(row[0]) if len(row) > 0 else ""
-            b = clean_text(row[1]) if len(row) > 1 else ""
-            c = clean_text(row[2]) if len(row) > 2 else ""
-            if a.isdigit() and b:
-                items[b] = c
-                if b.lower().startswith("date of report"):
-                    report_date = c
-        if items:
-            loans.append({"loan": ws.title.strip(), "report_date": report_date, "items": items})
-    return loans or None
+def parse_sipb_rows(rows, loan):
+    items, report_date = {}, ""
+    for row in rows:
+        a = clean_text(row[0]) if len(row) > 0 else ""
+        b = clean_text(row[1]) if len(row) > 1 else ""
+        c = clean_text(row[2]) if len(row) > 2 else ""
+        if a.isdigit() and b:
+            items[b] = c
+            if b.lower().startswith("date of report"):
+                report_date = c
+    if not items:
+        return None
+    return {"loan": loan, "report_date": report_date, "items": items}
 
 
-def _detect_budget_year(ws, rows):
-    for row in rows[:12]:
+def _detect_budget_year(rows, fallback=None):
+    for row in rows[:14]:
         joined = " ".join(clean_text(c) for c in row)
         match = re.search(r"[Bb][Uu][Dd][Gg][Ee][Tt]\s+[Yy][Ee][Aa][Rr]\s+(20\d{2})", joined)
         if match:
@@ -443,16 +430,16 @@ def _detect_budget_year(ws, rows):
         match = re.search(r"[Ff][Ii][Ss][Cc][Aa][Ll]\s+[Yy][Ee][Aa][Rr]\s+(20\d{2})", joined)
         if match:
             return int(match.group(1))
-    match = re.search(r"(20\d{2})", ws.title)
-    return int(match.group(1)) if match else None
+    return fallback
 
 
-def _parse_lbp2(ws, rows, year):
+def parse_lbp2(rows, year):
     offices, current = [], None
-    for row in sheet_rows(ws, 13):
-        a = clean_text(row[0]) if len(row) > 0 else ""
-        if a.lower().startswith("office:"):
-            current = {"office": re.sub(r"^office:\s*", "", a, flags=re.I),
+    for row in rows:
+        cells = [clean_text(c) for c in row]
+        office_cell = next((c for c in cells if c.lower().startswith("office:")), "")
+        if office_cell:
+            current = {"office": re.sub(r"^office:\s*", "", office_cell, flags=re.I),
                        "ps": 0.0, "mooe": 0.0, "co": 0.0, "proposed": 0.0, "lines": 0}
             offices.append(current)
             continue
@@ -461,7 +448,7 @@ def _parse_lbp2(ws, rows, year):
         code = clean_text(row[1]) if len(row) > 1 else ""
         if not CODE_RE.match(code):
             continue
-        prop = to_float(row[11]) if len(row) > 11 else None
+        prop = last_number(row[2:])
         if prop is None:
             continue
         current["lines"] += 1
@@ -478,225 +465,476 @@ def _parse_lbp2(ws, rows, year):
     for o in offices:
         for k in ("ps", "mooe", "co", "proposed"):
             o[k] = round(o[k], 2)
-    return {"form": "budget", "period": str(year) if year else "undated", "year": year,
-            "quarter": None, "sheet": ws.title.strip(), "offices": offices,
+    return {"offices": offices,
             "totals": {k: round(sum(o[k] for o in offices), 2) for k in ("ps", "mooe", "co", "proposed")}}
 
 
-def parse_spp_file(path):
-    wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-    offices, summary = [], []
-    year = None
-    for ws in wb.worksheets:
-        title = ws.title
-        if title == "FDPP LICENSE" or title == "Sheet1":
+def parse_budget_sheet(rows, sheet, year):
+    """LBP-2-style sheets aggregate by office; all others capture labeled rows."""
+    has_account_code = any(len(r) > 1 and "account code" in clean_text(r[1]).lower() for r in rows[:16])
+    if has_account_code:
+        result = parse_lbp2(rows, year)
+        if result:
+            result.update({"form": "budget", "sheet": sheet,
+                           "period": str(year) if year else "undated", "year": year, "quarter": None})
+            return result
+        # Summary-style sheet (e.g. Form 1b): account codes but no offices.
+        # Fall through to generic labeled-row capture below.
+    captured = []
+    for row in rows:
+        label = clean_text(row[0]) if len(row) > 0 else ""
+        if not label or len(label) > 120:
             continue
-        rows = list(sheet_rows(ws, 14))
-        y, _ = parse_year_quarter(ws, rows)
-        year = y or year
-        if "14b" in title or "summary" in title.lower():
-            for row in rows:
-                a = clean_text(row[0]) if len(row) > 0 else ""
-                if a.upper().startswith("OFFICE OF"):
-                    total = to_float(row[4]) if len(row) > 4 else None
-                    summary.append({"office": a, "total": total})
+        low = label.lower()
+        if low.startswith(("office:", "object of", "particip", "region", "province", "city",
+                            "municipality", "mapandan", "general fund", "lbp form", "budget of",
+                            "programmed", "statement of", "comparative", "appropriations for")):
             continue
-        office = ""
-        for row in rows[:8]:
-            cells = [clean_text(c) for c in row]
-            for i, c in enumerate(cells):
-                if c.lower() == "office:" and i + 1 < len(cells):
-                    office = cells[i + 1]
-        header_idx = next((i for i, r in enumerate(rows)
-                           if "code (pap)" in clean_text(r[0]).lower()), None)
-        items = []
-        if header_idx is not None:
-            for row in rows[header_idx + 2:]:
-                cells = [clean_text(c) for c in row]
-                if CERTIFY_RE.search(" ".join(cells)):
-                    break
-                if not cells[1] or cells[1].upper() in ("N/A", "NONE"):
-                    continue
-                amount = next((to_float(c) for c in reversed(cells) if to_float(c) is not None), None)
-                items.append({"project": cells[1], "end_user": cells[2] if len(cells) > 2 else "",
-                              "mode": cells[4] if len(cells) > 4 else "", "amount": amount})
-        if office:
-            offices.append({"office": office, "items": items})
-    if not offices and not summary:
+        if CERTIFY_RE.search(label):
+            continue
+        vals = [to_float(c) for c in row[1:]]
+        vals = [v for v in vals if v is not None]
+        if vals:
+            captured.append({"label": label, "values": vals})
+    if not captured:
         return None
-    return {"form": "spp", "period": str(year) if year else "undated", "year": year,
-            "quarter": None, "offices": offices, "summary": summary}
+    return {"form": "budget_book", "sheet": sheet,
+            "period": str(year) if year else "undated", "year": year,
+            "quarter": None, "rows": captured}
+
+
+def parse_fund_matrix(rows):
+    """Office × PS/MOOE/CO appropriation matrix (General Fund, Economic Enterprise)."""
+    fund, offices = "", []
+    for row in rows[:6]:
+        a = clean_text(row[0]) if len(row) > 0 else ""
+        if a and not fund and not a.lower().startswith(("region", "province", "city", "municipality", "mapandan")):
+            fund = a
+    header_idx = next((i for i, r in enumerate(rows)
+                       if clean_text(r[0]).lower() == "office"), None)
+    if header_idx is None:
+        return None
+    for row in rows[header_idx + 1:]:
+        a = clean_text(row[0]) if len(row) > 0 else ""
+        if not a or a.lower().startswith(("office", "total", "certified")):
+            continue
+        if CERTIFY_RE.search(a):
+            break
+        nums = [to_float(c) for c in row[1:]]
+        nums = [v for v in nums if v is not None]
+        while len(nums) < 5:
+            nums.append(None)
+        offices.append({"office": a, "ps": nums[0], "mooe": nums[1], "co": nums[2],
+                        "non_office": nums[3], "total": nums[4]})
+    if not offices:
+        return None
+    return {"form": "fund_matrix", "fund": fund or "General Fund", "year": None,
+            "quarter": None, "period": "undated", "offices": offices}
+
+
+def parse_spa(rows):
+    """Special-purpose appropriation project lists (20% DF, Non-Office, Calamity)."""
+    fund, items = "", []
+    for row in rows[:6]:
+        a = clean_text(row[0]) if len(row) > 0 else ""
+        if a and not fund and not a.lower().startswith(("region", "province", "city", "municipality", "mapandan")):
+            fund = a
+    header_idx = next((i for i, r in enumerate(rows)
+                       if "office of expenditure" in clean_text(r[0]).lower()
+                       or "procurement" in clean_text(r[0]).lower() and "account" in clean_text(r[1]).lower()), None)
+    if header_idx is None:
+        for i, r in enumerate(rows):
+            joined = " ".join(clean_text(c) for c in r).lower()
+            if "account" in joined and "code" in joined:
+                header_idx = i
+                break
+    if header_idx is None:
+        return None
+    for row in rows[header_idx + 1:]:
+        a = clean_text(row[0]) if len(row) > 0 else ""
+        if not a or a.lower().startswith(("special purpose", "total")):
+            continue
+        if CERTIFY_RE.search(a):
+            break
+        nums = [to_float(c) for c in row[1:]]
+        nums = [v for v in nums if v is not None]
+        if not nums and not a:
+            continue
+        while len(nums) < 3:
+            nums.append(None)
+        items.append({"project": a, "code": clean_text(row[1]) if len(row) > 1 else "",
+                      "past": nums[0], "current": nums[1], "proposed": nums[2]})
+    if not items:
+        return None
+    return {"form": "spa", "fund": fund, "year": None, "quarter": None,
+            "period": "undated", "items": items}
+
+
+def parse_spp_rows(rows, office):
+    header_idx = next((i for i, r in enumerate(rows)
+                       if "code (pap)" in clean_text(r[0]).lower()), None)
+    items = []
+    if header_idx is not None:
+        for row in rows[header_idx + 2:]:
+            cells = [clean_text(c) for c in row]
+            if CERTIFY_RE.search(" ".join(cells)):
+                break
+            if len(cells) < 2 or not cells[1] or cells[1].upper() in ("N/A", "NONE"):
+                continue
+            amount = next((to_float(c) for c in reversed(cells) if to_float(c) is not None), None)
+            items.append({"project": cells[1], "end_user": cells[2] if len(cells) > 2 else "",
+                          "mode": cells[4] if len(cells) > 4 else "", "amount": amount})
+    return items
+
+
+def parse_app_rows(rows):
+    """Annual Procurement Plan per-office sheet."""
+    office, year, items = "", None, []
+    for row in rows[:10]:
+        cells = [clean_text(c) for c in row]
+        for i, cell in enumerate(cells):
+            rest = [c for c in cells[i + 1:] if c]
+            if cell.lower().startswith("office") and "department" in cell.lower() and rest:
+                office = rest[0]
+            if cell.lower() == "calendar year:" and rest:
+                try:
+                    year = int(float(rest[0]))
+                except ValueError:
+                    pass
+    header_idx = next((i for i, r in enumerate(rows)
+                       if clean_text(r[0]).lower().startswith("code (pap)")), None)
+    if header_idx is not None:
+        for row in rows[header_idx + 2:]:
+            cells = [clean_text(c) for c in row] + [""] * 14
+            if CERTIFY_RE.search(" ".join(cells)) or cells[0].lower().startswith("we hereby"):
+                break
+            if not cells[1] or cells[1].upper() in ("N/A", "NONE"):
+                continue
+            items.append({"code": cells[0], "project": cells[1],
+                          "end_user": cells[2], "early": cells[3], "mode": cells[4],
+                          "schedule": " / ".join(c for c in cells[5:9] if c),
+                          "source": cells[9], "total": to_float(cells[10]),
+                          "mooe": to_float(cells[11]), "co": to_float(cells[12]),
+                          "remarks": cells[13]})
+    return office, year, items
 
 
 # ----------------------------------------------------------------------------
-# Driver
+# Router + driver
 # ----------------------------------------------------------------------------
 
-def sheet_signature(path):
-    wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-    return tuple(ws.title for ws in wb.worksheets if ws.title != "FDPP LICENSE")
+def head_text(rows, n=12):
+    return " ".join(clean_text(c) for r in rows[:n] for c in r).lower()
 
 
-def classify(path):
-    sig = " | ".join(sheet_signature(path)).lower()
-    if "sre_report" in sig and "soe_report" not in sig:
+def classify_csv(path: Path) -> str:
+    """Route a per-sheet CSV by filename suffix, with content sniffing fallback."""
+    sheet = sheet_of(path).lower()
+    if sheet in ("sre_report",):
         return "sre"
-    if "soe_report" in sig:
-        return "sre_soe"
-    if "sef utilization" in sig:
+    if sheet in ("soe_report",):
+        return "soe"
+    if "sef" in sheet:
         return "sef"
-    if "ldrrmfu" in sig:
+    if "ldrrmfu" in sheet:
         return "ldrrmf"
-    if "form 9- scf" in sig:
+    if "scf" in sheet:
         return "scf"
-    if "form 12 - uca" in sig:
+    if "uca" in sheet:
         return "uca"
-    if "form 6a" in sig:
-        return "trust"
-    if "dfu" in sig and ("q3_2025" in sig or "form 7" in sig):
+    if "6a" in sheet and "tfu" in sheet:
+        return "trust6a"
+    if "6b" in sheet and "tfu" in sheet:
+        return "trust6b"
+    if "dfu" in sheet or re.match(r"q[1-4]_20\d\d$", sheet):
         return "dfu"
-    if "form 10a" in sig:
-        return "bids"
-    if "lbp" in sig or "2026 final" in sig or "comparative" in sig:
-        return "lbp"
-    if "term loan" in sig:
+    if "10a" in sheet:
+        return "bids_cw"
+    if "10b" in sheet:
+        return "bids_gs"
+    if "10c" in sheet:
+        return "bids_cs"
+    if "term_loan" in sheet:
         return "sipb"
-    if "manpower" in sig or ("sheet1" in sig and "form 13" in (openpyxl.load_workbook(path, read_only=True, data_only=True)["Sheet1"]["A1"].value or "")):
-        return "manpower"
-    if "supplemental procurement" in sig or "14b" in sig:
-        return "spp"
-    if "sheet1" in sig:
-        return "manpower"
-    return "unknown:" + sig[:80]
+    if "app_summary" in sheet or "4b" in sheet:
+        return "app_summary"
+    if sheet.startswith("app_"):
+        return "app"
+    if any(k in sheet for k in ("lbp", "lpb", "final", "comparative", "budget_per_dept")):
+        if "lpb_2" in sheet:
+            return "spa"
+        return "lbp"
+    if "spp" in sheet or "14b" in sheet:
+        return "spp_sheet"
+    if "form_1a" in sheet or "form_1b" in sheet:
+        return "lbp"
+    return "sniff"
 
 
-def file_hash(path):
+def sniff_kind(rows) -> str:
+    """Content-sniff ambiguous sheets (Sheet1, bare numbers, office names)."""
+    head = head_text(rows)
+    if "annual procurement plan" in head and "by office" in head:
+        return "app"
+    if "annual procurement plan" in head and "summary" in head:
+        return "app_summary"
+    if "supplemental procurement" in head:
+        return "spp_sheet"
+    if "programmed appropriation" in head:
+        return "lbp"
+    if "statement of indebtedness" in head:
+        return "sipb"
+    if "manpower complement" in head or "human resource complement" in head:
+        return "manpower_sheet"
+    if "gender and development" in head:
+        return "gad"
+    if "general fund" in head and "personal" in head and "mooe" in head:
+        return "fund_matrix"
+    if "economic enterprise" in head and "personal" in head:
+        return "fund_matrix"
+    if "20% development fund" in head or "calamity" in head or "non-office" in head or "non office" in head:
+        if "office of expenditure" in head:
+            return "spa"
+    if "sre_report" in head or "statement of receipts and expe" in head:
+        return "sre"
+    if "statement of expenditures" in head:
+        return "soe"
+    return "unknown"
+
+
+def file_hash(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def main():
     if not CACHE_DIR.exists():
         sys.exit(f"missing {CACHE_DIR}")
-    files = sorted(CACHE_DIR.rglob("*.xlsx"))
-    print(f"found {len(files)} workbooks")
+    files = sorted(CACHE_DIR.rglob("*.csv"))
+    print(f"found {len(files)} csv files")
 
-    seen_hashes = set()
     groups = {"sre": [], "sef": [], "ldrrmf": [], "cash_flows": [], "cash_advances": [],
               "trust_fund": [], "lgsf": [], "dev_fund": [], "bids": [], "manpower": [],
-              "indebtedness": [], "budget": [], "budget_book": [], "spp": []}
+              "indebtedness": [], "budget": [], "budget_book": [], "spp": [],
+              "app": [], "gad": [], "fund_matrix": [], "spa": []}
+    bids_parts = {}
     skipped, errors = [], []
 
     for path in files:
-        digest = file_hash(path)
-        if digest in seen_hashes:
-            skipped.append(f"{path}: byte-duplicate")
-            continue
-        seen_hashes.add(digest)
-        kind = classify(path)
         try:
-            wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-            if kind == "sre" or kind == "sre_soe":
-                for ws in wb.worksheets:
-                    if ws.title in ("sre_report", "soe_report"):
-                        rec = parse_sre(ws)
-                        if rec:
-                            rec["sheet"] = ws.title
-                            if ws.title == "soe_report":
-                                rec["form"] = "soe"
-                            rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                            groups["sre"].append(rec)
-            elif kind == "sef":
-                for ws in wb.worksheets:
-                    if ws.title != "FDPP LICENSE":
-                        rec = parse_sef(ws)
-                        break
-                else:
-                    rec = None
-                if rec:
-                    rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                    groups["sef"].append(rec)
-            elif kind == "ldrrmf":
-                for ws in wb.worksheets:
-                    if "LDRRMFU" in ws.title:
-                        rec = parse_ldrrmf(ws)
-                        if rec:
-                            rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                            groups["ldrrmf"].append(rec)
-            elif kind == "scf":
-                for ws in wb.worksheets:
-                    if "SCF" in ws.title:
-                        rec = parse_scf(ws)
-                        if rec:
-                            rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                            groups["cash_flows"].append(rec)
-            elif kind == "uca":
-                for ws in wb.worksheets:
-                    if "UCA" in ws.title:
-                        rec = parse_uca(ws)
-                        if rec:
-                            rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                            groups["cash_advances"].append(rec)
-            elif kind == "trust":
-                for ws in wb.worksheets:
-                    if "6a" in ws.title:
-                        rec = parse_trust(ws, "6a")
-                    elif "6b" in ws.title:
-                        rec = parse_trust(ws, "6b")
-                    else:
-                        continue
-                    rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                    groups[rec["form"]].append(rec)
-            elif kind == "dfu":
-                for ws in wb.worksheets:
-                    if ws.title == "FDPP LICENSE":
-                        continue
-                    rec = parse_dfu_sheet(ws)
-                    rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}#{ws.title}"
-                    groups["dev_fund"].append(rec)
-            elif kind == "bids":
-                rec = parse_bids_file(path)
-                if rec:
-                    rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                    groups["bids"].append(rec)
-            elif kind == "manpower":
-                for ws in wb.worksheets:
-                    if ws.title == "FDPP LICENSE":
-                        continue
-                    rec = parse_manpower(ws)
-                    if rec:
-                        rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                        groups["manpower"].append(rec)
-            elif kind == "sipb":
-                loans = parse_sipb_file(path)
-                if loans:
-                    for loan in loans:
-                        loan["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                    groups["indebtedness"].extend(loans)
-            elif kind == "lbp":
-                try:
-                    default_year = int(path.parent.name)
-                except ValueError:
-                    default_year = None
-                for ws in wb.worksheets:
-                    rec = _parse_lbp_sheet(ws, default_year)
-                    if rec:
-                        rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}#{ws.title}"
-                        groups[rec["form"]].append(rec)
-            elif kind == "spp":
-                rec = parse_spp_file(path)
-                if rec:
-                    rec["source_file"] = f"datasets/fdp/{path.parent.name}/{path.name}"
-                    groups["spp"].append(rec)
-            else:
-                skipped.append(f"{path}: unclassified ({kind})")
-        except (OSError, ValueError, KeyError, AttributeError, zipfile.BadZipFile) as exc:
+            rows = read_rows(path)
+        except (OSError, csv.Error, UnicodeDecodeError) as exc:
             errors.append(f"{path}: {type(exc).__name__}: {exc}")
+            continue
+        if not any(any(clean_text(c) for c in r) for r in rows):
+            skipped.append(f"{path}: empty")
+            continue
+        if "data_validation" in sheet_of(path).lower():
+            continue  # dropdown-list helper sheet, not a filing
+        kind = classify_csv(path)
+        if kind in ("sniff", "unknown"):
+            sniffed = sniff_kind(rows)
+            kind = sniffed if sniffed != "unknown" else "unknown"
+        if kind == "manpower_sheet":
+            rec = parse_manpower(rows)
+            if rec:
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups["manpower"].append(rec)
+            else:
+                skipped.append(f"{path}: manpower unparsed")
+        elif kind in ("sre", "soe"):
+            rec = parse_sre(rows, form="sre" if kind == "sre" else "soe")
+            if rec:
+                rec["sheet"] = sheet_of(path)
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups["sre"].append(rec)
+            else:
+                skipped.append(f"{path}: {kind} unparsed")
+        elif kind == "sef":
+            rec = parse_sef(rows)
+            rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+            groups["sef"].append(rec)
+        elif kind == "ldrrmf":
+            rec = parse_ldrrmf(rows)
+            if rec:
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups["ldrrmf"].append(rec)
+            else:
+                skipped.append(f"{path}: ldrrmf unparsed")
+        elif kind == "scf":
+            rec = parse_scf(rows)
+            if rec:
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups["cash_flows"].append(rec)
+            else:
+                skipped.append(f"{path}: scf unparsed")
+        elif kind == "uca":
+            rec = parse_uca(rows)
+            rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+            groups["cash_advances"].append(rec)
+        elif kind in ("trust6a", "trust6b"):
+            rec = parse_trust(rows, "6a" if kind == "trust6a" else "6b")
+            rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+            groups[rec["form"]].append(rec)
+        elif kind == "dfu":
+            year, quarter, projects, totals = parse_dfu_rows(rows)
+            rec = {"form": "dev_fund", "period": period_key(year, quarter), "year": year,
+                   "quarter": quarter, "projects": projects, "totals": totals,
+                   "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"}
+            groups["dev_fund"].append(rec)
+        elif kind in ("bids_cw", "bids_gs", "bids_cs"):
+            bids = parse_bids_rows(rows)
+            year, quarter = parse_year_quarter(None, rows)
+            key = (workbook_of(path), year, quarter)
+            slot = bids_parts.setdefault(key, {"civil_works": [], "goods": [], "consulting": []})
+            slot[{"bids_cw": "civil_works", "bids_gs": "goods", "bids_cs": "consulting"}[kind]] = bids
+            slot["year"], slot["quarter"] = year, quarter
+            slot["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{workbook_of(path)}"
+        elif kind == "sipb":
+            loan = sheet_of(path).replace("_", " ").strip()
+            rec = parse_sipb_rows(rows, loan)
+            if rec:
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups["indebtedness"].append(rec)
+            else:
+                skipped.append(f"{path}: sipb unparsed")
+        elif kind == "lbp":
+            try:
+                default_year = int(path.parent.name)
+            except ValueError:
+                default_year = None
+            rec = parse_budget_sheet(rows, sheet_of(path), default_year)
+            if rec:
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups[rec["form"]].append(rec)
+            else:
+                skipped.append(f"{path}: lbp unparsed")
+        elif kind == "spp_sheet":
+            office = ""
+            for row in rows[:10]:
+                cells = [clean_text(c) for c in row]
+                for i, cell in enumerate(cells):
+                    if cell.lower() == "office:" and i + 1 < len(cells):
+                        office = cells[i + 1]
+            year, _ = parse_year_quarter(None, rows)
+            items = parse_spp_rows(rows, office)
+            summary = "summary" in sheet_of(path).lower() or "14b" in sheet_of(path).lower()
+            if summary:
+                items_out = []
+                for row in rows:
+                    a = clean_text(row[0]) if len(row) > 0 else ""
+                    if a.upper().startswith("OFFICE OF"):
+                        items_out.append({"office": a,
+                                          "total": to_float(row[4]) if len(row) > 4 else None})
+                if items_out:
+                    groups["spp"].append({"form": "spp", "period": str(year) if year else "undated",
+                                          "year": year, "quarter": None, "offices": [],
+                                          "summary": items_out,
+                                          "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"})
+            elif office or items:
+                groups["spp"].append({"form": "spp", "period": str(year) if year else "undated",
+                                      "year": year, "quarter": None,
+                                      "offices": [{"office": office, "items": items}] if office else [],
+                                      "summary": [],
+                                      "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"})
+        elif kind == "app":
+            office, year, items = parse_app_rows(rows)
+            if office or items:
+                groups["app"].append({"form": "app", "period": str(year) if year else "undated",
+                                      "year": year, "quarter": None, "office": office,
+                                      "sheet": office or "unknown",
+                                      "items": items,
+                                      "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"})
+            else:
+                skipped.append(f"{path}: app unparsed")
+        elif kind == "app_summary":
+            year, _ = parse_year_quarter(None, rows)
+            items_out = []
+            for row in rows:
+                a = clean_text(row[0]) if len(row) > 0 else ""
+                if not a or a.lower().startswith(("department", "summary", "region", "province",
+                                                  "city", "annual", "fdp form")):
+                    continue
+                items_out.append({"office": a,
+                                  "head": clean_text(row[1]) if len(row) > 1 else "",
+                                  "total": to_float(row[3]) if len(row) > 3 else None})
+            if items_out:
+                groups["app"].append({"form": "app_summary", "period": str(year) if year else "undated",
+                                      "year": year, "quarter": None, "offices": [],
+                                      "sheet": "summary",
+                                      "summary": items_out,
+                                      "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"})
+            else:
+                skipped.append(f"{path}: app_summary unparsed")
+        elif kind == "fund_matrix":
+            rec = parse_fund_matrix(rows)
+            if rec:
+                try:
+                    rec["year"] = int(path.parent.name)
+                    rec["period"] = str(rec["year"])
+                except ValueError:
+                    pass
+                rec["sheet"] = rec.get("fund", "")
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups["fund_matrix"].append(rec)
+            else:
+                skipped.append(f"{path}: fund_matrix unparsed")
+        elif kind == "spa":
+            rec = parse_spa(rows)
+            if rec:
+                try:
+                    rec["year"] = int(path.parent.name)
+                    rec["period"] = str(rec["year"])
+                except ValueError:
+                    pass
+                rec["sheet"] = rec.get("fund", "")
+                rec["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{path.name}"
+                groups["spa"].append(rec)
+            else:
+                skipped.append(f"{path}: spa unparsed")
+        elif kind == "gad":
+            year, totals, entries = None, {}, []
+            for row in rows[:10]:
+                cells = [clean_text(c) for c in row]
+                joined = " ".join(cells)
+                match = re.search(r"FY\s+(20\d{2})", joined)
+                if match:
+                    year = int(match.group(1))
+                for cell in cells:
+                    match = re.search(r"total lg[g]?u budget:?\s*p?\s*([\d,\.]+)", cell, re.I)
+                    if match:
+                        totals["lgu_budget"] = to_float(match.group(1))
+                    match = re.search(r"total gad budget:?\s*p?\s*([\d,\.]+)", cell, re.I)
+                    if match:
+                        totals["gad_budget"] = to_float(match.group(1))
+            for row in rows:
+                a = clean_text(row[0]) if len(row) > 0 else ""
+                if re.match(r"^\d+\.\s*", a):
+                    cells = [clean_text(c) for c in row]
+                    entries.append({"issue": a, "objective": cells[1] if len(cells) > 1 else "",
+                                    "program": cells[2] if len(cells) > 2 else "",
+                                    "activity": cells[3] if len(cells) > 3 else "",
+                                    "indicator": cells[4] if len(cells) > 4 else "",
+                                    "result": cells[5] if len(cells) > 5 else "",
+                                    "budget": to_float(cells[6]) if len(cells) > 6 else None,
+                                    "cost": to_float(cells[7]) if len(cells) > 7 else None})
+            groups["gad"].append({"form": "gad", "period": str(year) if year else "undated",
+                                  "year": year, "quarter": None, "totals": totals,
+                                  "entries": entries,
+                                  "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"})
+        else:
+            skipped.append(f"{path}: unclassified")
 
-    # dedup: same (form, period) from different files -> keep most data rows.
-    # Undated snapshots and explicit nil filings are distinguishable only by
-    # source file, so they are never collapsed.
+    for (_workbook, year, quarter), parts in bids_parts.items():
+        groups["bids"].append({"form": "bids", "period": period_key(year, quarter),
+                               "year": year, "quarter": quarter,
+                               "civil_works": parts["civil_works"], "goods": parts["goods"],
+                               "consulting": parts["consulting"],
+                               "source_file": parts["source_file"]})
+
+    # dedup: same (form, period) -> keep most data rows; undated/nil never collapse.
     for key in ("sre", "sef", "ldrrmf", "cash_flows", "cash_advances", "trust_fund",
-                "lgsf", "bids", "manpower", "spp", "budget", "budget_book", "dev_fund"):
+                "lgsf", "bids", "manpower", "spp", "budget", "budget_book", "dev_fund",
+                "app", "gad", "fund_matrix", "spa"):
         best, keep_all = {}, []
         for rec in groups[key]:
             if rec.get("period") in (None, "undated") or rec.get("status") == "nil":
@@ -705,19 +943,20 @@ def main():
             pk = (rec.get("period"), rec.get("sheet", ""))
             rows = len(rec.get("rows", []) or rec.get("items", []) or rec.get("projects", [])
                        or rec.get("civil_works", []) or rec.get("goods", []) or rec.get("offices", [])
-                       or rec.get("debtors", []) or [])
+                       or rec.get("debtors", []) or rec.get("entries", []))
             if pk not in best or rows > best[pk][0]:
                 best[pk] = (rows, rec)
         groups[key] = sorted([rec for _, rec in best.values()] + keep_all,
                              key=lambda r: (r.get("period", ""), r.get("source_file", "")))
-    # dev_fund: same quarter may arrive on differently-named sheets across
-    # files — merge projects by period instead of picking one sheet.
+
+    # dev_fund: same quarter on differently-named sheets -> merge projects.
     merged = {}
     for rec in groups["dev_fund"]:
         period = rec.get("period", "undated")
         slot = merged.setdefault(period, {"form": "dev_fund", "period": period,
                                           "year": rec.get("year"), "quarter": rec.get("quarter"),
-                                          "projects": [], "source_file": []})
+                                          "projects": [], "totals": rec.get("totals", {}),
+                                          "source_file": []})
         seen = {(p.get("project"), p.get("location"), p.get("cost")) for p in slot["projects"]}
         for proj in rec.get("projects", []):
             key = (proj.get("project"), proj.get("location"), proj.get("cost"))
@@ -742,37 +981,6 @@ def main():
         print("  SKIP:", line)
     for line in errors:
         print("  ERROR:", line)
-
-
-def _parse_lbp_sheet(ws, default_year=None):
-    rows = list(sheet_rows(ws, 14))
-    year = _detect_budget_year(ws, rows) or default_year
-    has_account_code = any(len(r) > 1 and "account code" in clean_text(r[1]).lower() for r in rows[:14])
-    if has_account_code:
-        return _parse_lbp2(ws, rows, year)
-    # Generic budget-book sheet (LBP 1/5/6/7, COMPARATIVE, per-dept matrix):
-    # capture labeled rows with their trailing amounts.
-    captured = []
-    for row in rows:
-        label = clean_text(row[0]) if len(row) > 0 else ""
-        if not label or len(label) > 120:
-            continue
-        low = label.lower()
-        if low.startswith(("office:", "object of", "particip", "region", "province", "city",
-                            "municipality", "mapandan", "general fund", "lbp form", "budget of",
-                            "programmed", "statement of", "comparative", "appropriations for")):
-            continue
-        if CERTIFY_RE.search(label):
-            continue
-        vals = [to_float(c) for c in row[1:]]
-        vals = [v for v in vals if v is not None]
-        if vals:
-            captured.append({"label": label, "values": vals})
-    if not captured:
-        return None
-    return {"form": "budget_book", "sheet": ws.title.strip(),
-            "period": str(year) if year else "undated", "year": year,
-            "quarter": None, "rows": captured}
 
 
 if __name__ == "__main__":

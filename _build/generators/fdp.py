@@ -16,6 +16,8 @@ def _build_fdp_labels(locale: dict) -> dict:
         "FDP_OLDER": t(locale, "transparency.fdp_older", "Older filings"),
         "FDP_NIL": t(locale, "transparency.fdp_nil", "Nil filing — nothing to report for this period."),
         "FDP_UNDATED": t(locale, "transparency.fdp_undated", "Undated snapshot"),
+        "FDP_APP_TITLE": t(locale, "transparency.fdp_app_title", "Annual Procurement Plan"),
+        "FDP_GAD_TITLE": t(locale, "transparency.fdp_gad_title", "Gender and Development Report"),
     }
 
 
@@ -265,6 +267,54 @@ def _render_standalone(data: dict, labels: dict) -> str:
                     [office["office"], "End User", "Mode", "Amount"],
                     [[_esc(i["project"]), _esc(i.get("end_user")),
                       _esc(i.get("mode")), _peso(i.get("amount"))] for i in office["items"]]))
+    for app in data.get("app", []):
+        if app.get("form") == "app_summary":
+            if app.get("summary"):
+                parts.append("<h3>{} ({})</h3>".format(
+                    labels["FDP_APP_TITLE"],
+                    _esc(_period_label(app.get("period", ""), labels["FDP_UNDATED"]))))
+                parts.append(_money_table(
+                    ["Office", "Head", "Total Cost"],
+                    [[_esc(s.get("office", "")), _esc(s.get("head", "")),
+                      _peso(s.get("total"))] for s in app["summary"]]))
+            continue
+        if not app.get("items"):
+            continue
+        parts.append("<h3>{}: {} ({})</h3>".format(
+            labels["FDP_APP_TITLE"], _esc(app.get("office", "")),
+            _esc(_period_label(app.get("period", ""), labels["FDP_UNDATED"]))))
+        parts.append(_money_table(
+            ["Item", "End User", "Mode", "Total"],
+            [[_esc(i["project"]), _esc(i.get("end_user")),
+              _esc(i.get("mode")), _peso(i.get("total"))] for i in app["items"]]))
+    for gad in data.get("gad", []):
+        parts.append("<h3>{} ({})</h3>".format(
+            labels["FDP_GAD_TITLE"],
+            _esc(_period_label(gad.get("period", ""), labels["FDP_UNDATED"]))))
+        totals = gad.get("totals", {})
+        if totals:
+            parts.append(_metric_cards([(_peso(totals.get("lgu_budget")), "Total LGU budget"),
+                                        (_peso(totals.get("gad_budget")), "GAD budget")]))
+        if gad.get("entries"):
+            parts.append(_money_table(
+                ["Issue", "Program", "Result", "Budget"],
+                [[_esc(e["issue"]), _esc(e.get("program")),
+                  _esc(e.get("result")), _peso(e.get("budget"))] for e in gad["entries"]]))
+    for fund in data.get("fund_matrix", []):
+        parts.append("<h3>{} ({})</h3>".format(
+            _esc(fund.get("fund", "")), _esc(_period_label(fund.get("period", ""), labels["FDP_UNDATED"]))))
+        parts.append(_money_table(
+            ["Office", "Personnel", "MOOE", "Capital", "Non-Office", "Total"],
+            [[_esc(o["office"]), _peso(o.get("ps")), _peso(o.get("mooe")),
+              _peso(o.get("co")), _peso(o.get("non_office")), _peso(o.get("total"))]
+             for o in fund.get("offices", [])]))
+    for spa in data.get("spa", []):
+        parts.append("<h3>{} ({})</h3>".format(
+            _esc(spa.get("fund", "")), _esc(_period_label(spa.get("period", ""), labels["FDP_UNDATED"]))))
+        parts.append(_money_table(
+            ["Project", "Past", "Current", "Proposed"],
+            [[_esc(i["project"]), _peso(i.get("past")),
+              _peso(i.get("current")), _peso(i.get("proposed"))] for i in spa.get("items", [])]))
     return "\n".join(parts)
 
 
