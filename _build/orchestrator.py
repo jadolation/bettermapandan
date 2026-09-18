@@ -23,7 +23,8 @@ from _build.templates import parse_page, fill, strip_html, strip_front_matter, c
 from _build.generators.services import generate_services
 from _build.generators.legislative import generate_legislative
 from _build.generators.dpwh import generate_dpwh, _build_dpwh_labels
-from _build.generators.fdp import generate_fdp
+from _build.generators.fdp import generate_fdp, generate_fdp_dashboard
+from _build.generators.fdp_analytics import generate_fdp_summary
 from _build.generators.procurement import generate_procurement, generate_homepage_procurement_data, generate_homepage_dpwh_data
 from _build.generators.barangays import validate_barangays, generate_barangays, build_barangay_comparison_script, generate_barangay_councils_table
 from _build.assets import minify_assets, compress_images, generate_sitemap, generate_llms_txt
@@ -592,6 +593,7 @@ def _process_static_page(
         body = body.replace("{PROCUREMENT_SECTION}", proc_html, 1)
         dpwh_html, _, _ = generate_dpwh(locale, asset_base)
         body = body.replace("{DPWH_SECTION}", dpwh_html, 1)
+        body = body.replace("{FDP_DASHBOARD}", generate_fdp_dashboard(locale), 1)
         body = body.replace("{FDP_SECTION}", generate_fdp(locale), 1)
     if rel.name == "index.html":
         proc_data = generate_homepage_procurement_data()
@@ -615,7 +617,10 @@ def _process_static_page(
             '<script defer src="' + asset_base + '/assets/transparency.min.js"></script>\n'
             '<script defer src="' + asset_base + '/assets/js/transparency-charts.min.js"></script>\n'
             '<script defer src="' + asset_base + '/assets/js/procurement-table.min.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/fdp-dashboard.min.js"></script>\n'
         )
+        fdp_summary = generate_fdp_summary()
+        transparency_js += '<script>window.FDP_SUMMARY = ' + json.dumps(fdp_summary, ensure_ascii=False) + ';</script>\n'
         csv_data_path = SRC_DATA / "transparency-csv.json"
         if csv_data_path.exists():
             csv_data = json.loads(csv_data_path.read_text(encoding="utf-8"))

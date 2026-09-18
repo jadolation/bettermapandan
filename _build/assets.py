@@ -206,6 +206,7 @@ JS_SOURCES = [
     "assets/js/common.js",
     "assets/js/procurement-table.js",
     "assets/js/transparency-charts.js",
+    "assets/js/fdp-dashboard.js",
 ]
 
 

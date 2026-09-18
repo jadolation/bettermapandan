@@ -579,7 +579,7 @@ def parse_spp_rows(rows, office):
             cells = [clean_text(c) for c in row]
             if CERTIFY_RE.search(" ".join(cells)):
                 break
-            if len(cells) < 2 or not cells[1] or cells[1].upper() in ("N/A", "NONE"):
+            if len(cells) < 2 or not cells[1] or cells[1].upper() in ("N/A", "NONE", "TOTAL"):
                 continue
             amount = next((to_float(c) for c in reversed(cells) if to_float(c) is not None), None)
             items.append({"project": cells[1], "end_user": cells[2] if len(cells) > 2 else "",
@@ -608,7 +608,7 @@ def parse_app_rows(rows):
             cells = [clean_text(c) for c in row] + [""] * 14
             if CERTIFY_RE.search(" ".join(cells)) or cells[0].lower().startswith("we hereby"):
                 break
-            if not cells[1] or cells[1].upper() in ("N/A", "NONE"):
+            if not cells[1] or cells[1].upper() in ("N/A", "NONE", "TOTAL"):
                 continue
             items.append({"code": cells[0], "project": cells[1],
                           "end_user": cells[2], "early": cells[3], "mode": cells[4],
@@ -656,7 +656,7 @@ def classify_csv(path: Path) -> str:
         return "bids_cs"
     if "term_loan" in sheet:
         return "sipb"
-    if "app_summary" in sheet or "4b" in sheet:
+    if "app_summary" in sheet or ("4b" in sheet and "14b" not in sheet):
         return "app_summary"
     if sheet.startswith("app_"):
         return "app"

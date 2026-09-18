@@ -1,6 +1,7 @@
 """FDP disclosures generator — renders DILG Full Disclosure Policy filings."""
 import html
 import json
+import re
 
 from _build.config import SRC_DATA
 from _build.locales import t
@@ -88,17 +89,25 @@ def _money_table(headers: list, rows: list) -> str:
     return "\n".join(out)
 
 
-def _render_period(period: str, data: dict, labels: dict, retrieved: str) -> str:
-    """Render one quarterly filing period across all form groups."""
+def _dialog(dialog_id: str, title: str, body_html: str, close_label: str) -> str:
+    """Accessible modal wrapper for full FDP tables."""
+    return (
+        f'<dialog class="fdp-dialog" id="{dialog_id}" aria-label="{title}">'
+        f'<div class="fdp-dialog-head"><strong>{title}</strong>'
+        f'<button type="button" class="btn btn-outline btn-sm" data-close>{close_label}</button></div>'
+        f"{body_html}"
+        f'<div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{close_label}</button></div>'
+        "</dialog>"
+    )
+
+
+def _render_period_cards(period: str, data: dict, labels: dict) -> str:
+    """Visible metric cards for one quarterly filing period."""
     parts = []
     title = _period_label(period, labels["FDP_UNDATED"])
     sre = next((r for r in data.get("sre", []) if r.get("period") == period), None)
     sef = next((r for r in data.get("sef", []) if r.get("period") == period), None)
     ldrrmf = next((r for r in data.get("ldrrmf", []) if r.get("period") == period), None)
-    cash = next((r for r in data.get("cash_flows", []) if r.get("period") == period), None)
-    adv = next((r for r in data.get("cash_advances", []) if r.get("period") == period), None)
-    trust = next((r for r in data.get("trust_fund", []) if r.get("period") == period), None)
-    lgsf = next((r for r in data.get("lgsf", []) if r.get("period") == period), None)
     dev = [r for r in data.get("dev_fund", []) if r.get("period") == period]
     bids = next((r for r in data.get("bids", []) if r.get("period") == period), None)
 
@@ -120,6 +129,22 @@ def _render_period(period: str, data: dict, labels: dict, retrieved: str) -> str
         cards.append((str(n_proj), f"Development fund projects ({title})"))
     if cards:
         parts.append(_metric_cards(cards[:4]))
+    return "\n".join(parts)
+
+
+def _render_period_tables(period: str, data: dict, labels: dict) -> str:
+    """Full tables for one quarterly filing period (lives inside a dialog)."""
+    parts = []
+    title = _period_label(period, labels["FDP_UNDATED"])
+    sre = next((r for r in data.get("sre", []) if r.get("period") == period), None)
+    sef = next((r for r in data.get("sef", []) if r.get("period") == period), None)
+    ldrrmf = next((r for r in data.get("ldrrmf", []) if r.get("period") == period), None)
+    cash = next((r for r in data.get("cash_flows", []) if r.get("period") == period), None)
+    adv = next((r for r in data.get("cash_advances", []) if r.get("period") == period), None)
+    trust = next((r for r in data.get("trust_fund", []) if r.get("period") == period), None)
+    lgsf = next((r for r in data.get("lgsf", []) if r.get("period") == period), None)
+    dev = [r for r in data.get("dev_fund", []) if r.get("period") == period]
+    bids = next((r for r in data.get("bids", []) if r.get("period") == period), None)
 
     if sre:
         tl_any = any(r.get("trust_liability") for r in sre["rows"])
@@ -161,10 +186,14 @@ def _render_period(period: str, data: dict, labels: dict, retrieved: str) -> str
             if not rec.get("projects"):
                 continue
             parts.append(f"<h3>20% Development Fund Projects ({_esc(title)})</h3>")
-            parts.append(_money_table(
-                ["Project", "Location", "Cost", "Status", "Completion"],
-                [[_esc(p["project"]), _esc(p["location"]), _peso(p.get("cost")),
-                  _esc(p.get("status")), _pct(p.get("pct"))] for p in rec["projects"]]))
+            rows = [[_esc(p["project"]), _esc(p["location"]), _peso(p.get("cost")),
+                     _pct(p.get("pct")), _peso(p.get("incurred"))] for p in rec["projects"]]
+            totals = rec.get("totals") or {}
+            if totals.get("cost") is not None:
+                rows.append(["<strong>Total</strong>", "", f"<strong>{_peso(totals.get('cost'))}</strong>",
+                             f"<strong>{_pct(totals.get('pct'))}</strong>",
+                             f"<strong>{_peso(totals.get('incurred'))}</strong>"])
+            parts.append(_money_table(["Project", "Location", "Cost", "Completion", "Incurred"], rows))
 
     if bids:
         parts.append(f"<h3>Bids Awarded ({_esc(title)})</h3>")
@@ -267,6 +296,13 @@ def _render_standalone(data: dict, labels: dict) -> str:
                     [office["office"], "End User", "Mode", "Amount"],
                     [[_esc(i["project"]), _esc(i.get("end_user")),
                       _esc(i.get("mode")), _peso(i.get("amount"))] for i in office["items"]]))
+        if spp.get("summary"):
+            parts.append("<h3>Supplemental Procurement Summary ({})</h3>".format(
+                _esc(_period_label(spp.get("period", ""), labels["FDP_UNDATED"]))))
+            parts.append(_money_table(
+                ["Office", "Head", "Total Cost"],
+                [[_esc(s.get("office", "")), _esc(s.get("head", "")),
+                  _peso(s.get("total"))] for s in spp["summary"]]))
     for app in data.get("app", []):
         if app.get("form") == "app_summary":
             if app.get("summary"):
@@ -324,7 +360,7 @@ def generate_fdp(locale: dict) -> str:
     if not path.exists():
         return ""
     data = json.loads(path.read_text(encoding="utf-8"))
-    labels = _build_fdp_labels(locale)
+    labels = {**_build_fdp_labels(locale), **_build_dashboard_labels(locale)}
     retrieved = data.get("meta", {}).get("retrieved", "")
 
     periods = sorted({r.get("period", "undated")
@@ -338,14 +374,27 @@ def generate_fdp(locale: dict) -> str:
            f'<h2>{labels["FDP_TITLE"]}</h2>',
            f'<p>{labels["FDP_LEDE"]}</p>',
            "</div>"]
+    def _period_block(period: str, heading: str) -> list:
+        slug = re.sub(r"[^a-z0-9]+", "-", period.lower()).strip("-") or "undated"
+        dialog_id = f"fdp-dialog-{slug}"
+        block = [heading, _render_period_cards(period, data, labels)]
+        tables = _render_period_tables(period, data, labels)
+        if tables.strip():
+            block.append(f'<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="{dialog_id}">'
+                         f'{labels["DASH_VIEW_TABLE"]}: {_esc(_period_label(period, labels["FDP_UNDATED"]))}</button>')
+            block.append(_dialog(dialog_id, _period_label(period, labels["FDP_UNDATED"]),
+                                 tables, labels["DASH_CLOSE"]))
+        return block
+
     if periods:
         latest = periods[0]
-        out.append(f"<h3>{labels['FDP_LATEST']}: {_esc(_period_label(latest, labels['FDP_UNDATED']))}</h3>")
-        out.append(_render_period(latest, data, labels, retrieved))
+        out.extend(_period_block(
+            latest,
+            f"<h3>{labels['FDP_LATEST']}: {_esc(_period_label(latest, labels['FDP_UNDATED']))}</h3>"))
         for period in periods[1:]:
             out.append("<details class='mt-8'><summary><strong>{}: {}</strong></summary>".format(
                 labels["FDP_OLDER"], _esc(_period_label(period, labels["FDP_UNDATED"]))))
-            out.append(_render_period(period, data, labels, retrieved))
+            out.extend(_period_block(period, ""))
             out.append("</details>")
     undated_periods = sorted({r.get("period", "undated")
                               for key in ("sre", "sef", "ldrrmf", "cash_flows", "cash_advances",
@@ -353,10 +402,121 @@ def generate_fdp(locale: dict) -> str:
                               for r in data.get(key, []) if r.get("period") == "undated"})
     for period in undated_periods:
         out.append("<details class='mt-8'><summary><strong>{}</strong></summary>".format(labels["FDP_UNDATED"]))
-        out.append(_render_period(period, data, labels, retrieved))
+        out.extend(_period_block(period, ""))
         out.append("</details>")
     out.append(_render_standalone(data, labels))
     if retrieved:
         out.append(f"<p class='source-label'>{labels['FDP_SOURCE']} DILG Full Disclosure Policy Portal &mdash; retrieved {retrieved}.</p>")
+    out.append("</div></section>")
+    return "\n".join(out)
+
+
+def _build_dashboard_labels(locale: dict) -> dict:
+    keys = ["eyebrow", "title", "lede", "kpi_receipts", "kpi_expenditures",
+            "kpi_sef", "kpi_ldrrmf", "kpi_cash", "kpi_projects", "kpi_bids",
+            "rev_title", "exp_title", "trend_title", "funds_title",
+            "cash_title", "brgy_title", "bids_title", "view_table", "close",
+            "computed", "source", "view_table", "close"]
+    return {"DASH_" + k.upper(): t(locale, f"transparency.dash_{k}", "") for k in keys}
+
+
+def _bar(share: float, label: str) -> str:
+    share = max(0.0, min(100.0, share or 0))
+    return (
+        "<div class='util-bar' role='img' aria-label='{} {:.1f}%'>"
+        "<div class='util-fill' style='width:{:.1f}%'></div></div>"
+    ).format(_esc(label), share, share)
+
+
+def generate_fdp_dashboard(locale: dict) -> str:
+    """Server-rendered fiscal dashboard: KPI cards, chart shells, bars, tables."""
+    from _build.generators.fdp_analytics import generate_fdp_summary
+    path = SRC_DATA / "fdp_disclosures.json"
+    if not path.exists():
+        return ""
+    summary = generate_fdp_summary()
+    labels = _build_dashboard_labels(locale)
+    latest = summary["latest_period"]
+    period_label = _period_label(latest, "")
+    kpis = summary["kpis"]
+    src = f"{labels['DASH_SOURCE']} {period_label}"
+
+    out = ['<section class="section" id="fiscal-dashboard">', '<div class="wrap">',
+           '<div class="section-head">',
+           f'<div class="section-eyebrow">{labels["DASH_EYEBROW"]}</div>',
+           f'<h2>{labels["DASH_TITLE"]}</h2>',
+           f'<p>{labels["DASH_LEDE"]}</p>',
+           "</div>"]
+
+    kpi_defs = [(_peso(kpis.get("receipts")), labels["DASH_KPI_RECEIPTS"]),
+                (_peso(kpis.get("expenditures")), labels["DASH_KPI_EXPENDITURES"]),
+                (_peso(kpis.get("sef_balance")), labels["DASH_KPI_SEF"]),
+                (_peso(kpis.get("ldrrmf_unutilized")), labels["DASH_KPI_LDRRMF"]),
+                (_peso(kpis.get("cash_ending")), labels["DASH_KPI_CASH"]),
+                (_esc(kpis.get("projects")), labels["DASH_KPI_PROJECTS"]),
+                (_esc(kpis.get("bids")), labels["DASH_KPI_BIDS"])]
+    out.append('<div class="grid grid-4 stack-gap-lg">')
+    for value, label in kpi_defs:
+        out.append(f'<div class="card"><p class="figure text-lg">{value}</p>'
+                   f'<p class="note-inline">{label} ({period_label})</p>'
+                   f'<span class="source-label">{src}</span></div>')
+    out.append("</div>")
+
+    out.append('<div class="grid grid-2">')
+    out.append(f'<div class="card"><h3>{labels["DASH_REV_TITLE"]} ({period_label})</h3>'
+               '<canvas id="chart-fdp-revenue" height="220" role="img"></canvas>'
+               f'<p class="note-inline">NTA {summary["revenue"].get("nta_share")}% '
+               f'({labels["DASH_COMPUTED"]})</p></div>')
+    out.append(f'<div class="card"><h3>{labels["DASH_EXP_TITLE"]} ({period_label})</h3>'
+               '<canvas id="chart-fdp-expenditure" height="220" role="img"></canvas></div>')
+    out.append("</div>")
+
+    out.append('<div class="card mt-24">'
+               f'<h3>{labels["DASH_TREND_TITLE"]}</h3>'
+               '<canvas id="chart-fdp-trend" height="200" role="img"></canvas>'
+               f'<p class="note-inline">Quarterly flows derived by differencing year-to-date filings '
+               f'({labels["DASH_COMPUTED"]})</p></div>')
+
+    funds = summary["funds"]
+    sef_hist = funds["sef"]
+    ld_hist = funds["ldrrmf"]
+    if sef_hist or ld_hist:
+        out.append('<div class="card mt-24">'
+                   f'<h3>{labels["DASH_FUNDS_TITLE"]} ({period_label})</h3>')
+        if sef_hist:
+            last = sef_hist[-1]
+            out.append(f"<p>SEF {_peso(last.get('balance'))}</p>"
+                       + _bar(last.get("rate"), "SEF"))
+        if ld_hist:
+            last = ld_hist[-1]
+            out.append(f"<p>LDRRMF {_peso(last.get('unutilized'))}</p>"
+                       + _bar(last.get("rate"), "LDRRMF"))
+        out.append("</div>")
+
+    cash = summary["cash"]
+    if cash:
+        out.append('<div class="card mt-24">'
+                   f'<h3>{labels["DASH_CASH_TITLE"]} ({period_label})</h3>'
+                   f'<p>Operating {_peso(cash.get("net_operating"))} · '
+                   f'Investing {_peso(cash.get("net_investing"))} · '
+                   f'Financing {_peso(cash.get("net_financing"))} → '
+                   f'Ending {_peso(cash.get("ending"))}</p></div>')
+
+    brgy = summary["barangay"]["dist"]
+    if brgy:
+        out.append('<div class="card mt-24">'
+                   f'<h3>{labels["DASH_BRGY_TITLE"]} ({period_label})</h3>'
+                   '<canvas id="chart-fdp-barangay" height="240" role="img"></canvas></div>')
+
+    bids_hist = summary["bids"]
+    if bids_hist:
+        last = bids_hist[-1]
+        out.append('<div class="card mt-24">'
+                   f'<h3>{labels["DASH_BIDS_TITLE"]} ({period_label})</h3>'
+                   f'<p>ABC {_peso(last.get("abc"))} → awarded {_peso(last.get("awarded"))} · '
+                   f'saved {_peso(last.get("savings"))} ({last.get("rate")}%, '
+                   f'{labels["DASH_COMPUTED"]})</p></div>')
+
+    out.append(f"<p class='source-label'>{src} &mdash; retrieved {summary.get('retrieved', '')}.</p>")
     out.append("</div></section>")
     return "\n".join(out)
