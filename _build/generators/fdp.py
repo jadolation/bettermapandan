@@ -159,11 +159,11 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
             if tl_any:
                 cells.append(_peso(r.get("trust_liability")))
             rows.append(cells)
-        parts.append(f"<h3>Statement of Receipts &amp; Expenditures ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Statement of Receipts &amp; Expenditures ({_esc(title)})</h3>")
         parts.append(_money_table(headers, rows))
 
     if sef:
-        parts.append(f"<h3>Special Education Fund ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Special Education Fund ({_esc(title)})</h3>")
         parts.append(_metric_cards([(_peso(sef.get("receipt")), "SEF receipts"),
                                     (_peso(sef.get("subtotal")), "Disbursed"),
                                     (_peso(sef.get("balance")), "Balance")]))
@@ -173,7 +173,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
 
     if ldrrmf:
         totals = ldrrmf.get("totals", {})
-        parts.append(f"<h3>Disaster Fund Utilization ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Disaster Fund Utilization ({_esc(title)})</h3>")
         parts.append(_metric_cards([(_peso(totals.get("available")), "Available"),
                                     (_peso(totals.get("utilization")), "Utilized"),
                                     (_peso(totals.get("unutilized")), "Unutilized")]))
@@ -187,7 +187,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
         for rec in dev:
             if not rec.get("projects"):
                 continue
-            parts.append(f"<h3>20% Development Fund Projects ({_esc(title)})</h3>")
+            parts.append(f"<h3 class='mt-24'>20% Development Fund Projects ({_esc(title)})</h3>")
             rows = [[_esc(p["project"]), _esc(p["location"]), _peso(p.get("cost")),
                      _pct(p.get("pct")), _peso(p.get("incurred"))] for p in rec["projects"]]
             totals = rec.get("totals") or {}
@@ -198,7 +198,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
             parts.append(_money_table(["Project", "Location", "Cost", "Completion", "Incurred"], rows))
 
     if bids:
-        parts.append(f"<h3>Bids Awarded ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Bids Awarded ({_esc(title)})</h3>")
         for kind, label in (("civil_works", "Civil Works"), ("goods", "Goods"), ("consulting", "Consulting")):
             items = bids.get(kind, [])
             if items:
@@ -210,7 +210,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
                 parts.append(f"<p class='note-inline'>{label}: {labels['FDP_NIL']}</p>")
 
     if adv:
-        parts.append(f"<h3>Unliquidated Cash Advances ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Unliquidated Cash Advances ({_esc(title)})</h3>")
         if adv.get("status") == "nil" or not adv.get("debtors"):
             parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
         else:
@@ -220,7 +220,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
                   _esc(d.get("date_granted")), _esc(d.get("purpose"))] for d in adv["debtors"]]))
 
     if trust:
-        parts.append(f"<h3>Trust Fund Programs ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Trust Fund Programs ({_esc(title)})</h3>")
         if trust.get("status") == "nil" or not trust.get("items"):
             parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
         else:
@@ -229,12 +229,12 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
                 [[_esc(t["program"]), _esc(t["location"]), _peso(t.get("cost")),
                   _esc(t.get("completion"))] for t in trust["items"]]))
     if lgsf and (lgsf.get("status") == "nil" or not lgsf.get("items")):
-        parts.append(f"<h3>Local Government Support Fund ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Local Government Support Fund ({_esc(title)})</h3>")
         parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
 
     if cash and cash.get("key"):
         key = cash["key"]
-        parts.append(f"<h3>Cash Flows ({_esc(title)})</h3>")
+        parts.append(f"<h3 class='mt-24'>Cash Flows ({_esc(title)})</h3>")
         parts.append(_metric_cards([(_peso(key.get("net_operating")), "Net operating cash"),
                                     (_peso(key.get("net_investing")), "Net investing cash"),
                                     (_peso(key.get("net_financing")), "Net financing cash"),
@@ -467,12 +467,12 @@ def generate_fdp(locale: dict) -> str:
             year = period.split("-")[0] if "-" in period else period
             by_year.setdefault(year, []).append(period)
         out.append(f"<h3>{labels['FDP_ARCHIVE_TITLE']}</h3>")
-        out.append('<div class="grid grid-3">')
+        out.append('<div class="stack-gap-sm">')
         for year in sorted(by_year, reverse=True):
             n_q = len(by_year[year])
-            out.append("<div class='card fdp-archive-card'>"
-                       f"<div class='section-eyebrow'>{year}</div>"
-                       f"<p class='note-inline'>{n_q} quarter(s)</p>")
+            out.append(f"<div class='section-eyebrow'>{year}</div>")
+            out.append(f"<p class='note-inline'>{n_q} quarter(s)</p>")
+            out.append('<div class="stack-gap-sm">')
             for period in by_year[year]:
                 receipts, sef_bal, ld_unutil = _quarter_figures(period, data)
                 out.append(
@@ -481,16 +481,6 @@ def generate_fdp(locale: dict) -> str:
                         _esc(_period_label(period, labels["FDP_UNDATED"])),
                         _peso(receipts), _peso(sef_bal), _peso(ld_unutil)))
                 out.append(_quarter_dialog(period, data, labels))
-            out.append("</div>")
-        undated_here = sorted({r.get("period", "undated")
-                               for key in ("sre", "sef", "ldrrmf", "cash_flows", "cash_advances",
-                                           "trust_fund", "lgsf", "dev_fund", "bids")
-                               for r in data.get(key, []) if r.get("period") == "undated"})
-        if undated_here:
-            out.append("<div class='card fdp-archive-card'>"
-                       f"<div class='section-eyebrow'>{labels['FDP_UNDATED']}</div>")
-            for period in undated_here:
-                out.extend(_period_block(period, ""))
             out.append("</div>")
         out.append("</div>")
     standalone = _render_standalone(data, labels)

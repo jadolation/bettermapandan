@@ -205,6 +205,7 @@ JS_SOURCES = [
     "assets/chart-loader.js",
     "assets/js/common.js",
     "assets/js/procurement-table.js",
+    "assets/js/dpwh-table.js",
     "assets/js/transparency-charts.js",
     "assets/js/fdp-dashboard.js",
 ]

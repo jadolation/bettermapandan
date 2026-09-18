@@ -305,6 +305,12 @@
   .procurement-toolbar-actions { flex-direction: column; }
   .procurement-toolbar-actions input[type="search"] { min-width: 0; width: 100%; }
   .procurement-toolbar-actions .btn { width: 100%; text-align: center; }
+
+  /* Table font size */
+  .table-wrap table { font-size: 13px; }
+  .table-wrap table th,
+  .table-wrap table td { padding: 8px 10px; }
+  .table-wrap table th { font-size: 11px; letter-spacing: 0.02em; }
 }
 
 /* ==========================================================================

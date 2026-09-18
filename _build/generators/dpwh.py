@@ -150,19 +150,19 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
 <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-dpwh">View full table: {labels['DPWH_TITLE']}</button>
 <dialog data-modal id="modal-dpwh" aria-label="{labels['DPWH_TITLE']}">
 <div class="fdp-dialog-head"><strong>{labels['DPWH_TITLE']}</strong><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
-<input type="search" id="dpwh-search" placeholder="{labels['DPWH_SEARCH_PLACEHOLDER']}" aria-label="{labels['DPWH_SEARCH_PLACEHOLDER']}" style="margin-bottom:12px">
+<input type="search" id="dpwh-search" placeholder="{labels['DPWH_SEARCH_PLACEHOLDER']}" aria-label="{labels['DPWH_SEARCH_PLACEHOLDER']}">
 <div class="table-wrap mt-24">
   <table aria-label="DPWH infrastructure projects" id="dpwh-table">
     <thead>
       <tr>
         <th scope="col" data-column="category">{labels['DPWH_CATEGORY']} <span class="sort-indicator"></span></th>
         <th scope="col" data-column="project_name">{labels['DPWH_PROJECT']} <span class="sort-indicator"></span></th>
-        <th scope="col" data-column="agency">{labels['DPWH_AGENCY']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="executing_agency">{labels['DPWH_AGENCY']} <span class="sort-indicator"></span></th>
         <th scope="col" data-column="contractor">{labels['DPWH_CONTRACTOR']} <span class="sort-indicator"></span></th>
-        <th scope="col" class="num" data-column="amount">{labels['DPWH_AMOUNT']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="contract_amount">{labels['DPWH_AMOUNT']} <span class="sort-indicator"></span></th>
         <th scope="col" data-column="status">{labels['DPWH_STATUS']} <span class="sort-indicator"></span></th>
-        <th scope="col" class="num" data-column="accomplishment">{labels['DPWH_ACCOMPLISHMENT']} <span class="sort-indicator"></span></th>
-        <th scope="col" data-column="date">{labels['DPWH_DATE']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="accomplishment_percent">{labels['DPWH_ACCOMPLISHMENT']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="actual_completion_date">{labels['DPWH_DATE']} <span class="sort-indicator"></span></th>
         <th scope="col" data-column="map">{labels['DPWH_MAP']} <span class="sort-indicator"></span></th>
       </tr>
     </thead>
@@ -172,6 +172,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
   </table>
 </div>
 <div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
+<script defer src="{asset_base}/assets/dpwh-table.min.js"></script>
 </dialog>
 
 <p class="source-label">{labels['DPWH_SOURCE_NOTE']} <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a></p>
