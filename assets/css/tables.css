@@ -129,9 +129,10 @@ tbody tr:hover {
   }
 }
 
-/* ---------- FDP table dialogs ---------- */
+/* ---------- Data table dialogs (FDP + transparency tables) ---------- */
 
-dialog.fdp-dialog {
+dialog.fdp-dialog,
+dialog[data-modal] {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 24px;
@@ -142,7 +143,8 @@ dialog.fdp-dialog {
   color: var(--ink);
 }
 
-dialog.fdp-dialog::backdrop {
+dialog.fdp-dialog::backdrop,
+dialog[data-modal]::backdrop {
   background: rgba(0, 0, 0, 0.45);
 }
 
@@ -161,8 +163,29 @@ dialog.fdp-dialog::backdrop {
   justify-content: flex-end;
 }
 
+.quarter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.quarter-row > span {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+details .quarter-row + button,
+details .quarter-row + dialog {
+  margin-top: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  dialog.fdp-dialog {
+  dialog.fdp-dialog,
+  dialog[data-modal] {
     animation: none;
   }
 }

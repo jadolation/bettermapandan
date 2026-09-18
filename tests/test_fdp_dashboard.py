@@ -82,3 +82,55 @@ def test_period_dialogs_present():
     assert "<dialog" in html
     assert "11272309.4%" not in html  # loan-row column bug stays fixed
     assert ">TOTAL<" not in html  # summary row never rendered as a project
+
+
+def _dialog_stats(html):
+    import re
+    events = [(m.start(), "open" if m.group(0).startswith("<dialog ") or m.group(0) == "<dialog" else "close")
+              for m in re.finditer(r"</dialog>|<dialog(?:\s|>)", html)]
+    tables = [(m.start(), m.group(0)[:60]) for m in re.finditer(r"<table(?:\s|>)", html)]
+    depth = ei = in_dialog = sr_only = 0
+    unwrapped = []
+    for pos, tag in tables:
+        while ei < len(events) and events[ei][0] < pos:
+            depth += 1 if events[ei][1] == "open" else -1
+            ei += 1
+        if depth > 0:
+            in_dialog += 1
+        else:
+            seg = html[pos:pos + 200]
+            if "sr-only" in seg[:seg.find(">")]:
+                sr_only += 1
+            else:
+                unwrapped.append(tag)
+    return in_dialog, sr_only, unwrapped
+
+
+def test_all_tables_live_in_dialogs():
+    from _build.generators.fdp import generate_fdp
+    from _build.locales import load_locale
+
+    for lang in ("en", "fil"):
+        html = generate_fdp(load_locale(lang))
+        in_dialog, sr_only, unwrapped = _dialog_stats(html)
+        assert not unwrapped, f"{lang}: {unwrapped[:3]}"
+        assert in_dialog > 100, lang
+        assert sr_only == 0, lang  # sr-only chart twins live in page source, not FDP output
+
+
+def test_year_accordions_and_themed_dialogs():
+    from _build.generators.fdp import generate_fdp
+    from _build.locales import load_locale
+
+    html = generate_fdp(load_locale("en"))
+    for year in ("2026", "2025", "2024", "2023"):
+        assert f"<strong>{year}</strong>" in html, year
+    assert "quarter-row" in html
+    for dialog_id in ("fdp-dialog-budget", "fdp-dialog-workforce", "fdp-dialog-debt",
+                      "fdp-dialog-proc-plans", "fdp-dialog-gad", "fdp-dialog-funds"):
+        assert f'id="{dialog_id}"' in html, dialog_id
+    import re
+    ids = re.findall(r'<dialog[^>]*id="([^"]+)"', html)
+    assert len(ids) == len(set(ids)), "duplicate dialog IDs"
+    buttons = set(re.findall(r'data-fdp-dialog="([^"]+)"', html)) | set(re.findall(r'data-open-modal="([^"]+)"', html))
+    assert buttons <= set(ids), f"dangling buttons: {buttons - set(ids)}"

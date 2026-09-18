@@ -240,23 +240,33 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
     return "\n".join(parts)
 
 
+def _themed_dialog(slug: str, heading: str, count_line: str, body_html: str, labels: dict) -> str:
+    """One themed dialog group for standalone FDP tables."""
+    dialog_id = f"fdp-dialog-{slug}"
+    return "\n".join([
+        f"<h3>{heading}</h3>",
+        f"<p class='note-inline'>{count_line}</p>",
+        f'<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="{dialog_id}">'
+        f'{labels["DASH_VIEW_TABLE"]}</button>',
+        _dialog(dialog_id, heading, body_html, labels["DASH_CLOSE"]),
+    ])
+
+
 def _render_standalone(data: dict, labels: dict) -> str:
     parts = []
     budgets = sorted(data.get("budget", []), key=lambda r: str(r.get("period", "")), reverse=True)
     if budgets:
-        latest = budgets[0]
-        parts.append("<h3>Annual Budget by Office ({})</h3>".format(_esc(_period_label(latest["period"], labels["FDP_UNDATED"]))))
-        parts.append(_money_table(
-            ["Office", "Personnel", "MOOE", "Capital Outlay", "Proposed Total"],
-            [[_esc(o["office"]), _peso(o["ps"]), _peso(o["mooe"]),
-              _peso(o["co"]), _peso(o["proposed"])] for o in latest["offices"]]))
-        for older in budgets[1:]:
-            parts.append("<details><summary>Budget {}</summary>".format(_esc(_period_label(older["period"], labels["FDP_UNDATED"]))))
-            parts.append(_money_table(
+        inner = []
+        for rec in budgets:
+            inner.append("<h3>Annual Budget by Office ({})</h3>".format(_esc(_period_label(rec["period"], labels["FDP_UNDATED"]))))
+            inner.append(_money_table(
                 ["Office", "Personnel", "MOOE", "Capital Outlay", "Proposed Total"],
-                [[_esc(o["office"]), _peso(o["ps"]), _peso(o["mooe"]),
-                  _peso(o["co"]), _peso(o["proposed"])] for o in older["offices"]]))
-            parts.append("</details>")
+                [[_esc(o["office"]), _peso(o.get("ps")), _peso(o.get("mooe")),
+                  _peso(o.get("co")), _peso(o.get("proposed"))] for o in rec["offices"]]))
+        n_off = sum(len(r["offices"]) for r in budgets)
+        parts.append(_themed_dialog("budget", "Annual Budget by Office",
+                                    f"{len(budgets)} filing(s) · {n_off} office rows",
+                                    "\n".join(inner), labels))
 
     loans = {}
     for loan in data.get("indebtedness", []):
@@ -264,7 +274,6 @@ def _render_standalone(data: dict, labels: dict) -> str:
         if key not in loans or str(loan.get("report_date", "")) > str(loans[key].get("report_date", "")):
             loans[key] = loan
     if loans:
-        parts.append("<h3>Indebtedness (latest statements)</h3>")
         rows = []
         for name in sorted(loans):
             items = loans[name].get("items", {})
@@ -272,86 +281,142 @@ def _render_standalone(data: dict, labels: dict) -> str:
             purpose = next((v for k, v in items.items() if "purpose" in k.lower()), "")
             rows.append([_esc(name), _esc(purpose), _esc(amount),
                          _esc(loans[name].get("report_date", ""))])
-        parts.append(_money_table(["Loan", "Purpose", "Approved", "Reported"], rows))
+        parts.append(_themed_dialog("debt", "Indebtedness",
+                                    f"{len(loans)} loan facilities (latest statements)",
+                                    _money_table(["Loan", "Purpose", "Approved", "Reported"], rows), labels))
 
-    for mp in data.get("manpower", []):
-        parts.append("<h3>Manpower Complement ({})</h3>".format(
-            _esc(_period_label(mp.get("period", ""), labels["FDP_UNDATED"]))))
-        if mp.get("note"):
-            parts.append(f"<p class='note-inline'>{_esc(mp['note'])}</p>")
-        rows = [[_esc(i["class"]), _esc(i.get("count")), _peso(i.get("amount"))] for i in mp.get("items", [])]
-        total = mp.get("total") or {}
-        if total.get("count") is not None:
-            rows.append(["<strong>Total</strong>", f"<strong>{_esc(total.get('count'))}</strong>",
-                         f"<strong>{_peso(total.get('amount'))}</strong>"])
-        parts.append(_money_table(["Appointment", "Count", "Salaries"], rows))
+    if data.get("manpower"):
+        inner = []
+        for mp in data.get("manpower", []):
+            inner.append("<h3>Manpower Complement ({})</h3>".format(
+                _esc(_period_label(mp.get("period", ""), labels["FDP_UNDATED"]))))
+            if mp.get("note"):
+                inner.append(f"<p class='note-inline'>{_esc(mp['note'])}</p>")
+            rows = [[_esc(i["class"]), _esc(i.get("count")), _peso(i.get("amount"))] for i in mp.get("items", [])]
+            total = mp.get("total") or {}
+            if total.get("count") is not None:
+                rows.append(["<strong>Total</strong>", f"<strong>{_esc(total.get('count'))}</strong>",
+                             f"<strong>{_peso(total.get('amount'))}</strong>"])
+            inner.append(_money_table(["Appointment", "Count", "Salaries"], rows))
+        parts.append(_themed_dialog("workforce", "Workforce history",
+                                    f"{len(data.get('manpower', []))} snapshots",
+                                    "\n".join(inner), labels))
 
+    proc_inner = []
     for spp in data.get("spp", []):
         with_items = [o for o in spp.get("offices", []) if o.get("items")]
         if with_items:
-            parts.append("<h3>Supplemental Procurement ({})</h3>".format(
+            proc_inner.append("<h3>Supplemental Procurement ({})</h3>".format(
                 _esc(_period_label(spp.get("period", ""), labels["FDP_UNDATED"]))))
             for office in with_items:
-                parts.append(_money_table(
+                proc_inner.append(_money_table(
                     [office["office"], "End User", "Mode", "Amount"],
                     [[_esc(i["project"]), _esc(i.get("end_user")),
                       _esc(i.get("mode")), _peso(i.get("amount"))] for i in office["items"]]))
         if spp.get("summary"):
-            parts.append("<h3>Supplemental Procurement Summary ({})</h3>".format(
+            proc_inner.append("<h3>Supplemental Procurement Summary ({})</h3>".format(
                 _esc(_period_label(spp.get("period", ""), labels["FDP_UNDATED"]))))
-            parts.append(_money_table(
+            proc_inner.append(_money_table(
                 ["Office", "Head", "Total Cost"],
                 [[_esc(s.get("office", "")), _esc(s.get("head", "")),
                   _peso(s.get("total"))] for s in spp["summary"]]))
     for app in data.get("app", []):
         if app.get("form") == "app_summary":
             if app.get("summary"):
-                parts.append("<h3>{} ({})</h3>".format(
+                proc_inner.append("<h3>{} ({})</h3>".format(
                     labels["FDP_APP_TITLE"],
                     _esc(_period_label(app.get("period", ""), labels["FDP_UNDATED"]))))
-                parts.append(_money_table(
+                proc_inner.append(_money_table(
                     ["Office", "Head", "Total Cost"],
                     [[_esc(s.get("office", "")), _esc(s.get("head", "")),
                       _peso(s.get("total"))] for s in app["summary"]]))
             continue
         if not app.get("items"):
             continue
-        parts.append("<h3>{}: {} ({})</h3>".format(
+        proc_inner.append("<h3>{}: {} ({})</h3>".format(
             labels["FDP_APP_TITLE"], _esc(app.get("office", "")),
             _esc(_period_label(app.get("period", ""), labels["FDP_UNDATED"]))))
-        parts.append(_money_table(
+        proc_inner.append(_money_table(
             ["Item", "End User", "Mode", "Total"],
             [[_esc(i["project"]), _esc(i.get("end_user")),
               _esc(i.get("mode")), _peso(i.get("total"))] for i in app["items"]]))
-    for gad in data.get("gad", []):
-        parts.append("<h3>{} ({})</h3>".format(
-            labels["FDP_GAD_TITLE"],
-            _esc(_period_label(gad.get("period", ""), labels["FDP_UNDATED"]))))
-        totals = gad.get("totals", {})
-        if totals:
-            parts.append(_metric_cards([(_peso(totals.get("lgu_budget")), "Total LGU budget"),
-                                        (_peso(totals.get("gad_budget")), "GAD budget")]))
-        if gad.get("entries"):
-            parts.append(_money_table(
-                ["Issue", "Program", "Result", "Budget"],
-                [[_esc(e["issue"]), _esc(e.get("program")),
-                  _esc(e.get("result")), _peso(e.get("budget"))] for e in gad["entries"]]))
+    if proc_inner:
+        n_tables = sum(1 for _ in re.finditer(r"<table", "\n".join(proc_inner)))
+        parts.append(_themed_dialog("proc-plans", "Procurement Plans",
+                                    f"{n_tables} tables (supplemental + annual plans)",
+                                    "\n".join(proc_inner), labels))
+
+    if data.get("gad"):
+        gad_inner = []
+        for gad in data.get("gad", []):
+            gad_inner.append("<h3>{} ({})</h3>".format(
+                labels["FDP_GAD_TITLE"],
+                _esc(_period_label(gad.get("period", ""), labels["FDP_UNDATED"]))))
+            totals = gad.get("totals", {})
+            if totals:
+                gad_inner.append(_metric_cards([(_peso(totals.get("lgu_budget")), "Total LGU budget"),
+                                                (_peso(totals.get("gad_budget")), "GAD budget")]))
+            if gad.get("entries"):
+                gad_inner.append(_money_table(
+                    ["Issue", "Program", "Result", "Budget"],
+                    [[_esc(e["issue"]), _esc(e.get("program")),
+                      _esc(e.get("result")), _peso(e.get("budget"))] for e in gad["entries"]]))
+        parts.append(_themed_dialog("gad", "Gender and Development",
+                                    f"{len(data.get('gad', []))} report(s)",
+                                    "\n".join(gad_inner), labels))
+
+    fund_inner = []
     for fund in data.get("fund_matrix", []):
-        parts.append("<h3>{} ({})</h3>".format(
+        fund_inner.append("<h3>{} ({})</h3>".format(
             _esc(fund.get("fund", "")), _esc(_period_label(fund.get("period", ""), labels["FDP_UNDATED"]))))
-        parts.append(_money_table(
+        fund_inner.append(_money_table(
             ["Office", "Personnel", "MOOE", "Capital", "Non-Office", "Total"],
             [[_esc(o["office"]), _peso(o.get("ps")), _peso(o.get("mooe")),
               _peso(o.get("co")), _peso(o.get("non_office")), _peso(o.get("total"))]
              for o in fund.get("offices", [])]))
     for spa in data.get("spa", []):
-        parts.append("<h3>{} ({})</h3>".format(
+        fund_inner.append("<h3>{} ({})</h3>".format(
             _esc(spa.get("fund", "")), _esc(_period_label(spa.get("period", ""), labels["FDP_UNDATED"]))))
-        parts.append(_money_table(
+        fund_inner.append(_money_table(
             ["Project", "Past", "Current", "Proposed"],
             [[_esc(i["project"]), _peso(i.get("past")),
               _peso(i.get("current")), _peso(i.get("proposed"))] for i in spa.get("items", [])]))
+    if fund_inner:
+        parts.append(_themed_dialog("funds", "Fund Matrices & Special Appropriations",
+                                    "General Fund, Economic Enterprise, development, non-office & calamity funds",
+                                    "\n".join(fund_inner), labels))
     return "\n".join(parts)
+
+
+
+def _quarter_figures(period: str, data: dict):
+    """Three headline figures for a compact quarter row."""
+    sre = next((r for r in data.get("sre", []) if r.get("period") == period), None)
+    sef = next((r for r in data.get("sef", []) if r.get("period") == period), None)
+    ldrrmf = next((r for r in data.get("ldrrmf", []) if r.get("period") == period), None)
+    receipts = None
+    if sre:
+        income, _, _ = _sre_cards(sre)
+        receipts = (income or {}).get("general_fund")
+    return (receipts,
+            (sef or {}).get("balance"),
+            ((ldrrmf or {}).get("totals", {}) or {}).get("unutilized"))
+
+
+def _quarter_dialog(period: str, data: dict, labels: dict) -> str:
+    """Full cards + tables for one quarter, wrapped in a modal dialog."""
+    slug = re.sub(r"[^a-z0-9]+", "-", period.lower()).strip("-") or "undated"
+    dialog_id = f"fdp-dialog-{slug}"
+    body = "\n".join([_render_period_cards(period, data, labels),
+                       _render_period_tables(period, data, labels)])
+    if not body.strip():
+        return ""
+    return (
+        f'<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="{dialog_id}">'
+        f'{labels["DASH_VIEW_TABLE"]}: {_esc(_period_label(period, labels["FDP_UNDATED"]))}</button>'
+        + _dialog(dialog_id, _period_label(period, labels["FDP_UNDATED"]),
+                  body, labels["DASH_CLOSE"])
+    )
 
 
 def generate_fdp(locale: dict) -> str:
@@ -391,10 +456,20 @@ def generate_fdp(locale: dict) -> str:
         out.extend(_period_block(
             latest,
             f"<h3>{labels['FDP_LATEST']}: {_esc(_period_label(latest, labels['FDP_UNDATED']))}</h3>"))
+        by_year = {}
         for period in periods[1:]:
-            out.append("<details class='mt-8'><summary><strong>{}: {}</strong></summary>".format(
-                labels["FDP_OLDER"], _esc(_period_label(period, labels["FDP_UNDATED"]))))
-            out.extend(_period_block(period, ""))
+            year = period.split("-")[0] if "-" in period else period
+            by_year.setdefault(year, []).append(period)
+        for year in sorted(by_year, reverse=True):
+            out.append("<details class='mt-8'><summary><strong>{}</strong></summary>".format(_esc(year)))
+            for period in by_year[year]:
+                receipts, sef_bal, ld_unutil = _quarter_figures(period, data)
+                out.append(
+                    "<div class='quarter-row'><strong>{}</strong>"
+                    "<span>Receipts {} · SEF {} · LDRRMF {}</span></div>".format(
+                        _esc(_period_label(period, labels["FDP_UNDATED"])),
+                        _peso(receipts), _peso(sef_bal), _peso(ld_unutil)))
+                out.append(_quarter_dialog(period, data, labels))
             out.append("</details>")
     undated_periods = sorted({r.get("period", "undated")
                               for key in ("sre", "sef", "ldrrmf", "cash_flows", "cash_advances",

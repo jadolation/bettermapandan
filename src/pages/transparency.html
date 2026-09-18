@@ -81,8 +81,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <h2>{TRANSPARENCY_CREDIT_TITLE}</h2>
       <p>Mapandan utilizes credit financing through state banks for capital expansion projects, leveraging future budget cycles to fund infrastructure modernization.</p>
     </div>
-    <div class="table-wrap">
-      <table aria-label="Credit financing and loans">
+        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-credit">{TRANSPARENCY_VIEW_TABLE}: Credit financing and loans</button>
+    <dialog data-modal id="modal-credit" aria-label="Credit financing and loans">
+      <div class="fdp-dialog-head"><strong>Credit financing and loans</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+            <div class="table-wrap">
+<table aria-label="Credit financing and loans">
         <thead>
           <tr>
             <th scope="col">Facility</th>
@@ -116,7 +119,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
           </tr>
         </tbody>
       </table>
-    </div>
+      
+      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+    </dialog>
     <p class="source-label">See also: <a href="/legislative/">Legislative Documents</a> for full ordinance details and provincial review outcomes.</p>
   </div>
 </section>
@@ -127,8 +132,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <h2>CY 2025 revenue sources</h2>
       <p>How Mapandan generated its &#8369;197.70 million in Annual Regular Income (ARI) for CY 2025, based on official BLGF data.</p>
     </div>
-    <div class="table-wrap">
-      <table aria-label="CY 2025 revenue breakdown">
+        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-revenue">{TRANSPARENCY_VIEW_TABLE}: CY 2025 revenue breakdown</button>
+    <dialog data-modal id="modal-revenue" aria-label="CY 2025 revenue breakdown">
+      <div class="fdp-dialog-head"><strong>CY 2025 revenue breakdown</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+            <div class="table-wrap">
+<table aria-label="CY 2025 revenue breakdown">
         <thead>
           <tr>
             <th scope="col">Revenue Source</th>
@@ -176,7 +184,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
           </tr>
         </tfoot>
       </table>
-    </div>
+      
+      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+    </dialog>
   </div>
 </section>
 <section class="section section-alt" id="fiscal-structure">
@@ -234,8 +244,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <h2>Fiscal snapshot (CY 2020&ndash;2025)</h2>
       <p>Annual revenue and expenditure totals from BLGF data. Mapandan recorded operating surpluses from CY 2014 through CY 2022, with deficits recurring in CY 2023 and CY 2024 due to increased operating expenditures. Note: BLGF figures include non-operating expenditures such as capital outlays and debt service, which explains the larger deficits shown here compared to the COA AAR operating results in the Financial Performance section above.</p>
     </div>
-    <div class="table-wrap">
-      <table aria-label="Multi-year fiscal snapshot">
+        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-snapshot">{TRANSPARENCY_VIEW_TABLE}: Multi-year fiscal snapshot</button>
+    <dialog data-modal id="modal-snapshot" aria-label="Multi-year fiscal snapshot">
+      <div class="fdp-dialog-head"><strong>Multi-year fiscal snapshot</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+            <div class="table-wrap">
+<table aria-label="Multi-year fiscal snapshot">
         <thead>
           <tr>
             <th scope="col">Fiscal Year</th>
@@ -283,7 +296,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
           </tr>
         </tbody>
       </table>
-    </div>
+      
+      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+    </dialog>
     <p class="source-label">Source: Bureau of Local Government Finance (BLGF) &mdash; LGU Fiscal Data. The CY 2022 operating surplus (&#8369;14.0M) masked significant non-operating expenditures of &#8369;108.5M related to capital outlays and debt service, which are excluded from the operating surplus calculation shown above.</p>
   </div>
 </section>
@@ -294,8 +309,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <h2>Multi-year appropriations (CY 2020&ndash;2026)</h2>
       <p>Mapandan's enacted budget grew 78.27% from CY 2020 to CY 2026, driven by the Mandanas-Garcia ruling expanding the National Tax Allocation base and post-pandemic recovery initiatives.</p>
     </div>
-    <div class="table-wrap">
-      <table aria-label="Multi-year budget trend">
+        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-budget-trend">{TRANSPARENCY_VIEW_TABLE}: Multi-year budget trend</button>
+    <dialog data-modal id="modal-budget-trend" aria-label="Multi-year budget trend">
+      <div class="fdp-dialog-head"><strong>Multi-year budget trend</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+            <div class="table-wrap">
+<table aria-label="Multi-year budget trend">
         <thead>
           <tr>
             <th scope="col">Fiscal Year</th>
@@ -357,7 +375,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
           </tr>
         </tbody>
       </table>
-    </div>
+      
+      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+    </dialog>
     <p class="source-label">The CY 2022 spike (&#8369;173.14M) coincided with full devolution mandates under Executive Order No. 138 and post-pandemic recovery. The CY 2023 baseline adjustment (&#8369;151.54M) reflected a correction in national tax collection bases, after which the budget resumed an upward trajectory.</p>
     <div class="card mt-24" aria-live="polite">
       <h3>Budget Growth (CY 2020&ndash;2026)</h3>
@@ -449,8 +469,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
     </div>
     <div class="card mt-24">
       <h3>{FINANCIAL_PERF_TABLE_TITLE}</h3>
-      <div class="table-wrap">
-        <table aria-label="Financial performance 2014-2024">
+          <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-finperf">{TRANSPARENCY_VIEW_TABLE}: Financial performance 2014-2024</button>
+    <dialog data-modal id="modal-finperf" aria-label="Financial performance 2014-2024">
+      <div class="fdp-dialog-head"><strong>Financial performance 2014-2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+              <div class="table-wrap">
+<table aria-label="Financial performance 2014-2024">
           <thead>
             <tr>
               <th scope="col">Year</th>
@@ -474,7 +497,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
             <tr><td><strong>CY 2024</strong></td><td><strong>&#8369;173.8M</strong></td><td><strong>&#8369;183.6M</strong></td><td class="text-red-flag"><strong>&minus;&#8369;9.8M</strong></td><td>COA AAR</td></tr>
           </tbody>
         </table>
-      </div>
+      
+      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+    </dialog>
       <button class="report-btn" data-download="financial-performance">{STATISTICS_CHART_DOWNLOAD}</button>
     </div>
     <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2024. Figures are from the audited financial statements. Surplus/(deficit) reflects operating performance; it excludes non-operating expenditures such as capital outlays and debt service.</p>
@@ -687,8 +712,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
 
       <div class="card">
         <h3>{IMPL_RATE_TABLE_TITLE}</h3>
-        <div class="table-wrap">
-          <table aria-label="Audit recommendation implementation rates">
+            <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-implrate">{TRANSPARENCY_VIEW_TABLE}: Audit recommendation implementation rates</button>
+    <dialog data-modal id="modal-implrate" aria-label="Audit recommendation implementation rates">
+      <div class="fdp-dialog-head"><strong>Audit recommendation implementation rates</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+                <div class="table-wrap">
+<table aria-label="Audit recommendation implementation rates">
             <thead>
               <tr>
                 <th scope="col">Period</th>
@@ -711,7 +739,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
               <tr><td>2023&rarr;2024</td><td>14</td><td>0</td><td>23</td><td class="text-gold">38%</td></tr>
             </tbody>
           </table>
-        </div>
+      
+      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+    </dialog>
       </div>
     </div>
     <button class="report-btn" data-download="implementation-rates">{STATISTICS_CHART_DOWNLOAD}</button>
@@ -836,8 +866,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <h2>{TRANSPARENCY_COA_PROJECTS_TITLE}</h2>
       <p>{TRANSPARENCY_COA_PROJECTS_DESC}</p>
     </div>
-    <div class="table-wrap">
-      <table aria-label="COA highlighted infrastructure projects">
+        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-coa-projects">{TRANSPARENCY_VIEW_TABLE}: COA highlighted infrastructure projects</button>
+    <dialog data-modal id="modal-coa-projects" aria-label="COA highlighted infrastructure projects">
+      <div class="fdp-dialog-head"><strong>COA highlighted infrastructure projects</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+            <div class="table-wrap">
+<table aria-label="COA highlighted infrastructure projects">
         <thead>
           <tr>
             <th scope="col">Project</th>
@@ -850,7 +883,9 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
         <tbody id="coa-projects-table-body">
         </tbody>
       </table>
-    </div>
+      
+      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+    </dialog>
     <p class="source-label">Source: COA Annual Audit Reports 2016&ndash;2024. Projects identified through Operational Highlights sections of audit reports.</p>
   </div>
 </section>

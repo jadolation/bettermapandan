@@ -155,9 +155,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Modal dialogs: open/close wiring for full FDP tables
-  document.querySelectorAll("[data-fdp-dialog]").forEach(function (btn) {
-    var dialog = document.getElementById(btn.getAttribute("data-fdp-dialog"));
+  // Modal dialogs: open/close wiring for all data tables site-wide.
+  // Supports both the FDP attributes ([data-fdp-dialog] + dialog.fdp-dialog)
+  // and the generic pair ([data-open-modal] + dialog[data-modal]).
+  document.querySelectorAll("[data-fdp-dialog], [data-open-modal]").forEach(function (btn) {
+    var id = btn.getAttribute("data-fdp-dialog") || btn.getAttribute("data-open-modal");
+    var dialog = document.getElementById(id);
     if (!dialog || typeof dialog.showModal !== "function") {
       return;
     }
@@ -165,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dialog.showModal();
     });
   });
-  document.querySelectorAll("dialog.fdp-dialog [data-close]").forEach(function (btn) {
+  document.querySelectorAll("dialog.fdp-dialog [data-close], dialog[data-modal] [data-close]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var dialog = btn.closest("dialog");
       if (dialog) {
@@ -173,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  document.querySelectorAll("dialog.fdp-dialog").forEach(function (dialog) {
+  document.querySelectorAll("dialog.fdp-dialog, dialog[data-modal]").forEach(function (dialog) {
     dialog.addEventListener("click", function (e) {
       if (e.target === dialog) {
         dialog.close();

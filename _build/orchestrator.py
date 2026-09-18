@@ -493,6 +493,8 @@ def _build_transparency_labels(locale: dict) -> dict:
         "IMPL_RATE_DESC": t(locale, "transparency.impl_rate_desc", ""),
         "IMPL_RATE_CHART_TITLE": t(locale, "transparency.impl_rate_chart_title", ""),
         "IMPL_RATE_TABLE_TITLE": t(locale, "transparency.impl_rate_table_title", ""),
+        "TRANSPARENCY_VIEW_TABLE": t(locale, "transparency.dash_view_table", "View full tables"),
+        "TRANSPARENCY_CLOSE": t(locale, "transparency.dash_close", "Close"),
     }
 
 

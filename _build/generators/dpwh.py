@@ -37,6 +37,7 @@ def _build_dpwh_labels(locale: dict) -> dict:
         "DPWH_MAP": t(locale, "transparency.infrastructure_map", "Map"),
         "DPWH_SOURCE_NOTE": t(locale, "transparency.infrastructure_source_note", "Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded."),
         "DPWH_SEARCH_PLACEHOLDER": t(locale, "transparency.infrastructure_search_placeholder", "Search projects..."),
+        "DPWH_CLOSE": t(locale, "transparency.dash_close", "Close"),
     }
 
 
@@ -146,6 +147,9 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
   window.DPWH_PROJECTS = {projects_json};
 </script>
 
+<button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-dpwh">View full table: {labels['DPWH_TITLE']}</button>
+<dialog data-modal id="modal-dpwh" aria-label="{labels['DPWH_TITLE']}">
+<div class="fdp-dialog-head"><strong>{labels['DPWH_TITLE']}</strong><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
 <input type="search" id="dpwh-search" placeholder="{labels['DPWH_SEARCH_PLACEHOLDER']}" aria-label="{labels['DPWH_SEARCH_PLACEHOLDER']}" style="margin-bottom:12px">
 <div class="table-wrap mt-24">
   <table aria-label="DPWH infrastructure projects" id="dpwh-table">
@@ -167,6 +171,8 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     </tbody>
   </table>
 </div>
+<div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
+</dialog>
 
 <p class="source-label">{labels['DPWH_SOURCE_NOTE']} <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a></p>
 """
