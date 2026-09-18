@@ -71,7 +71,7 @@ def _sre_cards(sre: dict) -> tuple:
 
 
 def _metric_cards(cards: list) -> str:
-    out = ['<div class="grid grid-4 stack-gap-lg" style="margin-top:20px">']
+    out = ['<div class="grid grid-4 stack-gap-lg mt-24">']
     for value, label in cards:
         out.append(
             '<div class="card"><p class="figure text-lg">{}</p>'
@@ -91,6 +91,22 @@ def _money_table(headers: list, rows: list) -> str:
     return "\n".join(out)
 
 
+def _sortable_money_table(table_id, search_id, headers, rows, search_placeholder="", data_columns=None):
+    if data_columns is None:
+        data_columns = [str(i) for i in range(len(headers))]
+    out = ['<input type="search" id="' + search_id + '" placeholder="' + _esc(search_placeholder) + '" class="form-input mb-24">']
+    out.append('<div class="table-wrap"><table aria-label="" id="' + table_id + '">')
+    out.append("<thead><tr>" + "".join(
+        f"<th scope='col' class='sortable' data-column='{_esc(col)}'>{_esc(h)} <span class='sort-indicator'></span></th>"
+        for h, col in zip(headers, data_columns)
+    ) + "</tr></thead>")
+    out.append("<tbody>")
+    for cells in rows:
+        out.append("<tr>" + "".join(f"<td>{c}</td>" for c in cells) + "</tr>")
+    out.append("</tbody></table></div>")
+    return "\n".join(out)
+
+
 def _dialog(dialog_id: str, title: str, body_html: str, close_label: str) -> str:
     """Accessible modal wrapper for full FDP tables."""
     return (
@@ -98,7 +114,6 @@ def _dialog(dialog_id: str, title: str, body_html: str, close_label: str) -> str
         f'<div class="fdp-dialog-head"><strong>{title}</strong>'
         f'<button type="button" class="btn btn-outline btn-sm" data-close>{close_label}</button></div>'
         f"{body_html}"
-        f'<div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{close_label}</button></div>'
         "</dialog>"
     )
 
@@ -138,6 +153,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
     """Full tables for one quarterly filing period (lives inside a dialog)."""
     parts = []
     title = _period_label(period, labels["FDP_UNDATED"])
+    slug = re.sub(r"[^a-z0-9]+", "-", period.lower()).strip("-") or "undated"
     sre = next((r for r in data.get("sre", []) if r.get("period") == period), None)
     sef = next((r for r in data.get("sef", []) if r.get("period") == period), None)
     ldrrmf = next((r for r in data.get("ldrrmf", []) if r.get("period") == period), None)
@@ -151,6 +167,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
     if sre:
         tl_any = any(r.get("trust_liability") for r in sre["rows"])
         headers = ["Particulars", "Target", "General Fund", "SEF", "Trust Fund"] + (["Trust Liability"] if tl_any else [])
+        data_cols = ["particulars", "target", "general_fund", "sef", "trust_fund"] + (["trust_liability"] if tl_any else [])
         rows = []
         for r in sre["rows"]:
             cells = [f"<strong>{_esc(r['label'])}</strong>" if r["label"].isupper() else _esc(r["label"]),
@@ -160,7 +177,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
                 cells.append(_peso(r.get("trust_liability")))
             rows.append(cells)
         parts.append(f"<h3 class='mt-24'>Statement of Receipts &amp; Expenditures ({_esc(title)})</h3>")
-        parts.append(_money_table(headers, rows))
+        parts.append(_sortable_money_table("sre-table-" + slug, "sre-search-" + slug, headers, rows, "Search SRE...", data_cols))
 
     if sef:
         parts.append(f"<h3 class='mt-24'>Special Education Fund ({_esc(title)})</h3>")
@@ -168,8 +185,11 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
                                     (_peso(sef.get("subtotal")), "Disbursed"),
                                     (_peso(sef.get("balance")), "Balance")]))
         if sef.get("items"):
-            parts.append(_money_table(["Item", "Amount"],
-                                       [[_esc(i["label"]), _peso(i["amount"])] for i in sef["items"]]))
+            parts.append(_sortable_money_table("sef-table-" + slug, "sef-search-" + slug,
+                                               ["Item", "Amount"],
+                                               [[_esc(i["label"]), _peso(i["amount"])] for i in sef["items"]],
+                                               "Search SEF items...",
+                                               ["item", "amount"]))
 
     if ldrrmf:
         totals = ldrrmf.get("totals", {})
@@ -180,13 +200,18 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
         items = [u for u in ldrrmf.get("utilization", [])
                  if (u.get("total") or 0) != 0 or (u.get("qrf") or 0) != 0]
         if items:
-            parts.append(_money_table(["Utilization", "QRF", "Total"],
-                                       [[_esc(u["label"]), _peso(u.get("qrf")), _peso(u.get("total"))] for u in items]))
+            parts.append(_sortable_money_table("ldrrmf-table-" + slug, "ldrrmf-search-" + slug,
+                                               ["Utilization", "QRF", "Total"],
+                                               [[_esc(u["label"]), _peso(u.get("qrf")), _peso(u.get("total"))] for u in items],
+                                               "Search disaster fund...",
+                                               ["utilization", "qrf", "total"]))
 
     if dev:
+        dev_idx = [0]
         for rec in dev:
             if not rec.get("projects"):
                 continue
+            dev_idx[0] += 1
             parts.append(f"<h3 class='mt-24'>20% Development Fund Projects ({_esc(title)})</h3>")
             rows = [[_esc(p["project"]), _esc(p["location"]), _peso(p.get("cost")),
                      _pct(p.get("pct")), _peso(p.get("incurred"))] for p in rec["projects"]]
@@ -195,19 +220,30 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
                 rows.append(["<strong>Total</strong>", "", f"<strong>{_peso(totals.get('cost'))}</strong>",
                              f"<strong>{_pct(totals.get('pct'))}</strong>",
                              f"<strong>{_peso(totals.get('incurred'))}</strong>"])
-            parts.append(_money_table(["Project", "Location", "Cost", "Completion", "Incurred"], rows))
+            parts.append(_sortable_money_table("devfund-table-" + slug + "-" + str(dev_idx[0]),
+                                               "devfund-search-" + slug + "-" + str(dev_idx[0]),
+                                               ["Project", "Location", "Cost", "Completion", "Incurred"], rows,
+                                               "Search development fund...",
+                                               ["project", "location", "cost", "completion", "incurred"]))
 
     if bids:
         parts.append(f"<h3 class='mt-24'>Bids Awarded ({_esc(title)})</h3>")
+        bid_idx = [0]
+        bid_parts = []
         for kind, label in (("civil_works", "Civil Works"), ("goods", "Goods"), ("consulting", "Consulting")):
             items = bids.get(kind, [])
             if items:
-                parts.append(_money_table(
-                    [label, "ABC", "Winning Bidder", "Bid Amount"],
-                    [[_esc(b.get("project") or b.get("ref", "")), _peso(b.get("abc")),
-                      _esc(b.get("bidder")), _peso(b.get("bid_amount"))] for b in items]))
+                bid_idx[0] += 1
+                bid_parts.append(_sortable_money_table("bids-table-" + slug + "-" + str(bid_idx[0]),
+                                                       "bids-search-" + slug + "-" + str(bid_idx[0]),
+                                                       [label, "ABC", "Winning Bidder", "Bid Amount"],
+                                                       [[_esc(b.get("project") or b.get("ref", "")), _peso(b.get("abc")),
+                                                         _esc(b.get("bidder")), _peso(b.get("bid_amount"))] for b in items],
+                                                       "Search bids...",
+                                                       ["project", "abc", "bidder", "bid_amount"]))
             else:
-                parts.append(f"<p class='note-inline'>{label}: {labels['FDP_NIL']}</p>")
+                bid_parts.append(f"<p class='note-inline'>{label}: {labels['FDP_NIL']}</p>")
+        parts.append("<div class='mt-24'></div>".join(bid_parts))
 
     if adv:
         parts.append(f"<h3 class='mt-24'>Unliquidated Cash Advances ({_esc(title)})</h3>")
@@ -467,12 +503,12 @@ def generate_fdp(locale: dict) -> str:
             year = period.split("-")[0] if "-" in period else period
             by_year.setdefault(year, []).append(period)
         out.append(f"<h3>{labels['FDP_ARCHIVE_TITLE']}</h3>")
-        out.append('<div class="stack-gap-sm">')
+        out.append('<div class="grid grid-3">')
         for year in sorted(by_year, reverse=True):
             n_q = len(by_year[year])
-            out.append(f"<div class='section-eyebrow'>{year}</div>")
-            out.append(f"<p class='note-inline'>{n_q} quarter(s)</p>")
-            out.append('<div class="stack-gap-sm">')
+            out.append("<div class='card fdp-archive-card'>"
+                       f"<div class='section-eyebrow'>{year}</div>"
+                       f"<p class='note-inline'>{n_q} quarter(s)</p>")
             for period in by_year[year]:
                 receipts, sef_bal, ld_unutil = _quarter_figures(period, data)
                 out.append(

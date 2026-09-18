@@ -38,6 +38,7 @@ def _build_dpwh_labels(locale: dict) -> dict:
         "DPWH_SOURCE_NOTE": t(locale, "transparency.infrastructure_source_note", "Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded."),
         "DPWH_SEARCH_PLACEHOLDER": t(locale, "transparency.infrastructure_search_placeholder", "Search projects..."),
         "DPWH_CLOSE": t(locale, "transparency.dash_close", "Close"),
+        "TRANSPARENCY_VIEW_TABLE": t(locale, "transparency.dash_view_table", "View full tables"),
     }
 
 
@@ -73,29 +74,29 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     labels = _build_dpwh_labels(locale)
 
     cards_html = f"""
-    <div class="grid grid-3 stack-gap-lg mt-24">
-      <div class="card">
-        <h2>{labels['DPWH_TOTAL_CONTRACTS']}</h2>
-        <p class="figure" id="dpwh-count-value">{total_count:,}</p>
-        <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
-        <span class="source-label">DPWH Transparency Portal</span>
-      </div>
-      <div class="card">
-        <h2>{labels['DPWH_TOTAL_VALUE']}</h2>
-        <p class="figure" id="dpwh-value-value">&#8369;{total_value:,.0f}</p>
-        <span class="verification-badge badge-verified">{t(locale, 'common.verified', 'Verified')}</span>
-        <span class="source-label">{labels['DPWH_AGGREGATED']}</span>
-      </div>
-      <div class="card">
-        <h2>{labels['DPWH_STATUS_CARD']}</h2>
-        <p class="figure" id="dpwh-status-value">
-          {completed} {labels['DPWH_COMPLETED']} &bull; {ongoing} {labels['DPWH_ONGOING']} &bull; {not_started} {labels['DPWH_NOT_STARTED']}
-        </p>
-        <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
-        <span class="source-label">DPWH Transparency Portal</span>
-      </div>
-    </div>
-    """
+<div class="grid grid-3 stack-gap-lg mt-24">
+  <div class="card">
+    <h2>{labels['DPWH_TOTAL_CONTRACTS']}</h2>
+    <p class="figure" id="dpwh-count-value">{total_count:,}</p>
+    <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
+    <span class="source-label">DPWH Transparency Portal</span>
+  </div>
+  <div class="card">
+    <h2>{labels['DPWH_TOTAL_VALUE']}</h2>
+    <p class="figure" id="dpwh-value-value">&#8369;{total_value:,.0f}</p>
+    <span class="verification-badge badge-verified">{t(locale, 'common.verified', 'Verified')}</span>
+    <span class="source-label">{labels['DPWH_AGGREGATED']}</span>
+  </div>
+  <div class="card">
+    <h2>{labels['DPWH_STATUS_CARD']}</h2>
+    <p class="figure" id="dpwh-status-value">
+      {completed} {labels['DPWH_COMPLETED']} &bull; {ongoing} {labels['DPWH_ONGOING']} &bull; {not_started} {labels['DPWH_NOT_STARTED']}
+    </p>
+    <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
+    <span class="source-label">DPWH Transparency Portal</span>
+  </div>
+</div>
+"""
 
     projects_json = json.dumps(projects, ensure_ascii=False)
 
@@ -122,7 +123,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         map_link = f'<a href="https://www.openstreetmap.org/?mlat={lat}&mlon={lng}#map=16/{lat}/{lng}" target="_blank" rel="noopener">{labels["DPWH_VIEW_MAP"]} &rarr;</a>' if has_map else ""
 
         projects_rows.append(
-            f'<tr id="dpwh-project-{tid}" data-project_name="{html.escape(p.get('project_name', ''))}" data-agency="{html.escape(p.get('executing_agency', ''))}" data-contractor="{html.escape(p.get('contractor', '') or '—')}" data-amount="{float(amount):.0f}" data-status="{html.escape(status_raw)}" data-accomplishment="{float(acc):.0f}" data-date="{html.escape(str(date_raw))}">'
+            f'<tr id="dpwh-project-{tid}" data-project_name="{html.escape(p.get("project_name", ""))}" data-agency="{html.escape(p.get("executing_agency", ""))}" data-contractor="{html.escape(p.get("contractor", "") or "—")}" data-amount="{float(amount):.0f}" data-status="{html.escape(status_raw)}" data-accomplishment="{float(acc):.0f}" data-date="{html.escape(str(date_raw))}">'
             f'<td>{_dpwh_category_icon(category)} {category}</td>'
             f'<td>{name}</td>'
             f'<td>{agency}</td>'
@@ -137,21 +138,18 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
 
     projects_table = "\n".join(projects_rows)
 
-    html_content = f"""
-{cards_html}
-
+    trigger_label = f"{labels['TRANSPARENCY_VIEW_TABLE']}: DPWH Infrastructure (details)"
+    dialog_body = f"""
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script defer src="{asset_base}/assets/leaflet-map.min.js"></script>
 <script>
   window.DPWH_PROJECTS = {projects_json};
 </script>
-
-<button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-dpwh">View full table: {labels['DPWH_TITLE']}</button>
-<dialog data-modal id="modal-dpwh" aria-label="{labels['DPWH_TITLE']}">
-<div class="fdp-dialog-head"><strong>{labels['DPWH_TITLE']}</strong><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
-<input type="search" id="dpwh-search" placeholder="{labels['DPWH_SEARCH_PLACEHOLDER']}" aria-label="{labels['DPWH_SEARCH_PLACEHOLDER']}">
-<div class="table-wrap mt-24">
+<div id="dpwh-map" class="map-container"></div>
+<p id="dpwh-map-fallback" class="source-label hidden">Enable JavaScript to view the project map. All projects are listed in the table below.</p>
+<input type="search" id="dpwh-search" placeholder="{labels['DPWH_SEARCH_PLACEHOLDER']}" aria-label="{labels['DPWH_SEARCH_PLACEHOLDER']}" class="form-input mb-24">
+<div class="table-wrap">
   <table aria-label="DPWH infrastructure projects" id="dpwh-table">
     <thead>
       <tr>
@@ -171,11 +169,18 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     </tbody>
   </table>
 </div>
-<div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
 <script defer src="{asset_base}/assets/dpwh-table.min.js"></script>
-</dialog>
-
 <p class="source-label">{labels['DPWH_SOURCE_NOTE']} <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a></p>
+"""
+
+    html_content = f"""
+{cards_html}
+
+<button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-dpwh">{trigger_label}</button>
+<dialog data-modal id="modal-dpwh" aria-label="DPWH Infrastructure (details)">
+  <div class="fdp-dialog-head"><strong>DPWH Infrastructure (details)</strong><button type="button" class="btn btn-outline btn-sm" data-close>{labels['DPWH_CLOSE']}</button></div>
+  {dialog_body}
+</dialog>
 """
 
     meta = {

@@ -120,11 +120,11 @@ def _build_procurement_charts(locale: dict, date_range: str, total_amount: int, 
 
 def _build_procurement_table(locale: dict, contract_count: int, total_amount: int, date_range: str, search_placeholder: str, showing_x_of_y: str, download_csv: str) -> str:
     """Build the procurement table, toolbar, and pagination inside a modal dialog."""
-    title = t(locale, "procurement.title", "Procurement contracts")
+    title = t(locale, "procurement.title", "Procurement contracts") + " (details)"
     view_label = t(locale, "transparency.dash_view_table", "View full tables")
     close_label = t(locale, "transparency.dash_close", "Close")
     return (
-        f'      <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-procurement">{view_label}: {html.escape(title)}</button>\n'
+        f'      <button type="button" class="btn btn-outline" data-open-modal="modal-procurement">{view_label}: {html.escape(title)}</button>\n'
         f'      <dialog data-modal id="modal-procurement" aria-label="{html.escape(title)}">\n'
         f'      <div class="fdp-dialog-head"><strong>{html.escape(title)}</strong><button type="button" class="btn btn-outline btn-sm" data-close>{html.escape(close_label)}</button></div>\n'
         f'      <div class="procurement-toolbar mt-24">\n'
@@ -168,7 +168,6 @@ def _build_procurement_table(locale: dict, contract_count: int, total_amount: in
         f'          <button class="btn btn-outline" data-page="next">Next &raquo;</button>\n'
         f'        </div>\n'
         f'      </div>\n'
-        f'      <div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{html.escape(close_label)}</button></div>\n'
         f'      </dialog>\n'
     )
 

@@ -134,3 +134,43 @@ def test_accuracy_regressions():
     assert abs(loan["pct"] - 0.49667861375065) < 1e-6
     assert loan["incurred"] == 11272309.42
     assert len(dev["projects"]) == 19
+
+
+def test_bids_true_counts():
+    """Exact bid counts per period, verified against source workbooks.
+
+    2024-Q2 goods is 9, not 11: refs 006/007 are byte-identical repeats
+    within one filing and merge to one record each (duplicates_dropped).
+    """
+    data = _load()
+    expected = {"2023-Q1": (0, 1), "2023-Q2": (2, 1), "2023-Q3": (7, 4),
+                "2023-Q4": (3, 2), "2024-Q1": (1, 3), "2024-Q2": (5, 9),
+                "2024-Q3": (3, 5), "2024-Q4": (2, 11), "2025-Q1": (0, 3),
+                "2025-Q2": (0, 2), "2025-Q4": (5, 7), "2026-Q1": (2, 2),
+                "2026-Q2": (1, 4)}
+    by_period = {r["period"]: r for r in data["bids"]}
+    for period, (cw, gs) in expected.items():
+        rec = by_period[period]
+        assert (len(rec["civil_works"]), len(rec["goods"])) == (cw, gs), period
+    assert by_period["2024-Q2"]["duplicates_dropped"] == 2
+
+
+def test_fund_matrix_general_fund_complete():
+    data = _load()
+    rec = next(r for r in data["fund_matrix"] if "GENERAL" in r["fund"])
+    offices = [o["office"] for o in rec["offices"]]
+    assert len(offices) == 25, offices
+    assert any("Mayor" in o for o in offices)
+    assert not any(o.strip().upper() == "TOTAL" for o in offices)
+
+
+def test_app_mswd_correction_and_spp_coverage():
+    data = _load()
+    offices = {r.get("office") for r in data["app"] if r.get("form") == "app"}
+    assert "MSWDO" in offices
+    mswd = next(r for r in data["app"] if r.get("office") == "MSWDO")
+    assert mswd.get("office_corrected_from") == "MPDC"
+    assert len(mswd["items"]) > 0
+    assert "MPDC" in offices  # genuine MPDC plan kept separately
+    spp_offices = sum(len(r.get("offices", [])) for r in data["spp"])
+    assert spp_offices >= 30, spp_offices

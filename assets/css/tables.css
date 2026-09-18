@@ -51,6 +51,28 @@ tbody tr:hover {
 #ordinances-table th.sort-desc .sort-indicator::after,
 #resolutions-table th.sort-desc .sort-indicator::after,
 #executive-table th.sort-desc .sort-indicator::after { content: " \25BC"; }
+#procurement-table th.sort-asc .sort-indicator::after,
+#dpwh-table th.sort-asc .sort-indicator::after,
+#coa-projects-table th.sort-asc .sort-indicator::after,
+#credit-table th.sort-asc .sort-indicator::after,
+#revenue-table th.sort-asc .sort-indicator::after,
+#finperf-table th.sort-asc .sort-indicator::after,
+#fiscal-snapshot-table th.sort-asc .sort-indicator::after,
+#budget-trend-table th.sort-asc .sort-indicator::after,
+#implementation-rates-table th.sort-asc .sort-indicator::after { content: " \25B2"; }
+#procurement-table th.sort-desc .sort-indicator::after,
+#dpwh-table th.sort-desc .sort-indicator::after,
+#coa-projects-table th.sort-desc .sort-indicator::after,
+#credit-table th.sort-desc .sort-indicator::after,
+#revenue-table th.sort-desc .sort-indicator::after,
+#finperf-table th.sort-desc .sort-indicator::after,
+#fiscal-snapshot-table th.sort-desc .sort-indicator::after,
+#budget-trend-table th.sort-desc .sort-indicator::after,
+#implementation-rates-table th.sort-desc .sort-indicator::after { content: " \25BC"; }
+
+table.sortable th.sort-asc .sort-indicator::after { content: " \25B2"; }
+table.sortable th.sort-desc .sort-indicator::after { content: " \25BC"; }
+
 
 .sortable {
   cursor: pointer;
@@ -119,6 +141,7 @@ tbody tr:hover {
     position: sticky;
     left: 0;
     background: #f4f1e7;
+    border-radius: var(--radius) 0 0 var(--radius);
     z-index: 1;
   }
   .table-wrap table tbody td:first-child {

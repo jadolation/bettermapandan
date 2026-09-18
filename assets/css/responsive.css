@@ -311,6 +311,54 @@
   .table-wrap table th,
   .table-wrap table td { padding: 8px 10px; }
   .table-wrap table th { font-size: 11px; letter-spacing: 0.02em; }
+
+  /* Barangay grid */
+  .barangay-grid { grid-template-columns: 1fr; }
+
+  /* Stat grid */
+  .stat-grid { grid-template-columns: 1fr; }
+
+  /* Search browse grid */
+  .search-browse-grid { grid-template-columns: 1fr; }
+
+  /* Action hub */
+  .action-hub-item { flex: 1 1 100%; }
+
+  /* Section padding */
+  .section { padding: 32px 0; }
+
+  /* Figure font size */
+  .figure { font-size: 22px; }
+
+  /* Nav horizontal padding */
+  .nav-links { padding: 6px 16px 14px; }
+
+  /* Language switcher tap target */
+  .lang-switcher .lang-btn {
+    min-height: 44px;
+    padding: 6px 14px;
+  }
+
+  /* Disable hover effects on touch devices */
+  .card:hover,
+  .card:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Line height for mobile tables */
+  .table-wrap table td {
+    line-height: 1.5;
+  }
+
+  /* Filter pills scrollbar gap */
+  .filter-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* ==========================================================================

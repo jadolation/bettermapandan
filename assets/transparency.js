@@ -370,25 +370,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // COA Projects Table
-  var projectsBody = document.getElementById("coa-projects-table-body");
-  if (projectsBody && window.AUDIT_DATA && window.AUDIT_DATA.infrastructure_projects) {
-    var projects = window.AUDIT_DATA.infrastructure_projects;
-    var html = "";
-    projects.forEach(function(p) {
-      var costFormatted = "\u20B1" + (p.cost / 1000000).toFixed(1) + "M";
-      var statusClass = p.status === "completed" ? "pill-completed" : "pill-ongoing";
-      html += "<tr>";
-      html += "<td><strong>" + p.name + "</strong><br><span class='text-xs text-ink-soft'>" + p.description + "</span></td>";
-      html += "<td>" + costFormatted + "</td>";
-      html += "<td>" + p.year_started + (p.year_completed !== p.year_started ? "\u2013" + p.year_completed : "") + "</td>";
-      html += "<td>" + p.category + "</td>";
-      html += "<td><span class='pill " + statusClass + "'>" + p.status.charAt(0).toUpperCase() + p.status.slice(1) + "</span></td>";
-      html += "</tr>";
-    });
-    projectsBody.innerHTML = html;
-  }
-
   // Disallowances Chart
   var disallowCanvas = document.getElementById("chart-disallowances");
   if (disallowCanvas && window.AUDIT_DATA && window.AUDIT_DATA.disallowances) {

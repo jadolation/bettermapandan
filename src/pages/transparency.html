@@ -12,7 +12,7 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <span><strong>Data last updated:</strong> September 2026 &mdash; compiled from official municipal financial disclosures, Sangguniang Bayan resolutions, and Commission on Audit reports. CY 2024 figures are the most recent actuals; CY 2025&ndash;2026 figures are SP-approved appropriations. <a href="/support/report/?page=transparency" title="We're an independent volunteer team — corrections welcome">Report incorrect information</a></span>
     </div>
     {PROCUREMENT_SECTION}
-    <div class="section-head">
+    <div class="section-head mt-24">
       <div class="section-eyebrow">{DPWH_EYEBROW}</div>
       <h2>{DPWH_TITLE}</h2>
       <p>{DPWH_LEDE}</p>
@@ -81,18 +81,15 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <h2>{TRANSPARENCY_CREDIT_TITLE}</h2>
       <p>Mapandan utilizes credit financing through state banks for capital expansion projects, leveraging future budget cycles to fund infrastructure modernization.</p>
     </div>
-        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-credit">{TRANSPARENCY_VIEW_TABLE}: Credit financing and loans</button>
-    <dialog data-modal id="modal-credit" aria-label="Credit financing and loans">
-      <div class="fdp-dialog-head"><strong>Credit financing and loans</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
-            <div class="table-wrap">
-<table aria-label="Credit financing and loans">
+<div class="table-wrap">
+<table aria-label="Loans &amp; Borrowing" id="credit-table" class="sortable" data-sort-col="facility" data-sort-dir="asc">
         <thead>
           <tr>
-            <th scope="col">Facility</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Purpose</th>
-            <th scope="col">Legislative Basis</th>
-            <th scope="col">Status</th>
+            <th scope="col" class="sortable" data-column="facility">Facility <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="amount">Amount <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="purpose">Purpose <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="legislative">Legislative Basis <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="status">Status <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody>
@@ -120,8 +117,7 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
         </tbody>
       </table>
       
-      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
-    </dialog>
+      </div>
     <p class="source-label">See also: <a href="/legislative/">Legislative Documents</a> for full ordinance details and provincial review outcomes.</p>
   </div>
 </section>
@@ -132,16 +128,13 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <h2>CY 2025 revenue sources</h2>
       <p>How Mapandan generated its &#8369;197.70 million in Annual Regular Income (ARI) for CY 2025, based on official BLGF data.</p>
     </div>
-        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-revenue">{TRANSPARENCY_VIEW_TABLE}: CY 2025 revenue breakdown</button>
-    <dialog data-modal id="modal-revenue" aria-label="CY 2025 revenue breakdown">
-      <div class="fdp-dialog-head"><strong>CY 2025 revenue breakdown</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
-            <div class="table-wrap">
-<table aria-label="CY 2025 revenue breakdown">
+<div class="table-wrap">
+<table aria-label="Revenue Sources" id="revenue-table" class="sortable" data-sort-col="source" data-sort-dir="asc">
         <thead>
           <tr>
-            <th scope="col">Revenue Source</th>
-            <th scope="col">Amount (PHP Millions)</th>
-            <th scope="col">% of Total ARI</th>
+            <th scope="col" class="sortable" data-column="source">Revenue Source <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="amount">Amount (PHP Millions) <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="pct">% of Total ARI <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody>
@@ -185,8 +178,7 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
         </tfoot>
       </table>
       
-      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
-    </dialog>
+      </div>
   </div>
 </section>
 <section class="section section-alt" id="fiscal-structure">
@@ -245,7 +237,7 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <p>Annual revenue and expenditure totals from BLGF data. Mapandan recorded operating surpluses from CY 2014 through CY 2022, with deficits recurring in CY 2023 and CY 2024 due to increased operating expenditures. Note: BLGF figures include non-operating expenditures such as capital outlays and debt service, which explains the larger deficits shown here compared to the COA AAR operating results in the Financial Performance section above.</p>
     </div>
     <div class="table-wrap">
-<table aria-label="Multi-year fiscal snapshot">
+<table aria-label="Multi-year fiscal snapshot" id="fiscal-snapshot-table">
         <thead>
           <tr>
             <th scope="col">Fiscal Year</th>
@@ -306,7 +298,7 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <p>Mapandan's enacted budget grew 78.27% from CY 2020 to CY 2026, driven by the Mandanas-Garcia ruling expanding the National Tax Allocation base and post-pandemic recovery initiatives.</p>
     </div>
     <div class="table-wrap">
-<table aria-label="Multi-year budget trend">
+<table aria-label="Multi-year budget trend" id="budget-trend-table">
         <thead>
           <tr>
             <th scope="col">Fiscal Year</th>
@@ -461,11 +453,11 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
     </div>
     <div class="card mt-24">
       <h3>{FINANCIAL_PERF_TABLE_TITLE}</h3>
-          <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-finperf">{TRANSPARENCY_VIEW_TABLE}: Financial performance 2014-2024</button>
-    <dialog data-modal id="modal-finperf" aria-label="Financial performance 2014-2024">
-      <div class="fdp-dialog-head"><strong>Financial performance 2014-2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
-              <div class="table-wrap">
-<table aria-label="Financial performance 2014-2024">
+          <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-finperf">{TRANSPARENCY_VIEW_TABLE}: Financial Performance (details)</button>
+    <dialog data-modal id="modal-finperf" aria-label="Financial Performance (details)">
+      <div class="fdp-dialog-head"><strong>Financial Performance (details)</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+<div class="table-wrap">
+<table aria-label="Financial Performance" id="finperf-table">
           <thead>
             <tr>
               <th scope="col">Year</th>
@@ -490,7 +482,7 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
           </tbody>
         </table>
       
-      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
+      </div>
     </dialog>
       <button class="report-btn" data-download="financial-performance">{STATISTICS_CHART_DOWNLOAD}</button>
     </div>
@@ -705,7 +697,7 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       <div class="card">
         <h3>{IMPL_RATE_TABLE_TITLE}</h3>
     <div class="table-wrap">
-<table aria-label="Audit recommendation implementation rates">
+<table aria-label="Audit recommendation implementation rates" id="implementation-rates-table">
             <thead>
               <tr>
                 <th scope="col">Period</th>
@@ -734,6 +726,61 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
     </div>
     <button class="report-btn" data-download="implementation-rates">{STATISTICS_CHART_DOWNLOAD}</button>
     <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2024. Each row shows recommendations from one audit year and their status as reported in the following year&rsquo;s audit. Implementation rate = (Implemented &divide; Total Recommendations) &times; 100.</p>
+  </div>
+</section>
+<section class="section" id="coa-projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{TRANSPARENCY_COA_PROJECTS_EYEBROW}</div>
+      <h2>{TRANSPARENCY_COA_PROJECTS_TITLE}</h2>
+      <p>{TRANSPARENCY_COA_PROJECTS_DESC}</p>
+    </div>
+    <input type="search" id="coa-projects-search" placeholder="Search projects..." aria-label="Search projects" class="form-input mb-24">
+    <div class="table-wrap">
+<table aria-label="COA highlighted infrastructure projects" id="coa-projects-table">
+        <thead>
+          <tr>
+            <th scope="col" class="sortable" data-column="name">Project <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="cost">Amount <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="year_started">Year <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="category">Category <span class="sort-indicator"></span></th>
+            <th scope="col" class="sortable" data-column="status">Status <span class="sort-indicator"></span></th>
+          </tr>
+        </thead>
+        <tbody id="coa-projects-table-body">
+        </tbody>
+      </table>
+
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports 2016&ndash;2024. Projects identified through Operational Highlights sections of audit reports.</p>
+    <script defer src="{ASSET_BASE}/assets/js/coa-projects-table.min.js"></script>
+  </div>
+</section>
+<section class="section section-alt" id="disallowances">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{TRANSPARENCY_DISALLOWANCES_EYEBROW}</div>
+      <h2>{TRANSPARENCY_DISALLOWANCES_TITLE}</h2>
+      <p>{TRANSPARENCY_DISALLOWANCES_DESC}</p>
+    </div>
+    <div class="card mt-24" aria-live="polite">
+      <h3>Disallowances Trend (2015&ndash;2024)</h3>
+      <canvas id="chart-disallowances" height="200" role="img" aria-label="Disallowances trend from 360K in 2015 decreasing to 35K persistent since 2018"></canvas>
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports 2015&ndash;2024. Disallowances represent amounts charged against accountable officers pending final resolution.</p>
+  </div>
+</section>
+<section class="section" id="reform-trackers">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">{TRANSPARENCY_REFORM_EYEBROW}</div>
+      <h2>{TRANSPARENCY_REFORM_TITLE}</h2>
+      <p>{TRANSPARENCY_REFORM_DESC}</p>
+    </div>
+    <div id="reform-trackers-container">
+    </div>
+    <p class="source-label">Source: COA Annual Audit Reports and Management Action Plans. Reform status tracked through audit findings and subsequent compliance actions.</p>
+    <p class="last-updated">Data last verified: September 2026. <a href="/support/report/?page=transparency" title="We're an independent volunteer team — corrections welcome">Report incorrect information or send corrections</a></p>
   </div>
 </section>
 <section class="section section-alt" id="audit-reports">
@@ -845,62 +892,5 @@ hero_lede: Income, expenditure, appropriations, and infrastructure spending for 
       </div>
     </div>
     <p class="source-label">CY 2025 status: one Mapandan-specific report publicly indexed so far. Additional COA records may exist in consolidated reports or records not individually indexed in the public repository &mdash; absence from search results is not proof a record does not exist. Documents are served from local copies for stable access.</p>
-  </div>
-</section>
-<section class="section" id="coa-projects">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-eyebrow">{TRANSPARENCY_COA_PROJECTS_EYEBROW}</div>
-      <h2>{TRANSPARENCY_COA_PROJECTS_TITLE}</h2>
-      <p>{TRANSPARENCY_COA_PROJECTS_DESC}</p>
-    </div>
-        <button type="button" class="btn btn-outline btn-sm" data-open-modal="modal-coa-projects">{TRANSPARENCY_VIEW_TABLE}: COA highlighted infrastructure projects</button>
-    <dialog data-modal id="modal-coa-projects" aria-label="COA highlighted infrastructure projects">
-      <div class="fdp-dialog-head"><strong>COA highlighted infrastructure projects</strong><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
-            <div class="table-wrap">
-<table aria-label="COA highlighted infrastructure projects">
-        <thead>
-          <tr>
-            <th scope="col">Project</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Year</th>
-            <th scope="col">Category</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody id="coa-projects-table-body">
-        </tbody>
-      </table>
-      
-      </div><div class="fdp-dialog-foot"><button type="button" class="btn btn-outline btn-sm" data-close>{TRANSPARENCY_CLOSE}</button></div>
-    </dialog>
-    <p class="source-label">Source: COA Annual Audit Reports 2016&ndash;2024. Projects identified through Operational Highlights sections of audit reports.</p>
-  </div>
-</section>
-<section class="section section-alt" id="disallowances">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-eyebrow">{TRANSPARENCY_DISALLOWANCES_EYEBROW}</div>
-      <h2>{TRANSPARENCY_DISALLOWANCES_TITLE}</h2>
-      <p>{TRANSPARENCY_DISALLOWANCES_DESC}</p>
-    </div>
-    <div class="card mt-24" aria-live="polite">
-      <h3>Disallowances Trend (2015&ndash;2024)</h3>
-      <canvas id="chart-disallowances" height="200" role="img" aria-label="Disallowances trend from 360K in 2015 decreasing to 35K persistent since 2018"></canvas>
-    </div>
-    <p class="source-label">Source: COA Annual Audit Reports 2015&ndash;2024. Disallowances represent amounts charged against accountable officers pending final resolution.</p>
-  </div>
-</section>
-<section class="section" id="reform-trackers">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-eyebrow">{TRANSPARENCY_REFORM_EYEBROW}</div>
-      <h2>{TRANSPARENCY_REFORM_TITLE}</h2>
-      <p>{TRANSPARENCY_REFORM_DESC}</p>
-    </div>
-    <div id="reform-trackers-container">
-    </div>
-    <p class="source-label">Source: COA Annual Audit Reports and Management Action Plans. Reform status tracked through audit findings and subsequent compliance actions.</p>
-    <p class="last-updated">Data last verified: September 2026. <a href="/support/report/?page=transparency" title="We're an independent volunteer team — corrections welcome">Report incorrect information or send corrections</a></p>
   </div>
 </section>

@@ -38,10 +38,31 @@
   border: none;
   border-radius: 0 var(--radius) var(--radius) 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .search-btn:hover {
   background: #f4bd3a;
+}
+
+/* ---------- Generic form input ---------- */
+
+.form-input {
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  width: 100%;
+  max-width: 320px;
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--green-deep);
+  outline: none;
 }
 
 /* ---------- Service directory filter ---------- */
@@ -82,6 +103,7 @@
   color: var(--ink);
   outline: none;
   min-width: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .service-filter-input::placeholder {

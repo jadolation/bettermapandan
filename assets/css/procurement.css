@@ -155,6 +155,28 @@
 
 /* ---------- Procurement toolbar ---------- */
 
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.table-toolbar input[type="search"] {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  min-width: 220px;
+  background: var(--paper);
+}
+
 .procurement-toolbar {
   display: flex;
   justify-content: space-between;

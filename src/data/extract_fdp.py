@@ -362,25 +362,43 @@ def parse_dfu_rows(rows):
     return year, quarter, projects, totals
 
 
-def parse_bids_rows(rows):
-    """Parse one 10a/10b/10c sheet: returns list of bids."""
+def parse_bids_rows(rows, kind="10a"):
+    """Parse one 10a/10b/10c sheet: returns list of bids.
+
+    10a/10c columns: No. | Reference No. | Project | ABC | Location |
+    Bidder | Address | Bid | Award date | Duration.
+    10b columns: Reference No. | Item | ABC | Bidder | Address | Source | Bid.
+    """
     header_idx = next((i for i, r in enumerate(rows)
                        if "reference" in clean_text(r[1]).lower() or "reference" in clean_text(r[0]).lower()), None)
     bids = []
-    if header_idx is not None:
-        for row in rows[header_idx + 2:]:
-            cells = [clean_text(c) for c in row]
-            if CERTIFY_RE.search(" ".join(cells)) or cells[0].lower().startswith("we hereby"):
-                break
-            if not cells[1] or cells[1].upper() in ("N/A", "NONE"):
-                continue
-            bids.append({"ref": cells[1],
-                         "project": clean_text(row[2]) if len(row) > 2 else "",
-                         "abc": to_float(row[3]) if len(row) > 3 else None,
-                         "location": clean_text(row[4]) if len(row) > 4 else "",
-                         "bidder": clean_text(row[5]) if len(row) > 5 else "",
-                         "bid_amount": to_float(row[7]) if len(row) > 7 else None,
-                         "award_date": split_date(row[8]) if len(row) > 8 else ""})
+    if header_idx is None:
+        return bids
+    goods = kind == "10b"
+    for row in rows[header_idx + 1:]:
+        cells = [clean_text(c) for c in row]
+        if CERTIFY_RE.search(" ".join(cells)) or cells[0].lower().startswith("we hereby"):
+            break
+        ref = cells[0] if goods else (cells[1] if len(cells) > 1 else "")
+        if not ref or ref.upper() in ("N/A", "NONE") or "reference" in ref.lower():
+            continue
+        project = cells[1] if goods else (cells[2] if len(cells) > 2 else "")
+        if not project:
+            continue
+        if goods:
+            abc = to_float(row[2]) if len(row) > 2 else None
+            bidder = cells[3] if len(cells) > 3 else ""
+            bid_amount = to_float(row[5]) if len(row) > 5 else None
+            location, award_date = "", ""
+        else:
+            abc = to_float(row[3]) if len(row) > 3 else None
+            location = cells[4] if len(cells) > 4 else ""
+            bidder = cells[5] if len(cells) > 5 else ""
+            bid_amount = to_float(row[7]) if len(row) > 7 else None
+            award_date = split_date(row[8]) if len(row) > 8 else ""
+        bids.append({"ref": ref, "project": project, "abc": abc,
+                     "location": location, "bidder": bidder,
+                     "bid_amount": bid_amount, "award_date": award_date})
     return bids
 
 
@@ -516,7 +534,7 @@ def parse_fund_matrix(rows):
         return None
     for row in rows[header_idx + 1:]:
         a = clean_text(row[0]) if len(row) > 0 else ""
-        if not a or a.lower().startswith(("office", "total", "certified")):
+        if not a or a.lower() in ("office", "total") or a.lower().startswith("certified"):
             continue
         if CERTIFY_RE.search(a):
             break
@@ -782,12 +800,14 @@ def main():
                    "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"}
             groups["dev_fund"].append(rec)
         elif kind in ("bids_cw", "bids_gs", "bids_cs"):
-            bids = parse_bids_rows(rows)
+            subkind = {"bids_cw": "10a", "bids_gs": "10b", "bids_cs": "10c"}[kind]
+            bids = parse_bids_rows(rows, subkind)
             year, quarter = parse_year_quarter(None, rows)
             key = (workbook_of(path), year, quarter)
             slot = bids_parts.setdefault(key, {"civil_works": [], "goods": [], "consulting": []})
             slot[{"bids_cw": "civil_works", "bids_gs": "goods", "bids_cs": "consulting"}[kind]] = bids
             slot["year"], slot["quarter"] = year, quarter
+            slot["sheet"] = workbook_of(path)
             slot["source_file"] = f"datasets/fdp-csv/{path.parent.name}/{workbook_of(path)}"
         elif kind == "sipb":
             loan = sheet_of(path).replace("_", " ").strip()
@@ -835,13 +855,31 @@ def main():
                                       "year": year, "quarter": None,
                                       "offices": [{"office": office, "items": items}] if office else [],
                                       "summary": [],
+                                      "sheet": office or sheet_of(path),
                                       "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"})
         elif kind == "app":
             office, year, items = parse_app_rows(rows)
             if office or items:
+                # Source filings occasionally mislabel the header office cell
+                # (e.g. MSWD sheet headed MPDC): trust a >=80% end-user majority,
+                # comparing names modulo case/punctuation/a trailing "office".
+                corrected_from = ""
+                if items:
+                    users = [i.get("end_user", "") for i in items if i.get("end_user")]
+
+                    def _norm(name):
+                        name = re.sub(r"[^a-z0-9 ]", "", name.lower()).strip()
+                        return re.sub(r"\s+office$", "", name).strip()
+
+                    if users:
+                        top = max(set(users), key=users.count)
+                        if top and _norm(top) != _norm(office) and users.count(top) / len(users) >= 0.8:
+                            corrected_from = office
+                            office = top
                 groups["app"].append({"form": "app", "period": str(year) if year else "undated",
                                       "year": year, "quarter": None, "office": office,
                                       "sheet": office or "unknown",
+                                      "office_corrected_from": corrected_from,
                                       "items": items,
                                       "source_file": f"datasets/fdp-csv/{path.parent.name}/{path.name}"})
             else:
@@ -927,9 +965,29 @@ def main():
     for (_workbook, year, quarter), parts in bids_parts.items():
         groups["bids"].append({"form": "bids", "period": period_key(year, quarter),
                                "year": year, "quarter": quarter,
+                               "sheet": _workbook,
                                "civil_works": parts["civil_works"], "goods": parts["goods"],
                                "consulting": parts["consulting"],
                                "source_file": parts["source_file"]})
+    # bids: same quarter across workbooks -> merge line items by ref.
+    merged_bids = {}
+    for rec in groups["bids"]:
+        slot = merged_bids.setdefault(rec["period"], {"form": "bids", "period": rec["period"],
+                                                       "year": rec["year"], "quarter": rec["quarter"],
+                                                       "civil_works": [], "goods": [], "consulting": [],
+                                                       "source_file": [], "duplicates_dropped": 0})
+        for kind in ("civil_works", "goods", "consulting"):
+            seen = {b.get("ref") for b in slot[kind]}
+            for bid in rec[kind]:
+                if bid.get("ref") not in seen:
+                    seen.add(bid.get("ref"))
+                    slot[kind].append(bid)
+                else:
+                    # identical ref re-reported across filings/rows: count once
+                    slot["duplicates_dropped"] += 1
+        if rec["source_file"] not in slot["source_file"]:
+            slot["source_file"].append(rec["source_file"])
+    groups["bids"] = [merged_bids[p] for p in sorted(merged_bids)]
 
     # dedup: same (form, period) -> keep most data rows; undated/nil never collapse.
     for key in ("sre", "sef", "ldrrmf", "cash_flows", "cash_advances", "trust_fund",

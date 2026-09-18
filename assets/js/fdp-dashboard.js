@@ -183,4 +183,161 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  function renderSortableTable(table) {
+    var sortCol = table.getAttribute("data-sort-col") || "";
+    var sortDir = table.getAttribute("data-sort-dir") || "asc";
+    var searchQuery = (table.getAttribute("data-search") || "").toLowerCase();
+
+    var originalRows = table.getAttribute("data-original-rows");
+    if (originalRows === null) {
+      var tbody = table.querySelector("tbody");
+      originalRows = Array.from(tbody.querySelectorAll("tr")).map(function(tr) {
+        return tr.outerHTML;
+      }).join("|||SPLIT|||");
+      table.setAttribute("data-original-rows", originalRows);
+    } else {
+      var tbody = table.querySelector("tbody");
+      tbody.innerHTML = originalRows.split("|||SPLIT|||").join("");
+    }
+
+    var rows = Array.from(table.querySelectorAll("tbody tr"));
+    var headers = Array.from(table.querySelectorAll("thead th"));
+    var data = rows.map(function(row) {
+      var cells = Array.from(row.querySelectorAll("td"));
+      return { cells: Array.from(cells).map(function(c) { return c.textContent.trim(); }), row: row };
+    });
+
+    if (searchQuery) {
+      data = data.filter(function(r) {
+        return r.cells.some(function(v) {
+          return String(v).toLowerCase().indexOf(searchQuery) > -1;
+        });
+      });
+    }
+
+    if (sortCol) {
+      var colIndex = headers.findIndex(function(h) { return h.getAttribute("data-column") === sortCol; });
+      if (colIndex < 0) colIndex = 0;
+      data.sort(function(a, b) {
+        var va = colIndex < a.cells.length ? a.cells[colIndex] : "";
+        var vb = colIndex < b.cells.length ? b.cells[colIndex] : "";
+        var na = parseFloat(String(va).replace(/[^0-9.\-\u20B1,]/g, "")) || 0;
+        var nb = parseFloat(String(vb).replace(/[^0-9.\-\u20B1,]/g, "")) || 0;
+        var aIsNum = !isNaN(na) && String(va).match(/^[0-9.,\-\u20B1]+$/);
+        var bIsNum = !isNaN(nb) && String(vb).match(/^[0-9.,\-\u20B1]+$/);
+        if (aIsNum && bIsNum) {
+          return sortDir === "asc" ? na - nb : nb - na;
+        }
+        va = String(va).toLowerCase();
+        vb = String(vb).toLowerCase();
+        if (va === vb) return 0;
+        return sortDir === "asc" ? (va < vb ? -1 : 1) : (va > vb ? -1 : 1);
+      });
+    }
+
+    var tbody = table.querySelector("tbody");
+    tbody.innerHTML = "";
+    if (!data.length) {
+      var noResults = document.createElement("tr");
+      noResults.innerHTML = '<td colspan="99">No results</td>';
+      tbody.appendChild(noResults);
+    } else {
+      data.forEach(function(item) {
+        tbody.appendChild(item.row);
+      });
+    }
+
+    headers.forEach(function(th) {
+      var col = th.getAttribute("data-column");
+      if (sortCol === col) {
+        th.classList.add(sortDir === "asc" ? "sort-asc" : "sort-desc");
+      } else {
+        th.classList.remove("sort-asc", "sort-desc");
+      }
+    });
+  }
+
+  function findTableFromSearchInput(input) {
+    var th = input.closest("th.sortable[data-column]");
+    if (th) {
+      var table = th.closest("table");
+      if (table) return table;
+    }
+    var dialog = input.closest("dialog");
+    if (dialog) {
+      var found = dialog.querySelector("th.sortable[data-column]");
+      if (found) return found.closest("table");
+    }
+    var section = input.closest("section");
+    if (section) {
+      var found = section.querySelector("th.sortable[data-column]");
+      if (found) return found.closest("table");
+    }
+    var card = input.closest(".card");
+    if (card) {
+      var found = card.querySelector("th.sortable[data-column]");
+      if (found) return found.closest("table");
+    }
+    var wrap = input.closest(".table-wrap");
+    if (wrap) {
+      var found = wrap.querySelector("th.sortable[data-column]");
+      if (found) return found.closest("table");
+    }
+    var parent = input.parentElement;
+    if (parent) {
+      var found = parent.querySelector("th.sortable[data-column]");
+      if (found) return found.closest("table");
+    }
+    return null;
+  }
+
+  function initGenericTableControls() {
+    var skipIds = ["procurement-table", "dpwh-table", "coa-projects-table"];
+    var seen = {};
+    document.querySelectorAll("th.sortable[data-column]").forEach(function(th) {
+      var table = th.closest("table");
+      if (!table || skipIds.indexOf(table.id) !== -1) return;
+      if (seen[table.id]) return;
+      seen[table.id] = true;
+      table.setAttribute("data-sort-col", "");
+      table.setAttribute("data-sort-dir", "asc");
+      table.setAttribute("data-search", "");
+      renderSortableTable(table);
+    });
+
+    document.addEventListener("click", function(e) {
+      var th = e.target.closest("th.sortable[data-column]");
+      if (!th) return;
+      var table = th.closest("table");
+      if (!table) return;
+      if (skipIds.indexOf(table.id) !== -1) return;
+
+      var sortCol = table.getAttribute("data-sort-col") || "";
+      var sortDir = table.getAttribute("data-sort-dir") || "asc";
+      var col = th.getAttribute("data-column");
+
+      if (sortCol === col) {
+        sortDir = sortDir === "asc" ? "desc" : "asc";
+      } else {
+        sortCol = col;
+        sortDir = "asc";
+      }
+
+      table.setAttribute("data-sort-col", sortCol);
+      table.setAttribute("data-sort-dir", sortDir);
+      renderSortableTable(table);
+    });
+
+    document.addEventListener("input", function(e) {
+      if (e.target.tagName !== "INPUT" || e.target.type !== "search") return;
+      var table = findTableFromSearchInput(e.target);
+      if (!table) return;
+      if (skipIds.indexOf(table.id) !== -1) return;
+      table.setAttribute("data-search", e.target.value);
+      renderSortableTable(table);
+    });
+  }
+
+  initGenericTableControls();
+
 });

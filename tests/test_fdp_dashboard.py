@@ -154,6 +154,7 @@ def test_reverted_tables_render_inline():
     src = (Path(__file__).resolve().parent.parent / "src" / "pages" / "transparency.html").read_text(encoding="utf-8")
     for modal_id in ("modal-snapshot", "modal-budget-trend", "modal-implrate"):
         assert modal_id not in src, modal_id
-    for aria in ("Multi-year fiscal snapshot", "Multi-year budget trend",
-                 "Audit recommendation implementation rates"):
-        assert f'<table aria-label="{aria}">' in src, aria
+    for aria, table_id in (("Multi-year fiscal snapshot", "fiscal-snapshot-table"),
+                           ("Multi-year budget trend", "budget-trend-table"),
+                           ("Audit recommendation implementation rates", "implementation-rates-table")):
+        assert f'<table aria-label="{aria}" id="{table_id}">' in src, aria

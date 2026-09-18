@@ -14433,9 +14433,23 @@
       "year": 2023,
       "quarter": 1,
       "civil_works": [],
-      "goods": [],
+      "goods": [
+        {
+          "ref": "GOODS-MUN-2023-01-001",
+          "project": "Procurement of Motor Vehicle for Agriculture Office",
+          "abc": 1200000.0,
+          "location": "",
+          "bidder": "TOYOTA DAGUPAN CITY INC.",
+          "bid_amount": 1109760.0,
+          "award_date": ""
+        }
+      ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13"
+      "source_file": [
+        "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13",
+        "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_26"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -14443,6 +14457,15 @@
       "year": 2023,
       "quarter": 2,
       "civil_works": [
+        {
+          "ref": "INFR-MUN-2023-04-002",
+          "project": "Rehabilitation of Multi-Puropose Building at Brgy. Apaya",
+          "abc": 1200000.0,
+          "location": "Mapandan, Pangasinan",
+          "bidder": "R. F. Flores Construction",
+          "bid_amount": 1194982.71,
+          "award_date": "May 19, 2023 at 9:00 AM"
+        },
         {
           "ref": "INFR-MUN-2023-06-003",
           "project": "Improvement of Mapandan Public Market- Phase 2",
@@ -14453,9 +14476,22 @@
           "award_date": "July 06, 2023 at 9:00 AM"
         }
       ],
-      "goods": [],
+      "goods": [
+        {
+          "ref": "GOODS-MUN-2023-06-004",
+          "project": "Procurement of Medicine for the 2nd and 3rd Quarter of 2023",
+          "abc": 1000000.0,
+          "location": "",
+          "bidder": "UBET Trading",
+          "bid_amount": 998999.7,
+          "award_date": ""
+        }
+      ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13"
+      "source_file": [
+        "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -14463,6 +14499,15 @@
       "year": 2023,
       "quarter": 3,
       "civil_works": [
+        {
+          "ref": "INFR-MUN-2023-07-005",
+          "project": "Improvement of Brgy. Road and Drainage Canal at (Maya St.,Amanoaoac), (Papaya Ave., Apaya), (Caimito Ext’n Aserda) , (Orchid St., Nilombot), (Bougainvilla St., Poblacion)",
+          "abc": 2514183.31,
+          "location": "Mapandan, Pangasinan",
+          "bidder": "Aplhin Trading and Construction",
+          "bid_amount": 2510319.86,
+          "award_date": "July 27, 2023 at 9:00 AM"
+        },
         {
           "ref": "INFR-MUN-2023-07-006",
           "project": "Improvement of Multi-Purpose Covered Court at Brgy. Sta. Maria and Brgy. Baloling,",
@@ -14520,35 +14565,47 @@
       ],
       "goods": [
         {
-          "ref": "Support to Farmers- Palay Seed Assistance,",
-          "project": "₱ 1,000,000.00",
-          "abc": null,
-          "location": "Laoag City, Ilocos Sur",
-          "bidder": "₱999,635.00",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2023-06-004",
+          "project": "Procurement of Medicine for the 2nd and 3rd Quarter of 2023",
+          "abc": 1000000.0,
+          "location": "",
+          "bidder": "UBET Trading",
+          "bid_amount": 998999.7,
           "award_date": ""
         },
         {
-          "ref": "Support to Farmers- Hybrid Yellow Assistance,",
-          "project": "₱2,100,000.00",
-          "abc": null,
-          "location": "Laoag City, Ilocos Sur",
-          "bidder": "₱2,099,464.00",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2023-08-007",
+          "project": "Support to Farmers- Palay Seed Assistance,",
+          "abc": 1000000.0,
+          "location": "",
+          "bidder": "St. Ruiz Agro F/S & General Merchandize",
+          "bid_amount": 999635.0,
           "award_date": ""
         },
         {
-          "ref": "Fertilizer Assistance for Local Tobacco Farmers",
-          "project": "₱240,000.00",
-          "abc": null,
-          "location": "1548 Longos Street Bonouan Boquig, Dagupan City, Pangasinan",
-          "bidder": "₱237,000.00",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2023-08-008",
+          "project": "Support to Farmers- Hybrid Yellow Assistance,",
+          "abc": 2100000.0,
+          "location": "",
+          "bidder": "St. Ruiz Agro F/S & General Merchandize",
+          "bid_amount": 2099464.0,
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2023-09-015",
+          "project": "Fertilizer Assistance for Local Tobacco Farmers",
+          "abc": 240000.0,
+          "location": "",
+          "bidder": "Misch General Merchandise",
+          "bid_amount": 237000.0,
           "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+      "source_file": [
+        "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -14556,6 +14613,15 @@
       "year": 2023,
       "quarter": 4,
       "civil_works": [
+        {
+          "ref": "INFR-MUN-2023-11-016",
+          "project": "Improvement of Mapandan Public Market Phase 3",
+          "abc": 1000000.0,
+          "location": "Mapandan, Pangasinan",
+          "bidder": "Aplhin Trading and Construction",
+          "bid_amount": null,
+          "award_date": "December 11 at 9:00 AM"
+        },
         {
           "ref": "INFR-MUN-2023-11-017",
           "project": "Additional Illumination at Mapandan Town Plaza",
@@ -14577,46 +14643,80 @@
       ],
       "goods": [
         {
-          "ref": "Procurement of Generator Equipment for Rural Health Office",
-          "project": "₱ 700,000.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "₱999,635.00",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2023-11-020",
+          "project": "Support to Farmers- Fertilizer Assistance",
+          "abc": 500000.0,
+          "location": "",
+          "bidder": "Misch General Merchandise",
+          "bid_amount": 494568.76,
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2023-11-21",
+          "project": "Procurement of Generator Equipment for Rural Health Office",
+          "abc": 700000.0,
+          "location": "",
+          "bidder": "UBET Trading",
+          "bid_amount": 999635.0,
           "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_32"
+      "source_file": [
+        "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_32"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
       "period": "2024-Q1",
       "year": 2024,
       "quarter": 1,
-      "civil_works": [],
+      "civil_works": [
+        {
+          "ref": "INFR-MUN-2024-01-003",
+          "project": "Improvement/Repainting of Roof of the Mapadan Municipal Hall",
+          "abc": 1700000.0,
+          "location": "Mapandan,Pangasinan",
+          "bidder": "J.L. De Guzman Enterprises",
+          "bid_amount": null,
+          "award_date": "1698498.51"
+        }
+      ],
       "goods": [
         {
-          "ref": "Procurement of Sports Uniforms for Various Teams from Different Barangays",
-          "project": "772200",
-          "abc": null,
-          "location": "UBET Trading 14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "General Fund (Grants and Donations)",
+          "ref": "GOODS-MUN-2024-01-001",
+          "project": "Procurement of Medicine for the First Quarter of 2024",
+          "abc": 462500.0,
+          "location": "",
+          "bidder": "CEDEMED Pharma Distributor",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement and Installation of Outdoor LED Board at Mapandan Auditorium,",
-          "project": "3000000",
-          "abc": null,
-          "location": "ZI-ON Consumer Goods Trading 02 Southwest Poblacion, Nampicuan, Nueva Ecija",
-          "bidder": "General Fund (5% Calamity Fund),",
+          "ref": "GOODS-MUN-2024-01-002",
+          "project": "Procurement of Sports Uniforms for Various Teams from Different Barangays",
+          "abc": 772200.0,
+          "location": "",
+          "bidder": "UBET Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2024-02-005",
+          "project": "Procurement and Installation of Outdoor LED Board at Mapandan Auditorium,",
+          "abc": 3000000.0,
+          "location": "",
+          "bidder": "ZI-ON Consumer Goods Trading",
+          "bid_amount": null,
+          "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22"
+      "source_file": [
+        "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -14624,6 +14724,15 @@
       "year": 2024,
       "quarter": 2,
       "civil_works": [
+        {
+          "ref": "INFR-MUN-2024-02-004",
+          "project": "Additional Illumination of Mapandan Town Plaza-Phase 2",
+          "abc": 571506.51,
+          "location": "Mapandan,Pangasinan",
+          "bidder": "Villar General Construction and Supplies",
+          "bid_amount": null,
+          "award_date": "569506.49"
+        },
         {
           "ref": "INFR-MUN-2024-04-010",
           "project": "Construction of Cross-drain Canal along Gondol St. Primicias",
@@ -14663,98 +14772,92 @@
       ],
       "goods": [
         {
-          "ref": "Payment of Referees and Table Officials (Volleyball Tournament)",
-          "project": "378000",
-          "abc": null,
-          "location": "N/A",
-          "bidder": "General Fund",
+          "ref": "GOODS-MUN-2024-02-005",
+          "project": "Procurement and Installation of Outdoor LED Board at Mapandan Auditorium",
+          "abc": 3000000.0,
+          "location": "",
+          "bidder": "ZI-ON Consumer Goods Trading",
           "bid_amount": null,
-          "award_date": "130 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Payment of Referees and Table Officials (Basketball Tournament)",
-          "project": "414000",
-          "abc": null,
-          "location": "N/A",
-          "bidder": "General Fund",
+          "ref": "GOODS-MUN-2024-02-006",
+          "project": "Payment of Referees and Table Officials (Volleyball Tournament)",
+          "abc": 378000.0,
+          "location": "",
+          "bidder": "N/A",
           "bid_amount": null,
-          "award_date": "130 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Payment of Referees and Table Officials (Volleyball Tournament)",
-          "project": "378000",
-          "abc": null,
-          "location": "N/A",
-          "bidder": "General Fund",
+          "ref": "GOODS-MUN-2024-02-007",
+          "project": "Payment of Referees and Table Officials (Basketball Tournament)",
+          "abc": 414000.0,
+          "location": "",
+          "bidder": "N/A",
           "bid_amount": null,
-          "award_date": "130 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Payment of Referees and Table Officials (Basketball Tournament)",
-          "project": "414000",
-          "abc": null,
-          "location": "N/A",
-          "bidder": "General Fund",
+          "ref": "GOODS-MUN-2024-03-008",
+          "project": "the Procurement of Medicine for the Second Quarter of 2024",
+          "abc": 462500.0,
+          "location": "",
+          "bidder": "CEDEMED Pharma Distributor",
           "bid_amount": null,
-          "award_date": "130 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "the Procurement of Medicine for the Second Quarter of 2024",
-          "project": "462500",
-          "abc": null,
-          "location": "CEDEMED Pharma Distributor Rm 221 2nd floor P&C Fernandez Bldg. Perez Blvd Dagupan City",
-          "bidder": "General Fund (Municipal Health Office- Providing Appropriations for the Devolved Functions)",
+          "ref": "GOODS-MUN-2024-03-009",
+          "project": "Support to Farmers- Palay Seed Assistance",
+          "abc": 700000.0,
+          "location": "",
+          "bidder": "St. Ruiz Agro F/S & General Merchandize",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Support to Farmers- Palay Seed Assistance",
-          "project": "700000",
-          "abc": null,
-          "location": "St. Ruiz Agro F/S & General Merchandize Laoag City, Ilocos Sur",
-          "bidder": "General Fund (Municipal Agriculture Office- Providing Appropriations for the Devolved Functions)",
+          "ref": "GOODS-MUN-2024-04-014",
+          "project": "Procurement/Installation of CCTV Cameras",
+          "abc": 1800000.0,
+          "location": "",
+          "bidder": "Aplhin Trading and Construction",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement/Installation of CCTV Cameras",
-          "project": "1800000",
-          "abc": null,
-          "location": "Aplhin Trading and Construction 309 Maningding, Sta. Barbara, Pangasinan",
-          "bidder": "Trust Fund (Seal of Good Local Governenace Incentive Fund)",
+          "ref": "GOODS-MUN-2024-04-015",
+          "project": "Procurement of Two (2) units Mini Dump Truck ,",
+          "abc": 3514635.85,
+          "location": "",
+          "bidder": "BVC Automotive Spare Parts Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Two (2) units Mini Dump Truck ,",
-          "project": "3514635.85",
-          "abc": null,
-          "location": "#08 Tavora Proper, Pugo, La Union",
-          "bidder": "Trust Fund (Year 2019 to 2023 LDRRMF)",
+          "ref": "GOODS-MUN-2024-06-015",
+          "project": "Procurement of Medicine for the Third Quarter of 2024",
+          "abc": 670450.0,
+          "location": "",
+          "bidder": "-",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Medicine for the Third Quarter of 2024",
-          "project": "670450",
-          "abc": null,
-          "location": "-",
-          "bidder": "General Fund (Municipal Health Office- Providing Appropriations for the Devolved Functions)",
+          "ref": "GOODS-MUN-2024-06-017",
+          "project": "Procurement of Motor Vehicle for Vice Mayor and Sangguniang Bayan Office",
+          "abc": 1400000.0,
+          "location": "",
+          "bidder": "-",
           "bid_amount": null,
-          "award_date": "30 calendar days"
-        },
-        {
-          "ref": "Procurement of Motor Vehicle for Vice Mayor and Sangguniang Bayan Office",
-          "project": "1400000",
-          "abc": null,
-          "location": "-",
-          "bidder": "General Fund(Under Vice Mayor’s Office)",
-          "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+      "source_file": [
+        "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+      ],
+      "duplicates_dropped": 2
     },
     {
       "form": "bids",
@@ -14762,6 +14865,15 @@
       "year": 2024,
       "quarter": 3,
       "civil_works": [
+        {
+          "ref": "INFR-MUN-2024-07-019",
+          "project": "Improvement/Extension of Office for MDRRM Command Center at Brgy. Poblacion",
+          "abc": 700000.0,
+          "location": "Brgy. Poblacion, Mapandan, Pangasinan",
+          "bidder": "Georavin Construction and Supplies",
+          "bid_amount": null,
+          "award_date": "697894.77"
+        },
         {
           "ref": "INFR-MUN-2024-07-020",
           "project": "Construction of Perimeter Fence,Backfilling and Concreting of Super Rural Health Unit's Ground",
@@ -14783,44 +14895,56 @@
       ],
       "goods": [
         {
-          "ref": "Procurement of Various Office Equipment",
-          "project": "1400000",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "General Fund (Mayor’s Office- Office Equipment and Grants and Donations)",
+          "ref": "GOODS-MUN-2024-06-015",
+          "project": "Procurement of Medicine for the Third Quarter of 2024",
+          "abc": 670450.0,
+          "location": "",
+          "bidder": "UBET Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement and Installation of Industrial Fan at Tulagan Multi-Purposed Gym",
-          "project": "300000",
-          "abc": null,
-          "location": "Bonuan, Dagupan City, Pangasinan",
-          "bidder": "General Fund (20% Development Fund)",
+          "ref": "GOODS-MUN-2024-007-017",
+          "project": "Procurement of Various Office Equipment",
+          "abc": 1400000.0,
+          "location": "",
+          "bidder": "UBET Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Motor Vehicle for Vice Mayor and Sanguniang Bayan",
-          "project": "1670000",
-          "abc": null,
-          "location": "Brgy, San Miguel, Calasiao, Pangasinan",
-          "bidder": "General Fund",
+          "ref": "GOODS-MUN-2024-07-021",
+          "project": "Procurement and Installation of Industrial Fan at Tulagan Multi-Purposed Gym",
+          "abc": 300000.0,
+          "location": "",
+          "bidder": "Misch General Merchandise",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Medicine for the 4th Quarter of 2024",
-          "project": "462200",
-          "abc": null,
-          "location": "Roxas Blvd. San Carlos City, Pangasinan",
-          "bidder": "General Fund (Municipal Health Office- Providing Appropriations for the Devolved Functions)",
+          "ref": "GOODS-MUN-2024-08-024",
+          "project": "Procurement of Motor Vehicle for Vice Mayor and Sanguniang Bayan",
+          "abc": 1670000.0,
+          "location": "",
+          "bidder": "North Quadrant Ventures and Resources, INC",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2024-08-025",
+          "project": "Procurement of Medicine for the 4th Quarter of 2024",
+          "abc": 462200.0,
+          "location": "",
+          "bidder": "GEEMED ENTERPRISES",
+          "bid_amount": null,
+          "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+      "source_file": [
+        "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -14828,6 +14952,15 @@
       "year": 2024,
       "quarter": 4,
       "civil_works": [
+        {
+          "ref": "INFR-MUN-2024-11-032",
+          "project": "Construction of Barangay Golden Child Development CenterN/A",
+          "abc": 510000.0,
+          "location": "Brgy. Poblacion, Mapandan, Pangasinan",
+          "bidder": "Aplhin Trading and Construction",
+          "bid_amount": null,
+          "award_date": "509755.82"
+        },
         {
           "ref": "INFR-MUN-2025-01-002",
           "project": "Construction of One (1) Stop Shop Building Phase 4",
@@ -14840,98 +14973,110 @@
       ],
       "goods": [
         {
-          "ref": "Procurement of Medicine for the 4th Quarter of 2024",
-          "project": "462200",
-          "abc": null,
-          "location": "Roxas Blvd. San Carlos City, Pangasinan",
-          "bidder": "General Fund (Municipal Health Office- Providing Appropriations for the Devolved Functions)",
+          "ref": "GOODS-MUN-2024-08-024",
+          "project": "Procurement of Motor Vehicle for Vice Mayor and Sanguniang Bayan",
+          "abc": 1670000.0,
+          "location": "",
+          "bidder": "North Quadrant Ventures and Resources, INC",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement for Support to Farmers- Hybrid Yellow Corn Assistance",
-          "project": "₱2,100,000.00",
-          "abc": null,
-          "location": "DON E RUIZ St., Brgy No 17, San Francisco, Laoag City, Ilocos Norte",
-          "bidder": "General Fund and Trust Fund",
+          "ref": "GOODS-MUN-2024-08-025",
+          "project": "Procurement of Medicine for the 4th Quarter of 2024",
+          "abc": 462200.0,
+          "location": "",
+          "bidder": "GEEMED ENTERPRISES",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement for Support to Farmers- Fertilizer Assistance",
-          "project": "₱ 500,000.00",
-          "abc": null,
-          "location": "DON E RUIZ St., Brgy No 17, San Francisco, Laoag City, Ilocos Norte",
-          "bidder": "General Fund and Trust Fund",
+          "ref": "GOODS-MUN-2024-09-026",
+          "project": "Procurement for Support to Farmers- Hybrid Yellow Corn Assistance",
+          "abc": 2100000.0,
+          "location": "",
+          "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Additional Office Equipment in Various Offices",
-          "project": "₱ 1,206,100.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "General Fund (Mayor’s Office- Office Equipment and Grants and Donations)",
+          "ref": "GOODS-MUN-2024-09-027",
+          "project": "Procurement for Support to Farmers- Fertilizer Assistance",
+          "abc": 500000.0,
+          "location": "",
+          "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement for Sixteen (16) Units Manual Transmission Rescue Vehicles",
-          "project": "₱ 28,800,000.00",
-          "abc": null,
-          "location": "#341 Mac Arthur Highway,Calasiao, Pangasinan",
-          "bidder": "Approved Loan From Landbank of the Philippines-Pangasinan Lending Center",
+          "ref": "GOODS-MUN-2024-09-028",
+          "project": "Procurement of Additional Office Equipment in Various Offices",
+          "abc": 1206100.0,
+          "location": "",
+          "bidder": "UBET Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Various Materials use to Decorate Various Structures within the Municipality of Mapandan",
-          "project": "₱ 1,103,300.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "General Fund (Special Purpose Appropriation – Support to Government Affairs)",
+          "ref": "GOODS-MUN-2024-10-029",
+          "project": "Procurement for Sixteen (16) Units Manual Transmission Rescue Vehicles",
+          "abc": 28800000.0,
+          "location": "",
+          "bidder": "GLOBAL EIGHT BUILDERS AND EQUIPMENT SUPPLIES",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Various Goods for Government Affairs",
-          "project": "₱ 1,348,500.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "General Fund (Special Purpose Appropriation – Support to Government Affairs)",
+          "ref": "GOODS-MUN-2024-11-030",
+          "project": "Procurement of Various Materials use to Decorate Various Structures within the Municipality of Mapandan",
+          "abc": 1103300.0,
+          "location": "",
+          "bidder": "UBET Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of RHU Chest Type Freezer for Vaccine/Medicine Storage",
-          "project": "₱ 400,000.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "General Fund (Municipal Health Office)",
+          "ref": "GOODS-MUN-2024-11-031",
+          "project": "Procurement of Various Goods for Government Affairs",
+          "abc": 1348500.0,
+          "location": "",
+          "bidder": "UBET Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Solar Lights to be Distributed to all Barangays,",
-          "project": "₱ 1,008,000.00",
-          "abc": null,
-          "location": "#08 Tavora Proper, Pugo, La Union",
-          "bidder": "General Fund (Grants and Donation) amounting to Five Hundred Eight Thousand Pesos Only(₱ 508,000) and upon approval of Supplemental Budget No.4 in General Fund (Grants and Donation) amounting to Five Hundred Thousand Pesos Only(₱ 500,000),",
+          "ref": "GOODS-MUN-2024-11-033",
+          "project": "Procurement of RHU Chest Type Freezer for Vaccine/Medicine Storage",
+          "abc": 400000.0,
+          "location": "",
+          "bidder": "UBET Trading",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Medicines for 1st Quarter of 2025",
-          "project": "₱ 610,740.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta. Barbara, Pangasinan",
-          "bidder": "General Fund (Municipal Health Office)",
+          "ref": "GOODS-MUN-2024-11-034",
+          "project": "Procurement of Solar Lights to be Distributed to all Barangays,",
+          "abc": 1008000.0,
+          "location": "",
+          "bidder": "VILLAR GENERAL CONSTRUCTION & SUPPLIES",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2025-01-001",
+          "project": "Procurement of Medicines for 1st Quarter of 2025",
+          "abc": 610740.0,
+          "location": "",
+          "bidder": "UBET Trading",
+          "bid_amount": null,
+          "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+      "source_file": [
+        "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -14941,26 +15086,38 @@
       "civil_works": [],
       "goods": [
         {
-          "ref": "Procurement of Various Uniforms",
-          "project": "₱ 940,310.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta Barbara Minien West, Santa Barbara, Pangasinan",
-          "bidder": "General Fund,(from Mayor’s Office-Other Maintenance & Operating Expense, from OSPA-Sports and from OSPA-Support to Government Affairs",
+          "ref": "GOODS-MUN-2025-01-003",
+          "project": "Procurement of Support to Farmers-Fertilizer Assistance",
+          "abc": 894557.82,
+          "location": "",
+          "bidder": "JJEA AGRIVENTURES CO",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Medicines for 2nd Quarter of 2025",
-          "project": "₱ 612,300.00",
-          "abc": null,
-          "location": "Roxas Blvd. San Carlos City, Pangasinan",
-          "bidder": "General Fund (Municipal Health Office)",
+          "ref": "GOODS-MUN-2025-01-004",
+          "project": "Procurement of Various Uniforms",
+          "abc": 940310.0,
+          "location": "",
+          "bidder": "U-BET TRADING",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2025-02-005",
+          "project": "Procurement of Medicines for 2nd Quarter of 2025",
+          "abc": 612300.0,
+          "location": "",
+          "bidder": "GEEMED ENTERPRISES",
+          "bid_amount": null,
+          "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_17"
+      "source_file": [
+        "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_17"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -14970,17 +15127,29 @@
       "civil_works": [],
       "goods": [
         {
-          "ref": "Procurement and Installation of CCTV Cameras",
-          "project": "₱ 1,153,000.00",
-          "abc": null,
-          "location": "309 Maningding, Sta. Barbara, Pangasinan",
-          "bidder": "Trust Fund (Seal of Good Local Governance Incetive Fund CY. 2024)",
+          "ref": "GOODS-MUN-2025-05-006",
+          "project": "Procurement of Medicines for 3rd Quarter of 2025,",
+          "abc": 629255.0,
+          "location": "",
+          "bidder": "LYNCAD ENTERPRISES",
           "bid_amount": null,
-          "award_date": "30 calendar days"
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2025-05-007",
+          "project": "Procurement and Installation of CCTV Cameras",
+          "abc": 1153000.0,
+          "location": "",
+          "bidder": "Alphin Trading and Construction",
+          "bid_amount": null,
+          "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_7"
+      "source_file": [
+        "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_7"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -15036,62 +15205,74 @@
       ],
       "goods": [
         {
-          "ref": "Procurement of Various Shirts and Sports Uniforms",
-          "project": "1377000",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta Barbara Minien West, Santa Barbara, Pangasinan",
-          "bidder": "General Fund ( P 600,500.00 from OSPA - Sports and 776,500.00 from OSPA- Support to Government Affairs)",
+          "ref": "GOODS-MUN-2025-09-008",
+          "project": "Support to Farmers – Hybrid Yellow Corn Assistance",
+          "abc": 1200000.0,
+          "location": "",
+          "bidder": "ASIAN HYBRID SEED TECHNOLOGIES, INC.",
           "bid_amount": null,
-          "award_date": "2025-10-06"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of 2 Units Motor Vehicle (Rescue Vehicle)",
-          "project": "3000000",
-          "abc": null,
-          "location": "Lot 28 and 29, Block 1, 14th Street Gate Perimeter Road Subic Gateway District, Subic, Zambales",
-          "bidder": "General Fund (5% Calamity Fund)",
+          "ref": "GOODS-MUN-2025-09-009",
+          "project": "Procurement of Various Shirts and Sports Uniforms",
+          "abc": 1377000.0,
+          "location": "",
+          "bidder": "U-BET TRADING",
           "bid_amount": null,
-          "award_date": "2025-11-26"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Medicines for 4th Quarter of 2025",
-          "project": "₱ 638,905.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta Barbara Minien West, Santa Barbara, Pangasinan",
-          "bidder": "General Fund (Municipal Health Office)",
+          "ref": "GOODS-MUN-2025-10-014",
+          "project": "Procurement of 2 Units Motor Vehicle (Rescue Vehicle)",
+          "abc": 3000000.0,
+          "location": "",
+          "bidder": "AUTOKID SUBIC TRADING CORPORATION",
           "bid_amount": null,
-          "award_date": "2025-11-26"
+          "award_date": ""
         },
         {
-          "ref": "Support to Farmers – Palay Seeds Assistance",
-          "project": "₱ 900,000.00",
-          "abc": null,
-          "location": "DON E RUIZ ST., Brgy No 17, San Francisco, Laoag City, Ilocos Norte",
-          "bidder": "General Fund (Municipal Agriculture Office-Providing Appropriations for the Devolved Functions)",
+          "ref": "GOODS-MUN-2025-10-015",
+          "project": "Procurement of Medicines for 4th Quarter of 2025",
+          "abc": 638905.0,
+          "location": "",
+          "bidder": "U-BET TRADING",
           "bid_amount": null,
-          "award_date": "2025-11-26"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of Various Materials and Christmas Decorations for Public Plaza and Municipal Hall",
-          "project": "₱ 1,000,000.00",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta Barbara Minien West, Santa Barbara, Pangasinan",
-          "bidder": "the General Funds (OSPA- Tourism Expenses)",
+          "ref": "GOODS-MUN-2025-10-016",
+          "project": "Support to Farmers – Palay Seeds Assistance",
+          "abc": 900000.0,
+          "location": "",
+          "bidder": "OWNER, ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
           "bid_amount": null,
-          "award_date": "2025-12-17"
+          "award_date": ""
         },
         {
-          "ref": "Procurement of 1(One) Delivery Vehicle for the Municipal Agriculture Office",
-          "project": "₱ 2,000,000.00",
-          "abc": null,
-          "location": "Lot 28 and 29, Block 1, 14th Street Gate Perimeter Road Subic Gateway District, Subic, Zambales",
-          "bidder": "Trust Fund (DA - RF01 Farmers Transport Vehicle Marketing Logistic Services under the KADIWA ni Ani at Kita Incentive)",
+          "ref": "GOODS-MUN-2025-11-018",
+          "project": "Procurement of Various Materials and Christmas Decorations for Public Plaza and Municipal Hall",
+          "abc": 1000000.0,
+          "location": "",
+          "bidder": "U-BET TRADING",
           "bid_amount": null,
-          "award_date": "2025-12-17"
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2025-11-019",
+          "project": "Procurement of 1(One) Delivery Vehicle for the Municipal Agriculture Office",
+          "abc": 2000000.0,
+          "location": "",
+          "bidder": "AUTOKID SUBIC TRADING CORPORATION",
+          "bid_amount": null,
+          "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+      "source_file": [
+        "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -15120,17 +15301,29 @@
       ],
       "goods": [
         {
-          "ref": "Procurement of Various Shirts, Jersey, Uniforms for Sports & Government Affairs",
-          "project": "1471500",
-          "abc": null,
-          "location": "14 Dolores St. Villa Sta Barbara Minien West, Santa Barbara, Pangasinan",
-          "bidder": "1470043",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2026-01-003",
+          "project": "Procurement of Medicines for 1st Quarter of 2026",
+          "abc": 712820.0,
+          "location": "",
+          "bidder": "U-BET TRADING",
+          "bid_amount": 711864.45,
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2026-01-004",
+          "project": "Procurement of Various Shirts, Jersey, Uniforms for Sports & Government Affairs",
+          "abc": 1471500.0,
+          "location": "",
+          "bidder": "U-BET TRADING",
+          "bid_amount": 1470043.0,
           "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6"
+      "source_file": [
+        "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6"
+      ],
+      "duplicates_dropped": 0
     },
     {
       "form": "bids",
@@ -15150,35 +15343,47 @@
       ],
       "goods": [
         {
-          "ref": "Support to Farmers – Fertilizer Assistance",
-          "project": "500000",
-          "abc": null,
-          "location": "DON E RUIZ ST., Brgy No 17, San Francisco, Laoag City, Ilocos Norte",
-          "bidder": "499968",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2026-05-005",
+          "project": "Support to Farmers – Palay Seeds Assistance",
+          "abc": 700000.0,
+          "location": "",
+          "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+          "bid_amount": 700000.0,
           "award_date": ""
         },
         {
-          "ref": "Procurement of Medicines for 2nd Quarter of 2026",
-          "project": "719340",
-          "abc": null,
-          "location": "Roxas Blvd. San Carlos City, Pangasinan",
-          "bidder": "714000",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2026-05-006",
+          "project": "Support to Farmers – Fertilizer Assistance",
+          "abc": 500000.0,
+          "location": "",
+          "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+          "bid_amount": 499968.0,
           "award_date": ""
         },
         {
-          "ref": "Installation of CCTV IP Camera for Disaster Impacts and Risks Monitoring",
-          "project": "1000000",
-          "abc": null,
-          "location": "309 Maningding, Sta. Barbara, Pangasinan",
-          "bidder": "997000.06",
-          "bid_amount": null,
+          "ref": "GOODS-MUN-2026-05-007",
+          "project": "Procurement of Medicines for 2nd Quarter of 2026",
+          "abc": 719340.0,
+          "location": "",
+          "bidder": "GEEMED ENTERPRISES",
+          "bid_amount": 714000.0,
+          "award_date": ""
+        },
+        {
+          "ref": "GOODS-MUN-2026-05-008",
+          "project": "Installation of CCTV IP Camera for Disaster Impacts and Risks Monitoring",
+          "abc": 1000000.0,
+          "location": "",
+          "bidder": "Alphin Trading and Construction",
+          "bid_amount": 997000.06,
           "award_date": ""
         }
       ],
       "consulting": [],
-      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5"
+      "source_file": [
+        "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5"
+      ],
+      "duplicates_dropped": 0
     }
   ],
   "manpower": [
@@ -32782,7 +32987,522 @@
         }
       ],
       "summary": [],
+      "sheet": "Accounting",
       "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Accounting.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Agriculture",
+          "items": [
+            {
+              "project": "MELVIN C. VILLANUEVA",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Municipal Agriculturist",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Agriculture",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Agriculture.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Assessor",
+          "items": [
+            {
+              "project": "JONATHAN M. PENULIAR",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Municipal Assesor",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Assessor",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Assessor.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Budget",
+          "items": [
+            {
+              "project": "ANA MARICRIS B. NATAVIO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Municipal Budget Officer",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Budget",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Budget.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "DILG",
+          "items": [
+            {
+              "project": "JIMMY OCUMEN",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MLGOO VI",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "DILG",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__DILG.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Engineerin",
+          "items": [
+            {
+              "project": "ENGR. ANGELO C. ABROGAR",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MUNICIPAL ENGINEER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Engineerin",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Engineering.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [],
+      "summary": [
+        {
+          "office": "OFFICE OF THE MUNICIPAL MAYOR",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE VCE MAYOR/SANGGUNIANG BAYAN",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE HUMAN RESOURCE & MANAGEMENT",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE PLANNING & DEV'T. OFFICER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL CIVIL REGISTRAR",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL BUDGET OFFICER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL ACCOUNTANT",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL TREASURER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL ASSESSOR",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL HEALTH OFFICER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL SOCIAL WELFARE DEV'T",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL AGRICULTURIST",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL ENGINEER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MENRO",
+          "total": null
+        }
+      ],
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Form_14b_-_SPP_Summary.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "HR",
+          "items": [
+            {
+              "project": "MADELINE B. FERRER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Human Resource Management Officer",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "HR",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__HR.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MCR",
+          "items": [
+            {
+              "project": "KRISTELL MAY Q. SORIANO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MUNICIPAL CIVIL REGISTRAR OFFICER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MCR",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__MCR.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MDRRMO",
+          "items": [
+            {
+              "project": "MAIAN JEN M. ARGUELLES",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MDRRMO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MDRRMO",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__MDRRMO.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MENRO",
+          "items": [
+            {
+              "project": "ROSA S. OGBINAR",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "SEMS II",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MENRO",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__MENRO.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MDPC",
+          "items": [
+            {
+              "project": "ARCHT. MELCHOR N. SERAPION",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MPDC",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MDPC",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__MPDC.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MSWO",
+          "items": [
+            {
+              "project": "RAMIL S. DE VERA",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MSWDO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MSWO",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__MSWDO.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Mayor's Office",
+          "items": [
+            {
+              "project": "JEFFREL F. AVANZADO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Senior Administrative Assistant III",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Mayor's Office",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Mayor_s_Office.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Population",
+          "items": [
+            {
+              "project": "LIZA S. COSTES",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "OPULATION OFFICER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Population",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Population.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "RHU",
+          "items": [
+            {
+              "project": "ANNA KARESSA L. QUINTO-ORTIZ",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MHO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "RHU",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__RHU.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Treasury",
+          "items": [
+            {
+              "project": "VEVERLY Y. YMANA",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MUNICIPAL TREASURER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Treasury",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Treasury.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2024",
+      "year": 2024,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "VMO",
+          "items": [
+            {
+              "project": "GARY C. AGAS",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "SB Secretary",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "VMO",
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__VMO.csv"
     },
     {
       "form": "spp",
@@ -32815,7 +33535,624 @@
         }
       ],
       "summary": [],
+      "sheet": "Accounting",
       "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Accounting.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Agriculture",
+          "items": [
+            {
+              "project": "Sgd",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MELVIN C. VILLANUEVA",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Municipal Agriculturist",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Agriculture",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Agriculture.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Assessor",
+          "items": [
+            {
+              "project": "Sgd",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "JONATHAN M. PENULIAR",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Municipal Assesor",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Assessor",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Assessor.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Budget",
+          "items": [
+            {
+              "project": "Sgd",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "ANA MARICRIS B. NATAVIO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Municipal Budget Officer",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Budget",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Budget.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "DILG",
+          "items": [
+            {
+              "project": "Sgd",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "JIMMY OCUMEN",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MLGOO VI",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "DILG",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__DILG.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Engineering",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "ENGR. ANGELO C. ABROGAR",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MUNICIPAL ENGINEER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Engineering",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Engineering.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [],
+      "summary": [
+        {
+          "office": "OFFICE OF THE MUNICIPAL MAYOR",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE VICE MAYOR/SANGGUNIANG BAYAN",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE HUMAN RESOURCE & MANAGEMENT",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE PLANNING & DEV'T. OFFICER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL CIVIL REGISTRAR",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL BUDGET OFFICER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL ACCOUNTANT",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL TREASURER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL ASSESSOR",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL HEALTH OFFICER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL SOCIAL WELFARE DEV'T",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL AGRICULTURIST",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MUNICIPAL ENGINEER",
+          "total": null
+        },
+        {
+          "office": "OFFICE OF THE MENRO",
+          "total": null
+        }
+      ],
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Form_14b_-_SPP_Summary.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "HR",
+          "items": [
+            {
+              "project": "Sgd",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MADELINE B. FERRER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Human Resource Management Officer",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "HR",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__HR.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MCR",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "KRISTELL MAY Q. SORIANO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MUNICIPAL CIVIL REGISTRAR OFFICER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MCR",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__MCR.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MDRRMO",
+          "items": [
+            {
+              "project": "Refrigerator",
+              "end_user": "MDRRMO",
+              "mode": "Direct Acquisition",
+              "amount": 22100.0
+            },
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MAIAN JEN M. ARGUELLES",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MDRRMO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MDRRMO",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__MDRRMO.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MENRO",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "ROSA S. OGBINAR",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "SEMS II",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MENRO",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__MENRO.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MDPC",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "ARCHT. MELCHOR N. SERAPION",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MPDC",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MDPC",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__MPDC.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "MSWO",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "RAMIL S. DE VERA",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MSWDO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "MSWO",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__MSWDO.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Mayor's Office",
+          "items": [
+            {
+              "project": "Sgd",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "JEFFREL F. AVANZADO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "Senior Administrative Assistant III",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Mayor's Office",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Mayor_s_Office.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Population",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "LIZA S. COSTES",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "OPULATION OFFICER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Population",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Population.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "RHU",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "ANNA KARESSA L. QUINTO-ORTIZ",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MHO",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "RHU",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__RHU.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "Treasury",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "VEVERLY Y. YMANA",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "MUNICIPAL TREASURER",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "Treasury",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__Treasury.csv"
+    },
+    {
+      "form": "spp",
+      "period": "2025",
+      "year": 2025,
+      "quarter": null,
+      "offices": [
+        {
+          "office": "VMO",
+          "items": [
+            {
+              "project": "Sgd.",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "GARY C. AGAS",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            },
+            {
+              "project": "SB Secretary",
+              "end_user": "",
+              "mode": "",
+              "amount": null
+            }
+          ]
+        }
+      ],
+      "summary": [],
+      "sheet": "VMO",
+      "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_16__VMO.csv"
     },
     {
       "form": "spp",
@@ -32888,6 +34225,7 @@
       "quarter": null,
       "office": "Accounting Office",
       "sheet": "Accounting Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E04",
@@ -33575,6 +34913,7 @@
       "quarter": null,
       "office": "Agriculture Office",
       "sheet": "Agriculture Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -34236,6 +35575,7 @@
       "quarter": null,
       "office": "Assesor Office",
       "sheet": "Assesor Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E04",
@@ -35144,6 +36484,7 @@
       "quarter": null,
       "office": "Budget Office",
       "sheet": "Budget Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -36143,6 +37484,7 @@
       "quarter": null,
       "office": "DILG Office",
       "sheet": "DILG Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -36477,8 +37819,9 @@
       "period": "2023",
       "year": 2023,
       "quarter": null,
-      "office": "MEO",
-      "sheet": "MEO",
+      "office": "Engineering Office",
+      "sheet": "Engineering Office",
+      "office_corrected_from": "MEO",
       "items": [
         {
           "code": "51471901-AL-I01",
@@ -37153,6 +38496,7 @@
       "quarter": null,
       "office": "HR",
       "sheet": "HR",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -38191,6 +39535,7 @@
       "quarter": null,
       "office": "Mayors Office",
       "sheet": "Mayors Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -40191,6 +41536,7 @@
       "quarter": null,
       "office": "MDRRMO",
       "sheet": "MDRRMO",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -40956,6 +42302,721 @@
       "quarter": null,
       "office": "MPDC",
       "sheet": "MPDC",
+      "office_corrected_from": "",
+      "items": [
+        {
+          "code": "12191601-AL-E03",
+          "project": "ALCOHOL, Ethyl, 1 Gallon",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1322.2,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "60121524-SP-G01",
+          "project": "SIGN PEN, Black, liquid or gel",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 888.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "26111702-BT-A02",
+          "project": "BATTERY, dry cell, size AA, Two (2) pieces per blister pack",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 81.96,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "26111702-BT-A01",
+          "project": "BATTERY, dry cell, size AAA, Two (2) pieces per blister pack",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 73.36,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "47131812-AF-A01",
+          "project": "AIR FRESHENER, Aerosol type, 150g",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 326.56,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "47131604-BR-S01",
+          "project": "BROOM, Soft (Walis Tambo)",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 136.24,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "47131803-DS-A01",
+          "project": "DISINFECTANT SPRAY, Aerosol type, 400g",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1678.68,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "47131601-DU-P01",
+          "project": "DUST PAN, rigid non-breakable plastic",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 27.64,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "73101612-HS-L01",
+          "project": "LIQUID HAND SOAP, 500mL",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 85.9,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "47131501-RG-C01",
+          "project": "RAGS, all cotton, 1 kilo per bundle",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 318.84,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "12171703-SI-P01",
+          "project": "INK, for stamp pad, 50mL",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 28.91,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "31201610-GL-J01",
+          "project": "GLUE, all-purpose, 200 grams",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 141.44,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "31201503-TA-M01",
+          "project": "TAPE, masking, 24mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 247.52,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "31201517-TA-P01",
+          "project": "TAPE, packaging, 48 mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 67.08,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "31201512-TA-T01",
+          "project": "TAPE, transparent, 24mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 89.44,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "31201512-TA-T02",
+          "project": "TAPE, transparent, 48 mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 45.14,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "41111604-RU-P02",
+          "project": "RULER, plastic, 450 mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 16.64,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44122118-FA-P01",
+          "project": "FASTENER, metal, non-sharp edges, 50 sets per box",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 378.56,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44121716-MA-F01",
+          "project": "MARKER, Flourescent, 3 colors per set",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 36.66,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44121708-MP-B01",
+          "project": "MARKER, Permanent, Black",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 74.7,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44122104-PC-G01",
+          "project": "PAPER CLIP, vinly/plastic coated, 33mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 17.64,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44122104-PC-J02",
+          "project": "PAPER CLIP, vinly/plastic coated, jumbo, 50mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 13.78,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44121905-SP-F01",
+          "project": "STAMP PAD, felt",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 39.92,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44121618-SS-S01",
+          "project": "SCISSORS, symmetrical or asymmetrical",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 33.37,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44121615-ST-B01",
+          "project": "STAPLER, heavy duty (binder type), desktop",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 888.16,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "14111514-NP-S04",
+          "project": "NOTE PAD, stick on, 3\" x 4\", 100 sheets per pad",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 474.24,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "14111507-PP-M01",
+          "project": "PAPER, MULTICOPY A4, 500 sheets per ream",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 828.25,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "14111704-TT-P02",
+          "project": "TOILET TISSUE PAPER, 2 ply, 12 rolls in a pack",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 172.64,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "10191509-IN-A01",
+          "project": "INSECTICIDE, 600mL",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 139.36,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44122105-BF-C03",
+          "project": "CLIP, backfold, 32mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 76.68,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44122105-BF-C04",
+          "project": "CLIP, backfold, 50mm",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 168.12,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "44121612-CU-H01",
+          "project": "CUTTER/UTILITY KNIFE, for general purpose",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 66.86,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "Refill of PLUS Correction Tape WH-605",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 340.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "MULTIPURPOSE Legal 70gsm, 500 sheets per ream",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 2600.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "MULTIPURPOSE letter 70gsm, 500 sheets per ream",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 2550.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (003), Black",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 3184.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (003), Cyan",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1592.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (003), Yellow",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1592.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (003), Magenta",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1592.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (008), Black",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 2700.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (008), Cyan",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1400.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (008), Yellow",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1400.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "EPSON Ecotank (008), Magenta",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1400.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "FOLDER Tagboard Legal Size, 100 piece",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 720.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "FOLDER Tagboard Letter Size, 100 pieces",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 720.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "Date Stamper",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 200.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "Plotter Paper Roll, 90gsm, A0 | 841mm x 50mt",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 1600.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "PVC Transparent Binding Cover, 8.5 x 11\", 100 sheets",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 800.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "PVC Transparent Binding Cover, 8.5 x 13\", 100 sheets",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 900.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "Christmas Garland Decoration, 5 meters",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 800.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "Christmas Ball Decoration, red",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 160.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "Christmas Ball Decoration, silver",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 160.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "Kingston PCIe NVME Solid State Drive 500gb",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 3000.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        },
+        {
+          "code": "",
+          "project": "APC BVX650i-PH 650VA UPS",
+          "end_user": "MPDC",
+          "early": "No",
+          "mode": "Shopping",
+          "schedule": "",
+          "source": "",
+          "total": 3000.0,
+          "mooe": null,
+          "co": null,
+          "remarks": ""
+        }
+      ],
+      "source_file": "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__APP_MPDC_Office.csv"
+    },
+    {
+      "form": "app",
+      "period": "2023",
+      "year": 2023,
+      "quarter": null,
+      "office": "MSWDO",
+      "sheet": "MSWDO",
+      "office_corrected_from": "MPDC",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -41812,6 +43873,7 @@
       "quarter": null,
       "office": "RHU",
       "sheet": "RHU",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -44005,8 +46067,9 @@
       "period": "2023",
       "year": 2023,
       "quarter": null,
-      "office": "Municipal Registrar",
-      "sheet": "Municipal Registrar",
+      "office": "Registrar",
+      "sheet": "Registrar",
+      "office_corrected_from": "Municipal Registrar",
       "items": [
         {
           "code": "12191601-AL-E04",
@@ -44824,6 +46887,7 @@
       "quarter": null,
       "office": "Treasury Office",
       "sheet": "Treasury Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E04",
@@ -45615,6 +47679,7 @@
       "quarter": null,
       "office": "Vice Mayors Office",
       "sheet": "Vice Mayors Office",
+      "office_corrected_from": "",
       "items": [
         {
           "code": "12191601-AL-E03",
@@ -48069,6 +50134,134 @@
       "period": "2024",
       "offices": [
         {
+          "office": "Office of the Municipal Mayor",
+          "ps": 5442791.21,
+          "mooe": 17417255.39,
+          "co": 600000.0,
+          "non_office": 0.0,
+          "total": 23460046.6
+        },
+        {
+          "office": "Office of the MDRRM",
+          "ps": 1215655.87,
+          "mooe": 217360.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 1433015.87
+        },
+        {
+          "office": "Office of the Municipal Vice Mayor",
+          "ps": 3801987.48,
+          "mooe": 1925640.0,
+          "co": 1400000.0,
+          "non_office": 0.0,
+          "total": 7127627.48
+        },
+        {
+          "office": "Office of the Sangguniang Bayan",
+          "ps": 13787829.96,
+          "mooe": 2094500.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 15882329.96
+        },
+        {
+          "office": "Office of the Human Resource Management",
+          "ps": 1798938.16,
+          "mooe": 271700.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 2070638.16
+        },
+        {
+          "office": "Office of Mun. Planning Dev't. Coordinator",
+          "ps": 2826007.48,
+          "mooe": 270350.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 3096357.48
+        },
+        {
+          "office": "Office of the Mun. Civil Registrar",
+          "ps": 2091032.13,
+          "mooe": 444690.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 2535722.13
+        },
+        {
+          "office": "Office of the Mun. Budget Officer",
+          "ps": 2330040.32,
+          "mooe": 277665.0,
+          "co": 75000.0,
+          "non_office": 0.0,
+          "total": 2682705.32
+        },
+        {
+          "office": "Office of the Municipal Accountant",
+          "ps": 2716222.76,
+          "mooe": 385605.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 3101827.76
+        },
+        {
+          "office": "Office of the Municipal Treasurer",
+          "ps": 4039620.855,
+          "mooe": 545490.0,
+          "co": 35000.0,
+          "non_office": 0.0,
+          "total": 4620110.855
+        },
+        {
+          "office": "Office of the Municipal Assessor",
+          "ps": 2395332.63,
+          "mooe": 266997.5,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 2662330.13
+        },
+        {
+          "office": "Office of the Municipal Health Officer",
+          "ps": 8899756.09,
+          "mooe": 3365000.0,
+          "co": 620000.0,
+          "non_office": 0.0,
+          "total": 12884756.09
+        },
+        {
+          "office": "Office of the Mun. Social Welfare Dev't.",
+          "ps": 2388227.22,
+          "mooe": 3292040.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 5680267.22
+        },
+        {
+          "office": "Office of the Municipal Agriculturist",
+          "ps": 2579557.52,
+          "mooe": 2519600.0,
+          "co": 0.0,
+          "non_office": 0.0,
+          "total": 5099157.52
+        },
+        {
+          "office": "Office of Municipal Engineer",
+          "ps": 1812378.04,
+          "mooe": 261250.0,
+          "co": 35000.0,
+          "non_office": 0.0,
+          "total": 2108628.04
+        },
+        {
+          "office": "TOTAL PS, MOOE & CO",
+          "ps": 58125377.725,
+          "mooe": 33555142.89,
+          "co": 2765000.0,
+          "non_office": 0.0,
+          "total": 94445520.615
+        },
+        {
           "office": "NON OFFICE",
           "ps": null,
           "mooe": null,
@@ -48123,6 +50316,14 @@
           "co": 0.0,
           "non_office": 21226800.0,
           "total": 21226800.0
+        },
+        {
+          "office": "TOTAL SPECIAL PURPOSE APPROPRIATIONS",
+          "ps": 0.0,
+          "mooe": 0.0,
+          "co": 0.0,
+          "non_office": 59783142.38,
+          "total": 59783142.38
         },
         {
           "office": "GRAND TOTAL",

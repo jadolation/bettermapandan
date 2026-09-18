@@ -80,9 +80,9 @@ function initDPWHTable() {
     for (var i = 0; i < pageData.length; i++) {
       var p = pageData[i];
       var amount = p.contract_amount || 0;
-      var amount_str = "₱" + parseFloat(amount).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0}) if amount else "—";
+      var amount_str = amount ? "₱" + parseFloat(amount).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0}) : "—";
       var acc = p.accomplishment_percent || 0;
-      var acc_str = parseFloat(acc).toFixed(0) + "%" if acc else "—";
+      var acc_str = acc ? parseFloat(acc).toFixed(0) + "%" : "—";
       var date = p.actual_completion_date || p.contract_effectivity_date || "—";
       var lat = p.latitude, lng = p.longitude;
       var map_link = "";
