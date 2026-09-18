@@ -562,7 +562,9 @@
     "dash_view_table": "View full tables",
     "dash_close": "Close",
     "dash_computed": "computed",
-    "dash_source": "Source: DILG-FDP filing"
+    "dash_source": "Source: DILG-FDP filing",
+    "fdp_archive_title": "Browse older filings",
+    "fdp_collections_title": "Themed collections"
   },
   "procurement": {
     "eyebrow": "Public Procurement",

@@ -343,3 +343,19 @@
 .agency-card-content {
   flex: 1;
 }
+
+/* ---------- FDP archive cards (equal height, bottom-pinned buttons) ---------- */
+
+.card.fdp-archive-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card.fdp-archive-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.card.fdp-archive-card .quarter-row:last-of-type {
+  margin-bottom: 12px;
+}

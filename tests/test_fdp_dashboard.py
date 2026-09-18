@@ -89,7 +89,8 @@ def _dialog_stats(html):
     events = [(m.start(), "open" if m.group(0).startswith("<dialog ") or m.group(0) == "<dialog" else "close")
               for m in re.finditer(r"</dialog>|<dialog(?:\s|>)", html)]
     tables = [(m.start(), m.group(0)[:60]) for m in re.finditer(r"<table(?:\s|>)", html)]
-    depth = ei = in_dialog = sr_only = 0
+    latest_open = html.find('<div class="fdp-latest">')
+    depth = ei = in_dialog = in_latest = sr_only = 0
     unwrapped = []
     for pos, tag in tables:
         while ei < len(events) and events[ei][0] < pos:
@@ -97,13 +98,20 @@ def _dialog_stats(html):
             ei += 1
         if depth > 0:
             in_dialog += 1
+        elif latest_open != -1 and latest_open < pos:
+            # latest-quarter tables render inline by design; stop at first dialog/details
+            rest = html[latest_open:pos]
+            if "<dialog" not in rest and "<details" not in rest:
+                in_latest += 1
+            else:
+                unwrapped.append(tag)
         else:
             seg = html[pos:pos + 200]
             if "sr-only" in seg[:seg.find(">")]:
                 sr_only += 1
             else:
                 unwrapped.append(tag)
-    return in_dialog, sr_only, unwrapped
+    return in_dialog, in_latest, sr_only, unwrapped
 
 
 def test_all_tables_live_in_dialogs():
@@ -112,9 +120,10 @@ def test_all_tables_live_in_dialogs():
 
     for lang in ("en", "fil"):
         html = generate_fdp(load_locale(lang))
-        in_dialog, sr_only, unwrapped = _dialog_stats(html)
+        in_dialog, in_latest, sr_only, unwrapped = _dialog_stats(html)
         assert not unwrapped, f"{lang}: {unwrapped[:3]}"
-        assert in_dialog > 100, lang
+        assert in_dialog > 50, lang
+        assert in_latest > 5, lang  # latest quarter renders inline by design
         assert sr_only == 0, lang  # sr-only chart twins live in page source, not FDP output
 
 
@@ -124,8 +133,12 @@ def test_year_accordions_and_themed_dialogs():
 
     html = generate_fdp(load_locale("en"))
     for year in ("2026", "2025", "2024", "2023"):
-        assert f"<strong>{year}</strong>" in html, year
+        assert f"<div class='section-eyebrow'>{year}</div>" in html, year
     assert "quarter-row" in html
+    # year cards replaced the accordions: no year <details> remain
+    import re
+    assert not re.search(r"<details[^>]*>\s*<summary><strong>20\d\d</strong>", html)
+    assert html.count("fdp-archive-card") == 11  # 4 year + 1 undated + 6 themed
     for dialog_id in ("fdp-dialog-budget", "fdp-dialog-workforce", "fdp-dialog-debt",
                       "fdp-dialog-proc-plans", "fdp-dialog-gad", "fdp-dialog-funds"):
         assert f'id="{dialog_id}"' in html, dialog_id
@@ -134,3 +147,13 @@ def test_year_accordions_and_themed_dialogs():
     assert len(ids) == len(set(ids)), "duplicate dialog IDs"
     buttons = set(re.findall(r'data-fdp-dialog="([^"]+)"', html)) | set(re.findall(r'data-open-modal="([^"]+)"', html))
     assert buttons <= set(ids), f"dangling buttons: {buttons - set(ids)}"
+
+
+def test_reverted_tables_render_inline():
+    """Fiscal snapshot, budget trend, and implementation rates show inline by design."""
+    src = (Path(__file__).resolve().parent.parent / "src" / "pages" / "transparency.html").read_text(encoding="utf-8")
+    for modal_id in ("modal-snapshot", "modal-budget-trend", "modal-implrate"):
+        assert modal_id not in src, modal_id
+    for aria in ("Multi-year fiscal snapshot", "Multi-year budget trend",
+                 "Audit recommendation implementation rates"):
+        assert f'<table aria-label="{aria}">' in src, aria

@@ -19,6 +19,8 @@ def _build_fdp_labels(locale: dict) -> dict:
         "FDP_UNDATED": t(locale, "transparency.fdp_undated", "Undated snapshot"),
         "FDP_APP_TITLE": t(locale, "transparency.fdp_app_title", "Annual Procurement Plan"),
         "FDP_GAD_TITLE": t(locale, "transparency.fdp_gad_title", "Gender and Development Report"),
+        "FDP_ARCHIVE_TITLE": t(locale, "transparency.fdp_archive_title", "Browse older filings"),
+        "FDP_COLLECTIONS_TITLE": t(locale, "transparency.fdp_collections_title", "Themed collections"),
     }
 
 
@@ -241,14 +243,16 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
 
 
 def _themed_dialog(slug: str, heading: str, count_line: str, body_html: str, labels: dict) -> str:
-    """One themed dialog group for standalone FDP tables."""
+    """One themed dialog group for standalone FDP tables, rendered as a card."""
     dialog_id = f"fdp-dialog-{slug}"
     return "\n".join([
+        "<div class='card fdp-archive-card'>",
         f"<h3>{heading}</h3>",
         f"<p class='note-inline'>{count_line}</p>",
         f'<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="{dialog_id}">'
         f'{labels["DASH_VIEW_TABLE"]}</button>',
         _dialog(dialog_id, heading, body_html, labels["DASH_CLOSE"]),
+        "</div>",
     ])
 
 
@@ -453,15 +457,22 @@ def generate_fdp(locale: dict) -> str:
 
     if periods:
         latest = periods[0]
-        out.extend(_period_block(
-            latest,
-            f"<h3>{labels['FDP_LATEST']}: {_esc(_period_label(latest, labels['FDP_UNDATED']))}</h3>"))
+        out.append(f"<h3>{labels['FDP_LATEST']}: {_esc(_period_label(latest, labels['FDP_UNDATED']))}</h3>")
+        out.append('<div class="fdp-latest">')
+        out.append(_render_period_cards(latest, data, labels))
+        out.append(_render_period_tables(latest, data, labels))
+        out.append("</div>")
         by_year = {}
         for period in periods[1:]:
             year = period.split("-")[0] if "-" in period else period
             by_year.setdefault(year, []).append(period)
+        out.append(f"<h3>{labels['FDP_ARCHIVE_TITLE']}</h3>")
+        out.append('<div class="grid grid-3">')
         for year in sorted(by_year, reverse=True):
-            out.append("<details class='mt-8'><summary><strong>{}</strong></summary>".format(_esc(year)))
+            n_q = len(by_year[year])
+            out.append("<div class='card fdp-archive-card'>"
+                       f"<div class='section-eyebrow'>{year}</div>"
+                       f"<p class='note-inline'>{n_q} quarter(s)</p>")
             for period in by_year[year]:
                 receipts, sef_bal, ld_unutil = _quarter_figures(period, data)
                 out.append(
@@ -470,16 +481,24 @@ def generate_fdp(locale: dict) -> str:
                         _esc(_period_label(period, labels["FDP_UNDATED"])),
                         _peso(receipts), _peso(sef_bal), _peso(ld_unutil)))
                 out.append(_quarter_dialog(period, data, labels))
-            out.append("</details>")
-    undated_periods = sorted({r.get("period", "undated")
-                              for key in ("sre", "sef", "ldrrmf", "cash_flows", "cash_advances",
-                                          "trust_fund", "lgsf", "dev_fund", "bids")
-                              for r in data.get(key, []) if r.get("period") == "undated"})
-    for period in undated_periods:
-        out.append("<details class='mt-8'><summary><strong>{}</strong></summary>".format(labels["FDP_UNDATED"]))
-        out.extend(_period_block(period, ""))
-        out.append("</details>")
-    out.append(_render_standalone(data, labels))
+            out.append("</div>")
+        undated_here = sorted({r.get("period", "undated")
+                               for key in ("sre", "sef", "ldrrmf", "cash_flows", "cash_advances",
+                                           "trust_fund", "lgsf", "dev_fund", "bids")
+                               for r in data.get(key, []) if r.get("period") == "undated"})
+        if undated_here:
+            out.append("<div class='card fdp-archive-card'>"
+                       f"<div class='section-eyebrow'>{labels['FDP_UNDATED']}</div>")
+            for period in undated_here:
+                out.extend(_period_block(period, ""))
+            out.append("</div>")
+        out.append("</div>")
+    standalone = _render_standalone(data, labels)
+    if standalone.strip():
+        out.append(f"<h3>{labels['FDP_COLLECTIONS_TITLE']}</h3>")
+        out.append('<div class="grid grid-3">')
+        out.append(standalone)
+        out.append("</div>")
     if retrieved:
         out.append(f"<p class='source-label'>{labels['FDP_SOURCE']} DILG Full Disclosure Policy Portal &mdash; retrieved {retrieved}.</p>")
     out.append("</div></section>")

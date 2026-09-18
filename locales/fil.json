@@ -562,7 +562,9 @@
     "dash_view_table": "Tingnan ang buong talahanayan",
     "dash_close": "Isara",
     "dash_computed": "kuwinenta",
-    "dash_source": "Pinagmulan: DILG-FDP filing"
+    "dash_source": "Pinagmulan: DILG-FDP filing",
+    "fdp_archive_title": "Mag-browse ng mga lumang filing",
+    "fdp_collections_title": "Mga koleksyon ayon sa tema"
   },
   "procurement": {
     "eyebrow": "Pampublikong Pamimili",
