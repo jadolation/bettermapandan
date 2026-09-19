@@ -33,13 +33,13 @@ def test_load_locale_pag():
     assert isinstance(locale, dict)
     assert "nav" in locale
     assert "home" in locale["nav"]
-    assert locale["nav"]["home"] == "Balay"
+    assert locale["nav"]["home"] == "Abong"
 
 
 def test_t_pag_existing_key():
     locale = load_locale("pag")
     result = t(locale, "nav.home", "default")
-    assert result == "Balay"
+    assert result == "Abong"
 
 
 def test_t_existing_key():

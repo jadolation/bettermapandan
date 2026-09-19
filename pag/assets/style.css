@@ -45,6 +45,9 @@
 @import url("css/civic-hub.css");
 @import url("css/dashboard.css");
 
+/* --- In-page section nav (desktop sidebar + mobile edge dots) --- */
+@import url("css/section-nav.css");
+
 /* --- Feature widgets --- */
 @import url("css/services.css");
 @import url("css/weather.css");

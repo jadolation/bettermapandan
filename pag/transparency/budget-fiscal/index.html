@@ -69,13 +69,13 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Balay",
+      "name": "Abong",
       "item": "https://bettermapandan.org/pag/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Transparency"
+      "name": "Transparensiya"
     }
   ]
 }
@@ -116,25 +116,25 @@
         <span class="nav-bar" aria-hidden="true"></span>
       </button>
       <ul class="nav-links" id="primary-nav">
-        <li><a href="/">Balay</a></li>
-        <li><a href="/services/">Mga Serbisyo</a></li>
-        <li><a href="/government/">Gobyierno</a></li>
-        <li><a href="/legislative/">Legislative</a></li>
+        <li><a href="/">Abong</a></li>
+        <li><a href="/services/">Saray Serbisyo</a></li>
+        <li><a href="/government/">Gobierno</a></li>
+        <li><a href="/legislative/">Lehislatibo</a></li>
         <li><a href="/statistics/">Estadistika</a></li>
-        <li><a href="/transparency/">Transparency</a></li>
+        <li><a href="/transparency/">Transparensiya</a></li>
         <li><a href="/about/">Tungkol</a></li>
         <li><a href="/search/" class="nav-search-link">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          Anap
+          Anapen
         </a></li>
       </ul>
       <div class="nav-backdrop" hidden></div>
       <div class="lang-switcher" role="group" aria-label="Language">
         <a href="/transparency/budget-fiscal/" class="lang-btn " data-lang="en">EN</a>
         <a href="/fil/transparency/budget-fiscal/" class="lang-btn " data-lang="fil">FIL</a>
-        <a href="/pag/transparency/budget-fiscal/" class="lang-btn active" data-lang="pag">PAG</a>
+        <a href="/pag/transparency/budget-fiscal/" class="lang-btn active" data-lang="pag">PANG</a>
       </div>
-      <a href="/search/" class="nav-search" aria-label="Anap">
+      <a href="/search/" class="nav-search" aria-label="Anapen">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </a>
     </nav>
@@ -151,73 +151,105 @@
     <p class="lede">CY 2026 approved budget, CY 2025 revenue breakdown, credit financing, statutory allocations, and DILG Full Disclosure Policy filings for Mapandan.</p>
   </div>
 </section>
-<nav class="transparency-tabs" aria-label="Transparency section">
-<a href="/pag/transparency/procurement/" class="tab-btn"><span class="tab-label">Public Procurement</span></a>
-<a href="/pag/transparency/infrastructure/" class="tab-btn"><span class="tab-label">Infrastructure</span></a>
-<a href="/pag/transparency/budget-fiscal/" class="tab-btn active" aria-current="page"><span class="tab-label">Budget & Fiscal</span></a>
-<a href="/pag/transparency/audit-compliance/" class="tab-btn"><span class="tab-label">Audit & Compliance</span></a>
+<nav class="transparency-tabs" aria-label="Seksyon na Transparensya">
+<a href="/pag/transparency/procurement/" class="tab-btn"><span class="tab-label">Pampublikong Procurement</span></a>
+<a href="/pag/transparency/infrastructure/" class="tab-btn"><span class="tab-label">Imprastraktura</span></a>
+<a href="/pag/transparency/budget-fiscal/" class="tab-btn active" aria-current="page"><span class="tab-label">Badyet tan Pananalapi</span></a>
+<a href="/pag/transparency/audit-compliance/" class="tab-btn"><span class="tab-label">Awdit tan Compliance</span></a>
 </nav>
 <div class="transparency-tabs-dropdown">
 <div class="wrap">
-<select id="transparency-section-select" class="form-input transparency-select" aria-label="Transparency section">
-<option value="/pag/transparency/procurement/">Public Procurement</option>
-<option value="/pag/transparency/infrastructure/">Infrastructure</option>
-<option value="/pag/transparency/budget-fiscal/" selected>Budget & Fiscal</option>
-<option value="/pag/transparency/audit-compliance/">Audit & Compliance</option>
+<select id="transparency-section-select" class="form-input transparency-select" aria-label="Seksyon na Transparensya">
+<option value="/pag/transparency/procurement/">Pampublikong Procurement</option>
+<option value="/pag/transparency/infrastructure/">Imprastraktura</option>
+<option value="/pag/transparency/budget-fiscal/" selected>Badyet tan Pananalapi</option>
+<option value="/pag/transparency/audit-compliance/">Awdit tan Compliance</option>
 </select>
 </div>
 </div>
 
 
+<div class="page-with-nav">
+<nav class="section-nav" aria-label="Saray seksyon na pahina">
+<div class="section-nav-head"><span class="section-nav-title">Saray Kategorya</span><button type="button" class="section-nav-toggle" aria-expanded="true" aria-controls="section-nav-list" data-hide-label="Taguan so menu" data-show-label="Ipanengneng so menu"><span>Taguan so menu</span><span aria-hidden="true">&lt;</span></button></div>
+<ul id="section-nav-list">
+<li><a href="#fiscal-dashboard" data-section="fiscal-dashboard"><i data-lucide="gauge" aria-hidden="true"></i><span>Dashboard na Pananalapi</span><span class="section-nav-badge" aria-hidden="true">10</span></a><ul class="section-nav-sub"><li><a href="#fiscal-revenue" data-section="fiscal-revenue">Komposisyon na Kita (Q2 2026)</a></li><li><a href="#fiscal-expenditure" data-section="fiscal-expenditure">Gastusin base ed Tungkulin (Q2 2026)</a></li><li><a href="#fiscal-trend" data-section="fiscal-trend">Receipts laban ed expenditures, quarterly flows</a></li><li><a href="#fiscal-funds" data-section="fiscal-funds">Panagusar na Pondo (Q2 2026)</a></li><li><a href="#fiscal-cash" data-section="fiscal-cash">Cash Flow Bridge (Q2 2026)</a></li><li><a href="#fiscal-barangay" data-section="fiscal-barangay">Investment ed panagpapaunlad balang barangay (Q2 2026)</a></li><li><a href="#fiscal-bids" data-section="fiscal-bids">Natipid ed Procurement (Q2 2026)</a></li></ul></li>
+<li><a href="#appropriations" data-section="appropriations"><i data-lucide="wallet" aria-hidden="true"></i><span>Saray Alokasyon</span><span class="section-nav-badge" aria-hidden="true">3</span></a></li>
+<li><a href="#revenue" data-section="revenue"><i data-lucide="trending-up" aria-hidden="true"></i><span>Kita</span></a></li>
+<li><a href="#fiscal-structure" data-section="fiscal-structure"><i data-lucide="layers" aria-hidden="true"></i><span>Istruktura na Pananalapi</span><span class="section-nav-badge" aria-hidden="true">5</span></a></li>
+<li><a href="#fiscal-snapshot" data-section="fiscal-snapshot"><i data-lucide="camera" aria-hidden="true"></i><span>Larawan na Pananalapi</span></a></li>
+<li><a href="#budget-trend" data-section="budget-trend"><i data-lucide="activity" aria-hidden="true"></i><span>Takbo na badyet</span><span class="section-nav-badge" aria-hidden="true">1</span></a></li>
+<li><a href="#balance-sheet" data-section="balance-sheet"><i data-lucide="scale" aria-hidden="true"></i><span>Balance sheet</span><span class="section-nav-badge" aria-hidden="true">3</span></a></li>
+<li><a href="#financial-performance" data-section="financial-performance"><i data-lucide="calculator" aria-hidden="true"></i><span>Pagganap na pananalapi</span><span class="section-nav-badge" aria-hidden="true">4</span></a></li>
+<li><a href="#fdp-disclosures" data-section="fdp-disclosures"><i data-lucide="archive" aria-hidden="true"></i><span>Saray FDP filing</span><span class="section-nav-badge" aria-hidden="true">202</span></a><ul class="section-nav-sub"><li><a href="#fdp-latest" data-section="fdp-latest">Pinakabalo a filing: Q2 2026</a></li><li><div class="section-nav-split"><a href="#fdp-archive" data-section="fdp-archive">Nengnengen iray daan a filing</a><button type="button" class="section-nav-sub-toggle section-nav-sub-sub-toggle" aria-expanded="false" aria-label="Ipanengneng iray subseksyon" data-hide-label="Taguan iray subseksyon" data-show-label="Ipanengneng iray subseksyon"><span aria-hidden="true">+</span><span class="section-nav-badge" aria-hidden="true">4</span></button></div><ul class="section-nav-sub-sub" hidden><li><a href="#fdp-archive-2026" data-section="fdp-archive-2026">2026</a></li><li><a href="#fdp-archive-2025" data-section="fdp-archive-2025">2025</a></li><li><a href="#fdp-archive-2024" data-section="fdp-archive-2024">2024</a></li><li><a href="#fdp-archive-2023" data-section="fdp-archive-2023">2023</a></li></ul></li><li><div class="section-nav-split"><a href="#fdp-collections" data-section="fdp-collections">Saray Koleksyon base ed Tema</a><button type="button" class="section-nav-sub-toggle section-nav-sub-sub-toggle" aria-expanded="false" aria-label="Ipanengneng iray subseksyon" data-hide-label="Taguan iray subseksyon" data-show-label="Ipanengneng iray subseksyon"><span aria-hidden="true">+</span><span class="section-nav-badge" aria-hidden="true">6</span></button></div><ul class="section-nav-sub-sub" hidden><li><a href="#fdp-collection-budget" data-section="fdp-collection-budget">Annual Budget by Office</a></li><li><a href="#fdp-collection-debt" data-section="fdp-collection-debt">Indebtedness</a></li><li><a href="#fdp-collection-workforce" data-section="fdp-collection-workforce">Workforce history</a></li><li><a href="#fdp-collection-proc-plans" data-section="fdp-collection-proc-plans">Procurement Plans</a></li><li><a href="#fdp-collection-gad" data-section="fdp-collection-gad">Gender and Development</a></li><li><a href="#fdp-collection-funds" data-section="fdp-collection-funds">Fund Matrices &amp; Special Appropriations</a></li></ul></li></ul></li>
+</ul>
+</nav>
+<nav class="edge-nav" aria-label="Saray seksyon na pahina">
+<div class="edge-tab" aria-hidden="true"></div>
+<div class="edge-dots">
+<button type="button" class="edge-dot edge-c0" data-target="fiscal-dashboard" aria-label="Dashboard na Pananalapi"><span class="edge-tip" aria-hidden="true">Dashboard na Pananalapi</span></button>
+<button type="button" class="edge-dot edge-c1" data-target="appropriations" aria-label="Saray Alokasyon"><span class="edge-tip" aria-hidden="true">Saray Alokasyon</span></button>
+<button type="button" class="edge-dot edge-c2" data-target="revenue" aria-label="Kita"><span class="edge-tip" aria-hidden="true">Kita</span></button>
+<button type="button" class="edge-dot edge-c3" data-target="fiscal-structure" aria-label="Istruktura na Pananalapi"><span class="edge-tip" aria-hidden="true">Istruktura na Pananalapi</span></button>
+<button type="button" class="edge-dot edge-c0" data-target="fiscal-snapshot" aria-label="Larawan na Pananalapi"><span class="edge-tip" aria-hidden="true">Larawan na Pananalapi</span></button>
+<button type="button" class="edge-dot edge-c1" data-target="budget-trend" aria-label="Takbo na badyet"><span class="edge-tip" aria-hidden="true">Takbo na badyet</span></button>
+<button type="button" class="edge-dot edge-c2" data-target="balance-sheet" aria-label="Balance sheet"><span class="edge-tip" aria-hidden="true">Balance sheet</span></button>
+<button type="button" class="edge-dot edge-c3" data-target="financial-performance" aria-label="Pagganap na pananalapi"><span class="edge-tip" aria-hidden="true">Pagganap na pananalapi</span></button>
+<button type="button" class="edge-dot edge-c0" data-target="fdp-disclosures" aria-label="Saray FDP filing"><span class="edge-tip" aria-hidden="true">Saray FDP filing</span></button>
+</div>
+</nav>
+
+<div class="page-with-nav-body">
+
 <section class="section" id="fiscal-dashboard">
 <div class="wrap">
 <div class="section-head">
-<div class="section-eyebrow">Fiscal Dashboard</div>
+<div class="section-eyebrow">Dashboard na Pananalapi</div>
 <h2>Mapandan Fiscal & Transparency Dashboard</h2>
-<p>Key fiscal indicators computed from the municipality's DILG disclosure filings. Reported amounts are source data; ratios and shares are our calculations, noted under each metric.</p>
+<p>Mahahalagang fiscal indicator ya kinuwenta manipud ed DILG disclosure filing na munisipalidad. Saray reported amount et source data; saray ratio tan share et kalkulasyon mi, ya nakasulat ed balik na balang metric.</p>
 </div>
 <div class="grid grid-4 stack-gap-lg">
-<div class="card"><p class="figure text-lg">&#8369;115,479,786.02</p><p class="note-inline">General Fund receipts (Q2 2026)</p><span class="source-label">Source: DILG-FDP filing Q2 2026</span></div>
-<div class="card"><p class="figure text-lg">&#8369;82,700,279.84</p><p class="note-inline">General Fund expenditures (Q2 2026)</p><span class="source-label">Source: DILG-FDP filing Q2 2026</span></div>
-<div class="card"><p class="figure text-lg">&#8369;1,320,774.75</p><p class="note-inline">SEF balance (Q2 2026)</p><span class="source-label">Source: DILG-FDP filing Q2 2026</span></div>
-<div class="card"><p class="figure text-lg">&#8369;16,105,969.76</p><p class="note-inline">LDRRMF unutilized (Q2 2026)</p><span class="source-label">Source: DILG-FDP filing Q2 2026</span></div>
-<div class="card"><p class="figure text-lg">&#8369;63,525,772.21</p><p class="note-inline">Cash at end of period (Q2 2026)</p><span class="source-label">Source: DILG-FDP filing Q2 2026</span></div>
-<div class="card"><p class="figure text-lg">19</p><p class="note-inline">Development projects (Q2 2026)</p><span class="source-label">Source: DILG-FDP filing Q2 2026</span></div>
-<div class="card"><p class="figure text-lg">5</p><p class="note-inline">Bids awarded (Q2 2026)</p><span class="source-label">Source: DILG-FDP filing Q2 2026</span></div>
+<div class="card"><p class="figure text-lg">&#8369;115,479,786.02</p><p class="note-inline">General Fund a receipts (Q2 2026)</p><span class="source-label">Pinanlapuan: DILG-FDP filing Q2 2026</span></div>
+<div class="card"><p class="figure text-lg">&#8369;82,700,279.84</p><p class="note-inline">General Fund a gastusin (Q2 2026)</p><span class="source-label">Pinanlapuan: DILG-FDP filing Q2 2026</span></div>
+<div class="card"><p class="figure text-lg">&#8369;1,320,774.75</p><p class="note-inline">Balanse na SEF (Q2 2026)</p><span class="source-label">Pinanlapuan: DILG-FDP filing Q2 2026</span></div>
+<div class="card"><p class="figure text-lg">&#8369;16,105,969.76</p><p class="note-inline">Agni-nagusar a LDRRMF (Q2 2026)</p><span class="source-label">Pinanlapuan: DILG-FDP filing Q2 2026</span></div>
+<div class="card"><p class="figure text-lg">&#8369;63,525,772.21</p><p class="note-inline">Salapi ed katapusan na period (Q2 2026)</p><span class="source-label">Pinanlapuan: DILG-FDP filing Q2 2026</span></div>
+<div class="card"><p class="figure text-lg">19</p><p class="note-inline">Saray proyektong pangkaunlaran (Q2 2026)</p><span class="source-label">Pinanlapuan: DILG-FDP filing Q2 2026</span></div>
+<div class="card"><p class="figure text-lg">5</p><p class="note-inline">Saray bid ya iginawad (Q2 2026)</p><span class="source-label">Pinanlapuan: DILG-FDP filing Q2 2026</span></div>
 </div>
 <div class="grid grid-2">
-<div class="card"><h3>Revenue composition (Q2 2026)</h3><canvas id="chart-fdp-revenue" height="220" role="img"></canvas><p class="note-inline">NTA 84.4% (computed)</p></div>
-<div class="card"><h3>Spending by function (Q2 2026)</h3><canvas id="chart-fdp-expenditure" height="220" role="img"></canvas></div>
+<div class="card"><h3 id="fiscal-revenue">Komposisyon na Kita (Q2 2026)</h3><canvas id="chart-fdp-revenue" height="220" role="img"></canvas><p class="note-inline">NTA 84.4% (kinuwenta)</p></div>
+<div class="card"><h3 id="fiscal-expenditure">Gastusin base ed Tungkulin (Q2 2026)</h3><canvas id="chart-fdp-expenditure" height="220" role="img"></canvas></div>
 </div>
-<div class="card mt-24"><h3>Receipts vs expenditures, quarterly flows</h3><canvas id="chart-fdp-trend" height="200" role="img"></canvas><p class="note-inline">Quarterly flows derived by differencing year-to-date filings (computed)</p></div>
-<div class="card mt-24"><h3>Fund utilization (Q2 2026)</h3>
+<div class="card mt-24"><h3 id="fiscal-trend">Receipts laban ed expenditures, quarterly flows</h3><canvas id="chart-fdp-trend" height="200" role="img"></canvas><p class="note-inline">Quarterly flows derived by differencing year-to-date filings (kinuwenta)</p></div>
+<div class="card mt-24"><h3 id="fiscal-funds">Panagusar na Pondo (Q2 2026)</h3>
 <p>SEF &#8369;1,320,774.75</p><div class='util-bar' role='img' aria-label='SEF 56.8%'><div class='util-fill' style='width:56.8%'></div></div>
 <p>LDRRMF &#8369;16,105,969.76</p><div class='util-bar' role='img' aria-label='LDRRMF 7.8%'><div class='util-fill' style='width:7.8%'></div></div>
 </div>
-<div class="card mt-24"><h3>Cash flow bridge (Q2 2026)</h3><p>Operating &#8369;8,160,780.01 · Investing &#8369;-1,763,710 · Financing &#8369;-3,986,694.35 → Ending &#8369;63,525,772.21</p></div>
-<div class="card mt-24"><h3>Development investment by barangay (Q2 2026)</h3><canvas id="chart-fdp-barangay" height="240" role="img"></canvas></div>
-<div class="card mt-24"><h3>Procurement savings (Q2 2026)</h3><p>ABC &#8369;5,419,340 → awarded &#8369;5,407,258.94 · saved &#8369;12,081.06 (0.22%, computed)</p></div>
-<p class='source-label'>Source: DILG-FDP filing Q2 2026 &mdash; retrieved 2026-09-18.</p>
+<div class="card mt-24"><h3 id="fiscal-cash">Cash Flow Bridge (Q2 2026)</h3><p>Operating &#8369;8,160,780.01 · Investing &#8369;-1,763,710 · Financing &#8369;-3,986,694.35 → Ending &#8369;63,525,772.21</p></div>
+<div class="card mt-24"><h3 id="fiscal-barangay">Investment ed panagpapaunlad balang barangay (Q2 2026)</h3><canvas id="chart-fdp-barangay" height="240" role="img"></canvas></div>
+<div class="card mt-24"><h3 id="fiscal-bids">Natipid ed Procurement (Q2 2026)</h3><p>ABC &#8369;5,419,340 → awarded &#8369;5,407,258.94 · saved &#8369;12,081.06 (0.22%, kinuwenta)</p></div>
+<p class='source-label'>Pinanlapuan: DILG-FDP filing Q2 2026 &mdash; retrieved 2026-09-18.</p>
 </div></section>
 
 <div class="wrap">
   <div class="grid grid-3 stack-gap-lg mt-24">
     <div class="card">
-      <h3>CY 2026 Annual Budget</h3>
+      <h3>CY 2026 Taunan a Badyet</h3>
       <p class="figure">&#8369;218.2M</p>
-      <span class="verification-badge badge-official">Official</span>
+      <span class="verification-badge badge-official">Opisyal</span>
       <span class="source-label">Source: SP Res. No. 438-2026 / Approved Mar 30, 2026</span>
     </div>
     <div class="card">
-      <h3>CY 2025 Revenues</h3>
+      <h3>CY 2025 Saray Kita</h3>
       <p class="figure">&#8369;197.7M</p>
-      <span class="verification-badge badge-verified">Verified</span>
+      <span class="verification-badge badge-verified">Na-verify</span>
       <span class="source-label">Source: Bureau of Local Government Finance</span>
     </div>
     <div class="card">
-      <h3>CY 2025 Expenditures</h3>
+      <h3>CY 2025 Saray Gastusin</h3>
       <p class="figure">&#8369;191.8M</p>
-      <span class="verification-badge badge-verified">Verified</span>
+      <span class="verification-badge badge-verified">Na-verify</span>
       <span class="source-label">Source: Bureau of Local Government Finance</span>
     </div>
   </div>
@@ -226,15 +258,15 @@
 <section class="section section-alt" id="appropriations">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Appropriations</div>
-      <h2>Current budget &amp; supplemental appropriations</h2>
+      <div class="section-eyebrow">Mga Alokasyon</div>
+      <h2>Kasalukuyang badyet tan supplemental appropriations</h2>
       <p>CY 2025 and CY 2026 budget figures from SP-approved General Appropriations Ordinances.</p>
     </div>
     <div class="grid grid-3">
       <div class="card">
         <h3>CY 2025 Annual General Appropriations</h3>
         <p class="figure">&#8369;193,088,074</p>
-        <span class="verification-badge badge-official">Official</span>
+        <span class="verification-badge badge-official">Opisyal</span>
         <span class="source-label">Source: SB Res. No. 299, S-2024 &mdash; Approved Jan 6, 2025</span>
         <p>Declared operative in its entirety. Funds executive operations, local health services, public works, and statutory 20% development funds.</p>
       </div>
@@ -242,7 +274,7 @@
       <div class="card">
         <h3>CY 2026 Annual General Appropriations</h3>
         <p class="figure">&#8369;218,209,788</p>
-        <span class="verification-badge badge-official">Official</span>
+        <span class="verification-badge badge-official">Opisyal</span>
         <span class="source-label">Source: SP Res. No. 438-2026 &mdash; Approved Mar 30, 2026</span>
         <p>Supersedes the CY 2025 budget. Funds executive operations, local health services, public works, and statutory 20% development funds for CY 2026.</p>
       </div>
@@ -257,8 +289,8 @@
     </div>
 
     <div class="section-head mt-44">
-      <div class="section-eyebrow">Credit Financing</div>
-      <h2>Loans &amp; borrowing</h2>
+      <div class="section-eyebrow">Pagpopondo diad Utang</div>
+      <h2>Mga Utang tan Pangungutang</h2>
       <p>Mapandan utilizes credit financing through state banks for capital expansion projects, leveraging future budget cycles to fund infrastructure modernization.</p>
     </div>
 <div class="table-wrap">
@@ -364,16 +396,16 @@
 <section class="section section-alt" id="fiscal-structure">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Fiscal Structure</div>
-      <h2>Revenue sources & required spending</h2>
+      <div class="section-eyebrow">Istruktura na Pananalapi</div>
+      <h2>Saray pinanlapuan na kita tan saray kinakailangan a gastusin</h2>
       <p>Mapandan's fiscal architecture is shaped by national tax transfers and legally mandated fund allocations.</p>
     </div>
     <div class="grid grid-3">
       <div class="card">
-        <h3>NTA/IRA Dependency</h3>
+        <h3>Pagdepende ed NTA/IRA</h3>
         <p class="figure">82&ndash;87%</p>
         <p>Of total operating revenue comes from the National Tax Allocation (formerly IRA). Locally generated taxes cover only a small fraction of municipal operations.</p>
-        <span class="verification-badge badge-official">Verified</span>
+        <span class="verification-badge badge-official">Na-verify</span>
         <span class="source-label">Source: BLGF / COA AAR</span>
       </div>
 
@@ -399,7 +431,7 @@
       </div>
 
       <div class="card">
-        <h3>Personnel Services Cap</h3>
+        <h3>Limitasyon na Personnel Services</h3>
         <p>Section 325(a) of R.A. 7160 limits total personnel spending to 45% or 55% of total annual regular income depending on LGU classification. Mapandan has reduced PS from 51% of operating income (CY 2013) to under 42% (CY 2015), ensuring compliance.</p>
         <span class="verification-badge badge-official">Statutory</span>
       </div>
@@ -409,7 +441,7 @@
 <section class="section section-alt" id="fiscal-snapshot">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Multi-year fiscal comparison</div>
+      <div class="section-eyebrow">Paghahambing na pananalapi ed maraming taon</div>
       <h2>Fiscal snapshot (CY 2020&ndash;2025)</h2>
       <p>Annual revenue and expenditure totals from BLGF data. Mapandan recorded operating surpluses from CY 2014 through CY 2022, with deficits recurring in CY 2023 and CY 2024 due to increased operating expenditures. Note: BLGF figures include non-operating expenditures such as capital outlays and debt service, which explains the larger deficits shown here compared to the COA AAR operating results in the Financial Performance section above.</p>
     </div>
@@ -470,7 +502,7 @@
 <section class="section" id="budget-trend">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Budget Trend</div>
+      <div class="section-eyebrow">Takbo na Badyet</div>
       <h2>Multi-year appropriations (CY 2020&ndash;2026)</h2>
       <p>Mapandan's enacted budget grew 78.27% from CY 2020 to CY 2026, driven by the Mandanas-Garcia ruling expanding the National Tax Allocation base and post-pandemic recovery initiatives.</p>
     </div>
@@ -556,7 +588,7 @@
           <tr><td>CY 2026</td><td>218.21</td></tr>
         </tbody>
       </table>
-      <button class="report-btn" data-download="budget">Download CSV</button>
+      <button class="report-btn" data-download="budget">I-download so CSV</button>
     </div>
   </div>
 </section>
@@ -564,13 +596,13 @@
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">Balance Sheet</div>
-      <h2>Assets & liabilities</h2>
+      <h2>Assets tan Liabilities</h2>
       <p>The municipality holds a net asset position, providing leverage for local infrastructure investment. Click to view the source.</p>
     </div>
     <div class="grid grid-3">
       <div class="card">
         <div class="clickable-row" data-href="https://www.coa.gov.ph/reports/annual-audit-reports/aar-local-government-units/#167-8225-pangasinan-municipalities-region-i-ilocos-region-2024-aar-lgu">
-        <h3>Total Assets</h3>
+        <h3>Kabuuan a Assets</h3>
         <p class="figure figure--balance">&#8369;555.4M</p>
         <p class="note-inline">About &#8369;14,528 per resident (38,228 people)</p>
         <span class="verification-badge badge-verified">Verified</span>
@@ -580,7 +612,7 @@
 
       <div class="card">
         <div class="clickable-row" data-href="https://www.coa.gov.ph/reports/annual-audit-reports/aar-local-government-units/#167-8225-pangasinan-municipalities-region-i-ilocos-region-2024-aar-lgu">
-        <h3>Total Liabilities</h3>
+        <h3>Kabuuan a Liabilities</h3>
         <p class="figure figure--balance figure--negative">&#8369;110.7M</p>
         <p class="note-inline">About &#8369;2,895 per resident (38,228 people)</p>
         <span class="verification-badge badge-verified">Verified</span>
@@ -603,29 +635,29 @@
 <section class="section section-alt" id="financial-performance">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Financial Performance</div>
-      <h2>12-Year Financial Trend (2013&ndash;2024)</h2>
-      <p>Longitudinal financial data extracted from COA Annual Audit Reports, showing asset growth, revenue composition, and fiscal balance across 12 fiscal years.</p>
+      <div class="section-eyebrow">Pagganap na Pananalapi</div>
+      <h2>12-Taon a Financial Trend (2013–2024)</h2>
+      <p>Longitudinal financial data ya na-extract ed COA Annual Audit Reports, ya mangipanengneng ed paglago na assets, revenue composition, tan fiscal balance diad 12 fiscal year.</p>
     </div>
     <div class="grid grid-3">
       <div class="card">
-        <h3>Total Assets Growth</h3>
+        <h3>Paglago na Kabuuan a Assets</h3>
         <canvas id="chart-total-assets" height="200" role="img" aria-label="Total assets growth from 101 million in 2013 to 555 million in 2024"></canvas>
       </div>
 
       <div class="card">
-        <h3>Income vs Expenses</h3>
+        <h3>Kita laban ed Gastusin</h3>
         <canvas id="chart-income-expenses" height="200" role="img" aria-label="Income vs expenses comparison from 2014 to 2024"></canvas>
       </div>
 
       <div class="card">
-        <h3>Revenue Composition (IRA vs Local)</h3>
+        <h3>Komposisyon na Kita (IRA laban ed Lokal)</h3>
         <canvas id="chart-revenue-composition" height="200" role="img" aria-label="Revenue composition showing IRA dependency versus locally sourced income"></canvas>
         <p class="source-label">Note: CY 2014 figures are precise from COA AAR. CY 2015&ndash;2020 IRA/local income breakdowns are estimates based on available data. CY 2021&ndash;2024 figures are estimates derived from COA AAR revenue totals and BLGF cross-reference. Source: COA Annual Audit Reports / BLGF Fiscal Data.</p>
       </div>
     </div>
     <div class="card mt-24">
-      <h3>Detailed Financial Data</h3>
+      <h3>Detalyadong Datos na Pananalapi</h3>
       <div class="table-wrap">
 <table aria-label="Financial Performance" id="finperf-table">
         <thead>
@@ -652,7 +684,7 @@
         </tbody>
       </table>
       </div>
-      <button class="report-btn" data-download="financial-performance">Download CSV</button>
+      <button class="report-btn" data-download="financial-performance">I-download so CSV</button>
     </div>
     <p class="source-label">Source: COA Annual Audit Reports 2014&ndash;2024. Figures are from the audited financial statements. Surplus/(deficit) reflects operating performance; it excludes non-operating expenditures such as capital outlays and debt service.</p>
   </div>
@@ -662,9 +694,9 @@
 <div class="section-head">
 <div class="section-eyebrow">Full Disclosure</div>
 <h2>DILG Disclosure Filings</h2>
-<p>Quarterly financial disclosures the Municipality of Mapandan posts to the DILG Full Disclosure Policy Portal: receipts and expenditures, special funds, bids awarded, cash advances, and staffing.</p>
+<p>Quarterly financial disclosures ya ipopost na Municipality of Mapandan ed DILG Full Disclosure Policy Portal: receipts tan expenditures, special funds, bids awarded, cash advances, tan staffing.</p>
 </div>
-<h3>Latest filing: Q2 2026</h3>
+<h3 id="fdp-latest">Pinakabalo a filing: Q2 2026</h3>
 <div class="fdp-latest">
 <div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;115,479,786.02</p><p class="note-inline">Total receipts, General Fund (Q2 2026)</p></div>
@@ -820,7 +852,7 @@
 <tr><td>Support to Farmers – Fertilizer Assistance</td><td>&#8369;500,000</td><td>ST. RUIZ AGRO FARM SUPPLY &amp; GEN. MERCHANDISE</td><td>&#8369;499,968</td></tr>
 <tr><td>Procurement of Medicines for 2nd Quarter of 2026</td><td>&#8369;719,340</td><td>GEEMED ENTERPRISES</td><td>&#8369;714,000</td></tr>
 <tr><td>Installation of CCTV IP Camera for Disaster Impacts and Risks Monitoring</td><td>&#8369;1,000,000</td><td>Alphin Trading and Construction</td><td>&#8369;997,000.06</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Cash Flows (Q2 2026)</h3>
 <div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;8,160,780.01</p><p class="note-inline">Net operating cash</p></div>
@@ -829,11 +861,11 @@
 <div class="card"><p class="figure text-lg">&#8369;63,525,772.21</p><p class="note-inline">Cash at end of period</p></div>
 </div>
 </div>
-<h3>Browse older filings</h3>
+<h3 id="fdp-archive">Nengnengen iray daan a filing</h3>
 <div class="grid grid-3">
-<div class='card fdp-archive-card'><div class='section-eyebrow'>2026</div><p class='note-inline'>1 quarter(s)</p>
+<div class='card fdp-archive-card' id='fdp-archive-2026' data-nav-label='2026'><div class='section-eyebrow'>2026</div><p class='note-inline'>1 quarter(s)</p>
 <div class='quarter-row'><strong>Q1 2026</strong><span>Receipts &#8369;62,185,422.94 · SEF &#8369;2,175,947.93 · LDRRMF &#8369;17,312,140.98</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2026-q1">View full tables: Q1 2026</button><dialog class="fdp-dialog" id="fdp-dialog-2026-q1" aria-label="Q1 2026"><div class="fdp-dialog-head"><strong>Q1 2026</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2026-q1">Nengnengen so amin a table: Q1 2026</button><dialog class="fdp-dialog" id="fdp-dialog-2026-q1" aria-label="Q1 2026"><div class="fdp-dialog-head"><strong>Q1 2026</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;62,185,422.94</p><p class="note-inline">Total receipts, General Fund (Q1 2026)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;2,175,947.93</p><p class="note-inline">SEF balance (Q1 2026)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;17,312,140.98</p><p class="note-inline">LDRRMF unutilized (Q1 2026)</p></div>
@@ -982,7 +1014,7 @@
 <tbody>
 <tr><td>Procurement of Medicines for 1st Quarter of 2026</td><td>&#8369;712,820</td><td>U-BET TRADING</td><td>&#8369;711,864.45</td></tr>
 <tr><td>Procurement of Various Shirts, Jersey, Uniforms for Sports &amp; Government Affairs</td><td>&#8369;1,471,500</td><td>U-BET TRADING</td><td>&#8369;1,470,043</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q1 2026)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Debtor</th><th scope='col'>Balance</th><th scope='col'>Granted</th><th scope='col'>Purpose</th></tr></thead>
@@ -1007,9 +1039,9 @@
 <div class="card"><p class="figure text-lg">&#8369;61,115,396.55</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 </div>
-<div class='card fdp-archive-card'><div class='section-eyebrow'>2025</div><p class='note-inline'>4 quarter(s)</p>
+<div class='card fdp-archive-card' id='fdp-archive-2025' data-nav-label='2025'><div class='section-eyebrow'>2025</div><p class='note-inline'>4 quarter(s)</p>
 <div class='quarter-row'><strong>Q4 2025</strong><span>Receipts &mdash; · SEF &#8369;609,724.22 · LDRRMF &#8369;6,952,736.15</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q4">View full tables: Q4 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q4" aria-label="Q4 2025"><div class="fdp-dialog-head"><strong>Q4 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q4">Nengnengen so amin a table: Q4 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q4" aria-label="Q4 2025"><div class="fdp-dialog-head"><strong>Q4 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;609,724.22</p><p class="note-inline">SEF balance (Q4 2025)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;6,952,736.15</p><p class="note-inline">LDRRMF unutilized (Q4 2025)</p></div>
 <div class="card"><p class="figure text-lg">12</p><p class="note-inline">Bids awarded (Q4 2025)</p></div>
@@ -1097,9 +1129,9 @@
 <tr><td>Support to Farmers – Palay Seeds Assistance</td><td>&#8369;900,000</td><td>OWNER, ST. RUIZ AGRO FARM SUPPLY &amp; GEN. MERCHANDISE</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Various Materials and Christmas Decorations for Public Plaza and Municipal Hall</td><td>&#8369;1,000,000</td><td>U-BET TRADING</td><td>&mdash;</td></tr>
 <tr><td>Procurement of 1(One) Delivery Vehicle for the Municipal Agriculture Office</td><td>&#8369;2,000,000</td><td>AUTOKID SUBIC TRADING CORPORATION</td><td>&mdash;</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q4 2025)</h3>
-<p class='note-inline'>Nil filing — nothing to report for this period.</p>
+<p class='note-inline'>Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Trust Fund Programs (Q4 2025)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Program</th><th scope='col'>Location</th><th scope='col'>Cost</th><th scope='col'>Completion</th></tr></thead>
@@ -1114,7 +1146,7 @@
 <div class="card"><p class="figure text-lg">&#8369;31,380,043.05</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q3 2025</strong><span>Receipts &mdash; · SEF &mdash; · LDRRMF &mdash;</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q3">View full tables: Q3 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q3" aria-label="Q3 2025"><div class="fdp-dialog-head"><strong>Q3 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q3">Nengnengen so amin a table: Q3 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q3" aria-label="Q3 2025"><div class="fdp-dialog-head"><strong>Q3 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">2</p><p class="note-inline">Development fund projects (Q3 2025)</p></div>
 </div>
 <h3 class='mt-24'>20% Development Fund Projects (Q3 2025)</h3>
@@ -1127,7 +1159,7 @@
 <tr><td><strong>Total</strong></td><td></td><td><strong>&#8369;34,458,787.24</strong></td><td><strong>76.2%</strong></td><td><strong>&#8369;26,251,581.07</strong></td></tr>
 </tbody></table></div></dialog>
 <div class='quarter-row'><strong>Q2 2025</strong><span>Receipts &mdash; · SEF &#8369;1,621,669.51 · LDRRMF &#8369;14,728,585.35</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q2">View full tables: Q2 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q2" aria-label="Q2 2025"><div class="fdp-dialog-head"><strong>Q2 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q2">Nengnengen so amin a table: Q2 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q2" aria-label="Q2 2025"><div class="fdp-dialog-head"><strong>Q2 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;1,621,669.51</p><p class="note-inline">SEF balance (Q2 2025)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;14,728,585.35</p><p class="note-inline">LDRRMF unutilized (Q2 2025)</p></div>
 <div class="card"><p class="figure text-lg">2</p><p class="note-inline">Bids awarded (Q2 2025)</p></div>
@@ -1397,13 +1429,13 @@
 <tr><td><strong>Total</strong></td><td></td><td><strong>&#8369;34,458,787.24</strong></td><td><strong>49.4%</strong></td><td><strong>&#8369;17,024,196.07</strong></td></tr>
 </tbody></table></div>
 <h3 class='mt-24'>Bids Awarded (Q2 2025)</h3>
-<p class='note-inline'>Civil Works: Nil filing — nothing to report for this period.</p><div class='mt-24'></div><input type="search" id="bids-search-2025-q2-1" placeholder="Search bids..." class="form-input mb-24">
+<p class='note-inline'>Civil Works: Nil filing—anggapo’y i-report para ed sayan period.</p><div class='mt-24'></div><input type="search" id="bids-search-2025-q2-1" placeholder="Search bids..." class="form-input mb-24">
 <div class="table-wrap"><table aria-label="" id="bids-table-2025-q2-1">
 <thead><tr><th scope='col' class='sortable' data-column='project'>Goods <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='abc'>ABC <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bidder'>Winning Bidder <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bid_amount'>Bid Amount <span class='sort-indicator'></span></th></tr></thead>
 <tbody>
 <tr><td>Procurement of Medicines for 3rd Quarter of 2025,</td><td>&#8369;629,255</td><td>LYNCAD ENTERPRISES</td><td>&mdash;</td></tr>
 <tr><td>Procurement and Installation of CCTV Cameras</td><td>&#8369;1,153,000</td><td>Alphin Trading and Construction</td><td>&mdash;</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q2 2025)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Debtor</th><th scope='col'>Balance</th><th scope='col'>Granted</th><th scope='col'>Purpose</th></tr></thead>
@@ -1424,7 +1456,7 @@
 <div class="card"><p class="figure text-lg">&#8369;49,800,780.95</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q1 2025</strong><span>Receipts &#8369;55,327,641.27 · SEF &#8369;2,170,799.14 · LDRRMF &#8369;15,260,794.55</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q1">View full tables: Q1 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q1" aria-label="Q1 2025"><div class="fdp-dialog-head"><strong>Q1 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2025-q1">Nengnengen so amin a table: Q1 2025</button><dialog class="fdp-dialog" id="fdp-dialog-2025-q1" aria-label="Q1 2025"><div class="fdp-dialog-head"><strong>Q1 2025</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;55,327,641.27</p><p class="note-inline">Total receipts, General Fund (Q1 2025)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;2,170,799.14</p><p class="note-inline">SEF balance (Q1 2025)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;15,260,794.55</p><p class="note-inline">LDRRMF unutilized (Q1 2025)</p></div>
@@ -1544,14 +1576,14 @@
 <tr><td><strong>Total</strong></td><td></td><td><strong>&#8369;34,458,787.24</strong></td><td><strong>30.8%</strong></td><td><strong>&#8369;10,606,635.33</strong></td></tr>
 </tbody></table></div>
 <h3 class='mt-24'>Bids Awarded (Q1 2025)</h3>
-<p class='note-inline'>Civil Works: Nil filing — nothing to report for this period.</p><div class='mt-24'></div><input type="search" id="bids-search-2025-q1-1" placeholder="Search bids..." class="form-input mb-24">
+<p class='note-inline'>Civil Works: Nil filing—anggapo’y i-report para ed sayan period.</p><div class='mt-24'></div><input type="search" id="bids-search-2025-q1-1" placeholder="Search bids..." class="form-input mb-24">
 <div class="table-wrap"><table aria-label="" id="bids-table-2025-q1-1">
 <thead><tr><th scope='col' class='sortable' data-column='project'>Goods <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='abc'>ABC <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bidder'>Winning Bidder <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bid_amount'>Bid Amount <span class='sort-indicator'></span></th></tr></thead>
 <tbody>
 <tr><td>Procurement of Support to Farmers-Fertilizer Assistance</td><td>&#8369;894,557.82</td><td>JJEA AGRIVENTURES CO</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Various Uniforms</td><td>&#8369;940,310</td><td>U-BET TRADING</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Medicines for 2nd Quarter of 2025</td><td>&#8369;612,300</td><td>GEEMED ENTERPRISES</td><td>&mdash;</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q1 2025)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Debtor</th><th scope='col'>Balance</th><th scope='col'>Granted</th><th scope='col'>Purpose</th></tr></thead>
@@ -1575,9 +1607,9 @@
 <div class="card"><p class="figure text-lg">&#8369;41,617,533.50</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 </div>
-<div class='card fdp-archive-card'><div class='section-eyebrow'>2024</div><p class='note-inline'>4 quarter(s)</p>
+<div class='card fdp-archive-card' id='fdp-archive-2024' data-nav-label='2024'><div class='section-eyebrow'>2024</div><p class='note-inline'>4 quarter(s)</p>
 <div class='quarter-row'><strong>Q4 2024</strong><span>Receipts &#8369;168,119,706.29 · SEF &#8369;295,286.98 · LDRRMF &#8369;6,284,528.85</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q4">View full tables: Q4 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q4" aria-label="Q4 2024"><div class="fdp-dialog-head"><strong>Q4 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q4">Nengnengen so amin a table: Q4 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q4" aria-label="Q4 2024"><div class="fdp-dialog-head"><strong>Q4 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;168,119,706.29</p><p class="note-inline">Total receipts, General Fund (Q4 2024)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;295,286.98</p><p class="note-inline">SEF balance (Q4 2024)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;6,284,528.85</p><p class="note-inline">LDRRMF unutilized (Q4 2024)</p></div>
@@ -1740,7 +1772,7 @@
 <tr><td>Procurement of RHU Chest Type Freezer for Vaccine/Medicine Storage</td><td>&#8369;400,000</td><td>UBET Trading</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Solar Lights to be Distributed to all Barangays,</td><td>&#8369;1,008,000</td><td>VILLAR GENERAL CONSTRUCTION &amp; SUPPLIES</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Medicines for 1st Quarter of 2025</td><td>&#8369;610,740</td><td>UBET Trading</td><td>&mdash;</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Trust Fund Programs (Q4 2024)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Program</th><th scope='col'>Location</th><th scope='col'>Cost</th><th scope='col'>Completion</th></tr></thead>
@@ -1755,7 +1787,7 @@
 <div class="card"><p class="figure text-lg">&#8369;37,026,321.79</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q3 2024</strong><span>Receipts &mdash; · SEF &#8369;1,448,629.56 · LDRRMF &#8369;7,016,506.85</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q3">View full tables: Q3 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q3" aria-label="Q3 2024"><div class="fdp-dialog-head"><strong>Q3 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q3">Nengnengen so amin a table: Q3 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q3" aria-label="Q3 2024"><div class="fdp-dialog-head"><strong>Q3 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;1,448,629.56</p><p class="note-inline">SEF balance (Q3 2024)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;7,016,506.85</p><p class="note-inline">LDRRMF unutilized (Q3 2024)</p></div>
 <div class="card"><p class="figure text-lg">8</p><p class="note-inline">Bids awarded (Q3 2024)</p></div>
@@ -1843,7 +1875,7 @@
 <tr><td>Procurement and Installation of Industrial Fan at Tulagan Multi-Purposed Gym</td><td>&#8369;300,000</td><td>Misch General Merchandise</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Motor Vehicle for Vice Mayor and Sanguniang Bayan</td><td>&#8369;1,670,000</td><td>North Quadrant Ventures and Resources, INC</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Medicine for the 4th Quarter of 2024</td><td>&#8369;462,200</td><td>GEEMED ENTERPRISES</td><td>&mdash;</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q3 2024)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Debtor</th><th scope='col'>Balance</th><th scope='col'>Granted</th><th scope='col'>Purpose</th></tr></thead>
@@ -1867,7 +1899,7 @@
 <div class="card"><p class="figure text-lg">&#8369;44,216,694.12</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q2 2024</strong><span>Receipts &#8369;86,230,739 · SEF &#8369;2,399,854.51 · LDRRMF &#8369;14,172,533.85</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q2">View full tables: Q2 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q2" aria-label="Q2 2024"><div class="fdp-dialog-head"><strong>Q2 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q2">Nengnengen so amin a table: Q2 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q2" aria-label="Q2 2024"><div class="fdp-dialog-head"><strong>Q2 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;86,230,739</p><p class="note-inline">Total receipts, General Fund (Q2 2024)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;2,399,854.51</p><p class="note-inline">SEF balance (Q2 2024)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;14,172,533.85</p><p class="note-inline">LDRRMF unutilized (Q2 2024)</p></div>
@@ -2023,7 +2055,7 @@
 <tr><td>Procurement of Two (2) units Mini Dump Truck ,</td><td>&#8369;3,514,635.85</td><td>BVC Automotive Spare Parts Trading</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Medicine for the Third Quarter of 2024</td><td>&#8369;670,450</td><td>-</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Motor Vehicle for Vice Mayor and Sangguniang Bayan Office</td><td>&#8369;1,400,000</td><td>-</td><td>&mdash;</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Trust Fund Programs (Q2 2024)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Program</th><th scope='col'>Location</th><th scope='col'>Cost</th><th scope='col'>Completion</th></tr></thead>
@@ -2038,7 +2070,7 @@
 <div class="card"><p class="figure text-lg">&#8369;49,017,091.34</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q1 2024</strong><span>Receipts &#8369;46,185,567.15 · SEF &#8369;2,011,582.69 · LDRRMF &#8369;14,611,016.85</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q1">View full tables: Q1 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q1" aria-label="Q1 2024"><div class="fdp-dialog-head"><strong>Q1 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2024-q1">Nengnengen so amin a table: Q1 2024</button><dialog class="fdp-dialog" id="fdp-dialog-2024-q1" aria-label="Q1 2024"><div class="fdp-dialog-head"><strong>Q1 2024</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;46,185,567.15</p><p class="note-inline">Total receipts, General Fund (Q1 2024)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;2,011,582.69</p><p class="note-inline">SEF balance (Q1 2024)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;14,611,016.85</p><p class="note-inline">LDRRMF unutilized (Q1 2024)</p></div>
@@ -2180,7 +2212,7 @@
 <tr><td>Procurement of Medicine for the First Quarter of 2024</td><td>&#8369;462,500</td><td>CEDEMED Pharma Distributor</td><td>&mdash;</td></tr>
 <tr><td>Procurement of Sports Uniforms for Various Teams from Different Barangays</td><td>&#8369;772,200</td><td>UBET Trading</td><td>&mdash;</td></tr>
 <tr><td>Procurement and Installation of Outdoor LED Board at Mapandan Auditorium,</td><td>&#8369;3,000,000</td><td>ZI-ON Consumer Goods Trading</td><td>&mdash;</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Trust Fund Programs (Q1 2024)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Program</th><th scope='col'>Location</th><th scope='col'>Cost</th><th scope='col'>Completion</th></tr></thead>
@@ -2196,9 +2228,9 @@
 <div class="card"><p class="figure text-lg">&#8369;52,335,105.93</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 </div>
-<div class='card fdp-archive-card'><div class='section-eyebrow'>2023</div><p class='note-inline'>4 quarter(s)</p>
+<div class='card fdp-archive-card' id='fdp-archive-2023' data-nav-label='2023'><div class='section-eyebrow'>2023</div><p class='note-inline'>4 quarter(s)</p>
 <div class='quarter-row'><strong>Q4 2023</strong><span>Receipts &#8369;155,277,148.32 · SEF &#8369;254,445.53 · LDRRMF &#8369;7,010,477.45</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q4">View full tables: Q4 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q4" aria-label="Q4 2023"><div class="fdp-dialog-head"><strong>Q4 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q4">Nengnengen so amin a table: Q4 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q4" aria-label="Q4 2023"><div class="fdp-dialog-head"><strong>Q4 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;155,277,148.32</p><p class="note-inline">Total receipts, General Fund (Q4 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;254,445.53</p><p class="note-inline">SEF balance (Q4 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;7,010,477.45</p><p class="note-inline">LDRRMF unutilized (Q4 2023)</p></div>
@@ -2349,9 +2381,9 @@
 <tbody>
 <tr><td>Support to Farmers- Fertilizer Assistance</td><td>&#8369;500,000</td><td>Misch General Merchandise</td><td>&#8369;494,568.76</td></tr>
 <tr><td>Procurement of Generator Equipment for Rural Health Office</td><td>&#8369;700,000</td><td>UBET Trading</td><td>&#8369;999,635</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q4 2023)</h3>
-<p class='note-inline'>Nil filing — nothing to report for this period.</p>
+<p class='note-inline'>Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Trust Fund Programs (Q4 2023)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Program</th><th scope='col'>Location</th><th scope='col'>Cost</th><th scope='col'>Completion</th></tr></thead>
@@ -2366,7 +2398,7 @@
 <div class="card"><p class="figure text-lg">&#8369;40,762,404.06</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q3 2023</strong><span>Receipts &#8369;116,339,481.77 · SEF &#8369;1,278,497.66 · LDRRMF &#8369;10,299,552.26</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q3">View full tables: Q3 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q3" aria-label="Q3 2023"><div class="fdp-dialog-head"><strong>Q3 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q3">Nengnengen so amin a table: Q3 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q3" aria-label="Q3 2023"><div class="fdp-dialog-head"><strong>Q3 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;116,339,481.77</p><p class="note-inline">Total receipts, General Fund (Q3 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;1,278,497.66</p><p class="note-inline">SEF balance (Q3 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;10,299,552.26</p><p class="note-inline">LDRRMF unutilized (Q3 2023)</p></div>
@@ -2520,7 +2552,7 @@
 <tr><td>Support to Farmers- Palay Seed Assistance,</td><td>&#8369;1,000,000</td><td>St. Ruiz Agro F/S &amp; General Merchandize</td><td>&#8369;999,635</td></tr>
 <tr><td>Support to Farmers- Hybrid Yellow Assistance,</td><td>&#8369;2,100,000</td><td>St. Ruiz Agro F/S &amp; General Merchandize</td><td>&#8369;2,099,464</td></tr>
 <tr><td>Fertilizer Assistance for Local Tobacco Farmers</td><td>&#8369;240,000</td><td>Misch General Merchandise</td><td>&#8369;237,000</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q3 2023)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Debtor</th><th scope='col'>Balance</th><th scope='col'>Granted</th><th scope='col'>Purpose</th></tr></thead>
@@ -2547,7 +2579,7 @@
 <div class="card"><p class="figure text-lg">&#8369;46,239,674.54</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q2 2023</strong><span>Receipts &#8369;78,268,724.58 · SEF &#8369;3,143,791.09 · LDRRMF &#8369;10,985,055.26</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q2">View full tables: Q2 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q2" aria-label="Q2 2023"><div class="fdp-dialog-head"><strong>Q2 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q2">Nengnengen so amin a table: Q2 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q2" aria-label="Q2 2023"><div class="fdp-dialog-head"><strong>Q2 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;78,268,724.58</p><p class="note-inline">Total receipts, General Fund (Q2 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;3,143,791.09</p><p class="note-inline">SEF balance (Q2 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;10,985,055.26</p><p class="note-inline">LDRRMF unutilized (Q2 2023)</p></div>
@@ -2689,7 +2721,7 @@
 <thead><tr><th scope='col' class='sortable' data-column='project'>Goods <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='abc'>ABC <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bidder'>Winning Bidder <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bid_amount'>Bid Amount <span class='sort-indicator'></span></th></tr></thead>
 <tbody>
 <tr><td>Procurement of Medicine for the 2nd and 3rd Quarter of 2023</td><td>&#8369;1,000,000</td><td>UBET Trading</td><td>&#8369;998,999.70</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q2 2023)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Debtor</th><th scope='col'>Balance</th><th scope='col'>Granted</th><th scope='col'>Purpose</th></tr></thead>
@@ -2715,7 +2747,7 @@
 <div class="card"><p class="figure text-lg">&#8369;42,478,572.03</p><p class="note-inline">Cash at end of period</p></div>
 </div></dialog>
 <div class='quarter-row'><strong>Q1 2023</strong><span>Receipts &#8369;41,623,314.36 · SEF &#8369;2,279,254.30 · LDRRMF &#8369;11,780,117.37</span></div>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q1">View full tables: Q1 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q1" aria-label="Q1 2023"><div class="fdp-dialog-head"><strong>Q1 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="grid grid-4 stack-gap-lg mt-24">
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-2023-q1">Nengnengen so amin a table: Q1 2023</button><dialog class="fdp-dialog" id="fdp-dialog-2023-q1" aria-label="Q1 2023"><div class="fdp-dialog-head"><strong>Q1 2023</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;41,623,314.36</p><p class="note-inline">Total receipts, General Fund (Q1 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;2,279,254.30</p><p class="note-inline">SEF balance (Q1 2023)</p></div>
 <div class="card"><p class="figure text-lg">&#8369;11,780,117.37</p><p class="note-inline">LDRRMF unutilized (Q1 2023)</p></div>
@@ -2844,12 +2876,12 @@
 <tr><td>Improvement of Mapandan Public Market</td><td>Poblacion, Mapandan</td><td>&#8369;1,000,000</td><td>&mdash;</td><td>&mdash;</td></tr>
 </tbody></table></div>
 <h3 class='mt-24'>Bids Awarded (Q1 2023)</h3>
-<p class='note-inline'>Civil Works: Nil filing — nothing to report for this period.</p><div class='mt-24'></div><input type="search" id="bids-search-2023-q1-1" placeholder="Search bids..." class="form-input mb-24">
+<p class='note-inline'>Civil Works: Nil filing—anggapo’y i-report para ed sayan period.</p><div class='mt-24'></div><input type="search" id="bids-search-2023-q1-1" placeholder="Search bids..." class="form-input mb-24">
 <div class="table-wrap"><table aria-label="" id="bids-table-2023-q1-1">
 <thead><tr><th scope='col' class='sortable' data-column='project'>Goods <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='abc'>ABC <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bidder'>Winning Bidder <span class='sort-indicator'></span></th><th scope='col' class='sortable' data-column='bid_amount'>Bid Amount <span class='sort-indicator'></span></th></tr></thead>
 <tbody>
 <tr><td>Procurement of Motor Vehicle for Agriculture Office</td><td>&#8369;1,200,000</td><td>TOYOTA DAGUPAN CITY INC.</td><td>&#8369;1,109,760</td></tr>
-</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing — nothing to report for this period.</p>
+</tbody></table></div><div class='mt-24'></div><p class='note-inline'>Consulting: Nil filing—anggapo’y i-report para ed sayan period.</p>
 <h3 class='mt-24'>Unliquidated Cash Advances (Q1 2023)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Debtor</th><th scope='col'>Balance</th><th scope='col'>Granted</th><th scope='col'>Purpose</th></tr></thead>
@@ -2872,13 +2904,13 @@
 </div></dialog>
 </div>
 </div>
-<h3>Themed collections</h3>
+<h3 id="fdp-collections">Saray Koleksyon base ed Tema</h3>
 <div class="grid grid-3">
-<div class='card fdp-archive-card'>
+<div class='card fdp-archive-card' id='fdp-collection-budget' data-nav-label='Annual Budget by Office'>
 <h3>Annual Budget by Office</h3>
 <p class='note-inline'>22 filing(s) · 137 office rows</p>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-budget">View full tables</button>
-<dialog class="fdp-dialog" id="fdp-dialog-budget" aria-label="Annual Budget by Office"><div class="fdp-dialog-head"><strong>Annual Budget by Office</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><h3>Annual Budget by Office (2026)</h3>
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-budget">Nengnengen so amin a table</button>
+<dialog class="fdp-dialog" id="fdp-dialog-budget" aria-label="Annual Budget by Office"><div class="fdp-dialog-head"><strong>Annual Budget by Office</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><h3>Annual Budget by Office (2026)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Office</th><th scope='col'>Personnel</th><th scope='col'>MOOE</th><th scope='col'>Capital Outlay</th><th scope='col'>Proposed Total</th></tr></thead>
 <tbody>
@@ -3126,11 +3158,11 @@
 <tr><td>OFFICE OF THE VICE MAYOR - 1016</td><td>&#8369;3,780,166.90</td><td>&#8369;2,132,900</td><td>&#8369;300,000</td><td>&#8369;6,213,066.90</td></tr>
 </tbody></table></div></dialog>
 </div>
-<div class='card fdp-archive-card'>
+<div class='card fdp-archive-card' id='fdp-collection-debt' data-nav-label='Indebtedness'>
 <h3>Indebtedness</h3>
 <p class='note-inline'>18 loan facilities (latest statements)</p>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-debt">View full tables</button>
-<dialog class="fdp-dialog" id="fdp-dialog-debt" aria-label="Indebtedness"><div class="fdp-dialog-head"><strong>Indebtedness</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><div class="table-wrap"><table>
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-debt">Nengnengen so amin a table</button>
+<dialog class="fdp-dialog" id="fdp-dialog-debt" aria-label="Indebtedness"><div class="fdp-dialog-head"><strong>Indebtedness</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><div class="table-wrap"><table>
 <thead><tr><th scope='col'>Loan</th><th scope='col'>Purpose</th><th scope='col'>Approved</th><th scope='col'>Reported</th></tr></thead>
 <tbody>
 <tr><td>10</td><td>To finance the improvement/extension of public market at Brgy. Poblacion under the RISE UP LGU Lending Program</td><td>Php 15,594,785.61</td><td>Year 2023 ending December 31, 2023</td></tr>
@@ -3153,11 +3185,11 @@
 <tr><td>Term loan 9</td><td>For the acquisition of heavy equipments and Materials Recovery Facility Machines</td><td>Php 13,500,000.00</td><td>Year 2024 ending March 31, 2024</td></tr>
 </tbody></table></div></dialog>
 </div>
-<div class='card fdp-archive-card'>
+<div class='card fdp-archive-card' id='fdp-collection-workforce' data-nav-label='Workforce history'>
 <h3>Workforce history</h3>
 <p class='note-inline'>12 snapshots</p>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-workforce">View full tables</button>
-<dialog class="fdp-dialog" id="fdp-dialog-workforce" aria-label="Workforce history"><div class="fdp-dialog-head"><strong>Workforce history</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><h3>Manpower Complement (Q1 2023)</h3>
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-workforce">Nengnengen so amin a table</button>
+<dialog class="fdp-dialog" id="fdp-dialog-workforce" aria-label="Workforce history"><div class="fdp-dialog-head"><strong>Workforce history</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><h3>Manpower Complement (Q1 2023)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Appointment</th><th scope='col'>Count</th><th scope='col'>Salaries</th></tr></thead>
 <tbody>
@@ -3278,11 +3310,11 @@
 <tr><td><strong>Total</strong></td><td><strong>254.0</strong></td><td><strong>&#8369;14,373,669.27</strong></td></tr>
 </tbody></table></div></dialog>
 </div>
-<div class='card fdp-archive-card'>
+<div class='card fdp-archive-card' id='fdp-collection-proc-plans' data-nav-label='Procurement Plans'>
 <h3>Procurement Plans</h3>
 <p class='note-inline'>53 tables (supplemental + annual plans)</p>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-proc-plans">View full tables</button>
-<dialog class="fdp-dialog" id="fdp-dialog-proc-plans" aria-label="Procurement Plans"><div class="fdp-dialog-head"><strong>Procurement Plans</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><h3>Supplemental Procurement (2024)</h3>
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-proc-plans">Nengnengen so amin a table</button>
+<dialog class="fdp-dialog" id="fdp-dialog-proc-plans" aria-label="Procurement Plans"><div class="fdp-dialog-head"><strong>Procurement Plans</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><h3>Supplemental Procurement (2024)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Accounting</th><th scope='col'>End User</th><th scope='col'>Mode</th><th scope='col'>Amount</th></tr></thead>
 <tbody>
@@ -3576,7 +3608,7 @@
 <tr><td>GARY C. AGAS</td><td></td><td></td><td>&mdash;</td></tr>
 <tr><td>SB Secretary</td><td></td><td></td><td>&mdash;</td></tr>
 </tbody></table></div>
-<h3>Supplemental Procurement Summary (Undated snapshot)</h3>
+<h3>Supplemental Procurement Summary (Snapshot ya anggapo’y petsa)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Office</th><th scope='col'>Head</th><th scope='col'>Total Cost</th></tr></thead>
 <tbody>
@@ -4843,11 +4875,11 @@
 <tr><td>Head, BAC Secretariat</td><td></td><td>&mdash;</td></tr>
 </tbody></table></div></dialog>
 </div>
-<div class='card fdp-archive-card'>
+<div class='card fdp-archive-card' id='fdp-collection-gad' data-nav-label='Gender and Development'>
 <h3>Gender and Development</h3>
 <p class='note-inline'>3 report(s)</p>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-gad">View full tables</button>
-<dialog class="fdp-dialog" id="fdp-dialog-gad" aria-label="Gender and Development"><div class="fdp-dialog-head"><strong>Gender and Development</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><h3>Gender and Development Report (2022)</h3>
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-gad">Nengnengen so amin a table</button>
+<dialog class="fdp-dialog" id="fdp-dialog-gad" aria-label="Gender and Development"><div class="fdp-dialog-head"><strong>Gender and Development</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><h3>Gender and Development Report (2022)</h3>
 <div class="grid grid-4 stack-gap-lg mt-24">
 <div class="card"><p class="figure text-lg">&#8369;124,141,542</p><p class="note-inline">Total LGU budget</p></div>
 <div class="card"><p class="figure text-lg">&mdash;</p><p class="note-inline">GAD budget</p></div>
@@ -4935,11 +4967,11 @@
 <tr><td>2. Lack of capacities of MDRRMO, MDRRMC and Volunteers on Disaster Preparedness and Response, Search, Rescue and Retrieval Operation; Capability Building and Training for Family and Community Preparedness; Incident Management Trainimg; Nutrition in Emergency Training, Psychosocial Training and other related trainings</td><td>Capability Development Program</td><td>60 personnel attended training</td><td>&#8369;500,000</td></tr>
 </tbody></table></div></dialog>
 </div>
-<div class='card fdp-archive-card'>
+<div class='card fdp-archive-card' id='fdp-collection-funds' data-nav-label='Fund Matrices &amp; Special Appropriations'>
 <h3>Fund Matrices & Special Appropriations</h3>
 <p class='note-inline'>General Fund, Economic Enterprise, development, non-office & calamity funds</p>
-<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-funds">View full tables</button>
-<dialog class="fdp-dialog" id="fdp-dialog-funds" aria-label="Fund Matrices & Special Appropriations"><div class="fdp-dialog-head"><strong>Fund Matrices & Special Appropriations</strong><button type="button" class="btn btn-outline btn-sm" data-close>Close</button></div><h3>3A.2 OPERATION OF ECONOMIC ENTERPRISE (2024)</h3>
+<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="fdp-dialog-funds">Nengnengen so amin a table</button>
+<dialog class="fdp-dialog" id="fdp-dialog-funds" aria-label="Fund Matrices & Special Appropriations"><div class="fdp-dialog-head"><strong>Fund Matrices & Special Appropriations</strong><button type="button" class="btn btn-outline btn-sm" data-close>Isara</button></div><h3>3A.2 OPERATION OF ECONOMIC ENTERPRISE (2024)</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope='col'>Office</th><th scope='col'>Personnel</th><th scope='col'>MOOE</th><th scope='col'>Capital</th><th scope='col'>Non-Office</th><th scope='col'>Total</th></tr></thead>
 <tbody>
@@ -5079,8 +5111,11 @@
 </tbody></table></div></dialog>
 </div>
 </div>
-<p class='source-label'>Source: DILG Full Disclosure Policy Portal &mdash; retrieved 2026-09-18.</p>
+<p class='source-label'>Pinanlapuan: DILG Full Disclosure Policy Portal &mdash; retrieved 2026-09-18.</p>
 </div></section>
+
+</div>
+</div>
 
 <script defer src="../..//assets/js/transparency-charts.min.js"></script>
 <script defer src="../..//assets/js/fdp-dashboard.min.js"></script>
@@ -5094,26 +5129,26 @@
           <img src="../..//assets/logo.svg" alt="Better Mapandan seal" width="160" height="40" />
           <div>
             <div class="name">Better Mapandan</div>
-            <p>An independent civic transparency portal for Mapandan, Pangasinan, built and maintained by volunteers under the BetterGov.ph initiative &mdash; not an official government website.</p>
+            <p>Sakey a independent civic transparency portal para ed Mapandan, Pangasinan, ya binangon tan mantine na volunteers ed silong na BetterGov.ph initiative—aliwa iya opisyal a government website.</p>
           </div>
         </div>
       </div>
       <div>
-        <p class="footer-heading">Quick Links</p>
+        <p class="footer-heading">Mabilis a Link</p>
         <ul>
-          <li><a href="/">Balay</a></li>
-          <li><a href="/services/">Mga Serbisyo</a></li>
-          <li><a href="/government/">Gobyierno</a></li>
-          <li><a href="/legislative/">Legislative</a></li>
+          <li><a href="/">Abong</a></li>
+          <li><a href="/services/">Saray Serbisyo</a></li>
+          <li><a href="/government/">Gobierno</a></li>
+          <li><a href="/legislative/">Lehislatibo</a></li>
           <li><a href="/statistics/">Estadistika</a></li>
-          <li><a href="/transparency/">Transparency</a></li>
+          <li><a href="/transparency/">Transparensiya</a></li>
           <li><a href="/about/">Tungkol</a></li>
-          <li><a href="/support/sitemap/">Sitemap</a></li>
+          <li><a href="/support/sitemap/">Mapa na site</a></li>
           <li><a href="/support/faq/">FAQ</a></li>
         </ul>
       </div>
       <div>
-        <p class="footer-heading">Resources</p>
+        <p class="footer-heading">Saray Mapagkukunan</p>
         <ul>
           <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
           <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
@@ -5126,24 +5161,24 @@
         </ul>
       </div>
       <div>
-        <p class="footer-heading">Project</p>
+        <p class="footer-heading">Proyekto</p>
         <ul>
           <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
           <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>
-          <li><a href="/support/privacy/">Privacy Policy</a></li>
-          <li><a href="/support/terms/">Terms of Use</a></li>
-          <li><a href="/support/accessibility/">Accessibility</a></li>
-          <li><a href="/support/report/">Report Incorrect Info</a></li>
+          <li><a href="/support/privacy/">Patakaran na Privacy</a></li>
+          <li><a href="/support/terms/">Saray Tuntunin na Paggamit</a></li>
+          <li><a href="/support/accessibility/">Aksesibilidad</a></li>
+          <li><a href="/support/report/">I-ulat so Aliwan a Tama a Impormasyon</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 BetterMapandan.org. Community-run, independent of the LGU.</span>
+      <span>&copy; 2026 BetterMapandan.org. Pinapakewilian na komunidad, independent ed LGU.</span>
       <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
         <img src="../..//assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo" width="120" height="40">
-        <span>A BetterGov.ph Community Portal</span>
+        <span>Isang BetterGov.ph Community Portal</span>
       </a>
-      <span class="cost-chip">Cost to the People of Mapandan: <strong>&#8369;0</strong></span>
+      <span class="cost-chip">Gastos na saray too na Mapandan: <strong>&#8369;0</strong></span>
     </div>
   </div>
 </footer>
@@ -5177,6 +5212,7 @@
 <script defer src="../..//assets/js/procurement-table.min.js"></script>
 <script defer src="../..//assets/js/fdp-dashboard.min.js"></script>
 <script defer src="../..//assets/js/dashboard-tabs.min.js"></script>
+<script defer src="../..//assets/js/section-nav.min.js"></script>
 <script>window.FDP_SUMMARY = {"latest_period": "2026-Q2", "retrieved": "2026-09-18", "kpis": {"receipts": 115479786.02, "expenditures": 82700279.84, "sef_balance": 1320774.75, "ldrrmf_unutilized": 16105969.76, "cash_ending": 63525772.21, "projects": 19, "bids": 5}, "trend": [{"period": "2023-Q2", "receipts": 78268724.58, "expenditures": 53509734.18}, {"period": "2023-Q3", "receipts": 38070757.19, "expenditures": 25798588.59}, {"period": "2023-Q4", "receipts": 38937666.55, "expenditures": 31641113.01}, {"period": "2024-Q1", "receipts": 46185567.15, "expenditures": 23503719.5}, {"period": "2024-Q2", "receipts": 40045171.85, "expenditures": 30375034.99}, {"period": "2024-Q4", "receipts": 81888967.29, "expenditures": 80067957.99}, {"period": "2025-Q1", "receipts": 55327641.27, "expenditures": 21111136.19}, {"period": "2025-Q2", "receipts": 47488731.18, "expenditures": 15683677.21}, {"period": "2026-Q1", "receipts": 62185422.94, "expenditures": 37893184.4}, {"period": "2026-Q2", "receipts": 53294363.08, "expenditures": 44807095.44}], "revenue": {"total": 115479786.02, "detail": {"Real Property Tax": 1693722.04, "Tax on Business": 5131770.15, "Other Taxes": 814109.67, "Regulatory Fees (Permits and Licenses)": 3061976.82, "Service/User Charges (Service Income)": 2462856.35, "Receipts from Economic Enterprises (Business Income)": 4801070.44, "Other Receipts (Other General Income)": 4884.55}, "nta": 97509396.0, "other_external": 0, "local_total": 17970390.02, "nta_share": 84.4, "local_share": 15.6}, "expenditure": {"items": {"General Public Services": 52447540.75, "Education, Culture & Sports/Manpower Development": 0, "Health, Nutrition & Population Control": 9359486.02, "Labor and Employment": 0, "Housing and Community Development": 1632768.01, "Social Services and Social Welfare": 9349530.7, "Economic Services": 6612033.64, "Debt Service (FE) (Interest Expense & Other Charges)": 3298920.72}, "total": 82700279.84, "shares": {"General Public Services": 63.4, "Education, Culture & Sports/Manpower Development": 0.0, "Health, Nutrition & Population Control": 11.3, "Labor and Employment": 0.0, "Housing and Community Development": 2.0, "Social Services and Social Welfare": 11.3, "Economic Services": 8.0, "Debt Service (FE) (Interest Expense & Other Charges)": 4.0}}, "funds": {"sef": [{"period": "2023-Q1", "receipt": 2540989.42, "balance": 2279254.3, "rate": 10.3}, {"period": "2023-Q2", "receipt": 4097909.75, "balance": 3143791.09, "rate": 23.3}, {"period": "2023-Q3", "receipt": 4097909.75, "balance": 1278497.66, "rate": 68.8}, {"period": "2023-Q4", "receipt": 4097909.75, "balance": 254445.53, "rate": 93.8}, {"period": "2024-Q1", "receipt": 2500000.0, "balance": 2011582.69, "rate": 19.5}, {"period": "2024-Q2", "receipt": 3478736.9, "balance": 2399854.51, "rate": 31.0}, {"period": "2024-Q3", "receipt": 3478736.9, "balance": 1448629.56, "rate": 58.4}, {"period": "2024-Q4", "receipt": 3478736.9, "balance": 295286.98, "rate": 91.5}, {"period": "2025-Q1", "receipt": 2835000.0, "balance": 2170799.14, "rate": 23.4}, {"period": "2025-Q2", "receipt": 2835000.0, "balance": 1621669.51, "rate": 42.8}, {"period": "2025-Q4", "receipt": 4135009.63, "balance": 609724.22, "rate": 85.3}, {"period": "2026-Q1", "receipt": 3055400.0, "balance": 2175947.93, "rate": 28.8}, {"period": "2026-Q2", "receipt": 3055400.0, "balance": 1320774.75, "rate": 56.8}], "ldrrmf": [{"period": "2023-Q1", "available": 15341392.37, "utilized": 3561275.0, "unutilized": 11780117.37, "rate": 23.2}, {"period": "2023-Q2", "available": 15341392.37, "utilized": 4356337.11, "unutilized": 10985055.26, "rate": 28.4}, {"period": "2023-Q3", "available": 15341392.37, "utilized": 5041840.11, "unutilized": 10299552.26, "rate": 32.9}, {"period": "2023-Q4", "available": 15449629.18, "utilized": 8439151.73, "unutilized": 7010477.45, "rate": 54.6}, {"period": "2024-Q1", "available": 14723441.35, "utilized": 112424.5, "unutilized": 14611016.85, "rate": 0.8}, {"period": "2024-Q2", "available": 14723441.35, "utilized": 550907.5, "unutilized": 14172533.85, "rate": 3.7}, {"period": "2024-Q3", "available": 14723441.35, "utilized": 7706934.5, "unutilized": 7016506.85, "rate": 52.3}, {"period": "2024-Q4", "available": 15018756.65, "utilized": 8734227.8, "unutilized": 6284528.85, "rate": 58.2}, {"period": "2025-Q1", "available": 15558932.55, "utilized": 298138.0, "unutilized": 15260794.55, "rate": 1.9}, {"period": "2025-Q2", "available": 15558932.55, "utilized": 830347.2, "unutilized": 14728585.35, "rate": 5.3}, {"period": "2025-Q4", "available": 15773693.3665, "utilized": 8820957.22, "unutilized": 6952736.1465, "rate": 55.9}, {"period": "2026-Q1", "available": 17413225.54, "utilized": 101084.56, "unutilized": 17312140.98, "rate": 0.6}, {"period": "2026-Q2", "available": 17466035.54, "utilized": 1360065.78, "unutilized": 16105969.76, "rate": 7.8}]}, "cash": {"net_operating": 8160780.01, "net_investing": -1763710.0, "net_financing": -3986694.35, "net_increase": 2410375.66, "beginning": 61115396.55, "ending": 63525772.21}, "barangay": {"dist": {"poblacion": {"projects": 5, "investment": 9770000.0}, "municipal-wide": {"projects": 1, "investment": 22695379.08}, "torres": {"projects": 2, "investment": 1050000.0}, "amanoaoac": {"projects": 1, "investment": 500000.0}, "apaya": {"projects": 1, "investment": 500000.0}, "aserda": {"projects": 1, "investment": 500000.0}, "baloling": {"projects": 1, "investment": 500000.0}, "coral": {"projects": 1, "investment": 500000.0}, "golden": {"projects": 1, "investment": 500000.0}, "jimenez": {"projects": 1, "investment": 500000.0}, "luyan": {"projects": 1, "investment": 2500000.0}, "pias": {"projects": 1, "investment": 500000.0}, "primicias": {"projects": 1, "investment": 500000.0}, "sta-maria": {"projects": 1, "investment": 500000.0}}, "unmatched": []}, "bids": [{"period": "2023-Q1", "abc": 1200000.0, "awarded": 1109760.0, "savings": 90240.0, "rate": 7.52, "count": 1}, {"period": "2023-Q2", "abc": 3050000.0, "awarded": 3043188.5700000003, "savings": 6811.43, "rate": 0.22, "count": 3}, {"period": "2023-Q3", "abc": 14176183.31, "awarded": 14150110.4, "savings": 26072.91, "rate": 0.18, "count": 11}, {"period": "2023-Q4", "abc": 3200000.0, "awarded": 1991890.21, "savings": 1208109.79, "rate": 37.75, "count": 5}, {"period": "2024-Q1", "abc": 5934700.0, "awarded": 0.0, "savings": 5934700.0, "rate": 100.0, "count": 4}, {"period": "2024-Q2", "abc": 15411092.36, "awarded": 0.0, "savings": 15411092.36, "rate": 100.0, "count": 14}, {"period": "2024-Q3", "abc": 7202650.0, "awarded": 0.0, "savings": 7202650.0, "rate": 100.0, "count": 8}, {"period": "2024-Q4", "abc": 48218840.0, "awarded": 0.0, "savings": 48218840.0, "rate": 100.0, "count": 13}, {"period": "2025-Q1", "abc": 2447167.82, "awarded": 0.0, "savings": 2447167.82, "rate": 100.0, "count": 3}, {"period": "2025-Q2", "abc": 1782255.0, "awarded": 0.0, "savings": 1782255.0, "rate": 100.0, "count": 2}, {"period": "2025-Q4", "abc": 14416123.33, "awarded": 0.0, "savings": 14416123.33, "rate": 100.0, "count": 12}, {"period": "2026-Q1", "abc": 9684320.0, "awarded": 9673879.780000001, "savings": 10440.22, "rate": 0.11, "count": 4}, {"period": "2026-Q2", "abc": 5419340.0, "awarded": 5407258.9399999995, "savings": 12081.06, "rate": 0.22, "count": 5}]};</script>
 <script>window.TRANSPARENCY_CSV_DATA = {"budget": "Fiscal Year,Total Enacted Budget (PHP)\nCY 2020,122402454\nCY 2021,129281542\nCY 2022,173142760\nCY 2023,151540728\nCY 2024,160828663\nCY 2025,193088074\nCY 2026,218209788", "audit-opinions": "Year,Opinion\n2014,Unqualified\n2015,Qualified\n2016,Qualified\n2017,Qualified\n2018,Qualified\n2019,Qualified\n2020,Qualified\n2021,Qualified\n2022,Qualified\n2023,Unqualified\n2024,Qualified", "financial-performance": "Year,Income,Expenses,Surplus/Deficit,Source\n2014,71432036,61566073,9865963,COA AAR\n2015,81052292,67593459,13458833,COA AAR\n2016,88255537,78852072,9403465,COA AAR\n2017,99989387,95214375,4775012,COA AAR\n2018,106700000,97500000,9200000,COA AAR\n2019,116100000,106800000,9300000,COA AAR\n2020,128331255,131058342,-2727087,COA AAR\n2021,144503846,133834650,10669196,COA AAR\n2022,180618300,166571000,14047290,COA AAR\n2023,159409832,168264248,-8854416,COA AAR\n2024,173759470,183574901,-9815431,COA AAR", "implementation-rates": "Period,Implemented,Partial,Not Implemented,Rate\n2014 to 2015,6,0,1,86%\n2015 to 2016,6,1,1,75%\n2016 to 2017,6,4,4,43%\n2017 to 2018,7,4,5,44%\n2018 to 2019,9,7,4,45%\n2019 to 2020,18,0,6,75%\n2020 to 2021,10,0,11,48%\n2021 to 2022,12,0,16,43%\n2022 to 2023,11,0,20,35%\n2023 to 2024,14,0,23,38%"};</script>
 <script>window.AUDIT_DATA = {"opinions": [{"year": 2014, "opinion": "Unqualified", "color": "green", "note": "Clean opinion — no material misstatements"}, {"year": 2015, "opinion": "Qualified", "color": "gold", "note": "PPE account not reconciled (₱90.2M)"}, {"year": 2016, "opinion": "Qualified", "color": "gold", "note": "PPE not reconciled; Trust Fund projects not capitalized"}, {"year": 2017, "opinion": "Qualified", "color": "gold", "note": "PPE incomplete; breeding stocks ₱110K ghost account"}, {"year": 2018, "opinion": "Qualified", "color": "gold", "note": "PPE accounts still problematic"}, {"year": 2019, "opinion": "Qualified", "color": "gold", "note": "Road network misclassification; breeding stocks"}, {"year": 2020, "opinion": "Qualified", "color": "gold", "note": "Road network depreciation not provided; COVID-19 procurement issues"}, {"year": 2021, "opinion": "Qualified", "color": "gold", "note": "Misclassification of expenses; breeding stocks; land titling"}, {"year": 2022, "opinion": "Qualified", "color": "gold", "note": "Recurring issues plus MRF machineries unused"}, {"year": 2023, "opinion": "Unqualified", "color": "green", "note": "Clean opinion under new management"}, {"year": 2024, "opinion": "Qualified", "color": "gold", "note": "Procurement irregularities; GAD; consulting services"}, {"year": 2025, "opinion": "Non-Compliant", "color": "red", "note": "LDRRMF special compliance audit — ₱380K under-allocation"}], "financial_performance": [{"year": 2013, "total_assets": 101056441, "liabilities": 27843206, "gov_equity": 73213235, "income": 64849668, "expenses": 54145928, "surplus": 10703740, "source": "COA AAR (Audited)"}, {"year": 2014, "total_assets": 115037161, "liabilities": 33457198, "gov_equity": 81579963, "income": 71432016, "expenses": 61566073, "surplus": 9865943, "source": "COA AAR (Audited)"}, {"year": 2015, "total_assets": 130533027, "liabilities": 38964113, "gov_equity": 91568914, "income": 81052292, "expenses": 67593459, "surplus": 13458833, "source": "COA AAR (Audited)"}, {"year": 2016, "total_assets": 239662412, "liabilities": 51507434, "gov_equity": 188154978, "income": 88255537, "expenses": 78852072, "surplus": 9403465, "source": "COA AAR (Audited)"}, {"year": 2017, "total_assets": 243600350, "liabilities": 34316721, "gov_equity": 209283629, "income": 99989387, "expenses": 95214375, "surplus": 4775012, "source": "COA AAR (Audited)"}, {"year": 2018, "total_assets": 292900000, "liabilities": 60200000, "gov_equity": 232700000, "income": 106698612, "expenses": 97500000, "surplus": 9198612, "source": "COA AAR (Audited)"}, {"year": 2019, "total_assets": 298300000, "liabilities": 42800000, "gov_equity": 255400000, "income": 116102805, "expenses": 106800000, "surplus": 9302805, "source": "COA AAR (Audited)"}, {"year": 2020, "total_assets": 257100000, "liabilities": 39600000, "gov_equity": 217500000, "income": 128331255, "expenses": 131058342, "surplus": -2727087, "source": "COA AAR (Audited)"}, {"year": 2021, "total_assets": 289066906, "liabilities": 46888593, "gov_equity": 242178313, "income": 144503846, "expenses": 133834650, "surplus": 10669196, "source": "COA AAR (Audited)"}, {"year": 2022, "total_assets": 578523734, "liabilities": 134750376, "gov_equity": 443773358, "income": 180618300, "expenses": 166571000, "surplus": 14047300, "source": "COA AAR (Audited)"}, {"year": 2023, "total_assets": 563474053, "liabilities": 126865514, "gov_equity": 436608538, "income": 159409832, "expenses": 168264248, "surplus": -8854416, "source": "COA AAR (Audited)"}, {"year": 2024, "total_assets": 555420148, "liabilities": 110739187, "gov_equity": 444680961, "income": 173759470, "expenses": 183574901, "surplus": -9815431, "source": "COA AAR (Audited)"}], "revenue_composition": [{"year": 2014, "ira": 67478706, "local_income": 8085876, "other": 1867454, "source": "estimated"}, {"year": 2015, "ira": 73400000, "local_income": 8500000, "other": 1200000, "source": "estimated"}, {"year": 2016, "ira": 78500000, "local_income": 9200000, "other": 2614688, "source": "estimated"}, {"year": 2017, "ira": 86300000, "local_income": 9900000, "other": 1800000, "source": "estimated"}, {"year": 2018, "ira": 90800000, "local_income": 10400000, "other": 1500000, "source": "estimated"}, {"year": 2019, "ira": 103000000, "local_income": 9100000, "other": 2000000, "source": "estimated"}, {"year": 2020, "ira": 110900000, "local_income": 8400000, "other": 18300000, "source": "estimated"}, {"year": 2021, "ira": 118000000, "local_income": 14500000, "other": 9135154, "source": "estimated"}, {"year": 2022, "ira": 142000000, "local_income": 22500000, "other": 12728975, "source": "estimated"}, {"year": 2023, "ira": 128000000, "local_income": 18500000, "other": 8777148, "source": "estimated"}, {"year": 2024, "ira": 135000000, "local_income": 22000000, "other": 11119706, "source": "estimated"}], "key_findings": [{"id": "ppe-reconciliation", "title": "PPE Account Not Reconciled", "description": "Property, Plant & Equipment records not reconciled with subsidiary ledgers. No complete Report on Physical Count of PPE submitted annually. Incomplete ledger cards and property cards.", "first_cited": 2014, "last_cited": 2019, "amount": 90200000, "amount_note": "2015 peak; 2014 figure was ₱85,516,514", "status": "resolved", "category": "Asset Management", "severity": "high"}, {"id": "breeding-stocks", "title": "Breeding Stocks Ghost Account", "description": "₱110,000 in breeding stocks (11 cows) purchased before 2000 already dead and dispersed. Documents could not be located after Municipal Agriculturist passed away.", "first_cited": 2016, "last_cited": 2024, "amount": 110000, "status": "chronic", "category": "Asset Management", "severity": "medium"}, {"id": "dormant-receivables", "title": "Dormant Receivables", "description": "Outstanding receivables for 29+ years from livelihood projects, KKK recipients, and various programs. No subsidiary ledgers maintained.", "first_cited": 2016, "last_cited": 2024, "amount": 613635.81, "status": "chronic", "category": "Revenue Collection", "severity": "medium"}, {"id": "land-titling", "title": "Land Titling Gaps", "description": "Multiple parcels of land lacking Transfer Certificates of Title (TCTs), covered only by Tax Declarations contrary to GAAM requirements.", "first_cited": 2016, "last_cited": 2024, "amount": 25699460, "status": "partial", "category": "Asset Management", "severity": "high"}, {"id": "solid-waste", "title": "Solid Waste Management Non-Compliance", "description": "Non-compliance with RA 9003 — open dumpsite maintained, no sanitary landfill, MRF machineries unutilized for years.", "first_cited": 2015, "last_cited": 2024, "amount": 13500000, "status": "improving", "category": "Environmental Compliance", "severity": "high"}, {"id": "delinquent-rpt", "title": "Delinquent Real Property Taxes", "description": "Persistent delinquencies in real property tax collection. LGU never fully enforced levy, advertisement, and sale remedies under RA 7160.", "first_cited": 2016, "last_cited": 2024, "amount": 839214, "status": "chronic", "category": "Revenue Collection", "severity": "medium"}, {"id": "contract-docs", "title": "Incomplete Contract Documentation", "description": "Contracts submitted late beyond the 5-day prescribed period. Common missing documents: PhilGEPS certificates, construction safety programs, BAC resolutions.", "first_cited": 2015, "last_cited": 2024, "amount": 0, "status": "chronic", "category": "Procurement Compliance", "severity": "medium"}, {"id": "cash-advance-irregular", "title": "Irregular Cash Advances", "description": "Irregular cash advances to officials including ₱1.27M to Mayor Calimlim (2014) and delayed liquidations throughout the audit period.", "first_cited": 2014, "last_cited": 2019, "amount": 1270000, "status": "resolved", "category": "Financial Management", "severity": "high"}, {"id": "ldrrmf-underallocation", "title": "LDRRMF Under-Allocation", "description": "Required 5% LDRRMF based on regular income excluded ₱7.6M Economic Enterprise receipts, resulting in ₱380K under-allocation. QRF understated by ₱114K, Mitigation Fund by ₱266K.", "first_cited": 2025, "last_cited": 2025, "amount": 380000, "status": "open", "category": "Fund Management", "severity": "medium"}, {"id": "idle-mrf-equipment", "title": "Idle MRF Equipment", "description": "₱13.5M compactor and granulator purchased in 2019 remained unused through 2022, generating ₱5.13M in wasted depreciation and ₱2.62M in dead interest charges.", "first_cited": 2020, "last_cited": 2024, "amount": 13500000, "status": "chronic", "category": "Asset Management", "severity": "high"}, {"id": "manual-payroll", "title": "Manual Payroll Cash Advances", "description": "JO and COS personnel paid through manual payroll system and cash advances totaling ₱14.85M in CY 2024, including ₱534K clothing and ₱1.6M communication allowances. ATM payroll adopted May 2025.", "first_cited": 2018, "last_cited": 2024, "amount": 14853746, "status": "improving", "category": "Financial Management", "severity": "high"}, {"id": "unnecessary-expenses", "title": "Unnecessary and Unallowable Expenses", "description": "Disbursements for unnecessary advertising (₱85.5K), SB session snacks (₱122K), and unauthorized rice subsidy to national officials (₱62.1K). SEF used for non-priority items (₱108K).", "first_cited": 2024, "last_cited": 2024, "amount": 269675, "status": "open", "category": "Financial Management", "severity": "low"}], "implementation_rates": [{"period": "2014→2015", "implemented": 6, "partial": 0, "not_implemented": 1, "rate": 86}, {"period": "2015→2016", "implemented": 6, "partial": 1, "not_implemented": 1, "rate": 75}, {"period": "2016→2017", "implemented": 6, "partial": 4, "not_implemented": 4, "rate": 43}, {"period": "2017→2018", "implemented": 7, "partial": 4, "not_implemented": 5, "rate": 44}, {"period": "2018→2019", "implemented": 9, "partial": 7, "not_implemented": 4, "rate": 45}, {"period": "2019→2020", "implemented": 18, "partial": 0, "not_implemented": 6, "rate": 75}, {"period": "2020→2021", "implemented": 10, "partial": 0, "not_implemented": 11, "rate": 48}, {"period": "2021→2022", "implemented": 12, "partial": 0, "not_implemented": 16, "rate": 43}, {"period": "2022→2023", "implemented": 11, "partial": 0, "not_implemented": 20, "rate": 35}, {"period": "2023→2024", "implemented": 14, "partial": 0, "not_implemented": 23, "rate": 38}], "ldrrmf": [{"year": 2014, "available": 5072446, "utilized": 3553410}, {"year": 2015, "available": 12580000, "utilized": 5290000}, {"year": 2017, "available": 9520000, "utilized": 6780000}, {"year": 2018, "available": 12000000, "utilized": 8500000}, {"year": 2019, "available": 9520000, "utilized": 6780000}, {"year": 2020, "available": 14110000, "utilized": 11180000}, {"year": 2021, "available": 13210000, "utilized": 6130000}, {"year": 2022, "available": 14030000, "utilized": 8170000}, {"year": 2023, "available": 16310000, "utilized": 15180000}, {"year": 2024, "available": 16370000, "utilized": 6940000}, {"year": 2025, "available": 9689008, "utilized": 9309008}], "gad_utilization": [{"year": 2017, "allocated": 3650000, "used": 2510000}, {"year": 2018, "allocated": 3880000, "used": 3690000}, {"year": 2019, "allocated": 3650000, "used": 3310000}, {"year": 2020, "allocated": 4090000, "used": 3500000}, {"year": 2021, "allocated": 3950000, "used": 3790000}, {"year": 2022, "allocated": 4090000, "used": 3950000}, {"year": 2023, "allocated": 4100000, "used": 3470000}, {"year": 2024, "allocated": 4110000, "used": 3520000}], "delinquent_rpt": [{"year": 2014, "amount": 2628219.47}, {"year": 2015, "amount": 2260000}, {"year": 2016, "amount": 2240000}, {"year": 2017, "amount": 1260000}, {"year": 2018, "amount": 1210000}, {"year": 2019, "amount": 1210000}, {"year": 2020, "amount": 1380000}, {"year": 2021, "amount": 1450000}, {"year": 2022, "amount": 1310000}, {"year": 2023, "amount": 552545}, {"year": 2024, "amount": 839214}], "disallowances": [{"year": 2015, "amount": 360000, "status": "under_appeal", "note": "Pending resolution"}, {"year": 2016, "amount": 47000, "status": "under_appeal", "note": "Pending resolution"}, {"year": 2017, "amount": 47000, "status": "under_appeal", "note": "Pending resolution"}, {"year": 2018, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018"}, {"year": 2019, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018"}, {"year": 2020, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018"}, {"year": 2021, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018"}, {"year": 2022, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018"}, {"year": 2023, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018"}, {"year": 2024, "amount": 35187, "status": "persistent", "note": "Outstanding since 2018"}], "infrastructure_projects": [{"id": "cemetery-extension-2", "name": "Cemetery Extension Project Phase II", "description": "Construction of crematorium, communal vault, roads, drainage, fencing and landscaping at the municipal cemetery", "cost": 54970000, "year_started": 2022, "year_completed": 2022, "category": "Social Services", "source": "COA AAR 2022", "status": "completed"}, {"id": "market-improvement", "name": "Municipal Market Improvement", "description": "Construction of new market building to replace the old wooden structure damaged by fire", "cost": 15590000, "year_started": 2021, "year_completed": 2022, "category": "Economic", "source": "COA AAR 2021-2022", "status": "completed"}, {"id": "abattoir-motorpool", "name": "Abattoir and Motorpool Building", "description": "Construction of new abattoir and motorpool building with meat inspection facilities", "cost": 12890000, "year_started": 2022, "year_completed": 2023, "category": "Economic", "source": "COA AAR 2022-2023", "status": "completed"}, {"id": "town-plaza-fountain", "name": "Town Plaza Dancing Fountain", "description": "Construction of dancing fountain and improvement of the town plaza as a public attraction", "cost": 5190000, "year_started": 2016, "year_completed": 2016, "category": "Tourism", "source": "COA AAR 2016", "status": "completed"}, {"id": "road-network", "name": "DPWH Road Network Improvement", "description": "Construction of road network connecting barangays to the national highway", "cost": 4840000, "year_started": 2023, "year_completed": 2024, "category": "Infrastructure", "source": "COA AAR 2023-2024", "status": "completed"}, {"id": "mdrrmo-excavator", "name": "MDRRMO Backhoe Excavator", "description": "Procurement of backhoe excavator for disaster response and clearing operations", "cost": 3390000, "year_started": 2023, "year_completed": 2024, "category": "Disaster Response", "source": "COA AAR 2023-2024", "status": "completed"}, {"id": "mini-dump-trucks", "name": "Mini-Dump Trucks Procurement", "description": "Procurement of two mini-dump trucks for waste collection and disposal operations", "cost": 3510000, "year_started": 2023, "year_completed": 2024, "category": "Environmental", "source": "COA AAR 2023-2024", "status": "completed"}], "reform_trackers": [{"id": "atm-payroll", "title": "ATM Payroll System", "description": "Transition from manual payroll and cash advances to electronic ATM payroll for JO and COS personnel", "finding_year": 2018, "finding_amount": 14853746, "category": "Financial Management", "milestones": [{"year": 2018, "label": "COA cites manual payroll", "status": "completed"}, {"year": 2024, "label": "₱14.85M cash advances documented", "status": "completed"}, {"year": 2025, "label": "ATM payroll system adopted", "status": "completed", "date": "May 2025"}, {"year": 2025, "label": "100% JO/COS enrolled", "status": "completed", "date": "July 2025"}], "status": "resolved", "status_label": "Resolved"}, {"id": "land-titling", "title": "Land Titling Completion", "description": "Obtain Transfer Certificates of Title (TCTs) for 8 parcels of LGU-owned land covered only by Tax Declarations", "finding_year": 2024, "finding_amount": 25699460, "category": "Asset Management", "milestones": [{"year": 2016, "label": "COA first cites untitled parcels", "status": "completed"}, {"year": 2024, "label": "8 parcels identified (₱25.70M)", "status": "completed"}, {"year": 2025, "label": "Titling process initiated", "status": "in_progress"}], "status": "in_progress", "status_label": "In Progress"}, {"id": "consultant-hiring", "title": "Consultant Hiring Efficiency", "description": "Excessive consultancy fees for 25% of population survey; COA recommended competitive bidding for future engagements", "finding_year": 2024, "finding_amount": 875000, "category": "Procurement", "milestones": [{"year": 2024, "label": "COA cites irregular consulting fees", "status": "completed"}, {"year": 2025, "label": "Management commits to competitive bidding", "status": "completed", "date": "July 2025"}, {"year": 2025, "label": "No new consultancy contracts issued", "status": "completed"}], "status": "resolved", "status_label": "Resolved"}, {"id": "solid-waste-compliance", "title": "Solid Waste Management Compliance", "description": "RA 9003 compliance — closure of open dumpsite, activation of MRF equipment, and establishment of sanitary landfill", "finding_year": 2015, "finding_amount": 13500000, "category": "Environmental", "milestones": [{"year": 2015, "label": "COA cites open dumpsite", "status": "completed"}, {"year": 2019, "label": "MRF equipment purchased (₱13.5M)", "status": "completed"}, {"year": 2024, "label": "Equipment still idle", "status": "in_progress"}], "status": "in_progress", "status_label": "In Progress"}]};</script>

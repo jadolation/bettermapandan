@@ -201,7 +201,7 @@ def build_header(locale: dict, asset_base: str, lang_code: str, lang_urls: dict[
         "LANG_ACTIVE_PAG": "active" if lang_code == "pag" else "",
         "LANG_LABEL_EN": t(locale, "lang_switch.en", "EN"),
         "LANG_LABEL_FIL": t(locale, "lang_switch.fil", "FIL"),
-        "LANG_LABEL_PAG": t(locale, "lang_switch.pag", "PAG"),
+        "LANG_LABEL_PAG": t(locale, "lang_switch.pag", "PANG"),
     })
 
 
@@ -810,6 +810,42 @@ def build_search_entry(rel: Path, title: str, description: str, body: str, lang_
     return entry
 
 
+_PAGE_META_CACHE: dict[str, dict] = {}
+
+
+def _load_page_meta() -> dict:
+    """Localized front-matter overrides (title/description/hero) per page.
+
+    Cached per SRC_DATA so staged test builds pick up the staged file.
+    """
+    key = str(SRC_DATA)
+    if key not in _PAGE_META_CACHE:
+        path = SRC_DATA / "page-meta.json"
+        data: dict = {}
+        if path.exists():
+            try:
+                loaded = json.loads(path.read_text(encoding="utf-8"))
+                data = loaded if isinstance(loaded, dict) else {}
+            except (json.JSONDecodeError, OSError):
+                data = {}
+        _PAGE_META_CACHE[key] = data
+    return _PAGE_META_CACHE[key]
+
+
+def _apply_page_meta(meta: dict, rel: Path, lang_code: str) -> dict:
+    """Override EN front-matter with fil/pag page metadata when available."""
+    if lang_code == "en":
+        return meta
+    override = _load_page_meta().get(rel.as_posix(), {}).get(lang_code, {})
+    if not override:
+        return meta
+    meta = dict(meta)
+    for mkey in ("title", "description", "hero_eyebrow", "hero_lede"):
+        if override.get(mkey):
+            meta[mkey] = override[mkey]
+    return meta
+
+
 def _process_static_page(
     lang_code: str, locale: dict, rel: Path, meta: dict, body: str,
     base: str, page_hero_raw: str, out_root: Path, search_entries: list
@@ -817,6 +853,7 @@ def _process_static_page(
     out_rel = to_folder_index(rel)
     asset_base = compute_asset_base(out_rel, lang_code)
     lang_urls = build_lang_switcher_urls(rel, lang_code)
+    meta = _apply_page_meta(meta, rel, lang_code)
     page_title = meta["title"].split(" —")[0].split(" |")[0].strip()
     breadcrumbs = build_breadcrumbs(locale, rel, page_title)
     header = build_header(locale, asset_base, lang_code, lang_urls)
@@ -973,8 +1010,8 @@ def build() -> None:
         locale = {"en": en_locale, "fil": fil_locale, "pag": pag_locale}[lang_code]
         print(f"\n--- Building [{lang_code.upper()}] ---")
 
-        svc_pages, svc_meta, svc_hero_meta = generate_services(locale, lang_code, lang_code == "fil")
-        leg_html, leg_meta, leg_hero_meta = generate_legislative(locale, lang_code == "fil")
+        svc_pages, svc_meta, svc_hero_meta = generate_services(locale, lang_code)
+        leg_html, leg_meta, leg_hero_meta = generate_legislative(locale, lang_code)
         svc_pages["legislative.html"] = leg_html
         svc_meta["legislative.html"] = leg_meta
         svc_hero_meta["legislative.html"] = leg_hero_meta

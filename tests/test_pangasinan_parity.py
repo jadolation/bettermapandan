@@ -42,4 +42,4 @@ def test_pag_does_not_use_fil_data_fields():
     assert pag.get("nav", {}).get("home") != "Tahanan"
     # Check that it's either empty (fallback) or Pangasinan
     val = pag.get("nav", {}).get("home", "")
-    assert val in ("", "Balay"), f"Unexpected nav.home value: {val}"
+    assert val in ("", "Abong"), f"Unexpected nav.home value: {val}"
