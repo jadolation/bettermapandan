@@ -162,5 +162,65 @@
       "hero_eyebrow": "Legal",
       "hero_lede": "Saray tuntunin ya mangiwan ed panagusar na Better Mapandan civic transparency portal."
     }
+  },
+  "transparency/procurement.html": {
+    "fil": {
+      "title": "Pampublikong Pagkuha (PhilGEPS) — BetterMapandan.org",
+      "description": "277 kontrata ng munisipyo na nagkakahalaga ng ₱470.2M mula sa PhilGEPS sa pamamagitan ng BetterGov.ph.",
+      "hero_eyebrow": "Transparency · Pagkuha",
+      "hero_lede": "277 kontrata ng munisipyo na nagkakahalaga ng ₱470.2M mula sa PhilGEPS Open Data Portal ng BetterGov.ph — buwanang takbo, mga pangunahing awardee, at buong talahanayan ng mga kontrata."
+    },
+    "pag": {
+      "title": "Pampublikong Procurement (PhilGEPS) — BetterMapandan.org",
+      "description": "277 municipal contracts ya ₱470.2M manlapud PhilGEPS diad BetterGov.ph.",
+      "hero_eyebrow": "Transparensya · Procurement",
+      "hero_lede": "277 municipal contracts ya ₱470.2M manlapud PhilGEPS Open Data Portal na BetterGov.ph — monthly trends, top awardees, tan kumpletong contract tables."
+    },
+    "pag_status": "draft"
+  },
+  "transparency/infrastructure.html": {
+    "fil": {
+      "title": "Mga Proyektong Imprastraktura — BetterMapandan.org",
+      "description": "Mga proyektong imprastraktura ng DPWH sa Mapandan — 45 proyekto na nagkakahalaga ng ₱567.8M.",
+      "hero_eyebrow": "Transparency · Imprastraktura",
+      "hero_lede": "45 kalsada, tulay, flood control, at pampublikong pasilidad na pinondohan ng DPWH sa Mapandan — may interaktibong mapa, katayuan ng mga proyekto, at buong detalye ng pagpopondo."
+    },
+    "pag": {
+      "title": "Saray Proyekto na Imprastraktura — BetterMapandan.org",
+      "description": "Saray DPWH infrastructure projects ed Mapandan — 45 proyekto ya ₱567.8M.",
+      "hero_eyebrow": "Transparensya · Imprastraktura",
+      "hero_lede": "45 DPWH roads, bridges, flood control, tan public facilities ed Mapandan — walay interactive map, project statuses, tan kumpletong funding details."
+    },
+    "pag_status": "draft"
+  },
+  "transparency/budget-fiscal.html": {
+    "fil": {
+      "title": "Badyet at Pananalapi (DILG + BLGF) — BetterMapandan.org",
+      "description": "Fiscal Dashboard — mga pangunahing tagapagpahiwatig, komposisyon ng kita, paggasta, paggamit ng pondo, daloy ng salapi, at mga paghahain sa DILG Full Disclosure Policy para sa Mapandan.",
+      "hero_eyebrow": "Transparency · Badyet at Pananalapi",
+      "hero_lede": "Aprubadong badyet para sa CY 2026, paghahati-hati ng kita sa CY 2025, credit financing, mga itinakdang alokasyon, at mga paghahain sa DILG Full Disclosure Policy para sa Mapandan."
+    },
+    "pag": {
+      "title": "Badyet tan Pananalapi (DILG + BLGF) — BetterMapandan.org",
+      "description": "Fiscal Dashboard — key indicators, revenue composition, spending, fund utilization, cash flows, tan DILG Full Disclosure Policy filings para ed Mapandan.",
+      "hero_eyebrow": "Transparensya · Badyet tan Pananalapi",
+      "hero_lede": "CY 2026 approved budget, CY 2025 revenue breakdown, credit financing, statutory allocations, tan DILG Full Disclosure Policy filings para ed Mapandan."
+    },
+    "pag_status": "draft"
+  },
+  "transparency/audit-compliance.html": {
+    "fil": {
+      "title": "Awdit at Pagsunod — BetterMapandan.org",
+      "description": "Mga opinyon sa awdit ng COA, pagsunod sa Seal of Good Local Governance, at nada-download na mga ulat sa awdit.",
+      "hero_eyebrow": "Transparency · Awdit at Pagsunod",
+      "hero_lede": "Mga opinyon sa awdit ng COA, pagsunod sa Seal of Good Local Governance, mga paulit-ulit na natuklasan, mga antas ng pagpapatupad, at archive ng nada-download na mga ulat sa awdit ng COA para sa Mapandan."
+    },
+    "pag": {
+      "title": "Awdit tan Compliance — BetterMapandan.org",
+      "description": "Saray COA audit opinions, Seal of Good Local Governance compliance, tan downloadable COA reports.",
+      "hero_eyebrow": "Transparensya · Awdit tan Compliance",
+      "hero_lede": "Saray COA audit opinions, Seal of Good Local Governance compliance, chronic findings, implementation rates, tan downloadable COA report archives para ed Mapandan."
+    },
+    "pag_status": "draft"
   }
 }

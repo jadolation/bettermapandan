@@ -1,0 +1,450 @@
+[
+  {
+    "key": "homepage.municipality_desc",
+    "english": "Mapandan sits in the Third Congressional District of Pangasinan, bounded by San Jacinto to the north, Mangaldan to the northwest, Manaoag to the east, and Santa Barbara to the south. Covering 32.92 square kilometres, around three-quarters of its land supports agriculture &mdash; mainly rice, alongside corn, livestock, and seasonal vegetables. The municipal administration operates under the tagline &ldquo;Kaakibat niyo ang Aktibo at Responsableng Liderato&rdquo; (Partnering with you in Active and Responsible Leadership).",
+    "filipino": "Matatagpuan ang Mapandan sa Ikatlong Kongresyonal na Distrito ng Pangasinan, na nasa hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. May lawak itong 32.92 kilometro kuwadrado, at halos tatlong-kapat ng lupain nito ay ginagamit sa agrikultura—pangunahing palay, kasama ang mais, paghahayupan, at mga pana-panahong gulay. Isinasagawa ng pamahalaang bayan ang mga programa nito sa ilalim ng tagline na “Kaakibat niyo ang Aktibo at Responsableng Liderato.”",
+    "pangasinan": "Nakatugaw so Mapandan ed Ikatlong Kongresonal a Distrito na Pangasinan, napaliber ed San Jacinto ed norte, Mangaldan ed hilagang-kanluran, Manaoag ed east, tan Santa Barbara ed south. Say lawak to et 32.92 square kilometers, tan antapud 3/4 na daga et para ed agrikultura—pangunahing palay, kaiba so mais, alaga a animales, tan pana-panahon a gulay. Mantrabaho so administrasyon na baley ed silong na tagline a “Kaakibat niyo ang Aktibo at Responsableng Liderato.”",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "homepage.milestone3_desc",
+    "english": "A severe epidemic forced temporary re-annexation to Mangaldan due to financial insolvency. Full autonomy was restored in 1909 under Executive Order No. 10 by Governor General James F. Smith.",
+    "filipino": "Isang matinding epidemya ang nagbunsod sa pansamantalang muling pagsasanib sa Mangaldan dahil sa kawalang-kakayahang pinansiyal. Naibalik ang buong awtonomiya noong 1909 sa ilalim ng Executive Order Blg. 10 ni Gobernador-Heneral James F. Smith.",
+    "pangasinan": "Sakey a matinding epidemya so nanggawa ed Mapandan a temporaryong ma-re-annex ed Mangaldan lapud financial insolvency. Naibalik so full autonomy ed 1909 diad Executive Order No. 10 ni Governor General James F. Smith.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "homepage.emergency_mdrmmo_desc",
+    "english": "Municipal Disaster Risk Reduction and Management Office",
+    "filipino": "Municipal Disaster Risk Reduction and Management Office",
+    "pangasinan": "Municipal Disaster Risk Reduction and Management Office",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "homepage.milestone4_era",
+    "english": "2020s",
+    "filipino": "2020s",
+    "pangasinan": "2020s",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "homepage.municipality_desc_full",
+    "english": "Mapandan sits in the Third Congressional District of Pangasinan, bounded by San Jacinto to the north, Mangaldan to the northwest, Manaoag to the east, and Santa Barbara to the south. Covering 32.92 square kilometres, around three-quarters of its land supports agriculture — mainly rice, alongside corn, livestock, and seasonal vegetables.",
+    "filipino": "Matatagpuan ang Mapandan sa Ikatlong Kongresonal na Distrito ng Pangasinan, hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. Sakop nito ang 32.92 square kilometro, kung saan halos tatlo sa apat na bahagi ng lupain ay suportado ang agrikultura — pangunahin ang palay, kasama ang mais, hayop, at mga panahong gulay.",
+    "pangasinan": "Nakatugaw so Mapandan ed Ikatlong Kongresonal a Distrito na Pangasinan, napaliber ed San Jacinto ed norte, Mangaldan ed hilagang-kanluran, Manaoag ed east, tan Santa Barbara ed south. Say lawak to et 32.92 square kilometers, tan antapud 3/4 na daga et para ed agrikultura—pangunahing palay, kaiba so mais, alaga a animales, tan pana-panahon a gulay.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "homepage.founded_desc",
+    "english": "Separated from Mangaldan as an independent pueblo under Governor General Emilio Bravo, led by ten local leaders including Antonio Morales, Sabino Prado, and Andres Bongato.",
+    "filipino": "Hiwalay sa Mangaldan bilang isang independenteng pueblo sa ilalim ni Heneral Gobernador Emilio Bravo, pinamunuan ng sampung lokal na lider kabilang si Antonio Morales, Sabino Prado, at Andres Bongato.",
+    "pangasinan": "Nipisok ed Mangaldan bilang independent a pueblo ed silong ni Governor General Emilio Bravo, panguloan na sampong lokal a lider kaiba da Antonio Morales, Sabino Prado, tan Andres Bongato.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "homepage.sources_desc",
+    "english": "Much of Mapandan's historical material comes from the Municipality of Mapandan's official website, including the Municipal Profile, Physical Characteristics, and individual barangay history pages. Population data is from the Philippine Statistics Authority. Development milestones reference the Philippine News Agency and Department of Budget and Management records.",
+    "filipino": "Karamihan sa makasaysayang materyal tungkol sa Mapandan ay mula sa opisyal na website ng Municipality of Mapandan, kabilang ang Municipal Profile, Physical Characteristics, at mga indibidwal na pahina ng kasaysayan ng barangay. Ang datos ng populasyon ay mula sa Philippine Statistics Authority. Ang mga milestone ng pag-unlad ay tumutukoy sa mga tala ng Philippine News Agency at Department of Budget and Management.",
+    "pangasinan": "Dakdakep a bahagi na makasaysayang material na Mapandan et manipud ed official website na Municipality of Mapandan, kaiba so Municipal Profile, Physical Characteristics, tan individual barangay history pages. Say population data et manipud ed Philippine Statistics Authority. Saray development milestone et nakabase ed Philippine News Agency tan Department of Budget and Management records.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "homepage.transparency_desc",
+    "english": "Financial accountability data for Mapandan — budgets, procurement, infrastructure, and COA audit reports — all in one place.",
+    "filipino": "Mga datos tungkol sa pananagutan sa pananalapi ng Mapandan—badyet, procurement, imprastraktura, at mga ulat ng COA—na nasa iisang lugar.",
+    "pangasinan": "Financial accountability data na Mapandan—badyet, procurement, imprastraktura, tan COA audit reports—amin ed sakey a lugar.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "services_dir.national_desc",
+    "english": "Several national government services are available online through these official portals.",
+    "filipino": "May ilang pambansang serbisyo ng pamahalaan na maaaring gamitin online sa pamamagitan ng mga opisyal na portal na ito.",
+    "pangasinan": "Wala ed online so nanduruman serbisyo na national government diad sarayan opisyal a portal.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "services_dir.national_egov_desc",
+    "english": "Unified national government digital services portal. Access multiple agencies in one place.",
+    "filipino": "Pinag-isang portal ng mga pambansang digital na serbisyo ng pamahalaan. Maa-access ang maraming ahensya sa iisang lugar.",
+    "pangasinan": "Unified national government digital services portal. A-access so nanduruman ahensya ed sakey a lugar.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "legislative.legal_basis_desc",
+    "english": "The Municipality of Mapandan operates under <strong>Republic Act No. 7160</strong> (Local Government Code of 1991), situated within the Third Congressional District of Pangasinan. The Sangguniang Bayan &mdash; a unicameral local legislative council &mdash; exercises municipal legislative power, presided by the Municipal Vice Mayor and composed of elected councilors alongside ex-officio representatives from the Liga ng mga Barangay and the Sangguniang Kabataan Federation.",
+    "filipino": "Ang Bayan ng Mapandan ay gumagana sa ilalim ng <strong>Republic Act Blg. 7160</strong> (Local Government Code ng 1991), matatagpuan sa Ikatlong Kongresonal na Distrito ng Pangasinan. Ang Sangguniang Bayan &mdash; isang unicameral na lokal na lehislatibong konseho &mdash; ang nagsasagawa ng municipal legislative power, pinamumunuan ng Municipal Vice Mayor at binubuo ng mga halal na konsehal kasama ang mga ex-officio representatives mula sa Liga ng mga Barangay at Sangguniang Kabataan Federation.",
+    "pangasinan": "Man-ooperate so Municipality of Mapandan ed silong na <strong>Republic Act No. 7160</strong> (Local Government Code of 1991), ed Ikatlong Kongresonal a Distrito na Pangasinan. Say Sangguniang Bayan—sakey a unicameral local legislative council—so mangipatupad na municipal legislative power. Pangulo to so Municipal Vice Mayor tan kaiba iray elected councilors tan ex-officio representatives na Liga ng mga Barangay tan Sangguniang Kabataan Federation.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "legislative.ord_eyebrow",
+    "english": "Database",
+    "filipino": "Database",
+    "pangasinan": "Database",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "legislative.ord_sp_review",
+    "english": "SP Review",
+    "filipino": "Pagsusuri ng SP",
+    "pangasinan": "SP Review",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "legislative.res_desc",
+    "english": "Policy expressions, investment plans, and procurement authorizations passed by the Sangguniang Bayan.",
+    "filipino": "Mga pahayag ng patakaran, plano sa pamumuhunan, at awtorisasyon sa procurement na ipinasa ng Sangguniang Bayan.",
+    "pangasinan": "Saray pahayag na polisiya, investment plan, tan procurement authorization ya impasa na Sangguniang Bayan.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "statistics.subtitle",
+    "english": "Key demographic, economic, and development indicators for Mapandan, compiled from official government sources and community research.",
+    "filipino": "Mahahalagang demograpiko, pang-ekonomiya, at mga indikador ng pag-unlad ng Mapandan, na pinagsama mula sa mga opisyal na sanggunian ng pamahalaan at pananaliksik ng komunidad.",
+    "pangasinan": "Mahahalagang demograpiko, ekonomiya, tan development indicator na Mapandan, tinipon ed opisyal a source na gobierno tan community research.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "statistics.data_note",
+    "english": "All figures are compiled from official government sources including the Philippine Statistics Authority (PSA), Commission on Audit (COA), and municipal financial disclosures. Data may be subject to revision as new reports become available.",
+    "filipino": "Ang lahat ng bilang ay pinagsama mula sa mga opisyal na sanggunian ng pamahalaan kabilang ang Philippine Statistics Authority (PSA), Commission on Audit (COA), at mga pahayag sa pananalapi ng munisipalidad. Maaaring baguhin ang datos kapag may mga bagong ulat.",
+    "pangasinan": "Amin a numero et tinipon manipud ed opisyal a source na gobierno, kaiba so Philippine Statistics Authority (PSA), Commission on Audit (COA), tan municipal financial disclosures. Posible ya mabago so datos no wala ray balon ulat.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "statistics.econ_poverty",
+    "english": "Poverty Incidence (Provincial 2023)",
+    "filipino": "Insidente ng Kahirapan (Panlalawigan, 2023)",
+    "pangasinan": "Poverty Incidence (Provincial 2023)",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "statistics.fiscal_blgf_desc",
+    "english": "Official fiscal performance data sourced from the Bureau of Local Government Finance.",
+    "filipino": "Opisyal na datos ng piskal na performance mula sa Bureau of Local Government Finance.",
+    "pangasinan": "Opisyal a fiscal performance data ya maggapo ed Bureau of Local Government Finance.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.subtitle",
+    "english": "Income, expenditure, appropriations, and infrastructure spending for Mapandan, gathered from official disclosures, Sangguniang Bayan resolutions, and Commission on Audit reports.",
+    "filipino": "Kita, gastusin, mga alokasyon, at gastusing pang-imprastraktura ng Mapandan, na tinipon mula sa mga opisyal na pagsisiwalat, resolusyon ng Sangguniang Bayan, at mga ulat ng Commission on Audit.",
+    "pangasinan": "Kita, gastusin, appropriations, tan infrastructure spending para ed Mapandan, tinipon manipud ed opisyal a disclosures, Sangguniang Bayan resolutions, tan Commission on Audit reports.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.data_updated",
+    "english": "<strong>Data last updated:</strong> August 2026 &mdash; compiled from PSA Census 2020, COA reports, and municipal disclosures. CY 2024 figures are the most recent actuals; CY 2025&ndash;2026 figures are SP-approved appropriations.",
+    "filipino": "<strong>Huling na-update ang datos:</strong> Agosto 2026—pinagsama mula sa PSA Census 2020, mga ulat ng COA, at mga pagsisiwalat ng munisipalidad. Ang mga bilang para sa CY 2024 ang pinakabagong aktwal; ang mga bilang para sa CY 2025–2026 ay mga alokasyong inaprubahan ng SP.",
+    "pangasinan": "<strong>Huling na-update so datos:</strong> August 2026—tinipon manipud ed PSA Census 2020, COA reports, tan municipal disclosures. Saray CY 2024 figure so pinakabalo a actuals; saray CY 2025–2026 et SP-approved appropriations.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.credit_desc",
+    "english": "Mapandan takes out loans from government banks for major infrastructure projects, spreading cost over future budgets.",
+    "filipino": "Humihiram ang Mapandan sa mga bangkong pag-aari ng pamahalaan para sa malalaking proyekto sa imprastraktura, at ipinapamahagi ang gastos sa mga badyet ng mga susunod na taon.",
+    "pangasinan": "Mangutang so Mapandan ed government banks para ed malalaking infrastructure project, tan ipapalat so gastos ed saray maabots a badyet.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.data_note",
+    "english": "All figures below are sourced directly from official municipal financial disclosures, Sangguniang Bayan resolutions, and Commission on Audit reports. CY 2024 figures are the most recent actuals; CY 2025-2026 figures are SP-approved appropriations.",
+    "filipino": "Ang lahat ng bilang sa ibaba ay direktang mula sa mga opisyal na pagsisiwalat na pinansiyal ng munisipalidad, mga resolusyon ng Sangguniang Bayan, at mga ulat ng Commission on Audit. Ang mga bilang para sa CY 2024 ang pinakabagong aktwal; ang mga bilang para sa CY 2025–2026 ay mga alokasyong inaprubahan ng SP.",
+    "pangasinan": "Amin a numero ditan et direkta a maggapo ed opisyal a municipal financial disclosures, Sangguniang Bayan resolutions, tan Commission on Audit reports. Saray CY 2024 figure so pinakabalo a actuals; saray CY 2025–2026 et SP-approved appropriations.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.fiscal_structure_desc",
+    "english": "Mapandan gets most of its budget from national government transfers. By law, some money must be spent on specific programs.",
+    "filipino": "Karamihan ng badyet ng Mapandan ay nagmumula sa mga paglilipat ng pondo mula sa pambansang pamahalaan. Ayon sa batas, kailangang ilaan ang ilang pondo sa mga tiyak na programa.",
+    "pangasinan": "Kadakepan na budget na Mapandan et maggapo ed national government transfers. Diad batas, wala ray pondo ya kailangan a gastusen ed partikular a programa.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.audit_opinion_desc",
+    "english": "Annual audit opinion trend showing the Commission on Audit's assessment of Mapandan's financial statements over 11 consecutive years.",
+    "filipino": "Taunang trend ng opinyon sa awdit na nagpapakita ng pagsusuri ng Commission on Audit sa mga financial statement ng Mapandan sa loob ng 11 magkakasunod na taon.",
+    "pangasinan": "Taunan a audit opinion trend ya mangipanengneng ed assessment na Commission on Audit ed financial statements na Mapandan diad 11 magkasunod a taon.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.financial_perf_desc",
+    "english": "Longitudinal financial data extracted from COA Annual Audit Reports, showing asset growth, revenue composition, and fiscal balance across 12 fiscal years.",
+    "filipino": "Pangmatagalang datos na pinagsama mula sa COA Annual Audit Reports, na nagpapakita ng paglago ng asset, komposisyon ng kita, at balanse sa pananalapi sa loob ng 12 taon ng pananalapi.",
+    "pangasinan": "Longitudinal financial data ya na-extract ed COA Annual Audit Reports, ya mangipanengneng ed paglago na assets, revenue composition, tan fiscal balance diad 12 fiscal year.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.capex_eyebrow",
+    "english": "Capital Outlay",
+    "filipino": "Gastos sa Kapital",
+    "pangasinan": "Capital Outlay",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.procurement_title",
+    "english": "Recent capital projects & procurements",
+    "filipino": "Mga Kamakailang Proyektong Kapital at Pagbili",
+    "pangasinan": "Saray Balon a Capital Project tan Procurement",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.external_desc",
+    "english": "National and provincial platforms for accessing government financial data and audit reports.",
+    "filipino": "Mga pambansang at probinsyal na platform para sa pag-access sa datos ng pinansyal ng pamahalaan at mga ulat ng awdit.",
+    "pangasinan": "National tan provincial platform para ed panag-access na government financial data tan audit reports.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.infrastructure_contractor",
+    "english": "Contractor",
+    "filipino": "Kontratista",
+    "pangasinan": "Contractor",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.infrastructure_custom_range",
+    "english": "Custom Range",
+    "filipino": "Pasadyang Saklaw",
+    "pangasinan": "Custom Range",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.coa_projects_desc",
+    "english": "Significant infrastructure investments identified through COA Annual Audit Reports, showing project costs and completion status.",
+    "filipino": "Mahahalagang pamumuhunan sa imprastraktura na natukoy sa COA Annual Audit Reports, kasama ang gastos ng proyekto at katayuan ng pagkumpleto.",
+    "pangasinan": "Mahahalagang infrastructure investment ya na-identify diad COA Annual Audit Reports, ya mangipanengneng ed project cost tan completion status.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.disallowances_eyebrow",
+    "english": "Disallowances",
+    "filipino": "Mga Disallowance",
+    "pangasinan": "Disallowances",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.equity_2024",
+    "english": "Equity",
+    "filipino": "Equity",
+    "pangasinan": "Equity",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.latest_coa_note",
+    "english": "Latest COA finding: the CY 2025 LDRRMF compliance audit &mdash; audit period January 1&ndash;December 31, 2025, published May 5, 2026 (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Only one Mapandan-specific CY 2025 report is publicly indexed so far; more records may exist in consolidated reports. We will publish more reports and figures here as publicly accessible documents become available &mdash; <a href=\"/support/report/?page=transparency&amp;mode=contribute\">send us documents</a>.",
+    "filipino": "Pinakabagong natuklasan ng COA: ang CY 2025 LDRRMF compliance audit—panahon ng awdit Enero 1–Disyembre 31, 2025, na inilathala noong Mayo 5, 2026 (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Isa pa lamang ang partikular na ulat para sa Mapandan na CY 2025 na pampublikong naka-index sa ngayon; maaaring may iba pang rekord sa mga pinagsamang ulat. Maglalathala kami ng iba pang ulat at bilang kapag naging pampublikong magagamit ang mga dokumento—<a href=\"/support/report/?page=transparency&amp;mode=contribute\">magpadala sa amin ng mga dokumento</a>.",
+    "pangasinan": "Pinakabalo a COA finding: say CY 2025 LDRRMF compliance audit—audit period January 1–December 31, 2025, naipublika ed May 5, 2026 (<a href=\"/datasets/audit-reports/Mapandan2025_car.docx\" target=\"_blank\" rel=\"noopener\">Mapandan2025_car.docx</a>). Sakey labat so Mapandan-specific CY 2025 report ya publicly indexed ed natan; posible ya walay arum ed consolidated reports. I-publish mi so arum a report tan figure no available ed publiko—<a href=\"/support/report/?page=transparency&amp;mode=contribute\">send us documents</a>.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.fdp_lede",
+    "english": "Quarterly financial disclosures the Municipality of Mapandan posts to the DILG Full Disclosure Policy Portal: receipts and expenditures, special funds, bids awarded, cash advances, and staffing.",
+    "filipino": "Mga quarterly na pagsisiwalat na pinansiyal na inilalathala ng Municipality of Mapandan sa DILG Full Disclosure Policy Portal: mga natanggap na pondo at gastusin, espesyal na pondo, mga bid na iginawad, cash advances, at staffing.",
+    "pangasinan": "Quarterly financial disclosures ya ipopost na Municipality of Mapandan ed DILG Full Disclosure Policy Portal: receipts tan expenditures, special funds, bids awarded, cash advances, tan staffing.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.fdp_older",
+    "english": "Filing",
+    "filipino": "Filing",
+    "pangasinan": "Filing",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.dash_title",
+    "english": "Mapandan Fiscal & Transparency Dashboard",
+    "filipino": "Dashboard ng Pananalapi at Transparency ng Mapandan",
+    "pangasinan": "Mapandan Fiscal & Transparency Dashboard",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.dash_lede",
+    "english": "Key fiscal indicators computed from the municipality's DILG disclosure filings. Reported amounts are source data; ratios and shares are our calculations, noted under each metric.",
+    "filipino": "Mahahalagang indikator sa pananalapi na kinuwenta mula sa mga pagsisiwalat ng munisipalidad sa DILG. Ang mga iniulat na halaga ay source data; ang mga ratio at bahagi ay aming mga kalkulasyon at nakasaad sa ilalim ng bawat metric.",
+    "pangasinan": "Mahahalagang fiscal indicator ya kinuwenta manipud ed DILG disclosure filing na munisipalidad. Saray reported amount et source data; saray ratio tan share et kalkulasyon mi, ya nakasulat ed balik na balang metric.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "transparency.nav_balance_sheet",
+    "english": "Balance sheet",
+    "filipino": "Talaan ng balanse",
+    "pangasinan": "Balance sheet",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "transparency.nav_disallowances",
+    "english": "Disallowances",
+    "filipino": "Mga disallowance",
+    "pangasinan": "Disallowances",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.history_timeline[0].era",
+    "english": "1887",
+    "filipino": "1887",
+    "pangasinan": "1887",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.history_timeline[0].era_fil",
+    "english": "1887",
+    "filipino": "1887",
+    "pangasinan": "1887",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.history_timeline[3].era",
+    "english": "1909",
+    "filipino": "1909",
+    "pangasinan": "1909",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.history_timeline[3].era_fil",
+    "english": "1909",
+    "filipino": "1909",
+    "pangasinan": "1909",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.history_timeline[4].era",
+    "english": "Present",
+    "filipino": "Kasalukuyan",
+    "pangasinan": "Present",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.history_timeline[4].era_fil",
+    "english": "Kasalukuyan",
+    "filipino": "Kasalukuyan",
+    "pangasinan": "Kasalukuyan",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.photo_captions[2]",
+    "english": "Mapandan Town Plaza",
+    "filipino": "Mapandan Town Plaza",
+    "pangasinan": "Mapandan Town Plaza",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.project_desc",
+    "english": "Better Mapandan is an independent civic transparency portal that compiles public data about the Municipality of Mapandan, Pangasinan, into a single accessible platform. It is built and maintained by volunteers, not affiliated with the local government.",
+    "filipino": "Ang Better Mapandan ay isang independenteng civic transparency portal na nagtitipon ng pampublikong datos tungkol sa Municipality of Mapandan, Pangasinan, sa isang madaling ma-access na plataporma. Binuo at pinananatili ito ng mga boluntaryo at hindi ito kaakibat ng lokal na pamahalaan.",
+    "pangasinan": "Say Better Mapandan et independent civic transparency portal ya mangtitipon na pampublikong datos tungkol ed Municipality of Mapandan, Pangasinan ed sakey a madaling ma-access a platform. Binangon tan mantine na saray volunteer; aliwa iya kaakibat na local government.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "about.project_how_desc",
+    "english": "Data is gathered from official government sources such as COA reports, PSA censuses, SP resolutions, and municipal disclosures. Volunteers compile, verify, and present this information in a user-friendly format.",
+    "filipino": "Kinokolekta ang datos mula sa mga opisyal na sanggunian ng pamahalaan tulad ng mga ulat ng COA, senso ng PSA, mga resolusyon ng SP, at mga pagsisiwalat ng munisipalidad. Pinagsasama, bineberipika, at inilalahad ito ng mga boluntaryo sa paraang madaling gamitin.",
+    "pangasinan": "Saray datos et titiponen manipud ed opisyal a government source a singa COA reports, PSA censuses, SP resolutions, tan municipal disclosures. Titiponen, i-verify, tan ipresenta na saray volunteer iya ed madaling gamitin a format.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "about.project_open_source",
+    "english": "Open Source",
+    "filipino": "Open Source",
+    "pangasinan": "Open Source",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "about.project_open_source_desc",
+    "english": "The source code for Better Mapandan is publicly available on GitHub, allowing anyone to audit, contribute, or fork the project.",
+    "filipino": "Ang source code ng Better Mapandan ay pampublikong available sa GitHub, na nagbibigay-daan sa sinuman na suriin, mag-contribute, o mag-fork sa proyekto.",
+    "pangasinan": "So source code na Better Mapandan et available ed publico ed GitHub, pian balang sakey et nayari a man-audit, mangikontribusyon, odino mang-fork ed proyekto.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "about.contribute_code_desc",
+    "english": "Developers can contribute features, fix bugs, or improve the platform by submitting pull requests on GitHub.",
+    "filipino": "Maaaring mag-contribute ng mga feature, ayusin ang mga bug, o mapabuti ang platform sa pamamagitan ng pagsusumite ng pull requests sa GitHub.",
+    "pangasinan": "Saray developer et nayari a mangikontribusyon na features, mangtumpal na bugs, odino mangpa-maong ed platform diad panagsubmit na pull request ed GitHub.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "about.disclaimer_desc",
+    "english": "Better Mapandan is an independent civic transparency portal. It is not affiliated with, endorsed by, or connected to the Municipal Government of Mapandan or any government agency. All data presented is compiled from publicly available official sources and is provided for informational purposes only.",
+    "filipino": "Ang Better Mapandan ay isang independenteng civic transparency portal. Hindi ito kaakibat, ineendorso, o konektado sa Municipal Government of Mapandan o sa anumang ahensya ng pamahalaan. Ang lahat ng ipinapakitang datos ay pinagsama mula sa mga opisyal na sanggunian na pampublikong magagamit at ibinibigay para sa layuning pang-impormasyon lamang.",
+    "pangasinan": "Say Better Mapandan et independent civic transparency portal. Aliwa iya kaakibat, inendorso, odino konektado ed Municipal Government of Mapandan odino arum a government agency. Amin a datos ya ipanengneng et tinipon manipud ed publicly available official sources tan para labat ed information.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "footer.brand_desc",
+    "english": "An independent civic transparency portal for Mapandan, Pangasinan, built and maintained by volunteers under the BetterGov.ph initiative &mdash; not an official government website.",
+    "filipino": "Isang independenteng civic transparency portal para sa Mapandan, Pangasinan, na binuo at pinananatili ng mga boluntaryo sa ilalim ng BetterGov.ph initiative—hindi ito opisyal na website ng pamahalaan.",
+    "pangasinan": "Sakey a independent civic transparency portal para ed Mapandan, Pangasinan, ya binangon tan mantine na volunteers ed silong na BetterGov.ph initiative—aliwa iya opisyal a government website.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "footer.faq",
+    "english": "FAQ",
+    "filipino": "FAQ",
+    "pangasinan": "FAQ",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "footer.source_code",
+    "english": "Source Code (GitHub)",
+    "filipino": "Source Code (GitHub)",
+    "pangasinan": "Source Code (GitHub)",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "footer.cost_amount",
+    "english": "&#8369;0",
+    "filipino": "&#8369;0",
+    "pangasinan": "&#8369;0",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "footer.municipality_of",
+    "english": "Municipality of Mapandan",
+    "filipino": "Bayan ng Mapandan",
+    "pangasinan": "Municipality of Mapandan",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "footer.province_of",
+    "english": "Province of Pangasinan",
+    "filipino": "Lalawigan ng Pangasinan",
+    "pangasinan": "Province of Pangasinan",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "common.mobile_hotline",
+    "english": "Hotline",
+    "filipino": "Hotline",
+    "pangasinan": "Hotline",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "common.disclaimer",
+    "english": "Better Mapandan is an independent civic transparency portal. It is not an official government website and is not affiliated with, endorsed by, or operated by the Municipality of Mapandan or any government agency.",
+    "filipino": "Ang Better Mapandan ay isang independent na civic transparency portal. Ito ay hindi opisyal na website ng pamahalaan at hindi kaakibat, ineendorso, o pinapatakbo ng Munisipalidad ng Mapandan o ng anumang ahensiya ng pamahalaan.",
+    "pangasinan": "Say Better Mapandan et independent civic transparency portal. Aliwa iya opisyal a website na gobierno tan aliwa iya kaabay, inendorso, odino pinatatakbo na Municipality of Mapandan odino arum a ahensya na gobierno.",
+    "pangasinan_status": "draft_mixed_review"
+  },
+  {
+    "key": "government.contact_col_landline",
+    "english": "Landline",
+    "filipino": "Landline",
+    "pangasinan": "Landline",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "government.contact_col_mobile",
+    "english": "Mobile / Hotline",
+    "filipino": "Mobile / Hotline",
+    "pangasinan": "Mobile / Hotline",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "government.nav_sangguniang_bayan",
+    "english": "Sangguniang Bayan",
+    "filipino": "Sangguniang Bayan",
+    "pangasinan": "Sangguniang Bayan",
+    "pangasinan_status": "review_required"
+  }
+]
