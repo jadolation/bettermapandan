@@ -5,7 +5,11 @@ hero_eyebrow: {{SVC_EYEBROW}}
 hero_heading: {{SVC_TITLE}}
 hero_lede: {{SVC_LEDE}}
 ---
-<section class="section">
+<div class="page-with-nav">
+{SECTION_NAV}
+<div class="page-with-nav-body">
+
+<section class="section" id="services-directory">
   <div class="wrap">
     <div class="section-head">
       <p>{{SVC_DESC}}</p>
@@ -30,7 +34,7 @@ hero_lede: {{SVC_LEDE}}
 
 <script defer src="{{ASSET_BASE}}/assets/services.min.js"></script>
 
-<section class="section">
+<section class="section" id="services-analytics">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">{{SVC_ANALYTICS_EYEBROW}}</div>
@@ -39,18 +43,18 @@ hero_lede: {{SVC_LEDE}}
     </div>
     <div class="grid grid-2 stack-gap-lg">
       <div class="card">
-        <h3>{{SVC_ANALYTICS_BY_CATEGORY}}</h3>
+        <h3 id="analytics-by-category">{{SVC_ANALYTICS_BY_CATEGORY}}</h3>
         <p class="source-label" style="margin-top:0">{{SVC_ANALYTICS_BY_CATEGORY_DESC}}</p>
         <canvas id="chart-services-categories" height="260" role="img" aria-label="{{SVC_ANALYTICS_BY_CATEGORY}}"></canvas>
       </div>
       <div class="card">
-        <h3>{{SVC_ANALYTICS_BY_OFFICE}}</h3>
+        <h3 id="analytics-by-office">{{SVC_ANALYTICS_BY_OFFICE}}</h3>
         <p class="source-label" style="margin-top:0">{{SVC_ANALYTICS_BY_OFFICE_DESC}}</p>
         <canvas id="chart-services-offices" height="260" role="img" aria-label="{{SVC_ANALYTICS_BY_OFFICE}}"></canvas>
       </div>
     </div>
     <div class="card" style="margin-top:24px">
-      <h3>{{SVC_ANALYTICS_FEES}}</h3>
+      <h3 id="analytics-fees">{{SVC_ANALYTICS_FEES}}</h3>
       <p class="source-label" style="margin-top:0">{{SVC_ANALYTICS_FEES_DESC}}</p>
       <div id="services-fees-summary" style="display:flex;gap:32px;flex-wrap:wrap;align-items:center;padding:8px 0">
       </div>
@@ -60,7 +64,7 @@ hero_lede: {{SVC_LEDE}}
 
 <script defer src="{{ASSET_BASE}}/assets/service-filter.min.js"></script>
 
-<section class="section">
+<section class="section" id="national-services">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">{{SVC_NATIONAL_EYEBROW}}</div>
@@ -71,7 +75,7 @@ hero_lede: {{SVC_LEDE}}
       <div class="card">
         <div class="service-card-head">
           <div class="icon"><i data-lucide="id-card"></i></div>
-          <h3>{{SVC_PHILSYS}}</h3>
+          <h3 id="national-philsys">{{SVC_PHILSYS}}</h3>
         </div>
         <p>{{SVC_PHILSYS_DESC}}</p>
         <a class="link-arrow" href="https://philsys.gov.ph" target="_blank" rel="noopener">philsys.gov.ph &rarr;</a>
@@ -79,7 +83,7 @@ hero_lede: {{SVC_LEDE}}
       <div class="card">
         <div class="service-card-head">
           <div class="icon"><i data-lucide="file-text"></i></div>
-          <h3>{{SVC_PSA}}</h3>
+          <h3 id="national-psa">{{SVC_PSA}}</h3>
         </div>
         <p>{{SVC_PSA_DESC}}</p>
         <a class="link-arrow" href="https://www.psaserbilis.com.ph/" target="_blank" rel="noopener">psaserbilis.com.ph &rarr;</a>
@@ -87,7 +91,7 @@ hero_lede: {{SVC_LEDE}}
       <div class="card">
         <div class="service-card-head">
           <div class="icon"><i data-lucide="globe"></i></div>
-          <h3>{{SVC_EGOV}}</h3>
+          <h3 id="national-egov">{{SVC_EGOV}}</h3>
         </div>
         <p>{{SVC_EGOV_DESC}}</p>
         <a class="link-arrow" href="https://e.gov.ph" target="_blank" rel="noopener">e.gov.ph &rarr;</a>
@@ -95,7 +99,7 @@ hero_lede: {{SVC_LEDE}}
       <div class="card">
         <div class="service-card-head">
           <div class="icon"><i data-lucide="building-2"></i></div>
-          <h3>{{SVC_ELGU}}</h3>
+          <h3 id="national-emapandan">{{SVC_ELGU}}</h3>
         </div>
         <p>{{SVC_ELGU_DESC}}</p>
         <a class="link-arrow" href="https://emapandan.com" target="_blank" rel="noopener">emapandan.com &rarr;</a>
@@ -103,3 +107,6 @@ hero_lede: {{SVC_LEDE}}
     </div>
   </div>
 </section>
+
+</div>
+</div>

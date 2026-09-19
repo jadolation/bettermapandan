@@ -14,7 +14,11 @@ from _build.config import (
     SITE_CONFIG,
     SECTION_ANCHORS,
     SECTION_NAV,
+    SECTION_NAV_PREFIXES,
     SECTION_NAV_CHILDREN,
+    SECTION_NAV_GRANDCHILDREN,
+    SECTION_NAV_GRANDCHILD_PREFIXES,
+    SECTION_NAV_GROUP_LABEL,
     SECTION_NAV_ICONS,
     FRONT_MATTER_RE,
     LANGUAGES,
@@ -574,15 +578,18 @@ def build_transparency_tabs(locale: dict, active_slug: str, lang_prefix: str) ->
 def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
     """Build dual-mode in-page nav: desktop sticky sidebar + mobile edge dots.
 
-    Sections come from SECTION_NAV (ordered ids); labels from locales;
-    badges count <h3> sub-headings per section in the rendered body;
-    children (SECTION_NAV_CHILDREN) extract id'd <h3> headings, capped at 8.
-    Sections missing from the body are skipped. Server-renders everything
-    so the nav works with JS disabled; section-nav.js adds scrollspy,
-    collapse, and the mobile hold gesture.
+    Sections come from SECTION_NAV (ordered ids); section labels from locales
+    (<prefix>.nav_<id underscores>); badges count <h3> per section in the
+    rendered body. CHILDREN sections extract id'd <h3> sub-items (cap 8);
+    GRANDCHILDREN sub-items extract id'd descendants by id prefix (cap 6).
+    audit-findings wraps children under one toggle (GROUP_LABEL); other
+    sections list children directly. Sections missing from the body are
+    skipped. Server-renders everything so the nav works with JS disabled;
+    section-nav.js adds scrollspy, collapse, and the mobile hold gesture.
     """
     import html as _html
 
+    prefix = SECTION_NAV_PREFIXES.get(nav_key, "transparency")
     configured = SECTION_NAV.get(nav_key, [])
     # Locate each <section id="..."> in the rendered body.
     positions = [(m.group(1), m.start()) for m in re.finditer(r'<section\b[^>]*\bid="([^"]+)"', body)]
@@ -597,36 +604,113 @@ def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
         end = min(later) if later else len(body)
         return body[start:end]
 
+    def extract_headings(sl: str):
+        """Sub-items in document order: id'd h3 headings. Sections without
+        any id'd h3 (e.g. #sangguniang-bayan member cards) fall back to
+        elements carrying an explicit data-nav-label. Capped at 8."""
+        kids = []
+        for m in re.finditer(r'<h3\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h3>', sl, re.DOTALL):
+            kid_id, raw = m.group(1), m.group(2)
+            text = _html.unescape(re.sub(r"<[^>]+>", "", raw)).strip()
+            if kid_id and text:
+                kids.append((kid_id, text))
+            if len(kids) == 8:
+                break
+        if not kids:
+            for m in re.finditer(
+                r'''<[a-zA-Z]+\b[^<>]*\bid=(["'])([^"']+)\1[^<>]*\bdata-nav-label=(["'])([^"']+)\3[^<>]*>''',
+                sl,
+            ):
+                kid_id, text = m.group(2), _html.unescape(m.group(4)).strip()
+                if kid_id and text:
+                    kids.append((kid_id, text))
+                if len(kids) == 8:
+                    break
+        return kids
+
+    def extract_prefixed(sl: str, stem: str):
+        """Id'd h3/div descendants whose id starts with stem + '-': (id, text).
+
+        Prefers an explicit data-nav-label (short card titles); falls back
+        to stripped inner text.
+        """
+        kids = []
+        for m in re.finditer(
+            r'''<(?:h3|div)\b[^<>]*\bid=(["'])''' + re.escape(stem) + r'''-([^"']+)\1[^<>]*>''',
+            sl,
+        ):
+            kid_id = stem + "-" + m.group(2)
+            tag = m.group(0)
+            lm = re.search(r'''data-nav-label=(["'])([^"']+)\1''', tag)
+            if lm:
+                text = _html.unescape(lm.group(2)).strip()
+            else:
+                inner = re.match(
+                    r'<(?:h3|div)\b[^>]*>(.*?)</(?:h3|div)>',
+                    sl[m.start():], re.DOTALL,
+                )
+                raw = inner.group(1) if inner else ""
+                text = re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", "", raw)).strip())
+            if kid_id and text:
+                kids.append((kid_id, text))
+            if len(kids) == 6:
+                break
+        return kids
+
+    def sub_link(kid: str, text: str) -> str:
+        return (
+            f'<li><a href="#{_html.escape(kid, quote=True)}" data-section="{_html.escape(kid, quote=True)}">'
+            f"{_html.escape(text)}</a></li>"
+        )
+
     items = []
     dots = []
+    show_more = t(locale, "common.show_subsections", "Show subsections")
+    hide_less = t(locale, "common.hide_subsections", "Hide subsections")
     for n, sid in enumerate([s for s in configured if s in present]):
-        label = t(locale, f"transparency.nav_{sid.replace('-', '_')}", sid.replace("-", " ").title())
+        label = t(locale, f"{prefix}.nav_{sid.replace('-', '_')}", sid.replace("-", " ").title())
         icon = SECTION_NAV_ICONS.get(sid, "circle")
         sl = section_slice(sid)
         h3_count = len(re.findall(r"<h3\b", sl))
         badge = f'<span class="section-nav-badge" aria-hidden="true">{h3_count}</span>' if h3_count else ""
         sub_html = ""
         if sid in SECTION_NAV_CHILDREN:
-            kids = []
-            for m in re.finditer(r'<h3\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h3>', sl, re.DOTALL):
-                kid_id, raw = m.group(1), m.group(2)
-                text = _html.unescape(re.sub(r"<[^>]+>", "", raw)).strip()
-                if kid_id and text:
-                    kids.append((kid_id, text))
-                if len(kids) == 8:
-                    break
+            kids = extract_headings(sl)
             if kids:
-                sub_items = "".join(
-                    f'<li><a href="#{_html.escape(kid, quote=True)}" data-section="{_html.escape(kid, quote=True)}">{_html.escape(text)}</a></li>'
-                    for kid, text in kids
-                )
-                sub_label = t(locale, "transparency.key_findings", "Key findings")
-                sub_html = (
-                    f'<button type="button" class="section-nav-sub-toggle" aria-expanded="false">'
-                    f"<span>{_html.escape(sub_label)}</span>"
-                    f'<span class="section-nav-badge" aria-hidden="true">{len(kids)}</span></button>'
-                    f'<ul class="section-nav-sub" hidden>{sub_items}</ul>'
-                )
+                kid_items = []
+                for kid, text in kids:
+                    grand = ""
+                    if kid in SECTION_NAV_GRANDCHILDREN:
+                        gpref = SECTION_NAV_GRANDCHILD_PREFIXES.get(kid, kid)
+                        gkids = extract_prefixed(sl, gpref)
+                        if gkids:
+                            kid_esc = _html.escape(text)
+                            grand = (
+                                f'<div class="section-nav-split">'
+                                f'<a href="#{_html.escape(kid, quote=True)}" data-section="{_html.escape(kid, quote=True)}">{kid_esc}</a>'
+                                f'<button type="button" class="section-nav-sub-toggle section-nav-sub-sub-toggle" aria-expanded="false" '
+                                f'aria-label="{_html.escape(show_more)}" data-hide-label="{_html.escape(hide_less)}" data-show-label="{_html.escape(show_more)}">'
+                                f'<span aria-hidden="true">+</span>'
+                                f'<span class="section-nav-badge" aria-hidden="true">{len(gkids)}</span></button>'
+                                f"</div>"
+                                f'<ul class="section-nav-sub-sub" hidden>'
+                                + "".join(sub_link(g, gt) for g, gt in gkids)
+                                + "</ul>"
+                            )
+                            kid_items.append(f"<li>{grand}</li>")
+                            continue
+                    kid_items.append(sub_link(kid, text))
+                group_suffix = SECTION_NAV_GROUP_LABEL.get(sid)
+                if group_suffix:
+                    sub_label = t(locale, f"{prefix}.{group_suffix}", "Details")
+                    sub_html = (
+                        f'<button type="button" class="section-nav-sub-toggle" aria-expanded="false">'
+                        f"<span>{_html.escape(sub_label)}</span>"
+                        f'<span class="section-nav-badge" aria-hidden="true">{len(kids)}</span></button>'
+                        f'<ul class="section-nav-sub" hidden>{"".join(kid_items)}</ul>'
+                    )
+                else:
+                    sub_html = f'<ul class="section-nav-sub">{"".join(kid_items)}</ul>'
         items.append(
             f'<li><a href="#{sid}" data-section="{sid}">'
             f'<i data-lucide="{icon}" aria-hidden="true"></i>'
@@ -770,6 +854,9 @@ def _process_static_page(
     if rel.name == "about.html":
         about_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", about_js + "\n</body>", 1)
+    if rel.name in SECTION_NAV and "section-nav.min.js" not in page_html:
+        section_nav_js = '<script defer src="' + asset_base + '/assets/js/section-nav.min.js"></script>\n'
+        page_html = page_html.replace("</body>", section_nav_js + "</body>", 1)
 
     out_path = out_root / to_folder_index(rel)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -805,12 +892,17 @@ def _process_generated_page(
 
     page_url = f"fil/{rel_path_str}" if lang_code == "fil" else rel_path_str
     breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code == "fil")
+    if rel.name in SECTION_NAV:
+        body_content = body_content.replace("{SECTION_NAV}", build_section_nav(locale, rel.name, body_content), 1)
     page_html = assemble_page(
         base, asset_base,
         page_meta.get(rel_path_str, {}).get("title", "Better Mapandan"),
         page_meta.get(rel_path_str, {}).get("description", ""),
         header, breadcrumbs + body_content, footer, lang_code, page_url, breadcrumb_jsonld
     )
+    if rel.name in SECTION_NAV:
+        section_nav_js = '<script defer src="' + asset_base + '/assets/js/section-nav.min.js"></script>\n'
+        page_html = page_html.replace("</body>", section_nav_js + "</body>", 1)
 
     out_path = out_root / to_folder_index(rel)
     out_path.parent.mkdir(parents=True, exist_ok=True)

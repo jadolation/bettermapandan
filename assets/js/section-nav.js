@@ -113,8 +113,20 @@
       sub.addEventListener("click", function () {
         var expanded = sub.getAttribute("aria-expanded") === "true";
         sub.setAttribute("aria-expanded", String(!expanded));
-        var panel = sub.nextElementSibling;
+        var panel = null;
+        var split = sub.closest(".section-nav-split");
+        if (split) {
+          panel = split.parentElement.querySelector(".section-nav-sub-sub");
+        } else {
+          panel = sub.nextElementSibling;
+        }
         if (panel) panel.hidden = expanded;
+        if (sub.hasAttribute("data-show-label")) {
+          sub.setAttribute(
+            "aria-label",
+            expanded ? sub.getAttribute("data-show-label") : sub.getAttribute("data-hide-label")
+          );
+        }
       });
     });
   }

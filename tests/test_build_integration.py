@@ -219,6 +219,78 @@ def test_infrastructure_map_markup(built_site: Path):
         assert "transparency-data" not in html
 
 
+NAV_PAGE_SECTIONS = {
+    "services": 3,
+    "government": 5,
+    "legislative": 8,
+    "statistics": 8,
+}
+
+
+def _read_top_page(built_site: Path, lang: str, slug: str) -> str:
+    base = built_site if lang == "en" else built_site / "fil"
+    return (base / slug / "index.html").read_text(encoding="utf-8")
+
+
+def test_section_nav_on_content_pages(built_site: Path):
+    """Services/government/legislative/statistics render sidebar + edge dots, EN + FIL."""
+    for lang in ("en", "fil"):
+        for slug, count in NAV_PAGE_SECTIONS.items():
+            html = _read_top_page(built_site, lang, slug)
+            assert 'class="page-with-nav"' in html, f"{lang}/{slug} layout"
+            assert 'class="section-nav"' in html, f"{lang}/{slug} sidebar"
+            assert 'class="edge-nav"' in html, f"{lang}/{slug} edge nav"
+            assert html.count('class="edge-dot ') == count, f"{lang}/{slug} dots"
+            assert 'section-nav.min.js' in html, f"{lang}/{slug} script"
+            assert '</h4>' not in html, f"{lang}/{slug} heading mismatch"
+
+
+def test_section_nav_ids_resolve(built_site: Path):
+    """Every configured SECTION_NAV id exists as an anchor in the built body, EN + FIL."""
+    import sys
+
+    sys.path.insert(0, str(REPO))
+    from _build.config import SECTION_NAV
+
+    pages = {
+        "budget-fiscal": "transparency/budget-fiscal",
+        "audit-compliance": "transparency/audit-compliance",
+        "services": "services",
+        "government": "government",
+        "legislative": "legislative",
+        "statistics": "statistics",
+    }
+    for lang in ("en", "fil"):
+        base = built_site if lang == "en" else built_site / "fil"
+        for key, rel in pages.items():
+            html = (base / rel / "index.html").read_text(encoding="utf-8")
+            for sid in SECTION_NAV[f"{key}.html"]:
+                assert f'id="{sid}"' in html, f"{lang}/{rel} missing #{sid}"
+
+
+def test_fdp_three_level_nav(built_site: Path):
+    """FDP sub-items expose year cards + collection dialogs as grandchildren."""
+    html = _read_subpage(built_site, "en", "budget-fiscal")
+    for gid in ("fdp-latest", "fdp-archive", "fdp-collections"):
+        assert f'href="#{gid}"' in html, f"missing sub-item {gid}"
+    for year in ("2026", "2025", "2024", "2023"):
+        assert f'href="#fdp-archive-{year}"' in html, f"missing year {year}"
+    for slug in ("budget", "debt", "workforce", "proc-plans", "gad", "funds"):
+        assert f'href="#fdp-collection-{slug}"' in html, f"missing collection {slug}"
+    for kid in ("fiscal-revenue", "fiscal-expenditure", "fiscal-trend", "fiscal-funds",
+                "fiscal-cash", "fiscal-barangay", "fiscal-bids"):
+        assert f'href="#{kid}"' in html, f"missing dashboard {kid}"
+    assert 'class="section-nav-sub-sub"' in html
+
+
+def test_government_sb_grouped_nav(built_site: Path):
+    """SB members collapse into Regular + Ex-officio groups, not 10 raw items."""
+    html = _read_top_page(built_site, "en", "government")
+    assert 'href="#sb-regular-members"' in html
+    assert 'href="#sb-ex-officio"' in html
+    assert html.count('href="#agency-') == 8
+
+
 def test_schema_validation_passes(built_site: Path):
     jsonschema = pytest.importorskip("jsonschema")
     assert jsonschema is not None

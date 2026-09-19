@@ -5,6 +5,10 @@ hero_eyebrow: Government
 hero_heading: Government Directory
 hero_lede: The officials and offices serving Mapandan, from the Executive and Sangguniang Bayan down to the department heads who run day-to-day operations.
 ---
+<div class="page-with-nav">
+{SECTION_NAV}
+<div class="page-with-nav-body">
+
 <section class="section" id="executive">
   <div class="wrap">
     <div class="section-head">
@@ -37,6 +41,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       </div>
     <p class="last-updated">Data last verified: August 2026. <a href="/support/report/?page=government" title="We're an independent volunteer team — corrections welcome">Report incorrect information or send corrections</a></p>
     </div>
+  </div>
 </section>
 
 <section class="section section-alt" id="sangguniang-bayan">
@@ -47,10 +52,11 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <p>Regular SB members and ex-officio members, presided over by the Vice Mayor.</p>
     </div>
     <div class="grid grid-3">
+    <div id="sb-regular-members" data-nav-label="Regular members">
     <div class="sb-card">
       <div class="sb-text">
         <span class="tag">SB Member</span>
-        <h3>Hon. Alicia A. Mariano</h4>
+        <h3>Hon. Alicia A. Mariano</h3>
         <div class="affil">Nacionalista Party (NP)</div>
       </div>
       <div class="photo-wrap">
@@ -60,7 +66,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">SB Member</span>
-      <h3>Hon. Percival Z. Biagtan</h4>
+      <h3>Hon. Percival Z. Biagtan</h3>
       <div class="affil">Independent (IND)</div>
     </div>
     <div class="photo-wrap">
@@ -70,7 +76,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">SB Member</span>
-      <h3>Hon. Blando B. Quinto</h4>
+      <h3>Hon. Blando B. Quinto</h3>
       <div class="affil">Nacionalista Party (NP)</div>
     </div>
     <div class="photo-wrap">
@@ -80,7 +86,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">SB Member</span>
-      <h3>Hon. Frederick G. Lalas</h4>
+      <h3>Hon. Frederick G. Lalas</h3>
       <div class="affil">Independent (IND)</div>
     </div>
     <div class="photo-wrap">
@@ -90,7 +96,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">SB Member</span>
-      <h3>Hon. Michael A. Calimlim</h4>
+      <h3>Hon. Michael A. Calimlim</h3>
       <div class="affil">Independent (IND)</div>
     </div>
     <div class="photo-wrap">
@@ -100,7 +106,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">SB Member</span>
-      <h3>Hon. Freddie R. Penuliar</h4>
+      <h3>Hon. Freddie R. Penuliar</h3>
       <div class="affil">Local Slate</div>
     </div>
     <div class="photo-wrap">
@@ -110,7 +116,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">SB Member</span>
-      <h3>Hon. John Ericson L. Parayno</h4>
+      <h3>Hon. John Ericson L. Parayno</h3>
       <div class="affil">Local Slate</div>
     </div>
     <div class="photo-wrap">
@@ -120,17 +126,19 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">SB Member</span>
-      <h3>Hon. Gem T. Castro</h4>
+      <h3>Hon. Gem T. Castro</h3>
       <div class="affil">Local Slate</div>
     </div>
     <div class="photo-wrap">
       <img src="{{ASSET_BASE}}/assets/officials/coun-castro.png" alt="Hon. Gem T. Castro" class="photo" width="120" height="120">
     </div>
   </div>
+    </div>
+    <div id="sb-ex-officio" data-nav-label="Ex-officio members">
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">Ex-Officio</span>
-      <h3>Hon. Alexander L. Aquino</h4>
+      <h3>Hon. Alexander L. Aquino</h3>
       <div class="affil">Liga ng mga Barangay (ABC) President</div>
     </div>
     <div class="photo-wrap">
@@ -140,15 +148,17 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   <div class="sb-card">
     <div class="sb-text">
       <span class="tag">Ex-Officio</span>
-      <h3>Hon. John Manuel V. Landingin</h4>
+      <h3>Hon. John Manuel V. Landingin</h3>
       <div class="affil">SK Federation President</div>
     </div>
     <div class="photo-wrap">
       <img src="{{ASSET_BASE}}/assets/officials/coun-landingin.png" alt="Hon. John Manuel V. Landingin" class="photo" width="120" height="120">
     </div>
   </div>
+    </div>
   <p class="last-updated">Data last verified: August 2026. <a href="/support/report/?page=government" title="We're an independent volunteer team — corrections welcome">Report incorrect information or send corrections</a></p>
-</div>
+  </div>
+  </div>
 </section>
 
 
@@ -227,7 +237,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="national-agencies">
   <div class="wrap">
     <div class="section-head">
       <div class="section-eyebrow">National Agencies</div>
@@ -239,7 +249,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logo-no-white.svg" alt="Municipality of Mapandan Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Municipal Website</h3>
+          <h3 id="agency-municipal-site">Municipal Website</h3>
           <p>Official portal for Mapandan municipal services, news, and announcements.</p>
           <a class="link-arrow" href="https://mapandan.gov.ph" target="_blank" rel="noopener">mapandan.gov.ph &rarr;</a>
         </div>
@@ -248,7 +258,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logos/pangasinan-seal.png" alt="Provincial Government of Pangasinan Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Provincial Government of Pangasinan</h3>
+          <h3 id="agency-pangasinan">Provincial Government of Pangasinan</h3>
           <p>Provincial government services, ordinances, and inter-local cooperation programs.</p>
           <a class="link-arrow" href="https://pangasinan.gov.ph" target="_blank" rel="noopener">pangasinan.gov.ph &rarr;</a>
         </div>
@@ -257,7 +267,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logos/coa.png" alt="Commission on Audit Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Commission on Audit (COA)</h3>
+          <h3 id="agency-coa">Commission on Audit (COA)</h3>
           <p>Annual audit reports, compliance findings, and public expenditure reviews for local government units.</p>
           <a class="link-arrow" href="https://coa.gov.ph" target="_blank" rel="noopener">coa.gov.ph &rarr;</a>
         </div>
@@ -266,7 +276,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logos/dilg.webp" alt="Department of the Interior and Local Government Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Department of the Interior and Local Government (DILG)</h3>
+          <h3 id="agency-dilg">Department of the Interior and Local Government (DILG)</h3>
           <p>Local governance standards, compliance advisories, and LGU performance benchmarks.</p>
           <a class="link-arrow" href="https://dilg.gov.ph" target="_blank" rel="noopener">dilg.gov.ph &rarr;</a>
         </div>
@@ -275,7 +285,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logos/blgf.png" alt="Bureau of Local Government Finance Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Bureau of Local Government Finance (BLGF)</h3>
+          <h3 id="agency-blgf">Bureau of Local Government Finance (BLGF)</h3>
           <p>Local treasury operations, revenue data, and fiscal compliance guidelines for LGUs.</p>
           <a class="link-arrow" href="https://blgf.gov.ph" target="_blank" rel="noopener">blgf.gov.ph &rarr;</a>
         </div>
@@ -284,7 +294,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logos/psa.webp" alt="Philippine Statistics Authority Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Philippine Statistics Authority (PSA)</h3>
+          <h3 id="agency-psa">Philippine Statistics Authority (PSA)</h3>
           <p>Census data, civil registry verification, and national demographic statistics.</p>
           <a class="link-arrow" href="https://psa.gov.ph" target="_blank" rel="noopener">psa.gov.ph &rarr;</a>
         </div>
@@ -293,7 +303,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logos/philsys.png" alt="Philippine Identification System Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Philippine Identification System (PhilSys)</h3>
+          <h3 id="agency-philsys">Philippine Identification System (PhilSys)</h3>
           <p>National ID registration, card issuance status, and identity verification services.</p>
           <a class="link-arrow" href="https://philsys.gov.ph" target="_blank" rel="noopener">philsys.gov.ph &rarr;</a>
         </div>
@@ -302,7 +312,7 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
       <div class="card agency-card">
         <img src="{{ASSET_BASE}}/assets/logos/philgeps.png" alt="PhilGEPS Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
         <div class="agency-card-content">
-          <h3>Philippine Government Electronic Procurement System (PhilGEPS)</h3>
+          <h3 id="agency-philgeps">Philippine Government Electronic Procurement System (PhilGEPS)</h3>
           <p>Government procurement postings, supplier registration, and bid opportunities.</p>
           <a class="link-arrow" href="https://philgeps.gov.ph" target="_blank" rel="noopener">philgeps.gov.ph &rarr;</a>
         </div>
@@ -311,3 +321,6 @@ hero_lede: The officials and offices serving Mapandan, from the Executive and Sa
     </div>
   </div>
 </section>
+
+</div>
+</div>
