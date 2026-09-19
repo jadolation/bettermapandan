@@ -32,6 +32,20 @@ from _build.assets import minify_assets, compress_images, generate_sitemap, gene
 from _build.lint import verify_translations
 
 
+def deep_merge(base: dict, override: dict) -> dict:
+    """Recursively merge override into base. Override values take precedence.
+    Empty strings in override are treated as missing (fall back to base).
+    """
+    result = dict(base)
+    for key, value in override.items():
+        if value == "":
+            continue
+        if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            result[key] = deep_merge(result[key], value)
+        else:
+            result[key] = value
+    return result
+
 
 def build_lang_switcher_urls(rel: Path, lang_code: str) -> dict[str, str]:
     """Build language switcher URLs for a page."""
@@ -748,6 +762,7 @@ def build() -> None:
     en_locale = load_locale("en")
     fil_locale = load_locale("fil")
     pag_locale = load_locale("pag")
+    pag_locale = deep_merge(en_locale, pag_locale)
 
     if HAS_SCHEMA_VALIDATION:
         schema_errors = validate_all(SRC_DATA)
