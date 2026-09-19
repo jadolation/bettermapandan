@@ -49,3 +49,5 @@ datasets/fdp-csv/
 
 __pycache__/
 .kilo/
+
+frontend-text-extract.txt
