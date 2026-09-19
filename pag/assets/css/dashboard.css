@@ -271,12 +271,14 @@
   .transparency-tabs-dropdown {
     display: block;
     position: sticky;
-    top: var(--transparency-tabs-top, 108px);
+    /* -1px overlap guarantees no hairline gap from rounding. */
+    top: calc(var(--transparency-tabs-top, 108px) - 1px);
     z-index: 30;
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow-sm);
     padding: 8px 0;
+    margin-top: -1px;
     margin-bottom: 12px;
   }
 }

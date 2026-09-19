@@ -46,13 +46,25 @@
 
   // Dock the mobile dropdown bar directly below the sticky header.
   // Both the emergency bar and site header heights vary (ticker wrap,
-  // fonts), so measure rather than hardcode.
+  // fonts, mobile browser chrome), so measure rather than hardcode — and
+  // re-measure on scroll (throttled) since layout can shift mid-scroll.
+  var scrollQueued = false;
+
   function updateTabsTop() {
     var bar = document.querySelector(".emergency-bar");
     var header = document.querySelector(".site-header");
     if (!bar || !header) return;
     var top = bar.offsetHeight + header.offsetHeight;
     document.documentElement.style.setProperty("--transparency-tabs-top", top + "px");
+  }
+
+  function queueTabsTop() {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    window.requestAnimationFrame(function () {
+      scrollQueued = false;
+      updateTabsTop();
+    });
   }
 
   function init() {
@@ -68,6 +80,10 @@
   }
   window.addEventListener("resize", updateTabsTop);
   window.addEventListener("orientationchange", updateTabsTop);
+  window.addEventListener("scroll", queueTabsTop, { passive: true });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", updateTabsTop);
+  }
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(updateTabsTop);
   }

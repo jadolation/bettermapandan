@@ -174,6 +174,8 @@ def test_transparency_dropdown_sticky_css(built_site: Path):
     assert "position:sticky" in css.replace(" ", "")
     assert "--transparency-tabs-top" in css
     assert ".transparency-tabs-dropdown" in css
+    # 1px overlap so rounding never opens a gap under the header.
+    assert "calc(var(--transparency-tabs-top" in css
 
 
 def test_section_nav_sidebar_and_edge(built_site: Path):
@@ -191,12 +193,29 @@ def test_section_nav_sidebar_and_edge(built_site: Path):
             assert html.count('class="edge-dot ') == count, f"{lang}/{slug} dots"
             assert 'class="edge-tab"' in html, f"{lang}/{slug} affordance"
             assert 'section-nav.min.js' in html, f"{lang}/{slug} script"
-    # Findings sub-nav capped at 8 id'd headings
+    # Findings sub-nav shows all 10 id'd headings (cap raised from 8).
     html = _read_subpage(built_site, "en", "audit-compliance")
     assert 'class="section-nav-sub"' in html
-    assert html.count('href="#finding-') == 8
+    assert html.count('href="#finding-') == 10
+    # Badges count linked children, never raw h3 volume.
+    assert 'aria-hidden="true">10</span></button>' in html
+    bf = _read_subpage(built_site, "en", "budget-fiscal")
+    assert 'aria-hidden="true">202<' not in bf
+    assert 'aria-hidden="true">3</span></a>' in bf
     # No active link server-side (scrollspy assigns at runtime)
     assert 'section-nav a active' not in html
+
+
+def test_section_nav_rail_and_edge_css(built_site: Path):
+    """Rail toggle is icon-only; edge menu is a named panel with dim backdrop."""
+    css = (built_site / "assets" / "style.min.css").read_text(encoding="utf-8")
+    flat = css.replace(" ", "")
+    assert "rotate(180deg)" in flat
+    assert ".edge-backdrop" in css
+    assert "rgba(0,0,0,0.35)" in flat
+    html = _read_subpage(built_site, "en", "budget-fiscal")
+    assert 'class="edge-backdrop"' in html
+    assert '<span class="edge-tip" aria-hidden="true">FDP filings</span>' in html
 
 
 def test_transparency_hub_has_no_redirect(built_site: Path):

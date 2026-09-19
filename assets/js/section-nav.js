@@ -1,14 +1,14 @@
 /* section-nav.js — Dual-mode in-page section navigation.
    Desktop: IntersectionObserver scrollspy + collapsible sidebar.
-   Mobile (<=720px): edge-hold gesture reveals dot nav; release on a dot
-   smooth-scrolls (CSS scroll-behavior) to that section. */
+   Mobile (<=720px): press-and-hold the right edge (~800ms) to reveal a
+   named submenu; it stays visible only while held — sliding highlights a
+   row and releasing over it smooth-scrolls (CSS scroll-behavior) there. */
 (function () {
   "use strict";
 
-  var HOLD_MS = 300;
+  var HOLD_MS = 800;
   var EDGE_PX = 30;
   var MOVE_PX = 24;
-  var AUTO_HIDE_MS = 5000;
   var mq = window.matchMedia ? window.matchMedia("(max-width: 720px)") : null;
 
   function isMobile() {
@@ -37,6 +37,11 @@
       } else {
         a.removeAttribute("aria-current");
       }
+    });
+    // Mirror the current section onto the mobile hold-menu rows.
+    var dots = document.querySelectorAll(".edge-dot[data-target]");
+    Array.prototype.forEach.call(dots, function (d) {
+      d.classList.toggle("active", d.getAttribute("data-target") === id);
     });
   }
 
@@ -135,7 +140,6 @@
 
   var edgeNav = null;
   var holdTimer = null;
-  var hideTimer = null;
   var holdId = null;
   var startX = 0;
   var startY = 0;
@@ -143,14 +147,11 @@
   function openEdge() {
     if (!edgeNav || !isMobile()) return;
     edgeNav.classList.add("open");
-    clearTimeout(hideTimer);
-    hideTimer = setTimeout(closeEdge, AUTO_HIDE_MS);
   }
 
   function closeEdge() {
     if (!edgeNav) return;
     edgeNav.classList.remove("open");
-    clearTimeout(hideTimer);
     var tips = edgeNav.querySelectorAll(".tip-on");
     Array.prototype.forEach.call(tips, function (d) {
       d.classList.remove("tip-on");

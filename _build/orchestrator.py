@@ -1,43 +1,57 @@
-import shutil
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
+from _build.assets import compress_images, generate_llms_txt, generate_sitemap, minify_assets
 from _build.config import (
-    SRC_PAGES,
-    ROOT,
-    SRC_PARTIALS,
-    SRC_DATA,
-    SRC_TEMPLATES,
     FIL_DIR,
+    HAS_SCHEMA_VALIDATION,
+    LANGUAGES,
     PAG_DIR,
-    SITE_CONFIG,
+    ROOT,
     SECTION_ANCHORS,
     SECTION_NAV,
-    SECTION_NAV_PREFIXES,
     SECTION_NAV_CHILDREN,
-    SECTION_NAV_GRANDCHILDREN,
     SECTION_NAV_GRANDCHILD_PREFIXES,
+    SECTION_NAV_GRANDCHILDREN,
     SECTION_NAV_GROUP_LABEL,
     SECTION_NAV_ICONS,
-    FRONT_MATTER_RE,
-    LANGUAGES,
+    SECTION_NAV_PREFIXES,
+    SITE_CONFIG,
+    SRC_DATA,
+    SRC_PAGES,
+    SRC_PARTIALS,
     validate_all,
-    HAS_SCHEMA_VALIDATION,
 )
-from _build.locales import load_locale, t
 from _build.facts import facts_placeholders
-from _build.templates import parse_page, fill, strip_html, strip_front_matter, compute_url, compute_asset_base, to_folder_index
-from _build.generators.services import generate_services
-from _build.generators.legislative import generate_legislative
-from _build.generators.dpwh import generate_dpwh, _build_dpwh_labels
+from _build.generators.barangays import (
+    build_barangay_comparison_script,
+    generate_barangay_councils_table,
+    generate_barangays,
+)
+from _build.generators.dpwh import _build_dpwh_labels, generate_dpwh
 from _build.generators.fdp import generate_fdp, generate_fdp_dashboard
 from _build.generators.fdp_analytics import generate_fdp_summary
-from _build.generators.procurement import generate_procurement, generate_homepage_procurement_data, generate_homepage_dpwh_data
-from _build.generators.barangays import validate_barangays, generate_barangays, build_barangay_comparison_script, generate_barangay_councils_table
-from _build.assets import minify_assets, compress_images, generate_sitemap, generate_llms_txt
+from _build.generators.legislative import generate_legislative
+from _build.generators.procurement import (
+    generate_homepage_dpwh_data,
+    generate_homepage_procurement_data,
+    generate_procurement,
+)
+from _build.generators.services import generate_services
 from _build.lint import verify_translations
+from _build.locales import load_locale, t
+from _build.templates import (
+    compute_asset_base,
+    compute_url,
+    fill,
+    parse_page,
+    strip_front_matter,
+    strip_html,
+    to_folder_index,
+)
 
 
 def deep_merge(base: dict, override: dict) -> dict:
@@ -605,13 +619,14 @@ def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
     """Build dual-mode in-page nav: desktop sticky sidebar + mobile edge dots.
 
     Sections come from SECTION_NAV (ordered ids); section labels from locales
-    (<prefix>.nav_<id underscores>); badges count <h3> per section in the
-    rendered body. CHILDREN sections extract id'd <h3> sub-items (cap 8);
-    GRANDCHILDREN sub-items extract id'd descendants by id prefix (cap 6).
-    audit-findings wraps children under one toggle (GROUP_LABEL); other
-    sections list children directly. Sections missing from the body are
-    skipped. Server-renders everything so the nav works with JS disabled;
-    section-nav.js adds scrollspy, collapse, and the mobile hold gesture.
+    (<prefix>.nav_<id underscores>); badges count linked nav children
+    (sub-items, never raw h3 volume). CHILDREN sections extract id'd <h3>
+    sub-items (cap 10); GRANDCHILDREN sub-items extract id'd descendants
+    by id prefix (cap 6). audit-findings wraps children under one toggle
+    (GROUP_LABEL); other sections list children directly. Sections missing
+    from the body are skipped. Server-renders everything so the nav works
+    with JS disabled; section-nav.js adds scrollspy, collapse, and the
+    mobile hold gesture.
     """
     import html as _html
 
@@ -633,14 +648,14 @@ def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
     def extract_headings(sl: str):
         """Sub-items in document order: id'd h3 headings. Sections without
         any id'd h3 (e.g. #sangguniang-bayan member cards) fall back to
-        elements carrying an explicit data-nav-label. Capped at 8."""
+        elements carrying an explicit data-nav-label. Capped at 10."""
         kids = []
         for m in re.finditer(r'<h3\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h3>', sl, re.DOTALL):
             kid_id, raw = m.group(1), m.group(2)
             text = _html.unescape(re.sub(r"<[^>]+>", "", raw)).strip()
             if kid_id and text:
                 kids.append((kid_id, text))
-            if len(kids) == 8:
+            if len(kids) == 10:
                 break
         if not kids:
             for m in re.finditer(
@@ -650,7 +665,7 @@ def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
                 kid_id, text = m.group(2), _html.unescape(m.group(4)).strip()
                 if kid_id and text:
                     kids.append((kid_id, text))
-                if len(kids) == 8:
+                if len(kids) == 10:
                     break
         return kids
 
@@ -697,9 +712,8 @@ def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
         label = t(locale, f"{prefix}.nav_{sid.replace('-', '_')}", sid.replace("-", " ").title())
         icon = SECTION_NAV_ICONS.get(sid, "circle")
         sl = section_slice(sid)
-        h3_count = len(re.findall(r"<h3\b", sl))
-        badge = f'<span class="section-nav-badge" aria-hidden="true">{h3_count}</span>' if h3_count else ""
         sub_html = ""
+        kid_count = 0
         if sid in SECTION_NAV_CHILDREN:
             kids = extract_headings(sl)
             if kids:
@@ -737,6 +751,8 @@ def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
                     )
                 else:
                     sub_html = f'<ul class="section-nav-sub">{"".join(kid_items)}</ul>'
+                kid_count = len(kids)
+        badge = f'<span class="section-nav-badge" aria-hidden="true">{kid_count}</span>' if kid_count else ""
         items.append(
             f'<li><a href="#{sid}" data-section="{sid}">'
             f'<i data-lucide="{icon}" aria-hidden="true"></i>'
@@ -760,6 +776,7 @@ def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
         '<span aria-hidden="true">&lt;</span></button></div>\n'
         '<ul id="section-nav-list">\n' + "\n".join(items) + "\n</ul>\n</nav>\n"
         '<nav class="edge-nav" aria-label="' + _html.escape(nav_label) + '">\n'
+        '<div class="edge-backdrop" aria-hidden="true"></div>\n'
         '<div class="edge-tab" aria-hidden="true"></div>\n'
         '<div class="edge-dots">\n' + "\n".join(dots) + "\n</div>\n</nav>\n"
     )
