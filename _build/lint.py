@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from _build.config import ROOT, FIL_DIR
+from _build.config import ROOT, FIL_DIR, PAG_DIR
 
 
 TRANSLATION_ALLOWLIST = {
@@ -107,3 +107,18 @@ def verify_translations() -> None:
         print(f"\n  Summary: {total_segments} segment(s) across {pages_checked} pages may need translation.")
     else:
         print(f"  No untranslated segments found across {pages_checked} page pairs.")
+
+    pag_dir = PAG_DIR
+    if pag_dir.exists():
+        pag_findings, pages_checked_pag = _collect_translation_findings(ROOT, pag_dir)
+
+        if pag_findings:
+            total_segments_pag = sum(len(segments) for _, segments in pag_findings)
+            print(f"  Found {total_segments_pag} potential untranslated segment(s) in {pages_checked_pag} page pairs (Pangasinan):\n")
+            for file_path, segments in pag_findings:
+                print(f"  [{file_path}]")
+                for segment in segments:
+                    print(f'    - "{segment}"')
+            print(f"\n  Summary: {total_segments_pag} segment(s) across {pages_checked_pag} pages may need translation.")
+        else:
+            print(f"  No untranslated segments found across {pages_checked_pag} page pairs (Pangasinan).")

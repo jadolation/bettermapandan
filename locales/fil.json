@@ -1,7 +1,7 @@
 {
   "lang_code": "fil",
   "nav": {
-    "home": "Tahanan",
+    "home": "Pangunahing Pahina",
     "services": "Mga Serbisyo",
     "government": "Pamahalaan",
     "legislative": "Lehislatibo",
@@ -44,8 +44,8 @@
     "residents": "Mamamayan",
     "barangays": "Barangay",
     "households": "Mga Pamamahay",
-    "density": "Populasyon/km\u00b2",
-    "land_area": "Lupang area"
+    "density": "Densidad ng populasyon",
+    "land_area": "Lawak ng lupa"
   },
   "homepage": {
     "municipality_eyebrow": "Ikatlong Klase na Bayan &middot; Rehiyon I",
@@ -55,7 +55,7 @@
     "milestone1_desc": "Ang lugar ay kabilang sa Mangaldan bilang mga timog na barrio &mdash; Payapay, Baloling, Apaya, at Amanoaoac &mdash; pinangalanan para sa kasaganaan ng mabangong halamang pandan sa kapatagan ng Ilog Agno.",
     "milestone2_title": "Pagkakatatag bilang Pueblo",
     "milestone2_desc": "Itinatag bilang isang independenteng munisipalidad sa pamamagitan ng Director General Blg. 39, pinamunuan ng sampung lokal na lider kabilang si Antonio Morales, Sabino Prado, at Andres Bongato.",
-    "milestone3_title": "Pakikipagtalo at Pagbangon",
+    "milestone3_title": "Pagbangon at Pagpapatuloy",
     "milestone3_desc": "Isang matinding epidemya ang nagpilit sa pansamantalang pagsasama muli sa Mangaldan dahil sa krisis pinansyal. Ang buong kasarinlan ay naibalik noong 1909 sa ilalim ng Executive Order Blg. 10 ni Heneral Gobernador James F. Smith.",
     "milestone4_title": "Modernong Mapandan",
     "milestone4_desc": "Isang 15-barangay na bayan na may 38,228 na residente, namumuhunan sa Super Health Center, Pandan Festival, at imprastraktura.",
@@ -84,12 +84,12 @@
     "emergency_rhu": "Rural Health Unit",
     "emergency_hospital": "Mapandan Community Hospital",
     "emergency_water": "Mapandan Water District",
-    "municipality_desc_full": "Matatagpuan ang Mapandan sa Ikatlong Kongresonal na Distrito ng Pangasinan, hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. Sakop nito ang 32.92 square kilometro, kung saan halos tatlo sa apat na bahagi ng lupain ay suportado ang agrikultura \u2014 pangunahin ang palay, kasama ang mais, hayop, at mga panahong gulay.",
+    "municipality_desc_full": "Matatagpuan ang Mapandan sa Ikatlong Kongresonal na Distrito ng Pangasinan, hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. Sakop nito ang 32.92 square kilometro, kung saan halos tatlo sa apat na bahagi ng lupain ay suportado ang agrikultura — pangunahin ang palay, kasama ang mais, hayop, at mga panahong gulay.",
     "milestone1_era": "Bago 1887",
     "milestone1_era_desc": "Ang Mapandan ay nilikha bilang isang independenteng pueblo sa pamamagitan ng Director General Blg. 39, nilagdaan noong Disyembre 28, 1887, hiwalay sa bayan ng Mangaldan.",
     "milestone2_era": "Dis. 28, 1887",
     "milestone2_era_desc": "Pagkatapos muling isama sa Mangaldan dahil sa krisis pinansyal, muling nakamit ng Mapandan ang kasarinlan nito noong 1909 sa pamamagitan ng Executive Order Blg. 10 ni Heneral Gobernador James F. Smith.",
-    "milestone3_era": "1905\u20131909",
+    "milestone3_era": "1905–1909",
     "milestone3_era_desc": "Ang ekonomiya ng munisipalidad ay nakatuon sa pagtatanim ng palay, na sinusuportahan ng mga irigasyon para sa buong taon na pagsasaka sa mga lowland barangay nito.",
     "milestone4_era": "2020s",
     "history_source_notes": "Mga Pinagmulan at Talaang Kasaysayan",
@@ -105,7 +105,7 @@
     "municipality_agri": "Puso ng Agrikultura",
     "founded_desc": "Hiwalay sa Mangaldan bilang isang independenteng pueblo sa ilalim ni Heneral Gobernador Emilio Bravo, pinamunuan ng sampung lokal na lider kabilang si Antonio Morales, Sabino Prado, at Andres Bongato.",
     "reestablished_desc": "Isang matinding epidemya ang nagpilit sa pansamantalang pagsasama muli sa Mangaldan. Ang buong kasarinlan ay naibalik sa pamamagitan ng Executive Order Blg. 10 ni Heneral Gobernador James F. Smith.",
-    "agri_desc_full": "Humigit-kumulang 75% ng 30 km&sup2; ng munisipalidad ay inilaan para sa produksyon ng lowland crop, hayop, at pag-aalaga ng manok.",
+    "agri_desc_full": "Humigit-kumulang 75% ng 32.92 km² ng munisipalidad ay inilaan para sa produksiyong agrikultural, hayop, at pag-aalaga ng manok.",
     "pandan_title": "Pandan Festival",
     "pandan_credit": "Larawan: IRISE Studios",
     "plaza_credit": "Larawan: Pangasinan Lakwatsero",
@@ -124,23 +124,23 @@
     "vice_mayor_affil": "Independent (IND)",
     "transparency_eyebrow": "Transparency",
     "transparency_title": "Budget, Kontrata, at Audit",
-    "transparency_desc": "Mga datos para sa financial accountability ng Mapandan \u2014 budgets, procurement, infrastructure, at mga COA audit report \u2014 lahat ay nasa isang lugar."
+    "transparency_desc": "Mga datos para sa financial accountability ng Mapandan — budgets, procurement, infrastructure, at mga COA audit report — lahat ay nasa isang lugar."
   },
   "service_page": {
     "description": "Paglalarawan",
     "requirements": "Mga Kinakailangan",
     "procedure": "Prosedura",
     "details": "Mga Detalye ng Serbisyo",
-    "office": "Opisyo na May Pananagutan:",
+    "office": "Opisina:",
     "classification": "Klasipikasyon:",
     "mode": "Paraan:",
     "processing_time": "Oras ng Pagproseso:",
-    "fee": "Bayad:",
+    "fee": "Mga Bayarin:",
     "where_to_apply": "Saan Mag-aapply:",
-    "contact": "Contact:",
+    "contact": "Makipag-ugnayan:",
     "source": "Pinagmulan:",
     "last_updated": "Huling Na-update:",
-    "scanned_doc": "Nascanned na Dokumento",
+    "scanned_doc": "Nakaskan na Dokumento",
     "scanned_doc_desc": "Nascanned na pahina mula sa opisyal na Mapandan Citizen's Charter na naglilista ng mga kinakailangan, bayad, oras ng pagproseso, at mga staff na may pananagutan para sa serbisyo.",
     "related": "Mga Kaugnay na Serbisyo",
     "no_related": "Walang available na kaugnay na serbisyo.",
@@ -168,7 +168,7 @@
     "national_egov": "eGovPH",
     "national_egov_desc": "Unified na portal ng pambansang digital na serbisyo ng pamahalaan. Access sa maraming ahensya sa iisang lugar.",
     "national_elgu": "e-LGU Portal",
-    "national_elgu_desc": "Digital na platform ng serbisyo para sa mga lokal na pamahalaan. Suriin ang availability para sa mga serbisyo ng Mapandan."
+    "national_elgu_desc": "Digital na plataporma ng serbisyo para sa mga lokal na pamahalaan. Tingnan kung may mga serbisyo para sa Mapandan."
   },
   "search_page": {
     "title": "Maghanap ng impormasyon ng pamahalaan",

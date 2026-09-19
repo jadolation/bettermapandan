@@ -10,6 +10,7 @@ from _build.config import (
     SRC_DATA,
     SRC_TEMPLATES,
     FIL_DIR,
+    PAG_DIR,
     SITE_CONFIG,
     SECTION_ANCHORS,
     FRONT_MATTER_RE,
@@ -32,16 +33,18 @@ from _build.lint import verify_translations
 
 
 
-def build_lang_switcher_urls(rel: Path, is_fil: bool) -> tuple[str, str]:
+def build_lang_switcher_urls(rel: Path, lang_code: str) -> dict[str, str]:
     """Build language switcher URLs for a page."""
     clean = to_folder_index(rel)
     if clean.name == "index.html":
         folder = "" if not clean.parent or clean.parent == Path(".") else str(clean.parent)
     else:
         folder = str(clean.parent / clean.stem)
-    en_path = f"/{folder}/" if folder else "/"
-    fil_path = f"/fil/{folder}/" if folder else "/fil/"
-    return en_path, fil_path
+    return {
+        "en": f"/{folder}/" if folder else "/",
+        "fil": f"/fil/{folder}/" if folder else "/fil/",
+        "pag": f"/pag/{folder}/" if folder else "/pag/",
+    }
 
 
 def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
@@ -81,7 +84,7 @@ SECTION_NAMES = {
 }
 
 
-def build_breadcrumb_jsonld(locale: dict, rel: Path, page_title: str, is_fil: bool) -> str:
+def build_breadcrumb_jsonld(locale: dict, rel: Path, page_title: str, lang_code: str) -> str:
     """Build BreadcrumbList JSON-LD for a page. Returns empty string for homepage."""
     clean = to_folder_index(rel)
     depth = len(clean.parts) - 1
@@ -89,7 +92,7 @@ def build_breadcrumb_jsonld(locale: dict, rel: Path, page_title: str, is_fil: bo
         return ""
 
     base_url = "https://bettermapandan.org"
-    lang_prefix = "/fil/" if is_fil else "/"
+    lang_prefix = f"/{lang_code}/" if lang_code != "en" else "/"
     home_name = t(locale, "nav.home", "Home")
 
     items: list[dict[str, object]] = []
@@ -137,14 +140,20 @@ def build_breadcrumb_jsonld(locale: dict, rel: Path, page_title: str, is_fil: bo
         "@type": "BreadcrumbList",
         "itemListElement": items,
     }
-    return (
+    jsonld = (
         '<script type="application/ld+json">\n'
         + json.dumps(schema, indent=2, ensure_ascii=False)
         + "\n</script>\n"
     )
+    alternates = "".join(
+        f'<xhtml:link rel="alternate" hreflang="{code}" href="{base_url}/{code}/"/>' if code != "en"
+        else f'<xhtml:link rel="alternate" hreflang="en" href="{base_url}/"/>'
+        for code, _, _ in LANGUAGES
+    )
+    return jsonld + alternates
 
 
-def build_header(locale: dict, asset_base: str, is_fil: bool, en_url: str, fil_url: str) -> str:
+def build_header(locale: dict, asset_base: str, lang_code: str, lang_urls: dict[str, str]) -> str:
     """Build the site header with navigation and locale strings."""
     header_raw = (SRC_PARTIALS / "header.html").read_text(encoding="utf-8")
     return fill(header_raw, {
@@ -162,12 +171,15 @@ def build_header(locale: dict, asset_base: str, is_fil: bool, en_url: str, fil_u
         "EMERGENCY_MDRRMO": t(locale, "emergency.mdrrmo", "MDRRMO"),
         "EMERGENCY_FIRE": t(locale, "emergency.fire", "Fire (BFP)"),
         "EMERGENCY_POLICE": t(locale, "emergency.police", "Police (PNP)"),
-        "LANG_EN_URL": en_url,
-        "LANG_FIL_URL": fil_url,
-        "LANG_ACTIVE_EN": "" if is_fil else "active",
-        "LANG_ACTIVE_FIL": "active" if is_fil else "",
+        "LANG_EN_URL": lang_urls["en"],
+        "LANG_FIL_URL": lang_urls["fil"],
+        "LANG_PAG_URL": lang_urls["pag"],
+        "LANG_ACTIVE_EN": "active" if lang_code == "en" else "",
+        "LANG_ACTIVE_FIL": "active" if lang_code == "fil" else "",
+        "LANG_ACTIVE_PAG": "active" if lang_code == "pag" else "",
         "LANG_LABEL_EN": t(locale, "lang_switch.en", "EN"),
         "LANG_LABEL_FIL": t(locale, "lang_switch.fil", "FIL"),
+        "LANG_LABEL_PAG": t(locale, "lang_switch.pag", "PAG"),
     })
 
 
@@ -592,11 +604,11 @@ def assemble_page(base: str, asset_base: str, title: str, description: str, head
     })
 
 
-def build_search_entry(rel: Path, title: str, description: str, body: str, is_fil: bool, anchors_key: str = "") -> dict:
+def build_search_entry(rel: Path, title: str, description: str, body: str, lang_code: str, anchors_key: str = "") -> dict:
     """Build a search index entry from page content."""
     url = compute_url(rel)
-    if is_fil:
-        url = "fil/" + url
+    if lang_code != "en":
+        url = f"{lang_code}/{url}"
     plain_body = strip_html(body)
     entry: dict[str, object] = {"title": title, "url": url, "description": description, "body": plain_body}
     if anchors_key:
@@ -617,11 +629,11 @@ def _process_static_page(
     base: str, page_hero_raw: str, out_root: Path, search_entries: list
 ) -> int:
     out_rel = to_folder_index(rel)
-    asset_base = compute_asset_base(out_rel, is_fil=(lang_code == "fil"))
-    en_url, fil_url = build_lang_switcher_urls(rel, is_fil=(lang_code == "fil"))
+    asset_base = compute_asset_base(out_rel, lang_code)
+    lang_urls = build_lang_switcher_urls(rel, lang_code)
     page_title = meta["title"].split(" —")[0].split(" |")[0].strip()
     breadcrumbs = build_breadcrumbs(locale, rel, page_title)
-    header = build_header(locale, asset_base, lang_code == "fil", en_url, fil_url)
+    header = build_header(locale, asset_base, lang_code, lang_urls)
     footer = build_footer(locale, asset_base)
     hero_html = build_hero(meta, page_hero_raw, asset_base)
     body = resolve_body_placeholders(hero_html + body, locale, asset_base)
@@ -633,7 +645,7 @@ def _process_static_page(
         body = body.replace("{FDP_DASHBOARD}", generate_fdp_dashboard(locale), 1)
         body = body.replace("{FDP_SECTION}", generate_fdp(locale), 1)
     if len(rel.parts) > 1 and rel.parts[0] == "transparency" and rel.stem != "transparency":
-        lang_prefix = "/fil" if lang_code == "fil" else ""
+        lang_prefix = f"/{lang_code}" if lang_code != "en" else ""
         body = body.replace("{TRANSPARENCY_TABS}", build_transparency_tabs(locale, rel.stem, lang_prefix), 1)
     if rel.name == "index.html":
         proc_data = generate_homepage_procurement_data()
@@ -642,8 +654,8 @@ def _process_static_page(
         body = body.replace("{HOMEPAGE_DPWH_DATA}", dpwh_data, 1)
     if rel.name == "government.html":
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
-    page_url = f"fil/{rel}" if lang_code == "fil" else str(rel)
-    breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code == "fil")
+    page_url = f"{lang_code}/{rel}" if lang_code != "en" else str(rel)
+    breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url, breadcrumb_jsonld)
 
     if rel.name == "statistics.html":
@@ -685,7 +697,7 @@ def _process_static_page(
     out_path.write_text(page_html, encoding="utf-8")
     print(f"  [{lang_code.upper()}] built {rel}  ({len(page_html):,} bytes)")
 
-    search_entries.append(build_search_entry(rel, meta["title"], meta["description"], body, lang_code == "fil", rel.name))
+    search_entries.append(build_search_entry(rel, meta["title"], meta["description"], body, lang_code, rel.name))
     return 1
 
 
@@ -694,11 +706,11 @@ def _process_generated_page(
     base: str, page_hero_raw: str, out_root: Path, search_entries: list
 ) -> int:
     out_rel = to_folder_index(rel)
-    asset_base = compute_asset_base(out_rel, is_fil=(lang_code == "fil"))
-    en_url, fil_url = build_lang_switcher_urls(rel, is_fil=(lang_code == "fil"))
+    asset_base = compute_asset_base(out_rel, lang_code)
+    lang_urls = build_lang_switcher_urls(rel, lang_code)
     page_title = rel.stem.replace("-", " ").title()
     breadcrumbs = build_breadcrumbs(locale, rel, page_title)
-    header = build_header(locale, asset_base, lang_code == "fil", en_url, fil_url)
+    header = build_header(locale, asset_base, lang_code, lang_urls)
     footer = build_footer(locale, asset_base)
 
     rel_path_str = str(rel)
@@ -712,8 +724,8 @@ def _process_generated_page(
         })
         body_content = hero_html + body_content
 
-    page_url = f"fil/{rel_path_str}" if lang_code == "fil" else rel_path_str
-    breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code == "fil")
+    page_url = f"{lang_code}/{rel_path_str}" if lang_code != "en" else rel_path_str
+    breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)
     page_html = assemble_page(
         base, asset_base,
         page_meta.get(rel_path_str, {}).get("title", "Better Mapandan"),
@@ -726,7 +738,7 @@ def _process_generated_page(
     out_path.write_text(page_html, encoding="utf-8")
     print(f"  [{lang_code.upper()}] built {rel}  ({len(page_html):,} bytes)")
 
-    search_entries.append(build_search_entry(rel, rel.stem.replace("-", " ").title(), "", body_content, lang_code == "fil"))
+    search_entries.append(build_search_entry(rel, rel.stem.replace("-", " ").title(), "", body_content, lang_code))
     return 1
 
 
@@ -735,6 +747,7 @@ def build() -> None:
 
     en_locale = load_locale("en")
     fil_locale = load_locale("fil")
+    pag_locale = load_locale("pag")
 
     if HAS_SCHEMA_VALIDATION:
         schema_errors = validate_all(SRC_DATA)
@@ -747,8 +760,9 @@ def build() -> None:
     base = (SRC_PARTIALS / "base.html").read_text(encoding="utf-8")
     page_hero_raw = (SRC_PARTIALS / "page-hero.html").read_text(encoding="utf-8")
 
-    if FIL_DIR.exists():
-        shutil.rmtree(FIL_DIR)
+    for out_dir in [FIL_DIR, PAG_DIR]:
+        if out_dir.exists():
+            shutil.rmtree(out_dir)
 
     cname_src = ROOT / "CNAME"
     if not cname_src.exists():
@@ -757,12 +771,12 @@ def build() -> None:
 
     all_search_entries = []
 
-    for lang_code, out_root, is_fil in LANGUAGES:
-        locale = en_locale if not is_fil else fil_locale
+    for lang_code, out_root, _ in LANGUAGES:
+        locale = {"en": en_locale, "fil": fil_locale, "pag": pag_locale}[lang_code]
         print(f"\n--- Building [{lang_code.upper()}] ---")
 
-        svc_pages, svc_meta, svc_hero_meta = generate_services(locale, lang_code, is_fil)
-        leg_html, leg_meta, leg_hero_meta = generate_legislative(locale, is_fil)
+        svc_pages, svc_meta, svc_hero_meta = generate_services(locale, lang_code, lang_code == "fil")
+        leg_html, leg_meta, leg_hero_meta = generate_legislative(locale, lang_code == "fil")
         svc_pages["legislative.html"] = leg_html
         svc_meta["legislative.html"] = leg_meta
         svc_hero_meta["legislative.html"] = leg_hero_meta
@@ -799,16 +813,17 @@ def build() -> None:
     minify_assets()
 
     assets_src = ROOT / "assets"
-    assets_dst = FIL_DIR / "assets"
-    if assets_src.exists():
-        if assets_dst.exists():
-            shutil.rmtree(assets_dst)
-        shutil.copytree(assets_src, assets_dst)
-        print("\n  Copied assets to fil/assets/")
+    for out_dir in [FIL_DIR, PAG_DIR]:
+        assets_dst = out_dir / "assets"
+        if assets_src.exists():
+            if assets_dst.exists():
+                shutil.rmtree(assets_dst)
+            shutil.copytree(assets_src, assets_dst)
+            print(f"\n  Copied assets to {out_dir.name}/assets/")
 
     generate_sitemap()
     generate_llms_txt()
-    print(f"\nDone. {count * 2} page(s) written ({count} EN + {count} FIL)")
+    print(f"\nDone. {count * len(LANGUAGES)} page(s) written ({count} per language)")
 
 
 def main():

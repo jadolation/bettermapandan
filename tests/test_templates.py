@@ -67,10 +67,15 @@ def test_compute_url():
 
 
 def test_compute_asset_base_root():
-    assert compute_asset_base(Path("index.html"), False) == "."
-    assert compute_asset_base(Path("index.html"), True) == "."
+    assert compute_asset_base(Path("index.html"), "en") == "."
+    assert compute_asset_base(Path("index.html"), "fil") == "."
+    assert compute_asset_base(Path("index.html"), "pag") == "."
 
 
 def test_compute_asset_base_nested():
-    assert compute_asset_base(Path("about/index.html"), False) == ".."
-    assert compute_asset_base(Path("a/b/index.html"), False) == "../.."
+    assert compute_asset_base(Path("about/index.html"), "en") == "../"
+    assert compute_asset_base(Path("about/index.html"), "fil") == "../"
+    assert compute_asset_base(Path("about/index.html"), "pag") == "../"
+    assert compute_asset_base(Path("a/b/index.html"), "en") == "../../"
+    assert compute_asset_base(Path("a/b/index.html"), "fil") == "../../"
+    assert compute_asset_base(Path("a/b/index.html"), "pag") == "../../"

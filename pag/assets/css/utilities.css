@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Utilities — screen-reader only, spacing, skip link, misc helpers
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.mt-0 { margin-top: 0; }
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mt-24 { margin-top: 24px; }
+.mt-44 { margin-top: 44px; }
+.mt-48 { margin-top: 48px; }
+
+.stack-gap-lg {
+  margin-bottom: 44px;
+}
+
+.note-inline {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.cta-row {
+  margin-top: 22px;
+}
+
+.text-muted {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.card-tagged h3 {
+  margin-top: 12px;
+}
+
+.table-wrap--chart {
+  padding-bottom: 8px;
+}
+
+/* ---------- Skip link ---------- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--green-deep);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  z-index: 100;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+/* ---------- Layout ---------- */
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mb-12 { margin-bottom: 12px; }
+
+/* ---------- Color ---------- */
+
+.text-green-bright { color: var(--green-bright); }
+.text-red-flag { color: var(--red-flag); }
+.text-ink-soft { color: var(--ink-soft); }
+
+/* ---------- Typography ---------- */
+
+.text-xs { font-size: 12px; }
+.text-sm { font-size: 13px; }
+.text-lg { font-size: 1.3rem; }
+.text-xl { font-size: 1.4rem; }
+
+/* ---------- Audit severity pills ---------- */
+
+.pill-severity-high {
+  background: var(--red-flag);
+  color: #fff;
+  font-size: 12px;
+}
+
+.pill-severity-medium {
+  background: var(--gold);
+  color: var(--green-deep);
+  font-size: 12px;
+}
+
+.pill-severity-low {
+  background: var(--green-bright);
+  color: #fff;
+  font-size: 12px;
+}
+
+/* ---------- Layout helpers ---------- */
+
+.hidden { display: none; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-6 { gap: 6px; }
+.mt-8 { margin-top: 8px; }
+.overflow-x-hidden { overflow-x: hidden; }
+
+.source-label--flush {
+  margin-top: 0;
+}
+
+/* ---------- Color ---------- */
+
+.text-gold { color: var(--gold); }
+
+/* ---------- Map container ---------- */
+
+.map-container {
+  height: 420px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}

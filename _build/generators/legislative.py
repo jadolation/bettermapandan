@@ -52,7 +52,7 @@ def _fill_legislative_template(template: str, data: dict, locale: dict, is_fil: 
     exec_json = json.dumps(data.get("executive_issuances", []), ensure_ascii=False)
 
     gw = data.get("governance_framework", {})
-    asset_base = compute_asset_base(Path("legislative/index.html"), is_fil)
+    asset_base = compute_asset_base(Path("legislative/index.html"), "fil" if is_fil else "en")
 
     return fill(template, {
         "ASSET_BASE": asset_base,

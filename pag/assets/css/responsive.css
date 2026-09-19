@@ -1,0 +1,480 @@
+/* ==========================================================================
+   Responsive — all @media queries consolidated by breakpoint
+
+   Breakpoint tokens:
+     720px  — mobile
+     900px  — tablet
+     961px  — desktop / wide carousel
+     1200px — large screens
+   ========================================================================== */
+
+/* Desktop default: hide mobile-only UI */
+.mobile-action-bar { display: none; }
+
+.nav-backdrop { display: none; }
+
+/* ==========================================================================
+   MOBILE ≤ 720px — language banner, nav, grids, stat strip, civic hub,
+   procurement toolbar, mobile action bar
+   ========================================================================== */
+
+@media (max-width: 720px) {
+
+  /* Language banner */
+  .lang-banner { padding: 10px 12px; }
+  .lang-banner-msg { font-size: 13px; }
+  .lang-banner-btn { font-size: 12px; padding: 5px 10px; }
+
+  /* Prevent mobile chrome rubber-band from creating visual gap */
+  html, body {
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  body {
+    position: relative;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Mobile filter layout */
+  .filter-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .custom-range-inline.open {
+    flex-wrap: wrap;
+  }
+  .custom-range-inline input[type="date"] {
+    flex: 1 1 120px;
+  }
+
+  /* Nav — mobile dropdown */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 24px 14px;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    z-index: 200;
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 199;
+    display: none;
+  }
+
+  .nav-backdrop.open {
+    display: block;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Let the mobile dropdown escape the header (generic .wrap clips it) */
+  .site-header .wrap {
+    overflow: visible;
+  }
+
+  /* Grids collapse */
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+
+  /* Stack specific sections on mobile */
+  #emergency-contacts .grid-3,
+  #sangguniang-bayan .grid-3,
+  #economic-indicators .grid-3,
+  #appropriations .grid-3,
+  #fiscal-structure .grid-3,
+  #fiscal-snapshot .grid-3,
+  #financial-performance .grid-3,
+  #audit-reports .grid-3,
+  #compliance .grid-3,
+  #implementation-rate .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stat strip */
+  .stat-grid { 
+    grid-template-columns: repeat(3, 1fr); 
+    padding: 20px 0;
+    gap: 10px;
+  }
+  .stat { 
+    border-left: none; 
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+  .stat .num {
+    font-size: clamp(20px, 4.5vw, 26px);
+    line-height: 1.1;
+  }
+  .stat .label {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.25;
+  }
+
+  /* Stat strip: hide badges and source labels on mobile */
+  .stat .verification-badge { display: none; }
+  .stat .source-label { display: none; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; }
+
+  /* Bar chart */
+  .bars { gap: 14px; padding: 16px 12px 0; }
+  .bar-col .name { font-size: 10.5px; }
+
+  /* Hero */
+  .hero .wrap { padding: 32px 20px 28px; }
+  .hero-search-inner { padding: 18px 16px 16px; }
+  .hero-search-input { font-size: 14px; padding: 10px 14px; }
+  .hero-search-btn { width: 44px; }
+
+  /* Map */
+  .map-container { height: 280px; }
+
+  /* Weather */
+  .weather-forecast { grid-template-columns: 1fr; }
+
+  /* Buttons — touch targets */
+  .btn { min-height: 44px; padding: 12px 20px; }
+  .link-arrow { min-height: 44px; display: inline-flex; align-items: center; }
+  .report-btn { min-height: 44px; }
+  .service-link { min-height: 44px; }
+
+  /* Touch feedback */
+  .btn:active, .link-arrow:active, .report-btn:active, .service-link:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  .card:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  /* Cards */
+  .category-card { padding: 20px; }
+  .search-result { padding: 14px 16px; }
+  .barangay-grid { grid-template-columns: repeat(2, 1fr); }
+
+
+
+  /* Leader cards: tighter padding, smaller photo */
+  .leader-card { padding: 20px 16px; min-height: 180px; }
+  .leader-card .leader-text { padding: 16px; }
+  .leader-card .name { font-size: 18px; }
+  .leader-card .photo { max-width: 50%; }
+
+  /* Nav: hide search icon, show search link in dropdown */
+  .nav-search { display: none; }
+  .nav-search-link {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+  }
+  .nav-search-link svg { flex-shrink: 0; }
+  .nav { gap: 12px; }
+
+  /* Search browse grid */
+  .search-browse-grid { grid-template-columns: 1fr 1fr; }
+  .search-category-grid { grid-template-columns: 1fr; }
+
+  /* Action hub */
+  .action-hub-item { flex: 1 1 50%; padding: 12px 14px; font-size: 13px; }
+  .action-hub-item:nth-child(2) { border-right: none; }
+  .action-hub-item:nth-child(3) { border-right: 1px solid var(--line); }
+  .action-hub-item:nth-child(4) { border-right: none; }
+
+  /* History milestones */
+  .history-milestones { grid-template-columns: 1fr; }
+  .milestone { padding: 18px 16px; }
+
+  /* Mobile quick-action bar */
+  .mobile-action-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    z-index: 100;
+    padding: 8px 0;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box;
+    gap: 4px;
+  }
+  .mobile-action-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 7px 0;
+    min-height: 44px;
+    transition: color var(--transition-fast), background var(--transition-fast);
+    border-radius: 8px;
+    margin: 0;
+  }
+  .mobile-action-item:active {
+    background: var(--gold-soft);
+    color: var(--green-deep);
+  }
+  .mobile-action-item.active {
+    color: var(--green-deep);
+  }
+  .mobile-action-item.active svg {
+    stroke: var(--green-deep);
+  }
+  .mobile-action-item svg {
+    color: var(--green-deep);
+    transition: transform var(--transition-fast);
+  }
+  .mobile-action-item:active svg {
+    transform: scale(1.1);
+  }
+
+  /* Civic contribution hub mobile */
+  .segmented-control { flex-wrap: wrap; }
+  .segmented-control button { flex: 1 1 33%; min-height: 44px; padding: 8px 10px; font-size: 12px; }
+  .segmented-control button .label-text { display: none; }
+  .segmented-control button::after { content: attr(data-short); }
+  .civic-preview { position: static; margin-top: 24px; }
+  .civic-toast { left: 16px; right: 16px; bottom: 80px; }
+  .civic-submit-row { flex-direction: column; align-items: stretch; }
+  .civic-submit-row .btn, .civic-submit-row .btn-copy { width: 100%; justify-content: center; }
+
+  /* Procurement card */
+  .procurement-card-image { min-height: 180px; }
+  .procurement-card-content { padding: 20px; }
+  .procurement-card-content h3 { font-size: 18px; }
+  .procurement-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Procurement toolbar */
+  .procurement-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+  .procurement-toolbar-stats { justify-content: center; }
+  .procurement-toolbar-actions { flex-direction: column; }
+  .procurement-toolbar-actions input[type="search"] { min-width: 0; width: 100%; }
+  .procurement-toolbar-actions .btn { width: 100%; text-align: center; }
+
+  /* Table font size */
+  .table-wrap table { font-size: 13px; }
+  .table-wrap table th,
+  .table-wrap table td { padding: 8px 10px; }
+  .table-wrap table th { font-size: 11px; letter-spacing: 0.02em; }
+
+  /* Barangay grid */
+  .barangay-grid { grid-template-columns: 1fr; }
+
+  /* Stat grid */
+  .stat-grid { grid-template-columns: 1fr; }
+
+  /* Search browse grid */
+  .search-browse-grid { grid-template-columns: 1fr; }
+
+  /* Action hub */
+  .action-hub-item { flex: 1 1 100%; }
+
+  /* Section padding */
+  .section { padding: 32px 0; }
+
+  /* Figure font size */
+  .figure { font-size: 22px; }
+
+  /* Nav horizontal padding */
+  .nav-links { padding: 6px 16px 14px; }
+
+  /* Language switcher tap target */
+  .lang-switcher .lang-btn {
+    min-height: 44px;
+    padding: 6px 14px;
+  }
+
+  /* Disable hover effects on touch devices */
+  .card:hover,
+  .card:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Line height for mobile tables */
+  .table-wrap table td {
+    line-height: 1.5;
+  }
+
+  /* Filter pills scrollbar gap */
+  .filter-pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Mobile nav: swap burger and language order, make language smaller */
+  .lang-switcher {
+    order: -1;
+    border-radius: 6px;
+    padding: 1px;
+    margin-left: 0;
+  }
+  .nav-toggle {
+    order: 0;
+  }
+  .lang-switcher .lang-btn {
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 12px;
+    min-height: 36px;
+  }
+}
+
+/* ==========================================================================
+   TABLET ≤ 900px — grids, stat strip, steps, footer, hero, weather,
+   history layout, barangay, milestones, procurement card
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid { grid-template-columns: repeat(3, 1fr); }
+  .stat:nth-child(4) { border-left: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px 48px; }
+  .hero-search { order: 2; }
+  .weather-forecast { grid-template-columns: repeat(3, 1fr); }
+  .history-layout { grid-template-columns: 1fr; }
+  .barangay-grid { grid-template-columns: repeat(3, 1fr); }
+  .search-browse-grid { grid-template-columns: repeat(3, 1fr); }
+  .action-hub-bar { flex-wrap: wrap; }
+  .action-hub-item { flex: 1 1 50%; border-bottom: 1px solid var(--line); }
+  .action-hub-item:nth-child(2) { border-right: none; }
+  .history-milestones { grid-template-columns: repeat(2, 1fr); }
+
+  /* Stack specific sections on tablet */
+  #emergency-contacts .grid-3,
+  #sangguniang-bayan .grid-3,
+  #economic-indicators .grid-3,
+  #appropriations .grid-3,
+  #fiscal-structure .grid-3,
+  #fiscal-snapshot .grid-3,
+  #financial-performance .grid-3,
+  #audit-reports .grid-3,
+  #compliance .grid-3,
+  #implementation-rate .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Procurement card */
+  .procurement-card { grid-template-columns: 1fr; }
+  .procurement-card-image { min-height: 200px; }
+  .procurement-card-content { padding: 22px 24px; }
+}
+
+/* ==========================================================================
+   DESKTOP ≥ 961px — wide carousel (stack images vertically)
+   ========================================================================== */
+
+@media (min-width: 961px) {
+  .carousel-track {
+    position: static;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .carousel-slide {
+    position: static;
+    opacity: 1;
+    transition: none;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+  .carousel-slide img {
+    height: auto;
+    object-fit: contain;
+  }
+  .carousel-caption {
+    position: static;
+    padding: 8px 0 0;
+    text-align: left;
+    min-height: 0;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+  .carousel-controls {
+    display: none;
+  }
+
+  /* Desktop grid override */
+  .grid-4 { grid-template-columns: repeat(4, 1fr) !important; }
+}
+
+/* ==========================================================================
+   LARGE SCREENS ≥ 1200px — procurement card wider image column
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+  .procurement-card { grid-template-columns: 380px 1fr; }
+  .procurement-card-content { padding: 32px 40px; }
+}
+
+/* ==========================================================================
+   REDUCED MOTION — respect user preference
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .carousel-slide { transition: none; }
+  .civic-toast { transition: none; }
+  /* Emergency ticker fallback lives in emergency.css (swipeable static strip) */
+}

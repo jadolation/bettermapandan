@@ -59,7 +59,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
     dir_filled, dir_hero_meta = _generate_services_directory(
-        data, by_category, dir_template, svc_labels, is_fil, asset_base=compute_asset_base(Path("services/index.html"), is_fil), analytics_json=analytics_json
+        data, by_category, dir_template, svc_labels, is_fil, asset_base=compute_asset_base(Path("services/index.html"), "fil" if is_fil else "en"), analytics_json=analytics_json
     )
     pages["services.html"] = dir_filled
     meta["services.html"] = {
@@ -109,7 +109,7 @@ def _generate_single_service(svc: dict, categories: dict, services: list, templa
     related_html = _build_related_links(svc, services, is_fil)
 
     svc_slug = svc.get("slug", "unknown")
-    asset_base = compute_asset_base(Path(f"services/{svc_slug}/index.html"), is_fil)
+    asset_base = compute_asset_base(Path(f"services/{svc_slug}/index.html"), "fil" if is_fil else "en")
     photo_html = _build_photo_html(svc, is_fil, asset_base)
 
     filled = fill(template, {

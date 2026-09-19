@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 REPO = Path(__file__).resolve().parent.parent
 
-PATH_CONSTANTS = ("ROOT", "SRC_PAGES", "SRC_PARTIALS", "SRC_DATA", "SRC_TEMPLATES", "LOCALES_DIR", "FIL_DIR")
+PATH_CONSTANTS = ("ROOT", "SRC_PAGES", "SRC_PARTIALS", "SRC_DATA", "SRC_TEMPLATES", "LOCALES_DIR", "FIL_DIR", "PAG_DIR")
 
 
 def _stage_tree(tmp_path: Path) -> Path:
@@ -62,8 +62,9 @@ def _patch_roots(monkeypatch: pytest.MonkeyPatch, staged: Path) -> None:
         "SRC_TEMPLATES": staged / "src" / "templates",
         "LOCALES_DIR": staged / "locales",
         "FIL_DIR": staged / "fil",
+        "PAG_DIR": staged / "pag",
     }
-    staged_languages = [("en", staged, False), ("fil", staged / "fil", True)]
+    staged_languages = [("en", staged, False), ("fil", staged / "fil", True), ("pag", staged / "pag", True)]
     for module in (
         _build.assets,
         _build.config,

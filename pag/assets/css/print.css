@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Print — universal @media print rules
+
+   Hides interactive / navigation chrome, adjusts type, expands content,
+   removes backgrounds and shadows for clean paper output.
+   ========================================================================== */
+
+@media print {
+
+  /* ---------- Page setup ---------- */
+
+  @page {
+    margin: 18mm 16mm 20mm;
+    size: A4;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #000;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- Hide non-printable ---------- */
+
+  .site-header,
+  .emergency-bar,
+  .transparency-tabs-dropdown,
+  .nav,
+  .lang-switcher,
+  .lang-banner,
+  .site-footer,
+  .hero-search,
+  .action-hub-bar,
+  .mobile-action-bar,
+  .weather-widget,
+  .civic-toast,
+  .feedback-widget,
+  .report-btn,
+  .btn-copy,
+  .nav-toggle,
+  .skip-link,
+  .breadcrumb,
+  .map-container,
+  .page-hero-image,
+  .carousel-controls,
+  .search-form,
+  .service-filter,
+  .segmented-control,
+  .civic-preview,
+  .procurement-toolbar,
+  .procurement-filters,
+  .mayoral-term-filters,
+  .segmented-control button,
+  .lang-banner-dismiss,
+  script,
+  noscript,
+  iframe {
+    display: none !important;
+  }
+
+  /* ---------- Links ---------- */
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after,
+  .breadcrumb a::after,
+  .site-footer a::after,
+  .nav a::after {
+    content: "";
+  }
+
+  /* ---------- Headings ---------- */
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h1 { font-size: 22pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 13pt; }
+
+  /* ---------- Paragraphs and lists ---------- */
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  ul, ol {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* ---------- Tables ---------- */
+
+  table {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 10pt;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+  }
+
+  th {
+    background: #f0f0f0 !important;
+    font-weight: 700;
+  }
+
+  tr:nth-child(even) {
+    background: #fafafa !important;
+  }
+
+  /* ---------- Cards / sections ---------- */
+
+  .card, .stat, .milestone, .leader-card, .sb-card,
+  .emergency-card, .agency-card, .barangay-card,
+  .procurement-card, .search-result, .category-card,
+  .service-category-card, .fiscal-card, .trend-step {
+    border: 1px solid #ddd;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero, .page-hero {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 16px 0;
+    border-bottom: 2px solid #000;
+  }
+
+  .hero .eyebrow,
+  .hero .figure,
+  .hero .source-label {
+    color: #000 !important;
+  }
+
+  /* ---------- Stat strip ---------- */
+
+  .stat-strip {
+    border: 1px solid #ddd;
+    padding: 12px 0;
+  }
+
+  .stat .num {
+    font-size: 20pt;
+    color: #000;
+  }
+
+  .stat .label {
+    font-size: 9pt;
+  }
+
+  .stat .verification-badge,
+  .stat .source-label {
+    font-size: 8pt;
+    color: #555;
+  }
+
+  /* ---------- Section backgrounds ---------- */
+
+  .section-alt, .section-rice-bg {
+    background: #fff !important;
+  }
+
+  /* ---------- Images ---------- */
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  .hero-image {
+    display: none;
+  }
+
+  /* ---------- Cards — remove visual polish ---------- */
+
+  .card-photo {
+    border: 1px solid #ddd;
+  }
+
+  /* ---------- Verification badges ---------- */
+
+  .verification-badge {
+    border: 1px solid #999;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* ---------- Footer content — show on print ---------- */
+
+  .footer-bottom {
+    border-top: 1px solid #ccc;
+    padding-top: 8px;
+    font-size: 9pt;
+    color: #333;
+  }
+
+  .footer-bettergov {
+    color: #333;
+  }
+
+  /* ---------- Financial figures ---------- */
+
+  .fiscal-card .figure {
+    font-size: 18pt;
+    color: #000;
+  }
+
+  /* ---------- Procurement cards ---------- */
+
+  .procurement-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .procurement-card-image {
+    min-height: 160px;
+  }
+
+  /* ---------- Service detail ---------- */
+
+  .service-sidebar {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+
+  /* ---------- Avoid orphans in cards ---------- */
+
+  .stat .label,
+  .milestone p,
+  .search-result p,
+  .emergency-card-description {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* ---------- Print header / footer (browser) ---------- */
+
+  @page :first {
+    margin-top: 12mm;
+  }
+
+  /* ---------- Last-updated on every page ---------- */
+
+  .last-updated {
+    font-size: 9pt;
+    color: #555;
+    border-top: 1px solid #ddd;
+    padding-top: 6px;
+    margin-top: 24px;
+  }
+}

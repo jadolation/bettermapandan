@@ -4,7 +4,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from _build.config import ROOT, FIL_DIR
+from _build.config import ROOT, FIL_DIR, PAG_DIR
 from _build.templates import to_folder_index
 
 
@@ -33,10 +33,12 @@ def generate_sitemap() -> None:
 
     en_files = sorted([f for f in ROOT.rglob("index.html") if _is_output_index(f)])
     fil_files = sorted([f for f in FIL_DIR.rglob("index.html") if _is_output_index(f)]) if FIL_DIR.exists() else []
+    pag_files = sorted([f for f in PAG_DIR.rglob("index.html") if _is_output_index(f)]) if PAG_DIR.exists() else []
 
     en_paths = {f.relative_to(ROOT).as_posix() for f in en_files}
     fil_paths = {f.relative_to(FIL_DIR).as_posix() for f in fil_files}
-    all_paths = sorted(en_paths | fil_paths)
+    pag_paths = {f.relative_to(PAG_DIR).as_posix() for f in pag_files}
+    all_paths = sorted(en_paths | fil_paths | pag_paths)
 
     def _get_priority(path_str: str) -> str:
         """Set priority based on page type."""
@@ -71,15 +73,23 @@ def generate_sitemap() -> None:
         if str(folder_path) == "index.html":
             en_url = f"{base_url}/"
             fil_url = f"{base_url}/fil/"
+            pag_url = f"{base_url}/pag/"
         else:
             folder_str = quote(str(folder_path.parent), safe="/")
             if folder_path.parts and folder_path.parts[0] == "fil":
                 en_folder = "/".join(folder_path.parts[1:-1])
                 en_url = f"{base_url}/{en_folder}/" if en_folder else f"{base_url}/"
                 fil_url = f"{base_url}/{folder_str}/"
+                pag_url = f"{base_url}/pag/{en_folder}/" if en_folder else f"{base_url}/pag/"
+            elif folder_path.parts and folder_path.parts[0] == "pag":
+                en_folder = "/".join(folder_path.parts[1:-1])
+                en_url = f"{base_url}/{en_folder}/" if en_folder else f"{base_url}/"
+                pag_url = f"{base_url}/{folder_str}/"
+                fil_url = f"{base_url}/fil/{en_folder}/" if en_folder else f"{base_url}/fil/"
             else:
                 en_url = f"{base_url}/{folder_str}/"
                 fil_url = f"{base_url}/fil/{folder_str}/"
+                pag_url = f"{base_url}/pag/{folder_str}/"
         # Deduplicate by en_url
         if en_url in seen_urls:
             continue
@@ -93,6 +103,7 @@ def generate_sitemap() -> None:
             f"    <priority>{priority}</priority>",
             f'    <xhtml:link rel="alternate" hreflang="en" href="{en_url}"/>',
             f'    <xhtml:link rel="alternate" hreflang="fil" href="{fil_url}"/>',
+            f'    <xhtml:link rel="alternate" hreflang="pag" href="{pag_url}"/>',
             "  </url>",
         ])
 

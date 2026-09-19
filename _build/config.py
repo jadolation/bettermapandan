@@ -19,6 +19,7 @@ SRC_DATA = ROOT / "src" / "data"
 SRC_TEMPLATES = ROOT / "src" / "templates"
 LOCALES_DIR = ROOT / "locales"
 FIL_DIR = ROOT / "fil"
+PAG_DIR = ROOT / "pag"
 
 SITE_CONFIG = {
     "REPO_URL": "https://github.com/jadolation/bettermapandan.git",
@@ -70,4 +71,5 @@ FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.DOTALL)
 LANGUAGES = [
     ("en", ROOT, False),
     ("fil", FIL_DIR, True),
+    ("pag", PAG_DIR, True),
 ]

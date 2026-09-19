@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Emergency — emergency-bar ticker, emergency contact details
+   ========================================================================== */
+
+/* ---------- Ticker bar (header) ---------- */
+
+.emergency-bar {
+  background: var(--red-flag);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+.emergency-bar .wrap {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 10px 0;
+  overflow: visible;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.emergency-ticker {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  max-width: none;
+  margin: 0;
+  flex: 0 0 auto;
+  will-change: transform;
+  animation: emergency-ticker 30s linear infinite;
+}
+
+@media (hover: hover) {
+  .emergency-bar:hover .emergency-ticker {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes emergency-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---------- Reduced motion: swipeable static strip, nothing clipped ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-bar {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .emergency-bar .wrap {
+    width: auto;
+  }
+
+  .emergency-ticker {
+    animation: none;
+    width: auto;
+    will-change: auto;
+  }
+}
+
+.emergency-bar a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 0 24px;
+  min-height: 44px;
+}
+
+.emergency-bar a:hover {
+  text-decoration: underline;
+}
+
+.emergency-bar .label {
+  font-weight: 400;
+}
+
+/* ---------- Emergency contacts detail ---------- */
+
+.emergency-contacts {
+  margin-top: 24px;
+}
+
+.emergency-contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Office logos in emergency cards ---------- */
+
+.office-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
