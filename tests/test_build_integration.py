@@ -175,6 +175,29 @@ def test_transparency_dropdown_sticky_css(built_site: Path):
     assert ".transparency-tabs-dropdown" in css
 
 
+def test_section_nav_sidebar_and_edge(built_site: Path):
+    """Budget-fiscal (9) + audit-compliance (8) render sidebar + edge dots, EN + FIL."""
+    expected = {"budget-fiscal": 9, "audit-compliance": 8}
+    for lang in ("en", "fil"):
+        for slug, count in expected.items():
+            html = _read_subpage(built_site, lang, slug)
+            assert 'class="page-with-nav"' in html, f"{lang}/{slug} layout"
+            assert 'class="section-nav"' in html, f"{lang}/{slug} sidebar"
+            assert 'class="section-nav-toggle"' in html, f"{lang}/{slug} collapse"
+            assert 'aria-controls="section-nav-list"' in html
+            assert html.count('data-section="') >= count, f"{lang}/{slug} links"
+            assert 'class="edge-nav"' in html, f"{lang}/{slug} edge nav"
+            assert html.count('class="edge-dot ') == count, f"{lang}/{slug} dots"
+            assert 'class="edge-tab"' in html, f"{lang}/{slug} affordance"
+            assert 'section-nav.min.js' in html, f"{lang}/{slug} script"
+    # Findings sub-nav capped at 8 id'd headings
+    html = _read_subpage(built_site, "en", "audit-compliance")
+    assert 'class="section-nav-sub"' in html
+    assert html.count('href="#finding-') == 8
+    # No active link server-side (scrollspy assigns at runtime)
+    assert 'section-nav a active' not in html
+
+
 def test_transparency_hub_has_no_redirect(built_site: Path):
     """The /transparency/ hub links to all 4 sections with relative URLs (bilingual-safe)."""
     for lang in ("en", "fil"):

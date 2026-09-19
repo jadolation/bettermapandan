@@ -330,6 +330,12 @@
   /* Figure font size */
   .figure { font-size: 22px; }
 
+  /* Section nav: sidebar becomes mobile edge-dot nav */
+  .page-with-nav { grid-template-columns: 1fr; }
+  .page-with-nav-body section[id] { scroll-margin-top: 190px; }
+  .section-nav { display: none; }
+  .edge-nav { display: block; }
+
   /* Nav horizontal padding */
   .nav-links { padding: 6px 16px 14px; }
 

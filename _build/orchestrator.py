@@ -1,5 +1,6 @@
 import shutil
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -12,6 +13,9 @@ from _build.config import (
     FIL_DIR,
     SITE_CONFIG,
     SECTION_ANCHORS,
+    SECTION_NAV,
+    SECTION_NAV_CHILDREN,
+    SECTION_NAV_ICONS,
     FRONT_MATTER_RE,
     LANGUAGES,
     validate_all,
@@ -567,6 +571,90 @@ def build_transparency_tabs(locale: dict, active_slug: str, lang_prefix: str) ->
     )
 
 
+def build_section_nav(locale: dict, nav_key: str, body: str) -> str:
+    """Build dual-mode in-page nav: desktop sticky sidebar + mobile edge dots.
+
+    Sections come from SECTION_NAV (ordered ids); labels from locales;
+    badges count <h3> sub-headings per section in the rendered body;
+    children (SECTION_NAV_CHILDREN) extract id'd <h3> headings, capped at 8.
+    Sections missing from the body are skipped. Server-renders everything
+    so the nav works with JS disabled; section-nav.js adds scrollspy,
+    collapse, and the mobile hold gesture.
+    """
+    import html as _html
+
+    configured = SECTION_NAV.get(nav_key, [])
+    # Locate each <section id="..."> in the rendered body.
+    positions = [(m.group(1), m.start()) for m in re.finditer(r'<section\b[^>]*\bid="([^"]+)"', body)]
+    present = {sid for sid, _ in positions}
+
+    def section_slice(sid: str) -> str:
+        idxs = [pos for s, pos in positions if s == sid]
+        if not idxs:
+            return ""
+        start = idxs[0]
+        later = [pos for _, pos in positions if pos > start]
+        end = min(later) if later else len(body)
+        return body[start:end]
+
+    items = []
+    dots = []
+    for n, sid in enumerate([s for s in configured if s in present]):
+        label = t(locale, f"transparency.nav_{sid.replace('-', '_')}", sid.replace("-", " ").title())
+        icon = SECTION_NAV_ICONS.get(sid, "circle")
+        sl = section_slice(sid)
+        h3_count = len(re.findall(r"<h3\b", sl))
+        badge = f'<span class="section-nav-badge" aria-hidden="true">{h3_count}</span>' if h3_count else ""
+        sub_html = ""
+        if sid in SECTION_NAV_CHILDREN:
+            kids = []
+            for m in re.finditer(r'<h3\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h3>', sl, re.DOTALL):
+                kid_id, raw = m.group(1), m.group(2)
+                text = _html.unescape(re.sub(r"<[^>]+>", "", raw)).strip()
+                if kid_id and text:
+                    kids.append((kid_id, text))
+                if len(kids) == 8:
+                    break
+            if kids:
+                sub_items = "".join(
+                    f'<li><a href="#{_html.escape(kid, quote=True)}" data-section="{_html.escape(kid, quote=True)}">{_html.escape(text)}</a></li>'
+                    for kid, text in kids
+                )
+                sub_label = t(locale, "transparency.key_findings", "Key findings")
+                sub_html = (
+                    f'<button type="button" class="section-nav-sub-toggle" aria-expanded="false">'
+                    f"<span>{_html.escape(sub_label)}</span>"
+                    f'<span class="section-nav-badge" aria-hidden="true">{len(kids)}</span></button>'
+                    f'<ul class="section-nav-sub" hidden>{sub_items}</ul>'
+                )
+        items.append(
+            f'<li><a href="#{sid}" data-section="{sid}">'
+            f'<i data-lucide="{icon}" aria-hidden="true"></i>'
+            f"<span>{_html.escape(label)}</span>{badge}</a>{sub_html}</li>"
+        )
+        dots.append(
+            f'<button type="button" class="edge-dot edge-c{n % 4}" data-target="{sid}" aria-label="{_html.escape(label)}">'
+            f'<span class="edge-tip" aria-hidden="true">{_html.escape(label)}</span></button>'
+        )
+    if not items:
+        return ""
+    nav_label = t(locale, "transparency.section_nav_label", "Page sections")
+    head_title = t(locale, "transparency.sections_title", "Categories")
+    hide_label = t(locale, "transparency.hide_menu", "Hide menu")
+    show_label = t(locale, "transparency.show_menu", "Show menu")
+    return (
+        '<nav class="section-nav" aria-label="' + _html.escape(nav_label) + '">\n'
+        f'<div class="section-nav-head"><span class="section-nav-title">{_html.escape(head_title)}</span>'
+        f'<button type="button" class="section-nav-toggle" aria-expanded="true" aria-controls="section-nav-list" data-hide-label="{_html.escape(hide_label)}" data-show-label="{_html.escape(show_label)}">'
+        f"<span>{_html.escape(hide_label)}</span>"
+        '<span aria-hidden="true">&lt;</span></button></div>\n'
+        '<ul id="section-nav-list">\n' + "\n".join(items) + "\n</ul>\n</nav>\n"
+        '<nav class="edge-nav" aria-label="' + _html.escape(nav_label) + '">\n'
+        '<div class="edge-tab" aria-hidden="true"></div>\n'
+        '<div class="edge-dots">\n' + "\n".join(dots) + "\n</div>\n</nav>\n"
+    )
+
+
 def assemble_page(base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str, lang_code: str, page_url: str = "", breadcrumb_jsonld: str = "") -> str:
     """Assemble a complete page from its components."""
     base_url = "https://bettermapandan.org"
@@ -635,6 +723,8 @@ def _process_static_page(
     if len(rel.parts) > 1 and rel.parts[0] == "transparency" and rel.stem != "transparency":
         lang_prefix = "/fil" if lang_code == "fil" else ""
         body = body.replace("{TRANSPARENCY_TABS}", build_transparency_tabs(locale, rel.stem, lang_prefix), 1)
+    if rel.name in SECTION_NAV:
+        body = body.replace("{SECTION_NAV}", build_section_nav(locale, rel.name, body), 1)
     if rel.name == "index.html":
         proc_data = generate_homepage_procurement_data()
         body = body.replace("{HOMEPAGE_PROCUREMENT_DATA}", proc_data, 1)
@@ -660,6 +750,7 @@ def _process_static_page(
             '<script defer src="' + asset_base + '/assets/js/procurement-table.min.js"></script>\n'
             '<script defer src="' + asset_base + '/assets/js/fdp-dashboard.min.js"></script>\n'
             '<script defer src="' + asset_base + '/assets/js/dashboard-tabs.min.js"></script>\n'
+            '<script defer src="' + asset_base + '/assets/js/section-nav.min.js"></script>\n'
         )
         fdp_summary = generate_fdp_summary()
         transparency_js += '<script>window.FDP_SUMMARY = ' + json.dumps(fdp_summary, ensure_ascii=False) + ';</script>\n'

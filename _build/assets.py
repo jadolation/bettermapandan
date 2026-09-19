@@ -210,6 +210,7 @@ JS_SOURCES = [
     "assets/js/fdp-dashboard.js",
     "assets/js/coa-projects-table.js",
     "assets/js/dashboard-tabs.js",
+    "assets/js/section-nav.js",
 ]
 
 
