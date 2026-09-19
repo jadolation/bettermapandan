@@ -10,7 +10,7 @@ An independent transparency portal for the Municipality of Mapandan, Pangasinan,
 
 Better Mapandan is a static, client-rendered transparency site covering:
 
-- **1,000+ services** across 13 categories (business permitting, civil registry, health, education, etc.)
+- **100+ services** across 13 categories (business permitting, civil registry, health, education, etc.)
 - **277 procurement contracts** with PhilGEPS tender data
 - **45 DPWH projects** with maps and status tracking
 - **11 years of COA audit reports** (2014–2024)
