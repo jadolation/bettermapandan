@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pag">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self';" />
+<title>Better Mapandan — Civic Transparency Portal para ed Mapandan, Pangasinan</title>
+<meta name="description" content="Sakey a independent a civic transparency portal para ed Mapandan, Pangasinan ya mangipabitar na impormasyon tungkol ed saray opisyal, badyet, ordinansa, frontline services, tan emergency contacts, ya nabuo ed silong na BetterGov.ph BetterLGU initiative." />
+<link rel="canonical" href="https://bettermapandan.org/pag/" />
+<meta property="og:title" content="Better Mapandan — Civic Transparency Portal para ed Mapandan, Pangasinan" />
+<meta property="og:description" content="Sakey a independent a civic transparency portal para ed Mapandan, Pangasinan ya mangipabitar na impormasyon tungkol ed saray opisyal, badyet, ordinansa, frontline services, tan emergency contacts, ya nabuo ed silong na BetterGov.ph BetterLGU initiative." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bettermapandan.org/pag/" />
+<meta property="og:image" content="https://bettermapandan.org/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Better Mapandan — Civic Transparency Portal para ed Mapandan, Pangasinan" />
+<meta name="twitter:description" content="Sakey a independent a civic transparency portal para ed Mapandan, Pangasinan ya mangipabitar na impormasyon tungkol ed saray opisyal, badyet, ordinansa, frontline services, tan emergency contacts, ya nabuo ed silong na BetterGov.ph BetterLGU initiative." />
+<meta name="twitter:image" content="https://bettermapandan.org/assets/og-image.png" />
+<link rel="icon" href="https://bettermapandan.org/assets/favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://bettermapandan.org/assets/favicon-48x48.png" />
+<link rel="icon" type="image/svg+xml" sizes="any" href="https://bettermapandan.org/assets/logo.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://bettermapandan.org/assets/apple-touch-icon.png" />
+<link rel="manifest" href="https://bettermapandan.org/site.webmanifest" />
+<meta name="theme-color" content="#16532c" />
+<link rel="preload" href="./assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.open-meteo.com" />
+<script>window.__CONFIG__ = { assetBase: '.' };</script>
+<script defer src="./assets/font-loader.min.js"></script>
+<link rel="stylesheet" href="./assets/style.min.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Better Mapandan",
+  "alternateName": "BetterMapandan.org",
+  "url": "https://bettermapandan.org",
+  "description": "Independent civic transparency portal for Mapandan, Pangasinan — budgets, services, officials, and audit data.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Better Mapandan",
+    "url": "https://bettermapandan.org",
+      "logo": "https://bettermapandan.org/assets/android-chrome-512x512.png",
+    "description": "A volunteer-run civic tech project under the BetterGov.ph initiative.",
+    "sameAs": [
+      "https://github.com/jadolation/bettermapandan"
+    ]
+  },
+  "about": {
+    "@type": "GovernmentOrganization",
+    "name": "Municipality of Mapandan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mapandan",
+      "addressRegion": "Pangasinan",
+      "addressCountry": "PH"
+    }
+  }
+}
+</script>
+
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="emergency-bar" aria-label="Emergency contact numbers">
+  <div class="wrap">
+    <div class="emergency-ticker">
+      <a href="tel:911"><span class="label">Emerhensya</span> 911</a>
+      <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+      <a href="tel:09434242810"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+      <a href="tel:09159793390"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+      <a href="tel:911" aria-hidden="true" tabindex="-1"><span class="label">Emerhensya</span> 911</a>
+      <a href="tel:09692236912" aria-hidden="true" tabindex="-1"><span class="label">MDRRMO</span> 0969-223-6912</a>
+      <a href="tel:09434242810" aria-hidden="true" tabindex="-1"><span class="label">Bumbero (BFP)</span> 0943-424-2810</a>
+      <a href="tel:09159793390" aria-hidden="true" tabindex="-1"><span class="label">Pulis (PNP)</span> 0915-979-3390</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img src="./assets/logo.svg" alt="Better Mapandan seal" width="160" height="40" />
+      <span class="brand-text">
+        <span class="top">Better Mapandan</span>
+        <span class="bottom">.org</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Menu</span>
+        <span class="nav-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="/">Abong</a></li>
+        <li><a href="/services/">Saray Serbisyo</a></li>
+        <li><a href="/government/">Gobierno</a></li>
+        <li><a href="/legislative/">Lehislatibo</a></li>
+        <li><a href="/statistics/">Estadistika</a></li>
+        <li><a href="/transparency/">Transparensiya</a></li>
+        <li><a href="/about/">Tungkol</a></li>
+        <li><a href="/search/" class="nav-search-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Anapen
+        </a></li>
+      </ul>
+      <div class="nav-backdrop" hidden></div>
+      <div class="lang-switcher" role="group" aria-label="Language">
+        <a href="/" class="lang-btn " data-lang="en">EN</a>
+        <a href="/fil/" class="lang-btn " data-lang="fil">FIL</a>
+        <a href="/pag/" class="lang-btn active" data-lang="pag">PANG</a>
+      </div>
+      <a href="/search/" class="nav-search" aria-label="Anapen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="content">
+<section class="hero">
+  <img class="hero-rays" src="./assets/municipal-seal.svg" alt="" aria-hidden="true" fetchpriority="high" width="120" height="120" />
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Independent · Itatala na Taga-baley · Pangasinan</span>
+      <h1>Better Mapandan</h1>
+      <p class="lede">
+        Sakey a civic transparency portal para ed Mapandan, Pangasinan
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/services/">Nengnengen iray Serbisyo</a>
+        <a class="btn btn-ghost" href="/transparency/">Ipanengneng so Badyet</a>
+      </div>
+    </div>
+    <div class="hero-search" role="search" aria-label="Find a service">
+      <div class="hero-search-inner">
+        <h2>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Anapen so Serbisyo
+        </h2>
+        <p class="hero-search-desc">Anapen so amin a serbisyo ya itatangguyod na Mapandan—base ed samay labay mon gawaen, aliwa no iner opisina so mangasiwa.</p>
+        <form class="hero-search-form" action="/search/" method="get" toolname="search-services-hero" tooldescription="Search for government services, officials, ordinances, and civic information in Mapandan municipality">
+          <input class="hero-search-input" type="text" name="q" placeholder="business permit, barangay clearance, ospital..." aria-label="Search services" autocomplete="off" />
+          <button class="hero-search-btn" type="submit" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+        <div class="hero-search-tags">
+          <span class="hero-search-popular">Paborito:</span>
+          <a href="/services/" class="hero-search-tag">business permit</a>
+          <a href="/government/" class="hero-search-tag">local hospital</a>
+          <a href="/services/" class="hero-search-tag">barangay clearance</a>
+          <a href="/services/" class="hero-search-tag">tax declaration</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="action-hub-bar">
+  <a class="action-hub-item" href="/services/">
+    <span class="action-hub-icon"><i data-lucide="clipboard-list"></i></span>
+    <span>Serbisyo</span>
+  </a>
+  <a class="action-hub-item" href="/transparency/">
+    <span class="action-hub-icon"><i data-lucide="wallet"></i></span>
+    <span>Badyet</span>
+  </a>
+  <a class="action-hub-item" href="/legislative/">
+    <span class="action-hub-icon"><i data-lucide="scale"></i></span>
+    <span>Lehislatibo</span>
+  </a>
+  <a class="action-hub-item" href="/government/">
+    <span class="action-hub-icon"><i data-lucide="phone"></i></span>
+    <span>Hotline</span>
+  </a>
+</div>
+
+<section class="stat-strip">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="num">38,228</div>
+        <span class="verification-badge badge-official">Opisyal</span>
+        <span class="source-label" data-tip="PSA Census of Population 2024 &mdash; verified public record">Source: PSA Census 2024</span>
+        <div class="label">Saray residente</div>
+      </div>
+      <div class="stat">
+        <div class="num">15</div>
+        <span class="verification-badge badge-official">Opisyal</span>
+        <span class="source-label" data-tip="Department of the Interior and Local Government / Commission on Elections &mdash; official barangay count">Source: DILG / Comelec</span>
+        <div class="label">Saray barangay</div>
+      </div>
+      <div class="stat">
+        <div class="num">10,685</div>
+        <span class="verification-badge badge-official">Opisyal</span>
+        <span class="source-label" data-tip="Rural Health Unit Mapandan, 2023 household census &mdash; municipal records">Source: RHU Mapandan 2023</span>
+        <div class="label">Saray abung/pamilya</div>
+      </div>
+      <div class="stat">
+        <div class="num">32.92 km&sup2;</div>
+        <span class="verification-badge badge-official">Opisyal</span>
+        <span class="source-label" data-tip="Municipal Planning and Development Office, Land Use Plan 2024 &mdash; official municipal boundary">Source: MPDC Land Use Plan 2024 &mdash; 32.92 km&sup2;</span>
+        <div class="label">Lawak na daga</div>
+      </div>
+      <div class="stat">
+        <div class="num">1,161.24/km&sup2;</div>
+        <span class="verification-badge badge-official">Opisyal</span>
+        <span class="source-label" data-tip="Computed: 38,228 residents &divide; 32.92 km&sup2; land area &mdash; derived from PSA and MPDC data">Computed: 38,228 &divide; 32.92 km&sup2;</span>
+        <div class="label">Kapadgasan na residente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <script>
+      window.PROCUREMENT_DATA = {"monthly": [{"month": "2011-06", "total": 3364891.55}, {"month": "2012-02", "total": 700000.0}, {"month": "2012-05", "total": 995000.0}, {"month": "2012-08", "total": 1984294.53}, {"month": "2012-10", "total": 3547011.6}, {"month": "2013-04", "total": 217000.0}, {"month": "2014-06", "total": 5265665.98}, {"month": "2014-10", "total": 7748743.9399999995}, {"month": "2014-11", "total": 360000.0}, {"month": "2015-01", "total": 2815776.25}, {"month": "2015-03", "total": 1690298.0}, {"month": "2015-04", "total": 2026007.34}, {"month": "2015-05", "total": 2361000.0}, {"month": "2015-06", "total": 198970.0}, {"month": "2015-07", "total": 8282754.390000001}, {"month": "2015-09", "total": 10147390.33}, {"month": "2015-10", "total": 1786700.0}, {"month": "2015-11", "total": 1856540.0}, {"month": "2015-12", "total": 2747538.55}, {"month": "2016-01", "total": 748604.0}, {"month": "2016-06", "total": 1424877.18}, {"month": "2016-10", "total": 11335063.84}, {"month": "2016-11", "total": 2971400.0}, {"month": "2016-12", "total": 12713981.82}, {"month": "2017-02", "total": 5225166.699999999}, {"month": "2017-03", "total": 1000000.0}, {"month": "2017-05", "total": 11086686.5}, {"month": "2017-06", "total": 4905501.38}, {"month": "2017-08", "total": 15091773.11}, {"month": "2017-10", "total": 1298393.27}, {"month": "2017-11", "total": 4061285.59}, {"month": "2017-12", "total": 6296165.26}, {"month": "2018-01", "total": 920000.0}, {"month": "2018-04", "total": 8998824.96}, {"month": "2018-05", "total": 2378345.45}, {"month": "2018-06", "total": 4552208.09}, {"month": "2018-07", "total": 9527231.71}, {"month": "2018-08", "total": 8620720.98}, {"month": "2018-09", "total": 174000.0}, {"month": "2018-10", "total": 828600.0}, {"month": "2018-11", "total": 14433000.0}, {"month": "2019-02", "total": 2339730.0}, {"month": "2019-03", "total": 10803853.14}, {"month": "2019-05", "total": 1998617.8}, {"month": "2019-06", "total": 941576.5}, {"month": "2019-07", "total": 547208.75}, {"month": "2019-08", "total": 207340.0}, {"month": "2019-09", "total": 4519620.4}, {"month": "2019-11", "total": 14519417.83}, {"month": "2020-01", "total": 100000.0}, {"month": "2020-02", "total": 2297781.88}, {"month": "2020-08", "total": 7355559.11}, {"month": "2020-09", "total": 2481144.0}, {"month": "2020-11", "total": 11607671.709999999}, {"month": "2020-12", "total": 167850.0}, {"month": "2021-05", "total": 7194852.83}, {"month": "2021-06", "total": 7530572.91}, {"month": "2021-07", "total": 119750.0}, {"month": "2021-09", "total": 2397607.41}, {"month": "2021-10", "total": 388480.0}, {"month": "2021-11", "total": 5149721.04}, {"month": "2022-01", "total": 58057776.89}, {"month": "2022-02", "total": 15795761.759999998}, {"month": "2022-03", "total": 1533416.0}, {"month": "2022-06", "total": 3496104.4699999997}, {"month": "2022-08", "total": 129900.0}, {"month": "2022-09", "total": 1799176.5}, {"month": "2022-10", "total": 6627612.699999999}, {"month": "2022-11", "total": 10243889.010000002}, {"month": "2023-02", "total": 4507721.88}, {"month": "2023-05", "total": 1194982.71}, {"month": "2023-06", "total": 638931.24}, {"month": "2023-07", "total": 3446659.08}, {"month": "2023-08", "total": 3505334.38}, {"month": "2023-09", "total": 9408816.32}, {"month": "2023-10", "total": 237000.0}, {"month": "2023-12", "total": 3189606.6500000004}, {"month": "2024-02", "total": 1159726.71}, {"month": "2024-03", "total": 4695498.46}, {"month": "2024-04", "total": 4413218.22}, {"month": "2024-05", "total": 1894770.0}, {"month": "2024-06", "total": 3509635.0}, {"month": "2024-07", "total": 462500.0}, {"month": "2024-08", "total": 829600.0}, {"month": "2024-09", "total": 2991689.46}, {"month": "2024-10", "total": 5929620.0}, {"month": "2024-12", "total": 33074630.47}, {"month": "2025-01", "total": 9106164.63}, {"month": "2025-02", "total": 1111419.0}, {"month": "2025-03", "total": 172000.0}, {"month": "2025-06", "total": 2502545.0}, {"month": "2025-07", "total": 1626490.0}, {"month": "2025-08", "total": 1403685.33}, {"month": "2025-09", "total": 168000.0}, {"month": "2025-10", "total": 1426650.0}, {"month": "2025-12", "total": 556985.45}], "awardees": [{"name": "ALPHIN TRADING AND CONSTRUCTION", "total": 142922053.42000005}, {"name": "ROCKWELL CONSTRUCTION AND SUPPLY", "total": 70047685.85000002}, {"name": "AQUINO-DELA CRUZ ENGINEERING AND CONSTRUCTION", "total": 54967555.44}, {"name": "GLOBAL EIGHT BUILDERS & EQUIPMENT SUPPLIES", "total": 28720000.0}, {"name": "J.L. DE GUZMAN ENTERPRISES", "total": 14188359.909999998}, {"name": "MARKELL MACHINERIES MANUFACTURING", "total": 13500000.0}, {"name": "UBET TRADING", "total": 11083366.66}, {"name": "TOYOTA DAGUPAN CITY INC.", "total": 11039920.0}, {"name": "SAFEWAY CONSTRUCTION AND SUPPLY", "total": 7613205.5600000005}, {"name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE", "total": 7394909.0}]};
+      window.DPWH_PROJECTS = [{"transaction_id": "DPWH-2023-023AJ0117", "contract_id": "23AJ0117", "project_name": "CONCRETING OF BRGY. JIMENEZ FMR, BRGY. JIMENEZ, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "contractor_id": "42334", "approved_budget": 11940000.0, "contract_amount": 11589763.36, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2023, "source_of_funds": "Outside Infra - GAA 2023 DA FMR", "contract_effectivity_date": "2023-06-02", "contract_expiry_date": "2023-09-18", "actual_start_date": "2023-06-02", "actual_completion_date": "2023-09-18", "barangay_location": "Brgy. Jimenez", "latitude": 16.0117241541001, "longitude": 120.457147546116, "project_components": [{"id": "P00770748LZ-CW1", "name": "Construction of Concrete Road - Concreting of Brgy. Jimenez FMR", "type": "Roads", "latitude": 16.0117241541001, "longitude": 120.457147546116}], "bidders": [{"name": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "id": "42334"}, {"name": "AQUINO-DELA CRUZ ENGINEERING & CONSTRUCTION", "id": "16751"}, {"name": "HIGH DEFINITION (HD) BUILDERS AND CONSTRUCTION", "id": "33338"}, {"name": "SYNDTITE CONSTRUCTION CORPORATION", "id": "11597"}], "procurement_activities": [{"activity": "Advertisement", "date": "2023-03-27"}, {"activity": "Bid Submission Deadline", "date": "2023-04-17"}, {"activity": "Date of Award", "date": "2023-04-26"}], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2019-018AJ0116", "contract_id": "18AJ0116", "project_name": "CONSTRUCTION OF FOUR (4) STOREY, EIGHT (8) CLASSROOM SCHOOL BUILDING AT PRIMICIAS NHS, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY", "contractor_id": "40895", "approved_budget": 0.0, "contract_amount": 18345278.6, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2019, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2019-05-25", "barangay_location": "Brgy. Primicias", "latitude": 16.0008887355112, "longitude": 120.47886673914, "project_components": [{"id": "P00273700LZ-CW1", "name": "Construction of Classrooms - Construction of 4STY8CL School Building, Primicias NHS, Mapandan, Pangasinan", "type": "Buildings and Facilities", "latitude": 16.0008887355112, "longitude": 120.47886673914}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-023AJ0033", "contract_id": "23AJ0033", "project_name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, CORAL, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY", "contractor_id": "21054", "approved_budget": 0.0, "contract_amount": 47574067.96, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2023, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-11-17", "barangay_location": "Coral", "latitude": 16.0346736111111, "longitude": 120.452061388889, "project_components": [{"id": "P00726066LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection Works along Angalacan River, Coral, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0346736111111, "longitude": 120.452061388889}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-023AJ0069", "contract_id": "23AJ0069", "project_name": "CONSTRUCTION OF SLOPE PROTECTION AT BARANGAY BALOLING PHASE IV, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "contractor_id": "42334", "approved_budget": 0.0, "contract_amount": 4803991.53, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2023, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-06-23", "barangay_location": "Brgy. Baloling", "latitude": 16.0311994444444, "longitude": 120.457986388889, "project_components": [{"id": "P00737430LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection at Barangay Baloling Phase IV, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0311994444444, "longitude": 120.457986388889}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2021-021AJ0068", "contract_id": "21AJ0068", "project_name": "CONCRETING OF LOCAL ROAD, SITIO CENTRO, BARANGAY LUYAN, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "contractor_id": "42334", "approved_budget": 0.0, "contract_amount": 2880843.21, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2021, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2021-04-16", "barangay_location": "Brgy. Luyan", "latitude": 16.0048647222222, "longitude": 120.476868333333, "project_components": [{"id": "P00562997LZ-CW1", "name": "Construction of Concrete Road - Concreting of Local Road, Sitio Centro, Barangay Luyan, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0048647222222, "longitude": 120.476868333333}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2022-022AJ0056", "contract_id": "22AJ0056", "project_name": "CONSTRUCTION OF SLOPE PROTECTION ALONG BRGY. BALOLING, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "LXS BUILDERS & SUPPLIES", "contractor_id": "25172", "approved_budget": 0.0, "contract_amount": 5794812.69, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2022-04-08", "barangay_location": "Brgy. Baloling", "latitude": 16.0314941666667, "longitude": 120.4583475, "project_components": [{"id": "P00637769LZ-CW1", "name": "Construction of Revetment - Construction of Slope Protection along Brgy. Baloling, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0314941666667, "longitude": 120.4583475}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2020-020AJ0037", "contract_id": "20AJ0037", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. BALOLING, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY", "contractor_id": "21054", "approved_budget": 0.0, "contract_amount": 47110690.84, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2020, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2020-07-20", "barangay_location": "Brgy. Baloling", "latitude": 16.0316136111111, "longitude": 120.458161666667, "project_components": [{"id": "P00421634LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Protection Works along Angalacan River, Brgy. Baloling, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0316136111111, "longitude": 120.458161666667}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-022AJ0098", "contract_id": "22AJ0098", "project_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. PRIMICIAS, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "contractor_id": "42334", "approved_budget": 0.0, "contract_amount": 1941414.86, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-02-22", "barangay_location": "Brgy. Primicias", "latitude": 16.0011183333333, "longitude": 120.478911666667, "project_components": [{"id": "P00699088LZ-CW1", "name": "Construction of Concrete Road - Concreting of Farm to Market Road, Brgy. Primicias, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0011183333333, "longitude": 120.478911666667}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2018-018AJ0100", "contract_id": "18AJ0100", "project_name": "CONSTRUCTION OF TWO (2) STOREY, FOUR (4) CLASSROOM SCHOOL BUILDING AT MAPANDAN NHS, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 9554749.34, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2018, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2018-12-12", "barangay_location": "Mapandan NHS", "latitude": 16.028775118, "longitude": 120.453284041, "project_components": [{"id": "P00270279LZ-CW1", "name": "Construction of Classrooms - Construction of 2STY4CL, Mapandan National High School, Mapandan, Pangasinan", "type": "Buildings and Facilities", "latitude": 16.028775118, "longitude": 120.453284041}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-022AJ0099", "contract_id": "22AJ0099", "project_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. JIMENEZ, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "ROCKWELL CONSTRUCTION AND SUPPLY", "contractor_id": "43867", "approved_budget": 0.0, "contract_amount": 1940897.68, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-02-10", "barangay_location": "Brgy. Jimenez", "latitude": 16.0137380555556, "longitude": 120.462043055556, "project_components": [{"id": "P00699089LZ-CW1", "name": "Construction of Concrete Road - Concreting of Farm to Market Road, Brgy. Jimenez, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0137380555556, "longitude": 120.462043055556}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-023AJ0011", "contract_id": "23AJ0011", "project_name": "CONSTRUCTION OF SLOPE PROTECTION ALONG ANGALACAN RIVER, BARANGAY BALOLING, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "contractor_id": "42334", "approved_budget": 0.0, "contract_amount": 19221664.9, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2023, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-04-18", "barangay_location": "Brgy. Baloling", "latitude": 16.0314125, "longitude": 120.458201666667, "project_components": [{"id": "P00726070LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection along Angalacan River, Barangay Baloling, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0314125, "longitude": 120.458201666667}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2021-020AJ0101", "contract_id": "20AJ0101", "project_name": "CONSTRUCTION OF FOUR (4) STOREY EIGHT (8) CLASSROOM SCHOOL BUILDING, PRIMICIAS NHS, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY", "contractor_id": "40895", "approved_budget": 0.0, "contract_amount": 18732486.77, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2020, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2021-02-02", "barangay_location": "Brgy. Primicias", "latitude": 15.9957552777778, "longitude": 120.479448611111, "project_components": [{"id": "P00470095LZ-CW1", "name": "Construction of Classrooms - Construction of 4STY8CL, Primicias NHS, Mapandan, Pangasinan", "type": "Buildings and Facilities", "latitude": 15.9957552777778, "longitude": 120.479448611111}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2018-018AJ0040", "contract_id": "18AJ0040", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BALOLING SECTION, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 23105143.06, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2018, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2018-06-30", "barangay_location": "Brgy. Baloling", "latitude": 16.03047199, "longitude": 120.45698099, "project_components": [{"id": "P00222534LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Protection works along Angalacan River, Baloling Section, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.03047199, "longitude": 120.45698099}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-022AJ0097", "contract_id": "22AJ0097", "project_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. AMANOAOAC, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "contractor_id": "42334", "approved_budget": 0.0, "contract_amount": 1941337.81, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-02-10", "barangay_location": "Brgy. Amanaoaoac", "latitude": 16.01377, "longitude": 120.448281388889, "project_components": [{"id": "P00699087LZ-CW1", "name": "Construction of Concrete Road - Concreting of Farm to Market Road, Brgy. Amanoaoac, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.01377, "longitude": 120.448281388889}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2018-018AJ0045", "contract_id": "18AJ0045", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. STA. MARIA, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 18482969.89, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2018, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2018-04-25", "barangay_location": "Brgy. Sta. Maria", "latitude": 16.03702073, "longitude": 120.46819043, "project_components": [{"id": "P00222009LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Protection Works along Angalacan River, Brgy. Sta. Maria, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.03702073, "longitude": 120.46819043}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-022AJ0096", "contract_id": "22AJ0096", "project_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. LAMBAYAN, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "ROCKWELL CONSTRUCTION AND SUPPLY", "contractor_id": "43867", "approved_budget": 0.0, "contract_amount": 1958340.13, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-02-22", "barangay_location": "Brgy. Lambayan", "latitude": 16.0019836111111, "longitude": 120.46455, "project_components": [{"id": "P00699086LZ-CW1", "name": "Construction of Concrete Road - Concreting of Farm to Market Road, Brgy. Lambayan, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0019836111111, "longitude": 120.46455}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2020-019AJ0110", "contract_id": "19AJ0110", "project_name": "CONSTRUCTION OF MULTI-PURPOSE BUILDING, MAPANDAN NATIONAL HIGH SCHOOL, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 9429521.58, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2019, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2020-02-06", "barangay_location": "Mapandan NHS", "latitude": 16.02884, "longitude": 120.45277, "project_components": [{"id": "P00349385LZ-CW1", "name": "Construction of Multi Purpose Building - Construction of MPB, Mapandan National High School, Mapandan, Pangasinan", "type": "Buildings and Facilities", "latitude": 16.02884, "longitude": 120.45277}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2019-019AJ0040", "contract_id": "19AJ0040", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. BALOLING, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "BET CONSTRUCTION & SUPPLY", "contractor_id": "31764", "approved_budget": 0.0, "contract_amount": 47476082.45, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2019, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2019-12-11", "barangay_location": "Brgy. Baloling", "latitude": 16.0345508333333, "longitude": 120.453197222222, "project_components": [{"id": "P00322048LZ-CW1", "name": "Construction of Revetment - Construction of Protection Works along Angalacan River, Brgy. Baloling, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0345508333333, "longitude": 120.453197222222}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-023AJ0045", "contract_id": "23AJ0045", "project_name": "CONSTRUCTION OF ROAD AT BARANGAY STA. MARIA, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "LXS BUILDERS & SUPPLIES", "contractor_id": "25172", "approved_budget": 0.0, "contract_amount": 4841163.36, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2023, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-05-26", "barangay_location": "Brgy. Sta. Maria", "latitude": 16.0290583333333, "longitude": 120.469834722222, "project_components": [{"id": "P00736859LZ-CW1", "name": "Construction of Concrete Road - Construction of Road at Barangay Sta. Maria, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0290583333333, "longitude": 120.469834722222}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2018-018AJ0023", "contract_id": "18AJ0023", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, PIAS SECTION, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 27737425.78, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2018, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2018-04-25", "barangay_location": "Brgy. Pias", "latitude": 16.04050928, "longitude": 120.44636615, "project_components": [{"id": "P00222532LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Protection works along Angalacan River, Pias Section, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.04050928, "longitude": 120.44636615}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2020-020AJ0032", "contract_id": "20AJ0032", "project_name": "CONCRETING OF ROAD, BARANGAY STA. MARIA, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "MKM MARKETING", "contractor_id": "15586", "approved_budget": 0.0, "contract_amount": 1927837.62, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2020, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2020-11-23", "barangay_location": "Brgy. Sta. Maria", "latitude": 16.0303686111111, "longitude": 120.470728888889, "project_components": [{"id": "P00448003LZ-CW1", "name": "Construction of Concrete Road - Concreting of Road, Barangay Sta. Maria, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0303686111111, "longitude": 120.470728888889}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2022-022AJ0064", "contract_id": "22AJ0064", "project_name": "CONSTRUCTION OF LOCAL ROAD, BRGY. NILOMBOT TO AMANOAOAC, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 6762333.73, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2022-07-18", "barangay_location": "Brgy. Nilombot / Brgy. Amanaoaoac", "latitude": null, "longitude": null, "project_components": [], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2019-019AJ0039", "contract_id": "19AJ0039", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. STA. MARIA, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 28467174.28, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2019, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2019-11-20", "barangay_location": "Brgy. Sta. Maria", "latitude": 16.03445425, "longitude": 120.46629276, "project_components": [{"id": "P00322049LZ-CW1", "name": "Construction of Revetment - Construction of Protection Works along Angalacan River, Brgy. Sta. Maria, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.03445425, "longitude": 120.46629276}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2021-021AJ0026", "contract_id": "21AJ0026", "project_name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, BARANGAY BALOLING, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 9530364.84, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2021, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2021-04-15", "barangay_location": "Brgy. Baloling", "latitude": 16.0314394444444, "longitude": 120.458792777778, "project_components": [{"id": "P00561261LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection Works along Angalacan River, Barangay Baloling, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0314394444444, "longitude": 120.458792777778}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2022-022A00149", "contract_id": "22A00149", "project_name": "SUSTAINABLE INFRASTRUCTURE PROJECTS ALLEVIATING GAPS (SIPAG) - CONSTRUCTION OF MULTI-PURPOSE BUILDING, BARANGAY POBLACION, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "MKM MARKETING", "contractor_id": "15586", "approved_budget": 0.0, "contract_amount": 4825000.0, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2022-04-24", "barangay_location": "Brgy. Poblacion", "latitude": 16.0276855555556, "longitude": 120.4540525, "project_components": [{"id": "P00631684LZ-CW1", "name": "Construction of Multi Purpose Building - Construction of Multi Purpose Building, Barangay Poblacion, Mapandan, Pangasinan", "type": "Buildings and Facilities", "latitude": 16.0276855555556, "longitude": 120.4540525}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2020-019AJ0145", "contract_id": "19AJ0145", "project_name": "CONCRETING OF BRGY. AMANOAOAC-JIMENEZ FMR, BRGY. AMANOAOAC AND BRGY. JIMENEZ, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "LXS BUILDERS & SUPPLIES", "contractor_id": "25172", "approved_budget": 0.0, "contract_amount": 4843661.55, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2019, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2020-02-13", "barangay_location": "Brgy. Amanaoaoac / Brgy. Jimenez", "latitude": 16.0143836111111, "longitude": 120.447371388889, "project_components": [{"id": "P00365334LZ-CW1", "name": "Construction of Concrete Road - Concreting of Brgy. Amanoaoac - Jimenez FMR, Brgy. Amanoaoac and Brgy. Jimenez, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0143836111111, "longitude": 120.447371388889}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2022-022AJ0059", "contract_id": "22AJ0059", "project_name": "CONSTRUCTION OF LOCAL ROAD, BRGY. PIAS, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY", "contractor_id": "40895", "approved_budget": 0.0, "contract_amount": 4831057.69, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2022, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2022-07-08", "barangay_location": "Brgy. Pias", "latitude": 16.0314883333333, "longitude": 120.445619722222, "project_components": [{"id": "P00641889LZ-CW1", "name": "Construction of Concrete Road - Construction of Local Road, Brgy. Pias, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.0314883333333, "longitude": 120.445619722222}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2017-017AJ0012", "contract_id": "17AJ0012", "project_name": "CONCRETING OF ROAD RAISING ALONG SITIO CABARUAN, BRGY. BANAOANG CALASIAO, CONCRETING OF LOCAL ROADS AT SITIO KARANGKANG, BRGY. SAPINIT, SAN CARLOS CITY, CONCRETING OF LOCAL ROAD ALONG MABOLO EXTENSION, BRGY. GOLDEN, MAPANDAN, PANGASINAN (CLUSTER III)", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 8829201.73, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2017, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2017-07-08", "barangay_location": "Brgy. Golden", "latitude": 16.020502, "longitude": 120.434609, "project_components": [{"id": "P00143057LZ-CW1", "name": "Construction of Concrete Road - Concreting of Local Road along Mabolo Extension, Brgy. Golden, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.020502, "longitude": 120.434609}, {"id": "P00143072LZ-CW1", "name": "Construction of Concrete Road - Concreting of Local Roads, Sitio Karangkang, Brgy. Sapinit, San Carlos City, Pangasinan", "type": "Roads", "latitude": 15.915622, "longitude": 120.370074}, {"id": "P00143074LZ-CW1", "name": "Construction of Concrete Road - Construction of Road Raising along Sitio Cabaruan, Brgy. Banaoang, Calasiao, Pangasinan", "type": "Roads", "latitude": 16.012261, "longitude": 120.338584}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2025-025AJ0055", "contract_id": "25AJ0055", "project_name": "CONSTRUCTION OF SLOPE PROTECTION STRUCTURE ALONG ANGALACAN RIVER BANK, BARANGAY PIAS TO BARANGAY POBLACION, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY", "contractor_id": "21054", "approved_budget": 0.0, "contract_amount": 42534481.5, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2025, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": null, "barangay_location": "Brgy. Pias / Brgy. Poblacion", "latitude": 16.0350983333333, "longitude": 120.451613055556, "project_components": [{"id": "P00921751LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection Structure along Angalacan River Bank, Barangay Pias to Barangay Poblacion, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0350983333333, "longitude": 120.451613055556}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2026-026AJ0028", "contract_id": "26AJ0028", "project_name": "CONSTRUCTION OF LOCAL ROAD, BARANGAY BALOLING, MUNICIPALITY OF MAPANDAN, PANGASINAN, STA 0+000 - STA 0+750 (SECTION 1). STA 0+000 - STA 0+750 (SECTION 2), STA 0+000 - STA 0+750 (SECTION 3)", "category": "Roads: Construction - PCCP", "executing_agency": "Pangasinan 4th DEO", "contractor": "", "contractor_id": "", "approved_budget": 0.0, "contract_amount": 0.0, "accomplishment_percent": 0.0, "status": "Not Yet Started", "fiscal_year": 2026, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": null, "barangay_location": "Brgy. Baloling", "latitude": null, "longitude": null, "project_components": [], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2016-016AJ0001", "contract_id": "16AJ0001", "project_name": "CONCRETING OF LOCAL ROAD AT BRGY. AMANOAOAC AND TORRES, MAPANDAN, PANGASINAN (CLUSTER II)", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "JASA GD 2000 CONSTRUCTION CORPORATION", "contractor_id": "31330", "approved_budget": 0.0, "contract_amount": 3888639.8, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2016, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2016-04-22", "barangay_location": "Brgy. Amanaoaoac / Brgy. Torres", "latitude": 16.011926, "longitude": 120.451197, "project_components": [{"id": "P00045522LZ-CW1", "name": "Road Upgrading Gravel to Paved - Concreting of Local Road, Brgy. Amanoaoac, Mapandan, Pangasinan 3rd LD", "type": "Roads", "latitude": 16.011926, "longitude": 120.451197}, {"id": "P00045523LZ-CW1", "name": "Road Upgrading Gravel to Paved - Concreting of Local Road, Brgy. Torres, Mapandan, Pangasinan 3rd LD", "type": "Roads", "latitude": 16.017022, "longitude": 120.464094}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2017-017AJ0044", "contract_id": "17AJ0044", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. PIAS, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "AQUINO-DELA CRUZ ENGINEERING & CONSTRUCTION", "contractor_id": "16751", "approved_budget": 0.0, "contract_amount": 9799048.03, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2017, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2017-06-27", "barangay_location": "Brgy. Pias", "latitude": 16.036588, "longitude": 120.450848, "project_components": [{"id": "P00122088LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Protection Works along Angalacan River, Barangay Piaz, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.036588, "longitude": 120.450848}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2018-018AJ0027", "contract_id": "18AJ0027", "project_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, CORAL SECTION, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "AC SOLIVEN CONSTRUCTION CORPORATION", "contractor_id": "19278", "approved_budget": 0.0, "contract_amount": 23277829.98, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2018, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2018-07-09", "barangay_location": "Coral", "latitude": 16.03325735, "longitude": 120.45320966, "project_components": [{"id": "P00222533LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Protection works along Angalacan River, Coral Section, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.03325735, "longitude": 120.45320966}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2017-017AJ0089", "contract_id": "17AJ0089", "project_name": "CONCRETING OF BRGY. PIAS FMR, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "ORIENTAL SALES CENTER AND CONTRACTOR", "contractor_id": "33630", "approved_budget": 0.0, "contract_amount": 1942491.75, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2017, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2017-10-19", "barangay_location": "Brgy. Pias", "latitude": 16.026097, "longitude": 120.439903, "project_components": [{"id": "P00165128LZ-CW1", "name": "Construction of Concrete Road - Concreting of Brgy. Pias FMR, Mapandan, Pangasinan", "type": "Roads", "latitude": 16.026097, "longitude": 120.439903}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2023-023AJ0027", "contract_id": "23AJ0027", "project_name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, PIAS, MAPANDAN, PANGASINAN", "category": "Flood Control and Drainage", "executing_agency": "Pangasinan 4th DEO", "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY", "contractor_id": "21054", "approved_budget": 0.0, "contract_amount": 48004256.1, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2023, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2023-08-31", "barangay_location": "Brgy. Pias", "latitude": 16.0405983333333, "longitude": 120.446278611111, "project_components": [{"id": "P00726065LZ-CW1", "name": "Construction of Flood Mitigation Structure - Construction of Slope Protection Works along Angalacan River, Pias, Mapandan, Pangasinan", "type": "Flood Control and Drainage", "latitude": 16.0405983333333, "longitude": 120.446278611111}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2017-016AJ0083", "contract_id": "16AJ0083", "project_name": "CONSTRUCTION OF 4-STOREY 12 CL. RM. SCHOOL BUILDING AT MAPANDAN NHS, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION", "contractor_id": "22186", "approved_budget": 0.0, "contract_amount": 21831945.65, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2016, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2017-07-06", "barangay_location": "Mapandan NHS", "latitude": 16.02833, "longitude": 120.45278, "project_components": [{"id": "P00074704LZ-CW1", "name": "Construction of Classrooms - Construction of 4STY12CL, Mapandan National High School, Mapandan, Pangasinan 3rd LD", "type": "Buildings and Facilities", "latitude": 16.02833, "longitude": 120.45278}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2025-025AJ0097", "contract_id": "25AJ0097", "project_name": "CONCRETING OF ROAD, BRGY. STA. MARIA, MAPANDAN, PANGASINAN", "category": "Roads", "executing_agency": "Pangasinan 4th DEO", "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY", "contractor_id": "42334", "approved_budget": 0.0, "contract_amount": 4949900.27, "accomplishment_percent": 96.45, "status": "Ongoing", "fiscal_year": 2025, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": null, "barangay_location": "Brgy. Sta. Maria", "latitude": 16.028425, "longitude": 120.467935555556, "project_components": [{"id": "P00948913LZ-CW1", "name": "Construction of Concrete Road - Concreting of Road, Brgy. Sta. Maria, Mapandan Pangasinan", "type": "Roads", "latitude": 16.028425, "longitude": 120.467935555556}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2017-017AJ0058", "contract_id": "17AJ0058", "project_name": "COMPLETION OF X-RAY BUILDING/PROVISION OF REST ROOM (PWD, MALE & FEMALE) REPAIR/IMPROVEMENT OF MEDICAL RECORDS, RENOVATION OF T.B DOTS LABORATORY ROOM W/ C.R. CONSTRUCTION OF SEWAGE TREATMENT PLAN AT MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "SAFEWAY CONSTRUCTION", "contractor_id": "5842", "approved_budget": 0.0, "contract_amount": 6825575.6, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2017, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2017-08-25", "barangay_location": "Mapandan", "latitude": 16.02444, "longitude": 120.45652, "project_components": [{"id": "P00061127LZ-CW1", "name": "Construction of Hospital - Construction/Rehabilitation of Mapandan Community Hospital, Mapandan, Pangasinan", "type": "Buildings and Facilities", "latitude": 16.02444, "longitude": 120.45652}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2017-016AJ0089", "contract_id": "16AJ0089", "project_name": "CONSTRUCTION OF 3 STOREY 6 CL.RM. SCHOOL BUILDING AT TORRES NHS, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION / SAFEWAY CONSTRUCTION", "contractor_id": "22186 / 5842", "approved_budget": 0.0, "contract_amount": 10287151.33, "accomplishment_percent": 100.0, "status": "Completed", "fiscal_year": 2016, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": "2017-03-19", "barangay_location": "Brgy. Torres", "latitude": 16.0153, "longitude": 120.46927, "project_components": [{"id": "P00074705LZ-CW1", "name": "Construction of Classrooms - Construction of 3STY6CL, Torres NHS, Mapandan, Pangasinan 3rd LD", "type": "Buildings and Facilities", "latitude": 16.0153, "longitude": 120.46927}], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}, {"transaction_id": "DPWH-2026-026AJ0027", "contract_id": "26AJ0027", "project_name": "CONSTRUCTION OF MULTI-PURPOSE BUILDING (SENIOR CITIZEN CENTER), BARANGAY PIAS, MAPANDAN, PANGASINAN", "category": "Buildings and Facilities", "executing_agency": "Pangasinan 4th DEO", "contractor": "", "contractor_id": "", "approved_budget": 0.0, "contract_amount": 0.0, "accomplishment_percent": 0.0, "status": "Not Yet Started", "fiscal_year": 2026, "source_of_funds": "", "contract_effectivity_date": null, "contract_expiry_date": null, "actual_start_date": null, "actual_completion_date": null, "barangay_location": "Brgy. Pias", "latitude": 16.0347, "longitude": 120.4457, "project_components": [], "bidders": [], "procurement_activities": [], "source_document_url": "https://transparency.dpwh.gov.ph/", "crossref": {}}];
+    </script>
+    <div class="section-head">
+      <div class="section-eyebrow">Transparensya</div>
+      <h2>Badyet, Kontrata tan Awdit</h2>
+      <p>Financial accountability data na Mapandan—badyet, procurement, imprastraktura, tan COA audit reports—amin ed sakey a lugar.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Monthly Cost Trend</h3>
+        <p class="source-label" style="margin-top:0">Contract amounts over time &bull; Jun 2011 – Dec 2025</p>
+        <canvas id="chart-homepage-monthly" height="220" role="img" aria-label="Monthly contract amounts"></canvas>
+      </div>
+      <div class="card">
+        <h3>Top 10 Awardees</h3>
+        <p class="source-label" style="margin-top:0">By total contract value &bull; Jun 2011 – Dec 2025</p>
+        <canvas id="chart-homepage-awardees" height="220" role="img" aria-label="Top 10 awardees by contract value"></canvas>
+      </div>
+    </div>
+    <div style="margin-top:24px">
+      <div class="section-head">
+        <div class="section-eyebrow">DPWH &middot; Infrastructure</div>
+        <h2>Infrastructure Projects</h2>
+      </div>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+      <div id="dpwh-map" style="height:420px;border-radius:8px;margin-bottom:24px"></div>
+      <p id="dpwh-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the project map.</p>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+      <script defer src="./assets/leaflet-map.min.js"></script>
+    </div>
+    <div style="margin-top:16px; text-align:center">
+      <a class="btn btn-outline" href="/transparency/">View full transparency dashboard →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Munisipalidad ya Ikatlong Klase · Region I</div>
+      <h2>Sakey a baley ya man-aani na palay ed terser a distrito na Pangasinan</h2>
+      <p>
+        Nakatugaw so Mapandan ed Ikatlong Kongresonal a Distrito na Pangasinan, napaliber ed San Jacinto ed norte, Mangaldan ed hilagang-kanluran, Manaoag ed east, tan Santa Barbara ed south. Say lawak to et 32.92 square kilometers, tan antapud 3/4 na daga et para ed agrikultura—pangunahing palay, kaiba so mais, alaga a animales, tan pana-panahon a gulay. Mantrabaho so administrasyon na baley ed silong na tagline a “Kaakibat niyo ang Aktibo at Responsableng Liderato.”
+      </p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="icon">01</div>
+        <h3>Itinayneng Dec. 28, 1887</h3>
+        <p>Nipisok ed Mangaldan bilang independent a pueblo ed silong ni Governor General Emilio Bravo, panguloan na sampong lokal a lider kaiba da Antonio Morales, Sabino Prado, tan Andres Bongato.</p>
+      </div>
+      <div class="card">
+        <div class="icon">02</div>
+        <h3>Muling itinayneng 1909</h3>
+        <p>Sakey a matinding epidemya so nangpilit ed temporaryong re-annexation ed Mangaldan. Naibalik so full autonomy diad Executive Order No. 10 ni Governor General James F. Smith.</p>
+      </div>
+      <div class="card">
+        <div class="icon">03</div>
+        <h3>Puso na agrikultura</h3>
+        <p>Antapud 75% na 32.92 km² na munisipalidad et para ed lowland crop production, livestock, tan poultry farming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Panangipangulo</div>
+      <h2>Kasalukuyang manlilingkur</h2>
+    </div>
+   <div class="grid grid-2">
+      <div class="leader-card">
+        <div class="leader-text">
+          <div class="name">Hon. Karl Christian F. Vega</div>
+          <span class="role">Municipal Mayor</span>
+          <div class="affil">Nacionalista Party (NP)</div>
+          <span class="source-label">Pinanlapuan: Mapandan.gov.ph</span>
+        </div>
+        <div class="photo-wrap">
+          <img src="./assets/officials/mayor-vega.png" alt="Hon. Karl Christian F. Vega" class="photo" loading="lazy" decoding="async" width="200" height="200">
+        </div>
+      </div>
+      <div class="leader-card vice">
+        <div class="leader-text">
+        <div class="name">Hon. Anthony C. Penuliar</div>
+        <span class="role">Vice Mayor · Presiding Officer</span>
+        <div class="affil">Independent (IND)</div>
+        <span class="source-label">Pinanlapuan: Mapandan.gov.ph</span>
+        </div>
+        <div class="photo-wrap">
+          <img src="./assets/officials/vicemayor-penuliar.png" alt="Hon. Anthony C. Penuliar" class="photo" loading="lazy" decoding="async" width="200" height="200">
+        </div>
+      </div>
+   </div>
+    <p class="cta-row">
+      <a class="link-arrow" href="/government/">Nengnengen so amin a Direktoryo na Gobierno →</a>
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Nengnengen so Mapandan</div>
+      <h2>Lagay na panahon tan mapa</h2>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <div class="section-head">
+          <h3>Kasalukuyang lagay na panahon</h3>
+        </div>
+        <div class="weather-widget" id="weather-widget" aria-label="Weather" aria-live="polite">
+          <div class="weather-loading">Kakarga so datos na panahon...</div>
+          <div style="position:relative;height:180px;width:100%;margin-top:16px"><canvas id="chart-weather-forecast"></canvas></div>
+        </div>
+        <div style="margin-top:10px">
+          <a class="link-arrow" href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">Nengnengen iray Abiso na PAGASA →</a>
+        </div>
+      </div>
+      <div>
+        <div class="section-head">
+          <h3>Interactive a mapa</h3>
+        </div>
+        <div class="map-container" aria-label="Interactive map">
+          <iframe src="https://www.google.com/maps?q=Mapandan,+Pangasinan&z=13&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Map of Mapandan, Pangasinan"></iframe>
+        </div>
+        <div style="margin-top:10px">
+          <a class="link-arrow" href="https://www.google.com/maps/place/Mapandan,+Pangasinan/@16.0300,120.4561,13z" target="_blank" rel="noopener">Buksan ed Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt" id="emergency-contacts">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Saray Numero na Emerhensya</div>
+      <h2>Iner so tatawagan</h2>
+    </div>
+    <div class="grid grid-3">
+      
+      <!-- MDRRMO -->
+      <div class="card emergency-card">
+        <img src="./assets/logos/mdrrmo.png" alt="MDRRMO Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>MDRRMO</h3>
+              <p class="emergency-card-description">Municipal Disaster Risk Reduction and Management Office</p>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756002564">(075) 600-2564</a> · <a href="tel:911">911</a> / <a href="tel:+639692236912">0969-223-6912</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BFP -->
+      <div class="card emergency-card">
+        <img src="./assets/logos/bfp.png" alt="Bureau of Fire Protection Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>Bureau of Fire Protection</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756321750">(075) 632-1750</a> · <a href="tel:911">911</a> / <a href="tel:+639434242810">0943-424-2810</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PNP -->
+      <div class="card emergency-card">
+        <img src="./assets/logos/pnp.png" alt="Philippine National Police Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>Philippine National Police</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756321754">(075) 632-1754</a> · <a href="tel:911">911</a> / <a href="tel:+639159793390">0915-979-3390</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RHU -->
+      <div class="card emergency-card">
+        <img src="./assets/logos/rhu.png" alt="Rural Health Unit Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>Rural Health Unit</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756321874">(075) 632-1874</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hospital -->
+      <div class="card emergency-card">
+        <img src="./assets/logos/community.png" alt="Local Hospital Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>Mapandan Community Hospital</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756320491">(075) 632-0491</a> · <a href="tel:+639165512522">0916-551-2522</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Water District -->
+      <div class="card emergency-card">
+        <img src="./assets/logos/mawadi.png" alt="Water District Logo" class="office-logo" width="64" height="64" loading="lazy" decoding="async" />
+        <div class="emergency-card-content">
+          <div class="emergency-card-header">
+            <div>
+              <h3>Mapandan Water District</h3>
+            </div>
+            <p class="emergency-card-phones">
+              <a href="tel:+63756320445">(075) 632-0445</a> · <a href="tel:+639493003375">0949-300-3375</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <img src="./assets/logo.svg" alt="Better Mapandan seal" width="160" height="40" />
+          <div>
+            <div class="name">Better Mapandan</div>
+            <p>Sakey a independent civic transparency portal para ed Mapandan, Pangasinan, ya binangon tan mantine na volunteers ed silong na BetterGov.ph initiative—aliwa iya opisyal a government website.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Mabilis a Link</p>
+        <ul>
+          <li><a href="/">Abong</a></li>
+          <li><a href="/services/">Saray Serbisyo</a></li>
+          <li><a href="/government/">Gobierno</a></li>
+          <li><a href="/legislative/">Lehislatibo</a></li>
+          <li><a href="/statistics/">Estadistika</a></li>
+          <li><a href="/transparency/">Transparensiya</a></li>
+          <li><a href="/about/">Tungkol</a></li>
+          <li><a href="/support/sitemap/">Mapa na site</a></li>
+          <li><a href="/support/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Saray Mapagkukunan</p>
+        <ul>
+          <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
+          <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
+          <li><a href="https://coa.gov.ph/" target="_blank" rel="noopener">Commission on Audit</a></li>
+          <li><a href="https://dilg.gov.ph/" target="_blank" rel="noopener">DILG</a></li>
+          <li><a href="https://blgf.gov.ph/" target="_blank" rel="noopener">BLGF</a></li>
+          <li><a href="https://foi.gov.ph/" target="_blank" rel="noopener">FOI</a></li>
+          <li><a href="https://philgeps.gov.ph/" target="_blank" rel="noopener">PhilGEPS</a></li>
+          <li><a href="https://psa.gov.ph/" target="_blank" rel="noopener">Philippine Statistics Authority</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Proyekto</p>
+        <ul>
+          <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
+          <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>
+          <li><a href="/support/privacy/">Patakaran na Privacy</a></li>
+          <li><a href="/support/terms/">Saray Tuntunin na Paggamit</a></li>
+          <li><a href="/support/accessibility/">Aksesibilidad</a></li>
+          <li><a href="/support/report/">I-ulat so Aliwan a Tama a Impormasyon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BetterMapandan.org. Pinapakewilian na komunidad, independent ed LGU.</span>
+      <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
+        <img src="./assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo" width="120" height="40">
+        <span>Isang BetterGov.ph Community Portal</span>
+      </a>
+      <span class="cost-chip">Gastos na saray too na Mapandan: <strong>&#8369;0</strong></span>
+    </div>
+  </div>
+</footer>
+
+
+<script defer src="./assets/chart.umd.min.js"></script>
+<script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
+<script defer src="./assets/barangay-data.min.js"></script>
+<script defer src="./assets/script.min.js"></script>
+
+<div id="lang-banner" class="lang-banner" style="display:none"></div>
+
+<nav class="mobile-action-bar" aria-label="Quick actions">
+  <a href="tel:911" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Hotline</span>
+  </a>
+  <a href="/search/" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+  </a>
+  <a href="/services/" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <span>Services</span>
+  </a>
+</nav>
+
+<script defer src="./assets/stats.min.js"></script>
+</body>
+</html>

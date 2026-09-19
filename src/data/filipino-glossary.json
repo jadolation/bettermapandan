@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "language": "Filipino",
+    "language_code": "fil",
+    "version": "1.0",
+    "purpose": "Better Mapandan translation glossary",
+    "status_values": [
+      "approved",
+      "official",
+      "common",
+      "contextual",
+      "review_required",
+      "do_not_translate",
+      "source_dependent"
+    ]
+  },
+  "rules": {
+    "default_style": "Natural contemporary Filipino for public-service communication",
+    "official_names": "Preserve official agency, office, program, document, project, and personal names unless an official Filipino form exists.",
+    "data_values": "Never translate or alter names, amounts, dates, IDs, URLs, document numbers, coordinates, or source values.",
+    "sentence_case": "Use sentence case for ordinary UI text.",
+    "meaning_first": true,
+    "machine_translation_is_final": false
+  },
+  "terms": [
+    {"key":"home","english":"Home","filipino":"Pangunahing Pahina","status":"approved","notes":"Use for site navigation. 'Tahanan' is not appropriate for website navigation."},
+    {"key":"about","english":"About","filipino":"Tungkol sa","status":"approved"},
+    {"key":"about_mapandan","english":"About Mapandan","filipino":"Tungkol sa Mapandan","status":"approved"},
+    {"key":"government","english":"Government","filipino":"Pamahalaan","status":"approved"},
+    {"key":"municipality","english":"Municipality","filipino":"Bayan","status":"common","notes":"Use 'munisipalidad' when the administrative concept specifically needs that term."},
+    {"key":"municipal_government","english":"Municipal Government","filipino":"Pamahalaang Bayan","status":"approved"},
+    {"key":"services","english":"Services","filipino":"Mga Serbisyo","status":"approved"},
+    {"key":"service","english":"Service","filipino":"Serbisyo","status":"common"},
+    {"key":"transparency","english":"Transparency","filipino":"Transparency","status":"common","notes":"Retain the familiar public-governance term; explanatory headings may use 'Pananagutan at Transparency'."},
+    {"key":"statistics","english":"Statistics","filipino":"Mga Estadistika","status":"approved"},
+    {"key":"history","english":"History","filipino":"Kasaysayan","status":"approved"},
+    {"key":"search","english":"Search","filipino":"Maghanap","status":"approved"},
+    {"key":"contact","english":"Contact","filipino":"Makipag-ugnayan","status":"approved"},
+    {"key":"directory","english":"Directory","filipino":"Direktoryo","status":"common"},
+    {"key":"emergency","english":"Emergency","filipino":"Emerhensiya","status":"common"},
+    {"key":"emergency_contacts","english":"Emergency Contacts","filipino":"Mga Numero para sa Emerhensiya","status":"approved","notes":"Plain-language resident-facing option."},
+    {"key":"map","english":"Map","filipino":"Mapa","status":"approved"},
+    {"key":"weather","english":"Weather","filipino":"Lagay ng Panahon","status":"approved"},
+    {"key":"leadership","english":"Leadership","filipino":"Pamunuan","status":"approved"},
+    {"key":"barangays","english":"Barangays","filipino":"Mga Barangay","status":"approved"},
+    {"key":"office","english":"Office","filipino":"Opisina","status":"approved"},
+    {"key":"government_officials","english":"Government Officials","filipino":"Mga Opisyal ng Pamahalaan","status":"approved"},
+    {"key":"sources","english":"Sources","filipino":"Mga Sanggunian","status":"approved"},
+    {"key":"verified","english":"Verified","filipino":"Na-verify","status":"common"},
+    {"key":"last_updated","english":"Last updated","filipino":"Huling na-update","status":"approved"},
+    {"key":"learn_more","english":"Learn more","filipino":"Alamin pa","status":"approved"},
+    {"key":"read_more","english":"Read more","filipino":"Magbasa pa","status":"approved"},
+    {"key":"view_details","english":"View details","filipino":"Tingnan ang detalye","status":"approved"},
+    {"key":"view_all","english":"View all","filipino":"Tingnan lahat","status":"approved"},
+    {"key":"download","english":"Download","filipino":"I-download","status":"common"},
+    {"key":"open","english":"Open","filipino":"Buksan","status":"approved"},
+    {"key":"close","english":"Close","filipino":"Isara","status":"approved"},
+    {"key":"back","english":"Back","filipino":"Bumalik","status":"approved"},
+    {"key":"next","english":"Next","filipino":"Susunod","status":"approved"},
+    {"key":"previous","english":"Previous","filipino":"Nakaraan","status":"approved"},
+    {"key":"loading","english":"Loading","filipino":"Ikinakarga…","status":"approved"},
+    {"key":"no_data","english":"No data","filipino":"Walang datos","status":"approved"},
+    {"key":"data_unavailable","english":"Data unavailable","filipino":"Hindi available ang datos","status":"approved"},
+    {"key":"source","english":"Source","filipino":"Pinagmulan","status":"approved"},
+    {"key":"government_reported","english":"Government-reported","filipino":"Iniulat ng pamahalaan","status":"approved"}
+  ],
+  "do_not_translate": [
+    "Mapandan",
+    "Pangasinan",
+    "barangay names",
+    "person names",
+    "street/place names",
+    "official government agency names",
+    "formal document titles when used as source identifiers",
+    "acronyms",
+    "URLs",
+    "JSON/HTML/CSS/JavaScript identifiers",
+    "currency symbol ₱",
+    "numeric government-reported values"
+  ],
+  "preferred_workflow": [
+    "English semantic source",
+    "Filipino draft",
+    "Filipino speaker/editor review",
+    "approve terminology",
+    "store approved term in glossary",
+    "reuse the approved term consistently"
+  ],
+  "references": [
+    {
+      "name":"Komisyon sa Wikang Filipino — Manwal sa Masinop na Pagsulat",
+      "url":"https://kwf.gov.ph/wp-content/uploads/MMP_Full.pdf",
+      "role":"Primary writing standard"
+    },
+    {
+      "name":"KWF Ortograpiyang Pambansa",
+      "url":"https://kwf.gov.ph/",
+      "role":"Primary orthography standard"
+    },
+    {
+      "name":"DepEd DO 34, s. 2013 — Ortograpiyang Pambansa",
+      "url":"https://lrmds.deped.gov.ph/detail/3156",
+      "role":"Secondary educational orthography reference"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ from _build.locales import t
 from _build.templates import fill, compute_url, compute_asset_base, FRONT_MATTER_RE
 
 
-def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict, dict]:
+def generate_legislative(locale: dict, lang_code: str = "en") -> tuple[str, dict, dict]:
     """Generate legislative page HTML. Returns (html, metadata, hero_meta) for SEO."""
     data_path = SRC_DATA / "legislative.json"
     try:
@@ -34,14 +34,14 @@ def generate_legislative(locale: dict, is_fil: bool) -> tuple[str, dict, dict]:
     except json.JSONDecodeError as e:
         raise SystemExit(f"ERROR: Malformed JSON in {data_path}: {e}")
 
-    filled = _fill_legislative_template(template, data, locale, is_fil)
+    filled = _fill_legislative_template(template, data, locale, lang_code)
     return filled, {
         "title": t(locale, "legislative.ord_title", "Municipal ordinances") + " — BetterMapandan.org",
         "description": t(locale, "legislative.ord_desc", "Ordinances, resolutions, and executive issuances for the Municipality of Mapandan."),
     }, hero_meta
 
 
-def _fill_legislative_template(template: str, data: dict, locale: dict, is_fil: bool = False) -> str:
+def _fill_legislative_template(template: str, data: dict, locale: dict, lang_code: str = "en") -> str:
     fiscal_cards = _build_fiscal_cards(data.get("fiscal", []))
     trend_cards = _build_trend_cards(data.get("legislative_trends", []))
     process_steps = _build_process_steps(data.get("legislative_process", []))
@@ -52,7 +52,7 @@ def _fill_legislative_template(template: str, data: dict, locale: dict, is_fil: 
     exec_json = json.dumps(data.get("executive_issuances", []), ensure_ascii=False)
 
     gw = data.get("governance_framework", {})
-    asset_base = compute_asset_base(Path("legislative/index.html"), is_fil)
+    asset_base = compute_asset_base(Path("legislative/index.html"), lang_code)
 
     return fill(template, {
         "ASSET_BASE": asset_base,

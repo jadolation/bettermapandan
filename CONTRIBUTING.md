@@ -101,6 +101,14 @@ description: Meta description
 - Run `python3 check_i18n.py` to verify key parity between the two files
 - Run `python3 build.py --verify-translations` to check rendered output for missing translations
 
+### Pangasinan (pag) translations
+
+- The site builds three locales (`en`/`fil`/`pag`); the header switcher shows EN / FIL / **PANG**
+- `locales/pag.json` is a working draft: run `python3 check_pag_coverage.py` for the status
+- `src/data/pag-review.json` holds the 64 strings needing fluent-speaker review — do not present them as certified
+- Service content takes optional `name_pag` / `description_pag` / `hero_lede_pag` fields (same for categories); missing values fall back to English via `pick_lang()` in `_build/generators/services.py`
+- Never machine-translate raw datasets (procurement, DPWH, legislative records, audits); keep official names, IDs, amounts, dates, and URLs source-faithful
+
 ### CSS
 
 - Edit partials in `assets/css/` (e.g., `tokens.css`, `nav.css`, `hero.css`, `cards.css`, `services.css`, `legislative.css`, `procurement.css`, `search.css`, `responsive.css`)

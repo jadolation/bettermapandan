@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Language — lang-switcher pill, language suggestion banner
+   ========================================================================== */
+
+/* ---------- Language switcher (header) ---------- */
+
+.lang-switcher {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px;
+  margin-left: 8px;
+  gap: 2px;
+}
+
+.lang-switcher .lang-btn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--ink-soft);
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.lang-switcher .lang-btn.active {
+  background: var(--green-deep);
+  color: #ffffff;
+}
+
+.lang-switcher a.lang-btn:hover {
+  color: var(--green-deep);
+}
+
+.lang-switcher a.lang-btn.active:hover {
+  color: #ffffff;
+}
+
+/* ---------- Language suggestion banner (fixed bottom) ---------- */
+
+.lang-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-toast);
+  background: var(--green-deep);
+  color: #ffffff;
+  padding: 12px 16px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+}
+
+.lang-banner-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lang-banner-msg {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.lang-banner-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: var(--green-deep);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background var(--transition-fast);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-banner-btn:hover {
+  background: var(--gold);
+  color: var(--green-deep);
+}
+
+.lang-banner-dismiss {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-banner-dismiss:hover {
+  opacity: 1;
+}

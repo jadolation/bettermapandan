@@ -1,0 +1,268 @@
+/* ==========================================================================
+   Forms — search, service filter, civic contribution hub forms
+   ========================================================================== */
+
+/* ---------- Search form ---------- */
+
+.search-form {
+  display: flex;
+  gap: 0;
+  margin-top: 16px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-right: none;
+  border-radius: var(--radius) 0 0 var(--radius);
+  background: #fff;
+  font-size: 16px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--gold);
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  flex-shrink: 0;
+  background: var(--gold);
+  color: var(--green-deep);
+  border: none;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.search-btn:hover {
+  background: #f4bd3a;
+}
+
+/* ---------- Generic form input ---------- */
+
+.form-input {
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  width: 100%;
+  max-width: 320px;
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--green-deep);
+  outline: none;
+}
+
+/* ---------- Service directory filter ---------- */
+
+.service-filter {
+  margin: 0 auto 24px;
+  max-width: 480px;
+}
+
+.service-filter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  transition: border-color var(--transition-fast);
+}
+
+.service-filter-wrap:focus-within {
+  border-color: var(--green);
+}
+
+.service-filter-icon {
+  flex-shrink: 0;
+  margin-left: 14px;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+
+.service-filter-input {
+  flex: 1;
+  padding: 12px 14px 12px 10px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  outline: none;
+  min-width: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.service-filter-input::placeholder {
+  color: #8a9587;
+}
+
+.service-no-results {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--ink-soft);
+}
+
+.service-no-results p {
+  font-size: 15px;
+}
+
+.service-no-results a {
+  color: var(--green);
+  font-weight: 500;
+}
+
+/* ---------- Civic contribution hub ---------- */
+
+.segmented-control {
+  display: inline-flex;
+  border: 2px solid var(--green-deep);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.segmented-control button {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--green-deep);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.segmented-control button.active {
+  background: var(--green-deep);
+  color: #fff;
+}
+
+.segmented-control button:not(:last-child) {
+  border-right: 2px solid var(--green-deep);
+}
+
+.segmented-control button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.segmented-control button .lucide {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Form panels ---------- */
+
+.civic-form-panel {
+  display: none;
+}
+
+.civic-form-panel.active {
+  display: block;
+}
+
+.civic-form-field {
+  margin-bottom: 18px;
+}
+
+.civic-form-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.civic-form-field input,
+.civic-form-field textarea,
+.civic-form-field select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--paper);
+  transition: border-color var(--transition-fast);
+}
+
+.civic-form-field input:focus,
+.civic-form-field textarea:focus,
+.civic-form-field select:focus {
+  border-color: var(--green-deep);
+  outline: none;
+}
+
+.civic-form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+}
+
+.civic-submit-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Feedback widget ---------- */
+
+.feedback-widget {
+  text-align: center;
+  padding: 24px;
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.feedback-widget p {
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.feedback-buttons .lucide {
+  width: 16px;
+  height: 16px;
+}
+
+.feedback-thanks {
+  color: var(--green-bright);
+  font-weight: 600;
+}

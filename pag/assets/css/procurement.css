@@ -1,0 +1,434 @@
+/* ==========================================================================
+   Procurement — procurement cards, toolbar, filters, status badges
+   ========================================================================== */
+
+.procurement-ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.procurement-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.procurement-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.procurement-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.procurement-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.procurement-card:hover .procurement-card-image img {
+  transform: scale(1.03);
+}
+
+.procurement-card-content {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.procurement-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.procurement-type {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+}
+
+.procurement-card-content h3 {
+  font-size: 20px;
+  margin: 0;
+  color: var(--green-deep);
+  line-height: 1.3;
+}
+
+.procurement-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.procurement-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.procurement-mode .lucide {
+  flex-shrink: 0;
+  color: var(--ink-faint);
+}
+
+/* ---------- Status badges ---------- */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-completed {
+  background: #e2ecda;
+  color: #245a1a;
+}
+
+.status-completed .status-dot {
+  background: #4c8a2e;
+}
+
+.status-ongoing {
+  background: #fef3cd;
+  color: #856404;
+}
+
+.status-ongoing .status-dot {
+  background: #e8a917;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.status-planned {
+  background: #e9f2e3;
+  color: var(--green-deep);
+}
+
+.status-planned .status-dot {
+  background: var(--green-mid);
+}
+
+.procurement-description {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------- Procurement toolbar ---------- */
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.table-toolbar input[type="search"] {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  min-width: 220px;
+  background: var(--paper);
+}
+
+.procurement-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.procurement-toolbar-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.procurement-toolbar-stats .stat-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.procurement-toolbar-stats .stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.procurement-toolbar-stats .stat-divider {
+  color: var(--ink-faint);
+}
+
+.procurement-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.procurement-toolbar-actions input[type="search"] {
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  min-width: 220px;
+  background: var(--paper);
+}
+
+.procurement-toolbar + .table-wrap {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* ---------- Filter layout ---------- */
+
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-section-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Filter pills ---------- */
+
+.filter-pill {
+  padding: 8px 18px;
+  border: 1.5px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-pill:hover {
+  border-color: var(--green-bright);
+  color: var(--green-deep);
+}
+
+.filter-pill.active {
+  background: var(--green-deep);
+  color: #fff;
+  border-color: var(--green-deep);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.filter-pill-custom {
+  border-style: dashed;
+}
+
+.filter-pill-custom.active {
+  border-style: solid;
+}
+
+/* ---------- Custom range inline ---------- */
+
+.custom-range-inline {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 0 0;
+}
+
+.custom-range-inline.open {
+  display: flex;
+}
+
+.custom-range-inline label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.custom-range-inline input[type="date"] {
+  padding: 6px 10px;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--paper);
+  min-height: 36px;
+}
+
+.custom-range-inline input[type="date"]:focus {
+  border-color: var(--green-deep);
+  outline: none;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+  min-height: 36px;
+}
+
+/* ---------- Mayoral term pills ---------- */
+
+.term-pill {
+  padding: 7px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.term-pill:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.term-pill.active {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+/* ---------- Filter clear button ---------- */
+
+.filter-clear {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-clear:hover {
+  border-color: var(--red-flag);
+  color: var(--red-flag);
+}
+
+/* ---------- Procurement category chart ---------- */
+
+.chart-categories-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.chart-categories-inner {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.chart-categories-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Procurement pagination ---------- */
+
+.procurement-pagination-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+#procurement-pagination {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+#procurement-pagination .numbered-pages {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  align-items: center;
+}

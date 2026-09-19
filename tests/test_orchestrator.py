@@ -68,7 +68,7 @@ def test_assemble_page():
 
 def test_build_search_entry():
     """Search entry should have correct structure."""
-    entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", False, "section")
+    entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", "en", "section")
     assert entry["title"] == "Title"
     assert entry["description"] == "Desc"
     assert entry["url"] == "test.html"
@@ -76,8 +76,14 @@ def test_build_search_entry():
 
 def test_build_search_entry_fil():
     """Fil search entry should have fil/ prefix."""
-    entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", True, "section")
+    entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", "fil", "section")
     assert entry["url"] == "fil/test.html"
+
+
+def test_build_search_entry_pag():
+    """Pag search entry should have pag/ prefix."""
+    entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", "pag", "section")
+    assert entry["url"] == "pag/test.html"
 
 
 def test_build_page_body_labels_has_keys():

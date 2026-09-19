@@ -9,7 +9,21 @@ from _build.locales import t
 from _build.templates import fill, compute_url, compute_asset_base, to_folder_index, FRONT_MATTER_RE
 
 
-def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, str], dict[str, dict], dict[str, dict]]:
+def pick_lang(record: dict, base: str, lang_code: str, default: str = "") -> str:
+    """Localized data-field lookup with EN fallback.
+
+    Supports name_fil/description_fil style overrides today and
+    name_pag/description_pag (etc.) as editors add them. Missing or
+    empty localized values fall back to English, mirroring deep_merge.
+    """
+    if lang_code != "en":
+        val = record.get(f"{base}_{lang_code}")
+        if val:
+            return val
+    return record.get(base, default)
+
+
+def generate_services(locale: dict, lang_code: str = "en") -> tuple[dict[str, str], dict[str, dict], dict[str, dict]]:
     """Generate service detail pages and directory page.
     Returns (pages, metadata, hero_metadata) where pages is {relative_path: html_content}
     and metadata is {relative_path: {title, description}} for SEO."""
@@ -49,7 +63,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
 
     for svc in services:
         svc_slug, filled, hero_meta = _generate_single_service(
-            svc, categories, services, svc_template, svc_labels, is_fil
+            svc, categories, services, svc_template, svc_labels, lang_code
         )
         pages[f"services/{svc_slug}.html"] = filled
         meta[f"services/{svc_slug}.html"] = {
@@ -59,7 +73,7 @@ def generate_services(locale: dict, lang: str, is_fil: bool) -> tuple[dict[str, 
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
     dir_filled, dir_hero_meta = _generate_services_directory(
-        data, by_category, dir_template, svc_labels, is_fil, asset_base=compute_asset_base(Path("services/index.html"), is_fil), analytics_json=analytics_json
+        data, by_category, dir_template, svc_labels, lang_code, asset_base=compute_asset_base(Path("services/index.html"), lang_code), analytics_json=analytics_json
     )
     pages["services.html"] = dir_filled
     meta["services.html"] = {
@@ -97,20 +111,20 @@ def _build_service_labels(locale: dict) -> dict:
     }
 
 
-def _generate_single_service(svc: dict, categories: dict, services: list, template: str, labels: dict, is_fil: bool):
+def _generate_single_service(svc: dict, categories: dict, services: list, template: str, labels: dict, lang_code: str):
     cat = categories.get(svc.get("category", ""), {})
-    svc_name = svc.get("name_fil", svc.get("name", "")) if is_fil else svc.get("name", "")
-    svc_desc = svc.get("description_fil", svc.get("description", "")) if is_fil else svc.get("description", "")
-    cat_name = cat.get("name_fil", cat.get("name", "")) if is_fil else cat.get("name", "")
-    hero_lede = svc.get("hero_lede_fil", svc.get("hero_lede", svc_desc)) if is_fil else svc.get("hero_lede", svc.get("description", ""))
+    svc_name = pick_lang(svc, "name", lang_code)
+    svc_desc = pick_lang(svc, "description", lang_code)
+    cat_name = pick_lang(cat, "name", lang_code)
+    hero_lede = pick_lang(svc, "hero_lede", lang_code, svc_desc or svc.get("description", ""))
 
     reqs_html = "\n".join(f"            <li>{html.escape(r)}</li>" for r in svc.get("requirements", []))
     proc_html = "\n".join(f"            <li>{html.escape(p)}</li>" for p in svc.get("procedure", []))
-    related_html = _build_related_links(svc, services, is_fil)
+    related_html = _build_related_links(svc, services, lang_code)
 
     svc_slug = svc.get("slug", "unknown")
-    asset_base = compute_asset_base(Path(f"services/{svc_slug}/index.html"), is_fil)
-    photo_html = _build_photo_html(svc, is_fil, asset_base)
+    asset_base = compute_asset_base(Path(f"services/{svc_slug}/index.html"), lang_code)
+    photo_html = _build_photo_html(svc, lang_code, asset_base)
 
     filled = fill(template, {
         "NAME": html.escape(svc_name),
@@ -183,7 +197,7 @@ def _build_services_analytics(services: list, categories: dict) -> dict:
     }
 
 
-def _build_related_links(svc: dict, services: list, is_fil: bool) -> str:
+def _build_related_links(svc: dict, services: list, lang_code: str) -> str:
     related = svc.get("related", [])
     if not related:
         return '<p>No related services available.</p>'
@@ -191,12 +205,12 @@ def _build_related_links(svc: dict, services: list, is_fil: bool) -> str:
     for rel_slug in related:
         rel_svc = next((s for s in services if s.get("slug") == rel_slug), None)
         if rel_svc:
-            rel_name = rel_svc.get("name_fil", rel_svc.get("name", "Unknown Service")) if is_fil else rel_svc.get("name", "Unknown Service")
+            rel_name = pick_lang(rel_svc, "name", lang_code, "Unknown Service")
             links.append(f'<a href="/services/{html.escape(rel_slug)}/">{html.escape(rel_name)}</a>')
     return '<div class="service-links">\n' + "\n".join(f"          {link}" for link in links) + "\n        </div>"
 
 
-def _build_photo_html(svc: dict, is_fil: bool, asset_base: str) -> str:
+def _build_photo_html(svc: dict, lang_code: str, asset_base: str) -> str:
     photo_ref = svc.get("photo-referenced", "")
     if not photo_ref:
         return ""
@@ -213,13 +227,13 @@ def _build_photo_html(svc: dict, is_fil: bool, asset_base: str) -> str:
             </figure>'''
 
 
-def _generate_services_directory(data: dict, by_category: dict, template: str, labels: dict, is_fil: bool, asset_base: str = ".", analytics_json: str = ""):
+def _generate_services_directory(data: dict, by_category: dict, template: str, labels: dict, lang_code: str, asset_base: str = ".", analytics_json: str = ""):
     category_cards = []
     for cat in data.get("categories", []):
         cat_services = by_category.get(cat.get("slug", ""), [])
-        cat_name = cat.get("name_fil", cat.get("name", "")) if is_fil else cat.get("name", "")
-        cat_desc = cat.get("description_fil", cat.get("description", "")) if is_fil else cat.get("description", "")
-        service_links = _build_category_service_links(cat_services, is_fil)
+        cat_name = pick_lang(cat, "name", lang_code)
+        cat_desc = pick_lang(cat, "description", lang_code)
+        service_links = _build_category_service_links(cat_services, lang_code)
         card = (
             f'      <div class="card service-category-card">\n'
             f'        <div class="service-card-head">\n'
@@ -273,10 +287,10 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
     return dir_filled, hero_meta
 
 
-def _build_category_service_links(cat_services: list, is_fil: bool) -> list:
+def _build_category_service_links(cat_services: list, lang_code: str) -> list:
     service_links = []
     for s in cat_services:
-        s_name = s.get("name_fil", s.get("name", "")) if is_fil else s.get("name", "")
+        s_name = pick_lang(s, "name", lang_code)
         name_html = html.escape(s_name)
         time_html = html.escape(s.get("processing_time", "")) if s.get("processing_time") else ""
         fee_html = html.escape(s.get("fee", "")) if s.get("fee") else ""

@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Buttons — .btn, .btn-primary, .btn-ghost, .btn-outline, .btn-copy
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--green-deep);
+}
+
+.btn-primary:hover {
+  background: #f4bd3a;
+  color: var(--green-deep);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+.btn-ghost:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--green-deep);
+  color: var(--green-deep);
+}
+
+.btn-outline:hover {
+  background: var(--green-deep);
+  color: #fff;
+}
+
+.btn-outline.btn-active {
+  background: var(--green-deep);
+  color: #fff;
+  border-color: var(--green-deep);
+}
+
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-copy:hover {
+  background: var(--gold-soft);
+  color: var(--green-deep);
+}
+
+/* ---------- Report button ---------- */
+
+.report-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  margin-top: 12px;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.report-btn:hover {
+  background: var(--gold-soft);
+  color: var(--green-deep);
+}

@@ -24,8 +24,22 @@ def test_load_locale_fil():
     assert "home" in locale["nav"]
     assert "hero" in locale
     assert "eyebrow" in locale["hero"]
-    assert locale["nav"]["home"] == "Tahanan"
+    assert locale["nav"]["home"] == "Pangunahing Pahina"
     assert locale["hero"]["title"] == "Better Mapandan"
+
+
+def test_load_locale_pag():
+    locale = load_locale("pag")
+    assert isinstance(locale, dict)
+    assert "nav" in locale
+    assert "home" in locale["nav"]
+    assert locale["nav"]["home"] == "Abong"
+
+
+def test_t_pag_existing_key():
+    locale = load_locale("pag")
+    result = t(locale, "nav.home", "default")
+    assert result == "Abong"
 
 
 def test_t_existing_key():

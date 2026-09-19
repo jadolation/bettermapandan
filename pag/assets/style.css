@@ -1,0 +1,66 @@
+/* ==========================================================================
+   style.css — @import manifest for BetterMapandan.org
+
+   This file replaces the 3 788-line monolithic stylesheet.
+   Each partial is loaded via @import (HTTP/2 multiplexed).
+   Order matters: tokens first, then reset, then layout, then components.
+   ========================================================================== */
+
+/* --- Foundation --- */
+@import url("css/tokens.css");
+@import url("css/reset.css");
+@import url("css/utilities.css");
+
+/* --- Layout & Typography --- */
+@import url("css/layout.css");
+@import url("css/typography.css");
+
+/* --- Shared UI --- */
+@import url("css/buttons.css");
+@import url("css/cards.css");
+@import url("css/tables.css");
+@import url("css/forms.css");
+@import url("css/verification.css");
+@import url("css/breadcrumb.css");
+
+/* --- Navigation & Header --- */
+@import url("css/navigation.css");
+@import url("css/emergency.css");
+@import url("css/lang.css");
+
+/* --- Hero & Homepage --- */
+@import url("css/hero.css");
+@import url("css/action-hub.css");
+@import url("css/stat-strip.css");
+@import url("css/milestones.css");
+
+/* --- Page-specific --- */
+@import url("css/search.css");
+@import url("css/timeline.css");
+@import url("css/carousel.css");
+@import url("css/barangay.css");
+@import url("css/procurement.css");
+@import url("css/audit-reports.css");
+@import url("css/legislative.css");
+@import url("css/civic-hub.css");
+@import url("css/dashboard.css");
+
+/* --- In-page section nav (desktop sidebar + mobile edge dots) --- */
+@import url("css/section-nav.css");
+
+/* --- Feature widgets --- */
+@import url("css/services.css");
+@import url("css/weather.css");
+@import url("css/map.css");
+
+/* --- Footer --- */
+@import url("css/footer.css");
+
+/* --- Responsive (must be last before print) --- */
+@import url("css/responsive.css");
+
+/* --- Animations --- */
+@import url("css/animations.css");
+
+/* --- Print --- */
+@import url("css/print.css");

@@ -64,11 +64,11 @@ def strip_front_matter(text: str) -> str:
 
 
 
-def compute_asset_base(rel: Path, is_fil: bool) -> str:
+def compute_asset_base(rel: Path, lang_code: str) -> str:
     depth = len(rel.parts) - 1
     if depth <= 0:
         return "."
-    return "/".join([".."] * depth)
+    return "../" * depth
 
 def compute_url(rel_path: Path) -> str:
     return "/".join(rel_path.parts)
