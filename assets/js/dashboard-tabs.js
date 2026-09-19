@@ -1,98 +1,74 @@
-/* dashboard-tabs.js — Transparency dashboard interactions */
+/* dashboard-tabs.js — Transparency section nav (pills + mobile select) */
 (function () {
-  'use strict';
+  "use strict";
 
-  function setActiveTab() {
-    var path = location.pathname;
-    document.querySelectorAll('.transparency-tabs .tab-btn').forEach(function (btn) {
-      var href = btn.getAttribute('href');
-      var isActive = href && path === href.replace(/\/$/, '');
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-current', isActive ? 'true' : 'false');
-    });
+  // Normalize: strip /fil prefix + trailing slash for comparison.
+  function normPath(path) {
+    return path.replace(/^\/fil(?=\/|$)/, "") || "/";
   }
 
-  document.addEventListener('DOMContentLoaded', setActiveTab);
-
-  // View toggle (table vs card)
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.view-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var view = this.getAttribute('data-view');
-        document.querySelectorAll('.view-btn').forEach(function (b) {
-          b.classList.toggle('active', b === btn);
-        });
-        var container = document.getElementById('records-container');
-        if (container) {
-          container.classList.toggle('table-view', view === 'table');
-          container.classList.toggle('card-view', view === 'card');
-        }
-      });
-    });
-
-    // Restore view preference
-    var pref = localStorage.getItem('transparency-view');
-    if (pref) {
-      document.querySelectorAll('.view-btn').forEach(function (b) {
-        b.classList.toggle('active', b.getAttribute('data-view') === pref);
-      });
-      var container = document.getElementById('records-container');
-      if (container) {
-        container.classList.add(pref === 'card' ? 'card-view' : 'table-view');
+  function syncFromPath() {
+    var path = normPath(location.pathname);
+    // Pills: safety net (server already renders active + aria-current).
+    document.querySelectorAll(".transparency-tabs .tab-btn").forEach(function (btn) {
+      var href = btn.getAttribute("href");
+      if (!href) return;
+      var isActive = normPath(href) === path || normPath(href + "/") === path;
+      btn.classList.toggle("active", isActive);
+      if (isActive) {
+        btn.setAttribute("aria-current", "page");
+      } else {
+        btn.removeAttribute("aria-current");
       }
-    }
-  });
-
-  // CSV export utility
-  window.exportToCSV = function (records, filename) {
-    if (!records || !records.length) return;
-    var headers = Object.keys(records[0]);
-    var lines = [headers.join(',')];
-    records.forEach(function (r) {
-      lines.push(headers.map(function (h) {
-        var v = r[h] == null ? '' : String(r[h]);
-        return '"' + v.replace(/"/g, '""') + '"';
-      }).join(','));
     });
-    var blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = filename || 'export.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-
-  // Export button wiring
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-export-csv]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var dataset = this.getAttribute('data-export-csv');
-        var rows = [];
-        if (dataset && window[dataset]) {
-          rows = Array.isArray(window[dataset]) ? window[dataset] : [window[dataset]];
+    // Select: reflect current section (server pre-selects; fix up on FIL/edge paths).
+    var select = document.getElementById("transparency-section-select");
+    if (select) {
+      var matched = false;
+      Array.prototype.forEach.call(select.options, function (opt) {
+        var isCurrent = normPath(opt.value) === path || normPath(opt.value + "/") === path;
+        if (isCurrent && !matched) {
+          opt.selected = true;
+          matched = true;
         }
-        exportToCSV(rows, (dataset || 'export') + '.csv');
       });
-    });
-  });
-
-  // Dynamic sticky top for transparency tabs
-  function updateStickyTabsTop() {
-    var header = document.querySelector('.site-header');
-    var tabs = document.querySelector('.transparency-tabs');
-    if (!header || !tabs) return;
-
-    var headerHeight = header.offsetHeight;
-    var emergencyHeight = 44;
-    var stickyTop = emergencyHeight + headerHeight;
-
-    tabs.style.top = stickyTop + 'px';
+    }
   }
 
-  document.addEventListener('DOMContentLoaded', updateStickyTabsTop);
-  window.addEventListener('resize', updateStickyTabsTop);
+  function bindSelect() {
+    var select = document.getElementById("transparency-section-select");
+    if (!select || select.hasAttribute("data-tabs-bound")) return;
+    select.setAttribute("data-tabs-bound", "true");
+    select.addEventListener("change", function () {
+      if (select.value) window.location.href = select.value;
+    });
+  }
 
+  // Dock the mobile dropdown bar directly below the sticky header.
+  // Both the emergency bar and site header heights vary (ticker wrap,
+  // fonts), so measure rather than hardcode.
+  function updateTabsTop() {
+    var bar = document.querySelector(".emergency-bar");
+    var header = document.querySelector(".site-header");
+    if (!bar || !header) return;
+    var top = bar.offsetHeight + header.offsetHeight;
+    document.documentElement.style.setProperty("--transparency-tabs-top", top + "px");
+  }
+
+  function init() {
+    syncFromPath();
+    bindSelect();
+    updateTabsTop();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+  window.addEventListener("resize", updateTabsTop);
+  window.addEventListener("orientationchange", updateTabsTop);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateTabsTop);
+  }
 })();

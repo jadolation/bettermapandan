@@ -564,7 +564,12 @@
     "dash_computed": "computed",
     "dash_source": "Source: DILG-FDP filing",
     "fdp_archive_title": "Browse older filings",
-    "fdp_collections_title": "Themed collections"
+    "fdp_collections_title": "Themed collections",
+    "section_label": "Transparency section",
+    "tab_procurement": "Public Procurement",
+    "tab_infrastructure": "Infrastructure",
+    "tab_budget_fiscal": "Budget & Fiscal",
+    "tab_audit": "Audit & Compliance"
   },
   "procurement": {
     "eyebrow": "Public Procurement",

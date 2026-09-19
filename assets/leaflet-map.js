@@ -28,11 +28,18 @@
   }
 
   function escapeHtml(str) {
-    return str
+    return String(str == null ? "" : str)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  function showFallback() {
+    var el = document.getElementById("dpwh-map");
+    if (el) el.style.display = "none";
+    var fallback = document.getElementById("dpwh-map-fallback");
+    if (fallback) fallback.style.display = "block";
   }
 
   function getProjectDate(p) {
@@ -117,16 +124,20 @@
   };
 
   function initMap() {
+    var mapEl = document.getElementById("dpwh-map");
+    if (!mapEl) return;
+    // Leaflet CDN failed or blocked (CSP/offline) — show fallback text.
+    if (typeof L === "undefined") {
+      showFallback();
+      return;
+    }
     var projects = window.DPWH_PROJECTS || [];
     var hasCoords = projects.filter(function (p) {
       return p.latitude != null && p.longitude != null;
     });
 
     if (!hasCoords.length) {
-      var el = document.getElementById("dpwh-map");
-      if (el) el.style.display = "none";
-      var fallback = document.getElementById("dpwh-map-fallback");
-      if (fallback) fallback.style.display = "block";
+      showFallback();
       return;
     }
 
@@ -150,6 +161,10 @@
     legend.addTo(window._dpwhMap);
 
     renderMarkers(hasCoords);
+    // Recompute size after layout settles (fonts/header shift container).
+    setTimeout(function () {
+      if (window._dpwhMap) window._dpwhMap.invalidateSize();
+    }, 300);
   }
 
   if (document.readyState === "loading") {

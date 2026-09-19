@@ -76,19 +76,19 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     cards_html = f"""
 <div class="grid grid-3 stack-gap-lg mt-12">
   <div class="card">
-    <h2>{labels['DPWH_TOTAL_CONTRACTS']}</h2>
+    <h3>{labels['DPWH_TOTAL_CONTRACTS']}</h3>
     <p class="figure" id="dpwh-count-value">{total_count:,}</p>
     <span class="verification-badge badge-official">{t(locale, 'common.official', 'Official')}</span>
     <span class="source-label">DPWH Transparency Portal</span>
   </div>
   <div class="card">
-    <h2>{labels['DPWH_TOTAL_VALUE']}</h2>
+    <h3>{labels['DPWH_TOTAL_VALUE']}</h3>
     <p class="figure" id="dpwh-value-value">&#8369;{total_value:,.0f}</p>
     <span class="verification-badge badge-verified">{t(locale, 'common.verified', 'Verified')}</span>
     <span class="source-label">{labels['DPWH_AGGREGATED']}</span>
   </div>
   <div class="card">
-    <h2>{labels['DPWH_STATUS_CARD']}</h2>
+    <h3>{labels['DPWH_STATUS_CARD']}</h3>
     <p class="figure" id="dpwh-status-value">
       {completed} {labels['DPWH_COMPLETED']} &bull; {ongoing} {labels['DPWH_ONGOING']} &bull; {not_started} {labels['DPWH_NOT_STARTED']}
     </p>
@@ -173,8 +173,9 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
 
     html_content = f"""
 <div class="map-container">
-  <div id="dpwh-map" class="map"></div>
+  <div id="dpwh-map" class="map" role="img" aria-label="{labels['DPWH_MAP']}"></div>
 </div>
+<p id="dpwh-map-fallback" class="source-label" style="display:none">Enable JavaScript to view the project map. All projects are listed in the table below.</p>
 {cards_html}
 {dialog_body}
 """

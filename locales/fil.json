@@ -564,7 +564,12 @@
     "dash_computed": "kuwinenta",
     "dash_source": "Pinagmulan: DILG-FDP filing",
     "fdp_archive_title": "Mag-browse ng mga lumang filing",
-    "fdp_collections_title": "Mga koleksyon ayon sa tema"
+    "fdp_collections_title": "Mga koleksyon ayon sa tema",
+    "section_label": "Seksyon ng transparency",
+    "tab_procurement": "Pampublikong Pagkuha",
+    "tab_infrastructure": "Imprastraktura",
+    "tab_budget_fiscal": "Badyet at Pananalapi",
+    "tab_audit": "Audyt at Pagsunod"
   },
   "procurement": {
     "eyebrow": "Pampublikong Pamimili",

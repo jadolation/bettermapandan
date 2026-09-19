@@ -137,8 +137,63 @@ def test_mayoral_terms_single_source(built_site: Path):
     """Build-injected terms must match the canonical JSON, open-ended incumbent."""
     canonical = json.loads((built_site / "src" / "data" / "mayoral-terms.json").read_text(encoding="utf-8"))
     assert canonical[-1]["end"] is None
-    html = (built_site / "transparency" / "index.html").read_text(encoding="utf-8")
+    html = (built_site / "transparency" / "procurement" / "index.html").read_text(encoding="utf-8")
     assert '"end": null' in html
+
+
+TRANSPARENCY_SUBPAGES = ("procurement", "infrastructure", "budget-fiscal", "audit-compliance")
+
+
+def _read_subpage(built_site: Path, lang: str, slug: str) -> str:
+    base = built_site if lang == "en" else built_site / "fil"
+    return (base / "transparency" / slug / "index.html").read_text(encoding="utf-8")
+
+
+def test_transparency_tabs_pills_and_select(built_site: Path):
+    """Every transparency subpage (EN + FIL) renders 4 pills + mobile select in sync."""
+    for lang in ("en", "fil"):
+        prefix = "" if lang == "en" else "/fil"
+        for slug in TRANSPARENCY_SUBPAGES:
+            html = _read_subpage(built_site, lang, slug)
+            assert html.count('class="tab-btn') == 4, f"{lang}/{slug} pills"
+            assert html.count('aria-current="page"') == 1, f"{lang}/{slug} active"
+            assert 'id="transparency-section-select"' in html, f"{lang}/{slug} select"
+            assert html.count("<option") == 4, f"{lang}/{slug} options"
+            assert html.count(" selected") == 1, f"{lang}/{slug} selected"
+            assert '<label class="tabs-select-label"' not in html, f"{lang}/{slug} label removed"
+            assert 'aria-label="' in html.split('id="transparency-section-select"')[1][:200], f"{lang}/{slug} select named"
+            active_url = f"{prefix}/transparency/{slug}/"
+            assert f'<option value="{active_url}" selected>' in html, f"{lang}/{slug} selected value"
+            assert f'href="{active_url}" class="tab-btn active" aria-current="page"' in html, f"{lang}/{slug} pill"
+
+
+def test_transparency_dropdown_sticky_css(built_site: Path):
+    """Mobile dropdown bar is sticky with header-relative offset + print-hidden."""
+    css = (built_site / "assets" / "style.min.css").read_text(encoding="utf-8")
+    assert "position:sticky" in css.replace(" ", "")
+    assert "--transparency-tabs-top" in css
+    assert ".transparency-tabs-dropdown" in css
+
+
+def test_transparency_hub_has_no_redirect(built_site: Path):
+    """The /transparency/ hub links to all 4 sections with relative URLs (bilingual-safe)."""
+    for lang in ("en", "fil"):
+        base = built_site if lang == "en" else built_site / "fil"
+        html = (base / "transparency" / "index.html").read_text(encoding="utf-8")
+        assert 'http-equiv="refresh"' not in html
+        for slug in TRANSPARENCY_SUBPAGES:
+            assert f'href="{slug}/"' in html, f"{lang} hub missing {slug}"
+        assert "transparency-data" not in html, f"{lang} hub loads data bundle"
+
+
+def test_infrastructure_map_markup(built_site: Path):
+    """Infrastructure page keeps a sized map container + fallback + no duplicate data bundle."""
+    for lang in ("en", "fil"):
+        html = _read_subpage(built_site, lang, "infrastructure")
+        assert 'id="dpwh-map"' in html
+        assert 'id="dpwh-map-fallback"' in html
+        assert "leaflet" in html.lower()
+        assert "transparency-data" not in html
 
 
 def test_schema_validation_passes(built_site: Path):
