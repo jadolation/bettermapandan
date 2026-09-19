@@ -282,7 +282,7 @@ def _themed_dialog(slug: str, heading: str, count_line: str, body_html: str, lab
     """One themed dialog group for standalone FDP tables, rendered as a card."""
     dialog_id = f"fdp-dialog-{slug}"
     return "\n".join([
-        "<div class='card fdp-archive-card'>",
+        f"<div class='card fdp-archive-card' id='fdp-collection-{slug}' data-nav-label='{_esc(heading)}'>",
         f"<h3>{heading}</h3>",
         f"<p class='note-inline'>{count_line}</p>",
         f'<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="{dialog_id}">'
@@ -493,7 +493,7 @@ def generate_fdp(locale: dict) -> str:
 
     if periods:
         latest = periods[0]
-        out.append(f"<h3>{labels['FDP_LATEST']}: {_esc(_period_label(latest, labels['FDP_UNDATED']))}</h3>")
+        out.append(f"<h3 id=\"fdp-latest\">{labels['FDP_LATEST']}: {_esc(_period_label(latest, labels['FDP_UNDATED']))}</h3>")
         out.append('<div class="fdp-latest">')
         out.append(_render_period_cards(latest, data, labels))
         out.append(_render_period_tables(latest, data, labels))
@@ -502,11 +502,12 @@ def generate_fdp(locale: dict) -> str:
         for period in periods[1:]:
             year = period.split("-")[0] if "-" in period else period
             by_year.setdefault(year, []).append(period)
-        out.append(f"<h3>{labels['FDP_ARCHIVE_TITLE']}</h3>")
+        out.append(f"<h3 id=\"fdp-archive\">{labels['FDP_ARCHIVE_TITLE']}</h3>")
         out.append('<div class="grid grid-3">')
         for year in sorted(by_year, reverse=True):
             n_q = len(by_year[year])
-            out.append("<div class='card fdp-archive-card'>"
+            out.append("<div class='card fdp-archive-card'"
+                       f" id='fdp-archive-{year}' data-nav-label='{year}'>"
                        f"<div class='section-eyebrow'>{year}</div>"
                        f"<p class='note-inline'>{n_q} quarter(s)</p>")
             for period in by_year[year]:
@@ -521,7 +522,7 @@ def generate_fdp(locale: dict) -> str:
         out.append("</div>")
     standalone = _render_standalone(data, labels)
     if standalone.strip():
-        out.append(f"<h3>{labels['FDP_COLLECTIONS_TITLE']}</h3>")
+        out.append(f"<h3 id=\"fdp-collections\">{labels['FDP_COLLECTIONS_TITLE']}</h3>")
         out.append('<div class="grid grid-3">')
         out.append(standalone)
         out.append("</div>")
@@ -583,16 +584,16 @@ def generate_fdp_dashboard(locale: dict) -> str:
     out.append("</div>")
 
     out.append('<div class="grid grid-2">')
-    out.append(f'<div class="card"><h3>{labels["DASH_REV_TITLE"]} ({period_label})</h3>'
+    out.append(f'<div class="card"><h3 id="fiscal-revenue">{labels["DASH_REV_TITLE"]} ({period_label})</h3>'
                '<canvas id="chart-fdp-revenue" height="220" role="img"></canvas>'
                f'<p class="note-inline">NTA {summary["revenue"].get("nta_share")}% '
                f'({labels["DASH_COMPUTED"]})</p></div>')
-    out.append(f'<div class="card"><h3>{labels["DASH_EXP_TITLE"]} ({period_label})</h3>'
+    out.append(f'<div class="card"><h3 id="fiscal-expenditure">{labels["DASH_EXP_TITLE"]} ({period_label})</h3>'
                '<canvas id="chart-fdp-expenditure" height="220" role="img"></canvas></div>')
     out.append("</div>")
 
     out.append('<div class="card mt-24">'
-               f'<h3>{labels["DASH_TREND_TITLE"]}</h3>'
+               f'<h3 id="fiscal-trend">{labels["DASH_TREND_TITLE"]}</h3>'
                '<canvas id="chart-fdp-trend" height="200" role="img"></canvas>'
                f'<p class="note-inline">Quarterly flows derived by differencing year-to-date filings '
                f'({labels["DASH_COMPUTED"]})</p></div>')
@@ -602,7 +603,7 @@ def generate_fdp_dashboard(locale: dict) -> str:
     ld_hist = funds["ldrrmf"]
     if sef_hist or ld_hist:
         out.append('<div class="card mt-24">'
-                   f'<h3>{labels["DASH_FUNDS_TITLE"]} ({period_label})</h3>')
+                   f'<h3 id="fiscal-funds">{labels["DASH_FUNDS_TITLE"]} ({period_label})</h3>')
         if sef_hist:
             last = sef_hist[-1]
             out.append(f"<p>SEF {_peso(last.get('balance'))}</p>"
@@ -616,7 +617,7 @@ def generate_fdp_dashboard(locale: dict) -> str:
     cash = summary["cash"]
     if cash:
         out.append('<div class="card mt-24">'
-                   f'<h3>{labels["DASH_CASH_TITLE"]} ({period_label})</h3>'
+                   f'<h3 id="fiscal-cash">{labels["DASH_CASH_TITLE"]} ({period_label})</h3>'
                    f'<p>Operating {_peso(cash.get("net_operating"))} · '
                    f'Investing {_peso(cash.get("net_investing"))} · '
                    f'Financing {_peso(cash.get("net_financing"))} → '
@@ -625,14 +626,14 @@ def generate_fdp_dashboard(locale: dict) -> str:
     brgy = summary["barangay"]["dist"]
     if brgy:
         out.append('<div class="card mt-24">'
-                   f'<h3>{labels["DASH_BRGY_TITLE"]} ({period_label})</h3>'
+                   f'<h3 id="fiscal-barangay">{labels["DASH_BRGY_TITLE"]} ({period_label})</h3>'
                    '<canvas id="chart-fdp-barangay" height="240" role="img"></canvas></div>')
 
     bids_hist = summary["bids"]
     if bids_hist:
         last = bids_hist[-1]
         out.append('<div class="card mt-24">'
-                   f'<h3>{labels["DASH_BIDS_TITLE"]} ({period_label})</h3>'
+                   f'<h3 id="fiscal-bids">{labels["DASH_BIDS_TITLE"]} ({period_label})</h3>'
                    f'<p>ABC {_peso(last.get("abc"))} → awarded {_peso(last.get("awarded"))} · '
                    f'saved {_peso(last.get("savings"))} ({last.get("rate")}%, '
                    f'{labels["DASH_COMPUTED"]})</p></div>')

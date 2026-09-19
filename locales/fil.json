@@ -150,6 +150,11 @@
     "thanks": "Salamat sa iyong feedback!",
     "report": "Iulat ang maling impormasyon"
   },
+  "services": {
+    "nav_services_directory": "Direktoryo ng mga serbisyo",
+    "nav_services_analytics": "Pagsusuri",
+    "nav_national_services": "Mga pambansang serbisyo"
+  },
   "services_dir": {
     "title": "Mga Serbisyo",
     "eyebrow": "Citizen's Charter",
@@ -273,7 +278,15 @@
     "budget_title": "Badyet ng bayan",
     "budget_desc": "Mga taunang general appropriations at fiscal performance.",
     "trends_title": "Mga trend sa lehislatibo",
-    "trends_desc": "Mga mahahalagang pattern sa lehislatibong aktibidad ng Mapandan."
+    "trends_desc": "Mga mahahalagang pattern sa lehislatibong aktibidad ng Mapandan.",
+    "nav_governance_framework": "Balangkas ng pamamahala",
+    "nav_ordinances": "Mga ordinansa",
+    "nav_resolutions": "Mga resolusyon",
+    "nav_executive_issuances": "Mga pagpapalabas ng ehekutibo",
+    "nav_fiscal": "Pananalapi",
+    "nav_trends": "Mga trend",
+    "nav_legislative_process": "Prosesong lehislatibo",
+    "nav_ordinance_vs_resolution": "Ordinansa vs resolusyon"
   },
   "statistics": {
     "eyebrow": "Open Data",
@@ -339,7 +352,15 @@
     "agri_crops": "Pangunahing Pananim",
     "agri_crops_desc": "Palay, mais na dilaw, gulay, at mga produktong may kinalaman sa pandan.",
     "agri_irrigated": "Lugar na Sinisipsipan ng Tubig",
-    "agri_irrigated_desc": "Mga 1,200 ektarya sa ilalim ng mga irigasyon ng NIA."
+    "agri_irrigated_desc": "Mga 1,200 ektarya sa ilalim ng mga irigasyon ng NIA.",
+    "nav_population": "Populasyon",
+    "nav_growth_trend": "Takbo ng paglago",
+    "nav_economic_indicators": "Mga indikador ng ekonomiya",
+    "nav_land_use": "Paggamit ng lupa",
+    "nav_fiscal_data": "Datos sa pananalapi",
+    "nav_blgf_annual_trend": "Taunang takbo ng BLGF",
+    "nav_trends": "Mga trend",
+    "nav_agriculture": "Agrikultura"
   },
   "transparency": {
     "eyebrow": "Pamahalaan &middot; Open Data",
@@ -569,7 +590,29 @@
     "tab_procurement": "Pampublikong Pagkuha",
     "tab_infrastructure": "Imprastraktura",
     "tab_budget_fiscal": "Badyet at Pananalapi",
-    "tab_audit": "Audyt at Pagsunod"
+    "tab_audit": "Audyt at Pagsunod",
+    "sections_title": "Mga Kategorya",
+    "hide_menu": "Itago ang menu",
+    "show_menu": "Ipakita ang menu",
+    "section_nav_label": "Mga seksyon ng pahina",
+    "key_findings": "Mga pangunahing natuklasan",
+    "nav_fiscal_dashboard": "Dashboard ng pananalapi",
+    "nav_appropriations": "Mga paglalaan",
+    "nav_revenue": "Kita",
+    "nav_fiscal_structure": "Istruktura ng pananalapi",
+    "nav_fiscal_snapshot": "Larawan ng pananalapi",
+    "nav_budget_trend": "Takbo ng badyet",
+    "nav_balance_sheet": "Talaan ng balanse",
+    "nav_financial_performance": "Pagganap sa pananalapi",
+    "nav_fdp_disclosures": "Mga FDP filing",
+    "nav_audit_opinion_timeline": "Mga opinyon sa audyt",
+    "nav_compliance": "Pagsunod",
+    "nav_audit_findings": "Mga natuklasan sa audyt",
+    "nav_implementation_rate": "Pagpapatupad",
+    "nav_coa_projects": "Mga proyekto ng COA",
+    "nav_disallowances": "Mga disallowance",
+    "nav_reform_trackers": "Mga tagasubaybay ng reporma",
+    "nav_audit_reports": "Mga ulat sa audyt"
   },
   "procurement": {
     "eyebrow": "Pampublikong Pamimili",
@@ -738,6 +781,8 @@
     "needs_verification": "Kailangang Mapatunayan",
     "placeholder": "Pansamantalang Halaga",
     "skip_to_content": "Laktawan patungo sa nilalaman",
+    "show_subsections": "Ipakita ang mga subseksyon",
+    "hide_subsections": "Itago ang mga subseksyon",
     "mobile_hotline": "Hotline",
     "mobile_search": "Hanapin",
     "mobile_services": "Mga Serbisyo",
@@ -756,6 +801,11 @@
     "dept_col_location": "Lokasyon",
     "contact_col_office": "Opisyo / Unit",
     "contact_col_landline": "Landline",
-    "contact_col_mobile": "Mobile / Hotline"
+    "contact_col_mobile": "Mobile / Hotline",
+    "nav_executive": "Tagapagpaganap",
+    "nav_sangguniang_bayan": "Sangguniang Bayan",
+    "nav_barangay_councils": "Mga konseho ng barangay",
+    "nav_contacts": "Mga contact",
+    "nav_national_agencies": "Mga pambansang ahensya"
   }
 }

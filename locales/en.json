@@ -150,6 +150,11 @@
     "thanks": "Thank you for your feedback!",
     "report": "Report incorrect information"
   },
+  "services": {
+    "nav_services_directory": "Service directory",
+    "nav_services_analytics": "Analytics",
+    "nav_national_services": "National services"
+  },
   "services_dir": {
     "title": "Services",
     "eyebrow": "Citizen's Charter",
@@ -273,7 +278,15 @@
     "budget_title": "Municipal budget",
     "budget_desc": "Annual general appropriations and fiscal performance.",
     "trends_title": "Legislative trends",
-    "trends_desc": "Key patterns in Mapandan's legislative activity."
+    "trends_desc": "Key patterns in Mapandan's legislative activity.",
+    "nav_governance_framework": "Governance framework",
+    "nav_ordinances": "Ordinances",
+    "nav_resolutions": "Resolutions",
+    "nav_executive_issuances": "Executive issuances",
+    "nav_fiscal": "Fiscal",
+    "nav_trends": "Trends",
+    "nav_legislative_process": "Legislative process",
+    "nav_ordinance_vs_resolution": "Ordinance vs resolution"
   },
   "statistics": {
     "eyebrow": "Open Data",
@@ -339,7 +352,15 @@
     "agri_crops": "Primary Crops",
     "agri_crops_desc": "Rice (palay), yellow corn, vegetables, and pandan-related crafts.",
     "agri_irrigated": "Irrigated Area",
-    "agri_irrigated_desc": "Approximately 1,200 hectares under NIA irrigation systems."
+    "agri_irrigated_desc": "Approximately 1,200 hectares under NIA irrigation systems.",
+    "nav_population": "Population",
+    "nav_growth_trend": "Growth trend",
+    "nav_economic_indicators": "Economic indicators",
+    "nav_land_use": "Land use",
+    "nav_fiscal_data": "Fiscal data",
+    "nav_blgf_annual_trend": "BLGF annual trend",
+    "nav_trends": "Trends",
+    "nav_agriculture": "Agriculture"
   },
   "transparency": {
     "eyebrow": "Government &middot; Open Data",
@@ -569,7 +590,29 @@
     "tab_procurement": "Public Procurement",
     "tab_infrastructure": "Infrastructure",
     "tab_budget_fiscal": "Budget & Fiscal",
-    "tab_audit": "Audit & Compliance"
+    "tab_audit": "Audit & Compliance",
+    "sections_title": "Categories",
+    "hide_menu": "Hide menu",
+    "show_menu": "Show menu",
+    "section_nav_label": "Page sections",
+    "key_findings": "Key findings",
+    "nav_fiscal_dashboard": "Fiscal dashboard",
+    "nav_appropriations": "Appropriations",
+    "nav_revenue": "Revenue",
+    "nav_fiscal_structure": "Fiscal structure",
+    "nav_fiscal_snapshot": "Fiscal snapshot",
+    "nav_budget_trend": "Budget trend",
+    "nav_balance_sheet": "Balance sheet",
+    "nav_financial_performance": "Financial performance",
+    "nav_fdp_disclosures": "FDP filings",
+    "nav_audit_opinion_timeline": "Audit opinions",
+    "nav_compliance": "Compliance",
+    "nav_audit_findings": "Audit findings",
+    "nav_implementation_rate": "Implementation",
+    "nav_coa_projects": "COA projects",
+    "nav_disallowances": "Disallowances",
+    "nav_reform_trackers": "Reform trackers",
+    "nav_audit_reports": "Audit reports"
   },
   "procurement": {
     "eyebrow": "Public Procurement",
@@ -738,6 +781,8 @@
     "needs_verification": "Needs Verification",
     "placeholder": "Placeholder",
     "skip_to_content": "Skip to content",
+    "show_subsections": "Show subsections",
+    "hide_subsections": "Hide subsections",
     "mobile_hotline": "Hotline",
     "mobile_search": "Search",
     "mobile_services": "Services",
@@ -756,6 +801,11 @@
     "dept_col_location": "Location",
     "contact_col_office": "Office / Unit",
     "contact_col_landline": "Landline",
-    "contact_col_mobile": "Mobile / Hotline"
+    "contact_col_mobile": "Mobile / Hotline",
+    "nav_executive": "Executive",
+    "nav_sangguniang_bayan": "Sangguniang Bayan",
+    "nav_barangay_councils": "Barangay councils",
+    "nav_contacts": "Contacts",
+    "nav_national_agencies": "National agencies"
   }
 }
