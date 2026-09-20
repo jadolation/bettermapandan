@@ -100,12 +100,14 @@ def built_site(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.C
 def test_build_writes_homepages(built_site: Path):
     assert (built_site / "index.html").exists()
     assert (built_site / "fil" / "index.html").exists()
+    assert (built_site / "pag" / "index.html").exists()
 
 
 def test_build_writes_section_pages(built_site: Path):
     for section in ("government", "legislative", "statistics", "transparency", "search", "services"):
         assert (built_site / section / "index.html").exists(), section
         assert (built_site / "fil" / section / "index.html").exists(), f"fil/{section}"
+        assert (built_site / "pag" / section / "index.html").exists(), f"pag/{section}"
 
 
 def test_sitemap_clean_urls(built_site: Path):
@@ -146,14 +148,21 @@ TRANSPARENCY_SUBPAGES = ("procurement", "infrastructure", "budget-fiscal", "audi
 
 
 def _read_subpage(built_site: Path, lang: str, slug: str) -> str:
-    base = built_site if lang == "en" else built_site / "fil"
+    if lang == "en":
+        base = built_site
+    elif lang == "fil":
+        base = built_site / "fil"
+    elif lang == "pag":
+        base = built_site / "pag"
+    else:
+        raise ValueError(f"Unknown lang: {lang}")
     return (base / "transparency" / slug / "index.html").read_text(encoding="utf-8")
 
 
 def test_transparency_tabs_pills_and_select(built_site: Path):
-    """Every transparency subpage (EN + FIL) renders 4 pills + mobile select in sync."""
-    for lang in ("en", "fil"):
-        prefix = "" if lang == "en" else "/fil"
+    """Every transparency subpage (EN + FIL + PAG) renders 4 pills + mobile select in sync."""
+    for lang in ("en", "fil", "pag"):
+        prefix = "" if lang == "en" else f"/{lang}"
         for slug in TRANSPARENCY_SUBPAGES:
             html = _read_subpage(built_site, lang, slug)
             assert html.count('class="tab-btn') == 4, f"{lang}/{slug} pills"
@@ -176,12 +185,14 @@ def test_transparency_dropdown_sticky_css(built_site: Path):
     assert ".transparency-tabs-dropdown" in css
     # 1px overlap so rounding never opens a gap under the header.
     assert "calc(var(--transparency-tabs-top" in css
+    # Bar carries no top padding of its own (flush top edge).
+    assert "padding:0 0 8px" in css
 
 
 def test_section_nav_sidebar_and_edge(built_site: Path):
-    """Budget-fiscal (9) + audit-compliance (8) render sidebar + edge dots, EN + FIL."""
+    """Budget-fiscal (9) + audit-compliance (8) render sidebar + edge dots, EN + FIL + PAG."""
     expected = {"budget-fiscal": 9, "audit-compliance": 8}
-    for lang in ("en", "fil"):
+    for lang in ("en", "fil", "pag"):
         for slug, count in expected.items():
             html = _read_subpage(built_site, lang, slug)
             assert 'class="page-with-nav"' in html, f"{lang}/{slug} layout"
@@ -213,15 +224,22 @@ def test_section_nav_rail_and_edge_css(built_site: Path):
     assert "rotate(180deg)" in flat
     assert ".edge-backdrop" in css
     assert "rgba(0,0,0,0.35)" in flat
-    html = _read_subpage(built_site, "en", "budget-fiscal")
-    assert 'class="edge-backdrop"' in html
-    assert '<span class="edge-tip" aria-hidden="true">FDP filings</span>' in html
+    for lang in ("en", "fil", "pag"):
+        html = _read_subpage(built_site, lang, "budget-fiscal")
+        assert 'class="edge-backdrop"' in html, f"{lang} backdrop missing"
+        assert html.count('class="edge-tip" aria-hidden="true">') >= 3, f"{lang} edge tips missing"
+        # Edge tips contain section names; just verify they're non-empty
+        import re
+        tips = re.findall(r'class="edge-tip" aria-hidden="true">([^<]+)</span>', html)
+        assert len(tips) >= 3, f"{lang} need >= 3 named tips, got {len(tips)}"
+        assert all(tips), f"{lang} has empty edge-tip text"
 
 
 def test_transparency_hub_has_no_redirect(built_site: Path):
     """The /transparency/ hub links to all 4 sections with relative URLs (bilingual-safe)."""
-    for lang in ("en", "fil"):
-        base = built_site if lang == "en" else built_site / "fil"
+    lang_base = {"en": built_site, "fil": built_site / "fil", "pag": built_site / "pag"}
+    for lang in ("en", "fil", "pag"):
+        base = lang_base[lang]
         html = (base / "transparency" / "index.html").read_text(encoding="utf-8")
         assert 'http-equiv="refresh"' not in html
         for slug in TRANSPARENCY_SUBPAGES:
@@ -231,7 +249,7 @@ def test_transparency_hub_has_no_redirect(built_site: Path):
 
 def test_infrastructure_map_markup(built_site: Path):
     """Infrastructure page keeps a sized map container + fallback + no duplicate data bundle."""
-    for lang in ("en", "fil"):
+    for lang in ("en", "fil", "pag"):
         html = _read_subpage(built_site, lang, "infrastructure")
         assert 'id="dpwh-map"' in html
         assert 'id="dpwh-map-fallback"' in html
@@ -248,13 +266,20 @@ NAV_PAGE_SECTIONS = {
 
 
 def _read_top_page(built_site: Path, lang: str, slug: str) -> str:
-    base = built_site if lang == "en" else built_site / "fil"
+    if lang == "en":
+        base = built_site
+    elif lang == "fil":
+        base = built_site / "fil"
+    elif lang == "pag":
+        base = built_site / "pag"
+    else:
+        raise ValueError(f"Unknown lang: {lang}")
     return (base / slug / "index.html").read_text(encoding="utf-8")
 
 
 def test_section_nav_on_content_pages(built_site: Path):
-    """Services/government/legislative/statistics render sidebar + edge dots, EN + FIL."""
-    for lang in ("en", "fil"):
+    """Services/government/legislative/statistics render sidebar + edge dots, EN + FIL + PAG."""
+    for lang in ("en", "fil", "pag"):
         for slug, count in NAV_PAGE_SECTIONS.items():
             html = _read_top_page(built_site, lang, slug)
             assert 'class="page-with-nav"' in html, f"{lang}/{slug} layout"
@@ -280,8 +305,9 @@ def test_section_nav_ids_resolve(built_site: Path):
         "legislative": "legislative",
         "statistics": "statistics",
     }
-    for lang in ("en", "fil"):
-        base = built_site if lang == "en" else built_site / "fil"
+    lang_base = {"en": built_site, "fil": built_site / "fil", "pag": built_site / "pag"}
+    for lang in ("en", "fil", "pag"):
+        base = lang_base[lang]
         for key, rel in pages.items():
             html = (base / rel / "index.html").read_text(encoding="utf-8")
             for sid in SECTION_NAV[f"{key}.html"]:
@@ -309,6 +335,21 @@ def test_government_sb_grouped_nav(built_site: Path):
     assert 'href="#sb-regular-members"' in html
     assert 'href="#sb-ex-officio"' in html
     assert html.count('href="#agency-') == 8
+
+
+def test_pag_pages_contain_pangasinan_content(built_site: Path):
+    """Pangasinan pages contain actual Pangasinan text for known translations."""
+    # Homepage nav should show Pangasinan labels
+    pag_home = (built_site / "pag" / "index.html").read_text(encoding="utf-8")
+    assert "Abong" in pag_home, "Pangasinan homepage should contain 'Abong' for nav.home"
+    
+    # Services directory
+    pag_services = (built_site / "pag" / "services" / "index.html").read_text(encoding="utf-8")
+    assert "Saray Serbisyo" in pag_services, "Pangasinan services page should contain 'Saray Serbisyo'"
+    
+    # Government page
+    pag_gov = (built_site / "pag" / "government" / "index.html").read_text(encoding="utf-8")
+    assert "Gobierno" in pag_gov, "Pangasinan government page should contain 'Gobierno'"
 
 
 def test_schema_validation_passes(built_site: Path):

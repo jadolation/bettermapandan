@@ -45,9 +45,10 @@
   }
 
   // Dock the mobile dropdown bar directly below the sticky header.
-  // Both the emergency bar and site header heights vary (ticker wrap,
-  // fonts, mobile browser chrome), so measure rather than hardcode — and
-  // re-measure on scroll (throttled) since layout can shift mid-scroll.
+  // Uses the header's live viewport geometry each frame instead of a
+  // sampled height sum, so ticker reflow, font swaps, and menu open/close
+  // can never leave a stale gap. Falls back to measured heights when the
+  // header isn't rendered (or getBoundingClientRect is unavailable).
   var scrollQueued = false;
 
   function updateTabsTop() {
@@ -55,6 +56,10 @@
     var header = document.querySelector(".site-header");
     if (!bar || !header) return;
     var top = bar.offsetHeight + header.offsetHeight;
+    if (header.getBoundingClientRect) {
+      var bottom = header.getBoundingClientRect().bottom;
+      if (bottom > 0) top = bottom;
+    }
     document.documentElement.style.setProperty("--transparency-tabs-top", top + "px");
   }
 
@@ -81,6 +86,7 @@
   window.addEventListener("resize", updateTabsTop);
   window.addEventListener("orientationchange", updateTabsTop);
   window.addEventListener("scroll", queueTabsTop, { passive: true });
+  window.addEventListener("load", updateTabsTop);
   if (window.visualViewport) {
     window.visualViewport.addEventListener("resize", updateTabsTop);
   }

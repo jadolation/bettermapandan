@@ -65,6 +65,14 @@ def strip_front_matter(text: str) -> str:
 
 
 def compute_asset_base(rel: Path, lang_code: str) -> str:
+    """Compute the relative asset base path for a page.
+
+    The lang_code parameter is accepted for API consistency with the
+    rest of the build system, but the return value depends only on
+    directory depth. Subdirectory languages (fil/, pag/) naturally
+    have greater depth and get more ../ segments; root (en) gets .
+    for top-level pages.
+    """
     depth = len(rel.parts) - 1
     if depth <= 0:
         return "."

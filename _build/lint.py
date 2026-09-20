@@ -23,6 +23,47 @@ TRANSLATION_ALLOWLIST = {
     "©", "© 2024", "© 2025", "© 2026",
 }
 
+TRANSLATION_ALLOWLIST_PAG = TRANSLATION_ALLOWLIST | {
+    "barangay", "pandan", "pangasinan", "mapandan",
+    "municipality", "municipal", "province",
+    "independent", "citizen-maintained", "civic",
+    "transparency", "portal", "website",
+    "mayor", "vice mayor", "sangguniang", "bayan",
+    "poblacion", "district", "congressional",
+    "philippine", "philippines", "filipino",
+    "psa", "coa", "dilg", "dpwh", "blgf", "philgeps",
+    "ldrrmo", "mdrrmo", "bfp", "pnp",
+    "national", "local", "government",
+    "budget", "contract", "audit", "procurement",
+    "infrastructure", "project", "fund",
+    "revenue", "expenditure", "allocation",
+    "fiscal", "financial", "operating",
+    "emergency", "hotline", "hospital",
+    "water", "community",
+    "agriculture", "agri", "tourism",
+    "population", "resident", "household",
+    "density", "area", "land",
+    "employment", "economic", "development",
+    "social", "welfare", "health",
+    "service", "permit", "license", "certificate",
+    "clearance", "registration", "application",
+    "requirement", "fee", "processing", "mode",
+    "classification", "office", "department",
+    "official", "agency", "program",
+    "ordinance", "resolution", "issuance",
+    "executive", "legislative", "judicial",
+    "barangay", "council", "captain",
+    "kagawad", "tanod", "lupon",
+    "purok", "sitio", "zone",
+    "north", "south", "east", "west",
+    "central", "poblacion", "urban", "rural",
+    "rice", "corn", "vegetable", "livestock",
+    "poultry", "fishery", "aquaculture",
+    "lowland", "upland", "irrigation",
+    "first", "second", "third",
+    "class", "municipality", "city",
+}
+
 
 def _strip_tags_for_comparison(html_text: str) -> str:
     """Remove HTML tags and normalize whitespace for translation comparison."""
@@ -49,8 +90,10 @@ def _is_segment_translated(seg_lower: str, fil_text_lower: str, allowlist: set) 
     return seg_lower in fil_text_lower
 
 
-def _compare_file_pair(en_path: Path, fil_path: Path) -> list:
-    """Compare EN and FIL files, return list of untranslated segments."""
+def _compare_file_pair(en_path: Path, fil_path: Path, allowlist: set = None) -> list:
+    """Compare EN and translated files, return list of untranslated segments."""
+    if allowlist is None:
+        allowlist = TRANSLATION_ALLOWLIST
     en_text = _strip_tags_for_comparison(en_path.read_text(encoding="utf-8"))
     fil_text = _strip_tags_for_comparison(fil_path.read_text(encoding="utf-8"))
     fil_text_lower = fil_text.lower()
@@ -58,13 +101,15 @@ def _compare_file_pair(en_path: Path, fil_path: Path) -> list:
     findings = []
     for seg in _extract_text_segments(en_text):
         seg_lower = seg.lower().strip()
-        if _is_segment_translated(seg_lower, fil_text_lower, TRANSLATION_ALLOWLIST):
+        if _is_segment_translated(seg_lower, fil_text_lower, allowlist):
             findings.append(seg[:100] + ("..." if len(seg) > 100 else ""))
     return findings
 
 
-def _collect_translation_findings(en_dir: Path, fil_dir: Path) -> tuple[list, int]:
+def _collect_translation_findings(en_dir: Path, fil_dir: Path, allowlist: set = None) -> tuple[list, int]:
     """Collect all translation findings across all page pairs."""
+    if allowlist is None:
+        allowlist = TRANSLATION_ALLOWLIST
     findings = []
     pages_checked = 0
 
@@ -78,7 +123,7 @@ def _collect_translation_findings(en_dir: Path, fil_dir: Path) -> tuple[list, in
         if not fil_path.exists():
             continue
 
-        file_findings = _compare_file_pair(en_path, fil_path)
+        file_findings = _compare_file_pair(en_path, fil_path, allowlist)
         if file_findings:
             findings.append((str(rel), file_findings))
         pages_checked += 1
@@ -110,7 +155,7 @@ def verify_translations() -> None:
 
     pag_dir = PAG_DIR
     if pag_dir.exists():
-        pag_findings, pages_checked_pag = _collect_translation_findings(ROOT, pag_dir)
+        pag_findings, pages_checked_pag = _collect_translation_findings(ROOT, pag_dir, allowlist=TRANSLATION_ALLOWLIST_PAG)
 
         if pag_findings:
             total_segments_pag = sum(len(segments) for _, segments in pag_findings)

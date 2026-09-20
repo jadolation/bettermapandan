@@ -5,6 +5,35 @@ import sys
 from pathlib import Path
 
 
+
+def flatten_values(data: dict, prefix: str = "") -> dict:
+    """Flatten nested dict into dot-notation keys to string values."""
+    result = {}
+    for key, value in data.items():
+        full_key = f"{prefix}.{key}" if prefix else key
+        if isinstance(value, dict):
+            result.update(flatten_values(value, full_key))
+        else:
+            result[full_key] = str(value)
+    return result
+
+
+def detect_untranslated_pag(en_data: dict, pag_data: dict) -> list[str]:
+    """Find keys where pag.json value appears identical to en.json (likely untranslated)."""
+    en_flat = flatten_values(en_data)
+    pag_flat = flatten_values(pag_data)
+    untranslated = []
+    for key in sorted(en_flat):
+        if key not in pag_flat:
+            continue
+        en_val = en_flat[key].strip()
+        pag_val = pag_flat[key].strip()
+        if not en_val or not pag_val:
+            continue
+        if en_val.lower() == pag_val.lower():
+            untranslated.append(key)
+    return untranslated
+
 def flatten_keys(data: dict, prefix: str = "") -> set:
     """Flatten nested dict keys into dot-separated paths."""
     keys = set()
@@ -66,6 +95,15 @@ def main() -> int:
         print("INFO: Keys in pag.json missing from en.json:")
         for key in missing_in_en_from_pag:
             print(f"  + {key}")
+        print()
+
+    untranslated = detect_untranslated_pag(en_data, pag_data)
+    if untranslated:
+        print(f"INFO: {len(untranslated)} Pangasinan values appear identical to English (may need translation):")
+        for key in untranslated[:20]:
+            print(f"  - {key}")
+        if len(untranslated) > 20:
+            print(f"  ... and {len(untranslated) - 20} more")
         print()
 
     if missing_in_fil or missing_in_pag:

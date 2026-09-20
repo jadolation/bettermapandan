@@ -998,8 +998,8 @@ def build() -> None:
 
     en_locale = load_locale("en")
     fil_locale = load_locale("fil")
-    pag_locale = load_locale("pag")
-    pag_locale = deep_merge(en_locale, pag_locale)
+    pag_locale_raw = load_locale("pag")
+    pag_locale = deep_merge(en_locale, pag_locale_raw)
 
     if HAS_SCHEMA_VALIDATION:
         schema_errors = validate_all(SRC_DATA)
