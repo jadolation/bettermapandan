@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check i18n key parity between en.json and fil.json."""
+"""Check i18n key parity across en.json, fil.json, and pag.json."""
 import json
 import sys
 from pathlib import Path

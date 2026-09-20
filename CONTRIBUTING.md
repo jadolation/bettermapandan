@@ -26,12 +26,12 @@ Better Mapandan is an independent transparency portal for the Municipality of Ma
 
 **What it covers:**
 
-- 1,000+ services across 13 categories
+- 86 services across 13 categories
 - 277 procurement contracts with PhilGEPS tender data
-- 45 DPWH projects with maps and status tracking
-- 11 years of COA audit reports (2014–2024)
-- Dual-language: English (root) and Filipino (`/fil/`)
-- **202 pages** total (101 EN + 101 FIL)
+- 40 DPWH projects with maps and status tracking
+- 12 years of COA audit reports (2014–2025)
+- Trilingual: English (root), Filipino (`/fil/`), Pangasinan (`/pag/`)
+- **315 pages** total (105 EN + 105 FIL + 105 PAG)
 
 **Live at:** [bettermapandan.org](https://bettermapandan.org) — deployed via GitHub Pages with a Hostinger-registered domain.
 
@@ -75,7 +75,7 @@ npm install
 python3 build.py
 ```
 
-Build output is written to the project root (EN pages) and `fil/` (FIL pages). Output is git-ignored and deployed automatically by the Pages workflow — always run the build before serving locally or running Lighthouse.
+Build output is written to the project root (EN pages), `fil/` (FIL pages), and `pag/` (PAG pages). Output is git-ignored and deployed automatically by the Pages workflow — always run the build before serving locally or running Lighthouse.
 
 > **Warning:** generated output is git-ignored, so never run `git clean -fdx` here — the `-x` flag deletes ignored files and will wipe your entire built site. Use `git clean -fd` (safe) and rebuild with `python3 build.py` if output ever goes missing.
 
@@ -97,7 +97,7 @@ description: Meta description
 
 ### Locales (i18n)
 
-- Edit `locales/en.json` and `locales/fil/fil.json`
+- Edit `locales/en.json`, `locales/fil.json`, and `locales/pag.json`
 - Run `python3 check_i18n.py` to verify key parity between the two files
 - Run `python3 build.py --verify-translations` to check rendered output for missing translations
 
@@ -147,9 +147,14 @@ python3 -m pytest tests/test_locales.py -v
 Test files:
 
 - `tests/test_locales.py` — locale loading and translation
+- `tests/test_pangasinan_parity.py` — EN/FIL/PAG parity
 - `tests/test_generators.py` — page generators
 - `tests/test_orchestrator.py` — breadcrumbs, heroes, page assembly
 - `tests/test_templates.py` — template engine
+- `tests/test_build_integration.py` — end-to-end staged builds
+- `tests/test_data_consistency.py` — canonical facts and data checks
+- `tests/test_fdp.py` / `test_fdp_csv.py` / `test_fdp_dashboard.py` — FDP pipeline
+- `tests/test_audit_links.py` — dataset link integrity
 
 ---
 
@@ -293,7 +298,7 @@ This compresses citizens-charter photos (mozjpeg, quality 70), history photos (P
 
 ### Locales
 
-- Keep `locales/en.json` and `locales/fil.json` in sync — same keys, same nesting structure
+- Keep `locales/en.json`, `locales/fil.json`, and `locales/pag.json` in sync — same keys, same nesting structure
 - Use descriptive key names (e.g., `nav.services` rather than `s1`)
 
 ---

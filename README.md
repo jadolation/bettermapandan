@@ -10,13 +10,14 @@ An independent transparency portal for the Municipality of Mapandan, Pangasinan,
 
 Better Mapandan is a static, client-rendered transparency site covering:
 
-- **100+ services** across 13 categories (business permitting, civil registry, health, education, etc.)
+- **86 services** across 13 categories (business permitting, civil registry, health, education, etc.)
 - **277 procurement contracts** with PhilGEPS tender data
-- **45 DPWH projects** with maps and status tracking
-- **11 years of COA audit reports** (2014–2024)
-- Dual-language: English at root, Filipino under `/fil/`
+- **40 DPWH projects** with maps and status tracking
+- **12 years of COA audit reports** (2014–2025)
+- **11 years of FDP filings** (DILG Full Disclosure Policy portal data)
+- Trilingual: English at root, Filipino under `/fil/`, Pangasinan under `/pag/`
 
-Total page count: **202 pages** (101 EN + 101 FIL).
+Total page count: **315 pages** (105 EN + 105 FIL + 105 PAG).
 
 ---
 
@@ -25,30 +26,41 @@ Total page count: **202 pages** (101 EN + 101 FIL).
 ```
 build.py                        Thin entry point → _build/orchestrator.main()
 _build/                         Build system package
-  config.py                     Paths, site config, section anchors, front-matter regex
+  config.py                     Paths, site config, section anchors/nav, front-matter regex
+  orchestrator.py               Main build: page assembly, tabs, section nav, i18n loop
   locales.py                    i18n loader + t() helper
   templates.py                  HTML template engine (parse_page, fill, strip_html, etc.)
   assets.py                     Asset minification, image compression, sitemap, llms.txt
+  facts.py                      Single-source facts ({POP_2024}, {LAND_AREA}, {DENSITY})
   lint.py                       Translation verification
   generators/
-    services.py                 Generates services/, services/*/ index pages from src/data/services.json
+    services.py                 Generates services/ + 86 service pages (pick_lang() EN fallback)
     legislative.py              Generates legislative/ from src/data/legislative.json
     dpwh.py                     Generates transparency DPWH/infrastructure sections
     procurement.py              Generates transparency procurement tables + homepage data
+    fdp.py                      Generates FDP filings + fiscal dashboard sections
+    fdp_analytics.py            Quarterly deltas, barangay normalization, FDP summary
     barangays.py                Generates barangay data, comparison script, councils table
 src/
   partials/
     base.html                   <head> + <body> shell with {{TITLE}}, {{DESCRIPTION}}, {{HEADER}}, {{BODY}}, {{FOOTER}}, {{LANG_ATTR}}, {{CANONICAL_URL}}, {{ASSET_BASE}}
     page-hero.html              Hero banner partial (eyebrow, heading, lede)
-    header.html                 Emergency bar + site nav (single source of truth)
+    header.html                 Emergency bar + site nav + EN/FIL/PANG switcher (single source of truth)
     footer.html                 Site footer, includes {{REPO_URL}}
+    components/                 Reusable cards (agency, cultural, emergency, leader, section-head, stat)
   pages/
     index.html                  Homepage (front matter + body)
     about.html                  Municipality overview
     government.html             Executive, legislative, departments, contacts
     statistics.html             Demographics, economy, fiscal data
-    transparency.html           Budget, audits, procurement, COA projects
+    transparency.html           Transparency hub (links the 4 subpages below)
+    transparency/
+      procurement.html          PhilGEPS contracts + charts + table
+      infrastructure.html       DPWH map + project table
+      budget-fiscal.html        Appropriations, revenue, FDP dashboard + filings
+      audit-compliance.html     COA opinions, findings, implementation, report archive
     search.html                 Search hub + report form
+    support.html                Support hub
     support/
       faq.html                  Frequently asked questions
       privacy.html              Privacy policy
@@ -61,47 +73,54 @@ src/
     services-directory.html     Template for services index
     legislative.html            Template for legislative section
   data/
-    services.json               Service directory (~1,000 entries, 13 categories)
+    services.json               Service directory (86 services, 13 categories)
     legislative.json            Ordinances, resolutions, issuances
     procurement.json            PhilGEPS contract records (~277)
-    dpwh.json                   DPWH contract records (~45)
-    audit-reports.json          11 years of COA opinion & findings data
-    barangays.json              33 barangay profiles (population, households, officials)
+    dpwh.json                   DPWH contract records (40 projects)
+    audit-reports.json          12 years of COA opinion & findings data
+    barangays.json              15 barangay profiles (population, households, officials)
+    fdp_disclosures.json        DILG FDP filings (quarterly postings)
     transparency-csv.json       Supplemental CSV data for charts
+    page-meta.json              Localized titles/descriptions/heroes per page (fil/pag)
+    pag-review.json             64 Pangasinan strings awaiting fluent-speaker review
+    municipal-facts.json        Canonical headline figures
+    mayoral-terms.json          Mayoral term date ranges for filtering
+    filipino-glossary.json      Filipino terminology guidance
     schemas.py                  JSON Schema validators for procurement, DPWH, barangays
     _utils.py                   Data extraction and normalization helpers
     extract_procurement.py      Procurement data extraction script
     extract_dpwh.py             DPWH data extraction script
+    extract_fdp.py              FDP filing extraction script
+    fdp_to_csv.py               FDP workbook → CSV converter
     generate_dpwh_seed.py       DPWH seed data generator
 assets/
-  css/                         34 modular CSS partials (tokens.css, reset.css, layout.css, nav.css, hero.css, cards.css, tables.css, services.css, legislative.css, procurement.css, search.css, responsive.css, etc.)
-  js/
-    script.js                   Mobile nav, language switcher, weather widget, history carousel, barangay modals, accordions, feedback widget, Lucide icons
-    stats.js                    Statistics charts (population, economy, fiscal)
-    transparency.js             Transparency page interactions
-    services.js                 Services directory logic
-    legislative.js              Legislative filters
-    search.js                   Client-side full-text search
-    search-index.json           Pre-built search index (auto-generated at build)
-    common.js                   Shared utilities
-    transparency-charts.js      Chart.js instances for transparency section
-    procurement-table.js        Procurement table filters/sorting
-    leaflet-map.js              Leaflet map for DPWH projects
-    report.js                   Report form logic
+  css/                         35 modular CSS partials (tokens.css, reset.css, layout.css, navigation.css, hero.css, cards.css, tables.css, services.css, legislative.css, procurement.css, dashboard.css, section-nav.css, search.css, responsive.css, etc.)
+  script.js                   Mobile nav, language switcher, weather widget, history carousel, barangay modals, accordions, feedback widget, Lucide icons
+  stats.js                    Statistics charts (population, economy, fiscal)
+  transparency.js             Transparency page interactions
+  services.js / service-filter.js   Services directory logic + live filter
+  legislative.js              Legislative filters
+  search.js                   Client-side full-text search (reads assets/search-index.json)
+  leaflet-map.js              Leaflet map for DPWH projects
+  report.js                   Report form logic
+  font-loader.js / chart-loader.js / barangay-data.js   Loaders + shared data bundles
+  js/                          Feature scripts bundled per page (common.js, section-nav.js, dashboard-tabs.js, fdp-dashboard.js, transparency-charts.js, procurement-table.js, dpwh-table.js, coa-projects-table.js)
   data/                         Static data bundles for JS consumption
-  logos/                        Brand assets (logo.svg, logo-no-white.svg)
+  logo.svg / logo-no-white.svg / municipal-seal.svg   Brand assets (assets root)
   officials/                    Elected official portraits
   history/                      Historical photos (WebP)
   projects/                     Project thumbnail images
 locales/
-  en.json                      English UI strings (~678 keys)
-  fil.json                      Filipino UI strings (~678 keys)
+  en.json                      English UI strings (722 keys)
+  fil.json                      Filipino UI strings (722 keys)
+  pag.json                      Pangasinan UI strings (722 keys; 64 flagged for speaker review)
 datasets/                       Raw research and extraction sources
 .github/
   workflows/
     quality.yml                 Lint (ruff), complexity (radon), i18n parity, build, link checks
     lighthouse.yml              Lighthouse CI on push/PR
     lighthouse-production.yml   Weekly production Lighthouse monitor
+    pages.yml                   GitHub Pages deploy (build + upload artifact)
   actions/
     setup-python-build/         Composite action: Python deps + build
     setup-lighthouse/           Composite action: Node + Lighthouse setup
@@ -111,12 +130,12 @@ datasets/                       Raw research and extraction sources
 
 ## How it works
 
-1. `build.py` loads EN and FIL locales from `locales/`.
-2. Static pages in `src/pages/` are parsed for front matter and body.
+1. `build.py` loads EN, FIL, and PAG locales from `locales/` (Pangasinan falls back to English for untranslated keys).
+2. Static pages in `src/pages/` are parsed for front matter and body (titles/heroes localized via `src/data/page-meta.json`).
 3. Programmatic generators expand service pages, legislative sections, DPWH maps, and procurement tables from `src/data/*.json`.
 4. All pages are assembled with `base.html`, `header.html`, and `footer.html`.
-5. Locale strings are injected via `t()` calls, resolved against `locales/en.json` and `locales/fil.json`.
-6. Output is written to root (EN) and `fil/` (FIL).
+5. Locale strings are injected via `t()` calls, resolved against `locales/en.json`, `locales/fil.json`, and `locales/pag.json`.
+6. Output is written to root (EN), `fil/` (FIL), and `pag/` (PAG).
 7. `search-index.json` is regenerated from all rendered page content.
 8. `sitemap.xml` and `llms.txt` are generated for SEO/AI discovery.
 
@@ -125,18 +144,22 @@ Build output directory structure (what actually gets served):
 ```
 index.html                     Homepage (EN)
 services/                      Services directory (EN)
-  [category]/                  Category pages (13)
-    [service]/                 Individual service pages (1,000+)
+  [service]/                 Individual service pages (86)
 government/                    Government page (EN)
 legislative/                   Legislative page (EN)
 statistics/                    Statistics page (EN)
-transparency/                  Transparency page (EN)
+transparency/                  Transparency hub (EN)
+  procurement/               PhilGEPS contracts
+  infrastructure/            DPWH map + projects
+  budget-fiscal/             Budget, FDP dashboard + filings
+  audit-compliance/          COA opinions, findings, report archive
 search/                        Search page (EN)
 support/                       Support pages (EN)
   faq, privacy, terms, accessibility, report, sitemap
 fil/                           Filipino mirror of everything above
-assets/                        CSS, JS, images (shared)
-sitemap.xml                    XML sitemap
+pag/                           Pangasinan mirror of everything above
+assets/                        CSS, JS, images (shared; locale strings are inlined at build)
+sitemap.xml                    XML sitemap (hreflang en/fil/pag)
 llms.txt                       LLM-readable site digest
 ```
 
@@ -160,7 +183,7 @@ description: Meta description
 
 ### UI strings
 
-Edit `locales/en.json` and `locales/fil.json`. The build system does not enforce key parity automatically; run `python3 check_i18n.py` or `python3 build.py --verify-translations` to check.
+Edit `locales/en.json`, `locales/fil.json`, and `locales/pag.json` (722 keys each; run `python3 check_pag_coverage.py` for Pangasinan status — 64 strings await fluent-speaker review, tracked in `src/data/pag-review.json`). The build system does not enforce key parity automatically; run `python3 check_i18n.py` or `python3 build.py --verify-translations` to check.
 
 ### Styles
 
@@ -175,17 +198,20 @@ Edit `locales/en.json` and `locales/fil.json`. The build system does not enforce
 ## Commands
 
 ```bash
-# Full build (EN + FIL)
+# Full build (EN + FIL + PAG)
 python3 build.py
 
 # Image optimization only (mozjpeg + WebP conversion)
 python3 build.py --compress
 
-# Translation linting (EN vs FIL rendered output)
+# Translation linting (rendered output, all three locales)
 python3 build.py --verify-translations
 
-# i18n key parity check
+# i18n key parity check (en/fil/pag)
 python3 check_i18n.py
+
+# Pangasinan coverage report
+python3 check_pag_coverage.py
 ```
 
 Image optimization (`--compress`) pipeline:
@@ -287,7 +313,17 @@ Lighthouse thresholds (from `.lighthouserc.json`):
 
 ## Client-side search
 
-The site uses a pre-built `assets/js/search-index.json` (generated at build time) and `assets/js/search.js` for full-text search across all pages. No server-side search infrastructure is required.
+The site uses a pre-built `assets/search-index.json` (generated at build time, covering all three locales) and `assets/search.js` for full-text search across all pages. No server-side search infrastructure is required.
+
+---
+
+## Navigation
+
+Long-form pages (transparency subpages, services, government, legislative, statistics) share a dual-mode section nav, rendered server-side so it works with JS disabled:
+
+- **Desktop:** sticky sidebar with scrollspy active states, collapsible groups, count badges, and a collapse-to-rail toggle.
+- **Mobile (≤720px):** press-and-hold the right edge (~800ms) to reveal a named-section panel over a dimmed backdrop; releasing over a row smooth-scrolls to it.
+- Transparency subpages additionally share pill tabs (desktop) / a native-select bar (mobile) via `build_transparency_tabs()`.
 
 ---
 
@@ -295,9 +331,9 @@ The site uses a pre-built `assets/js/search-index.json` (generated at build time
 
 The site is deployed via **GitHub Pages with GitHub Actions** (`.github/workflows/pages.yml` builds with `python3 build.py` and deploys the artifact). The custom domain `bettermapandan.org` is registered through **Hostinger** and configured with DNS A records pointing to GitHub Pages.
 
-Generated output (`index.html`, section folders, `services/`, `fil/`, `sitemap.xml`, `style.min.css`, `search-index.json`, `*.min.js`) is **not committed** — it is rebuilt on every push. Run `python3 build.py` locally to preview.
+Generated output (`index.html`, section folders, `services/`, `fil/`, `pag/`, `sitemap.xml`, `style.min.css`, `search-index.json`, `*.min.js`) is **not committed** — it is rebuilt on every push. Run `python3 build.py` locally to preview.
 
-Any static host works — run `python3 build.py`, then deploy the root `.html` files plus `assets/`, `locales/`, `fil/`, and top-level files (`sitemap.xml`, `robots.txt`, `CNAME`).
+Any static host works — run `python3 build.py`, then deploy the root `.html` files plus `assets/`, `fil/`, `pag/`, and top-level files (`sitemap.xml`, `robots.txt`, `CNAME`).
 
 ### GitHub Pages
 

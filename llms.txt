@@ -2,6 +2,8 @@
 
 > An independent, citizen-maintained civic transparency portal for the Municipality of Mapandan, Pangasinan, Philippines. Providing open access to government services, officials, ordinances, budgets, and community information. Part of the BetterGov.ph initiative.
 
+> Trilingual (315 pages): English at https://bettermapandan.org/, Filipino at https://bettermapandan.org/fil/, Pangasinan at https://bettermapandan.org/pag/. Language switcher: EN / FIL / PANG.
+
 ## Quick Facts
 - Municipality: Mapandan, Pangasinan (Third District)
 - Population: 38,228 (2024 PSA estimate)
@@ -18,7 +20,7 @@
 - 8 Sangguniang Bayan members + 2 ex-officio (Liga ng mga Barangay, SK Federation)
 
 ## Services
-- [Services Directory](https://bettermapandan.org/services/): Browse all 70+ municipal services with requirements, procedures, fees, and office contacts.
+- [Services Directory](https://bettermapandan.org/services/): Browse all 86 municipal services across 13 categories, with requirements, procedures, fees, and office contacts. Also in Filipino (/fil/services/) and Pangasinan (/pag/services/).
 - [Business Permits](https://bettermapandan.org/services/business-permit/): New and renewal business permitting.
 - [Civil Registry](https://bettermapandan.org/services/birth-certificate/): Birth, marriage, death certificates and corrections.
 - [Health Services](https://bettermapandan.org/services/health-consultation/): Consultations, permits, and public health programs.
@@ -34,11 +36,19 @@
 - [Emergency Hotlines](https://bettermapandan.org/government/#emergency): MDRRMO, BFP, PNP contact numbers.
 
 ## Transparency & Budget
-- [Transparency](https://bettermapandan.org/transparency/): Budget reports, COA audits, procurement data, and infrastructure projects.
-- [Legislative](https://bettermapandan.org/legislative/): Municipal ordinances, resolutions, and executive issuances.
+- [Transparency](https://bettermapandan.org/transparency/): Hub linking 4 subpages (below).
+- [Procurement](https://bettermapandan.org/transparency/procurement/): 277 PhilGEPS contracts with monthly trends, top awardees, and full tables.
+- [Infrastructure](https://bettermapandan.org/transparency/infrastructure/): 40 DPWH projects with interactive map and status tracking.
+- [Budget & Fiscal](https://bettermapandan.org/transparency/budget-fiscal/): ₱218.2M CY 2026 budget, revenue breakdowns, FDP dashboard and DILG filings.
+- [Audit & Compliance](https://bettermapandan.org/transparency/audit-compliance/): COA opinions, findings, implementation rates, 12-year report archive.
+- [Legislative](https://bettermapandan.org/legislative/): 26 ordinances, 18 resolutions, 7 executive issuances, and fiscal data.
 - [Statistics](https://bettermapandan.org/statistics/): Population, demographics, and development indicators.
 
-## Audit Data (COA Annual Audit Reports 2013–2024)
+## Site navigation
+- Long-form pages share a section nav: sticky desktop sidebar (scrollspy, collapsible groups) and a mobile press-and-hold edge menu.
+- Transparency subpages share pill tabs on desktop and a native-select bar on mobile.
+
+## Audit Data (COA Annual Audit Reports 2014–2025)
 - Total Assets: ₱555.4M (CY 2024)
 - Government Equity: ₱444.7M (CY 2024)
 - CY 2024 Revenue: ₱173.8M (COA AAR)
@@ -47,7 +57,7 @@
 - Outstanding Disallowances: ₱35,187 (persistent since 2018)
 
 ## Key Barangays
-Poblacion (center), Luyan, Cabaritan, San Agustin, San Andres, San Jacinto, San Jose, San Juan, San Mateo, San Nicolas, San Pedro, San Roque, Santa Maria, Santo Tomas, Telbang.
+Amanoaoac, Apaya, Aserda, Baloling, Coral, Golden, Jimenez, Lambayan, Luyan (Luyan South), Nilombot, Pias, Poblacion, Primicias, Sta. Maria (Luyan North), Torres.
 
 ## Support
 - [Accessibility](https://bettermapandan.org/support/accessibility/): Accessibility features and assistive technology support.
