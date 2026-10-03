@@ -1,0 +1,252 @@
+[
+  {
+    "fund_id": "DILG-FUND-2023-Q1",
+    "period": "2023-Q1",
+    "year": 2023,
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 2279254.3,
+      "ldrrmf_unutilized": 11780117.37
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2023-Q2",
+    "period": "2023-Q2",
+    "year": 2023,
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 3143791.09,
+      "ldrrmf_unutilized": 10985055.26
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2023-Q3",
+    "period": "2023-Q3",
+    "year": 2023,
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 1278497.66,
+      "ldrrmf_unutilized": 10299552.26
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2023-Q4",
+    "period": "2023-Q4",
+    "year": 2023,
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 254445.53,
+      "ldrrmf_unutilized": 7010477.45
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2024-Q1",
+    "period": "2024-Q1",
+    "year": 2024,
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 2011582.69,
+      "ldrrmf_unutilized": 14611016.85
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2024-Q2",
+    "period": "2024-Q2",
+    "year": 2024,
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 2399854.51,
+      "ldrrmf_unutilized": 14172533.85
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2024-Q3",
+    "period": "2024-Q3",
+    "year": 2024,
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 1448629.56,
+      "ldrrmf_unutilized": 7016506.85
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2024-Q4",
+    "period": "2024-Q4",
+    "year": 2024,
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 295286.98,
+      "ldrrmf_unutilized": 6284528.85
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2025-Q1",
+    "period": "2025-Q1",
+    "year": 2025,
+    "figures": {
+      "dev_total": 34458787.24,
+      "sef_balance": 2170799.14,
+      "ldrrmf_unutilized": 15260794.55
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q1",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2025-Q2",
+    "period": "2025-Q2",
+    "year": 2025,
+    "figures": {
+      "dev_total": 34458787.24,
+      "sef_balance": 1621669.51,
+      "ldrrmf_unutilized": 14728585.35
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q2",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2025-Q3",
+    "period": "2025-Q3",
+    "year": 2025,
+    "figures": {
+      "dev_total": 34458787.24
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q3",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2025-Q4",
+    "period": "2025-Q4",
+    "year": 2025,
+    "figures": {
+      "dev_total": 34458787.24,
+      "sef_balance": 609724.22,
+      "ldrrmf_unutilized": 6952736.1465
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2026-Q1",
+    "period": "2026-Q1",
+    "year": 2026,
+    "figures": {
+      "dev_total": 39015379.08,
+      "sef_balance": 2175947.93,
+      "ldrrmf_unutilized": 17312140.98
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "fund_id": "DILG-FUND-2026-Q2",
+    "period": "2026-Q2",
+    "year": 2026,
+    "figures": {
+      "dev_total": 41015379.08,
+      "sef_balance": 1320774.75,
+      "ldrrmf_unutilized": 16105969.76
+    },
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2",
+        "document": "fdp_disclosures.json",
+        "retrieved_at": "2026-09-18"
+      }
+    ]
+  }
+]

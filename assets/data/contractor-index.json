@@ -1,0 +1,1277 @@
+[
+  {
+    "id": "CTR-0001",
+    "name": "A.U.B. CONSULT MANAGEMENT AND ENGINEERING SERVICES",
+    "contracts": 1,
+    "total": 1000000.0,
+    "contract_ids": [
+      "2017-02-004"
+    ],
+    "years": [
+      "2017"
+    ]
+  },
+  {
+    "id": "CTR-0002",
+    "name": "ALBERT PRINTING SERVICES",
+    "contracts": 1,
+    "total": 199800.0,
+    "contract_ids": [
+      "PHG-00006"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0003",
+    "name": "ALPHIN TRADING AND CONSTRUCTION",
+    "contracts": 58,
+    "total": 142922053.42,
+    "contract_ids": [
+      "01-001-2016",
+      "01-003",
+      "017-11-14",
+      "06-006-2018",
+      "2015-06-008",
+      "2015-08-010",
+      "2015-08-014",
+      "2015-11-021",
+      "2016-09-001",
+      "2016-09-002",
+      "2016-09-003",
+      "2016-11-008",
+      "2016-11-009",
+      "2017-01-002",
+      "2017-04-005",
+      "2017-04-006",
+      "2017-04-007",
+      "2017-04-008",
+      "2017-04-009",
+      "2826114",
+      "41640",
+      "GOODS-MUN-2022-12-022",
+      "GOODS-MUN-2024-04-014",
+      "Goods 02-002",
+      "IINFR-07-008",
+      "INFR 02-001",
+      "INFR-02-002",
+      "INFR-02-003",
+      "INFR-07-007",
+      "INFR-2018-05-004",
+      "INFR-2018-05-005",
+      "INFR-MUN-2017-11-017",
+      "INFR-MUN-2017-11-018",
+      "INFR-MUN-2022-01-002",
+      "INFR-MUN-2022-01-006",
+      "INFR-MUN-2022-08-011",
+      "INFR-MUN-2023-06-003",
+      "INFR-MUN-2023-07-005",
+      "INFR-MUN-2023-09-012",
+      "INFR-MUN-2023-11-016",
+      "INFR-MUN-2023-11-018",
+      "INFR-MUN-2024-04-010",
+      "INFR-MUN-2024-04-011",
+      "INFR-MUN-2024-04-012",
+      "INFR-MUN-2024-07-020",
+      "INFR-MUN-2024-11-032",
+      "INFRA-MUN-2017-09-012",
+      "MUN-2016-12-011",
+      "MUN-2017-07-010",
+      "MUN-2017-07-011",
+      "MUN2016-05-002",
+      "MUN2017-01-001",
+      "MUN2019-03-004",
+      "NFR-MUN-07-009",
+      "PHG-00009",
+      "PHG-00021",
+      "PHG-00052",
+      "PHG-00269"
+    ],
+    "years": [
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0004",
+    "name": "AMIANAN MOTORS",
+    "contracts": 1,
+    "total": 217000.0,
+    "contract_ids": [
+      "TF-PDAF-2013-001"
+    ],
+    "years": [
+      "2013"
+    ]
+  },
+  {
+    "id": "CTR-0005",
+    "name": "AQUINO-DELA CRUZ ENGINEERING AND CONSTRUCTION",
+    "contracts": 1,
+    "total": 54967555.44,
+    "contract_ids": [
+      "INFR-MUN-2021-11-018"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0006",
+    "name": "ARM ASIA CONSTRUCTION & ENGINEERING",
+    "contracts": 1,
+    "total": 974681.28,
+    "contract_ids": [
+      "017-11-015"
+    ],
+    "years": [
+      "2017"
+    ]
+  },
+  {
+    "id": "CTR-0007",
+    "name": "ASIAN HYBRID SEED TECHNOLOGIES, INC.",
+    "contracts": 1,
+    "total": 2764200.0,
+    "contract_ids": [
+      "GOODS-MUN-2022-10-015"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0008",
+    "name": "BARANGAY GOLDEN, MAPANDAN, PANGASINAN",
+    "contracts": 1,
+    "total": 284900.0,
+    "contract_ids": [
+      "8996049"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0009",
+    "name": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN",
+    "contracts": 1,
+    "total": 129900.0,
+    "contract_ids": [
+      "8717127"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0010",
+    "name": "BASKETBALL ASSOCIATION OF THE PHILIPPINES REGION 1 INC.",
+    "contracts": 1,
+    "total": 339540.0,
+    "contract_ids": [
+      "09 209522527"
+    ],
+    "years": [
+      "2023"
+    ]
+  },
+  {
+    "id": "CTR-0011",
+    "name": "BITSTOP, INC.",
+    "contracts": 1,
+    "total": 105000.0,
+    "contract_ids": [
+      "PO17-06-054"
+    ],
+    "years": [
+      "2017"
+    ]
+  },
+  {
+    "id": "CTR-0012",
+    "name": "BVC AUTOMOTIVE SPARE PARTS TRADING",
+    "contracts": 1,
+    "total": 3509635.0,
+    "contract_ids": [
+      "GOODS-MUN-2024-04-015"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0013",
+    "name": "CEDEMED PHARMA DISTRIBUTOR",
+    "contracts": 2,
+    "total": 848045.5,
+    "contract_ids": [
+      "GOODS-MUN-2024-01-001",
+      "GOODS-MUN-2024-03-008"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0014",
+    "name": "DIANNE BUILDERS",
+    "contracts": 1,
+    "total": 100663.26,
+    "contract_ids": [
+      "2015-001"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0015",
+    "name": "ECO SUMMIT CORPORATION",
+    "contracts": 2,
+    "total": 4982550.0,
+    "contract_ids": [
+      "GOODS-MUN-2022-01-008",
+      "GOODS-MUN-2022-05-010"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0016",
+    "name": "EIGHT INTEGRATED DEVELOPMENT CORP. (ROYCE HOTEL AND CASINO)",
+    "contracts": 1,
+    "total": 556985.45,
+    "contract_ids": [
+      "PHG-00001"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0017",
+    "name": "EL FELIPE DESIGN AND CONSTRUCTION",
+    "contracts": 1,
+    "total": 2154816.4,
+    "contract_ids": [
+      "08-008"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0018",
+    "name": "ERMIN'S PORTRAITS",
+    "contracts": 1,
+    "total": 96800.0,
+    "contract_ids": [
+      "11137489"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0019",
+    "name": "ERS ENTERPRISES",
+    "contracts": 1,
+    "total": 781915.0,
+    "contract_ids": [
+      "PHG-00182"
+    ],
+    "years": [
+      "2019"
+    ]
+  },
+  {
+    "id": "CTR-0020",
+    "name": "F AND N ENTERPRISES & GEN. MERCHANDIZE",
+    "contracts": 2,
+    "total": 1863375.0,
+    "contract_ids": [
+      "GOODS-MUN-2022-10-013",
+      "GOODS-MUN-2022-12-020"
+    ],
+    "years": [
+      "2022",
+      "2023"
+    ]
+  },
+  {
+    "id": "CTR-0021",
+    "name": "FAM - BAN KITCHENETTE",
+    "contracts": 2,
+    "total": 1748600.0,
+    "contract_ids": [
+      "GOODS 2018-10-013",
+      "GOODS-MUN-2017-12-019"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0022",
+    "name": "FEZECAL FUEL STATION",
+    "contracts": 2,
+    "total": 344250.0,
+    "contract_ids": [
+      "PHG-00024",
+      "PHG-00026"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0023",
+    "name": "FM2 TRADING & ENTERPRISES",
+    "contracts": 1,
+    "total": 1001035.1,
+    "contract_ids": [
+      "PHG-00272"
+    ],
+    "years": [
+      "2012"
+    ]
+  },
+  {
+    "id": "CTR-0024",
+    "name": "GEEMED ENTERPRISES",
+    "contracts": 2,
+    "total": 1066470.0,
+    "contract_ids": [
+      "GOODS-MUN-2024-08-025",
+      "PHG-00002"
+    ],
+    "years": [
+      "2024",
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0025",
+    "name": "GEORAVIN CONSTRUCTION &AMP; SUPPLIES",
+    "contracts": 2,
+    "total": 1195492.4,
+    "contract_ids": [
+      "INFR-MUN-2024-07-019",
+      "INFR-MUN-2024-07-023"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0026",
+    "name": "GLOBAL EIGHT BUILDERS & EQUIPMENT SUPPLIES",
+    "contracts": 1,
+    "total": 28720000.0,
+    "contract_ids": [
+      "GOODS-MUN-2024-10-029"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0027",
+    "name": "GLOBAL SUNDAY CHRONICLE",
+    "contracts": 1,
+    "total": 168000.0,
+    "contract_ids": [
+      "PHG-00004"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0028",
+    "name": "HEXAGON MECHANELEC SYSTEMS, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF KEYLARGO INDUSTRIAL SALES",
+    "contracts": 1,
+    "total": 378845.45,
+    "contract_ids": [
+      "18-05-040"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0029",
+    "name": "INTERACTIVE DRILLING CORPORATION",
+    "contracts": 3,
+    "total": 5785260.0,
+    "contract_ids": [
+      "2019-01-001",
+      "42157",
+      "INFRA-MAWADI 2016-08-001"
+    ],
+    "years": [
+      "2015",
+      "2016",
+      "2019"
+    ]
+  },
+  {
+    "id": "CTR-0030",
+    "name": "J & V ECOPROPERTIES, INC.",
+    "contracts": 2,
+    "total": 225500.0,
+    "contract_ids": [
+      "PHG-00018",
+      "PHG-00058"
+    ],
+    "years": [
+      "2024",
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0031",
+    "name": "J.G. GARCIA CONSTRUCTION & SUPPLY",
+    "contracts": 1,
+    "total": 998499.9,
+    "contract_ids": [
+      "INFR-MUN-2022-12-019"
+    ],
+    "years": [
+      "2023"
+    ]
+  },
+  {
+    "id": "CTR-0032",
+    "name": "J.L. DE GUZMAN ENTERPRISES",
+    "contracts": 4,
+    "total": 14188359.91,
+    "contract_ids": [
+      "INFR-MUN-2022-02-007",
+      "INFR-MUN-2023-09-011",
+      "INFR-MUN-2024-01-003",
+      "INFR-MUN-2025-01-002"
+    ],
+    "years": [
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0033",
+    "name": "JAS OFFICE SUPPLIES AND EQUIPMENT TRADING",
+    "contracts": 1,
+    "total": 107930.0,
+    "contract_ids": [
+      "2021-02"
+    ],
+    "years": [
+      "2021"
+    ]
+  },
+  {
+    "id": "CTR-0034",
+    "name": "JF CRUZ TRADING & CONSTRUCTION CORP.",
+    "contracts": 4,
+    "total": 2759804.31,
+    "contract_ids": [
+      "2015-11-019",
+      "42293",
+      "8",
+      "PHG-00265"
+    ],
+    "years": [
+      "2014",
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0035",
+    "name": "JJB ENTERPRISES",
+    "contracts": 1,
+    "total": 174000.0,
+    "contract_ids": [
+      "PO 18-09-078"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0036",
+    "name": "JJEA AGRIVENTURES CO.",
+    "contracts": 1,
+    "total": 819400.0,
+    "contract_ids": [
+      "PHG-00003"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0037",
+    "name": "JOMECA REALTY CORP.",
+    "contracts": 2,
+    "total": 1582050.0,
+    "contract_ids": [
+      "2015-08-012",
+      "GOODS-MUN-2016-10-005"
+    ],
+    "years": [
+      "2015",
+      "2016"
+    ]
+  },
+  {
+    "id": "CTR-0038",
+    "name": "JVB  EVENT CATERING SERVICES",
+    "contracts": 2,
+    "total": 500900.0,
+    "contract_ids": [
+      "PHG-00011",
+      "PHG-00019"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0039",
+    "name": "KABALEYAN COVE RESORT INC",
+    "contracts": 1,
+    "total": 187200.0,
+    "contract_ids": [
+      "PHG-00014"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0040",
+    "name": "KCJ GENERAL MERCHANDISE",
+    "contracts": 3,
+    "total": 3593700.0,
+    "contract_ids": [
+      "02-001-2018",
+      "2018-07-011",
+      "Goods-2018-003"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0041",
+    "name": "LAKAS AGRITECH MARKETING",
+    "contracts": 3,
+    "total": 3301000.0,
+    "contract_ids": [
+      "09-015",
+      "10",
+      "2015-10-018"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0042",
+    "name": "LM ARENAS AGRI PRODUCTS CORPORATION",
+    "contracts": 1,
+    "total": 1620495.0,
+    "contract_ids": [
+      "GOODS 10-015"
+    ],
+    "years": [
+      "2019"
+    ]
+  },
+  {
+    "id": "CTR-0043",
+    "name": "LUCKY DALE SUBIC INTERNATIONAL INC.",
+    "contracts": 1,
+    "total": 1100000.0,
+    "contract_ids": [
+      "17-11-016"
+    ],
+    "years": [
+      "2017"
+    ]
+  },
+  {
+    "id": "CTR-0044",
+    "name": "LYNCAD ENTERPRISES",
+    "contracts": 1,
+    "total": 629105.0,
+    "contract_ids": [
+      "PHG-00022"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0045",
+    "name": "MANIMELD'S CONSTRUCTION & IRON WORKS",
+    "contracts": 2,
+    "total": 6911903.15,
+    "contract_ids": [
+      "PHG-00271",
+      "PHG-00277"
+    ],
+    "years": [
+      "2011",
+      "2012"
+    ]
+  },
+  {
+    "id": "CTR-0046",
+    "name": "MARKELL MACHINERIES MANUFACTURING",
+    "contracts": 1,
+    "total": 13500000.0,
+    "contract_ids": [
+      "GOODS 10-016-2018"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0047",
+    "name": "MARKETMERGE, INC.",
+    "contracts": 1,
+    "total": 1000000.0,
+    "contract_ids": [
+      "GOODS-MUN-2016-11-006"
+    ],
+    "years": [
+      "2016"
+    ]
+  },
+  {
+    "id": "CTR-0048",
+    "name": "MASTER SON BUILDERS",
+    "contracts": 1,
+    "total": 105807.39,
+    "contract_ids": [
+      "PHG-00266"
+    ],
+    "years": [
+      "2014"
+    ]
+  },
+  {
+    "id": "CTR-0049",
+    "name": "MAXIMA TECHNICAL AND SKILLS TRAINING INSTITUTE, INC.",
+    "contracts": 1,
+    "total": 333000.0,
+    "contract_ids": [
+      "07-012"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0050",
+    "name": "MIGHTYWAY CONSTRUCTION AND SUPPLY",
+    "contracts": 1,
+    "total": 547208.75,
+    "contract_ids": [
+      "19-06-036"
+    ],
+    "years": [
+      "2019"
+    ]
+  },
+  {
+    "id": "CTR-0051",
+    "name": "MISCH GENERAL MERCHANDISE",
+    "contracts": 3,
+    "total": 1029568.76,
+    "contract_ids": [
+      "GOODS-MUN-2023-09-015",
+      "GOODS-MUN-2023-11-020",
+      "GOODS-MUN-2024-07-021"
+    ],
+    "years": [
+      "2023",
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0052",
+    "name": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "contracts": 1,
+    "total": 570400.0,
+    "contract_ids": [
+      "2015-03-001"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0053",
+    "name": "NAEL OFFICE SUPPLIES & EQUIPMENT TRADING",
+    "contracts": 1,
+    "total": 962500.0,
+    "contract_ids": [
+      "GOODS-MUN-2021-04-002"
+    ],
+    "years": [
+      "2021"
+    ]
+  },
+  {
+    "id": "CTR-0054",
+    "name": "NETLINK ADVANCE SOLUTIONS, INC.",
+    "contracts": 1,
+    "total": 832700.0,
+    "contract_ids": [
+      "2015-06-007"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0055",
+    "name": "NORTH QUADRANT VENTURES & RESOURCES, INC.",
+    "contracts": 1,
+    "total": 1669200.0,
+    "contract_ids": [
+      "GOODS-MUN-2024-08-024"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0056",
+    "name": "NORTHERN ASIA SALES CORPORATION",
+    "contracts": 1,
+    "total": 4023000.0,
+    "contract_ids": [
+      "GOODS-MUN-2016-10-004"
+    ],
+    "years": [
+      "2016"
+    ]
+  },
+  {
+    "id": "CTR-0057",
+    "name": "NYSA ENGINEERING SERVICES",
+    "contracts": 1,
+    "total": 600000.0,
+    "contract_ids": [
+      "18-11-096"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0058",
+    "name": "PANGASINAN ORGANIC SEED GROWERS & NURSERY MPC",
+    "contracts": 2,
+    "total": 1272960.0,
+    "contract_ids": [
+      "2015-10-017",
+      "MUN-2015-05-006"
+    ],
+    "years": [
+      "2015",
+      "2016"
+    ]
+  },
+  {
+    "id": "CTR-0059",
+    "name": "PENITON TRADING CORP",
+    "contracts": 1,
+    "total": 105800.0,
+    "contract_ids": [
+      "+63 2 82559876"
+    ],
+    "years": [
+      "2021"
+    ]
+  },
+  {
+    "id": "CTR-0060",
+    "name": "PETER JOHN CONSTRUCTION & SUPPLY",
+    "contracts": 1,
+    "total": 598897.12,
+    "contract_ids": [
+      "INFR-MUN-2022-12-025"
+    ],
+    "years": [
+      "2023"
+    ]
+  },
+  {
+    "id": "CTR-0061",
+    "name": "PETER JOHN ENTERPRISES",
+    "contracts": 1,
+    "total": 1788413.15,
+    "contract_ids": [
+      "INFR-MUN-2022-10-01"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0062",
+    "name": "PLATINUM PUBLICATIONS",
+    "contracts": 1,
+    "total": 250550.0,
+    "contract_ids": [
+      "PHG-00017"
+    ],
+    "years": [
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0063",
+    "name": "PUMP ASIA INDUSTRIAL CO.",
+    "contracts": 1,
+    "total": 1119898.0,
+    "contract_ids": [
+      "42005"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0064",
+    "name": "R.F. FLORES CONSTRUCTION",
+    "contracts": 8,
+    "total": 6848665.49,
+    "contract_ids": [
+      "INFR-MUN-2022-10-014",
+      "INFR-MUN-2022-12-024",
+      "INFR-MUN-2023-04-002",
+      "INFR-MUN-2023-07-006",
+      "INFR-MUN-2023-08-009",
+      "INFR-MUN-2023-09-010",
+      "INFR-MUN-2023-09-013",
+      "INFR-MUN-2023-11-017"
+    ],
+    "years": [
+      "2022",
+      "2023"
+    ]
+  },
+  {
+    "id": "CTR-0065",
+    "name": "REM CITIMED PHARMA DISTRIBUTOR",
+    "contracts": 1,
+    "total": 198970.0,
+    "contract_ids": [
+      "5"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0066",
+    "name": "RHENAMAE'S TRADING",
+    "contracts": 1,
+    "total": 2884960.0,
+    "contract_ids": [
+      "GOODS-MUN-2021-04-001"
+    ],
+    "years": [
+      "2021"
+    ]
+  },
+  {
+    "id": "CTR-0067",
+    "name": "RMAP ENTERPRISE",
+    "contracts": 8,
+    "total": 1103800.0,
+    "contract_ids": [
+      "2020-01-01 00:00:00",
+      "2020-08-01 00:00:00",
+      "2021-01",
+      "2022-01",
+      "2024-01",
+      "6391506",
+      "6795448",
+      "PHG-00157"
+    ],
+    "years": [
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0068",
+    "name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "contracts": 55,
+    "total": 70047685.85,
+    "contract_ids": [
+      "06-002",
+      "06-004",
+      "08-005-2020",
+      "19-05-027",
+      "2019-10-017",
+      "2019-10-018",
+      "2020-06-003",
+      "2020-10-008",
+      "2020-10-009",
+      "220-10-010",
+      "GOODS 2021-08-012",
+      "GOODS-MUN-19-08-013",
+      "INFR-10-019",
+      "INFR-19-08-014",
+      "INFR-BRGY-2022-00-001",
+      "INFR-BRGY-2022-08-002",
+      "INFR-BRGY-2023-05-002",
+      "INFR-BRGY-2023-06-001",
+      "INFR-MUN-2021-04-003",
+      "INFR-MUN-2021-04-004",
+      "INFR-MUN-2021-04-005",
+      "INFR-MUN-2021-04-006",
+      "INFR-MUN-2021-05-0010",
+      "INFR-MUN-2021-05-007",
+      "INFR-MUN-2021-05-008",
+      "INFR-MUN-2021-05-009",
+      "INFR-MUN-2021-11-016",
+      "INFR-MUN-2021-11-017",
+      "INFR-MUN-2021-12-019",
+      "INFR-MUN-2022-01-001",
+      "INFR-MUN-2022-01-004",
+      "INFR-MUN-2022-01-005",
+      "MUN-INFRA2021-10-015",
+      "PHG-00081",
+      "PHG-00082",
+      "PHG-00083",
+      "PHG-00084",
+      "PHG-00085",
+      "PHG-00086",
+      "PHG-00089",
+      "PHG-00090",
+      "PHG-00091",
+      "PHG-00110",
+      "PHG-00111",
+      "PHG-00112",
+      "PHG-00113",
+      "PHG-00114",
+      "PHG-00115",
+      "PHG-00117",
+      "PHG-00118",
+      "PHG-00119",
+      "PHG-00120",
+      "PHG-00121",
+      "PHG-00122",
+      "PHG-00123"
+    ],
+    "years": [
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023"
+    ]
+  },
+  {
+    "id": "CTR-0069",
+    "name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "contracts": 6,
+    "total": 7613205.56,
+    "contract_ids": [
+      "2015-04-003",
+      "2015-06-006",
+      "2015-08-011",
+      "2015-08-013",
+      "2015-11-020",
+      "9"
+    ],
+    "years": [
+      "2015"
+    ]
+  },
+  {
+    "id": "CTR-0070",
+    "name": "SAMSON AGRICULTURAL SUPPLY",
+    "contracts": 2,
+    "total": 3649630.0,
+    "contract_ids": [
+      "GOODS MUN-2021-10-0014",
+      "GOODS-MUN-2021-05-011"
+    ],
+    "years": [
+      "2021"
+    ]
+  },
+  {
+    "id": "CTR-0071",
+    "name": "S&P ENTERPRISES, INC.",
+    "contracts": 1,
+    "total": 1333566.0,
+    "contract_ids": [
+      "GOODS-MUN-2022-02-009"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0072",
+    "name": "SASOUN TRADING (SASOUN CYCLE SHOP)",
+    "contracts": 1,
+    "total": 1424000.0,
+    "contract_ids": [
+      "07-010-2018"
+    ],
+    "years": [
+      "2018"
+    ]
+  },
+  {
+    "id": "CTR-0073",
+    "name": "SEAN'S PRINTING SERVICES",
+    "contracts": 1,
+    "total": 92640.0,
+    "contract_ids": [
+      "MNHS-2019-001"
+    ],
+    "years": [
+      "2019"
+    ]
+  },
+  {
+    "id": "CTR-0074",
+    "name": "SOFERJED ENTERPRISES",
+    "contracts": 3,
+    "total": 514810.0,
+    "contract_ids": [
+      "PHG-00010",
+      "PHG-00023",
+      "PHG-00274"
+    ],
+    "years": [
+      "2012",
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0075",
+    "name": "SPEEDTECH PRINTING AND GENERAL MERCHANDISE",
+    "contracts": 1,
+    "total": 174750.0,
+    "contract_ids": [
+      "+63 920 2399320"
+    ],
+    "years": [
+      "2021"
+    ]
+  },
+  {
+    "id": "CTR-0076",
+    "name": "SPHERE CAR & AUTO ACCESSORIES",
+    "contracts": 1,
+    "total": 125290.0,
+    "contract_ids": [
+      "PHG-00057"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0077",
+    "name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "contracts": 6,
+    "total": 7394909.0,
+    "contract_ids": [
+      "GOODS-MUN-2022-10-016",
+      "GOODS-MUN-2023-08-007",
+      "GOODS-MUN-2023-08-008",
+      "GOODS-MUN-2024-03-009",
+      "GOODS-MUN-2024-09-026",
+      "GOODS-MUN-2024-09-027"
+    ],
+    "years": [
+      "2022",
+      "2023",
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0078",
+    "name": "SYSTEM PROCESSOR &AMP; CONST. CORP.",
+    "contracts": 1,
+    "total": 3413301.38,
+    "contract_ids": [
+      "2016-11-010"
+    ],
+    "years": [
+      "2017"
+    ]
+  },
+  {
+    "id": "CTR-0079",
+    "name": "TARLAC MAC ENTERPRISES, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF FIRST AC MEGASAVER AND FIRST MAC MEGASAVER",
+    "contracts": 1,
+    "total": 167850.0,
+    "contract_ids": [
+      "2020-12-014"
+    ],
+    "years": [
+      "2020"
+    ]
+  },
+  {
+    "id": "CTR-0080",
+    "name": "TOYOTA DAGUPAN CITY INC.",
+    "contracts": 6,
+    "total": 11039920.0,
+    "contract_ids": [
+      "05-004",
+      "17-05-001",
+      "GOODS-MUN-2022-08-012",
+      "GOODS-MUN-2023-01-001",
+      "PHG-00145",
+      "PHG-00231"
+    ],
+    "years": [
+      "2015",
+      "2016",
+      "2017",
+      "2021",
+      "2022",
+      "2023"
+    ]
+  },
+  {
+    "id": "CTR-0081",
+    "name": "UBET TRADING",
+    "contracts": 19,
+    "total": 11083366.66,
+    "contract_ids": [
+      "GOODS-MUN-2023-06-004",
+      "GOODS-MUN-2023-11-21",
+      "GOODS-MUN-2024-007-017",
+      "GOODS-MUN-2024-01-002",
+      "GOODS-MUN-2024-06-015",
+      "GOODS-MUN-2024-09-028",
+      "GOODS-MUN-2024-11-030",
+      "GOODS-MUN-2024-11-031",
+      "GOODS-MUN-2024-11-033",
+      "GOODS-MUN-2025-01-001",
+      "PHG-00005",
+      "PHG-00007",
+      "PHG-00008",
+      "PHG-00012",
+      "PHG-00013",
+      "PHG-00015",
+      "PHG-00016",
+      "PHG-00020",
+      "PHG-00025"
+    ],
+    "years": [
+      "2023",
+      "2024",
+      "2025"
+    ]
+  },
+  {
+    "id": "CTR-0082",
+    "name": "VILLAR GENERAL CONSTRUCTION & SUPPLIES",
+    "contracts": 2,
+    "total": 1573632.89,
+    "contract_ids": [
+      "GOODS-MUN-2024-11-034",
+      "INFR-MUN-2024-02-004"
+    ],
+    "years": [
+      "2024"
+    ]
+  },
+  {
+    "id": "CTR-0083",
+    "name": "VMV ENTERPRISES",
+    "contracts": 1,
+    "total": 3105000.0,
+    "contract_ids": [
+      "09104752533"
+    ],
+    "years": [
+      "2022"
+    ]
+  },
+  {
+    "id": "CTR-0084",
+    "name": "VYRAGUS CONSTRUCTION",
+    "contracts": 3,
+    "total": 2533709.43,
+    "contract_ids": [
+      "PHG-00273",
+      "PHG-00275",
+      "PHG-00276"
+    ],
+    "years": [
+      "2012"
+    ]
+  },
+  {
+    "id": "CTR-0085",
+    "name": "WELMARY CONSTRUCTION & SUPPLY",
+    "contracts": 1,
+    "total": 1682452.53,
+    "contract_ids": [
+      "MUN 10-016"
+    ],
+    "years": [
+      "2019"
+    ]
+  },
+  {
+    "id": "CTR-0086",
+    "name": "ZEAL TECHNOLOGIES ENTERPRISES",
+    "contracts": 1,
+    "total": 983051.0,
+    "contract_ids": [
+      "08-006-2020"
+    ],
+    "years": [
+      "2020"
+    ]
+  },
+  {
+    "id": "CTR-0087",
+    "name": "ZI-ON CONSUMER GOODS TRADING",
+    "contracts": 1,
+    "total": 2997000.0,
+    "contract_ids": [
+      "GOODS-MUN-2024-02-005"
+    ],
+    "years": [
+      "2024"
+    ]
+  }
+]

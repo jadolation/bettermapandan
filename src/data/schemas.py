@@ -111,7 +111,8 @@ SCHEMAS = {
                         "business_category": {"type": "string"},
                         "reference_id": {"type": "string"},
                         "contract_no": {"type": "string"},
-                        "organization_name": {"type": "string"}
+                        "organization_name": {"type": "string"},
+                        "crossref": {"type": "object"}
                     }
                 }
             }
@@ -182,8 +183,124 @@ SCHEMAS = {
             "spa": {"type": "array"}
         }
     },
+    "coa-project-findings.json": {
+        "type": "object",
+        "required": ["project_names"],
+        "properties": {
+            "contract_number_formats": {"type": "array"},
+            "contractor_names": {"type": "array"},
+            "project_names": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": ["project_title", "cost", "fund_source", "status"],
+                    "properties": {
+                        "project_title": {"type": "string"},
+                        "cost": {"type": "number"},
+                        "fund_source": {"type": "string"},
+                        "status": {"type": "string"}
+                    }
+                }
+            },
+            "procurement_section_observations": {"type": "array"},
+            "infrastructure_section_observations": {"type": "array"},
+            "disallowed_disallowance_findings": {"type": "array"},
+            "philgeps_records": {"type": "array"},
+            "peso_amounts_near_project_names": {"type": "array"}
+        }
+    },
+    "entities/projects.json": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["project_id", "canonical_name", "project_type",
+                         "municipality", "province", "barangay", "fiscal_year",
+                         "provenance"],
+            "properties": {
+                "project_id": {"type": "string"},
+                "canonical_name": {"type": "string"},
+                "project_type": {"type": "string"},
+                "municipality": {"type": "string"},
+                "province": {"type": "string"},
+                "barangay": {"type": "array"},
+                "fiscal_year": {"type": ["integer", "null"]},
+                "provenance": {"type": "array", "minItems": 1}
+            }
+        }
+    },
+    "entities/contracts.json": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["contract_id", "title", "award_amount", "award_date",
+                         "organization", "source_record_id", "provenance"],
+            "properties": {
+                "contract_id": {"type": "string"},
+                "title": {"type": "string"},
+                "awardee_id": {"type": ["string", "null"]},
+                "award_amount": {"type": "number"},
+                "award_date": {"type": "string"},
+                "provenance": {"type": "array", "minItems": 1}
+            }
+        }
+    },
+    "entities/contractors.json": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["contractor_id", "canonical_name", "source_names",
+                         "contract_count", "provenance"],
+            "properties": {
+                "contractor_id": {"type": "string"},
+                "canonical_name": {"type": "string"},
+                "source_names": {"type": "array", "minItems": 1},
+                "provenance": {"type": "array", "minItems": 1}
+            }
+        }
+    },
+    "entities/funds.json": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["fund_id", "period", "figures", "provenance"],
+            "properties": {
+                "fund_id": {"type": "string"},
+                "period": {"type": "string"},
+                "figures": {"type": "object"},
+                "provenance": {"type": "array", "minItems": 1}
+            }
+        }
+    },
+    "entities/audit-findings.json": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["finding_id", "title", "status", "provenance"],
+            "properties": {
+                "finding_id": {"type": "string"},
+                "title": {"type": "string"},
+                "provenance": {"type": "array", "minItems": 1}
+            }
+        }
+    },
+    "relationships.json": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["id", "from", "to", "type", "confidence", "evidence"],
+            "properties": {
+                "id": {"type": "string"},
+                "from": {"type": "string"},
+                "to": {"type": "string"},
+                "type": {"type": "string"},
+                "confidence": {"type": "string",
+                               "enum": ["explicit", "strong", "probable",
+                                        "possible", "unmatched"]},
+                "evidence": {"type": "array", "minItems": 1}
+            }
+        }
+    }
 }
-
 
 def validate_all(data_dir: Path) -> list:
     """Validate all JSON data files in *data_dir* against their schemas."""

@@ -1,0 +1,5542 @@
+[
+  {
+    "contract_id": "PHG-00001",
+    "title": "Food and Hotel Accommodation for Three (3) days Tr",
+    "awardee_id": "CTR-0016",
+    "awardee_name": "EIGHT INTEGRATED DEVELOPMENT CORP. (ROYCE HOTEL AND CASINO)",
+    "award_amount": 556985.45,
+    "award_date": "2025-12-09",
+    "status": "active",
+    "category": "Hotel and Lodging and Meeting Facilities",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#1",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00002",
+    "title": "Procurement of Medicines for 2nd Quarter of 2025,",
+    "awardee_id": "CTR-0024",
+    "awardee_name": "GEEMED ENTERPRISES",
+    "award_amount": 607250.0,
+    "award_date": "2025-10-03",
+    "status": "active",
+    "category": "Drugs and Medicines",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#2",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00003",
+    "title": "Procurement of Support to Farmers-Fertilizer Assis",
+    "awardee_id": "CTR-0036",
+    "awardee_name": "JJEA AGRIVENTURES CO.",
+    "award_amount": 819400.0,
+    "award_date": "2025-10-02",
+    "status": "active",
+    "category": "Fertilizers",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#3",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00004",
+    "title": "Newspaper for Publishing for the Information of th",
+    "awardee_id": "CTR-0027",
+    "awardee_name": "GLOBAL SUNDAY CHRONICLE",
+    "award_amount": 168000.0,
+    "award_date": "2025-09-06",
+    "status": "active",
+    "category": "Newspapers",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#4",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00005",
+    "title": "Additional Relief Goods Distributed to Victims of",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 230519.0,
+    "award_date": "2025-08-14",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#5",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00006",
+    "title": "Souvenir Programs for 2025 Cultural Presentation U",
+    "awardee_id": "CTR-0002",
+    "awardee_name": "ALBERT PRINTING SERVICES",
+    "award_amount": 199800.0,
+    "award_date": "2025-08-14",
+    "status": "active",
+    "category": "Printing Services",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#6",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00007",
+    "title": "Office Equipment for Office of the Mayor and LYDO",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 260300.0,
+    "award_date": "2025-08-13",
+    "status": "active",
+    "category": "Office Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#7",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00007",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00008",
+    "title": "Various Materials for various events and programs",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 214000.0,
+    "award_date": "2025-08-13",
+    "status": "active",
+    "category": "Construction Materials and Supplies",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#8",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00009",
+    "title": "Materials for Improvement of Various Office in Map",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 253006.33,
+    "award_date": "2025-08-09",
+    "status": "active",
+    "category": "Construction Materials and Supplies",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#9",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00010",
+    "title": "Nutritious Food Products for Nutrition Program Ac",
+    "awardee_id": "CTR-0074",
+    "awardee_name": "SOFERJED ENTERPRISES",
+    "award_amount": 246060.0,
+    "award_date": "2025-08-09",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#10",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00011",
+    "title": "Procurement of Various Refreshments for walk in vi",
+    "awardee_id": "CTR-0038",
+    "awardee_name": "JVB  EVENT CATERING SERVICES",
+    "award_amount": 108500.0,
+    "award_date": "2025-07-26",
+    "status": "active",
+    "category": "Grocery Items",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#11",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00012",
+    "title": "Solar Lights for the Maintenance/Improvement of Ma",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 334650.0,
+    "award_date": "2025-07-21",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#12",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00013",
+    "title": "Stockpiling of Basic Emergency Goods (Food Item",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 249290.0,
+    "award_date": "2025-07-21",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#13",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00013",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00014",
+    "title": "Food and Accommodation for the Conduct of First Ai",
+    "awardee_id": "CTR-0039",
+    "awardee_name": "KABALEYAN COVE RESORT INC",
+    "award_amount": 187200.0,
+    "award_date": "2025-07-21",
+    "status": "active",
+    "category": "Travel, Food, Lodging and Entertainment Services",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#14",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00014",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00015",
+    "title": "Anti-Rabies Vaccine for Medical Use",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 148800.0,
+    "award_date": "2025-07-21",
+    "status": "active",
+    "category": "Drugs and Medicines",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#15",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00016",
+    "title": "Janitorial Equipment for Mapandan Public Plaza &",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 184500.0,
+    "award_date": "2025-07-15",
+    "status": "active",
+    "category": "Janitorial Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#16",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00016",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00017",
+    "title": "Learning Books for Child Development Learners SY.",
+    "awardee_id": "CTR-0062",
+    "awardee_name": "PLATINUM PUBLICATIONS",
+    "award_amount": 250550.0,
+    "award_date": "2025-07-14",
+    "status": "active",
+    "category": "Printing Services",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#17",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00017",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00018",
+    "title": "FOOD STUFF",
+    "awardee_id": "CTR-0030",
+    "awardee_name": "J & V ECOPROPERTIES, INC.",
+    "award_amount": 163000.0,
+    "award_date": "2025-07-01",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#18",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00019",
+    "title": "Purchase of Meals for Government Affairs",
+    "awardee_id": "CTR-0038",
+    "awardee_name": "JVB  EVENT CATERING SERVICES",
+    "award_amount": 392400.0,
+    "award_date": "2025-06-30",
+    "status": "active",
+    "category": "Catering Services",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#19",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00019",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00020",
+    "title": "Purchase of Customized Basketball Jersey(Sublimati",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 204100.0,
+    "award_date": "2025-06-27",
+    "status": "active",
+    "category": "Textiles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#20",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00020",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00021",
+    "title": "Procurement and Installation of CCTV Cameras",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1152740.0,
+    "award_date": "2025-06-24",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#21",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00021",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00022",
+    "title": "Procurement of Medicines for 3rd Quarter of 2025",
+    "awardee_id": "CTR-0044",
+    "awardee_name": "LYNCAD ENTERPRISES",
+    "award_amount": 629105.0,
+    "award_date": "2025-06-24",
+    "status": "active",
+    "category": "Drugs and Medicines",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#22",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00022",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00023",
+    "title": "Hygiene Kits for Child Development Children for th",
+    "awardee_id": "CTR-0074",
+    "awardee_name": "SOFERJED ENTERPRISES",
+    "award_amount": 124200.0,
+    "award_date": "2025-06-23",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#23",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00023",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00024",
+    "title": "FUEL, OIL AND LUBRICANTS FOR CY2025",
+    "awardee_id": "CTR-0022",
+    "awardee_name": "FEZECAL FUEL STATION",
+    "award_amount": 172000.0,
+    "award_date": "2025-03-01",
+    "status": "active",
+    "category": "Fuels/Fuel Additives & Lubricants & Anti Corrosive",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#24",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00024",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00025",
+    "title": "Procurement of Various Uniforms, GOODS-MUN-2025-01",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 939169.0,
+    "award_date": "2025-02-24",
+    "status": "active",
+    "category": "Textiles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#25",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00025",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00026",
+    "title": "Delivery of FUEL, OIL & LUBRICANTS for CY2025",
+    "awardee_id": "CTR-0022",
+    "awardee_name": "FEZECAL FUEL STATION",
+    "award_amount": 172250.0,
+    "award_date": "2025-02-01",
+    "status": "active",
+    "category": "Fuels/Fuel Additives & Lubricants & Anti Corrosive",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#26",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00026",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2025-01-001",
+    "title": "Procurement of Medicines for 1st Quarter of 2025,",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 609190.0,
+    "award_date": "2025-01-10",
+    "status": "active",
+    "category": "Drugs and Medicines",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#27",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2025-01-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2025-01-002",
+    "title": "Construction of One (1) Stop Shop Building Phase 4",
+    "awardee_id": "CTR-0032",
+    "awardee_name": "J.L. DE GUZMAN ENTERPRISES",
+    "award_amount": 8496974.63,
+    "award_date": "2025-01-03",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#28",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2025-01-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-11-034",
+    "title": "Procurement of Solar Lights to be Distributed to a",
+    "awardee_id": "CTR-0082",
+    "awardee_name": "VILLAR GENERAL CONSTRUCTION & SUPPLIES",
+    "award_amount": 1004126.4,
+    "award_date": "2024-12-23",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#29",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-11-034",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-11-031",
+    "title": "Procurement of Various Goods for Government Affair",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 1342750.0,
+    "award_date": "2024-12-20",
+    "status": "active",
+    "category": "Grocery Items",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#30",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-11-031",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-11-032",
+    "title": "Construction of Barangay Golden Child Development",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 509755.82,
+    "award_date": "2024-12-20",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#31",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-11-032",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-11-033",
+    "title": "Procurement of RHU Chest Type Freezer for Vaccine/",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 398000.0,
+    "award_date": "2024-12-20",
+    "status": "active",
+    "category": "Laboratory Supplies and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#32",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-11-033",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-11-030",
+    "title": "the Procurement of Various Materials use to Decora",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 1099998.25,
+    "award_date": "2024-12-13",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#33",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-11-030",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-10-029",
+    "title": "Procurement for Sixteen (16) Units Manual Transmis",
+    "awardee_id": "CTR-0026",
+    "awardee_name": "GLOBAL EIGHT BUILDERS & EQUIPMENT SUPPLIES",
+    "award_amount": 28720000.0,
+    "award_date": "2024-12-03",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#34",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-10-029",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-09-027",
+    "title": "Support to Farmers- Fertilizer Assistance",
+    "awardee_id": "CTR-0077",
+    "awardee_name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "award_amount": 499200.0,
+    "award_date": "2024-10-18",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#35",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-09-027",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-09-028",
+    "title": "Additional Office Equipment in Various Offices",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 1204000.0,
+    "award_date": "2024-10-18",
+    "status": "active",
+    "category": "Office Supplies and Devices",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#36",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-09-028",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-09-026",
+    "title": "Procurement for Support to Farmers- Hybrid Yellow",
+    "awardee_id": "CTR-0077",
+    "awardee_name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "award_amount": 2098000.0,
+    "award_date": "2024-10-18",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#37",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-09-026",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-08-024",
+    "title": "Procurement of Motor Vehicle for Vice Mayor and Sa",
+    "awardee_id": "CTR-0055",
+    "awardee_name": "NORTH QUADRANT VENTURES & RESOURCES, INC.",
+    "award_amount": 1669200.0,
+    "award_date": "2024-10-04",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#38",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-08-024",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-08-025",
+    "title": "Procurement of Medicine Supplies for 4th Quarter 2",
+    "awardee_id": "CTR-0024",
+    "awardee_name": "GEEMED ENTERPRISES",
+    "award_amount": 459220.0,
+    "award_date": "2024-10-04",
+    "status": "active",
+    "category": "Medical Supplies and Laboratory Instrument",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#39",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-08-025",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-07-020",
+    "title": "Construction of Perimeter Fence,Backfilling and Co",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1498197.06,
+    "award_date": "2024-09-09",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#40",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-07-020",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-07-019",
+    "title": "Improvement/Extension of Office for MDRRM Command",
+    "awardee_id": "CTR-0025",
+    "awardee_name": "GEORAVIN CONSTRUCTION &AMP; SUPPLIES",
+    "award_amount": 697894.77,
+    "award_date": "2024-09-09",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#41",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-07-019",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-07-023",
+    "title": "Construction of Air-conditioned Waiting Shed at Po",
+    "awardee_id": "CTR-0025",
+    "awardee_name": "GEORAVIN CONSTRUCTION &AMP; SUPPLIES",
+    "award_amount": 497597.63,
+    "award_date": "2024-09-09",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#42",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-07-023",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-07-021",
+    "title": "Procurement and Installation of Industrial Fan at",
+    "awardee_id": "CTR-0051",
+    "awardee_name": "MISCH GENERAL MERCHANDISE",
+    "award_amount": 298000.0,
+    "award_date": "2024-09-09",
+    "status": "active",
+    "category": "Industrial Machinery and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#43",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-07-021",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "11137489",
+    "title": "Learner School ID",
+    "awardee_id": "CTR-0018",
+    "awardee_name": "ERMIN'S PORTRAITS",
+    "award_amount": 96800.0,
+    "award_date": "2024-08-22",
+    "status": "active",
+    "category": "Photography Services",
+    "organization": "MAPANDAN NATIONAL HIGH SCHOOL",
+    "source_record_id": "procurement.json#44",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "11137489",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-007-017",
+    "title": "Procurement of Various Office Equipment GOODS-MUN-",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 732800.0,
+    "award_date": "2024-08-06",
+    "status": "active",
+    "category": "Office Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#45",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-007-017",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-06-015",
+    "title": "Procurement of Medicine for the Third Quarter of",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 462500.0,
+    "award_date": "2024-07-11",
+    "status": "active",
+    "category": "Medical Supplies and Laboratory Instrument",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#46",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-06-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-04-015",
+    "title": "Procurement of Two (2) units Mini Dump Truck",
+    "awardee_id": "CTR-0012",
+    "awardee_name": "BVC AUTOMOTIVE SPARE PARTS TRADING",
+    "award_amount": 3509635.0,
+    "award_date": "2024-06-18",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#47",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-04-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2024-01",
+    "title": "PROCUREMENT OF SOLAR STREETLIGHTS FOR BRGY JIMENEZ (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 99850.0,
+    "award_date": "2024-05-27",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#48",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2024-01",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-04-014",
+    "title": "Procurement/Installation of CCTV Cameras",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1794920.0,
+    "award_date": "2024-05-21",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#49",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-04-014",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-04-010",
+    "title": "Construction of Cross-drain Canal along Gondol St.",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 499480.61,
+    "award_date": "2024-04-29",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#50",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-04-010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-04-012",
+    "title": "Construction of Covered Drainage Canal along Lawin",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 499242.82,
+    "award_date": "2024-04-29",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#51",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-04-012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00052",
+    "title": "Re-Constructioin of Drainage Canal along Pico Aven",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 499354.81,
+    "award_date": "2024-04-29",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#52",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00052",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-02-004",
+    "title": "Additional Illumination of Mapandan Town Plaza-Pha",
+    "awardee_id": "CTR-0082",
+    "awardee_name": "VILLAR GENERAL CONSTRUCTION & SUPPLIES",
+    "award_amount": 569506.49,
+    "award_date": "2024-04-29",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#53",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-02-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-04-011",
+    "title": "Improvement of Barangay Road and Drainage Canal at",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 999113.99,
+    "award_date": "2024-04-29",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#54",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-04-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-03-009",
+    "title": "Support to Farmers- Palay Seed Assistance",
+    "awardee_id": "CTR-0077",
+    "awardee_name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "award_amount": 698610.0,
+    "award_date": "2024-04-23",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#55",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-03-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-03-008",
+    "title": "Procurement of Medicine for the Second Quarter of",
+    "awardee_id": "CTR-0013",
+    "awardee_name": "CEDEMED PHARMA DISTRIBUTOR",
+    "award_amount": 460119.5,
+    "award_date": "2024-04-23",
+    "status": "active",
+    "category": "Medical Supplies and Laboratory Instrument",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#56",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-03-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00057",
+    "title": "Maintenance of Motor Vehicle",
+    "awardee_id": "CTR-0076",
+    "awardee_name": "SPHERE CAR & AUTO ACCESSORIES",
+    "award_amount": 125290.0,
+    "award_date": "2024-04-22",
+    "status": "active",
+    "category": "Vehicle Repair and Maintenance",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#57",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00057",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00058",
+    "title": "Food Stuff",
+    "awardee_id": "CTR-0030",
+    "awardee_name": "J & V ECOPROPERTIES, INC.",
+    "award_amount": 62500.0,
+    "award_date": "2024-04-01",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#58",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00058",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-02-005",
+    "title": "GOODS-MUN-2024-02-005",
+    "awardee_id": "CTR-0087",
+    "awardee_name": "ZI-ON CONSUMER GOODS TRADING",
+    "award_amount": 2997000.0,
+    "award_date": "2024-03-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#59",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-02-005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2024-01-003",
+    "title": "INFR-MUN-2024-01-003",
+    "awardee_id": "CTR-0032",
+    "awardee_name": "J.L. DE GUZMAN ENTERPRISES",
+    "award_amount": 1698498.46,
+    "award_date": "2024-03-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#60",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2024-01-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-01-002",
+    "title": "Procurement of Sports Uniforms for Various Teams f",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 771800.71,
+    "award_date": "2024-02-20",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#61",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-01-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2024-01-001",
+    "title": "Procurement of Medicine for the First Quarter of 2",
+    "awardee_id": "CTR-0013",
+    "awardee_name": "CEDEMED PHARMA DISTRIBUTOR",
+    "award_amount": 387926.0,
+    "award_date": "2024-02-19",
+    "status": "active",
+    "category": "Medical Supplies and Laboratory Instrument",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#62",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2024-01-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-11-016",
+    "title": "Improvement of Mapandan Public Market Phase 3",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 999355.01,
+    "award_date": "2023-12-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#63",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-11-016",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2023-11-21",
+    "title": "Procurement of Generator Equipment for Rural Heal",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 698000.0,
+    "award_date": "2023-12-15",
+    "status": "active",
+    "category": "Power Generation and Distribution Machinery",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#64",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2023-11-21",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-11-018",
+    "title": "Improvement of Mapandan Tennis Club house",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 499996.43,
+    "award_date": "2023-12-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#65",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-11-018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-11-017",
+    "title": "Additional Illumination at Mapandan Town Plaza",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 497686.45,
+    "award_date": "2023-12-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#66",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-11-017",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2023-11-020",
+    "title": "Support to Farmers- Fertilizer Assistance",
+    "awardee_id": "CTR-0051",
+    "awardee_name": "MISCH GENERAL MERCHANDISE",
+    "award_amount": 494568.76,
+    "award_date": "2023-12-15",
+    "status": "active",
+    "category": "Fertilizers",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#67",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2023-11-020",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2023-09-015",
+    "title": "Fertilizer Assistance for Local Tobacco Farmers",
+    "awardee_id": "CTR-0051",
+    "awardee_name": "MISCH GENERAL MERCHANDISE",
+    "award_amount": 237000.0,
+    "award_date": "2023-10-05",
+    "status": "active",
+    "category": "Fertilizers",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#68",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2023-09-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-09-010",
+    "title": "Construction of LandBank ATM Hub at Pandan Avenue,",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 398401.57,
+    "award_date": "2023-09-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#69",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-09-010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-09-012",
+    "title": "Improvement of Barangay Road and Drainage Canal at",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 575405.85,
+    "award_date": "2023-09-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#70",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-09-012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-09-013",
+    "title": "Improvement of Various Roads to Mitigate/Reduce Di",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 843278.14,
+    "award_date": "2023-09-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#71",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-09-013",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-09-011",
+    "title": "Construction of One (1) Stop Shop Building Phase 3",
+    "awardee_id": "CTR-0032",
+    "awardee_name": "J.L. DE GUZMAN ENTERPRISES",
+    "award_amount": 2997995.38,
+    "award_date": "2023-09-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#72",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-09-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-08-009",
+    "title": "Construction of Covered Drainage Canal along Lawin",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 1494636.38,
+    "award_date": "2023-09-06",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#73",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-08-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2023-08-007",
+    "title": "Support to Farmers- Palay Seed Assistance",
+    "awardee_id": "CTR-0077",
+    "awardee_name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "award_amount": 999635.0,
+    "award_date": "2023-09-06",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#74",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2023-08-007",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2023-08-008",
+    "title": "Support to Farmers- Hybrid Yellow Assistance",
+    "awardee_id": "CTR-0077",
+    "awardee_name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "award_amount": 2099464.0,
+    "award_date": "2023-09-06",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#75",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2023-08-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-07-005",
+    "title": "Improvement of Brgy. Road and Drainage Canal at (M",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 2510319.86,
+    "award_date": "2023-08-04",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#76",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-07-005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-07-006",
+    "title": "Improvement of Multi-Purpose Covered Court at Brgy",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 995014.52,
+    "award_date": "2023-08-04",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#77",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-07-006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2023-06-004",
+    "title": "Procurement of Medicine for the 2nd and 3rd Qua",
+    "awardee_id": "CTR-0081",
+    "awardee_name": "UBET TRADING",
+    "award_amount": 998999.7,
+    "award_date": "2023-07-12",
+    "status": "active",
+    "category": "Medical Supplies and Laboratory Instrument",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#78",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2023-06-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-06-003",
+    "title": "INFR-MUN-2023-06-003",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 849206.04,
+    "award_date": "2023-07-12",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#79",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-06-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-BRGY-2023-06-001",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 48969.27,
+    "award_date": "2023-07-11",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#80",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-BRGY-2023-06-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00081",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 9245.78,
+    "award_date": "2023-07-11",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#81",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00081",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00082",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 12241.53,
+    "award_date": "2023-07-11",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#82",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00082",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00083",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 559582.28,
+    "award_date": "2023-07-11",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#83",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00083",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00084",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 188399.25,
+    "award_date": "2023-07-11",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#84",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00084",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00085",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 213658.88,
+    "award_date": "2023-07-11",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#85",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00085",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00086",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 566356.35,
+    "award_date": "2023-07-11",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#86",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00086",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "09 209522527",
+    "title": "Honorarium of referees,timekeeper,scorekeeper and barker for 1st Vega's Cup inter-barangay Basketball Tournament 2023",
+    "awardee_id": "CTR-0010",
+    "awardee_name": "BASKETBALL ASSOCIATION OF THE PHILIPPINES REGION 1 INC.",
+    "award_amount": 339540.0,
+    "award_date": "2023-06-27",
+    "status": "active",
+    "category": "Services",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#87",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "09 209522527",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-BRGY-2023-05-002",
+    "title": "Concrete Paving",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 11481.96,
+    "award_date": "2023-06-17",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#88",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-BRGY-2023-05-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00089",
+    "title": "Concrete Paving",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 6706.85,
+    "award_date": "2023-06-17",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#89",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00089",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00090",
+    "title": "Concrete Paving",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 240957.06,
+    "award_date": "2023-06-17",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#90",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00090",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00091",
+    "title": "Concrete Paving",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 40245.37,
+    "award_date": "2023-06-17",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#91",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00091",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2023-04-002",
+    "title": "Rehabilitation of Multi-Purpose Building at Brgy.",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 1194982.71,
+    "award_date": "2023-05-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#92",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2023-04-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2023-01-001",
+    "title": "Procurement of Motor Vehicle for Agriculture Offic",
+    "awardee_id": "CTR-0080",
+    "awardee_name": "TOYOTA DAGUPAN CITY INC.",
+    "award_amount": 1109760.0,
+    "award_date": "2023-02-17",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#93",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2023-01-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-12-022",
+    "title": "Procurement of 1 unit of Backhoe",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 395000.0,
+    "award_date": "2023-02-14",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#94",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-12-022",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-12-019",
+    "title": "Construction of Green House with Hydroponics",
+    "awardee_id": "CTR-0031",
+    "awardee_name": "J.G. GARCIA CONSTRUCTION & SUPPLY",
+    "award_amount": 998499.9,
+    "award_date": "2023-02-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#95",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-12-019",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-12-024",
+    "title": "Improvement of Rural Health Unit (RHU)",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 891569.86,
+    "award_date": "2023-02-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#96",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-12-024",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-12-025",
+    "title": "Installation of Solar Lights along Pandan Avenue",
+    "awardee_id": "CTR-0060",
+    "awardee_name": "PETER JOHN CONSTRUCTION & SUPPLY",
+    "award_amount": 598897.12,
+    "award_date": "2023-02-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#97",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-12-025",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-12-020",
+    "title": "Procurement of 17 Water Pump 10hp for Tabacco F",
+    "awardee_id": "CTR-0020",
+    "awardee_name": "F AND N ENTERPRISES & GEN. MERCHANDIZE",
+    "award_amount": 513995.0,
+    "award_date": "2023-02-13",
+    "status": "active",
+    "category": "Agricultural Machinery and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#98",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-12-020",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-10-01",
+    "title": "Fabrication/Installation of various Christmas Deco",
+    "awardee_id": "CTR-0061",
+    "awardee_name": "PETER JOHN ENTERPRISES",
+    "award_amount": 1788413.15,
+    "award_date": "2022-11-29",
+    "status": "active",
+    "category": "Arts and Crafts Accessories and Supplies",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#99",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-10-01",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-10-015",
+    "title": "Support to Farmers- Hybrid Yellow Corn Assistance",
+    "awardee_id": "CTR-0007",
+    "awardee_name": "ASIAN HYBRID SEED TECHNOLOGIES, INC.",
+    "award_amount": 2764200.0,
+    "award_date": "2022-11-17",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#100",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-10-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-10-013",
+    "title": "Support Funds to Tobacco Farmers (7HP Water Pump)",
+    "awardee_id": "CTR-0020",
+    "awardee_name": "F AND N ENTERPRISES & GEN. MERCHANDIZE",
+    "award_amount": 1349380.0,
+    "award_date": "2022-11-17",
+    "status": "active",
+    "category": "Agricultural Machinery and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#101",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-10-013",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-10-016",
+    "title": "Support to Farmers- Palay Seed Assistance",
+    "awardee_id": "CTR-0077",
+    "awardee_name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "award_amount": 1000000.0,
+    "award_date": "2022-11-17",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#102",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-10-016",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-10-014",
+    "title": "Construction of Multi-Purposed Drying Pavement",
+    "awardee_id": "CTR-0064",
+    "awardee_name": "R.F. FLORES CONSTRUCTION",
+    "award_amount": 533095.86,
+    "award_date": "2022-11-17",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#103",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-10-014",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-08-012",
+    "title": "Procurement of Two (2) units of Service Vehicles (",
+    "awardee_id": "CTR-0080",
+    "awardee_name": "TOYOTA DAGUPAN CITY INC.",
+    "award_amount": 2808800.0,
+    "award_date": "2022-11-04",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#104",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-08-012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-01-002",
+    "title": "Construction of Covered Sidewalk Box Culvert, Curb",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 698695.97,
+    "award_date": "2022-10-17",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#105",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-01-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-08-011",
+    "title": "Improvement of Mapandan Public Market",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 3435572.78,
+    "award_date": "2022-10-10",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#106",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-08-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-02-007",
+    "title": "Proposed Construction of (1) One Stop Shop Phase 2",
+    "awardee_id": "CTR-0032",
+    "awardee_name": "J.L. DE GUZMAN ENTERPRISES",
+    "award_amount": 994891.44,
+    "award_date": "2022-10-10",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#107",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-02-007",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-01-006",
+    "title": "Widening of Road",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1498452.51,
+    "award_date": "2022-10-10",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#108",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-01-006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-BRGY-2022-08-002",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 207487.56,
+    "award_date": "2022-09-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#109",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-BRGY-2022-08-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00110",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 191026.29,
+    "award_date": "2022-09-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#110",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00110",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00111",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 69608.33,
+    "award_date": "2022-09-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#111",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00111",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00112",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 66740.76,
+    "award_date": "2022-09-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#112",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00112",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00113",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 12772.2,
+    "award_date": "2022-09-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#113",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00113",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00114",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 11422.9,
+    "award_date": "2022-09-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#114",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00114",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00115",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 7299.42,
+    "award_date": "2022-09-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY ASERDA - MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#115",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00115",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "8996049",
+    "title": "SUPPLY AND DELIVERY OF SOLAR STREETLIGHTS INCLUDING INSTALLATION",
+    "awardee_id": "CTR-0008",
+    "awardee_name": "BARANGAY GOLDEN, MAPANDAN, PANGASINAN",
+    "award_amount": 284900.0,
+    "award_date": "2022-09-22",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "BARANGAY GOLDEN, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#116",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "8996049",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00117",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 114843.43,
+    "award_date": "2022-09-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#117",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00117",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00118",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 7741.37,
+    "award_date": "2022-09-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#118",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00118",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00119",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 22351.35,
+    "award_date": "2022-09-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#119",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00119",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00120",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 11390.09,
+    "award_date": "2022-09-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#120",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00120",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00121",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 119959.46,
+    "award_date": "2022-09-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#121",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00121",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00122",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 347268.81,
+    "award_date": "2022-09-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#122",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00122",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00123",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 324364.53,
+    "award_date": "2022-09-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#123",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00123",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "8717127",
+    "title": "PURCHASE AND INSTALLATION OF ADDITIONAL CAMERA",
+    "awardee_id": "CTR-0009",
+    "awardee_name": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN",
+    "award_amount": 129900.0,
+    "award_date": "2022-08-22",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#124",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "8717127",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-BRGY-2022-00-001",
+    "title": "Asphalt Overlay of Various Barangay Road at Brgy.",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 497304.47,
+    "award_date": "2022-06-23",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#125",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-BRGY-2022-00-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-05-010",
+    "title": "Provision of Small Irrigation System",
+    "awardee_id": "CTR-0015",
+    "awardee_name": "ECO SUMMIT CORPORATION",
+    "award_amount": 2998800.0,
+    "award_date": "2022-06-13",
+    "status": "active",
+    "category": "Agricultural Machinery and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#126",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-05-010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2022-01",
+    "title": "UPGRADE OF CCTV SYSTEM (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 199850.0,
+    "award_date": "2022-03-22",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY APAYA, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#127",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2022-01",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-02-009",
+    "title": "Supply and delivery of High Quality Rice Seeds",
+    "awardee_id": "CTR-0071",
+    "awardee_name": "S&P ENTERPRISES, INC.",
+    "award_amount": 1333566.0,
+    "award_date": "2022-03-21",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#128",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-02-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "09104752533",
+    "title": "Emergency Purchase of Rice to be given to all Households/Families in the Municipality of Mapandan in line with Covid-19 Pandemic",
+    "awardee_id": "CTR-0083",
+    "awardee_name": "VMV ENTERPRISES",
+    "award_amount": 3105000.0,
+    "award_date": "2022-02-24",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#129",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "09104752533",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-01-001",
+    "title": "Construction Project",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 2715438.53,
+    "award_date": "2022-02-22",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#130",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-01-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2022-01-008",
+    "title": "Agricultural Support",
+    "awardee_id": "CTR-0015",
+    "awardee_name": "ECO SUMMIT CORPORATION",
+    "award_amount": 1983750.0,
+    "award_date": "2022-02-22",
+    "status": "active",
+    "category": "Agricultural Machinery and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#131",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2022-01-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-01-004",
+    "title": "Fabrication/Installation of Solar Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 4246125.52,
+    "award_date": "2022-02-22",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#132",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-01-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2022-01-005",
+    "title": "Concrete Paving",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 3745447.71,
+    "award_date": "2022-02-22",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#133",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2022-01-005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-12-019",
+    "title": "Construction Project Drainage",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 593423.22,
+    "award_date": "2022-01-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#134",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-12-019",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-11-018",
+    "title": "Construction Projects",
+    "awardee_id": "CTR-0005",
+    "awardee_name": "AQUINO-DELA CRUZ ENGINEERING AND CONSTRUCTION",
+    "award_amount": 54967555.44,
+    "award_date": "2022-01-12",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#135",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-11-018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-11-017",
+    "title": "Construction Project Public |Market",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 1498730.06,
+    "award_date": "2022-01-05",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#136",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-11-017",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-11-016",
+    "title": "Construction of Municipal Tennis Club House (Phase",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 998068.17,
+    "award_date": "2022-01-05",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#137",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-11-016",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-05-009",
+    "title": "Construction of Additional Canal Lining",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 2522658.87,
+    "award_date": "2021-11-22",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#138",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-05-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN-INFRA2021-10-015",
+    "title": "Proposed one stop shop Building",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 1997652.17,
+    "award_date": "2021-11-19",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#139",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN-INFRA2021-10-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS MUN-2021-10-0014",
+    "title": "Supply and Delivery of Corn Seeds",
+    "awardee_id": "CTR-0070",
+    "awardee_name": "SAMSON AGRICULTURAL SUPPLY",
+    "award_amount": 629410.0,
+    "award_date": "2021-11-16",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#140",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS MUN-2021-10-0014",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "+63 2 82559876",
+    "title": "10 Piece DECORA FC-E18 Cabinet",
+    "awardee_id": "CTR-0059",
+    "awardee_name": "PENITON TRADING CORP",
+    "award_amount": 105800.0,
+    "award_date": "2021-10-21",
+    "status": "active",
+    "category": "Furniture",
+    "organization": "MAPANDAN NATIONAL HIGH SCHOOL",
+    "source_record_id": "procurement.json#141",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "+63 2 82559876",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "+63 920 2399320",
+    "title": "1000 Reams Hard Copy copier paper for Mapandan NHS",
+    "awardee_id": "CTR-0075",
+    "awardee_name": "SPEEDTECH PRINTING AND GENERAL MERCHANDISE",
+    "award_amount": 174750.0,
+    "award_date": "2021-10-21",
+    "status": "active",
+    "category": "Printing Supplies",
+    "organization": "MAPANDAN NATIONAL HIGH SCHOOL",
+    "source_record_id": "procurement.json#142",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "+63 920 2399320",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2021-02",
+    "title": "SUPPLY AND DELIVERY OF CCTV EQUIPMENT, ACCESSORIES INCLUDING INSTALLATION (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0033",
+    "awardee_name": "JAS OFFICE SUPPLIES AND EQUIPMENT TRADING",
+    "award_amount": 107930.0,
+    "award_date": "2021-10-11",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY POBLACION, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#143",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2021-02",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS 2021-08-012",
+    "title": "Procurement of 1 unit mini dump truck (rebuilt)",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 995847.41,
+    "award_date": "2021-09-16",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#144",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS 2021-08-012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00145",
+    "title": "Purchase and Procurement of Pick up type Vehicle",
+    "awardee_id": "CTR-0080",
+    "awardee_name": "TOYOTA DAGUPAN CITY INC.",
+    "award_amount": 1401760.0,
+    "award_date": "2021-09-16",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#145",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00145",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2021-01",
+    "title": "SUPPLY AND DELIVERY OF IP CAMERA INCLUDING INSTALLATION (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 119750.0,
+    "award_date": "2021-07-23",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY GOLDEN, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#146",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2021-01",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-05-007",
+    "title": "Improvement/Relocation of Boulevard Lights",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 2298031.22,
+    "award_date": "2021-06-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#147",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-05-007",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-05-0010",
+    "title": "Construction Project at Slaughter House",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 1712625.75,
+    "award_date": "2021-06-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#148",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-05-0010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-05-008",
+    "title": "Rehabilation of Multi-Purpose hall at Amanoaoac",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 499695.94,
+    "award_date": "2021-06-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#149",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-05-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2021-05-011",
+    "title": "Purchase of seeds for Farmers",
+    "awardee_id": "CTR-0070",
+    "awardee_name": "SAMSON AGRICULTURAL SUPPLY",
+    "award_amount": 3020220.0,
+    "award_date": "2021-06-10",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#150",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2021-05-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2021-04-001",
+    "title": "Procuremnet of Computers",
+    "awardee_id": "CTR-0066",
+    "awardee_name": "RHENAMAE'S TRADING",
+    "award_amount": 2884960.0,
+    "award_date": "2021-05-11",
+    "status": "active",
+    "category": "Office Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#151",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2021-04-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-04-005",
+    "title": "Construction of Drainange System",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 799487.48,
+    "award_date": "2021-05-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#152",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-04-005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-04-006",
+    "title": "Local Bridge Rehabilitation and Improvement",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 699634.83,
+    "award_date": "2021-05-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#153",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-04-006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-04-003",
+    "title": "Construction of Multipurpose Drying Pavement",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 499010.19,
+    "award_date": "2021-05-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#154",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-04-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2021-04-002",
+    "title": "ICT Equipments",
+    "awardee_id": "CTR-0053",
+    "awardee_name": "NAEL OFFICE SUPPLIES & EQUIPMENT TRADING",
+    "award_amount": 962500.0,
+    "award_date": "2021-05-07",
+    "status": "active",
+    "category": "Office Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#155",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2021-04-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2021-04-004",
+    "title": "Improvement/Concreting/Completion of Rose St.",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 1199510.33,
+    "award_date": "2021-05-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#156",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2021-04-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00157",
+    "title": "SUPPLY AND DELIVERY OF CCTV CAMERA FOR BRGY. JIMENEZ, MAPANDAN (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 149750.0,
+    "award_date": "2021-05-03",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY GOLDEN, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#157",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00157",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2020-12-014",
+    "title": "Office Equipment",
+    "awardee_id": "CTR-0079",
+    "awardee_name": "TARLAC MAC ENTERPRISES, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF FIRST AC MEGASAVER AND FIRST MAC MEGASAVER",
+    "award_amount": 167850.0,
+    "award_date": "2020-12-22",
+    "status": "active",
+    "category": "Office Equipment",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#158",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2020-12-014",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2020-10-009",
+    "title": "Local Access Road Primicias",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 4159544.59,
+    "award_date": "2020-11-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#159",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2020-10-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2020-10-008",
+    "title": "Local Access Road Aserda",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 3882983.27,
+    "award_date": "2020-11-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#160",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2020-10-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "220-10-010",
+    "title": "Local Access Road Luyan",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 3565143.85,
+    "award_date": "2020-11-25",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#161",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "220-10-010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "08-005-2020",
+    "title": "Covered Sidewalk phase 3",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 1498093.0,
+    "award_date": "2020-09-18",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#162",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "08-005-2020",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "08-006-2020",
+    "title": "CCTV Cameras",
+    "awardee_id": "CTR-0086",
+    "awardee_name": "ZEAL TECHNOLOGIES ENTERPRISES",
+    "award_amount": 983051.0,
+    "award_date": "2020-09-18",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#163",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "08-006-2020",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2020-08-01 00:00:00",
+    "title": "SUPPLY AND DELIVERY OF CCTV SYSTEM INCLUDING INSTALLATION (PHASE 3) (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 119900.0,
+    "award_date": "2020-08-24",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#164",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2020-08-01 00:00:00",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "06-002",
+    "title": "Local Bridge Rehabilitation/Improvement (Phase2)",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 3520799.16,
+    "award_date": "2020-08-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#165",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "06-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "06-004",
+    "title": "Proposed Covered SideWalk with Box Culvert & Guter",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 2306352.38,
+    "award_date": "2020-08-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#166",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "06-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2020-06-003",
+    "title": "Construction of Drainage System Along Pandan Ave.",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 1408507.57,
+    "award_date": "2020-08-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#167",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2020-06-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-10-019",
+    "title": "Construction of Covered Sidewalk",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 2097781.88,
+    "award_date": "2020-02-12",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#168",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-10-019",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2020-01-01 00:00:00",
+    "title": "UPGRADE OF CCTV SYSTEM (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 200000.0,
+    "award_date": "2020-02-05",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY POBLACION, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#169",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2020-01-01 00:00:00",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "6795448",
+    "title": "SUPPLY & DELIVERY OF ADDITIONAL SURVEILLANCE CAMERA & UPGRADE OF IP BASE SYSTEM (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 100000.0,
+    "award_date": "2020-01-29",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY AMANOAOAC, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#170",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "6795448",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS 10-015",
+    "title": "Supply and Delivery of hybrid Corn Seeds",
+    "awardee_id": "CTR-0042",
+    "awardee_name": "LM ARENAS AGRI PRODUCTS CORPORATION",
+    "award_amount": 1620495.0,
+    "award_date": "2019-11-29",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#171",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS 10-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2019-10-018",
+    "title": "Local Bridge Rehabilitation/Improvement",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 2421089.4,
+    "award_date": "2019-11-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#172",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2019-10-018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN 10-016",
+    "title": "Construction/Improvement of Abattaoir",
+    "awardee_id": "CTR-0085",
+    "awardee_name": "WELMARY CONSTRUCTION & SUPPLY",
+    "award_amount": 1682452.53,
+    "award_date": "2019-11-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#173",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN 10-016",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2019-10-017",
+    "title": "Local Access Road Rehabilitation",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 8795380.9,
+    "award_date": "2019-11-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#174",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2019-10-017",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-19-08-013",
+    "title": "Supply and Delivery of 1 Unit Back Hoe Equipment",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 3521446.5,
+    "award_date": "2019-09-16",
+    "status": "active",
+    "category": "Construction Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#175",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-19-08-013",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-19-08-014",
+    "title": "Construction of Drainage System Along Caimito st.",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 998173.9,
+    "award_date": "2019-09-16",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#176",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-19-08-014",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "6391506",
+    "title": "SUPPLY AND DELIVERY OF ADDITIONAL CCTV CAMERA & RELOCATION OF 2 UNITS CAMERA (Direct Contracting Proprietary in Nature)",
+    "awardee_id": "CTR-0067",
+    "awardee_name": "RMAP ENTERPRISE",
+    "award_amount": 114700.0,
+    "award_date": "2019-08-27",
+    "status": "active",
+    "category": "Security Surveillance and Detection Equipment",
+    "organization": "BARANGAY AMANOAOAC, MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#177",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "6391506",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MNHS-2019-001",
+    "title": "Procurement of School ID Package for Mapandan National High School",
+    "awardee_id": "CTR-0073",
+    "awardee_name": "SEAN'S PRINTING SERVICES",
+    "award_amount": 92640.0,
+    "award_date": "2019-08-19",
+    "status": "active",
+    "category": "Photography Services",
+    "organization": "MAPANDAN NATIONAL HIGH SCHOOL",
+    "source_record_id": "procurement.json#178",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MNHS-2019-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "19-06-036",
+    "title": "Steel Stair Fabrication",
+    "awardee_id": "CTR-0050",
+    "awardee_name": "MIGHTYWAY CONSTRUCTION AND SUPPLY",
+    "award_amount": 547208.75,
+    "award_date": "2019-07-02",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#179",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "19-06-036",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "19-05-027",
+    "title": "Pias Pumping Station",
+    "awardee_id": "CTR-0068",
+    "awardee_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "award_amount": 941576.5,
+    "award_date": "2019-06-10",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#180",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "19-05-027",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN2019-03-004",
+    "title": "Covered Common Parking In front of Public Market",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1998617.8,
+    "award_date": "2019-05-21",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#181",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN2019-03-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00182",
+    "title": "Service Connection Materials",
+    "awardee_id": "CTR-0019",
+    "awardee_name": "ERS ENTERPRISES",
+    "award_amount": 781915.0,
+    "award_date": "2019-03-21",
+    "status": "active",
+    "category": "Water Service Connection Materials/Fittings",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#182",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00182",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-02-003",
+    "title": "Construction/Improvement of Primicias Canal Lining",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1498867.52,
+    "award_date": "2019-03-18",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#183",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-02-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR 02-001",
+    "title": "Asphalt Overlay",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 6525070.62,
+    "award_date": "2019-03-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#184",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR 02-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "Goods 02-002",
+    "title": "Procurement of Boulevard Lights",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1998000.0,
+    "award_date": "2019-03-08",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#185",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "Goods 02-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2019-01-001",
+    "title": "Drilling of 1 Production Well",
+    "awardee_id": "CTR-0029",
+    "awardee_name": "INTERACTIVE DRILLING CORPORATION",
+    "award_amount": 2339730.0,
+    "award_date": "2019-02-12",
+    "status": "active",
+    "category": "Well Drilling and Construction Services",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#186",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2019-01-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "07-012",
+    "title": "Skills TRaining on Contact Center Services NCII",
+    "awardee_id": "CTR-0049",
+    "awardee_name": "MAXIMA TECHNICAL AND SKILLS TRAINING INSTITUTE, INC.",
+    "award_amount": 333000.0,
+    "award_date": "2018-11-27",
+    "status": "active",
+    "category": "Services",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#187",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "07-012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS 10-016-2018",
+    "title": "Acquisition of 1 unit compactor and 1 granulator",
+    "awardee_id": "CTR-0046",
+    "awardee_name": "MARKELL MACHINERIES MANUFACTURING",
+    "award_amount": 13500000.0,
+    "award_date": "2018-11-19",
+    "status": "active",
+    "category": "Environmental Health/Safety Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#188",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS 10-016-2018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "18-11-096",
+    "title": "Provision of labor and materials for the rehabilitation of 140-M production well at Amanoaoac PS",
+    "awardee_id": "CTR-0057",
+    "awardee_name": "NYSA ENGINEERING SERVICES",
+    "award_amount": 600000.0,
+    "award_date": "2018-11-07",
+    "status": "active",
+    "category": "Well Drilling and Construction Services",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#189",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "18-11-096",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS 2018-10-013",
+    "title": "Supply and Delivery of various food items",
+    "awardee_id": "CTR-0021",
+    "awardee_name": "FAM - BAN KITCHENETTE",
+    "award_amount": 828600.0,
+    "award_date": "2018-10-26",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#190",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS 2018-10-013",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PO 18-09-078",
+    "title": "Water Meter",
+    "awardee_id": "CTR-0035",
+    "awardee_name": "JJB ENTERPRISES",
+    "award_amount": 174000.0,
+    "award_date": "2018-09-18",
+    "status": "active",
+    "category": "Water Service Connection Materials/Fittings",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#191",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PO 18-09-078",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-07-007",
+    "title": "Construction/Rehabilitation/Improvement of Acacia",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 2899036.7,
+    "award_date": "2018-08-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#192",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-07-007",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "NFR-MUN-07-009",
+    "title": "Construction/Rehabilitation of Drainage System",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1999560.16,
+    "award_date": "2018-08-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#193",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "NFR-MUN-07-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "07-010-2018",
+    "title": "Starter kit on Food Cart Vending",
+    "awardee_id": "CTR-0072",
+    "awardee_name": "SASOUN TRADING (SASOUN CYCLE SHOP)",
+    "award_amount": 1424000.0,
+    "award_date": "2018-08-15",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#194",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "07-010-2018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "IINFR-07-008",
+    "title": "Rehabilitation/Improvement",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1198924.12,
+    "award_date": "2018-08-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#195",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "IINFR-07-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2018-07-011",
+    "title": "starter Kits for Skills Training on Rice Retailing",
+    "awardee_id": "CTR-0040",
+    "awardee_name": "KCJ GENERAL MERCHANDISE",
+    "award_amount": 1099200.0,
+    "award_date": "2018-08-15",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#196",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2018-07-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "02-001-2018",
+    "title": "Procurement of Boulevard Light",
+    "awardee_id": "CTR-0040",
+    "awardee_name": "KCJ GENERAL MERCHANDISE",
+    "award_amount": 495000.0,
+    "award_date": "2018-07-25",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#197",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "02-001-2018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "06-006-2018",
+    "title": "Construction/Upgrading of Rose St.",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 9032231.71,
+    "award_date": "2018-07-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#198",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "06-006-2018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-2018-05-005",
+    "title": "Construction of Evacuation Center at Poblacion",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 2998903.31,
+    "award_date": "2018-06-01",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#199",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-2018-05-005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-2018-05-004",
+    "title": "Construction of Evacuation Center at Brgy. Torres",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1553304.78,
+    "award_date": "2018-06-01",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#200",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-2018-05-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "18-05-040",
+    "title": "Supply, Delivery, Installattion of Submersible Pumps and Motors",
+    "awardee_id": "CTR-0028",
+    "awardee_name": "HEXAGON MECHANELEC SYSTEMS, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF KEYLARGO INDUSTRIAL SALES",
+    "award_amount": 378845.45,
+    "award_date": "2018-05-09",
+    "status": "active",
+    "category": "Industrial Machinery and Equipment",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#201",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "18-05-040",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "Goods-2018-003",
+    "title": "2018 Seed Subsidy Program LGU Mapandan, Pangasinan",
+    "awardee_id": "CTR-0040",
+    "awardee_name": "KCJ GENERAL MERCHANDISE",
+    "award_amount": 1999500.0,
+    "award_date": "2018-05-07",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#202",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "Goods-2018-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-02-002",
+    "title": "Asphalt Overlayof Various Brgy. Roads",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 8998824.96,
+    "award_date": "2018-04-02",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#203",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-02-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2017-12-019",
+    "title": "SUPPLY AND DELIVERY OF VARIOUS FOOD ITEMS",
+    "awardee_id": "CTR-0021",
+    "awardee_name": "FAM - BAN KITCHENETTE",
+    "award_amount": 920000.0,
+    "award_date": "2018-01-19",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#204",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2017-12-019",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2017-11-018",
+    "title": "2 units evacuation center",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 3297265.99,
+    "award_date": "2017-12-22",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#205",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2017-11-018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFR-MUN-2017-11-017",
+    "title": "Construction/Rehabilitation of Drainage",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 2998899.27,
+    "award_date": "2017-12-22",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#206",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFR-MUN-2017-11-017",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "17-11-016",
+    "title": "Supply and Delivery of 1 unit Heavy Equipment",
+    "awardee_id": "CTR-0043",
+    "awardee_name": "LUCKY DALE SUBIC INTERNATIONAL INC.",
+    "award_amount": 1100000.0,
+    "award_date": "2017-11-20",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#207",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "17-11-016",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "017-11-015",
+    "title": "Supply and Delivery of Solar LED Lights",
+    "awardee_id": "CTR-0006",
+    "awardee_name": "ARM ASIA CONSTRUCTION & ENGINEERING",
+    "award_amount": 974681.28,
+    "award_date": "2017-11-14",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#208",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "017-11-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "017-11-14",
+    "title": "Rehabilitation/Upgrading of",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1986604.31,
+    "award_date": "2017-11-14",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#209",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "017-11-14",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFRA-MUN-2017-09-012",
+    "title": "Construction of Evacuation (Multi-purpose) Center",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1298393.27,
+    "award_date": "2017-10-18",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#210",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFRA-MUN-2017-09-012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN-2017-07-011",
+    "title": "Concreting of Farm to Market Roads",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 14073523.11,
+    "award_date": "2017-08-29",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#211",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN-2017-07-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN-2017-07-010",
+    "title": "Supply and Delivery of Grass Cutter and Videoke",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1018250.0,
+    "award_date": "2017-08-29",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#212",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN-2017-07-010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2016-11-010",
+    "title": "Rehabilitation/Upgrading of Mapandan Abattaoir",
+    "awardee_id": "CTR-0078",
+    "awardee_name": "SYSTEM PROCESSOR &AMP; CONST. CORP.",
+    "award_amount": 3413301.38,
+    "award_date": "2017-06-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#213",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2016-11-010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PO17-06-054",
+    "title": "Purchase ofWindows Professional Gen Genuine Legalization",
+    "awardee_id": "CTR-0011",
+    "awardee_name": "BITSTOP, INC.",
+    "award_amount": 105000.0,
+    "award_date": "2017-06-09",
+    "status": "active",
+    "category": "Information Technology",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#214",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PO17-06-054",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "17-05-001",
+    "title": "Delivery of One unit passenger van",
+    "awardee_id": "CTR-0080",
+    "awardee_name": "TOYOTA DAGUPAN CITY INC.",
+    "award_amount": 1387200.0,
+    "award_date": "2017-06-08",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#215",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "17-05-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2017-04-009",
+    "title": "Construction of Evacuation (Multi-purpose) Center",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 6312929.31,
+    "award_date": "2017-05-24",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#216",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2017-04-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2017-04-008",
+    "title": "Reconstruction of Drainage system",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1998328.51,
+    "award_date": "2017-05-24",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#217",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2017-04-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2017-04-007",
+    "title": "Rehabilitation/Improvement Public Auditorium",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1477783.35,
+    "award_date": "2017-05-24",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#218",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2017-04-007",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2017-04-006",
+    "title": "Rehabilitation/Improvement of MRF Building",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 298780.33,
+    "award_date": "2017-05-24",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#219",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2017-04-006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2017-04-005",
+    "title": "Certified Seeds",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 998865.0,
+    "award_date": "2017-05-12",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#220",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2017-04-005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2017-02-004",
+    "title": "Consulting Services",
+    "awardee_id": "CTR-0001",
+    "awardee_name": "A.U.B. CONSULT MANAGEMENT AND ENGINEERING SERVICES",
+    "award_amount": 1000000.0,
+    "award_date": "2017-03-09",
+    "status": "active",
+    "category": "Consulting Services",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#221",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2017-02-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN2017-01-001",
+    "title": "Supply and Deliveryof1 unit Dumptruck",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 3420000.0,
+    "award_date": "2017-02-27",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#222",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN2017-01-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2017-01-002",
+    "title": "Rehabilitation/Improvement of Mapandan Public Audi",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1338424.72,
+    "award_date": "2017-02-20",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#223",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2017-01-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "01-003",
+    "title": "Repainting of Municipal Building",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 466741.98,
+    "award_date": "2017-02-20",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#224",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "01-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN-2016-12-011",
+    "title": "BULBS FOR ROAD LIGHTS LGU MAPANDAN, PANGASINAN",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1468000.0,
+    "award_date": "2016-12-27",
+    "status": "active",
+    "category": "Electrical Systems and Lighting Components",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#225",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN-2016-12-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2016-11-009",
+    "title": "Drainage System Along Rose street, Poblacion",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1143171.79,
+    "award_date": "2016-12-21",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#226",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2016-11-009",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2016-11-008",
+    "title": "Concreting of Core Local roads",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 5146460.03,
+    "award_date": "2016-12-21",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#227",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2016-11-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2016-10-004",
+    "title": "Four Wheel Drive Tractor",
+    "awardee_id": "CTR-0056",
+    "awardee_name": "NORTHERN ASIA SALES CORPORATION",
+    "award_amount": 4023000.0,
+    "award_date": "2016-12-16",
+    "status": "active",
+    "category": "Agricultural Machinery and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#228",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2016-10-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2016-10-005",
+    "title": "Supplemental Feeding",
+    "awardee_id": "CTR-0037",
+    "awardee_name": "JOMECA REALTY CORP.",
+    "award_amount": 933350.0,
+    "award_date": "2016-12-16",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#229",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2016-10-005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "GOODS-MUN-2016-11-006",
+    "title": "Mini-Dump Truck",
+    "awardee_id": "CTR-0047",
+    "awardee_name": "MARKETMERGE, INC.",
+    "award_amount": 1000000.0,
+    "award_date": "2016-11-29",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#230",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "GOODS-MUN-2016-11-006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00231",
+    "title": "Van with Ambulance Equipment",
+    "awardee_id": "CTR-0080",
+    "awardee_name": "TOYOTA DAGUPAN CITY INC.",
+    "award_amount": 1971400.0,
+    "award_date": "2016-11-25",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#231",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00231",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2016-09-001",
+    "title": "Rehabilitation of Tourism Facility",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 5185506.87,
+    "award_date": "2016-10-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#232",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2016-09-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2016-09-003",
+    "title": "Construction of Evacuation Center",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 2798176.69,
+    "award_date": "2016-10-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#233",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2016-09-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2016-09-002",
+    "title": "Rehabilitation of Tourism Facility",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1552530.28,
+    "award_date": "2016-10-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#234",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2016-09-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "INFRA-MAWADI 2016-08-001",
+    "title": "DRILLING OF WELL",
+    "awardee_id": "CTR-0029",
+    "awardee_name": "INTERACTIVE DRILLING CORPORATION",
+    "award_amount": 1798850.0,
+    "award_date": "2016-10-01",
+    "status": "active",
+    "category": "Well Drilling and Construction Services",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#235",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "INFRA-MAWADI 2016-08-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN2016-05-002",
+    "title": "Construction of Potable water",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 510957.18,
+    "award_date": "2016-06-10",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#236",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN2016-05-002",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "MUN-2015-05-006",
+    "title": "Supply and Delivery of Certified Seeds",
+    "awardee_id": "CTR-0058",
+    "awardee_name": "PANGASINAN ORGANIC SEED GROWERS & NURSERY MPC",
+    "award_amount": 913920.0,
+    "award_date": "2016-06-09",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#237",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "MUN-2015-05-006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "01-001-2016",
+    "title": "Construction of Daycare Center",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 748604.0,
+    "award_date": "2016-01-28",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#238",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "01-001-2016",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-11-020",
+    "title": "RECONSTRUCTION OF DRAINAGE SYSTEM",
+    "awardee_id": "CTR-0069",
+    "awardee_name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "award_amount": 978959.29,
+    "award_date": "2015-12-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#239",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-11-020",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-11-021",
+    "title": "CONSTRUCTION OF DAYCARE CENTER",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 747611.69,
+    "award_date": "2015-12-15",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#240",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-11-021",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-11-019",
+    "title": "Construction of Perimeter Fence",
+    "awardee_id": "CTR-0034",
+    "awardee_name": "JF CRUZ TRADING & CONSTRUCTION CORP.",
+    "award_amount": 920304.31,
+    "award_date": "2015-12-08",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#241",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-11-019",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-001",
+    "title": "DELIVERY OF LABOR & MATERIALS FOR THE IMPROVEMENT",
+    "awardee_id": "CTR-0014",
+    "awardee_name": "DIANNE BUILDERS",
+    "award_amount": 100663.26,
+    "award_date": "2015-12-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY MAPANDAN, MAYANTOC, TARLAC",
+    "source_record_id": "procurement.json#242",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-10-017",
+    "title": "Supply and Delivery of Certified Seeds",
+    "awardee_id": "CTR-0058",
+    "awardee_name": "PANGASINAN ORGANIC SEED GROWERS & NURSERY MPC",
+    "award_amount": 359040.0,
+    "award_date": "2015-11-10",
+    "status": "active",
+    "category": "Agricultural Products (Seeds, Seedlings, Plants..)",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#243",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-10-017",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "42293",
+    "title": "Supply, Delivery Installation and Commisioning of",
+    "awardee_id": "CTR-0034",
+    "awardee_name": "JF CRUZ TRADING & CONSTRUCTION CORP.",
+    "award_amount": 999500.0,
+    "award_date": "2015-11-10",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#244",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "42293",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-10-018",
+    "title": "Supply and Delivery of Materials for Massive Anti",
+    "awardee_id": "CTR-0041",
+    "awardee_name": "LAKAS AGRITECH MARKETING",
+    "award_amount": 498000.0,
+    "award_date": "2015-11-10",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#245",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-10-018",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-08-012",
+    "title": "Supply and Delivery of Food Items for Daycare Feed",
+    "awardee_id": "CTR-0037",
+    "awardee_name": "JOMECA REALTY CORP.",
+    "award_amount": 648700.0,
+    "award_date": "2015-10-31",
+    "status": "active",
+    "category": "Food Stuff",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#246",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-08-012",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "09-015",
+    "title": "Farm Machineries",
+    "awardee_id": "CTR-0041",
+    "awardee_name": "LAKAS AGRITECH MARKETING",
+    "award_amount": 1138000.0,
+    "award_date": "2015-10-13",
+    "status": "active",
+    "category": "Agricultural Machinery and Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#247",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "09-015",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-08-014",
+    "title": "Construction of Drainange System",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 1422497.97,
+    "award_date": "2015-09-14",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#248",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-08-014",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-08-013",
+    "title": "Construction of MPDP",
+    "awardee_id": "CTR-0069",
+    "awardee_name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "award_amount": 747954.71,
+    "award_date": "2015-09-14",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#249",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-08-013",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-08-011",
+    "title": "Construction of Cemetery Concrete Landmark",
+    "awardee_id": "CTR-0069",
+    "awardee_name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "award_amount": 678692.89,
+    "award_date": "2015-09-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#250",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-08-011",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-08-010",
+    "title": "Concretingcof Core Local Roads",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 5143428.36,
+    "award_date": "2015-09-01",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#251",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-08-010",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "08-008",
+    "title": "Construction of Nationalchild Development Center",
+    "awardee_id": "CTR-0017",
+    "awardee_name": "EL FELIPE DESIGN AND CONSTRUCTION",
+    "award_amount": 2154816.4,
+    "award_date": "2015-09-01",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#252",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "08-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-06-008",
+    "title": "Construction",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 3772559.31,
+    "award_date": "2015-07-27",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#253",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-06-008",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-06-007",
+    "title": "SUPPLY, DELIVERY AND INSTALLATION OF MATERIALS FOR",
+    "awardee_id": "CTR-0054",
+    "awardee_name": "NETLINK ADVANCE SOLUTIONS, INC.",
+    "award_amount": 832700.0,
+    "award_date": "2015-07-07",
+    "status": "active",
+    "category": "Office Supplies and Devices",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#254",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-06-007",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-06-006",
+    "title": "Re-construction of drainage system",
+    "awardee_id": "CTR-0069",
+    "awardee_name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "award_amount": 3677495.08,
+    "award_date": "2015-07-01",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#255",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-06-006",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "5",
+    "title": "Supply and Delivery of Medicines",
+    "awardee_id": "CTR-0065",
+    "awardee_name": "REM CITIMED PHARMA DISTRIBUTOR",
+    "award_amount": 198970.0,
+    "award_date": "2015-06-17",
+    "status": "active",
+    "category": "Medical Supplies and Laboratory Instrument",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#256",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "5",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "05-004",
+    "title": "LGU Vehicle",
+    "awardee_id": "CTR-0080",
+    "awardee_name": "TOYOTA DAGUPAN CITY INC.",
+    "award_amount": 2361000.0,
+    "award_date": "2015-05-26",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#257",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "05-004",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "42157",
+    "title": "Drilling of One Exploratory Production",
+    "awardee_id": "CTR-0029",
+    "awardee_name": "INTERACTIVE DRILLING CORPORATION",
+    "award_amount": 1646680.0,
+    "award_date": "2015-04-30",
+    "status": "active",
+    "category": "Well Drilling and Construction Services",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#258",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "42157",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-04-003",
+    "title": "CONSTRUCTION OF COMFORT ROOMS AT 2ND FLOOR OF PUBL",
+    "awardee_id": "CTR-0069",
+    "awardee_name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "award_amount": 379327.34,
+    "award_date": "2015-04-16",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#259",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-04-003",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2015-03-001",
+    "title": "SUPPLY, DELIVERY, INSTALLATION & TESTING OF NEGOKARTS & SEWING MACHINES FOR LIVELIHOOD PROJECTS",
+    "awardee_id": "CTR-0052",
+    "awardee_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "award_amount": 570400.0,
+    "award_date": "2015-03-24",
+    "status": "active",
+    "category": "General Merchandise",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#260",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2015-03-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "42005",
+    "title": "Design and build for rehabilitation and installati",
+    "awardee_id": "CTR-0063",
+    "awardee_name": "PUMP ASIA INDUSTRIAL CO.",
+    "award_amount": 1119898.0,
+    "award_date": "2015-03-08",
+    "status": "active",
+    "category": "Well Drilling and Construction Services",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#261",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "42005",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "10",
+    "title": "SUPPLY, DELIVERY, INSTALLATION AND TESTING  OF FAR",
+    "awardee_id": "CTR-0041",
+    "awardee_name": "LAKAS AGRITECH MARKETING",
+    "award_amount": 1665000.0,
+    "award_date": "2015-01-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#262",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "10",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "9",
+    "title": "CONSTRUCTION OF MULTI-",
+    "awardee_id": "CTR-0069",
+    "awardee_name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "award_amount": 1150776.25,
+    "award_date": "2015-01-07",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#263",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "9",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "8",
+    "title": "INFR-MUN-2014-10-008",
+    "awardee_id": "CTR-0034",
+    "awardee_name": "JF CRUZ TRADING & CONSTRUCTION CORP.",
+    "award_amount": 360000.0,
+    "award_date": "2014-11-24",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#264",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "8",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00265",
+    "title": "INFR-MUN-2014-10-007",
+    "awardee_id": "CTR-0034",
+    "awardee_name": "JF CRUZ TRADING & CONSTRUCTION CORP.",
+    "award_amount": 480000.0,
+    "award_date": "2014-10-31",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#265",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00265",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00266",
+    "title": "IMPROVEMENT/REHABILITATION OF BARANGAY PLAZA",
+    "awardee_id": "CTR-0048",
+    "awardee_name": "MASTER SON BUILDERS",
+    "award_amount": 105807.39,
+    "award_date": "2014-10-28",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "BARANGAY MAPANDAN, MAYANTOC, TARLAC",
+    "source_record_id": "procurement.json#266",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00266",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "2826114",
+    "title": "Farm to Market Roads",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 7162936.55,
+    "award_date": "2014-10-13",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#267",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "2826114",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "41640",
+    "title": "Construction of 2-Storey Mawadi Office Building",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 2632841.8,
+    "award_date": "2014-06-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#268",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "41640",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00269",
+    "title": "Construction of 2-Storey Office Building",
+    "awardee_id": "CTR-0003",
+    "awardee_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "award_amount": 2632824.18,
+    "award_date": "2014-06-26",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MAPANDAN WATER DISTRICT",
+    "source_record_id": "procurement.json#269",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00269",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "TF-PDAF-2013-001",
+    "title": "PURCHASE & DELIVERY OF 1 VEHICLE (MULTI-CAB)",
+    "awardee_id": "CTR-0004",
+    "awardee_name": "AMIANAN MOTORS",
+    "award_amount": 217000.0,
+    "award_date": "2013-04-03",
+    "status": "active",
+    "category": "Vehicles",
+    "organization": "BARANGAY MAPANDAN, MAYANTOC, TARLAC",
+    "source_record_id": "procurement.json#270",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "TF-PDAF-2013-001",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00271",
+    "title": "CONSTRUCTION OF TWO STOREY FOUR CLASSROOM 7X9M",
+    "awardee_id": "CTR-0045",
+    "awardee_name": "MANIMELD'S CONSTRUCTION & IRON WORKS",
+    "award_amount": 3547011.6,
+    "award_date": "2012-10-05",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MAPANDAN NATIONAL HIGH SCHOOL",
+    "source_record_id": "procurement.json#271",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00271",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00272",
+    "title": "UPGRADING OF SLAUGHTERHOUSE  at  Aserda, Mapandan, Pangasinan",
+    "awardee_id": "CTR-0023",
+    "awardee_name": "FM2 TRADING & ENTERPRISES",
+    "award_amount": 1001035.1,
+    "award_date": "2012-08-31",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#272",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00272",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00273",
+    "title": "Construction of Drainage System at     Pandan Ave. & at the Back of Mun. Bldg.Poblacion, Mapandan, Pangasinan",
+    "awardee_id": "CTR-0084",
+    "awardee_name": "VYRAGUS CONSTRUCTION",
+    "award_amount": 838709.43,
+    "award_date": "2012-08-31",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#273",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00273",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00274",
+    "title": "Supply, Delivery, Installation, Testing & Commissioning of Siren Poblacion, Mapandan, Pangasinan",
+    "awardee_id": "CTR-0074",
+    "awardee_name": "SOFERJED ENTERPRISES",
+    "award_amount": 144550.0,
+    "award_date": "2012-08-17",
+    "status": "active",
+    "category": "Office Equipment",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#274",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00274",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00275",
+    "title": "Construction of Drainage System At Pandan Avenue, Mapandan, Pangasinan",
+    "awardee_id": "CTR-0084",
+    "awardee_name": "VYRAGUS CONSTRUCTION",
+    "award_amount": 995000.0,
+    "award_date": "2012-05-29",
+    "status": "active",
+    "category": "Construction Materials and Supplies",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#275",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00275",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00276",
+    "title": "Rehabilitation/Improvement of Rosal Street Poblacion, Mapandan, Pangasinan",
+    "awardee_id": "CTR-0084",
+    "awardee_name": "VYRAGUS CONSTRUCTION",
+    "award_amount": 700000.0,
+    "award_date": "2012-02-16",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_record_id": "procurement.json#276",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00276",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "contract_id": "PHG-00277",
+    "title": "2 STOREY 4 CLASSROOM",
+    "awardee_id": "CTR-0045",
+    "awardee_name": "MANIMELD'S CONSTRUCTION & IRON WORKS",
+    "award_amount": 3364891.55,
+    "award_date": "2011-06-14",
+    "status": "active",
+    "category": "Construction Projects",
+    "organization": "MAPANDAN NATIONAL HIGH SCHOOL",
+    "source_record_id": "procurement.json#277",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "PHG-00277",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10"
+      }
+    ]
+  }
+]

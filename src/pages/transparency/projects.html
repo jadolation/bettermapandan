@@ -1,0 +1,36 @@
+---
+title: Project Explorer — BetterMapandan.org
+description: Search Mapandan projects, contractors, funds, and audit findings across DILG, PhilGEPS, DPWH, and COA records.
+hero_eyebrow: Transparency · Project Explorer
+hero_heading: Project Explorer
+hero_lede: Search what the municipality built, who built it, and what auditors said — every link traced to its source record.
+---
+
+{TRANSPARENCY_TABS}
+<section class="section" id="project-explorer">
+<div class="wrap">
+  <div class="section-head">
+    <div class="section-eyebrow">Public project &amp; accountability index</div>
+    <h2>What are you looking for?</h2>
+    <p>Explore projects, contracts, funds, infrastructure records, and audit findings across the government sources indexed by Better Mapandan. Relationships are linked only when supported by source evidence or reviewed matching rules.</p>
+  </div>
+  <div class="procurement-toolbar" role="search" aria-label="Project search">
+    <input type="search" id="explorer-search" class="form-input" placeholder="Search projects, contractors, barangays, or years…" aria-label="Search projects" autocomplete="off">
+    <div class="segmented-control" role="group" aria-label="Index">
+      <button type="button" data-explorer-view="projects" class="active" aria-pressed="true">Projects</button>
+      <button type="button" data-explorer-view="contractors" aria-pressed="false">Contractors</button>
+      <button type="button" data-explorer-view="audits" aria-pressed="false">Audits</button>
+      <button type="button" data-explorer-view="funds" aria-pressed="false">Funds</button>
+    </div>
+  </div>
+  <div class="procurement-toolbar" aria-label="Filters">
+    <select id="explorer-barangay" class="form-input" aria-label="Filter by barangay"><option value="">All barangays</option></select>
+    <select id="explorer-year" class="form-input" aria-label="Filter by year"><option value="">All years</option></select>
+    <select id="explorer-type" class="form-input" aria-label="Filter by project type"><option value="">All types</option></select>
+    <select id="explorer-coverage" class="form-input" aria-label="Filter by source coverage"><option value="">Any coverage</option><option value="2">2+ sources</option><option value="3">3+ sources</option><option value="4">4 sources</option></select>
+  </div>
+  <p class="source-label" id="explorer-count" aria-live="polite"></p>
+  <div id="explorer-results" aria-live="polite"></div>
+  <noscript><p>Enable JavaScript to search the project index.</p></noscript>
+</div>
+</section>

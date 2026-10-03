@@ -1,0 +1,370 @@
+[
+  {
+    "id": "DILG-FUND-2023-Q1",
+    "period": "2023-Q1",
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 2279254.3,
+      "ldrrmf_unutilized": 11780117.37
+    },
+    "projects_same_year": [
+      "BM-PROJ-2023-001",
+      "BM-PROJ-2023-002",
+      "BM-PROJ-2023-003",
+      "BM-PROJ-2023-004",
+      "BM-PROJ-2023-005",
+      "BM-PROJ-2023-006",
+      "BM-PROJ-2023-007",
+      "BM-PROJ-2023-008",
+      "BM-PROJ-2023-009",
+      "BM-PROJ-2023-010",
+      "BM-PROJ-2023-011",
+      "BM-PROJ-2023-012",
+      "BM-PROJ-2023-013",
+      "BM-PROJ-2023-014",
+      "BM-PROJ-2023-015",
+      "BM-PROJ-2023-016",
+      "BM-PROJ-2023-017",
+      "BM-PROJ-2023-018",
+      "BM-PROJ-2023-019",
+      "BM-PROJ-2023-020",
+      "BM-PROJ-2023-D001",
+      "BM-PROJ-2023-D003",
+      "BM-PROJ-2023-D004",
+      "BM-PROJ-2023-D011",
+      "BM-PROJ-2023-D019",
+      "BM-PROJ-2023-D035",
+      "BM-PROJ-2023-C005",
+      "BM-PROJ-2023-C006",
+      "BM-PROJ-2023-C007"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2023-Q2",
+    "period": "2023-Q2",
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 3143791.09,
+      "ldrrmf_unutilized": 10985055.26
+    },
+    "projects_same_year": [
+      "BM-PROJ-2023-001",
+      "BM-PROJ-2023-002",
+      "BM-PROJ-2023-003",
+      "BM-PROJ-2023-004",
+      "BM-PROJ-2023-005",
+      "BM-PROJ-2023-006",
+      "BM-PROJ-2023-007",
+      "BM-PROJ-2023-008",
+      "BM-PROJ-2023-009",
+      "BM-PROJ-2023-010",
+      "BM-PROJ-2023-011",
+      "BM-PROJ-2023-012",
+      "BM-PROJ-2023-013",
+      "BM-PROJ-2023-014",
+      "BM-PROJ-2023-015",
+      "BM-PROJ-2023-016",
+      "BM-PROJ-2023-017",
+      "BM-PROJ-2023-018",
+      "BM-PROJ-2023-019",
+      "BM-PROJ-2023-020",
+      "BM-PROJ-2023-D001",
+      "BM-PROJ-2023-D003",
+      "BM-PROJ-2023-D004",
+      "BM-PROJ-2023-D011",
+      "BM-PROJ-2023-D019",
+      "BM-PROJ-2023-D035",
+      "BM-PROJ-2023-C005",
+      "BM-PROJ-2023-C006",
+      "BM-PROJ-2023-C007"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2023-Q3",
+    "period": "2023-Q3",
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 1278497.66,
+      "ldrrmf_unutilized": 10299552.26
+    },
+    "projects_same_year": [
+      "BM-PROJ-2023-001",
+      "BM-PROJ-2023-002",
+      "BM-PROJ-2023-003",
+      "BM-PROJ-2023-004",
+      "BM-PROJ-2023-005",
+      "BM-PROJ-2023-006",
+      "BM-PROJ-2023-007",
+      "BM-PROJ-2023-008",
+      "BM-PROJ-2023-009",
+      "BM-PROJ-2023-010",
+      "BM-PROJ-2023-011",
+      "BM-PROJ-2023-012",
+      "BM-PROJ-2023-013",
+      "BM-PROJ-2023-014",
+      "BM-PROJ-2023-015",
+      "BM-PROJ-2023-016",
+      "BM-PROJ-2023-017",
+      "BM-PROJ-2023-018",
+      "BM-PROJ-2023-019",
+      "BM-PROJ-2023-020",
+      "BM-PROJ-2023-D001",
+      "BM-PROJ-2023-D003",
+      "BM-PROJ-2023-D004",
+      "BM-PROJ-2023-D011",
+      "BM-PROJ-2023-D019",
+      "BM-PROJ-2023-D035",
+      "BM-PROJ-2023-C005",
+      "BM-PROJ-2023-C006",
+      "BM-PROJ-2023-C007"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2023-Q4",
+    "period": "2023-Q4",
+    "figures": {
+      "dev_total": 27244545.59,
+      "sef_balance": 254445.53,
+      "ldrrmf_unutilized": 7010477.45
+    },
+    "projects_same_year": [
+      "BM-PROJ-2023-001",
+      "BM-PROJ-2023-002",
+      "BM-PROJ-2023-003",
+      "BM-PROJ-2023-004",
+      "BM-PROJ-2023-005",
+      "BM-PROJ-2023-006",
+      "BM-PROJ-2023-007",
+      "BM-PROJ-2023-008",
+      "BM-PROJ-2023-009",
+      "BM-PROJ-2023-010",
+      "BM-PROJ-2023-011",
+      "BM-PROJ-2023-012",
+      "BM-PROJ-2023-013",
+      "BM-PROJ-2023-014",
+      "BM-PROJ-2023-015",
+      "BM-PROJ-2023-016",
+      "BM-PROJ-2023-017",
+      "BM-PROJ-2023-018",
+      "BM-PROJ-2023-019",
+      "BM-PROJ-2023-020",
+      "BM-PROJ-2023-D001",
+      "BM-PROJ-2023-D003",
+      "BM-PROJ-2023-D004",
+      "BM-PROJ-2023-D011",
+      "BM-PROJ-2023-D019",
+      "BM-PROJ-2023-D035",
+      "BM-PROJ-2023-C005",
+      "BM-PROJ-2023-C006",
+      "BM-PROJ-2023-C007"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2024-Q1",
+    "period": "2024-Q1",
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 2011582.69,
+      "ldrrmf_unutilized": 14611016.85
+    },
+    "projects_same_year": [
+      "BM-PROJ-2024-021",
+      "BM-PROJ-2024-022",
+      "BM-PROJ-2024-023",
+      "BM-PROJ-2024-024",
+      "BM-PROJ-2024-025",
+      "BM-PROJ-2024-026",
+      "BM-PROJ-2024-027",
+      "BM-PROJ-2024-028",
+      "BM-PROJ-2024-029",
+      "BM-PROJ-2024-030",
+      "BM-PROJ-2024-031"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2024-Q2",
+    "period": "2024-Q2",
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 2399854.51,
+      "ldrrmf_unutilized": 14172533.85
+    },
+    "projects_same_year": [
+      "BM-PROJ-2024-021",
+      "BM-PROJ-2024-022",
+      "BM-PROJ-2024-023",
+      "BM-PROJ-2024-024",
+      "BM-PROJ-2024-025",
+      "BM-PROJ-2024-026",
+      "BM-PROJ-2024-027",
+      "BM-PROJ-2024-028",
+      "BM-PROJ-2024-029",
+      "BM-PROJ-2024-030",
+      "BM-PROJ-2024-031"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2024-Q3",
+    "period": "2024-Q3",
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 1448629.56,
+      "ldrrmf_unutilized": 7016506.85
+    },
+    "projects_same_year": [
+      "BM-PROJ-2024-021",
+      "BM-PROJ-2024-022",
+      "BM-PROJ-2024-023",
+      "BM-PROJ-2024-024",
+      "BM-PROJ-2024-025",
+      "BM-PROJ-2024-026",
+      "BM-PROJ-2024-027",
+      "BM-PROJ-2024-028",
+      "BM-PROJ-2024-029",
+      "BM-PROJ-2024-030",
+      "BM-PROJ-2024-031"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2024-Q4",
+    "period": "2024-Q4",
+    "figures": {
+      "dev_total": 28947532.6,
+      "sef_balance": 295286.98,
+      "ldrrmf_unutilized": 6284528.85
+    },
+    "projects_same_year": [
+      "BM-PROJ-2024-021",
+      "BM-PROJ-2024-022",
+      "BM-PROJ-2024-023",
+      "BM-PROJ-2024-024",
+      "BM-PROJ-2024-025",
+      "BM-PROJ-2024-026",
+      "BM-PROJ-2024-027",
+      "BM-PROJ-2024-028",
+      "BM-PROJ-2024-029",
+      "BM-PROJ-2024-030",
+      "BM-PROJ-2024-031"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2025-Q1",
+    "period": "2025-Q1",
+    "figures": {
+      "dev_total": 34458787.24,
+      "sef_balance": 2170799.14,
+      "ldrrmf_unutilized": 15260794.55
+    },
+    "projects_same_year": [
+      "BM-PROJ-2025-032",
+      "BM-PROJ-2025-D029",
+      "BM-PROJ-2025-D037"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2025-Q2",
+    "period": "2025-Q2",
+    "figures": {
+      "dev_total": 34458787.24,
+      "sef_balance": 1621669.51,
+      "ldrrmf_unutilized": 14728585.35
+    },
+    "projects_same_year": [
+      "BM-PROJ-2025-032",
+      "BM-PROJ-2025-D029",
+      "BM-PROJ-2025-D037"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2025-Q3",
+    "period": "2025-Q3",
+    "figures": {
+      "dev_total": 34458787.24
+    },
+    "projects_same_year": [
+      "BM-PROJ-2025-032",
+      "BM-PROJ-2025-D029",
+      "BM-PROJ-2025-D037"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2025-Q4",
+    "period": "2025-Q4",
+    "figures": {
+      "dev_total": 34458787.24,
+      "sef_balance": 609724.22,
+      "ldrrmf_unutilized": 6952736.1465
+    },
+    "projects_same_year": [
+      "BM-PROJ-2025-032",
+      "BM-PROJ-2025-D029",
+      "BM-PROJ-2025-D037"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2026-Q1",
+    "period": "2026-Q1",
+    "figures": {
+      "dev_total": 39015379.08,
+      "sef_balance": 2175947.93,
+      "ldrrmf_unutilized": 17312140.98
+    },
+    "projects_same_year": [
+      "BM-PROJ-2026-033",
+      "BM-PROJ-2026-034",
+      "BM-PROJ-2026-035",
+      "BM-PROJ-2026-036",
+      "BM-PROJ-2026-037",
+      "BM-PROJ-2026-038",
+      "BM-PROJ-2026-039",
+      "BM-PROJ-2026-040",
+      "BM-PROJ-2026-041",
+      "BM-PROJ-2026-042",
+      "BM-PROJ-2026-043",
+      "BM-PROJ-2026-044",
+      "BM-PROJ-2026-045",
+      "BM-PROJ-2026-046",
+      "BM-PROJ-2026-047",
+      "BM-PROJ-2026-048",
+      "BM-PROJ-2026-049",
+      "BM-PROJ-2026-050",
+      "BM-PROJ-2026-051",
+      "BM-PROJ-2026-052",
+      "BM-PROJ-2026-D030",
+      "BM-PROJ-2026-D040"
+    ]
+  },
+  {
+    "id": "DILG-FUND-2026-Q2",
+    "period": "2026-Q2",
+    "figures": {
+      "dev_total": 41015379.08,
+      "sef_balance": 1320774.75,
+      "ldrrmf_unutilized": 16105969.76
+    },
+    "projects_same_year": [
+      "BM-PROJ-2026-033",
+      "BM-PROJ-2026-034",
+      "BM-PROJ-2026-035",
+      "BM-PROJ-2026-036",
+      "BM-PROJ-2026-037",
+      "BM-PROJ-2026-038",
+      "BM-PROJ-2026-039",
+      "BM-PROJ-2026-040",
+      "BM-PROJ-2026-041",
+      "BM-PROJ-2026-042",
+      "BM-PROJ-2026-043",
+      "BM-PROJ-2026-044",
+      "BM-PROJ-2026-045",
+      "BM-PROJ-2026-046",
+      "BM-PROJ-2026-047",
+      "BM-PROJ-2026-048",
+      "BM-PROJ-2026-049",
+      "BM-PROJ-2026-050",
+      "BM-PROJ-2026-051",
+      "BM-PROJ-2026-052",
+      "BM-PROJ-2026-D030",
+      "BM-PROJ-2026-D040"
+    ]
+  }
+]

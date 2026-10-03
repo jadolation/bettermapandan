@@ -1,0 +1,233 @@
+[
+  {
+    "candidate_id": "MATCH-0001",
+    "record_a": "fdp-bid:GOODS-MUN-2025-01-003",
+    "record_b": "contract:PHG-00003",
+    "match_score": 0.75,
+    "evidence": [
+      "similar project title",
+      "same fiscal year"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0002",
+    "record_a": "fdp-bid:GOODS-MUN-2025-01-003",
+    "record_b": "contract:GOODS-MUN-2024-09-027",
+    "match_score": 0.71,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0003",
+    "record_a": "fdp-bid:INFRA-MUN-2025-09-010",
+    "record_b": "contract:INFR-MUN-2024-11-032",
+    "match_score": 0.67,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0004",
+    "record_a": "fdp-bid:INFRA-MUN-2025-09-011",
+    "record_b": "contract:INFR-MUN-2024-04-012",
+    "match_score": 0.58,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0005",
+    "record_a": "fdp-bid:GOODS-MUN-2025-09-008",
+    "record_b": "contract:GOODS-MUN-2024-09-027",
+    "match_score": 0.5,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0006",
+    "record_a": "fdp-bid:GOODS-MUN-2025-09-008",
+    "record_b": "contract:GOODS-MUN-2024-09-026",
+    "match_score": 0.56,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0007",
+    "record_a": "fdp-bid:GOODS-MUN-2025-09-009",
+    "record_b": "contract:GOODS-MUN-2024-01-002",
+    "match_score": 0.5,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0008",
+    "record_a": "fdp-bid:GOODS-MUN-2025-10-015",
+    "record_b": "contract:PHG-00002",
+    "match_score": 0.75,
+    "evidence": [
+      "similar project title",
+      "same fiscal year"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0009",
+    "record_a": "fdp-bid:GOODS-MUN-2025-10-015",
+    "record_b": "contract:PHG-00022",
+    "match_score": 0.75,
+    "evidence": [
+      "similar project title",
+      "same fiscal year"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0010",
+    "record_a": "fdp-bid:GOODS-MUN-2025-10-015",
+    "record_b": "contract:GOODS-MUN-2025-01-001",
+    "match_score": 0.75,
+    "evidence": [
+      "similar project title",
+      "same fiscal year"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0011",
+    "record_a": "fdp-bid:GOODS-MUN-2025-10-015",
+    "record_b": "contract:GOODS-MUN-2024-08-025",
+    "match_score": 0.5,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0012",
+    "record_a": "fdp-bid:GOODS-MUN-2025-10-016",
+    "record_b": "contract:GOODS-MUN-2024-09-027",
+    "match_score": 0.57,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0013",
+    "record_a": "fdp-bid:GOODS-MUN-2025-10-016",
+    "record_b": "contract:GOODS-MUN-2024-03-009",
+    "match_score": 0.71,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0014",
+    "record_a": "fdp-bid:INFRA-MUN-2026-01-001",
+    "record_b": "contract:INFR-MUN-2025-01-002",
+    "match_score": 0.67,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0015",
+    "record_a": "fdp-bid:GOODS-MUN-2026-01-003",
+    "record_b": "contract:PHG-00002",
+    "match_score": 0.56,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0016",
+    "record_a": "fdp-bid:GOODS-MUN-2026-01-003",
+    "record_b": "contract:PHG-00022",
+    "match_score": 0.56,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0017",
+    "record_a": "fdp-bid:GOODS-MUN-2026-01-003",
+    "record_b": "contract:GOODS-MUN-2025-01-001",
+    "match_score": 0.75,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0018",
+    "record_a": "fdp-bid:GOODS-MUN-2026-05-006",
+    "record_b": "contract:PHG-00003",
+    "match_score": 0.5,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0019",
+    "record_a": "fdp-bid:GOODS-MUN-2026-05-007",
+    "record_b": "contract:PHG-00002",
+    "match_score": 0.75,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0020",
+    "record_a": "fdp-bid:GOODS-MUN-2026-05-007",
+    "record_b": "contract:PHG-00022",
+    "match_score": 0.56,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0021",
+    "record_a": "fdp-bid:GOODS-MUN-2026-05-007",
+    "record_b": "contract:GOODS-MUN-2025-01-001",
+    "match_score": 0.56,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  }
+]

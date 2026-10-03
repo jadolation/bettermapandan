@@ -222,5 +222,20 @@
       "hero_lede": "Saray COA audit opinions, Seal of Good Local Governance compliance, chronic findings, implementation rates, tan downloadable COA report archives para ed Mapandan."
     },
     "pag_status": "draft"
+  },
+  "transparency/projects.html": {
+    "fil": {
+      "title": "Explorer ng Proyekto — BetterMapandan.org",
+      "description": "Maghanap ng mga proyekto, kontratista, pondo, at natuklasan sa awdit sa mga tala ng DILG, PhilGEPS, DPWH, at COA.",
+      "hero_eyebrow": "Transparency · Explorer ng Proyekto",
+      "hero_lede": "Hanapin kung ano ang itinayo ng munisipyo, sino ang nagtayo, at ano ang sinabi ng mga auditor — bawat ugnay ay may pinagmulan."
+    },
+    "pag": {
+      "title": "Project Explorer — BetterMapandan.org",
+      "description": "Anapen so saray proyekto, contractors, funds, tan audit findings ed saray records na DILG, PhilGEPS, DPWH, tan COA.",
+      "hero_eyebrow": "Transparensya · Project Explorer",
+      "hero_lede": "Anapen no anto so impatindog na munisipyo, sino so nangipatindog, tan anto so imbaga na saray auditor — kada link et walay source."
+    },
+    "pag_status": "draft"
   }
 }

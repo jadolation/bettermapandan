@@ -591,6 +591,7 @@ def build_transparency_tabs(locale: dict, active_slug: str, lang_prefix: str) ->
         ("infrastructure", t(locale, "transparency.tab_infrastructure", "Infrastructure")),
         ("budget-fiscal", t(locale, "transparency.tab_budget_fiscal", "Budget & Fiscal")),
         ("audit-compliance", t(locale, "transparency.tab_audit", "Audit & Compliance")),
+        ("projects", t(locale, "transparency.tab_projects", "Project Explorer")),
     ]
     label = t(locale, "transparency.section_label", "Transparency section")
     pills = []
@@ -905,6 +906,10 @@ def _process_static_page(
         stats_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", comparison_script + "\n" + stats_js + "\n</body>", 1)
 
+    if str(rel).replace("\\", "/") == "transparency/projects.html":
+        explorer_js = '<script defer src="' + asset_base + '/assets/js/project-explorer.min.js"></script>'
+        page_html = page_html.replace("</body>", explorer_js + "</body>", 1)
+
     # Transparency subpages only (the /transparency/ hub is static — no JS data needed).
     if len(rel.parts) > 1 and rel.parts[0] == "transparency":
         transparency_js = (
@@ -995,6 +1000,12 @@ def _process_generated_page(
 
 def build() -> None:
     generate_barangays()
+
+    from _build.entities import build_all as build_entities
+    entity_summary = build_entities(assets_out=ROOT / "assets")
+    print("  entities: {projects} projects, {contracts} contracts, "
+          "{contractors} contractors, {funds} funds, {findings} findings, "
+          "{relationships} relationships, {review} review".format(**entity_summary))
 
     en_locale = load_locale("en")
     fil_locale = load_locale("fil")

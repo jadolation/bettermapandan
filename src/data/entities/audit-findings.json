@@ -1,0 +1,206 @@
+[
+  {
+    "finding_id": "COA-F-ppe-reconciliation",
+    "title": "PPE Account Not Reconciled",
+    "category": "Asset Management",
+    "first_observed": 2014,
+    "last_observed": 2019,
+    "amount": 90200000,
+    "status": "resolved",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "ppe-reconciliation",
+        "report": "Mapandan AAR 2014-2019"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-breeding-stocks",
+    "title": "Breeding Stocks Ghost Account",
+    "category": "Asset Management",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 110000,
+    "status": "chronic",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "breeding-stocks",
+        "report": "Mapandan AAR 2016-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-dormant-receivables",
+    "title": "Dormant Receivables",
+    "category": "Revenue Collection",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 613635.81,
+    "status": "chronic",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "dormant-receivables",
+        "report": "Mapandan AAR 2016-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-land-titling",
+    "title": "Land Titling Gaps",
+    "category": "Asset Management",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 25699460,
+    "status": "partial",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "land-titling",
+        "report": "Mapandan AAR 2016-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-solid-waste",
+    "title": "Solid Waste Management Non-Compliance",
+    "category": "Environmental Compliance",
+    "first_observed": 2015,
+    "last_observed": 2024,
+    "amount": 13500000,
+    "status": "improving",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "solid-waste",
+        "report": "Mapandan AAR 2015-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-delinquent-rpt",
+    "title": "Delinquent Real Property Taxes",
+    "category": "Revenue Collection",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 839214,
+    "status": "chronic",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "delinquent-rpt",
+        "report": "Mapandan AAR 2016-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-contract-docs",
+    "title": "Incomplete Contract Documentation",
+    "category": "Procurement Compliance",
+    "first_observed": 2015,
+    "last_observed": 2024,
+    "amount": 0,
+    "status": "chronic",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "contract-docs",
+        "report": "Mapandan AAR 2015-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-cash-advance-irregular",
+    "title": "Irregular Cash Advances",
+    "category": "Financial Management",
+    "first_observed": 2014,
+    "last_observed": 2019,
+    "amount": 1270000,
+    "status": "resolved",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "cash-advance-irregular",
+        "report": "Mapandan AAR 2014-2019"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-ldrrmf-underallocation",
+    "title": "LDRRMF Under-Allocation",
+    "category": "Fund Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 380000,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "ldrrmf-underallocation",
+        "report": "Mapandan AAR 2025-2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-idle-mrf-equipment",
+    "title": "Idle MRF Equipment",
+    "category": "Asset Management",
+    "first_observed": 2020,
+    "last_observed": 2024,
+    "amount": 13500000,
+    "status": "chronic",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "idle-mrf-equipment",
+        "report": "Mapandan AAR 2020-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-manual-payroll",
+    "title": "Manual Payroll Cash Advances",
+    "category": "Financial Management",
+    "first_observed": 2018,
+    "last_observed": 2024,
+    "amount": 14853746,
+    "status": "improving",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "manual-payroll",
+        "report": "Mapandan AAR 2018-2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-unnecessary-expenses",
+    "title": "Unnecessary and Unallowable Expenses",
+    "category": "Financial Management",
+    "first_observed": 2024,
+    "last_observed": 2024,
+    "amount": 269675,
+    "status": "open",
+    "severity": "low",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "unnecessary-expenses",
+        "report": "Mapandan AAR 2024-2024"
+      }
+    ]
+  }
+]

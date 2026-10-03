@@ -222,6 +222,7 @@ JS_SOURCES = [
     "assets/js/coa-projects-table.js",
     "assets/js/dashboard-tabs.js",
     "assets/js/section-nav.js",
+    "assets/js/project-explorer.js",
 ]
 
 
