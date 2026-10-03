@@ -306,6 +306,13 @@
   .procurement-toolbar-actions input[type="search"] { min-width: 0; width: 100%; }
   .procurement-toolbar-actions .btn { width: 100%; text-align: center; }
 
+  /* Explorer filters: 2×2 side-by-side dropdowns */
+  .explorer-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .explorer-filters .form-input { min-width: 0; width: 100%; min-height: 44px; }
+
   /* Table font size */
   .table-wrap table { font-size: 13px; }
   .table-wrap table th,

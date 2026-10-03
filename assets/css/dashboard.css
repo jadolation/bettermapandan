@@ -285,6 +285,9 @@
 
 /* Project Explorer */
 .explorer-card h3 { margin-bottom: 4px; }
+.explorer-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.explorer-card-title { min-width: 0; }
+.explorer-card-head .btn { flex-shrink: 0; }
 .explorer-detail { margin-top: 12px; }
 .explorer-detail dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 14px; }
 .explorer-detail dt { font-weight: 700; color: var(--green-deep); }

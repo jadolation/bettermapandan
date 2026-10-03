@@ -237,14 +237,15 @@ def test_section_nav_rail_and_edge_css(built_site: Path):
 
 
 def test_project_explorer_page(built_site: Path):
-    """Project Explorer renders in all 3 locales with search, views, and JS."""
+    """Project Explorer renders in all 3 locales with search, filters, and JS."""
     for lang in ("en", "fil", "pag"):
         html = _read_subpage(built_site, lang, "projects")
         assert 'id="explorer-search"' in html, f"{lang} search"
-        assert html.count("data-explorer-view") == 4, f"{lang} views"
+        assert "data-explorer-view" not in html, f"{lang} no view switcher"
         assert "project-explorer.min.js" in html, f"{lang} script"
         assert 'id="explorer-results"' in html, f"{lang} results"
         assert 'id="explorer-coverage"' in html, f"{lang} coverage filter"
+        assert 'explorer-filters"' in html, f"{lang} filter grid"
     html = _read_subpage(built_site, "en", "projects")
     assert "Public project &amp; accountability index" in html
     assert "Search projects, contractors, barangays, or years" in html

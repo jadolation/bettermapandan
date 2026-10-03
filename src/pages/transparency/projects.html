@@ -16,14 +16,8 @@ hero_lede: Search what the municipality built, who built it, and what auditors s
   </div>
   <div class="procurement-toolbar" role="search" aria-label="Project search">
     <input type="search" id="explorer-search" class="form-input" placeholder="Search projects, contractors, barangays, or years…" aria-label="Search projects" autocomplete="off">
-    <div class="segmented-control" role="group" aria-label="Index">
-      <button type="button" data-explorer-view="projects" class="active" aria-pressed="true">Projects</button>
-      <button type="button" data-explorer-view="contractors" aria-pressed="false">Contractors</button>
-      <button type="button" data-explorer-view="audits" aria-pressed="false">Audits</button>
-      <button type="button" data-explorer-view="funds" aria-pressed="false">Funds</button>
-    </div>
   </div>
-  <div class="procurement-toolbar" aria-label="Filters">
+  <div class="procurement-toolbar explorer-filters" aria-label="Filters">
     <select id="explorer-barangay" class="form-input" aria-label="Filter by barangay"><option value="">All barangays</option></select>
     <select id="explorer-year" class="form-input" aria-label="Filter by year"><option value="">All years</option></select>
     <select id="explorer-type" class="form-input" aria-label="Filter by project type"><option value="">All types</option></select>

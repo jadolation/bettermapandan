@@ -59,12 +59,16 @@
   function projectCard(p) {
     var cov = coverage(p);
     return '<div class="card explorer-card" data-id="' + esc(p.id) + '">' +
+      '<div class="explorer-card-head">' +
+      '<div class="explorer-card-title">' +
       '<h3>' + esc(p.name) + '</h3>' +
       '<p class="source-label">' + esc(p.year || "") +
       (p.barangay && p.barangay.length ? " · " + esc(p.barangay.join(", ")) : "") +
-      " · " + esc(p.type || "") + " · " + cov + " of 4 sources</p>" +
-      trail(p) +
+      " · " + esc(p.type || "") + "</p>" +
+      "</div>" +
       '<button type="button" class="btn btn-outline" data-expand="' + esc(p.id) + '" aria-expanded="false">Evidence</button>' +
+      "</div>" +
+      trail(p) +
       '<div class="explorer-detail" hidden></div></div>';
   }
 
@@ -158,66 +162,19 @@
     var year = document.getElementById("explorer-year").value;
     var type = document.getElementById("explorer-type").value;
     var cov = document.getElementById("explorer-coverage").value;
-    var out = [];
-    if (view === "projects") {
-      out = store.projects.filter(function (p) {
-        if (q && (p.name + " " + p.id).toLowerCase().indexOf(q) === -1) return false;
-        if (brgy && (p.barangay || []).indexOf(brgy) === -1) return false;
-        if (year && String(p.year) !== year) return false;
-        if (type && p.type !== type) return false;
-        if (cov && coverage(p) < Number(cov)) return false;
-        return true;
-      }).map(projectCard);
-    } else if (view === "contractors") {
-      out = store.contractors.filter(function (c) {
-        return !q || (c.name + " " + c.id).toLowerCase().indexOf(q) !== -1;
-      }).map(function (c) {
-        var n = c.contract_ids ? c.contract_ids.length : c.contracts;
-        var yrs = (c.years && c.years.length) ? " · " + esc(c.years[0]) + "–" + esc(c.years[c.years.length - 1]) : "";
-        return '<div class="card explorer-card"><h3>' + esc(c.name) + '</h3>' +
-          '<p class="source-label">' + n + ' PhilGEPS contract records indexed · ' +
-          'total values represented ' + peso(c.total) + yrs + '</p>' +
-          '<p class="source-label">SOURCE REPORTED: indexed PhilGEPS records</p></div>';
-      });
-    } else if (view === "audits") {
-      out = store.audits.filter(function (a) {
-        return !q || (a.title + " " + a.id).toLowerCase().indexOf(q) !== -1;
-      }).map(function (a) {
-        return '<div class="card explorer-card"><h3>' + esc(a.title) + '</h3>' +
-          '<p class="source-label">' + esc(a.status) + ' · ' + esc(a.severity) +
-          (a.category ? ' · ' + esc(a.category) : "") + '</p>' +
-          '<p class="source-label">SOURCE REPORTED: COA annual audit reports</p></div>';
-      });
-    } else {
-      out = store.funds.filter(function (f) {
-        return !q || (f.period + " " + f.id).toLowerCase().indexOf(q) !== -1;
-      }).map(function (f) {
-        var figs = Object.keys(f.figures).map(function (k) {
-          return esc(k) + ": " + peso(f.figures[k]);
-        }).join(" · ");
-        var projs = f.projects_same_year || [];
-        var brgys = {};
-        projs.forEach(function (pid) {
-          var p = null, i;
-          for (i = 0; i < store.projects.length; i++) {
-            if (store.projects[i].id === pid) { p = store.projects[i]; break; }
-          }
-          (p && p.barangay || []).forEach(function (b) { brgys[b] = 1; });
-        });
-        var bn = Object.keys(brgys).length;
-        return '<div class="card explorer-card"><h3>' + esc(f.period) + '</h3>' +
-          '<p class="source-label">' + figs + '</p>' +
-          '<p class="source-label">' + projs.length + ' projects disclosed in the same period' +
-          (bn ? ' across ' + bn + ' barangays' : "") +
-          ' (same fiscal year — not necessarily funded by this line)</p>' +
-          '<p class="source-label">SOURCE REPORTED: DILG-FDP filings</p></div>';
-      });
-    }
+    var out = store.projects.filter(function (p) {
+      if (q && (p.name + " " + p.id).toLowerCase().indexOf(q) === -1) return false;
+      if (brgy && (p.barangay || []).indexOf(brgy) === -1) return false;
+      if (year && String(p.year) !== year) return false;
+      if (type && p.type !== type) return false;
+      if (cov && coverage(p) < Number(cov)) return false;
+      return true;
+    }).map(projectCard);
     var box = document.getElementById("explorer-results");
     box.innerHTML = out.length ? out.join("") :
       '<p class="source-label">No matches. Try a different search or filter.</p>';
     document.getElementById("explorer-count").textContent =
-      out.length + " " + NOUNS[view];
+      out.length + " project" + (out.length === 1 ? "" : "s");
   }
 
   function fillFilters() {
@@ -242,10 +199,8 @@
     if (!root || root.hasAttribute("data-explorer-bound")) return;
     root.setAttribute("data-explorer-bound", "true");
     var b = base();
-    Promise.all(["project-index", "contractor-index", "audit-index", "fund-index"].map(function (n) {
-      return fetch(b + "/assets/data/" + n + ".json").then(function (r) { return r.json(); });
-    })).then(function (all) {
-      store.projects = all[0]; store.contractors = all[1]; store.audits = all[2]; store.funds = all[3];
+    fetch(b + "/assets/data/project-index.json").then(function (r) { return r.json(); }).then(function (projects) {
+      store.projects = projects;
       return fetch(b + "/assets/data/entity-relationships.json").then(function (r) {
         return r.ok ? r.json() : [];
       }).catch(function () { return []; });
@@ -260,21 +215,11 @@
     ["explorer-barangay", "explorer-year", "explorer-type", "explorer-coverage"].forEach(function (id) {
       document.getElementById(id).addEventListener("change", current);
     });
-    document.querySelectorAll("[data-explorer-view]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        view = btn.getAttribute("data-explorer-view");
-        document.querySelectorAll("[data-explorer-view]").forEach(function (o) {
-          var on = o === btn;
-          o.classList.toggle("active", on);
-          o.setAttribute("aria-pressed", String(on));
-        });
-        current();
-      });
-    });
     root.addEventListener("click", function (ev) {
       var btn = ev.target.closest ? ev.target.closest("[data-expand]") : null;
       if (!btn) return;
-      var box = btn.parentElement.querySelector(".explorer-detail");
+      var card = btn.closest ? btn.closest(".explorer-card") : btn.parentElement;
+      var box = card.querySelector(".explorer-detail");
       var open = btn.getAttribute("aria-expanded") === "true";
       btn.setAttribute("aria-expanded", String(!open));
       if (open) { box.hidden = true; return; }
