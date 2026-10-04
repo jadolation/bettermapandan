@@ -39,6 +39,7 @@ def _build_dpwh_labels(locale: dict) -> dict:
         "DPWH_SEARCH_PLACEHOLDER": t(locale, "transparency.infrastructure_search_placeholder", "Search projects..."),
         "DPWH_CLOSE": t(locale, "transparency.dash_close", "Close"),
         "TRANSPARENCY_VIEW_TABLE": t(locale, "transparency.dash_view_table", "View full tables"),
+        "DPWH_COA_FINDINGS": t(locale, "transparency.infrastructure_coa_findings", "COA Findings"),
     }
 
 
@@ -122,6 +123,33 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         has_map = lat is not None and lng is not None
         map_link = f'<a href="https://www.openstreetmap.org/?mlat={lat}&mlon={lng}#map=16/{lat}/{lng}" target="_blank" rel="noopener">{labels["DPWH_VIEW_MAP"]} &rarr;</a>' if has_map else ""
 
+        crossref = p.get("crossref") or {}
+        if crossref:
+            crossref_html = '<div class="crossref-badges">'
+            for contract_key, contract_data in crossref.items():
+                amount = contract_data.get("philgeps_amount")
+                amount_str = f"₱{amount:,.2f}" if amount else ""
+                contract_no = contract_data.get("philgeps_contract_no", contract_key)
+                crossref_html += (
+                    f'<span class="crossref-badge" title="{html.escape(contract_data.get("philgeps_title", ""))}">'
+                    f'{html.escape(contract_no)}'
+                    f'{f" — {amount_str}" if amount_str else ""}'
+                    f'</span>'
+                )
+            crossref_html += '</div>'
+        else:
+            crossref_html = '<span class="crossref-empty">—</span>'
+
+        coa_findings = p.get("coa_findings", [])
+        if coa_findings:
+            coa_html = '<div class="coa-badges">'
+            for finding in coa_findings:
+                title = finding.get("title", finding.get("id", ""))
+                coa_html += f'<span class="coa-badge" title="{html.escape(finding.get("description", ""))}">{html.escape(title)}</span>'
+            coa_html += '</div>'
+        else:
+            coa_html = '<span class="coa-empty">—</span>'
+
         projects_rows.append(
             f'<tr id="dpwh-project-{tid}" data-project_name="{html.escape(p.get("project_name", ""))}" data-agency="{html.escape(p.get("executing_agency", ""))}" data-contractor="{html.escape(p.get("contractor", "") or "—")}" data-amount="{float(amount):.0f}" data-status="{html.escape(status_raw)}" data-accomplishment="{float(acc):.0f}" data-date="{html.escape(str(date_raw))}">'
             f'<td>{_dpwh_category_icon(category)} {category}</td>'
@@ -133,6 +161,8 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
             f'<td class="num">{acc_str}</td>'
             f'<td>{date}</td>'
             f'<td>{map_link}</td>'
+            f'<td class="crossref-cell">{crossref_html}</td>'
+            f'<td class="coa-cell">{coa_html}</td>'
             f'</tr>'
         )
 
@@ -160,6 +190,8 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
         <th scope="col" data-column="accomplishment_percent">{labels['DPWH_ACCOMPLISHMENT']} <span class="sort-indicator"></span></th>
         <th scope="col" data-column="actual_completion_date">{labels['DPWH_DATE']} <span class="sort-indicator"></span></th>
         <th scope="col" data-column="map">{labels['DPWH_MAP']} <span class="sort-indicator"></span></th>
+        <th scope="col" data-column="crossref">Related Procurement</th>
+        <th scope="col" data-column="coa">{labels["DPWH_COA_FINDINGS"]}</th>
       </tr>
     </thead>
     <tbody>

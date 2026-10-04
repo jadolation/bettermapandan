@@ -1,0 +1,232 @@
+[
+  {
+    "id": "COA-F-ppe-reconciliation",
+    "title": "PPE Account Not Reconciled",
+    "status": "resolved",
+    "severity": "high",
+    "category": "Asset Management",
+    "first_observed": 2014,
+    "last_observed": 2019,
+    "amount": 90200000
+  },
+  {
+    "id": "COA-F-breeding-stocks",
+    "title": "Breeding Stocks Ghost Account",
+    "status": "chronic",
+    "severity": "medium",
+    "category": "Asset Management",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 110000
+  },
+  {
+    "id": "COA-F-dormant-receivables",
+    "title": "Dormant Receivables",
+    "status": "chronic",
+    "severity": "medium",
+    "category": "Revenue Collection",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 613635.81
+  },
+  {
+    "id": "COA-F-land-titling",
+    "title": "Land Titling Gaps",
+    "status": "partial",
+    "severity": "high",
+    "category": "Asset Management",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 25699460
+  },
+  {
+    "id": "COA-F-solid-waste",
+    "title": "Solid Waste Management Non-Compliance",
+    "status": "improving",
+    "severity": "high",
+    "category": "Environmental Compliance",
+    "first_observed": 2015,
+    "last_observed": 2024,
+    "amount": 13500000
+  },
+  {
+    "id": "COA-F-delinquent-rpt",
+    "title": "Delinquent Real Property Taxes",
+    "status": "chronic",
+    "severity": "medium",
+    "category": "Revenue Collection",
+    "first_observed": 2016,
+    "last_observed": 2024,
+    "amount": 839214
+  },
+  {
+    "id": "COA-F-contract-docs",
+    "title": "Incomplete Contract Documentation",
+    "status": "chronic",
+    "severity": "medium",
+    "category": "Procurement Compliance",
+    "first_observed": 2015,
+    "last_observed": 2024,
+    "amount": 0
+  },
+  {
+    "id": "COA-F-cash-advance-irregular",
+    "title": "Irregular Cash Advances",
+    "status": "resolved",
+    "severity": "high",
+    "category": "Financial Management",
+    "first_observed": 2014,
+    "last_observed": 2019,
+    "amount": 1270000
+  },
+  {
+    "id": "COA-F-ldrrmf-underallocation",
+    "title": "LDRRMF Under-Allocation",
+    "status": "open",
+    "severity": "medium",
+    "category": "Fund Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 380000
+  },
+  {
+    "id": "COA-F-idle-mrf-equipment",
+    "title": "Idle MRF Equipment",
+    "status": "chronic",
+    "severity": "high",
+    "category": "Asset Management",
+    "first_observed": 2020,
+    "last_observed": 2024,
+    "amount": 13500000
+  },
+  {
+    "id": "COA-F-manual-payroll",
+    "title": "Manual Payroll Cash Advances",
+    "status": "improving",
+    "severity": "high",
+    "category": "Financial Management",
+    "first_observed": 2018,
+    "last_observed": 2025,
+    "amount": 14853746
+  },
+  {
+    "id": "COA-F-unnecessary-expenses",
+    "title": "Unnecessary and Unallowable Expenses",
+    "status": "open",
+    "severity": "low",
+    "category": "Financial Management",
+    "first_observed": 2024,
+    "last_observed": 2024,
+    "amount": 269675
+  },
+  {
+    "id": "COA-F-cip-buildings-discrepancy",
+    "title": "CIP-Buildings Account Discrepancy",
+    "status": "open",
+    "severity": "medium",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 1096244.18
+  },
+  {
+    "id": "COA-F-unreleased-check",
+    "title": "Unreleased Check Not Recognized in Liabilities",
+    "status": "open",
+    "severity": "medium",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 878549.46
+  },
+  {
+    "id": "COA-F-petty-cash-misuse",
+    "title": "Petty Cash Fund Used for Financial Assistance",
+    "status": "open",
+    "severity": "high",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 2458319.79
+  },
+  {
+    "id": "COA-F-donations-in-kind",
+    "title": "Donations in Kind Without Complete Documentation",
+    "status": "open",
+    "severity": "medium",
+    "category": "Governance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 263995
+  },
+  {
+    "id": "COA-F-brand-names-specs",
+    "title": "Brand Names in Technical Specifications",
+    "status": "open",
+    "severity": "medium",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 504681
+  },
+  {
+    "id": "COA-F-cctv-ineligible-supplier",
+    "title": "CCTV Procurement Awarded to Ineligible Supplier",
+    "status": "open",
+    "severity": "high",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 1152740
+  },
+  {
+    "id": "COA-F-svp-meals-framework-agreement",
+    "title": "Meals Procured via SVP Without Framework Agreement",
+    "status": "open",
+    "severity": "medium",
+    "category": "Procurement Compliance",
+    "first_observed": 2024,
+    "last_observed": 2025,
+    "amount": 6117351.1
+  },
+  {
+    "id": "COA-F-non-preparation-pmr",
+    "title": "Non-Preparation of Procurement Monitoring Report",
+    "status": "open",
+    "severity": "low",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 0
+  },
+  {
+    "id": "COA-F-hazard-pay-unsupported",
+    "title": "Unsupported Hazard Pay Disbursement",
+    "status": "open",
+    "severity": "medium",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 110550.62
+  },
+  {
+    "id": "COA-F-gaming-laptop-unnecessary",
+    "title": "Unnecessary Gaming Laptop Procurement",
+    "status": "open",
+    "severity": "low",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 115000
+  },
+  {
+    "id": "COA-F-unrelated-gad-expenditures",
+    "title": "Unrelated GAD Expenditures",
+    "status": "open",
+    "severity": "medium",
+    "category": "Governance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 4527500
+  }
+]

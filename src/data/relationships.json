@@ -1,0 +1,3448 @@
+[
+  {
+    "id": "REL-0001",
+    "from": "contract:PHG-00001",
+    "to": "contractor:CTR-0016",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0002",
+    "from": "contract:PHG-00002",
+    "to": "contractor:CTR-0024",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0003",
+    "from": "contract:PHG-00003",
+    "to": "contractor:CTR-0036",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0004",
+    "from": "contract:PHG-00004",
+    "to": "contractor:CTR-0027",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0005",
+    "from": "contract:PHG-00005",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0006",
+    "from": "contract:PHG-00006",
+    "to": "contractor:CTR-0002",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0007",
+    "from": "contract:PHG-00007",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0008",
+    "from": "contract:PHG-00008",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0009",
+    "from": "contract:PHG-00009",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0010",
+    "from": "contract:PHG-00010",
+    "to": "contractor:CTR-0074",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0011",
+    "from": "contract:PHG-00011",
+    "to": "contractor:CTR-0038",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0012",
+    "from": "contract:PHG-00012",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0013",
+    "from": "contract:PHG-00013",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0014",
+    "from": "contract:PHG-00014",
+    "to": "contractor:CTR-0039",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0015",
+    "from": "contract:PHG-00015",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0016",
+    "from": "contract:PHG-00016",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0017",
+    "from": "contract:PHG-00017",
+    "to": "contractor:CTR-0062",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0018",
+    "from": "contract:PHG-00018",
+    "to": "contractor:CTR-0030",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0019",
+    "from": "contract:PHG-00019",
+    "to": "contractor:CTR-0038",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0020",
+    "from": "contract:PHG-00020",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0021",
+    "from": "contract:PHG-00021",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0022",
+    "from": "contract:PHG-00022",
+    "to": "contractor:CTR-0044",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0023",
+    "from": "contract:PHG-00023",
+    "to": "contractor:CTR-0074",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0024",
+    "from": "contract:PHG-00024",
+    "to": "contractor:CTR-0022",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0025",
+    "from": "contract:PHG-00025",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0026",
+    "from": "contract:PHG-00026",
+    "to": "contractor:CTR-0022",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0027",
+    "from": "contract:GOODS-MUN-2025-01-001",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0028",
+    "from": "contract:INFR-MUN-2025-01-002",
+    "to": "contractor:CTR-0032",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0029",
+    "from": "contract:GOODS-MUN-2024-11-034",
+    "to": "contractor:CTR-0082",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0030",
+    "from": "contract:GOODS-MUN-2024-11-031",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0031",
+    "from": "contract:INFR-MUN-2024-11-032",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0032",
+    "from": "contract:GOODS-MUN-2024-11-033",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0033",
+    "from": "contract:GOODS-MUN-2024-11-030",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0034",
+    "from": "contract:GOODS-MUN-2024-10-029",
+    "to": "contractor:CTR-0026",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0035",
+    "from": "contract:GOODS-MUN-2024-09-027",
+    "to": "contractor:CTR-0077",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0036",
+    "from": "contract:GOODS-MUN-2024-09-028",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0037",
+    "from": "contract:GOODS-MUN-2024-09-026",
+    "to": "contractor:CTR-0077",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0038",
+    "from": "contract:GOODS-MUN-2024-08-024",
+    "to": "contractor:CTR-0055",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0039",
+    "from": "contract:GOODS-MUN-2024-08-025",
+    "to": "contractor:CTR-0024",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0040",
+    "from": "contract:INFR-MUN-2024-07-020",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0041",
+    "from": "contract:INFR-MUN-2024-07-019",
+    "to": "contractor:CTR-0025",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0042",
+    "from": "contract:INFR-MUN-2024-07-023",
+    "to": "contractor:CTR-0025",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0043",
+    "from": "contract:GOODS-MUN-2024-07-021",
+    "to": "contractor:CTR-0051",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0044",
+    "from": "contract:11137489",
+    "to": "contractor:CTR-0018",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0045",
+    "from": "contract:GOODS-MUN-2024-007-017",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0046",
+    "from": "contract:GOODS-MUN-2024-06-015",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0047",
+    "from": "contract:GOODS-MUN-2024-04-015",
+    "to": "contractor:CTR-0012",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0048",
+    "from": "contract:2024-01",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0049",
+    "from": "contract:GOODS-MUN-2024-04-014",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0050",
+    "from": "contract:INFR-MUN-2024-04-010",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0051",
+    "from": "contract:INFR-MUN-2024-04-012",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0052",
+    "from": "contract:PHG-00052",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0053",
+    "from": "contract:INFR-MUN-2024-02-004",
+    "to": "contractor:CTR-0082",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0054",
+    "from": "contract:INFR-MUN-2024-04-011",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0055",
+    "from": "contract:GOODS-MUN-2024-03-009",
+    "to": "contractor:CTR-0077",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0056",
+    "from": "contract:GOODS-MUN-2024-03-008",
+    "to": "contractor:CTR-0013",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0057",
+    "from": "contract:PHG-00057",
+    "to": "contractor:CTR-0076",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0058",
+    "from": "contract:PHG-00058",
+    "to": "contractor:CTR-0030",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0059",
+    "from": "contract:GOODS-MUN-2024-02-005",
+    "to": "contractor:CTR-0087",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0060",
+    "from": "contract:INFR-MUN-2024-01-003",
+    "to": "contractor:CTR-0032",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0061",
+    "from": "contract:GOODS-MUN-2024-01-002",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0062",
+    "from": "contract:GOODS-MUN-2024-01-001",
+    "to": "contractor:CTR-0013",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0063",
+    "from": "contract:INFR-MUN-2023-11-016",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0064",
+    "from": "contract:GOODS-MUN-2023-11-21",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0065",
+    "from": "contract:INFR-MUN-2023-11-018",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0066",
+    "from": "contract:INFR-MUN-2023-11-017",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0067",
+    "from": "contract:GOODS-MUN-2023-11-020",
+    "to": "contractor:CTR-0051",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0068",
+    "from": "contract:GOODS-MUN-2023-09-015",
+    "to": "contractor:CTR-0051",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0069",
+    "from": "contract:INFR-MUN-2023-09-010",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0070",
+    "from": "contract:INFR-MUN-2023-09-012",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0071",
+    "from": "contract:INFR-MUN-2023-09-013",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0072",
+    "from": "contract:INFR-MUN-2023-09-011",
+    "to": "contractor:CTR-0032",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0073",
+    "from": "contract:INFR-MUN-2023-08-009",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0074",
+    "from": "contract:GOODS-MUN-2023-08-007",
+    "to": "contractor:CTR-0077",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0075",
+    "from": "contract:GOODS-MUN-2023-08-008",
+    "to": "contractor:CTR-0077",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0076",
+    "from": "contract:INFR-MUN-2023-07-005",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0077",
+    "from": "contract:INFR-MUN-2023-07-006",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0078",
+    "from": "contract:GOODS-MUN-2023-06-004",
+    "to": "contractor:CTR-0081",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0079",
+    "from": "contract:INFR-MUN-2023-06-003",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0080",
+    "from": "contract:INFR-BRGY-2023-06-001",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0081",
+    "from": "contract:PHG-00081",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0082",
+    "from": "contract:PHG-00082",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0083",
+    "from": "contract:PHG-00083",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0084",
+    "from": "contract:PHG-00084",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0085",
+    "from": "contract:PHG-00085",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0086",
+    "from": "contract:PHG-00086",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0087",
+    "from": "contract:09 209522527",
+    "to": "contractor:CTR-0010",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0088",
+    "from": "contract:INFR-BRGY-2023-05-002",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0089",
+    "from": "contract:PHG-00089",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0090",
+    "from": "contract:PHG-00090",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0091",
+    "from": "contract:PHG-00091",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0092",
+    "from": "contract:INFR-MUN-2023-04-002",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0093",
+    "from": "contract:GOODS-MUN-2023-01-001",
+    "to": "contractor:CTR-0080",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0094",
+    "from": "contract:GOODS-MUN-2022-12-022",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0095",
+    "from": "contract:INFR-MUN-2022-12-019",
+    "to": "contractor:CTR-0031",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0096",
+    "from": "contract:INFR-MUN-2022-12-024",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0097",
+    "from": "contract:INFR-MUN-2022-12-025",
+    "to": "contractor:CTR-0060",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0098",
+    "from": "contract:GOODS-MUN-2022-12-020",
+    "to": "contractor:CTR-0020",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0099",
+    "from": "contract:INFR-MUN-2022-10-01",
+    "to": "contractor:CTR-0061",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0100",
+    "from": "contract:GOODS-MUN-2022-10-015",
+    "to": "contractor:CTR-0007",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0101",
+    "from": "contract:GOODS-MUN-2022-10-013",
+    "to": "contractor:CTR-0020",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0102",
+    "from": "contract:GOODS-MUN-2022-10-016",
+    "to": "contractor:CTR-0077",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0103",
+    "from": "contract:INFR-MUN-2022-10-014",
+    "to": "contractor:CTR-0064",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0104",
+    "from": "contract:GOODS-MUN-2022-08-012",
+    "to": "contractor:CTR-0080",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0105",
+    "from": "contract:INFR-MUN-2022-01-002",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0106",
+    "from": "contract:INFR-MUN-2022-08-011",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0107",
+    "from": "contract:INFR-MUN-2022-02-007",
+    "to": "contractor:CTR-0032",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0108",
+    "from": "contract:INFR-MUN-2022-01-006",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0109",
+    "from": "contract:INFR-BRGY-2022-08-002",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0110",
+    "from": "contract:PHG-00110",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0111",
+    "from": "contract:PHG-00111",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0112",
+    "from": "contract:PHG-00112",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0113",
+    "from": "contract:PHG-00113",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0114",
+    "from": "contract:PHG-00114",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0115",
+    "from": "contract:PHG-00115",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0116",
+    "from": "contract:8996049",
+    "to": "contractor:CTR-0008",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0117",
+    "from": "contract:PHG-00117",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0118",
+    "from": "contract:PHG-00118",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0119",
+    "from": "contract:PHG-00119",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0120",
+    "from": "contract:PHG-00120",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0121",
+    "from": "contract:PHG-00121",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0122",
+    "from": "contract:PHG-00122",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0123",
+    "from": "contract:PHG-00123",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0124",
+    "from": "contract:8717127",
+    "to": "contractor:CTR-0009",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0125",
+    "from": "contract:INFR-BRGY-2022-00-001",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0126",
+    "from": "contract:GOODS-MUN-2022-05-010",
+    "to": "contractor:CTR-0015",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0127",
+    "from": "contract:2022-01",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0128",
+    "from": "contract:GOODS-MUN-2022-02-009",
+    "to": "contractor:CTR-0071",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0129",
+    "from": "contract:09104752533",
+    "to": "contractor:CTR-0083",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0130",
+    "from": "contract:INFR-MUN-2022-01-001",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0131",
+    "from": "contract:GOODS-MUN-2022-01-008",
+    "to": "contractor:CTR-0015",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0132",
+    "from": "contract:INFR-MUN-2022-01-004",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0133",
+    "from": "contract:INFR-MUN-2022-01-005",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0134",
+    "from": "contract:INFR-MUN-2021-12-019",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0135",
+    "from": "contract:INFR-MUN-2021-11-018",
+    "to": "contractor:CTR-0005",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0136",
+    "from": "contract:INFR-MUN-2021-11-017",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0137",
+    "from": "contract:INFR-MUN-2021-11-016",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0138",
+    "from": "contract:INFR-MUN-2021-05-009",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0139",
+    "from": "contract:MUN-INFRA2021-10-015",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0140",
+    "from": "contract:GOODS MUN-2021-10-0014",
+    "to": "contractor:CTR-0070",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0141",
+    "from": "contract:+63 2 82559876",
+    "to": "contractor:CTR-0059",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0142",
+    "from": "contract:+63 920 2399320",
+    "to": "contractor:CTR-0075",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0143",
+    "from": "contract:2021-02",
+    "to": "contractor:CTR-0033",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0144",
+    "from": "contract:GOODS 2021-08-012",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0145",
+    "from": "contract:PHG-00145",
+    "to": "contractor:CTR-0080",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0146",
+    "from": "contract:2021-01",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0147",
+    "from": "contract:INFR-MUN-2021-05-007",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0148",
+    "from": "contract:INFR-MUN-2021-05-0010",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0149",
+    "from": "contract:INFR-MUN-2021-05-008",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0150",
+    "from": "contract:GOODS-MUN-2021-05-011",
+    "to": "contractor:CTR-0070",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0151",
+    "from": "contract:GOODS-MUN-2021-04-001",
+    "to": "contractor:CTR-0066",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0152",
+    "from": "contract:INFR-MUN-2021-04-005",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0153",
+    "from": "contract:INFR-MUN-2021-04-006",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0154",
+    "from": "contract:INFR-MUN-2021-04-003",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0155",
+    "from": "contract:GOODS-MUN-2021-04-002",
+    "to": "contractor:CTR-0053",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0156",
+    "from": "contract:INFR-MUN-2021-04-004",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0157",
+    "from": "contract:PHG-00157",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0158",
+    "from": "contract:2020-12-014",
+    "to": "contractor:CTR-0079",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0159",
+    "from": "contract:2020-10-009",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0160",
+    "from": "contract:2020-10-008",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0161",
+    "from": "contract:220-10-010",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0162",
+    "from": "contract:08-005-2020",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0163",
+    "from": "contract:08-006-2020",
+    "to": "contractor:CTR-0086",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0164",
+    "from": "contract:2020-08-01 00:00:00",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0165",
+    "from": "contract:06-002",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0166",
+    "from": "contract:06-004",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0167",
+    "from": "contract:2020-06-003",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0168",
+    "from": "contract:INFR-10-019",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0169",
+    "from": "contract:2020-01-01 00:00:00",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0170",
+    "from": "contract:6795448",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0171",
+    "from": "contract:GOODS 10-015",
+    "to": "contractor:CTR-0042",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0172",
+    "from": "contract:2019-10-018",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0173",
+    "from": "contract:MUN 10-016",
+    "to": "contractor:CTR-0085",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0174",
+    "from": "contract:2019-10-017",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0175",
+    "from": "contract:GOODS-MUN-19-08-013",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0176",
+    "from": "contract:INFR-19-08-014",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0177",
+    "from": "contract:6391506",
+    "to": "contractor:CTR-0067",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0178",
+    "from": "contract:MNHS-2019-001",
+    "to": "contractor:CTR-0073",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0179",
+    "from": "contract:19-06-036",
+    "to": "contractor:CTR-0050",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0180",
+    "from": "contract:19-05-027",
+    "to": "contractor:CTR-0068",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0181",
+    "from": "contract:MUN2019-03-004",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0182",
+    "from": "contract:PHG-00182",
+    "to": "contractor:CTR-0019",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0183",
+    "from": "contract:INFR-02-003",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0184",
+    "from": "contract:INFR 02-001",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0185",
+    "from": "contract:Goods 02-002",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0186",
+    "from": "contract:2019-01-001",
+    "to": "contractor:CTR-0029",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0187",
+    "from": "contract:07-012",
+    "to": "contractor:CTR-0049",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0188",
+    "from": "contract:GOODS 10-016-2018",
+    "to": "contractor:CTR-0046",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0189",
+    "from": "contract:18-11-096",
+    "to": "contractor:CTR-0057",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0190",
+    "from": "contract:GOODS 2018-10-013",
+    "to": "contractor:CTR-0021",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0191",
+    "from": "contract:PO 18-09-078",
+    "to": "contractor:CTR-0035",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0192",
+    "from": "contract:INFR-07-007",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0193",
+    "from": "contract:NFR-MUN-07-009",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0194",
+    "from": "contract:07-010-2018",
+    "to": "contractor:CTR-0072",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0195",
+    "from": "contract:IINFR-07-008",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0196",
+    "from": "contract:2018-07-011",
+    "to": "contractor:CTR-0040",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0197",
+    "from": "contract:02-001-2018",
+    "to": "contractor:CTR-0040",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0198",
+    "from": "contract:06-006-2018",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0199",
+    "from": "contract:INFR-2018-05-005",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0200",
+    "from": "contract:INFR-2018-05-004",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0201",
+    "from": "contract:18-05-040",
+    "to": "contractor:CTR-0028",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0202",
+    "from": "contract:Goods-2018-003",
+    "to": "contractor:CTR-0040",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0203",
+    "from": "contract:INFR-02-002",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0204",
+    "from": "contract:GOODS-MUN-2017-12-019",
+    "to": "contractor:CTR-0021",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0205",
+    "from": "contract:INFR-MUN-2017-11-018",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0206",
+    "from": "contract:INFR-MUN-2017-11-017",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0207",
+    "from": "contract:17-11-016",
+    "to": "contractor:CTR-0043",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0208",
+    "from": "contract:017-11-015",
+    "to": "contractor:CTR-0006",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0209",
+    "from": "contract:017-11-14",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0210",
+    "from": "contract:INFRA-MUN-2017-09-012",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0211",
+    "from": "contract:MUN-2017-07-011",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0212",
+    "from": "contract:MUN-2017-07-010",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0213",
+    "from": "contract:2016-11-010",
+    "to": "contractor:CTR-0078",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0214",
+    "from": "contract:PO17-06-054",
+    "to": "contractor:CTR-0011",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0215",
+    "from": "contract:17-05-001",
+    "to": "contractor:CTR-0080",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0216",
+    "from": "contract:2017-04-009",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0217",
+    "from": "contract:2017-04-008",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0218",
+    "from": "contract:2017-04-007",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0219",
+    "from": "contract:2017-04-006",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0220",
+    "from": "contract:2017-04-005",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0221",
+    "from": "contract:2017-02-004",
+    "to": "contractor:CTR-0001",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0222",
+    "from": "contract:MUN2017-01-001",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0223",
+    "from": "contract:2017-01-002",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0224",
+    "from": "contract:01-003",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0225",
+    "from": "contract:MUN-2016-12-011",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0226",
+    "from": "contract:2016-11-009",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0227",
+    "from": "contract:2016-11-008",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0228",
+    "from": "contract:GOODS-MUN-2016-10-004",
+    "to": "contractor:CTR-0056",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0229",
+    "from": "contract:GOODS-MUN-2016-10-005",
+    "to": "contractor:CTR-0037",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0230",
+    "from": "contract:GOODS-MUN-2016-11-006",
+    "to": "contractor:CTR-0047",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0231",
+    "from": "contract:PHG-00231",
+    "to": "contractor:CTR-0080",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0232",
+    "from": "contract:2016-09-001",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0233",
+    "from": "contract:2016-09-003",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0234",
+    "from": "contract:2016-09-002",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0235",
+    "from": "contract:INFRA-MAWADI 2016-08-001",
+    "to": "contractor:CTR-0029",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0236",
+    "from": "contract:MUN2016-05-002",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0237",
+    "from": "contract:MUN-2015-05-006",
+    "to": "contractor:CTR-0058",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0238",
+    "from": "contract:01-001-2016",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0239",
+    "from": "contract:2015-11-020",
+    "to": "contractor:CTR-0069",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0240",
+    "from": "contract:2015-11-021",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0241",
+    "from": "contract:2015-11-019",
+    "to": "contractor:CTR-0034",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0242",
+    "from": "contract:2015-001",
+    "to": "contractor:CTR-0014",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0243",
+    "from": "contract:2015-10-017",
+    "to": "contractor:CTR-0058",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0244",
+    "from": "contract:42293",
+    "to": "contractor:CTR-0034",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0245",
+    "from": "contract:2015-10-018",
+    "to": "contractor:CTR-0041",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0246",
+    "from": "contract:2015-08-012",
+    "to": "contractor:CTR-0037",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0247",
+    "from": "contract:09-015",
+    "to": "contractor:CTR-0041",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0248",
+    "from": "contract:2015-08-014",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0249",
+    "from": "contract:2015-08-013",
+    "to": "contractor:CTR-0069",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0250",
+    "from": "contract:2015-08-011",
+    "to": "contractor:CTR-0069",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0251",
+    "from": "contract:2015-08-010",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0252",
+    "from": "contract:08-008",
+    "to": "contractor:CTR-0017",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0253",
+    "from": "contract:2015-06-008",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0254",
+    "from": "contract:2015-06-007",
+    "to": "contractor:CTR-0054",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0255",
+    "from": "contract:2015-06-006",
+    "to": "contractor:CTR-0069",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0256",
+    "from": "contract:5",
+    "to": "contractor:CTR-0065",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0257",
+    "from": "contract:05-004",
+    "to": "contractor:CTR-0080",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0258",
+    "from": "contract:42157",
+    "to": "contractor:CTR-0029",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0259",
+    "from": "contract:2015-04-003",
+    "to": "contractor:CTR-0069",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0260",
+    "from": "contract:2015-03-001",
+    "to": "contractor:CTR-0052",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0261",
+    "from": "contract:42005",
+    "to": "contractor:CTR-0063",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0262",
+    "from": "contract:10",
+    "to": "contractor:CTR-0041",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0263",
+    "from": "contract:9",
+    "to": "contractor:CTR-0069",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0264",
+    "from": "contract:8",
+    "to": "contractor:CTR-0034",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0265",
+    "from": "contract:PHG-00265",
+    "to": "contractor:CTR-0034",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0266",
+    "from": "contract:PHG-00266",
+    "to": "contractor:CTR-0048",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0267",
+    "from": "contract:2826114",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0268",
+    "from": "contract:41640",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0269",
+    "from": "contract:PHG-00269",
+    "to": "contractor:CTR-0003",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0270",
+    "from": "contract:TF-PDAF-2013-001",
+    "to": "contractor:CTR-0004",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0271",
+    "from": "contract:PHG-00271",
+    "to": "contractor:CTR-0045",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0272",
+    "from": "contract:PHG-00272",
+    "to": "contractor:CTR-0023",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0273",
+    "from": "contract:PHG-00273",
+    "to": "contractor:CTR-0084",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0274",
+    "from": "contract:PHG-00274",
+    "to": "contractor:CTR-0074",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0275",
+    "from": "contract:PHG-00275",
+    "to": "contractor:CTR-0084",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0276",
+    "from": "contract:PHG-00276",
+    "to": "contractor:CTR-0084",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0277",
+    "from": "contract:PHG-00277",
+    "to": "contractor:CTR-0045",
+    "type": "awarded_to",
+    "confidence": "explicit",
+    "evidence": [
+      "source record names awardee"
+    ]
+  },
+  {
+    "id": "REL-0278",
+    "from": "project:fdp-bid:GOODS-MUN-2023-01-001",
+    "to": "contract:GOODS-MUN-2023-01-001",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0279",
+    "from": "project:fdp-bid:INFR-MUN-2023-04-002",
+    "to": "contract:INFR-MUN-2023-04-002",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0280",
+    "from": "project:BM-PROJ-2023-014",
+    "to": "contract:INFR-MUN-2023-11-016",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0281",
+    "from": "project:fdp-bid:GOODS-MUN-2023-06-004",
+    "to": "contract:GOODS-MUN-2023-06-004",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0282",
+    "from": "project:fdp-bid:INFR-MUN-2023-07-005",
+    "to": "contract:INFR-MUN-2023-09-012",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0283",
+    "from": "project:BM-PROJ-2023-002",
+    "to": "contract:INFR-MUN-2023-07-006",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0284",
+    "from": "project:fdp-bid:INFR-MUN-2023-08-009",
+    "to": "contract:INFR-MUN-2023-08-009",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0285",
+    "from": "project:fdp-bid:INFR-MUN-2023-09-010",
+    "to": "contract:INFR-MUN-2023-09-010",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0286",
+    "from": "project:BM-PROJ-2023-004",
+    "to": "contract:INFR-MUN-2023-09-011",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0287",
+    "from": "project:fdp-bid:INFR-MUN-2023-09-012",
+    "to": "contract:INFR-MUN-2023-09-012",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0288",
+    "from": "project:fdp-bid:INFR-MUN-2023-09-013",
+    "to": "contract:INFR-MUN-2023-09-013",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0289",
+    "from": "project:fdp-bid:GOODS-MUN-2023-08-007",
+    "to": "contract:GOODS-MUN-2023-08-007",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0290",
+    "from": "project:fdp-bid:GOODS-MUN-2023-08-008",
+    "to": "contract:GOODS-MUN-2023-08-008",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0291",
+    "from": "project:fdp-bid:GOODS-MUN-2023-09-015",
+    "to": "contract:GOODS-MUN-2023-09-015",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0292",
+    "from": "project:BM-PROJ-2023-018",
+    "to": "contract:INFR-MUN-2023-11-017",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0293",
+    "from": "project:fdp-bid:INFR-MUN-2023-11-018",
+    "to": "contract:INFR-MUN-2023-11-018",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0294",
+    "from": "project:fdp-bid:GOODS-MUN-2023-11-020",
+    "to": "contract:GOODS-MUN-2023-11-020",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0295",
+    "from": "project:fdp-bid:GOODS-MUN-2023-11-21",
+    "to": "contract:GOODS-MUN-2023-11-21",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0296",
+    "from": "project:fdp-bid:INFR-MUN-2024-01-003",
+    "to": "contract:INFR-MUN-2024-01-003",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0297",
+    "from": "project:fdp-bid:GOODS-MUN-2024-01-001",
+    "to": "contract:GOODS-MUN-2024-01-001",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0298",
+    "from": "project:fdp-bid:GOODS-MUN-2024-01-002",
+    "to": "contract:GOODS-MUN-2024-01-002",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0299",
+    "from": "project:fdp-bid:GOODS-MUN-2024-02-005",
+    "to": "contract:GOODS-MUN-2024-02-005",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0300",
+    "from": "project:BM-PROJ-2024-030",
+    "to": "contract:INFR-MUN-2024-02-004",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0301",
+    "from": "project:fdp-bid:INFR-MUN-2024-04-010",
+    "to": "contract:INFR-MUN-2024-04-010",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0302",
+    "from": "project:fdp-bid:INFR-MUN-2024-04-011",
+    "to": "contract:INFR-MUN-2024-04-011",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0303",
+    "from": "project:fdp-bid:INFR-MUN-2024-04-012",
+    "to": "contract:INFR-MUN-2024-04-012",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0304",
+    "from": "project:BM-PROJ-2024-026",
+    "to": "contract:INFR-MUN-2024-04-012",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0305",
+    "from": "project:fdp-bid:GOODS-MUN-2024-03-008",
+    "to": "contract:GOODS-MUN-2024-03-008",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0306",
+    "from": "project:fdp-bid:GOODS-MUN-2024-03-009",
+    "to": "contract:GOODS-MUN-2024-03-009",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0307",
+    "from": "project:fdp-bid:GOODS-MUN-2024-04-014",
+    "to": "contract:GOODS-MUN-2024-04-014",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0308",
+    "from": "project:fdp-bid:GOODS-MUN-2024-04-015",
+    "to": "contract:GOODS-MUN-2024-04-015",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0309",
+    "from": "project:fdp-bid:GOODS-MUN-2024-06-015",
+    "to": "contract:GOODS-MUN-2024-06-015",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0310",
+    "from": "project:fdp-bid:GOODS-MUN-2024-06-017",
+    "to": "contract:GOODS-MUN-2024-08-024",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0311",
+    "from": "project:BM-PROJ-2024-023",
+    "to": "contract:INFR-MUN-2024-07-019",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0312",
+    "from": "project:BM-PROJ-2024-021",
+    "to": "contract:INFR-MUN-2024-07-020",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0313",
+    "from": "project:fdp-bid:INFR-MUN-2024-07-023",
+    "to": "contract:INFR-MUN-2024-07-023",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0314",
+    "from": "project:fdp-bid:GOODS-MUN-2024-007-017",
+    "to": "contract:GOODS-MUN-2024-007-017",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0315",
+    "from": "project:fdp-bid:GOODS-MUN-2024-07-021",
+    "to": "contract:GOODS-MUN-2024-07-021",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0316",
+    "from": "project:fdp-bid:GOODS-MUN-2024-08-024",
+    "to": "contract:GOODS-MUN-2024-08-024",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0317",
+    "from": "project:fdp-bid:GOODS-MUN-2024-08-025",
+    "to": "contract:GOODS-MUN-2024-08-025",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0318",
+    "from": "project:fdp-bid:INFR-MUN-2024-11-032",
+    "to": "contract:INFR-MUN-2024-11-032",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0319",
+    "from": "project:fdp-bid:INFR-MUN-2025-01-002",
+    "to": "contract:INFR-MUN-2025-01-002",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0320",
+    "from": "project:fdp-bid:GOODS-MUN-2024-09-026",
+    "to": "contract:GOODS-MUN-2024-09-026",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0321",
+    "from": "project:fdp-bid:GOODS-MUN-2024-09-027",
+    "to": "contract:GOODS-MUN-2024-09-027",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0322",
+    "from": "project:fdp-bid:GOODS-MUN-2024-09-028",
+    "to": "contract:GOODS-MUN-2024-09-028",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0323",
+    "from": "project:fdp-bid:GOODS-MUN-2024-10-029",
+    "to": "contract:GOODS-MUN-2024-10-029",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0324",
+    "from": "project:fdp-bid:GOODS-MUN-2024-11-030",
+    "to": "contract:GOODS-MUN-2024-11-030",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0325",
+    "from": "project:fdp-bid:GOODS-MUN-2024-11-031",
+    "to": "contract:GOODS-MUN-2024-11-031",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0326",
+    "from": "project:fdp-bid:GOODS-MUN-2024-11-033",
+    "to": "contract:GOODS-MUN-2024-11-033",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0327",
+    "from": "project:fdp-bid:GOODS-MUN-2024-11-034",
+    "to": "contract:GOODS-MUN-2024-11-034",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0328",
+    "from": "project:fdp-bid:GOODS-MUN-2025-01-001",
+    "to": "contract:GOODS-MUN-2025-01-001",
+    "type": "has_contract",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ]
+  },
+  {
+    "id": "REL-0329",
+    "from": "project:fdp-bid:GOODS-MUN-2025-01-004",
+    "to": "contract:PHG-00025",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0330",
+    "from": "project:fdp-bid:GOODS-MUN-2025-02-005",
+    "to": "contract:PHG-00002",
+    "type": "has_contract",
+    "confidence": "strong",
+    "evidence": [
+      "same project title",
+      "same contractor",
+      "same fiscal year",
+      "rule_title_contractor_year"
+    ]
+  },
+  {
+    "id": "REL-0331",
+    "from": "project:fdp-bid:GOODS-MUN-2025-05-006",
+    "to": "contract:PHG-00022",
+    "type": "has_contract",
+    "confidence": "strong",
+    "evidence": [
+      "same project title",
+      "same contractor",
+      "same fiscal year",
+      "rule_title_contractor_year"
+    ]
+  },
+  {
+    "id": "REL-0332",
+    "from": "project:fdp-bid:GOODS-MUN-2025-05-007",
+    "to": "contract:PHG-00021",
+    "type": "has_contract",
+    "confidence": "strong",
+    "evidence": [
+      "same project title",
+      "same contractor",
+      "same fiscal year",
+      "rule_title_contractor_year"
+    ]
+  },
+  {
+    "id": "REL-0333",
+    "from": "project:BM-PROJ-2023-003",
+    "to": "contract:INFR-MUN-2023-07-006",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0334",
+    "from": "project:BM-PROJ-2023-020",
+    "to": "contract:INFR-MUN-2023-11-016",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0335",
+    "from": "project:BM-PROJ-2024-027",
+    "to": "contract:GOODS-MUN-2024-07-021",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0336",
+    "from": "project:BM-PROJ-2025-032",
+    "to": "contract:INFR-MUN-2025-01-002",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0337",
+    "from": "project:BM-PROJ-2025-C010",
+    "to": "contract:PHG-00021",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  }
+]

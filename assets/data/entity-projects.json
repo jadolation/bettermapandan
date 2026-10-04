@@ -1,0 +1,3643 @@
+[
+  {
+    "project_id": "BM-PROJ-2023-001",
+    "canonical_name": "Emerging and Re-emerging Dseases",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Emerging and Re-emerging Dseases",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Emerging and Re-emerging Dseases",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-002",
+    "canonical_name": "Improvement of Multi-Purpose covered court (Baloling)",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-003",
+    "canonical_name": "Improvement of Multi-Purpose covered court (Sta. Maria)",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement of Multi-Purpose covered cou",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-004",
+    "canonical_name": "Construction of One Stop Shop Building Phase 3",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Construction of One Stop Shop Building P",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Construction of One Stop Shop Building P",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Construction of One Stop Shop Building P",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Construction of One Stop Shop Building P",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      4000000.0,
+      4000000.0,
+      3000000.0,
+      3000000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-005",
+    "canonical_name": "Renovation of Mapandan Tennis Club Court",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Renovation of Mapandan Tennis Club Court",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Renovation of Mapandan Tennis Club Court",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Renovation of Mapandan Tennis Club Court",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-006",
+    "canonical_name": "Renovation of Plaza Café",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Renovation of Plaza Café",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Renovation of Plaza Café",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      }
+    ],
+    "reported_costs": [
+      1000000.0,
+      1000000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-007",
+    "canonical_name": "Improvement Brgy. Road/Drianage-Maya St. Amanoaoac",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Amanoaoac"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement Brgy. Road/Drianage-Maya St.",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement Brgy. Road/Drianage-Maya St.",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement Brgy. Road/Drianage-Maya St.",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement Brgy. Road/Drianage-Maya St.",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      407091.65,
+      407091.65,
+      407091.65,
+      407091.65
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-008",
+    "canonical_name": "Improvement Brgy. Road/Drianage-Papata Ave. Apaya",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Apaya"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement Brgy. Road/Drianage-Papata A",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement Brgy. Road/Drianage-Papata A",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      }
+    ],
+    "reported_costs": [
+      407091.65,
+      407091.65
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-009",
+    "canonical_name": "Improvement Brgy. Road/Drianage-Caimito Ext. Aserda",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Aserda"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement Brgy. Road/Drianage-Caimito ",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement Brgy. Road/Drianage-Caimito ",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement Brgy. Road/Drianage-Caimito ",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement Brgy. Road/Drianage-Caimito ",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-010",
+    "canonical_name": "Improvement Brgy. Road/Drianage-Orchid St. Nilombot",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Nilombot"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement Brgy. Road/Drianage-Orchid S",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement Brgy. Road/Drianage-Orchid S",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement Brgy. Road/Drianage-Orchid S",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement Brgy. Road/Drianage-Orchid S",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      700000.0,
+      700000.0,
+      700000.0,
+      700000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-011",
+    "canonical_name": "Improvement Brgy. Road/Drianage-Bougainvellia St. Poblacion",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement Brgy. Road/Drianage-Bougainv",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement Brgy. Road/Drianage-Bougainv",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement Brgy. Road/Drianage-Bougainv",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement Brgy. Road/Drianage-Bougainv",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-012",
+    "canonical_name": "LGU payment of Loan",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q1:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q2:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q3:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q3_2025.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:LGU payment of Loan",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q4_2025.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q4"
+      }
+    ],
+    "reported_costs": [
+      15730362.29,
+      15730362.29,
+      17754362.29,
+      17754362.29,
+      21176026.09,
+      21176026.09,
+      21176026.09,
+      21176026.09,
+      25958787.24,
+      25958787.24,
+      25958787.24,
+      25958787.24
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-013",
+    "canonical_name": "Replacement of Blvd. Lights at Pandan Avenue",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Replacement of Blvd. Lights at Pandan Av",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Replacement of Blvd. Lights at Pandan Av",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      }
+    ],
+    "reported_costs": [
+      1000000.0,
+      1000000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-014",
+    "canonical_name": "Improvement of Mapandan Public Market",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:Improvement of Mapandan Public Market",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:Improvement of Mapandan Public Market",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement of Mapandan Public Market",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      }
+    ],
+    "reported_costs": [
+      1000000.0,
+      1000000.0,
+      1000000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-015",
+    "canonical_name": "LDF-construction of Landbank ATM Hub",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:LDF-construction of Landbank ATM Hub",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:LDF-construction of Landbank ATM Hub",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      400000.0,
+      400000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-016",
+    "canonical_name": "Improvement Brgy. Road/Drianage-Papaya Ave. Apaya",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Apaya"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Improvement Brgy. Road/Drianage-Papaya A",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement Brgy. Road/Drianage-Papaya A",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      407091.65,
+      407091.65
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-017",
+    "canonical_name": "Impro. Brgy Road/Drianage-Orchid St. Nilombot Phase 2",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Impro. Brgy Road/Drianage-Orchid St. Nil",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Impro. Brgy Road/Drianage-Orchid St. Nil",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      576000.0,
+      576000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-018",
+    "canonical_name": "Additional Illumination of Mapandan Town Plaza",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:Additional Illumination of Mapandan Town",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Additional Illumination of Mapandan Town",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-019",
+    "canonical_name": "Renovation of Mapandan Tennis Clubhouse",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Renovation of Mapandan Tennis Clubhouse",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-020",
+    "canonical_name": "Improvement of Mapandan Public Market Phase III",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:Improvement of Mapandan Public Market Ph",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
+      }
+    ],
+    "reported_costs": [
+      1000000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-021",
+    "canonical_name": "Construction of Perimeter Fence, Backfilling and Concreting of Super Rural Health Unit's Ground",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Torres"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Construction of Perimeter Fence, Backfil",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Construction of Perimeter Fence, Backfil",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Construction of Perimeter Fence, Backfil",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Construction of Perimeter Fence, Backfil",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      1500000.0,
+      1500000.0,
+      1500000.0,
+      1500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-022",
+    "canonical_name": "Construction of Cross/Drainage Canal along Gondol Street , Primicias",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Primicias"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Construction of Cross/Drainage Canal alo",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Construction of Cross/Drainage Canal alo",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Construction of Cross/Drainage Canal alo",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Construction of Cross/Drainage Canal alo",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-023",
+    "canonical_name": "Improvement/Extension of Office for MDRRM Command Center at Brgy. Poblacion",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Improvement/Extension of Office for MDRR",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Improvement/Extension of Office for MDRR",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Improvement/Extension of Office for MDRR",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Improvement/Extension of Office for MDRR",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      700000.0,
+      700000.0,
+      700000.0,
+      700000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-024",
+    "canonical_name": "Improvement/Re-painting of Roof of the Mapandan Municipal Hall",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Improvement/Re-painting of Roof of the M",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Improvement/Re-painting of Roof of the M",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Improvement/Re-painting of Roof of the M",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Improvement/Re-painting of Roof of the M",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      1700000.0,
+      1700000.0,
+      1700000.0,
+      1700000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-025",
+    "canonical_name": "Re-conctruction of Drainage Canal along Pico Avenue at Brgy. Coral",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Coral"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Re-conctruction of Drainage Canal along ",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Re-conctruction of Drainage Canal along ",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Re-conctruction of Drainage Canal along ",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Re-conctruction of Drainage Canal along ",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-026",
+    "canonical_name": "Construction of Covered Drainage Canal along Lawin Avenue at Brgy. Poblacion",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Construction of Covered Drainage Canal a",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Construction of Covered Drainage Canal a",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Construction of Covered Drainage Canal a",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Construction of Covered Drainage Canal a",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-027",
+    "canonical_name": "Procurement and Installation of Industrial Fan at Tulagan Multi-Purpose Gym",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Procurement and Installation of Industri",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Procurement and Installation of Industri",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Procurement and Installation of Industri",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Procurement and Installation of Industri",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      300000.0,
+      300000.0,
+      300000.0,
+      300000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-028",
+    "canonical_name": "Construction of Drainage Canal along Papaya Avenue, Apaya Phase 2",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Apaya"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Construction of Drainage Canal along Pap",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      }
+    ],
+    "reported_costs": [
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-029",
+    "canonical_name": "Impro. Brgy Road/Drianage-Orchid St. Nilombot Phase 3",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Nilombot"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Impro. Brgy Road/Drianage-Orchid St. Nil",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Impro. Brgy Road/Drianage-Orchid St. Nil",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Impro. Brgy Road/Drianage-Orchid St. Nil",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Impro. Brgy Road/Drianage-Orchid St. Nil",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      1000000.0,
+      1000000.0,
+      1000000.0,
+      1000000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-030",
+    "canonical_name": "Additional Illumination of Mapandan Town Plaza Phase 2",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:Additional Illumination of Mapandan Town",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Additional Illumination of Mapandan Town",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Additional Illumination of Mapandan Town",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Additional Illumination of Mapandan Town",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      571506.51,
+      571506.51,
+      571506.51,
+      571506.51
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2024-031",
+    "canonical_name": "Construction of Airconditioned Waiting Sched at Poblacion Mapandan",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2024,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:Construction of Airconditioned Waiting S",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:Construction of Airconditioned Waiting S",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:Construction of Airconditioned Waiting S",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2025-032",
+    "canonical_name": "LDF-Construction of One (1) Stop Shop Building Phase 4",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q1:LDF-Construction of One (1) Stop Shop Bu",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q2:LDF-Construction of One (1) Stop Shop Bu",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6__Form_7_-_DFU.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q3:LDF-Construction of One (1) Stop Shop Bu",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q3_2025.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:LDF-Construction of One (1) Stop Shop Bu",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q4_2025.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q4"
+      },
+      {
+        "source": "COA",
+        "record_id": "one-stop-shop-phase-4",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_costs": [
+      8500000.0,
+      8500000.0,
+      8500000.0,
+      8500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-033",
+    "canonical_name": "Construction of One (1) Stop Shop Phase 5",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of One (1) Stop Shop Phase ",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of One (1) Stop Shop Phase ",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      6500000.0,
+      6500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-034",
+    "canonical_name": "LGU Payment of Loans",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:LGU Payment of Loans",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:LGU Payment of Loans",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      22695379.08,
+      22695379.08
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-035",
+    "canonical_name": "Construction of Perimeter Fence, Backfilling and Concreting of Super Rural Health Unit's Ground Phase 2",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Torres"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Perimeter Fence, Backfil",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Perimeter Fence, Backfil",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      550000.0,
+      550000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-036",
+    "canonical_name": "Rehabilitation/Improvement of Mapandan Tennis Clubhouse inside Public Plaza and Comfort Room inside Public Auditorium",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Rehabilitation/Improvement of Mapandan T",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Rehabilitation/Improvement of Mapandan T",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      950000.0,
+      950000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-037",
+    "canonical_name": "Construction of Stalls for Ambulant Vendors at Public Market",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Stalls for Ambulant Vend",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Stalls for Ambulant Vend",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      625000.0,
+      625000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-038",
+    "canonical_name": "Construction of Sewerage Treatment Plant at Public Market",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Sewerage Treatment Plant",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Sewerage Treatment Plant",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      1195000.0,
+      1195000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-039",
+    "canonical_name": "Construction of Drainage Canal along Agila Street, Brgy. Amanoaoac",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Amanoaoac"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Agi",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Agi",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-040",
+    "canonical_name": "Construction of Drainage Canal along Apayas Street, Brgy. Apaya",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Apaya"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Apa",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Apa",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-041",
+    "canonical_name": "Construction of Drainage Canal along Caimito Street Ext. , Brgy. Aserda",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Aserda"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Cai",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Cai",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-042",
+    "canonical_name": "Improvement of Road Along Tibule St. Brgy. Baloling",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Improvement of Road Along Tibule St. Brg",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Improvement of Road Along Tibule St. Brg",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-043",
+    "canonical_name": "Construction of Drainage Canal along Pico Avenue, Brgy. Coral",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Coral"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Pic",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Pic",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-044",
+    "canonical_name": "Construction of Drainage Canal along Golden Shower Street, Brgy. Golden",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Golden"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Gol",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Gol",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-045",
+    "canonical_name": "Construction of Drainage Canal along Wag-wag Street and Raminad Street, Brgy. Jimenez",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Jimenez"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Wag",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      }
+    ],
+    "reported_costs": [
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-046",
+    "canonical_name": "Concrete Paving of Road along Chico Street Extension, Brgy. Luyan",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Luyan"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Concrete Paving of Road along Chico Stre",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Concrete Paving of Road along Chico Stre",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      2500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-047",
+    "canonical_name": "Concrete Paving of Road along Seniguelas Street, Brgy. Pias",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Concrete Paving of Road along Seniguelas",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Concrete Paving of Road along Seniguelas",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-048",
+    "canonical_name": "Construction of Drainage Canal along Cadena de Amor Street, Brgy. Poblacion",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Cad",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Cad",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-049",
+    "canonical_name": "Construction of Drainage Canal along Gondol Street, Brgy. Primicias",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Primicias"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Gon",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Gon",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-050",
+    "canonical_name": "Construction of Drainage Canal along Sitio Sabangan, Brgy. Sta. Maria",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Sit",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Sit",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-051",
+    "canonical_name": "Construction of Drainage Canal along Salumague Street Ext., Brgy. Torres",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Torres"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:Construction of Drainage Canal along Sal",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Construction of Drainage Canal along Sal",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0,
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2026-052",
+    "canonical_name": "Concreting of Road Shoulder along Wag-Wag St. at Barangay Jimenez",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Jimenez"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:Concreting of Road Shoulder along Wag-Wa",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
+      }
+    ],
+    "reported_costs": [
+      500000.0
+    ]
+  },
+  {
+    "project_id": "BM-PROJ-2023-D001",
+    "canonical_name": "CONCRETING OF BRGY. JIMENEZ FMR, BRGY. JIMENEZ, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Jimenez"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "23AJ0117",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "dpwh_contract_id": "23AJ0117",
+    "contract_amount": 11589763.36,
+    "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2019-D002",
+    "canonical_name": "CONSTRUCTION OF FOUR (4) STOREY, EIGHT (8) CLASSROOM SCHOOL BUILDING AT PRIMICIAS NHS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Primicias"
+    ],
+    "fiscal_year": 2019,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "18AJ0116",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
+      }
+    ],
+    "dpwh_contract_id": "18AJ0116",
+    "contract_amount": 18345278.6,
+    "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2023-D003",
+    "canonical_name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, CORAL, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Coral"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "23AJ0033",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "dpwh_contract_id": "23AJ0033",
+    "contract_amount": 47574067.96,
+    "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2023-D004",
+    "canonical_name": "CONSTRUCTION OF SLOPE PROTECTION AT BARANGAY BALOLING PHASE IV, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "23AJ0069",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "dpwh_contract_id": "23AJ0069",
+    "contract_amount": 4803991.53,
+    "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2021-D005",
+    "canonical_name": "CONCRETING OF LOCAL ROAD, SITIO CENTRO, BARANGAY LUYAN, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Luyan"
+    ],
+    "fiscal_year": 2021,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "21AJ0068",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2021"
+      }
+    ],
+    "dpwh_contract_id": "21AJ0068",
+    "contract_amount": 2880843.21,
+    "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D006",
+    "canonical_name": "CONSTRUCTION OF SLOPE PROTECTION ALONG BRGY. BALOLING, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22AJ0056",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22AJ0056",
+    "contract_amount": 5794812.69,
+    "contractor": "LXS BUILDERS & SUPPLIES"
+  },
+  {
+    "project_id": "BM-PROJ-2020-D007",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. BALOLING, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2020,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "20AJ0037",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2020"
+      }
+    ],
+    "dpwh_contract_id": "20AJ0037",
+    "contract_amount": 47110690.84,
+    "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D008",
+    "canonical_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. PRIMICIAS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Primicias"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22AJ0098",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22AJ0098",
+    "contract_amount": 1941414.86,
+    "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2018-D009",
+    "canonical_name": "CONSTRUCTION OF TWO (2) STOREY, FOUR (4) CLASSROOM SCHOOL BUILDING AT MAPANDAN NHS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2018,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "18AJ0100",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
+      }
+    ],
+    "dpwh_contract_id": "18AJ0100",
+    "contract_amount": 9554749.34,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D010",
+    "canonical_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. JIMENEZ, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Jimenez"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22AJ0099",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22AJ0099",
+    "contract_amount": 1940897.68,
+    "contractor": "ROCKWELL CONSTRUCTION AND SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2023-D011",
+    "canonical_name": "CONSTRUCTION OF SLOPE PROTECTION ALONG ANGALACAN RIVER, BARANGAY BALOLING, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "23AJ0011",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "dpwh_contract_id": "23AJ0011",
+    "contract_amount": 19221664.9,
+    "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2020-D012",
+    "canonical_name": "CONSTRUCTION OF FOUR (4) STOREY EIGHT (8) CLASSROOM SCHOOL BUILDING, PRIMICIAS NHS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Primicias"
+    ],
+    "fiscal_year": 2020,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "20AJ0101",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2020"
+      }
+    ],
+    "dpwh_contract_id": "20AJ0101",
+    "contract_amount": 18732486.77,
+    "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2018-D013",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BALOLING SECTION, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2018,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "18AJ0040",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
+      }
+    ],
+    "dpwh_contract_id": "18AJ0040",
+    "contract_amount": 23105143.06,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D014",
+    "canonical_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. AMANOAOAC, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Amanoaoac"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22AJ0097",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22AJ0097",
+    "contract_amount": 1941337.81,
+    "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2018-D015",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. STA. MARIA, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "fiscal_year": 2018,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "18AJ0045",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
+      }
+    ],
+    "dpwh_contract_id": "18AJ0045",
+    "contract_amount": 18482969.89,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D016",
+    "canonical_name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. LAMBAYAN, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Lambayan"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22AJ0096",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22AJ0096",
+    "contract_amount": 1958340.13,
+    "contractor": "ROCKWELL CONSTRUCTION AND SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2019-D017",
+    "canonical_name": "CONSTRUCTION OF MULTI-PURPOSE BUILDING, MAPANDAN NATIONAL HIGH SCHOOL, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2019,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "19AJ0110",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
+      }
+    ],
+    "dpwh_contract_id": "19AJ0110",
+    "contract_amount": 9429521.58,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2019-D018",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. BALOLING, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2019,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "19AJ0040",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
+      }
+    ],
+    "dpwh_contract_id": "19AJ0040",
+    "contract_amount": 47476082.45,
+    "contractor": "BET CONSTRUCTION & SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2023-D019",
+    "canonical_name": "CONSTRUCTION OF ROAD AT BARANGAY STA. MARIA, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "23AJ0045",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "dpwh_contract_id": "23AJ0045",
+    "contract_amount": 4841163.36,
+    "contractor": "LXS BUILDERS & SUPPLIES"
+  },
+  {
+    "project_id": "BM-PROJ-2018-D020",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, PIAS SECTION, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias"
+    ],
+    "fiscal_year": 2018,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "18AJ0023",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
+      }
+    ],
+    "dpwh_contract_id": "18AJ0023",
+    "contract_amount": 27737425.78,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2020-D021",
+    "canonical_name": "CONCRETING OF ROAD, BARANGAY STA. MARIA, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "fiscal_year": 2020,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "20AJ0032",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2020"
+      }
+    ],
+    "dpwh_contract_id": "20AJ0032",
+    "contract_amount": 1927837.62,
+    "contractor": "MKM MARKETING"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D022",
+    "canonical_name": "CONSTRUCTION OF LOCAL ROAD, BRGY. NILOMBOT TO AMANOAOAC, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Amanoaoac",
+      "Nilombot"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22AJ0064",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22AJ0064",
+    "contract_amount": 6762333.73,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2019-D023",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. STA. MARIA, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "fiscal_year": 2019,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "19AJ0039",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
+      }
+    ],
+    "dpwh_contract_id": "19AJ0039",
+    "contract_amount": 28467174.28,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2021-D024",
+    "canonical_name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, BARANGAY BALOLING, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2021,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "21AJ0026",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2021"
+      }
+    ],
+    "dpwh_contract_id": "21AJ0026",
+    "contract_amount": 9530364.84,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D025",
+    "canonical_name": "SUSTAINABLE INFRASTRUCTURE PROJECTS ALLEVIATING GAPS (SIPAG) - CONSTRUCTION OF MULTI-PURPOSE BUILDING, BARANGAY POBLACION, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Poblacion"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22A00149",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22A00149",
+    "contract_amount": 4825000.0,
+    "contractor": "MKM MARKETING"
+  },
+  {
+    "project_id": "BM-PROJ-2019-D026",
+    "canonical_name": "CONCRETING OF BRGY. AMANOAOAC-JIMENEZ FMR, BRGY. AMANOAOAC AND BRGY. JIMENEZ, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Amanoaoac",
+      "Jimenez"
+    ],
+    "fiscal_year": 2019,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "19AJ0145",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
+      }
+    ],
+    "dpwh_contract_id": "19AJ0145",
+    "contract_amount": 4843661.55,
+    "contractor": "LXS BUILDERS & SUPPLIES"
+  },
+  {
+    "project_id": "BM-PROJ-2022-D027",
+    "canonical_name": "CONSTRUCTION OF LOCAL ROAD, BRGY. PIAS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias"
+    ],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "22AJ0059",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "dpwh_contract_id": "22AJ0059",
+    "contract_amount": 4831057.69,
+    "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2017-D028",
+    "canonical_name": "CONCRETING OF ROAD RAISING ALONG SITIO CABARUAN, BRGY. BANAOANG CALASIAO, CONCRETING OF LOCAL ROADS AT SITIO KARANGKANG, BRGY. SAPINIT, SAN CARLOS CITY, CONCRETING OF LOCAL ROAD ALONG MABOLO EXTENSION, BRGY. GOLDEN, MAPANDAN, PANGASINAN (CLUSTER III)",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Golden"
+    ],
+    "fiscal_year": 2017,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "17AJ0012",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
+      }
+    ],
+    "dpwh_contract_id": "17AJ0012",
+    "contract_amount": 8829201.73,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2025-D029",
+    "canonical_name": "CONSTRUCTION OF SLOPE PROTECTION STRUCTURE ALONG ANGALACAN RIVER BANK, BARANGAY PIAS TO BARANGAY POBLACION, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias",
+      "Poblacion"
+    ],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "25AJ0055",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "dpwh_contract_id": "25AJ0055",
+    "contract_amount": 42534481.5,
+    "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2026-D030",
+    "canonical_name": "CONSTRUCTION OF LOCAL ROAD, BARANGAY BALOLING, MUNICIPALITY OF MAPANDAN, PANGASINAN, STA 0+000 - STA 0+750 (SECTION 1). STA 0+000 - STA 0+750 (SECTION 2), STA 0+000 - STA 0+750 (SECTION 3)",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Baloling"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "26AJ0028",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2026"
+      }
+    ],
+    "dpwh_contract_id": "26AJ0028",
+    "contract_amount": 0.0,
+    "contractor": ""
+  },
+  {
+    "project_id": "BM-PROJ-2016-D031",
+    "canonical_name": "CONCRETING OF LOCAL ROAD AT BRGY. AMANOAOAC AND TORRES, MAPANDAN, PANGASINAN (CLUSTER II)",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Amanoaoac",
+      "Torres"
+    ],
+    "fiscal_year": 2016,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "16AJ0001",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2016"
+      }
+    ],
+    "dpwh_contract_id": "16AJ0001",
+    "contract_amount": 3888639.8,
+    "contractor": "JASA GD 2000 CONSTRUCTION CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2017-D032",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. PIAS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias"
+    ],
+    "fiscal_year": 2017,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "17AJ0044",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
+      }
+    ],
+    "dpwh_contract_id": "17AJ0044",
+    "contract_amount": 9799048.03,
+    "contractor": "AQUINO-DELA CRUZ ENGINEERING & CONSTRUCTION"
+  },
+  {
+    "project_id": "BM-PROJ-2018-D033",
+    "canonical_name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, CORAL SECTION, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Coral"
+    ],
+    "fiscal_year": 2018,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "18AJ0027",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
+      }
+    ],
+    "dpwh_contract_id": "18AJ0027",
+    "contract_amount": 23277829.98,
+    "contractor": "AC SOLIVEN CONSTRUCTION CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2017-D034",
+    "canonical_name": "CONCRETING OF BRGY. PIAS FMR, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias"
+    ],
+    "fiscal_year": 2017,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "17AJ0089",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
+      }
+    ],
+    "dpwh_contract_id": "17AJ0089",
+    "contract_amount": 1942491.75,
+    "contractor": "ORIENTAL SALES CENTER AND CONTRACTOR"
+  },
+  {
+    "project_id": "BM-PROJ-2023-D035",
+    "canonical_name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, PIAS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias"
+    ],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "23AJ0027",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "dpwh_contract_id": "23AJ0027",
+    "contract_amount": 48004256.1,
+    "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2016-D036",
+    "canonical_name": "CONSTRUCTION OF 4-STOREY 12 CL. RM. SCHOOL BUILDING AT MAPANDAN NHS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2016,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "16AJ0083",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2016"
+      }
+    ],
+    "dpwh_contract_id": "16AJ0083",
+    "contract_amount": 21831945.65,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
+  },
+  {
+    "project_id": "BM-PROJ-2025-D037",
+    "canonical_name": "CONCRETING OF ROAD, BRGY. STA. MARIA, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "25AJ0097",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "dpwh_contract_id": "25AJ0097",
+    "contract_amount": 4949900.27,
+    "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
+  },
+  {
+    "project_id": "BM-PROJ-2017-D038",
+    "canonical_name": "COMPLETION OF X-RAY BUILDING/PROVISION OF REST ROOM (PWD, MALE & FEMALE) REPAIR/IMPROVEMENT OF MEDICAL RECORDS, RENOVATION OF T.B DOTS LABORATORY ROOM W/ C.R. CONSTRUCTION OF SEWAGE TREATMENT PLAN AT MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2017,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "17AJ0058",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
+      }
+    ],
+    "dpwh_contract_id": "17AJ0058",
+    "contract_amount": 6825575.6,
+    "contractor": "SAFEWAY CONSTRUCTION"
+  },
+  {
+    "project_id": "BM-PROJ-2016-D039",
+    "canonical_name": "CONSTRUCTION OF 3 STOREY 6 CL.RM. SCHOOL BUILDING AT TORRES NHS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Torres"
+    ],
+    "fiscal_year": 2016,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "16AJ0089",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2016"
+      }
+    ],
+    "dpwh_contract_id": "16AJ0089",
+    "contract_amount": 10287151.33,
+    "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION / SAFEWAY CONSTRUCTION"
+  },
+  {
+    "project_id": "BM-PROJ-2026-D040",
+    "canonical_name": "CONSTRUCTION OF MULTI-PURPOSE BUILDING (SENIOR CITIZEN CENTER), BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "project_type": "dpwh_infrastructure",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [
+      "Pias"
+    ],
+    "fiscal_year": 2026,
+    "provenance": [
+      {
+        "source": "DPWH Transparency Portal",
+        "record_id": "26AJ0027",
+        "verification_method": "manual",
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2026"
+      }
+    ],
+    "dpwh_contract_id": "26AJ0027",
+    "contract_amount": 0.0,
+    "contractor": ""
+  },
+  {
+    "project_id": "BM-PROJ-2022-C001",
+    "canonical_name": "Cemetery Extension Project Phase II",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "cemetery-extension-2",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "reported_cost": 54970000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2021-C002",
+    "canonical_name": "Municipal Market Improvement",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2021,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "market-improvement",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2021"
+      }
+    ],
+    "reported_cost": 15590000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2022-C003",
+    "canonical_name": "Abattoir and Motorpool Building",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2022,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "abattoir-motorpool",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2022"
+      }
+    ],
+    "reported_cost": 12890000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2016-C004",
+    "canonical_name": "Town Plaza Dancing Fountain",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2016,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "town-plaza-fountain",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2016"
+      }
+    ],
+    "reported_cost": 5190000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2023-C005",
+    "canonical_name": "DPWH Road Network Improvement",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "road-network",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "reported_cost": 4840000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2023-C006",
+    "canonical_name": "MDRRMO Backhoe Excavator",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "mdrrmo-excavator",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "reported_cost": 3390000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2023-C007",
+    "canonical_name": "Mini-Dump Trucks Procurement",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2023,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "mini-dump-trucks",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2023"
+      }
+    ],
+    "reported_cost": 3510000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C008",
+    "canonical_name": "Procurement of 16 Units Rescue Vehicles Isuzu",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "rescue-vehicles-16-units",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 28720000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C009",
+    "canonical_name": "Payment for 2 Units Rescue Motor Vehicle for MDRRMO",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "rescue-motor-mdrrmo-2-units",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 2999000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C010",
+    "canonical_name": "Procurement/Installation of CCTV Cameras in Barangay Poblacion",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "cctv-cameras-poblacion",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 1152740,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C011",
+    "canonical_name": "Covered Drainage Canal Along Lawin Avenue Phase 3",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "drainage-lawin-ave-phase-3",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 873757.65,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C012",
+    "canonical_name": "Construction of Barangay Golden Child Development Center",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "golden-child-dev-center",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 509755.82,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C013",
+    "canonical_name": "Improvement/Concreting of Road along Palya Street Phase 1",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "road-palya-street-phase-1",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 499298.44,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C014",
+    "canonical_name": "Re-concreting of Road along Orchid Street Phase 1",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "road-orchid-street-phase-1",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 498498.68,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C015",
+    "canonical_name": "Construction of Barangay Golden Child Development Center Phase 2",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "golden-child-dev-center-phase-2",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 1825000,
+    "status": "completed"
+  }
+]

@@ -283,6 +283,28 @@
   }
 }
 
+/* Project Explorer */
+.explorer-card h3 { margin-bottom: 4px; }
+.explorer-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.explorer-card-title { min-width: 0; }
+.explorer-card-head .btn { flex-shrink: 0; }
+.explorer-detail { margin-top: 12px; }
+.explorer-detail dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 14px; }
+.explorer-detail dt { font-weight: 700; color: var(--green-deep); }
+.explorer-detail dd { margin: 0; }
+.source-trail { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+.source-trail span { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+.trail-on { background: var(--green-pale); color: var(--green-deep); }
+.trail-linked { background: var(--gold-soft); color: var(--gold-dark); }
+.trail-off { background: var(--line); color: var(--ink-faint); }
+.source-trail .trail-on::before { content: "✓ "; }
+.source-trail .trail-linked::before { content: "↗ "; }
+.source-trail .trail-off::before { content: "— "; }
+.explorer-detail h4 { font-size: 14px; margin: 14px 0 6px; color: var(--green-deep); }
+.explorer-detail ul { margin: 4px 0 4px 20px; padding: 0; font-size: 14px; }
+.tech-details { margin-top: 8px; font-size: 13px; color: var(--ink-soft); }
+.tech-details summary { cursor: pointer; font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
+
 /* Procurement pagination — full width */
 .procurement-pagination-wrap {
   display: flex;

@@ -1,0 +1,2259 @@
+[
+  {
+    "id": "BM-PROJ-2016-C004",
+    "name": "Town Plaza Dancing Fountain",
+    "year": 2016,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2016-D031",
+    "name": "CONCRETING OF LOCAL ROAD AT BRGY. AMANOAOAC AND TORRES, MAPANDAN, PANGASINAN (CLUSTER II)",
+    "year": 2016,
+    "barangay": [
+      "Amanoaoac",
+      "Torres"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2016-D036",
+    "name": "CONSTRUCTION OF 4-STOREY 12 CL. RM. SCHOOL BUILDING AT MAPANDAN NHS, MAPANDAN, PANGASINAN",
+    "year": 2016,
+    "barangay": [],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2016-D039",
+    "name": "CONSTRUCTION OF 3 STOREY 6 CL.RM. SCHOOL BUILDING AT TORRES NHS, MAPANDAN, PANGASINAN",
+    "year": 2016,
+    "barangay": [
+      "Torres"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2017-D028",
+    "name": "CONCRETING OF ROAD RAISING ALONG SITIO CABARUAN, BRGY. BANAOANG CALASIAO, CONCRETING OF LOCAL ROADS AT SITIO KARANGKANG, BRGY. SAPINIT, SAN CARLOS CITY, CONCRETING OF LOCAL ROAD ALONG MABOLO EXTENSION, BRGY. GOLDEN, MAPANDAN, PANGASINAN (CLUSTER III)",
+    "year": 2017,
+    "barangay": [
+      "Golden"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2017-D032",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. PIAS, MAPANDAN, PANGASINAN",
+    "year": 2017,
+    "barangay": [
+      "Pias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2017-D034",
+    "name": "CONCRETING OF BRGY. PIAS FMR, MAPANDAN, PANGASINAN",
+    "year": 2017,
+    "barangay": [
+      "Pias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2017-D038",
+    "name": "COMPLETION OF X-RAY BUILDING/PROVISION OF REST ROOM (PWD, MALE & FEMALE) REPAIR/IMPROVEMENT OF MEDICAL RECORDS, RENOVATION OF T.B DOTS LABORATORY ROOM W/ C.R. CONSTRUCTION OF SEWAGE TREATMENT PLAN AT MAPANDAN, PANGASINAN",
+    "year": 2017,
+    "barangay": [],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2018-D009",
+    "name": "CONSTRUCTION OF TWO (2) STOREY, FOUR (4) CLASSROOM SCHOOL BUILDING AT MAPANDAN NHS, MAPANDAN, PANGASINAN",
+    "year": 2018,
+    "barangay": [],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2018-D013",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BALOLING SECTION, MAPANDAN, PANGASINAN",
+    "year": 2018,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2018-D015",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. STA. MARIA, MAPANDAN, PANGASINAN",
+    "year": 2018,
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2018-D020",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, PIAS SECTION, MAPANDAN, PANGASINAN",
+    "year": 2018,
+    "barangay": [
+      "Pias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2018-D033",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, CORAL SECTION, MAPANDAN, PANGASINAN",
+    "year": 2018,
+    "barangay": [
+      "Coral"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2019-D002",
+    "name": "CONSTRUCTION OF FOUR (4) STOREY, EIGHT (8) CLASSROOM SCHOOL BUILDING AT PRIMICIAS NHS, MAPANDAN, PANGASINAN",
+    "year": 2019,
+    "barangay": [
+      "Primicias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2019-D017",
+    "name": "CONSTRUCTION OF MULTI-PURPOSE BUILDING, MAPANDAN NATIONAL HIGH SCHOOL, MAPANDAN, PANGASINAN",
+    "year": 2019,
+    "barangay": [],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2019-D018",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. BALOLING, MAPANDAN, PANGASINAN",
+    "year": 2019,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2019-D023",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. STA. MARIA, MAPANDAN, PANGASINAN",
+    "year": 2019,
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2019-D026",
+    "name": "CONCRETING OF BRGY. AMANOAOAC-JIMENEZ FMR, BRGY. AMANOAOAC AND BRGY. JIMENEZ, MAPANDAN, PANGASINAN",
+    "year": 2019,
+    "barangay": [
+      "Amanoaoac",
+      "Jimenez"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2020-D007",
+    "name": "CONSTRUCTION OF PROTECTION WORKS ALONG ANGALACAN RIVER, BRGY. BALOLING, MAPANDAN, PANGASINAN",
+    "year": 2020,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2020-D012",
+    "name": "CONSTRUCTION OF FOUR (4) STOREY EIGHT (8) CLASSROOM SCHOOL BUILDING, PRIMICIAS NHS, MAPANDAN, PANGASINAN",
+    "year": 2020,
+    "barangay": [
+      "Primicias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2020-D021",
+    "name": "CONCRETING OF ROAD, BARANGAY STA. MARIA, MAPANDAN, PANGASINAN",
+    "year": 2020,
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2021-C002",
+    "name": "Municipal Market Improvement",
+    "year": 2021,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2021-D005",
+    "name": "CONCRETING OF LOCAL ROAD, SITIO CENTRO, BARANGAY LUYAN, MAPANDAN, PANGASINAN",
+    "year": 2021,
+    "barangay": [
+      "Luyan"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2021-D024",
+    "name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, BARANGAY BALOLING, MAPANDAN, PANGASINAN",
+    "year": 2021,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-C001",
+    "name": "Cemetery Extension Project Phase II",
+    "year": 2022,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-C003",
+    "name": "Abattoir and Motorpool Building",
+    "year": 2022,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D006",
+    "name": "CONSTRUCTION OF SLOPE PROTECTION ALONG BRGY. BALOLING, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D008",
+    "name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. PRIMICIAS, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Primicias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D010",
+    "name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. JIMENEZ, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Jimenez"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D014",
+    "name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. AMANOAOAC, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Amanoaoac"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D016",
+    "name": "CONCRETING OF FARM TO MARKET ROAD, BRGY. LAMBAYAN, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Lambayan"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D022",
+    "name": "CONSTRUCTION OF LOCAL ROAD, BRGY. NILOMBOT TO AMANOAOAC, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Amanoaoac",
+      "Nilombot"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D025",
+    "name": "SUSTAINABLE INFRASTRUCTURE PROJECTS ALLEVIATING GAPS (SIPAG) - CONSTRUCTION OF MULTI-PURPOSE BUILDING, BARANGAY POBLACION, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2022-D027",
+    "name": "CONSTRUCTION OF LOCAL ROAD, BRGY. PIAS, MAPANDAN, PANGASINAN",
+    "year": 2022,
+    "barangay": [
+      "Pias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": []
+  },
+  {
+    "id": "BM-PROJ-2023-001",
+    "name": "Emerging and Re-emerging Dseases",
+    "year": 2023,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-002",
+    "name": "Improvement of Multi-Purpose covered court (Baloling)",
+    "year": 2023,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2023-07-006"
+    ],
+    "link_strength": {
+      "philgeps": "explicit"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-003",
+    "name": "Improvement of Multi-Purpose covered court (Sta. Maria)",
+    "year": 2023,
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2023-07-006"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-004",
+    "name": "Construction of One Stop Shop Building Phase 3",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2023-09-011"
+    ],
+    "link_strength": {
+      "philgeps": "explicit"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-005",
+    "name": "Renovation of Mapandan Tennis Club Court",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-006",
+    "name": "Renovation of Plaza Café",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-007",
+    "name": "Improvement Brgy. Road/Drianage-Maya St. Amanoaoac",
+    "year": 2023,
+    "barangay": [
+      "Amanoaoac"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-008",
+    "name": "Improvement Brgy. Road/Drianage-Papata Ave. Apaya",
+    "year": 2023,
+    "barangay": [
+      "Apaya"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-009",
+    "name": "Improvement Brgy. Road/Drianage-Caimito Ext. Aserda",
+    "year": 2023,
+    "barangay": [
+      "Aserda"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-010",
+    "name": "Improvement Brgy. Road/Drianage-Orchid St. Nilombot",
+    "year": 2023,
+    "barangay": [
+      "Nilombot"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-011",
+    "name": "Improvement Brgy. Road/Drianage-Bougainvellia St. Poblacion",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-012",
+    "name": "LGU payment of Loan",
+    "year": 2023,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-013",
+    "name": "Replacement of Blvd. Lights at Pandan Avenue",
+    "year": 2023,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-014",
+    "name": "Improvement of Mapandan Public Market",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2023-11-016"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-015",
+    "name": "LDF-construction of Landbank ATM Hub",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-016",
+    "name": "Improvement Brgy. Road/Drianage-Papaya Ave. Apaya",
+    "year": 2023,
+    "barangay": [
+      "Apaya"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-017",
+    "name": "Impro. Brgy Road/Drianage-Orchid St. Nilombot Phase 2",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-018",
+    "name": "Additional Illumination of Mapandan Town Plaza",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2023-11-017"
+    ],
+    "link_strength": {
+      "philgeps": "explicit"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-019",
+    "name": "Renovation of Mapandan Tennis Clubhouse",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-020",
+    "name": "Improvement of Mapandan Public Market Phase III",
+    "year": 2023,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2023-11-016"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-C005",
+    "name": "DPWH Road Network Improvement",
+    "year": 2023,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-C006",
+    "name": "MDRRMO Backhoe Excavator",
+    "year": 2023,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-C007",
+    "name": "Mini-Dump Trucks Procurement",
+    "year": 2023,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-D001",
+    "name": "CONCRETING OF BRGY. JIMENEZ FMR, BRGY. JIMENEZ, MAPANDAN, PANGASINAN",
+    "year": 2023,
+    "barangay": [
+      "Jimenez"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-D003",
+    "name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, CORAL, MAPANDAN, PANGASINAN",
+    "year": 2023,
+    "barangay": [
+      "Coral"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-D004",
+    "name": "CONSTRUCTION OF SLOPE PROTECTION AT BARANGAY BALOLING PHASE IV, MAPANDAN, PANGASINAN",
+    "year": 2023,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-D011",
+    "name": "CONSTRUCTION OF SLOPE PROTECTION ALONG ANGALACAN RIVER, BARANGAY BALOLING, MAPANDAN, PANGASINAN",
+    "year": 2023,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-D019",
+    "name": "CONSTRUCTION OF ROAD AT BARANGAY STA. MARIA, MAPANDAN, PANGASINAN",
+    "year": 2023,
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2023-D035",
+    "name": "CONSTRUCTION OF SLOPE PROTECTION WORKS ALONG ANGALACAN RIVER, PIAS, MAPANDAN, PANGASINAN",
+    "year": 2023,
+    "barangay": [
+      "Pias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2023-Q1",
+      "DILG-FUND-2023-Q2",
+      "DILG-FUND-2023-Q3",
+      "DILG-FUND-2023-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-021",
+    "name": "Construction of Perimeter Fence, Backfilling and Concreting of Super Rural Health Unit's Ground",
+    "year": 2024,
+    "barangay": [
+      "Torres"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2024-07-020"
+    ],
+    "link_strength": {
+      "philgeps": "explicit"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-022",
+    "name": "Construction of Cross/Drainage Canal along Gondol Street , Primicias",
+    "year": 2024,
+    "barangay": [
+      "Primicias"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-023",
+    "name": "Improvement/Extension of Office for MDRRM Command Center at Brgy. Poblacion",
+    "year": 2024,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2024-07-019"
+    ],
+    "link_strength": {
+      "philgeps": "explicit"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-024",
+    "name": "Improvement/Re-painting of Roof of the Mapandan Municipal Hall",
+    "year": 2024,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-025",
+    "name": "Re-conctruction of Drainage Canal along Pico Avenue at Brgy. Coral",
+    "year": 2024,
+    "barangay": [
+      "Coral"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-026",
+    "name": "Construction of Covered Drainage Canal along Lawin Avenue at Brgy. Poblacion",
+    "year": 2024,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2024-04-012"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-027",
+    "name": "Procurement and Installation of Industrial Fan at Tulagan Multi-Purpose Gym",
+    "year": 2024,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "GOODS-MUN-2024-07-021"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-028",
+    "name": "Construction of Drainage Canal along Papaya Avenue, Apaya Phase 2",
+    "year": 2024,
+    "barangay": [
+      "Apaya"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-029",
+    "name": "Impro. Brgy Road/Drianage-Orchid St. Nilombot Phase 3",
+    "year": 2024,
+    "barangay": [
+      "Nilombot"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-030",
+    "name": "Additional Illumination of Mapandan Town Plaza Phase 2",
+    "year": 2024,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [
+      "INFR-MUN-2024-02-004"
+    ],
+    "link_strength": {
+      "philgeps": "explicit"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2024-031",
+    "name": "Construction of Airconditioned Waiting Sched at Poblacion Mapandan",
+    "year": 2024,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2024-Q1",
+      "DILG-FUND-2024-Q2",
+      "DILG-FUND-2024-Q3",
+      "DILG-FUND-2024-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-032",
+    "name": "LDF-Construction of One (1) Stop Shop Building Phase 4",
+    "year": 2025,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [
+      "INFR-MUN-2025-01-002"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C008",
+    "name": "Procurement of 16 Units Rescue Vehicles Isuzu",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C009",
+    "name": "Payment for 2 Units Rescue Motor Vehicle for MDRRMO",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C010",
+    "name": "Procurement/Installation of CCTV Cameras in Barangay Poblacion",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [
+      "PHG-00021"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C011",
+    "name": "Covered Drainage Canal Along Lawin Avenue Phase 3",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C012",
+    "name": "Construction of Barangay Golden Child Development Center",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C013",
+    "name": "Improvement/Concreting of Road along Palya Street Phase 1",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C014",
+    "name": "Re-concreting of Road along Orchid Street Phase 1",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C015",
+    "name": "Construction of Barangay Golden Child Development Center Phase 2",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-D029",
+    "name": "CONSTRUCTION OF SLOPE PROTECTION STRUCTURE ALONG ANGALACAN RIVER BANK, BARANGAY PIAS TO BARANGAY POBLACION, MAPANDAN, PANGASINAN",
+    "year": 2025,
+    "barangay": [
+      "Pias",
+      "Poblacion"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-D037",
+    "name": "CONCRETING OF ROAD, BRGY. STA. MARIA, MAPANDAN, PANGASINAN",
+    "year": 2025,
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-033",
+    "name": "Construction of One (1) Stop Shop Phase 5",
+    "year": 2026,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-034",
+    "name": "LGU Payment of Loans",
+    "year": 2026,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-035",
+    "name": "Construction of Perimeter Fence, Backfilling and Concreting of Super Rural Health Unit's Ground Phase 2",
+    "year": 2026,
+    "barangay": [
+      "Torres"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-036",
+    "name": "Rehabilitation/Improvement of Mapandan Tennis Clubhouse inside Public Plaza and Comfort Room inside Public Auditorium",
+    "year": 2026,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-037",
+    "name": "Construction of Stalls for Ambulant Vendors at Public Market",
+    "year": 2026,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-038",
+    "name": "Construction of Sewerage Treatment Plant at Public Market",
+    "year": 2026,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-039",
+    "name": "Construction of Drainage Canal along Agila Street, Brgy. Amanoaoac",
+    "year": 2026,
+    "barangay": [
+      "Amanoaoac"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-040",
+    "name": "Construction of Drainage Canal along Apayas Street, Brgy. Apaya",
+    "year": 2026,
+    "barangay": [
+      "Apaya"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-041",
+    "name": "Construction of Drainage Canal along Caimito Street Ext. , Brgy. Aserda",
+    "year": 2026,
+    "barangay": [
+      "Aserda"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-042",
+    "name": "Improvement of Road Along Tibule St. Brgy. Baloling",
+    "year": 2026,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-043",
+    "name": "Construction of Drainage Canal along Pico Avenue, Brgy. Coral",
+    "year": 2026,
+    "barangay": [
+      "Coral"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-044",
+    "name": "Construction of Drainage Canal along Golden Shower Street, Brgy. Golden",
+    "year": 2026,
+    "barangay": [
+      "Golden"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-045",
+    "name": "Construction of Drainage Canal along Wag-wag Street and Raminad Street, Brgy. Jimenez",
+    "year": 2026,
+    "barangay": [
+      "Jimenez"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-046",
+    "name": "Concrete Paving of Road along Chico Street Extension, Brgy. Luyan",
+    "year": 2026,
+    "barangay": [
+      "Luyan"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-047",
+    "name": "Concrete Paving of Road along Seniguelas Street, Brgy. Pias",
+    "year": 2026,
+    "barangay": [
+      "Pias"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-048",
+    "name": "Construction of Drainage Canal along Cadena de Amor Street, Brgy. Poblacion",
+    "year": 2026,
+    "barangay": [
+      "Poblacion"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-049",
+    "name": "Construction of Drainage Canal along Gondol Street, Brgy. Primicias",
+    "year": 2026,
+    "barangay": [
+      "Primicias"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-050",
+    "name": "Construction of Drainage Canal along Sitio Sabangan, Brgy. Sta. Maria",
+    "year": 2026,
+    "barangay": [
+      "Sta. Maria"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-051",
+    "name": "Construction of Drainage Canal along Salumague Street Ext., Brgy. Torres",
+    "year": 2026,
+    "barangay": [
+      "Torres"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-052",
+    "name": "Concreting of Road Shoulder along Wag-Wag St. at Barangay Jimenez",
+    "year": 2026,
+    "barangay": [
+      "Jimenez"
+    ],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": true,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-D030",
+    "name": "CONSTRUCTION OF LOCAL ROAD, BARANGAY BALOLING, MUNICIPALITY OF MAPANDAN, PANGASINAN, STA 0+000 - STA 0+750 (SECTION 1). STA 0+000 - STA 0+750 (SECTION 2), STA 0+000 - STA 0+750 (SECTION 3)",
+    "year": 2026,
+    "barangay": [
+      "Baloling"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2026-D040",
+    "name": "CONSTRUCTION OF MULTI-PURPOSE BUILDING (SENIOR CITIZEN CENTER), BARANGAY PIAS, MAPANDAN, PANGASINAN",
+    "year": 2026,
+    "barangay": [
+      "Pias"
+    ],
+    "type": "dpwh_infrastructure",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": true,
+      "coa": false
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2026-Q1",
+      "DILG-FUND-2026-Q2"
+    ]
+  }
+]

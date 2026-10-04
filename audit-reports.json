@@ -1,0 +1,310 @@
+{
+  "municipality": "Mapandan, Pangasinan",
+  "data_period": "2015-2025",
+  "audit_opinions_summary": [
+    {
+      "year": 2015,
+      "mayor": "Maximo M. Calimlim, Jr.",
+      "opinion": "Qualified",
+      "primary_reason": "PPE unreconciled (₱90.17M); e-BPLS & furniture uncapitalized in Trust Fund",
+      "outstanding_disallowance": 360000.0,
+      "recommendations_implemented": 6,
+      "total_recommendations": 7
+    },
+    {
+      "year": 2016,
+      "mayor": "Gerald Glenn L. Tambaoan",
+      "opinion": "Qualified",
+      "primary_reason": "Missing RPCPPE; unrecorded Trust Fund assets (₱2.02M)",
+      "outstanding_disallowance": 47000.0,
+      "recommendations_implemented": 6,
+      "total_recommendations": 8
+    },
+    {
+      "year": 2017,
+      "mayor": "Gerald Glenn L. Tambaoan",
+      "opinion": "Qualified",
+      "primary_reason": "Trust Fund infrastructure projects (₱6.53M) omitted from PPE accounts",
+      "outstanding_disallowance": 47000.0,
+      "recommendations_implemented": 6,
+      "total_recommendations": 14
+    },
+    {
+      "year": 2018,
+      "mayor": "Gerald Glenn L. Tambaoan",
+      "opinion": "Qualified",
+      "primary_reason": "Loans Payable understated by ₱292.4k; unrecorded loan acquisition costs",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 7,
+      "total_recommendations": 16
+    },
+    {
+      "year": 2019,
+      "mayor": "Anthony C. Penuliar",
+      "opinion": "Qualified",
+      "primary_reason": "Local Road Networks (₱96.14M) distorted; asphalt overlay (₱15.52M) misclassified as capital asset",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 9,
+      "total_recommendations": 20
+    },
+    {
+      "year": 2020,
+      "mayor": "Anthony C. Penuliar",
+      "opinion": "Qualified",
+      "primary_reason": "Materials Recovery Facilities misclassified; unrecorded road depreciation (₱1.52M)",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 18,
+      "total_recommendations": 24
+    },
+    {
+      "year": 2021,
+      "mayor": "Anthony C. Penuliar",
+      "opinion": "Qualified",
+      "primary_reason": "Unauthorized 5% residual value calculation & depreciation on fully depreciated road networks (₱48.99M cost)",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 10,
+      "total_recommendations": 21
+    },
+    {
+      "year": 2022,
+      "mayor": "Anthony C. Penuliar / Transition",
+      "opinion": "Qualified",
+      "primary_reason": "FS misstatements (₱12.13M) in depreciation and software accounting; idle MRF machineries (₱13.50M)",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 12,
+      "total_recommendations": 28
+    },
+    {
+      "year": 2023,
+      "mayor": "Karl Christian F. Vega",
+      "opinion": "Unmodified",
+      "primary_reason": "Financial statements presented fairly in all material respects (First clean opinion)",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 14,
+      "total_recommendations": 37
+    },
+    {
+      "year": 2024,
+      "mayor": "Karl Christian F. Vega",
+      "opinion": "Qualified",
+      "primary_reason": "Non-application of ₱50,000 PPE capitalization threshold policy (₱2.90M error)",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 14,
+      "total_recommendations": 37
+    },
+    {
+      "year": 2025,
+      "mayor": "Karl Christian F. Vega",
+      "opinion": "Non-Compliant (LDRRMF Audit)",
+      "primary_reason": "Under-allocation of 5% LDRRMF by ₱380,000.00 due to improper exclusion of Economic Enterprise receipts",
+      "outstanding_disallowance": 35187.0,
+      "recommendations_implemented": 0,
+      "total_recommendations": 1
+    }
+  ],
+  "financial_position_history": [
+    {
+      "year": 2015,
+      "assets": 130533028.5,
+      "liabilities": 38964114.72,
+      "equity": 91568913.78,
+      "revenue": 81052291.6,
+      "expenses": 67596388.85,
+      "appropriations": 86863152.47,
+      "obligations": 80753177.62
+    },
+    {
+      "year": 2016,
+      "assets": 239662412.35,
+      "liabilities": 51507434.0,
+      "equity": 188154978.35,
+      "revenue": 88255536.86,
+      "expenses": 78852071.66,
+      "appropriations": 95132306.72,
+      "obligations": 88219791.28
+    },
+    {
+      "year": 2017,
+      "assets": 243600350.3,
+      "liabilities": 34316721.11,
+      "equity": 209283629.19,
+      "revenue": 99989386.89,
+      "expenses": 95214375.11,
+      "appropriations": 108443630.0,
+      "obligations": 107710313.3
+    },
+    {
+      "year": 2018,
+      "assets": 292959291.96,
+      "liabilities": 60247338.38,
+      "equity": 232711953.58,
+      "revenue": 106698611.7,
+      "expenses": 97514107.08,
+      "appropriations": 149751304.27,
+      "obligations": 117055450.83
+    },
+    {
+      "year": 2019,
+      "assets": 297716561.57,
+      "liabilities": 42837195.75,
+      "equity": 254879365.82,
+      "revenue": 116102804.5,
+      "expenses": 107317679.55,
+      "appropriations": 150327565.1,
+      "obligations": 115641241.45
+    },
+    {
+      "year": 2020,
+      "assets": 257099344.36,
+      "liabilities": 39553686.27,
+      "equity": 217545658.27,
+      "revenue": 137564051.9,
+      "expenses": 131058342.3,
+      "appropriations": 170950187.72,
+      "obligations": 135596860.37
+    },
+    {
+      "year": 2021,
+      "assets": 289066905.73,
+      "liabilities": 46888592.56,
+      "equity": 242178313.17,
+      "revenue": 144503845.77,
+      "expenses": 133834649.54,
+      "appropriations": 251810126.14,
+      "obligations": 159548497.76
+    },
+    {
+      "year": 2022,
+      "assets": 578523733.68,
+      "liabilities": 134750375.93,
+      "equity": 443773357.75,
+      "revenue": 180618300.18,
+      "expenses": 166571000.46,
+      "appropriations": 278185226.69,
+      "obligations": 260433031.29
+    },
+    {
+      "year": 2023,
+      "assets": 563474052.65,
+      "liabilities": 126865514.4,
+      "equity": 436608538.25,
+      "revenue": 159409831.58,
+      "expenses": 168264247.5,
+      "appropriations": 172938824.38,
+      "obligations": 166578721.99
+    },
+    {
+      "year": 2024,
+      "assets": 555420147.7,
+      "liabilities": 110739186.76,
+      "equity": 444680960.94,
+      "revenue": 173759470.48,
+      "expenses": 183574900.6,
+      "appropriations": 361749809.82,
+      "obligations": 345677940.36
+    }
+  ],
+  "disallowances_tracker": {
+    "current_balance": 35187.0,
+    "as_of_date": "2024-12-31",
+    "peak_balance": 360000.0,
+    "peak_year": 2015,
+    "consecutive_years_zero_new_issuances": 7,
+    "yearly_balances": [
+      {
+        "year": 2015,
+        "balance": 360000.0,
+        "status": "Under appeal"
+      },
+      {
+        "year": 2016,
+        "balance": 47000.0,
+        "status": "Partially settled"
+      },
+      {
+        "year": 2017,
+        "balance": 47000.0,
+        "status": "Unchanged"
+      },
+      {
+        "year": 2018,
+        "balance": 35187.0,
+        "status": "Partially settled"
+      },
+      {
+        "year": 2019,
+        "balance": 35187.0,
+        "status": "Unsettled"
+      },
+      {
+        "year": 2020,
+        "balance": 35187.0,
+        "status": "Unsettled"
+      },
+      {
+        "year": 2021,
+        "balance": 35187.0,
+        "status": "Unsettled"
+      },
+      {
+        "year": 2022,
+        "balance": 35187.0,
+        "status": "Unsettled"
+      },
+      {
+        "year": 2023,
+        "balance": 35187.0,
+        "status": "Unsettled"
+      },
+      {
+        "year": 2024,
+        "balance": 35187.0,
+        "status": "Unsettled"
+      }
+    ]
+  },
+  "governance_reform_trackers": [
+    {
+      "reform_topic": "JO/COS Payroll Modernization (ATM Enrollment)",
+      "initial_state": "Manual cash advances for JO/COS workers holding up to ₱14,853,745.50 in cash on hand at risk",
+      "action_taken": "MOA executed with Land Bank of the Philippines, SSS, and Pag-IBIG in 2024/2025",
+      "current_status": "100% ATM Payroll Enrollment implemented effective July 2025 (Validated by COA)",
+      "status_code": "COMPLETED"
+    },
+    {
+      "reform_topic": "Municipal Land Titling Progress",
+      "initial_state": "8 parcels of municipal land valued at ₱25,699,460.00 lacked Transfer Certificates of Title (TCTs)",
+      "action_taken": "Funding requested in Supplemental Budget #2 (2025) and CY 2026 budget; processing ongoing",
+      "current_status": "Title applications currently in progress for 3 parcels of land",
+      "status_code": "IN_PROGRESS"
+    },
+    {
+      "reform_topic": "External Technical Consultant Hiring",
+      "initial_state": "Paid ₱500,000.00 in 2023 and ₱350,000.00 in 2024 for external consultants performing regular duties",
+      "action_taken": "Executive directive issued to stop direct hiring without competitive procurement",
+      "current_status": "Direct hiring of external consultants fully stopped starting July 2025 (Validated by COA)",
+      "status_code": "COMPLETED"
+    },
+    {
+      "reform_topic": "NGA Employee Rice Subsidy",
+      "initial_state": "Granted ₱62,100.00 in unauthorized rice subsidies to national government personnel in 2024",
+      "action_taken": "Executive order issued discontinuing allowance to NGA employees",
+      "current_status": "Subsidy discontinued effective July 1, 2025 (Validated by COA)",
+      "status_code": "COMPLETED"
+    },
+    {
+      "reform_topic": "Sangguniang Bayan Session Snacks",
+      "initial_state": "Incurred ₱122,075.00 for snacks served during regular SB sessions deemed unnecessary",
+      "action_taken": "Discontinued serving snacks during regular function meetings",
+      "current_status": "Snacks limited to special meetings and visiting dignitaries as of August 2025 (Validated by COA)",
+      "status_code": "COMPLETED"
+    },
+    {
+      "reform_topic": "Real Property Tax & Market Stall Rental Delinquency",
+      "initial_state": "₱839,213.84 in delinquent RPT and ₱303,898.00 in unpaid market stall rentals uncollected in 2024",
+      "action_taken": "Barangay-based tax campaign, distribution of notices of delinquency, ongoing RPT Amnesty Program until July 2026, mapping and profiling of stallholders",
+      "current_status": "Collection efforts ongoing; stallholders required to sign updated lease contracts",
+      "status_code": "IN_PROGRESS"
+    }
+  ]
+}

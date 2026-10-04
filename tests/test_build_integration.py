@@ -144,7 +144,7 @@ def test_mayoral_terms_single_source(built_site: Path):
     assert '"end": null' in html
 
 
-TRANSPARENCY_SUBPAGES = ("procurement", "infrastructure", "budget-fiscal", "audit-compliance")
+TRANSPARENCY_SUBPAGES = ("procurement", "infrastructure", "budget-fiscal", "audit-compliance", "projects")
 
 
 def _read_subpage(built_site: Path, lang: str, slug: str) -> str:
@@ -160,15 +160,16 @@ def _read_subpage(built_site: Path, lang: str, slug: str) -> str:
 
 
 def test_transparency_tabs_pills_and_select(built_site: Path):
-    """Every transparency subpage (EN + FIL + PAG) renders 4 pills + mobile select in sync."""
+    """Every transparency subpage (EN + FIL + PAG) renders 5 pills + mobile select in sync."""
     for lang in ("en", "fil", "pag"):
         prefix = "" if lang == "en" else f"/{lang}"
         for slug in TRANSPARENCY_SUBPAGES:
             html = _read_subpage(built_site, lang, slug)
-            assert html.count('class="tab-btn') == 4, f"{lang}/{slug} pills"
+            assert html.count('class="tab-btn') == 5, f"{lang}/{slug} pills"
             assert html.count('aria-current="page"') == 1, f"{lang}/{slug} active"
             assert 'id="transparency-section-select"' in html, f"{lang}/{slug} select"
-            assert html.count("<option") == 4, f"{lang}/{slug} options"
+            tabs_select = html.split('id="transparency-section-select"')[1].split("</select>")[0]
+            assert tabs_select.count("<option") == 5, f"{lang}/{slug} options"
             assert html.count(" selected") == 1, f"{lang}/{slug} selected"
             assert '<label class="tabs-select-label"' not in html, f"{lang}/{slug} label removed"
             assert 'aria-label="' in html.split('id="transparency-section-select"')[1][:200], f"{lang}/{slug} select named"
@@ -233,6 +234,50 @@ def test_section_nav_rail_and_edge_css(built_site: Path):
         tips = re.findall(r'class="edge-tip" aria-hidden="true">([^<]+)</span>', html)
         assert len(tips) >= 3, f"{lang} need >= 3 named tips, got {len(tips)}"
         assert all(tips), f"{lang} has empty edge-tip text"
+
+
+def test_project_explorer_page(built_site: Path):
+    """Project Explorer renders in all 3 locales with search, filters, and JS."""
+    for lang in ("en", "fil", "pag"):
+        html = _read_subpage(built_site, lang, "projects")
+        assert 'id="explorer-search"' in html, f"{lang} search"
+        assert "data-explorer-view" not in html, f"{lang} no view switcher"
+        assert "project-explorer.min.js" in html, f"{lang} script"
+        assert 'id="explorer-results"' in html, f"{lang} results"
+        assert 'id="explorer-coverage"' in html, f"{lang} coverage filter"
+        assert 'explorer-filters"' in html, f"{lang} filter grid"
+    html = _read_subpage(built_site, "en", "projects")
+    assert "Public project &amp; accountability index" in html
+    assert "Search projects, contractors, barangays, or years" in html
+
+
+def test_explorer_indexes_served(built_site: Path):
+    """Explorer index + lazy detail bundles exist in built assets."""
+    for name in ("project-index.json", "contractor-index.json", "audit-index.json",
+                 "fund-index.json", "entity-projects.json", "entity-contracts.json",
+                 "entity-relationships.json"):
+        assert (built_site / "assets" / "data" / name).exists(), name
+
+
+def test_explorer_evidence_copy(built_site: Path):
+    """Explorer JS uses typed financial references, human match text, and tech disclosure."""
+    js = (built_site / "assets" / "js" / "project-explorer.js").read_text(encoding="utf-8")
+    assert "<h4>Financial references</h4>" in js
+    assert "do not sum" in js
+    assert "not automatically equivalent" in js
+    assert "<details" in js and "Technical details" in js
+    assert "Matched by" not in js
+    assert "No linked record — this project appears in a single source." in js
+    css = (built_site / "assets" / "style.min.css").read_text(encoding="utf-8")
+    assert ".tech-details" in css
+    assert "trail-linked" in css
+
+
+def test_no_pagkasira_mistranslation(built_site: Path):
+    """'Period Breakdown' must not render as 'Pagkasira' (destruction)."""
+    html = (built_site / "fil" / "transparency" / "audit-compliance" / "index.html").read_text(encoding="utf-8")
+    assert "Pagkasira" not in html
+    assert "Pagkakahati ayon sa Panahon" in html
 
 
 def test_transparency_hub_has_no_redirect(built_site: Path):

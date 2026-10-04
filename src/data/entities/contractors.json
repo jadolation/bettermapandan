@@ -1,0 +1,1655 @@
+[
+  {
+    "contractor_id": "CTR-0001",
+    "canonical_name": "A.U.B. CONSULT MANAGEMENT AND ENGINEERING SERVICES",
+    "source_names": [
+      "A.U.B. CONSULT MANAGEMENT AND ENGINEERING SERVICES"
+    ],
+    "contract_count": 1,
+    "total_represented": 1000000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:a u b consult management and engineering services",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0002",
+    "canonical_name": "ALBERT PRINTING SERVICES",
+    "source_names": [
+      "ALBERT PRINTING SERVICES"
+    ],
+    "contract_count": 1,
+    "total_represented": 199800.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:albert printing services",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0003",
+    "canonical_name": "ALPHIN TRADING AND CONSTRUCTION",
+    "source_names": [
+      "ALPHIN TRADING AND CONSTRUCTION"
+    ],
+    "contract_count": 58,
+    "total_represented": 142922053.42,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:alphin trading and construction",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0004",
+    "canonical_name": "AMIANAN MOTORS",
+    "source_names": [
+      "AMIANAN MOTORS"
+    ],
+    "contract_count": 1,
+    "total_represented": 217000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:amianan motors",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0005",
+    "canonical_name": "AQUINO-DELA CRUZ ENGINEERING AND CONSTRUCTION",
+    "source_names": [
+      "AQUINO-DELA CRUZ ENGINEERING AND CONSTRUCTION"
+    ],
+    "contract_count": 1,
+    "total_represented": 54967555.44,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:aquino dela cruz engineering and construction",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0006",
+    "canonical_name": "ARM ASIA CONSTRUCTION & ENGINEERING",
+    "source_names": [
+      "ARM ASIA CONSTRUCTION & ENGINEERING"
+    ],
+    "contract_count": 1,
+    "total_represented": 974681.28,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:arm asia construction and engineering",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0007",
+    "canonical_name": "ASIAN HYBRID SEED TECHNOLOGIES, INC.",
+    "source_names": [
+      "ASIAN HYBRID SEED TECHNOLOGIES, INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 2764200.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:asian hybrid seed technologies inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0008",
+    "canonical_name": "BARANGAY GOLDEN, MAPANDAN, PANGASINAN",
+    "source_names": [
+      "BARANGAY GOLDEN, MAPANDAN, PANGASINAN"
+    ],
+    "contract_count": 1,
+    "total_represented": 284900.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:barangay golden mapandan pangasinan",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0009",
+    "canonical_name": "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN",
+    "source_names": [
+      "BARANGAY JIMENEZ, MAPANDAN, PANGASINAN"
+    ],
+    "contract_count": 1,
+    "total_represented": 129900.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:barangay jimenez mapandan pangasinan",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0010",
+    "canonical_name": "BASKETBALL ASSOCIATION OF THE PHILIPPINES REGION 1 INC.",
+    "source_names": [
+      "BASKETBALL ASSOCIATION OF THE PHILIPPINES REGION 1 INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 339540.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:basketball association of the philippines region 1 inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0011",
+    "canonical_name": "BITSTOP, INC.",
+    "source_names": [
+      "BITSTOP, INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 105000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:bitstop inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0012",
+    "canonical_name": "BVC AUTOMOTIVE SPARE PARTS TRADING",
+    "source_names": [
+      "BVC AUTOMOTIVE SPARE PARTS TRADING"
+    ],
+    "contract_count": 1,
+    "total_represented": 3509635.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:bvc automotive spare parts trading",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0013",
+    "canonical_name": "CEDEMED PHARMA DISTRIBUTOR",
+    "source_names": [
+      "CEDEMED PHARMA DISTRIBUTOR"
+    ],
+    "contract_count": 2,
+    "total_represented": 848045.5,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:cedemed pharma distributor",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0014",
+    "canonical_name": "DIANNE BUILDERS",
+    "source_names": [
+      "DIANNE BUILDERS"
+    ],
+    "contract_count": 1,
+    "total_represented": 100663.26,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:dianne builders",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0015",
+    "canonical_name": "ECO SUMMIT CORPORATION",
+    "source_names": [
+      "ECO SUMMIT CORPORATION"
+    ],
+    "contract_count": 2,
+    "total_represented": 4982550.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:eco summit corporation",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0016",
+    "canonical_name": "EIGHT INTEGRATED DEVELOPMENT CORP. (ROYCE HOTEL AND CASINO)",
+    "source_names": [
+      "EIGHT INTEGRATED DEVELOPMENT CORP. (ROYCE HOTEL AND CASINO)"
+    ],
+    "contract_count": 1,
+    "total_represented": 556985.45,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:eight integrated development corp royce hotel and casino",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0017",
+    "canonical_name": "EL FELIPE DESIGN AND CONSTRUCTION",
+    "source_names": [
+      "EL FELIPE DESIGN AND CONSTRUCTION"
+    ],
+    "contract_count": 1,
+    "total_represented": 2154816.4,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:el felipe design and construction",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0018",
+    "canonical_name": "ERMIN'S PORTRAITS",
+    "source_names": [
+      "ERMIN'S PORTRAITS"
+    ],
+    "contract_count": 1,
+    "total_represented": 96800.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:ermin s portraits",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0019",
+    "canonical_name": "ERS ENTERPRISES",
+    "source_names": [
+      "ERS ENTERPRISES"
+    ],
+    "contract_count": 1,
+    "total_represented": 781915.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:ers enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0020",
+    "canonical_name": "F AND N ENTERPRISES & GEN. MERCHANDIZE",
+    "source_names": [
+      "F AND N ENTERPRISES & GEN. MERCHANDIZE"
+    ],
+    "contract_count": 2,
+    "total_represented": 1863375.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:f and n enterprises and gen merchandize",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0021",
+    "canonical_name": "FAM - BAN KITCHENETTE",
+    "source_names": [
+      "FAM - BAN KITCHENETTE"
+    ],
+    "contract_count": 2,
+    "total_represented": 1748600.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:fam ban kitchenette",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0022",
+    "canonical_name": "FEZECAL FUEL STATION",
+    "source_names": [
+      "FEZECAL FUEL STATION"
+    ],
+    "contract_count": 2,
+    "total_represented": 344250.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:fezecal fuel station",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0023",
+    "canonical_name": "FM2 TRADING & ENTERPRISES",
+    "source_names": [
+      "FM2 TRADING & ENTERPRISES"
+    ],
+    "contract_count": 1,
+    "total_represented": 1001035.1,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:fm2 trading and enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0024",
+    "canonical_name": "GEEMED ENTERPRISES",
+    "source_names": [
+      "GEEMED ENTERPRISES"
+    ],
+    "contract_count": 2,
+    "total_represented": 1066470.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:geemed enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0025",
+    "canonical_name": "GEORAVIN CONSTRUCTION &AMP; SUPPLIES",
+    "source_names": [
+      "GEORAVIN CONSTRUCTION &AMP; SUPPLIES"
+    ],
+    "contract_count": 2,
+    "total_represented": 1195492.4,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:georavin construction andamp supplies",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0026",
+    "canonical_name": "GLOBAL EIGHT BUILDERS & EQUIPMENT SUPPLIES",
+    "source_names": [
+      "GLOBAL EIGHT BUILDERS & EQUIPMENT SUPPLIES"
+    ],
+    "contract_count": 1,
+    "total_represented": 28720000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:global eight builders and equipment supplies",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0027",
+    "canonical_name": "GLOBAL SUNDAY CHRONICLE",
+    "source_names": [
+      "GLOBAL SUNDAY CHRONICLE"
+    ],
+    "contract_count": 1,
+    "total_represented": 168000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:global sunday chronicle",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0028",
+    "canonical_name": "HEXAGON MECHANELEC SYSTEMS, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF KEYLARGO INDUSTRIAL SALES",
+    "source_names": [
+      "HEXAGON MECHANELEC SYSTEMS, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF KEYLARGO INDUSTRIAL SALES"
+    ],
+    "contract_count": 1,
+    "total_represented": 378845.45,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:hexagon mechanelec systems inc doing business under the name and style of keylargo industrial sales",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0029",
+    "canonical_name": "INTERACTIVE DRILLING CORPORATION",
+    "source_names": [
+      "INTERACTIVE DRILLING CORPORATION"
+    ],
+    "contract_count": 3,
+    "total_represented": 5785260.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:interactive drilling corporation",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0030",
+    "canonical_name": "J & V ECOPROPERTIES, INC.",
+    "source_names": [
+      "J & V ECOPROPERTIES, INC."
+    ],
+    "contract_count": 2,
+    "total_represented": 225500.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:j and v ecoproperties inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0031",
+    "canonical_name": "J.G. GARCIA CONSTRUCTION & SUPPLY",
+    "source_names": [
+      "J.G. GARCIA CONSTRUCTION & SUPPLY"
+    ],
+    "contract_count": 1,
+    "total_represented": 998499.9,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:j g garcia construction and supply",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0032",
+    "canonical_name": "J.L. DE GUZMAN ENTERPRISES",
+    "source_names": [
+      "J.L. DE GUZMAN ENTERPRISES"
+    ],
+    "contract_count": 4,
+    "total_represented": 14188359.91,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:j l de guzman enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0033",
+    "canonical_name": "JAS OFFICE SUPPLIES AND EQUIPMENT TRADING",
+    "source_names": [
+      "JAS OFFICE SUPPLIES AND EQUIPMENT TRADING"
+    ],
+    "contract_count": 1,
+    "total_represented": 107930.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:jas office supplies and equipment trading",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0034",
+    "canonical_name": "JF CRUZ TRADING & CONSTRUCTION CORP.",
+    "source_names": [
+      "JF CRUZ TRADING & CONSTRUCTION CORP."
+    ],
+    "contract_count": 4,
+    "total_represented": 2759804.31,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:jf cruz trading and construction corp",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0035",
+    "canonical_name": "JJB ENTERPRISES",
+    "source_names": [
+      "JJB ENTERPRISES"
+    ],
+    "contract_count": 1,
+    "total_represented": 174000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:jjb enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0036",
+    "canonical_name": "JJEA AGRIVENTURES CO.",
+    "source_names": [
+      "JJEA AGRIVENTURES CO."
+    ],
+    "contract_count": 1,
+    "total_represented": 819400.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:jjea agriventures co",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0037",
+    "canonical_name": "JOMECA REALTY CORP.",
+    "source_names": [
+      "JOMECA REALTY CORP."
+    ],
+    "contract_count": 2,
+    "total_represented": 1582050.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:jomeca realty corp",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0038",
+    "canonical_name": "JVB  EVENT CATERING SERVICES",
+    "source_names": [
+      "JVB  EVENT CATERING SERVICES"
+    ],
+    "contract_count": 2,
+    "total_represented": 500900.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:jvb event catering services",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0039",
+    "canonical_name": "KABALEYAN COVE RESORT INC",
+    "source_names": [
+      "KABALEYAN COVE RESORT INC"
+    ],
+    "contract_count": 1,
+    "total_represented": 187200.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:kabaleyan cove resort inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0040",
+    "canonical_name": "KCJ GENERAL MERCHANDISE",
+    "source_names": [
+      "KCJ GENERAL MERCHANDISE"
+    ],
+    "contract_count": 3,
+    "total_represented": 3593700.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:kcj general merchandise",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0041",
+    "canonical_name": "LAKAS AGRITECH MARKETING",
+    "source_names": [
+      "LAKAS AGRITECH MARKETING"
+    ],
+    "contract_count": 3,
+    "total_represented": 3301000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:lakas agritech marketing",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0042",
+    "canonical_name": "LM ARENAS AGRI PRODUCTS CORPORATION",
+    "source_names": [
+      "LM ARENAS AGRI PRODUCTS CORPORATION"
+    ],
+    "contract_count": 1,
+    "total_represented": 1620495.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:lm arenas agri products corporation",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0043",
+    "canonical_name": "LUCKY DALE SUBIC INTERNATIONAL INC.",
+    "source_names": [
+      "LUCKY DALE SUBIC INTERNATIONAL INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 1100000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:lucky dale subic international inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0044",
+    "canonical_name": "LYNCAD ENTERPRISES",
+    "source_names": [
+      "LYNCAD ENTERPRISES"
+    ],
+    "contract_count": 1,
+    "total_represented": 629105.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:lyncad enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0045",
+    "canonical_name": "MANIMELD'S CONSTRUCTION & IRON WORKS",
+    "source_names": [
+      "MANIMELD'S CONSTRUCTION & IRON WORKS"
+    ],
+    "contract_count": 2,
+    "total_represented": 6911903.15,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:manimeld s construction and iron works",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0046",
+    "canonical_name": "MARKELL MACHINERIES MANUFACTURING",
+    "source_names": [
+      "MARKELL MACHINERIES MANUFACTURING"
+    ],
+    "contract_count": 1,
+    "total_represented": 13500000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:markell machineries manufacturing",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0047",
+    "canonical_name": "MARKETMERGE, INC.",
+    "source_names": [
+      "MARKETMERGE, INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 1000000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:marketmerge inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0048",
+    "canonical_name": "MASTER SON BUILDERS",
+    "source_names": [
+      "MASTER SON BUILDERS"
+    ],
+    "contract_count": 1,
+    "total_represented": 105807.39,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:master son builders",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0049",
+    "canonical_name": "MAXIMA TECHNICAL AND SKILLS TRAINING INSTITUTE, INC.",
+    "source_names": [
+      "MAXIMA TECHNICAL AND SKILLS TRAINING INSTITUTE, INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 333000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:maxima technical and skills training institute inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0050",
+    "canonical_name": "MIGHTYWAY CONSTRUCTION AND SUPPLY",
+    "source_names": [
+      "MIGHTYWAY CONSTRUCTION AND SUPPLY"
+    ],
+    "contract_count": 1,
+    "total_represented": 547208.75,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:mightyway construction and supply",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0051",
+    "canonical_name": "MISCH GENERAL MERCHANDISE",
+    "source_names": [
+      "MISCH GENERAL MERCHANDISE"
+    ],
+    "contract_count": 3,
+    "total_represented": 1029568.76,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:misch general merchandise",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0052",
+    "canonical_name": "MUNICIPALITY OF MAPANDAN, PANGASINAN",
+    "source_names": [
+      "MUNICIPALITY OF MAPANDAN, PANGASINAN"
+    ],
+    "contract_count": 1,
+    "total_represented": 570400.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:municipality of mapandan pangasinan",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0053",
+    "canonical_name": "NAEL OFFICE SUPPLIES & EQUIPMENT TRADING",
+    "source_names": [
+      "NAEL OFFICE SUPPLIES & EQUIPMENT TRADING"
+    ],
+    "contract_count": 1,
+    "total_represented": 962500.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:nael office supplies and equipment trading",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0054",
+    "canonical_name": "NETLINK ADVANCE SOLUTIONS, INC.",
+    "source_names": [
+      "NETLINK ADVANCE SOLUTIONS, INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 832700.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:netlink advance solutions inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0055",
+    "canonical_name": "NORTH QUADRANT VENTURES & RESOURCES, INC.",
+    "source_names": [
+      "NORTH QUADRANT VENTURES & RESOURCES, INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 1669200.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:north quadrant ventures and resources inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0056",
+    "canonical_name": "NORTHERN ASIA SALES CORPORATION",
+    "source_names": [
+      "NORTHERN ASIA SALES CORPORATION"
+    ],
+    "contract_count": 1,
+    "total_represented": 4023000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:northern asia sales corporation",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0057",
+    "canonical_name": "NYSA ENGINEERING SERVICES",
+    "source_names": [
+      "NYSA ENGINEERING SERVICES"
+    ],
+    "contract_count": 1,
+    "total_represented": 600000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:nysa engineering services",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0058",
+    "canonical_name": "PANGASINAN ORGANIC SEED GROWERS & NURSERY MPC",
+    "source_names": [
+      "PANGASINAN ORGANIC SEED GROWERS & NURSERY MPC"
+    ],
+    "contract_count": 2,
+    "total_represented": 1272960.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:pangasinan organic seed growers and nursery mpc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0059",
+    "canonical_name": "PENITON TRADING CORP",
+    "source_names": [
+      "PENITON TRADING CORP"
+    ],
+    "contract_count": 1,
+    "total_represented": 105800.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:peniton trading corp",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0060",
+    "canonical_name": "PETER JOHN CONSTRUCTION & SUPPLY",
+    "source_names": [
+      "PETER JOHN CONSTRUCTION & SUPPLY"
+    ],
+    "contract_count": 1,
+    "total_represented": 598897.12,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:peter john construction and supply",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0061",
+    "canonical_name": "PETER JOHN ENTERPRISES",
+    "source_names": [
+      "PETER JOHN ENTERPRISES"
+    ],
+    "contract_count": 1,
+    "total_represented": 1788413.15,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:peter john enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0062",
+    "canonical_name": "PLATINUM PUBLICATIONS",
+    "source_names": [
+      "PLATINUM PUBLICATIONS"
+    ],
+    "contract_count": 1,
+    "total_represented": 250550.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:platinum publications",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0063",
+    "canonical_name": "PUMP ASIA INDUSTRIAL CO.",
+    "source_names": [
+      "PUMP ASIA INDUSTRIAL CO."
+    ],
+    "contract_count": 1,
+    "total_represented": 1119898.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:pump asia industrial co",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0064",
+    "canonical_name": "R.F. FLORES CONSTRUCTION",
+    "source_names": [
+      "R.F. FLORES CONSTRUCTION"
+    ],
+    "contract_count": 8,
+    "total_represented": 6848665.49,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:r f flores construction",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0065",
+    "canonical_name": "REM CITIMED PHARMA DISTRIBUTOR",
+    "source_names": [
+      "REM CITIMED PHARMA DISTRIBUTOR"
+    ],
+    "contract_count": 1,
+    "total_represented": 198970.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:rem citimed pharma distributor",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0066",
+    "canonical_name": "RHENAMAE'S TRADING",
+    "source_names": [
+      "RHENAMAE'S TRADING"
+    ],
+    "contract_count": 1,
+    "total_represented": 2884960.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:rhenamae s trading",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0067",
+    "canonical_name": "RMAP ENTERPRISE",
+    "source_names": [
+      "RMAP ENTERPRISE"
+    ],
+    "contract_count": 8,
+    "total_represented": 1103800.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:rmap enterprise",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0068",
+    "canonical_name": "ROCKWELL CONSTRUCTION AND SUPPLY",
+    "source_names": [
+      "ROCKWELL CONSTRUCTION AND SUPPLY"
+    ],
+    "contract_count": 55,
+    "total_represented": 70047685.85,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:rockwell construction and supply",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0069",
+    "canonical_name": "SAFEWAY CONSTRUCTION AND SUPPLY",
+    "source_names": [
+      "SAFEWAY CONSTRUCTION AND SUPPLY"
+    ],
+    "contract_count": 6,
+    "total_represented": 7613205.56,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:safeway construction and supply",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0070",
+    "canonical_name": "SAMSON AGRICULTURAL SUPPLY",
+    "source_names": [
+      "SAMSON AGRICULTURAL SUPPLY"
+    ],
+    "contract_count": 2,
+    "total_represented": 3649630.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:samson agricultural supply",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0071",
+    "canonical_name": "S&P ENTERPRISES, INC.",
+    "source_names": [
+      "S&P ENTERPRISES, INC."
+    ],
+    "contract_count": 1,
+    "total_represented": 1333566.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:sandp enterprises inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0072",
+    "canonical_name": "SASOUN TRADING (SASOUN CYCLE SHOP)",
+    "source_names": [
+      "SASOUN TRADING (SASOUN CYCLE SHOP)"
+    ],
+    "contract_count": 1,
+    "total_represented": 1424000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:sasoun trading sasoun cycle shop",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0073",
+    "canonical_name": "SEAN'S PRINTING SERVICES",
+    "source_names": [
+      "SEAN'S PRINTING SERVICES"
+    ],
+    "contract_count": 1,
+    "total_represented": 92640.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:sean s printing services",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0074",
+    "canonical_name": "SOFERJED ENTERPRISES",
+    "source_names": [
+      "SOFERJED ENTERPRISES"
+    ],
+    "contract_count": 3,
+    "total_represented": 514810.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:soferjed enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0075",
+    "canonical_name": "SPEEDTECH PRINTING AND GENERAL MERCHANDISE",
+    "source_names": [
+      "SPEEDTECH PRINTING AND GENERAL MERCHANDISE"
+    ],
+    "contract_count": 1,
+    "total_represented": 174750.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:speedtech printing and general merchandise",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0076",
+    "canonical_name": "SPHERE CAR & AUTO ACCESSORIES",
+    "source_names": [
+      "SPHERE CAR & AUTO ACCESSORIES"
+    ],
+    "contract_count": 1,
+    "total_represented": 125290.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:sphere car and auto accessories",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0077",
+    "canonical_name": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "source_names": [
+      "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE"
+    ],
+    "contract_count": 6,
+    "total_represented": 7394909.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:st ruiz agro farm supply and gen merchandise",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0078",
+    "canonical_name": "SYSTEM PROCESSOR &AMP; CONST. CORP.",
+    "source_names": [
+      "SYSTEM PROCESSOR &AMP; CONST. CORP."
+    ],
+    "contract_count": 1,
+    "total_represented": 3413301.38,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:system processor andamp const corp",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0079",
+    "canonical_name": "TARLAC MAC ENTERPRISES, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF FIRST AC MEGASAVER AND FIRST MAC MEGASAVER",
+    "source_names": [
+      "TARLAC MAC ENTERPRISES, INC. DOING BUSINESS UNDER THE NAME AND STYLE OF FIRST AC MEGASAVER AND FIRST MAC MEGASAVER"
+    ],
+    "contract_count": 1,
+    "total_represented": 167850.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:tarlac mac enterprises inc doing business under the name and style of first ac megasaver and first mac megasaver",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0080",
+    "canonical_name": "TOYOTA DAGUPAN CITY INC.",
+    "source_names": [
+      "TOYOTA DAGUPAN CITY INC."
+    ],
+    "contract_count": 6,
+    "total_represented": 11039920.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:toyota dagupan city inc",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0081",
+    "canonical_name": "UBET TRADING",
+    "source_names": [
+      "UBET TRADING"
+    ],
+    "contract_count": 19,
+    "total_represented": 11083366.66,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:ubet trading",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0082",
+    "canonical_name": "VILLAR GENERAL CONSTRUCTION & SUPPLIES",
+    "source_names": [
+      "VILLAR GENERAL CONSTRUCTION & SUPPLIES"
+    ],
+    "contract_count": 2,
+    "total_represented": 1573632.89,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:villar general construction and supplies",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0083",
+    "canonical_name": "VMV ENTERPRISES",
+    "source_names": [
+      "VMV ENTERPRISES"
+    ],
+    "contract_count": 1,
+    "total_represented": 3105000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:vmv enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0084",
+    "canonical_name": "VYRAGUS CONSTRUCTION",
+    "source_names": [
+      "VYRAGUS CONSTRUCTION"
+    ],
+    "contract_count": 3,
+    "total_represented": 2533709.43,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:vyragus construction",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0085",
+    "canonical_name": "WELMARY CONSTRUCTION & SUPPLY",
+    "source_names": [
+      "WELMARY CONSTRUCTION & SUPPLY"
+    ],
+    "contract_count": 1,
+    "total_represented": 1682452.53,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:welmary construction and supply",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0086",
+    "canonical_name": "ZEAL TECHNOLOGIES ENTERPRISES",
+    "source_names": [
+      "ZEAL TECHNOLOGIES ENTERPRISES"
+    ],
+    "contract_count": 1,
+    "total_represented": 983051.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:zeal technologies enterprises",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  },
+  {
+    "contractor_id": "CTR-0087",
+    "canonical_name": "ZI-ON CONSUMER GOODS TRADING",
+    "source_names": [
+      "ZI-ON CONSUMER GOODS TRADING"
+    ],
+    "contract_count": 1,
+    "total_represented": 2997000.0,
+    "note": "Total contract values represented in the indexed PhilGEPS records.",
+    "provenance": [
+      {
+        "source": "PhilGEPS",
+        "record_id": "awardee:zi on consumer goods trading",
+        "document": "procurement.json",
+        "retrieved_at": "2026-09-10",
+        "record_role": "contract_record"
+      }
+    ]
+  }
+]

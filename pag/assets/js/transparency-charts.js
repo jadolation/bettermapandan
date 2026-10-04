@@ -54,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
     initChart(auditOpCtx, {
       type: "bar",
       data: {
-        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
         datasets: [{
           label: "Audit Opinion (1=Unqualified, 2=Qualified)",
-          data: [1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2],
-          backgroundColor: [green, gold, gold, gold, gold, gold, gold, gold, gold, green, gold]
+          data: [1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 0],
+          backgroundColor: [green, gold, gold, gold, gold, gold, gold, gold, gold, green, gold, "#d9534f"]
         }]
       },
       options: {
@@ -96,10 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
     initChart(assetsCtx, {
       type: "line",
       data: {
-        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
         datasets: [{
           label: "Total Assets (PHP Millions)",
-          data: [115.0, 130.5, 243.6, 243.6, 292.9, 298.3, 257.1, 289.1, 578.5, 563.5, 555.4],
+          data: [115.0, 130.5, 243.6, 243.6, 292.9, 298.3, 257.1, 289.1, 578.5, 563.5, 555.4, 582.2],
           borderColor: green,
           backgroundColor: "rgba(76,138,46,0.1)",
           fill: true,
@@ -119,11 +119,11 @@ document.addEventListener("DOMContentLoaded", function () {
     initChart(incomeExpCtx, {
       type: "line",
       data: {
-        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
         datasets: [
           {
             label: "Income (PHP Millions)",
-            data: [71.4, 81.1, 88.3, 100.0, 106.7, 116.1, 128.3, 144.5, 180.6, 159.4, 173.8],
+            data: [71.4, 81.1, 88.3, 100.0, 106.7, 116.1, 128.3, 144.5, 180.6, 159.4, 173.8, 201.2],
             borderColor: green,
             backgroundColor: "rgba(76,138,46,0.1)",
             fill: false,
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           {
             label: "Expenses (PHP Millions)",
-            data: [61.6, 67.6, 78.9, 95.2, 97.5, 107.3, 131.1, 133.8, 166.6, 168.3, 183.6],
+            data: [61.6, 67.6, 78.9, 95.2, 97.5, 107.3, 131.1, 133.8, 166.6, 168.3, 183.6, 213.3],
             borderColor: gold,
             backgroundColor: "rgba(232,169,23,0.1)",
             fill: false,
@@ -152,16 +152,16 @@ document.addEventListener("DOMContentLoaded", function () {
     initChart(revCompCtx, {
       type: "bar",
       data: {
-        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+        labels: ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
         datasets: [
           {
             label: "IRA/NTA (PHP Millions)",
-            data: [67.5, 73.4, 78.5, 86.3, 90.8, 103.0, 110.9, 118.0, 142.0, 128.0, 135.0],
+            data: [67.5, 73.4, 78.5, 86.3, 90.8, 103.0, 110.9, 118.0, 142.0, 128.0, 135.0, 172.4],
             backgroundColor: green
           },
           {
             label: "Local Income (PHP Millions)",
-            data: [8.1, 8.5, 9.2, 9.9, 10.4, 9.1, 8.4, 14.5, 22.5, 18.5, 22.0],
+            data: [8.1, 8.5, 9.2, 9.9, 10.4, 9.1, 8.4, 14.5, 22.5, 18.5, 22.0, 28.8],
             backgroundColor: gold
           }
         ]
@@ -182,21 +182,21 @@ document.addEventListener("DOMContentLoaded", function () {
     initChart(implCtx, {
       type: "bar",
       data: {
-        labels: ["14→15", "15→16", "16→17", "17→18", "18→19", "19→20", "20→21", "21→22", "22→23", "23→24"],
+        labels: ["14→15", "15→16", "16→17", "17→18", "18→19", "19→20", "20→21", "21→22", "22→23", "23→24", "24→25"],
         datasets: [
           {
             label: "Implemented",
-            data: [6, 6, 6, 7, 9, 18, 10, 12, 11, 14],
+            data: [6, 6, 6, 7, 9, 18, 10, 12, 11, 14, 22],
             backgroundColor: green
           },
           {
             label: "Partial",
-            data: [0, 1, 4, 4, 7, 0, 0, 0, 0, 0],
+            data: [0, 1, 4, 4, 7, 0, 0, 0, 0, 0, 0],
             backgroundColor: "#8fbc5f"
           },
           {
             label: "Not Implemented",
-            data: [1, 1, 4, 5, 4, 6, 11, 16, 20, 23],
+            data: [1, 1, 4, 5, 4, 6, 11, 16, 20, 23, 9],
             backgroundColor: gold
           }
         ]
