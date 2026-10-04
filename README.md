@@ -13,11 +13,13 @@ Better Mapandan is a static, client-rendered transparency site covering:
 - **86 services** across 13 categories (business permitting, civil registry, health, education, etc.)
 - **277 procurement contracts** with PhilGEPS tender data
 - **40 DPWH projects** with maps and status tracking
-- **12 years of COA audit reports** (2014–2025)
+- **13 years of COA audit reports** (2014–2025), including the 2025 Non-Compliant LDRRMF opinion and 11 new findings
 - **11 years of FDP filings** (DILG Full Disclosure Policy portal data)
+- **Entity resolution layer** — 107 projects, 277 contracts, 87 contractors, 14 funds, 23 audit findings linked via 76 KB relationship graph
+- **Project explorer** — cross-reference page linking COA findings → procurement → DPWH → projects
 - Trilingual: English at root, Filipino under `/fil/`, Pangasinan under `/pag/`
 
-Total page count: **315 pages** (105 EN + 105 FIL + 105 PAG).
+Total page count: **315 pages** (105 EN + 105 FIL + 105 PAG), plus the project explorer.
 
 ---
 
@@ -33,6 +35,8 @@ _build/                         Build system package
   assets.py                     Asset minification, image compression, sitemap, llms.txt
   facts.py                      Single-source facts ({POP_2024}, {LAND_AREA}, {DENSITY})
   lint.py                       Translation verification
+  entities.py                   Entity builder module
+  entity_resolution.py           Entity resolution engine (COA ↔ procurement ↔ DPWH ↔ FDP)
   generators/
     services.py                 Generates services/ + 86 service pages (pick_lang() EN fallback)
     legislative.py              Generates legislative/ from src/data/legislative.json
@@ -59,6 +63,7 @@ src/
       infrastructure.html       DPWH map + project table
       budget-fiscal.html        Appropriations, revenue, FDP dashboard + filings
       audit-compliance.html     COA opinions, findings, implementation, report archive
+      projects.html              Project explorer (cross-reference: COA ↔ procurement ↔ DPWH)
     search.html                 Search hub + report form
     support.html                Support hub
     support/
@@ -77,10 +82,11 @@ src/
     legislative.json            Ordinances, resolutions, issuances
     procurement.json            PhilGEPS contract records (~277)
     dpwh.json                   DPWH contract records (40 projects)
-    audit-reports.json          12 years of COA opinion & findings data
+    audit-reports.json          13 years of COA opinion & findings data (2014–2025)
+    coa-project-findings.json   COA project findings by section (procurement, infrastructure, disallowances)
     barangays.json              15 barangay profiles (population, households, officials)
-    fdp_disclosures.json        DILG FDP filings (quarterly postings)
-    transparency-csv.json       Supplemental CSV data for charts
+    fdp_disclosures.json        DILG FDP filings (quarterly postings, 2023–2026)
+    transparency-csv.json       Supplemental CSV data for charts + downloads
     page-meta.json              Localized titles/descriptions/heroes per page (fil/pag)
     pag-review.json             64 Pangasinan strings awaiting fluent-speaker review
     municipal-facts.json        Canonical headline figures
@@ -93,6 +99,15 @@ src/
     extract_fdp.py              FDP filing extraction script
     fdp_to_csv.py               FDP workbook → CSV converter
     generate_dpwh_seed.py       DPWH seed data generator
+    link_coa_projects.py        COA audit findings → project linking module
+    link_procurement_dpwh.py    Procurement → DPWH cross-reference matching
+    entities/
+      audit-findings.json       23 COA audit findings as entities
+      contracts.json            277 PhilGEPS contract entities
+      contractors.json          87 contractor entities
+      funds.json                14 funding entities
+      projects.json             107 project entities
+    relationships.json          Entity relationship graph (76 KB)
 assets/
   css/                         35 modular CSS partials (tokens.css, reset.css, layout.css, navigation.css, hero.css, cards.css, tables.css, services.css, legislative.css, procurement.css, dashboard.css, section-nav.css, search.css, responsive.css, etc.)
   script.js                   Mobile nav, language switcher, weather widget, history carousel, barangay modals, accordions, feedback widget, Lucide icons
@@ -104,8 +119,15 @@ assets/
   leaflet-map.js              Leaflet map for DPWH projects
   report.js                   Report form logic
   font-loader.js / chart-loader.js / barangay-data.js   Loaders + shared data bundles
-  js/                          Feature scripts bundled per page (common.js, section-nav.js, dashboard-tabs.js, fdp-dashboard.js, transparency-charts.js, procurement-table.js, dpwh-table.js, coa-projects-table.js)
-  data/                         Static data bundles for JS consumption
+  js/                          Feature scripts bundled per page (common.js, section-nav.js, dashboard-tabs.js, fdp-dashboard.js, transparency-charts.js, procurement-table.js, dpwh-table.js, coa-projects-table.js, project-explorer.js)
+  data/                        Static data bundles for JS consumption
+    audit-index.json
+    contractor-index.json
+    entity-contracts.json
+    entity-projects.json
+    entity-relationships.json
+    fund-index.json
+    project-index.json
   logo.svg / logo-no-white.svg / municipal-seal.svg   Brand assets (assets root)
   officials/                    Elected official portraits
   history/                      Historical photos (WebP)
@@ -115,6 +137,12 @@ locales/
   fil.json                      Filipino UI strings (722 keys)
   pag.json                      Pangasinan UI strings (722 keys; 64 flagged for speaker review)
 datasets/                       Raw research and extraction sources
+  audit-reports/               COA Annual Audit Reports 2014–2025 (DOC, PDF, XLSX)
+  fdp/                         DILG FDP workbooks by year (2023, 2024, 2025, 2026)
+  fdp-csv/                     Intermediate FDP CSV exports
+  candidates/                  Cross-reference linking candidates
+  review/                      Project match review data
+  philgeps/                    PhilGEPS raw data
 .github/
   workflows/
     quality.yml                 Lint (ruff), complexity (radon), i18n parity, build, link checks
@@ -133,6 +161,7 @@ datasets/                       Raw research and extraction sources
 1. `build.py` loads EN, FIL, and PAG locales from `locales/` (Pangasinan falls back to English for untranslated keys).
 2. Static pages in `src/pages/` are parsed for front matter and body (titles/heroes localized via `src/data/page-meta.json`).
 3. Programmatic generators expand service pages, legislative sections, DPWH maps, and procurement tables from `src/data/*.json`.
+3.5. Entity resolution links COA findings, procurement contracts, DPWH projects, and FDP records into a searchable relationship graph (`src/data/entities/` + `relationships.json`).
 4. All pages are assembled with `base.html`, `header.html`, and `footer.html`.
 5. Locale strings are injected via `t()` calls, resolved against `locales/en.json`, `locales/fil.json`, and `locales/pag.json`.
 6. Output is written to root (EN), `fil/` (FIL), and `pag/` (PAG).
@@ -153,6 +182,7 @@ transparency/                  Transparency hub (EN)
   infrastructure/            DPWH map + projects
   budget-fiscal/             Budget, FDP dashboard + filings
   audit-compliance/          COA opinions, findings, report archive
+    projects/                  Project explorer (cross-reference)
 search/                        Search page (EN)
 support/                       Support pages (EN)
   faq, privacy, terms, accessibility, report, sitemap
@@ -183,7 +213,7 @@ description: Meta description
 
 ### UI strings
 
-Edit `locales/en.json`, `locales/fil.json`, and `locales/pag.json` (722 keys each; run `python3 check_pag_coverage.py` for Pangasinan status — 64 strings await fluent-speaker review, tracked in `src/data/pag-review.json`). The build system does not enforce key parity automatically; run `python3 check_i18n.py` or `python3 build.py --verify-translations` to check.
+Edit `locales/en.json`, `locales/fil.json`, and `locales/pag.json` (722 keys each; run `python3 check_pag_coverage.py` for Pangasinan status — 64 strings await fluent-speaker review, tracked in `src/data/pag-review.json`). The build system does not enforce key parity automatically; run `python3 check_i18n.py` or `python3 build.py --verify-translations` to check. Pangasinan falls back to English for untranslated keys.
 
 ### Styles
 
@@ -192,6 +222,21 @@ Edit `locales/en.json`, `locales/fil.json`, and `locales/pag.json` (722 keys eac
 ### Scripts
 
 `assets/js/script.js` is the main entry point. Feature-specific logic lives in dedicated files (`search.js`, `services.js`, `transparency-charts.js`, etc.).
+
+### Entity resolution & cross-referencing
+
+The site includes a knowledge-graph layer that links COA audit findings to procurement contracts, DPWH projects, and FDP fund records:
+
+- `src/data/entities/` — Normalized entities: projects, contracts, contractors, funds, audit findings
+- `src/data/relationships.json` — Graph edges (e.g., "COA finding X references contract Y" or "contract Z funded project W")
+- `src/data/coa-project-findings.json` — Structured COA observations by section (procurement, infrastructure, disallowances)
+- `src/data/link_coa_projects.py` — Links COA narrative findings to canonical project/contract IDs
+- `src/data/link_procurement_dpwh.py` — Matches procurement records to DPWH contracts by amount/date/contractor
+- `_build/entities.py` + `_build/entity_resolution.py` — Build-time entity graph construction
+- `assets/js/project-explorer.js` — Client-side explorer UI on `transparency/projects.html`
+- `assets/data/entity-*.json` — Pre-built entity bundles for fast client-side search
+
+This enables cross-reference queries such as: "Show all COA findings related to CCTV procurements" or "Trace funding from LDRRMF to specific DPWH contracts."
 
 ---
 
@@ -212,6 +257,10 @@ python3 check_i18n.py
 
 # Pangasinan coverage report
 python3 check_pag_coverage.py
+
+# Entity resolution (link COA → procurement → DPWH)
+python3 -m src.data.link_coa_projects
+python3 -m src.data.link_procurement_dpwh
 ```
 
 Image optimization (`--compress`) pipeline:
@@ -237,6 +286,11 @@ Alternatively: `node optimize-images.mjs` for standalone image optimization.
 - `procurement.json` — PhilGEPS contract records
 - `dpwh.json` — DPWH infrastructure contracts
 - `barangays.json` — Barangay profiles and council data
+- `audit-reports.json` — COA opinions, financial performance, findings, reform trackers
+- `fdp_disclosures.json` — DILG FDP filings (SRE, SEF, LDRRMF, bids, cash flows, etc.)
+- `coa-project-findings.json` — COA project findings by category
+- `entities/*.json` — Entity layer (projects, contracts, contractors, funds, findings)
+- `relationships.json` — Entity relationship graph
 
 Validation runs automatically during `build.py` if `jsonschema` is installed:
 
@@ -277,6 +331,7 @@ Three GitHub Actions workflows run on every push/PR to `main` or `master`:
 - Full site build
 - Oversized SVG check (>100KB, brand assets excluded)
 - Broken link check with Lychee
+- Schema validation for procurement, DPWH, and barangay JSON
 
 ### 2. Lighthouse CI (`.github/workflows/lighthouse.yml`)
 
@@ -348,6 +403,7 @@ Settings → Pages → **Source: GitHub Actions**. Custom domain configured via 
 1. **Update `REPO_URL`** in `_build/config.py` to your actual repo URL. This flows into the footer's "Source Code" link on every page.
 2. **Verify data.** All data was compiled from public sources (Wikipedia, Provincial Government of Pangasinan, `mapandan.gov.ph`, COA, PhilGEPS, DPWH Transparency Portal) as of August 2026. Before launch, cross-check names, numbers, and figures directly against official sources.
 3. **Set custom domain.** Update `CNAME` file content if your domain differs.
+4. **Verify entity data.** Run `python3 -m src.data.link_coa_projects` and `python3 -m src.data.link_procurement_dpwh` to refresh cross-references if procurement or DPWH data changed.
 
 ---
 

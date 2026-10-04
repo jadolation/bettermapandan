@@ -268,6 +268,10 @@ def test_explorer_evidence_copy(built_site: Path):
     assert "<details" in js and "Technical details" in js
     assert "Matched by" not in js
     assert "No linked record — this project appears in a single source." in js
+    assert "Funds disclosed in" not in js
+    assert "<h4>COA references</h4>" in js
+    assert "<h4>Audit</h4>" not in js
+    assert "quarterly filings" in js
     css = (built_site / "assets" / "style.min.css").read_text(encoding="utf-8")
     assert ".tech-details" in css
     assert "trail-linked" in css
