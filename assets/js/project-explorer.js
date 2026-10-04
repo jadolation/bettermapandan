@@ -120,11 +120,10 @@
       return Promise.all([
         get("/assets/data/entity-projects.json", null),
         get("/assets/data/entity-contracts.json", []),
-        get("/assets/data/fund-index.json", []),
         get("/assets/data/contractor-index.json", [])
       ]).then(function (all) {
         if (!all[0]) throw new Error("not found");
-        entityCache = { projects: all[0], contracts: all[1], funds: all[2], contractors: all[3] };
+        entityCache = { projects: all[0], contracts: all[1], contractors: all[2] };
         return entityCache;
       });
     }
@@ -138,23 +137,37 @@
       cache.contracts.forEach(function (c) { byId[c.contract_id] = c; });
       var contractorsById = {};
       (cache.contractors || []).forEach(function (c) { contractorsById[c.id] = c; });
-      var idxEntry = null, k;
-      for (k = 0; k < store.projects.length; k++) {
-        if (store.projects[k].id === id) { idxEntry = store.projects[k]; break; }
-      }
       var edges = edgeEvidence(id).filter(function (e) { return e.type === "has_contract"; });
       var html = "";
       if (p.project_type === "dpwh_infrastructure") {
         html += '<p class="source-label">DPWH record — manually verified from the official DPWH Transparency Portal.</p>';
       }
       html += "<h4>What the sources say</h4><dl>";
+      var dilgRows = [];
       (p.provenance || []).forEach(function (pr) {
         var role = pr.record_role ? " · " + esc(String(pr.record_role).replace(/_/g, " ")) : "";
         var asof = pr.source_as_of ? " · as of " + esc(pr.source_as_of) : "";
-        html += "<dt>" + esc(pr.source) + "</dt><dd>" + esc(pr.record_id || "") +
+        var row = "<dt>" + esc(pr.source) + "</dt><dd>" + esc(pr.record_id || "") +
           (pr.document ? " · " + esc(typeof pr.document === "string" ? pr.document : "multiple files") : "") +
           (pr.verification_method ? " · manually verified" : "") + role + asof + "</dd>";
+        if (pr.source === "DILG-FDP" && (p.provenance || []).filter(function (q) {
+          return q.source === "DILG-FDP";
+        }).length > 1) {
+          dilgRows.push(row);
+        } else {
+          html += row;
+        }
       });
+      if (dilgRows.length) {
+        var periods = (p.provenance || []).filter(function (q) {
+          return q.source === "DILG-FDP" && q.source_as_of;
+        }).map(function (q) { return String(q.source_as_of); });
+        var span = periods.length ? " (" + esc(periods[0]) +
+          (periods.length > 1 ? "–" + esc(periods[periods.length - 1]) : "") + ")" : "";
+        html += "<dt>DILG-FDP</dt><dd>Reported in " + dilgRows.length + " quarterly filings" +
+          span + '<details class="tech-details"><summary>Reporting periods</summary><dl>' +
+          dilgRows.join("") + "</dl></details></dd>";
+      }
       edges.forEach(function (e) {
         var c = byId[String(e.to).split(":")[1]] || {};
         if (!c.contract_id) return;
@@ -210,22 +223,8 @@
         }).join("") + "</ul>" +
           "<p class=\"source-label\">These are source-reported amounts from different records and are not automatically equivalent.</p>";
       }
-      var fundIds = (idxEntry && idxEntry.funds_same_year) || [];
-      if (fundIds.length) {
-        var fmap = {};
-        (cache.funds || []).forEach(function (f) { fmap[f.id] = f; });
-        html += "<h4>Funds disclosed in " + esc(p.fiscal_year || p.year || "") + "</h4><ul>" +
-          fundIds.map(function (fid) {
-            var f = fmap[fid] || {};
-            var figs = f.figures ? Object.keys(f.figures).map(function (k) {
-              return k + ": " + peso(f.figures[k]);
-            }).join(" · ") : "";
-            return "<li>" + esc(f.period || fid) + (figs ? " — " + esc(figs) : "") + "</li>";
-          }).join("") + "</ul>" +
-          '<p class="source-label">Same fiscal year — not necessarily funded by these lines. (SOURCE REPORTED: DILG-FDP filings)</p>';
-      }
-      html += "<h4>Audit</h4>" +
-        '<p class="source-label">No directly linked COA finding. Findings link only where a report explicitly names the project.</p>';
+      html += "<h4>COA references</h4>" +
+        '<p class="source-label">No directly linked COA finding was identified. Better Mapandan links findings to projects only when the COA report explicitly identifies the project.</p>';
       detailCache[id] = html;
       box.innerHTML = html;
       box.hidden = false;
