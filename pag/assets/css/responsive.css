@@ -312,6 +312,7 @@
     grid-template-columns: 1fr 1fr;
   }
   .explorer-filters .form-input { min-width: 0; width: 100%; min-height: 44px; }
+  #explorer-match { grid-column: 1 / -1; }
 
   /* Table font size */
   .table-wrap table { font-size: 13px; }

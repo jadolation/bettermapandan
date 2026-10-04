@@ -3384,5 +3384,65 @@
       "same fiscal year",
       "rule_title_contractor_year"
     ]
+  },
+  {
+    "id": "REL-0333",
+    "from": "project:BM-PROJ-2023-003",
+    "to": "contract:INFR-MUN-2023-07-006",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0334",
+    "from": "project:BM-PROJ-2023-020",
+    "to": "contract:INFR-MUN-2023-11-016",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0335",
+    "from": "project:BM-PROJ-2024-027",
+    "to": "contract:GOODS-MUN-2024-07-021",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0336",
+    "from": "project:BM-PROJ-2025-032",
+    "to": "contract:INFR-MUN-2025-01-002",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0337",
+    "from": "project:BM-PROJ-2025-C010",
+    "to": "contract:PHG-00021",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
   }
 ]

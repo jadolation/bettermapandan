@@ -297,8 +297,13 @@
 .trail-on { background: var(--green-pale); color: var(--green-deep); }
 .trail-linked { background: var(--gold-soft); color: var(--gold-dark); }
 .trail-off { background: var(--line); color: var(--ink-faint); }
+.source-trail .trail-on::before { content: "✓ "; }
+.source-trail .trail-linked::before { content: "↗ "; }
+.source-trail .trail-off::before { content: "— "; }
 .explorer-detail h4 { font-size: 14px; margin: 14px 0 6px; color: var(--green-deep); }
 .explorer-detail ul { margin: 4px 0 4px 20px; padding: 0; font-size: 14px; }
+.tech-details { margin-top: 8px; font-size: 13px; color: var(--ink-soft); }
+.tech-details summary { cursor: pointer; font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
 
 /* Procurement pagination — full width */
 .procurement-pagination-wrap {

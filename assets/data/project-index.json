@@ -656,12 +656,16 @@
     "type": "lgu_development",
     "sources": {
       "dilg": true,
-      "philgeps": false,
+      "philgeps": true,
       "dpwh": false,
       "coa": false
     },
-    "contracts": [],
-    "link_strength": {},
+    "contracts": [
+      "INFR-MUN-2023-07-006"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
     "funds_same_year": [
       "DILG-FUND-2023-Q1",
       "DILG-FUND-2023-Q2",
@@ -1055,12 +1059,16 @@
     "type": "lgu_development",
     "sources": {
       "dilg": true,
-      "philgeps": false,
+      "philgeps": true,
       "dpwh": false,
       "coa": false
     },
-    "contracts": [],
-    "link_strength": {},
+    "contracts": [
+      "INFR-MUN-2023-11-016"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
     "funds_same_year": [
       "DILG-FUND-2023-Q1",
       "DILG-FUND-2023-Q2",
@@ -1429,12 +1437,16 @@
     "type": "lgu_development",
     "sources": {
       "dilg": true,
-      "philgeps": false,
+      "philgeps": true,
       "dpwh": false,
       "coa": false
     },
-    "contracts": [],
-    "link_strength": {},
+    "contracts": [
+      "GOODS-MUN-2024-07-021"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
     "funds_same_year": [
       "DILG-FUND-2024-Q1",
       "DILG-FUND-2024-Q2",
@@ -1548,9 +1560,185 @@
     "type": "lgu_development",
     "sources": {
       "dilg": true,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [
+      "INFR-MUN-2025-01-002"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C008",
+    "name": "Procurement of 16 Units Rescue Vehicles Isuzu",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
       "philgeps": false,
       "dpwh": false,
-      "coa": false
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C009",
+    "name": "Payment for 2 Units Rescue Motor Vehicle for MDRRMO",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C010",
+    "name": "Procurement/Installation of CCTV Cameras in Barangay Poblacion",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": true,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [
+      "PHG-00021"
+    ],
+    "link_strength": {
+      "philgeps": "probable"
+    },
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C011",
+    "name": "Covered Drainage Canal Along Lawin Avenue Phase 3",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C012",
+    "name": "Construction of Barangay Golden Child Development Center",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C013",
+    "name": "Improvement/Concreting of Road along Palya Street Phase 1",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C014",
+    "name": "Re-concreting of Road along Orchid Street Phase 1",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
+    },
+    "contracts": [],
+    "link_strength": {},
+    "funds_same_year": [
+      "DILG-FUND-2025-Q1",
+      "DILG-FUND-2025-Q2",
+      "DILG-FUND-2025-Q3",
+      "DILG-FUND-2025-Q4"
+    ]
+  },
+  {
+    "id": "BM-PROJ-2025-C015",
+    "name": "Construction of Barangay Golden Child Development Center Phase 2",
+    "year": 2025,
+    "barangay": [],
+    "type": "lgu_development",
+    "sources": {
+      "dilg": false,
+      "philgeps": false,
+      "dpwh": false,
+      "coa": true
     },
     "contracts": [],
     "link_strength": {},

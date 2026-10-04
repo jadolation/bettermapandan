@@ -259,6 +259,20 @@ def test_explorer_indexes_served(built_site: Path):
         assert (built_site / "assets" / "data" / name).exists(), name
 
 
+def test_explorer_evidence_copy(built_site: Path):
+    """Explorer JS uses typed financial references, human match text, and tech disclosure."""
+    js = (built_site / "assets" / "js" / "project-explorer.js").read_text(encoding="utf-8")
+    assert "<h4>Financial references</h4>" in js
+    assert "do not sum" in js
+    assert "not automatically equivalent" in js
+    assert "<details" in js and "Technical details" in js
+    assert "Matched by" not in js
+    assert "No linked record — this project appears in a single source." in js
+    css = (built_site / "assets" / "style.min.css").read_text(encoding="utf-8")
+    assert ".tech-details" in css
+    assert "trail-linked" in css
+
+
 def test_no_pagkasira_mistranslation(built_site: Path):
     """'Period Breakdown' must not render as 'Pagkasira' (destruction)."""
     html = (built_site / "fil" / "transparency" / "audit-compliance" / "index.html").read_text(encoding="utf-8")

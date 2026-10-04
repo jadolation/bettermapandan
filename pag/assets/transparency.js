@@ -474,4 +474,13 @@ document.addEventListener("DOMContentLoaded", function () {
       window._auditOpinionChart.update();
     }
   }
+
+  // COA Compliance Card - update with latest opinion
+  var coaOpinionCard = document.getElementById("coa-latest-opinion");
+  var coaOpinionDesc = document.getElementById("coa-opinion-desc");
+  if (coaOpinionCard && window.AUDIT_DATA && window.AUDIT_DATA.opinions && window.AUDIT_DATA.opinions.length > 0) {
+    var latestOpinion = window.AUDIT_DATA.opinions[window.AUDIT_DATA.opinions.length - 1];
+    coaOpinionCard.textContent = latestOpinion.opinion;
+    coaOpinionDesc.textContent = latestOpinion.note || "";
+  }
 });

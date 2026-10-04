@@ -12,7 +12,9 @@
       {
         "source": "COA",
         "record_id": "ppe-reconciliation",
-        "report": "Mapandan AAR 2014-2019"
+        "report": "Mapandan AAR 2014-2019",
+        "record_role": "audit_record",
+        "source_as_of": "2019"
       }
     ]
   },
@@ -29,7 +31,9 @@
       {
         "source": "COA",
         "record_id": "breeding-stocks",
-        "report": "Mapandan AAR 2016-2024"
+        "report": "Mapandan AAR 2016-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
       }
     ]
   },
@@ -46,7 +50,9 @@
       {
         "source": "COA",
         "record_id": "dormant-receivables",
-        "report": "Mapandan AAR 2016-2024"
+        "report": "Mapandan AAR 2016-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
       }
     ]
   },
@@ -63,7 +69,9 @@
       {
         "source": "COA",
         "record_id": "land-titling",
-        "report": "Mapandan AAR 2016-2024"
+        "report": "Mapandan AAR 2016-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
       }
     ]
   },
@@ -80,7 +88,9 @@
       {
         "source": "COA",
         "record_id": "solid-waste",
-        "report": "Mapandan AAR 2015-2024"
+        "report": "Mapandan AAR 2015-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
       }
     ]
   },
@@ -97,7 +107,9 @@
       {
         "source": "COA",
         "record_id": "delinquent-rpt",
-        "report": "Mapandan AAR 2016-2024"
+        "report": "Mapandan AAR 2016-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
       }
     ]
   },
@@ -114,7 +126,9 @@
       {
         "source": "COA",
         "record_id": "contract-docs",
-        "report": "Mapandan AAR 2015-2024"
+        "report": "Mapandan AAR 2015-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
       }
     ]
   },
@@ -131,7 +145,9 @@
       {
         "source": "COA",
         "record_id": "cash-advance-irregular",
-        "report": "Mapandan AAR 2014-2019"
+        "report": "Mapandan AAR 2014-2019",
+        "record_role": "audit_record",
+        "source_as_of": "2019"
       }
     ]
   },
@@ -148,7 +164,9 @@
       {
         "source": "COA",
         "record_id": "ldrrmf-underallocation",
-        "report": "Mapandan AAR 2025-2025"
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
       }
     ]
   },
@@ -165,7 +183,9 @@
       {
         "source": "COA",
         "record_id": "idle-mrf-equipment",
-        "report": "Mapandan AAR 2020-2024"
+        "report": "Mapandan AAR 2020-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
       }
     ]
   },
@@ -174,7 +194,7 @@
     "title": "Manual Payroll Cash Advances",
     "category": "Financial Management",
     "first_observed": 2018,
-    "last_observed": 2024,
+    "last_observed": 2025,
     "amount": 14853746,
     "status": "improving",
     "severity": "high",
@@ -182,7 +202,9 @@
       {
         "source": "COA",
         "record_id": "manual-payroll",
-        "report": "Mapandan AAR 2018-2024"
+        "report": "Mapandan AAR 2018-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
       }
     ]
   },
@@ -199,7 +221,218 @@
       {
         "source": "COA",
         "record_id": "unnecessary-expenses",
-        "report": "Mapandan AAR 2024-2024"
+        "report": "Mapandan AAR 2024-2024",
+        "record_role": "audit_record",
+        "source_as_of": "2024"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-cip-buildings-discrepancy",
+    "title": "CIP-Buildings Account Discrepancy",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 1096244.18,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "cip-buildings-discrepancy",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-unreleased-check",
+    "title": "Unreleased Check Not Recognized in Liabilities",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 878549.46,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "unreleased-check",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-petty-cash-misuse",
+    "title": "Petty Cash Fund Used for Financial Assistance",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 2458319.79,
+    "status": "open",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "petty-cash-misuse",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-donations-in-kind",
+    "title": "Donations in Kind Without Complete Documentation",
+    "category": "Governance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 263995,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "donations-in-kind",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-brand-names-specs",
+    "title": "Brand Names in Technical Specifications",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 504681,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "brand-names-specs",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-cctv-ineligible-supplier",
+    "title": "CCTV Procurement Awarded to Ineligible Supplier",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 1152740,
+    "status": "open",
+    "severity": "high",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "cctv-ineligible-supplier",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-svp-meals-framework-agreement",
+    "title": "Meals Procured via SVP Without Framework Agreement",
+    "category": "Procurement Compliance",
+    "first_observed": 2024,
+    "last_observed": 2025,
+    "amount": 6117351.1,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "svp-meals-framework-agreement",
+        "report": "Mapandan AAR 2024-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-non-preparation-pmr",
+    "title": "Non-Preparation of Procurement Monitoring Report",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 0,
+    "status": "open",
+    "severity": "low",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "non-preparation-pmr",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-hazard-pay-unsupported",
+    "title": "Unsupported Hazard Pay Disbursement",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 110550.62,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "hazard-pay-unsupported",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-gaming-laptop-unnecessary",
+    "title": "Unnecessary Gaming Laptop Procurement",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 115000,
+    "status": "open",
+    "severity": "low",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "gaming-laptop-unnecessary",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ]
+  },
+  {
+    "finding_id": "COA-F-unrelated-gad-expenditures",
+    "title": "Unrelated GAD Expenditures",
+    "category": "Governance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 4527500,
+    "status": "open",
+    "severity": "medium",
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "unrelated-gad-expenditures",
+        "report": "Mapandan AAR 2025-2025",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
       }
     ]
   }

@@ -224,7 +224,7 @@ SCHEMAS = {
                 "province": {"type": "string"},
                 "barangay": {"type": "array"},
                 "fiscal_year": {"type": ["integer", "null"]},
-                "provenance": {"type": "array", "minItems": 1}
+                "provenance": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source"], "properties": {"source": {"type": "string"}, "record_role": {"type": "string", "enum": ["project_record", "fund_record", "bid_record", "contract_record", "audit_record", "infrastructure_record"]}, "source_as_of": {"type": "string"}}}}
             }
         }
     },
@@ -240,7 +240,7 @@ SCHEMAS = {
                 "awardee_id": {"type": ["string", "null"]},
                 "award_amount": {"type": "number"},
                 "award_date": {"type": "string"},
-                "provenance": {"type": "array", "minItems": 1}
+                "provenance": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source"], "properties": {"source": {"type": "string"}, "record_role": {"type": "string", "enum": ["project_record", "fund_record", "bid_record", "contract_record", "audit_record", "infrastructure_record"]}, "source_as_of": {"type": "string"}}}}
             }
         }
     },
@@ -254,7 +254,7 @@ SCHEMAS = {
                 "contractor_id": {"type": "string"},
                 "canonical_name": {"type": "string"},
                 "source_names": {"type": "array", "minItems": 1},
-                "provenance": {"type": "array", "minItems": 1}
+                "provenance": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source"], "properties": {"source": {"type": "string"}, "record_role": {"type": "string", "enum": ["project_record", "fund_record", "bid_record", "contract_record", "audit_record", "infrastructure_record"]}, "source_as_of": {"type": "string"}}}}
             }
         }
     },
@@ -267,7 +267,7 @@ SCHEMAS = {
                 "fund_id": {"type": "string"},
                 "period": {"type": "string"},
                 "figures": {"type": "object"},
-                "provenance": {"type": "array", "minItems": 1}
+                "provenance": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source"], "properties": {"source": {"type": "string"}, "record_role": {"type": "string", "enum": ["project_record", "fund_record", "bid_record", "contract_record", "audit_record", "infrastructure_record"]}, "source_as_of": {"type": "string"}}}}
             }
         }
     },
@@ -279,7 +279,7 @@ SCHEMAS = {
             "properties": {
                 "finding_id": {"type": "string"},
                 "title": {"type": "string"},
-                "provenance": {"type": "array", "minItems": 1}
+                "provenance": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source"], "properties": {"source": {"type": "string"}, "record_role": {"type": "string", "enum": ["project_record", "fund_record", "bid_record", "contract_record", "audit_record", "infrastructure_record"]}, "source_as_of": {"type": "string"}}}}
             }
         }
     },

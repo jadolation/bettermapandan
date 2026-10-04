@@ -229,5 +229,57 @@
       "adjacent fiscal year (bid vs award lag)"
     ],
     "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0022",
+    "record_a": "dpwh:22AJ0099",
+    "record_b": "contract:INFR-MUN-2021-11-017",
+    "match_score": 0.08,
+    "evidence": [
+      "same contractor",
+      "same fiscal year",
+      "shared work-type token(s): market",
+      "comparable scale"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0023",
+    "record_a": "dpwh:22AJ0099",
+    "record_b": "contract:INFR-MUN-2021-04-004",
+    "match_score": 0.14,
+    "evidence": [
+      "same contractor",
+      "adjacent fiscal year",
+      "shared work-type token(s): concreting",
+      "comparable scale"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0024",
+    "record_a": "dpwh:22AJ0096",
+    "record_b": "contract:INFR-MUN-2021-11-017",
+    "match_score": 0.08,
+    "evidence": [
+      "same contractor",
+      "same fiscal year",
+      "shared work-type token(s): market",
+      "comparable scale"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0025",
+    "record_a": "dpwh:22AJ0096",
+    "record_b": "contract:INFR-MUN-2021-04-004",
+    "match_score": 0.14,
+    "evidence": [
+      "same contractor",
+      "adjacent fiscal year",
+      "shared work-type token(s): concreting",
+      "comparable scale"
+    ],
+    "decision": "pending"
   }
 ]

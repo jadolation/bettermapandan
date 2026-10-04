@@ -149,7 +149,7 @@
       "status": "Completed 2021"
     },
     {
-      "project_title": "Golden–Nilombot Road Concrete Paving",
+      "project_title": "Golden\u2013Nilombot Road Concrete Paving",
       "cost": 3734699.79,
       "fund_source": "General Fund",
       "status": "Completed 2022"
@@ -167,7 +167,7 @@
       "status": "Completed 2019"
     },
     {
-      "project_title": "Jimenez–Torres Local Bridge Rehab (Phases 1-3)",
+      "project_title": "Jimenez\u2013Torres Local Bridge Rehab (Phases 1-3)",
       "cost": 6838023.39,
       "fund_source": "General Fund",
       "status": "Completed 2020-2021"
@@ -189,6 +189,84 @@
       "cost": 3395000.0,
       "fund_source": "LDRRMF",
       "status": "Completed 2023"
+    },
+    {
+      "project_title": "Procurement of 16 Units Rescue Vehicles Isuzu",
+      "cost": 28720000.0,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Construction of One Stop Shop Building Phase 4 at Municipal Compound, Barangay Poblacion",
+      "cost": 8497315.18,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Payment for 2 Units Rescue Motor Vehicle for Municipal Disaster Risk Reduction and Management Office",
+      "cost": 2999000.0,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Procurement/Installation of CCTV Cameras in Barangay Poblacion",
+      "cost": 1152740.0,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Covered Drainage Canal Along Lawin Avenue Phase 3 in Barangay Poblacion",
+      "cost": 873757.65,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Construction of Barangay Golden Child Development Center in Barangay Golden",
+      "cost": 509755.82,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Improvement/Concreting of Road along Palya Street Phase 1 in Barangay Lambayan",
+      "cost": 499298.44,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Re-concreting of Road along Orchid Street Phase 1 in Barangay Nilombot",
+      "cost": 498498.68,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Construction of Barangay Golden Child Development Center Phase 2 in Barangay Golden",
+      "cost": 1825000.0,
+      "fund_source": "General Fund",
+      "status": "In Progress (88% as of Dec 2025)"
+    },
+    {
+      "project_title": "Procurement of Medicines for Q1 2025",
+      "cost": 543502.5,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Procurement of Medicines for Q2 2025",
+      "cost": 770638.98,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Procurement of Medicines for Q3 2025",
+      "cost": 790445.0,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
+    },
+    {
+      "project_title": "Procurement of Medicines for Q4 2025",
+      "cost": 738475.14,
+      "fund_source": "General Fund",
+      "status": "Completed 2025"
     }
   ],
   "procurement_section_observations": [
@@ -196,7 +274,7 @@
       "year": 2020,
       "topic": "COVID-19 Face Shield Overpricing",
       "amount_involved": 783000.0,
-      "finding": "Procurement of 13,500 face shields at ₱58.00/pc exceeded DOH Suggested Retail Prices."
+      "finding": "Procurement of 13,500 face shields at \u20b158.00/pc exceeded DOH Suggested Retail Prices."
     },
     {
       "year": 2020,
@@ -245,6 +323,66 @@
       "topic": "Technical Consultants Direct Hiring",
       "amount_involved": 350000.0,
       "finding": "Direct hiring of technical consultants without undergoing proper competitive procurement."
+    },
+    {
+      "year": 2025,
+      "observation_no": 10,
+      "title": "Procurement and installation of CCTV Cameras totaling \u20b11,152,740.00 awarded to supplier whose goods were outside its registered line of business",
+      "summary": "Alphin Trading and Construction supplied CCTV cameras despite BIR COR only covering retail sale of construction supplies. Violates Section 63.3 of IRR of RA No. 12009.",
+      "amount": 1152740.0,
+      "severity": "high",
+      "status": "open",
+      "recommendation": "Disqualify bidders whose registered line of business does not match procured goods."
+    },
+    {
+      "year": 2025,
+      "observation_no": 9,
+      "title": "Various ICT equipment, construction supplies, and refrigerator amounting to \u20b1504,681.00 procured with brand names in technical specifications",
+      "summary": "Brand names (Asus, Apple, Samsung, Acer, LG, Boysen, Sonak) specified in PRs and RFQs. Violates Section 11 of IRR of RA No. 12009.",
+      "amount": 504681.0,
+      "severity": "medium",
+      "status": "open",
+      "recommendation": "Prohibit tailor-fitting specs to specific brands; ensure performance-based, functional, generic specs."
+    },
+    {
+      "year": 2025,
+      "observation_no": 11,
+      "title": "Meals and snacks totaling \u20b16,117,351.10 procured through Small Value Procurement without due consideration of Framework Agreement",
+      "summary": "Repeated SVP for meals/snacks throughout 2025 (Jan-Dec). Deprived LGU of benefits under GPPB Resolution No. 27-2019. May constitute splitting of requisitions. Reiteration of prior year finding.",
+      "amount": 6117351.1,
+      "severity": "medium",
+      "status": "open",
+      "recommendation": "Consider adopting Framework Agreement for procurement of meals and snacks."
+    },
+    {
+      "year": 2025,
+      "observation_no": 12,
+      "title": "Non-preparation of Procurement Monitoring Report by BAC within 14 calendar days after end of each semester",
+      "summary": "No PMR submitted to GPPB. Municipality excluded from GPPB List of Compliant Procuring Entities for H1 FY 2025 due to failure to adopt NGPA.",
+      "amount": 0,
+      "severity": "low",
+      "status": "open",
+      "recommendation": "BAC to prepare and submit Procurement Monitoring Report to GPPB."
+    },
+    {
+      "year": 2025,
+      "observation_no": 13,
+      "title": "Payment of Hazard Pay totaling \u20b1110,550.62 for CY 2025 not supported with proof of actual services rendered under hazardous conditions",
+      "summary": "MSWDOs and SWOs granted hazard pay without supporting documents. Only November justified (State of Calamity). Paid on commutable basis.",
+      "amount": 110550.62,
+      "severity": "medium",
+      "status": "open",
+      "recommendation": "Discontinue commutable hazard pay; require refund of \u20b1110,550.62."
+    },
+    {
+      "year": 2025,
+      "observation_no": 14,
+      "title": "Procurement of one Gaming Laptop amounting to \u20b1115,000.00 for Assessor's Office despite availability of less expensive units",
+      "summary": "ASUS TUF F15 gaming laptop procured for GIS operations. Brand-specific PR/RFQ. Unnecessary expenditure under COA Circular No. 2012-003.",
+      "amount": 115000.0,
+      "severity": "low",
+      "status": "open",
+      "recommendation": "Submit justification; issue memorandum prohibiting tailor-fitting of specs."
     }
   ],
   "infrastructure_section_observations": [
@@ -284,6 +422,46 @@
       "topic": "Asphalt Overlay Maintenance Misclassification",
       "amount_involved": 15523895.58,
       "finding": "Asphalt repairs improperly booked as asset capital expenditures under Road Networks."
+    },
+    {
+      "year": 2025,
+      "observation_no": 1,
+      "title": "CIP - Buildings and Other Structures account balance does not reconcile with actual ongoing projects",
+      "summary": "Discrepancy of \u20b11,096,244.18 between financial statement balance (\u20b1509,755.82) and actual project costs (\u20b11,606,000.00 for Golden Child Dev Center Phase 2). Accountant failed to record 60% work accomplishment.",
+      "amount": 1096244.18,
+      "severity": "medium",
+      "status": "open",
+      "recommendation": "Prepare adjusting journal entries to record unrecorded CIP-Buildings and Accounts Payable."
+    },
+    {
+      "year": 2025,
+      "observation_no": 4,
+      "title": "Other Receivables account totaling \u20b1617,014.91 not supported with detailed schedules and includes \u20b1613,635.81 dormant for more than 10 years",
+      "summary": "Receivables from 1992-2025 lack subsidiary ledgers and supporting documents. Seven accounts total \u20b1613,635.81 dormant for 27-33 years.",
+      "amount": 617014.91,
+      "severity": "medium",
+      "status": "open",
+      "recommendation": "Locate documents; request COA authority to write-off dormant receivables."
+    },
+    {
+      "year": 2025,
+      "observation_no": 7,
+      "title": "Donations in kind totaling \u20b1263,995.00 not supported with complete documentation",
+      "summary": "Aircon, construction supplies, and other items donated to barangays/schools lacking proof of request, acknowledgement receipts, or with mismatched quantities.",
+      "amount": 263995.0,
+      "severity": "medium",
+      "status": "open",
+      "recommendation": "Require complete supporting documents prior to grant of donations in kind."
+    },
+    {
+      "year": 2025,
+      "observation_no": 15,
+      "title": "Various GAD PPAs totaling \u20b14,527,500.00 did not clearly address gender-related issues",
+      "summary": "Programs charged to GAD fund: Financial Assistance under AICS (\u20b1994,500), Clean and Green (\u20b1630,000), Sports Development (\u20b12,150,000), Educational Assistance (\u20b1153,000), Plaza maintenance (\u20b1600,000). GAD AR submitted late without supporting docs.",
+      "amount": 4527500.0,
+      "severity": "medium",
+      "status": "open",
+      "recommendation": "Identify gender-responsive projects before inclusion in GPB; submit lacking documentary requirements."
     }
   ],
   "disallowed_disallowance_findings": [
@@ -295,7 +473,7 @@
     {
       "year": 2016,
       "outstanding_balance": 47000.0,
-      "status": "Settled ₱313,000.00"
+      "status": "Settled \u20b1313,000.00"
     },
     {
       "year": 2017,
@@ -305,7 +483,7 @@
     {
       "year": 2018,
       "outstanding_balance": 35187.0,
-      "status": "Settled ₱11,813.00"
+      "status": "Settled \u20b111,813.00"
     },
     {
       "year": 2019,
@@ -336,12 +514,20 @@
       "year": 2024,
       "outstanding_balance": 35187.0,
       "status": "Unchanged; zero new issuances"
+    },
+    {
+      "year": 2025,
+      "beginning_balance": 35187.0,
+      "new_issuances": 0,
+      "settlements": 0,
+      "ending_balance": 35187.0,
+      "ending_note": "Unchanged; no new disallowances or settlements in 2025"
     }
   ],
   "philgeps_records": [
     {
       "year": 2024,
-      "observation": "Notices of Award and Purchase Orders totaling ₱8,841,376.03 were omitted from PhilGEPS posting.",
+      "observation": "Notices of Award and Purchase Orders totaling \u20b18,841,376.03 were omitted from PhilGEPS posting.",
       "corrective_action": "BAC Secretariat uploaded missing NOAs, POs, and contracts to PhilGEPS and attached printouts to disbursement vouchers as proof of posting."
     },
     {
@@ -353,55 +539,107 @@
   "peso_amounts_near_project_names": [
     {
       "item": "Municipal Cemetery Extension II",
-      "amount": "₱54,967,555.44"
+      "amount": "\u20b154,967,555.44"
     },
     {
       "item": "Public Market Extension & Upgrading",
-      "amount": "₱15,594,785.61"
+      "amount": "\u20b115,594,785.61"
     },
     {
       "item": "Motorpool Building & RC Wall",
-      "amount": "₱12,892,407.78"
+      "amount": "\u20b112,892,407.78"
     },
     {
       "item": "MRF Heavy Machinery & Equipment",
-      "amount": "₱13,500,000.00"
+      "amount": "\u20b113,500,000.00"
     },
     {
       "item": "Acquisition of 16 Rescue Vehicles",
-      "amount": "₱28,720,000.00"
+      "amount": "\u20b128,720,000.00"
     },
     {
       "item": "DPWH Transferred Road Network",
-      "amount": "₱4,841,163.36"
+      "amount": "\u20b14,841,163.36"
     },
     {
       "item": "One-Stop Shop Building Phase 4",
-      "amount": "₱8,500,000.00"
+      "amount": "\u20b18,500,000.00"
     },
     {
       "item": "Rose St. Upgrading & Concreting",
-      "amount": "₱9,032,231.71"
+      "amount": "\u20b19,032,231.71"
     },
     {
       "item": "Farm-to-Market Road Concreting (6 Barangays)",
-      "amount": "₱14,072,674.08"
+      "amount": "\u20b114,072,674.08"
     },
     {
       "item": "Core Local Road Concreting (6 Barangays)",
-      "amount": "₱14,073,523.11"
+      "amount": "\u20b114,073,523.11"
     },
     {
       "item": "Asphalt Maintenance Misclassification",
-      "amount": "₱15,523,895.58"
+      "amount": "\u20b115,523,895.58"
     },
     {
       "item": "Poblacion Covered Sidewalk & Culverts",
-      "amount": "₱5,902,225.91"
+      "amount": "\u20b15,902,225.91"
     },
     {
       "item": "Town Plaza Fountain",
-      "amount": "₱5,185,136.89"
+      "amount": "\u20b15,185,136.89"
+    },
+    {
+      "item": "Procurement of 16 Units Rescue Vehicles Isuzu",
+      "amount": "\u20b128,720,000.00"
+    },
+    {
+      "item": "Construction of One Stop Shop Building Phase 4",
+      "amount": "\u20b18,497,315.18"
+    },
+    {
+      "item": "Procurement of 2 Units Rescue Motor Vehicle for MDRRMO",
+      "amount": "\u20b12,999,000.00"
+    },
+    {
+      "item": "Procurement/Installation of CCTV Cameras in Barangay Poblacion",
+      "amount": "\u20b11,152,740.00"
+    },
+    {
+      "item": "Covered Drainage Canal Along Lawin Avenue Phase 3",
+      "amount": "\u20b1873,757.65"
+    },
+    {
+      "item": "Construction of Barangay Golden Child Development Center",
+      "amount": "\u20b1509,755.82"
+    },
+    {
+      "item": "Improvement/Concreting of Road along Palya Street Phase 1",
+      "amount": "\u20b1499,298.44"
+    },
+    {
+      "item": "Re-concreting of Road along Orchid Street Phase 1",
+      "amount": "\u20b1498,498.68"
+    },
+    {
+      "item": "Construction of Barangay Golden Child Development Center Phase 2",
+      "amount": "\u20b11,825,000.00"
+    },
+    {
+      "item": "Procurement of Medicines for Q1 2025",
+      "amount": "\u20b1543,502.50"
+    },
+    {
+      "item": "Procurement of Medicines for Q2 2025",
+      "amount": "\u20b1770,638.98"
+    },
+    {
+      "item": "Procurement of Medicines for Q3 2025",
+      "amount": "\u20b1790,445.00"
+    },
+    {
+      "item": "Procurement of Medicines for Q4 2025",
+      "amount": "\u20b1738,475.14"
     }
   ]
 }

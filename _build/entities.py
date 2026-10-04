@@ -90,7 +90,8 @@ def build_contractors(contracts: list, retrieved_at=None) -> tuple[list, dict]:
                      "PhilGEPS records."),
             "provenance": [_prov("PhilGEPS", f"awardee:{norm}",
                                  document="procurement.json",
-                                 retrieved_at=retrieved_at)],
+                                 retrieved_at=retrieved_at,
+                                 record_role="contract_record")],
         })
     return contractors, lookup
 
@@ -118,7 +119,9 @@ def build_contracts(contracts: list, contractor_lookup: dict, retrieved_at=None)
             "organization": c.get("organization_name", ""),
             "source_record_id": f"procurement.json#{i}",
             "provenance": [_prov("PhilGEPS", cid, document="procurement.json",
-                                 retrieved_at=retrieved_at)],
+                                 retrieved_at=retrieved_at,
+                                 record_role="contract_record",
+                                 source_as_of=(c.get("award_date", "") or ""))],
         })
     return out
 
@@ -151,7 +154,8 @@ def build_projects(fdp: dict, dpwh: list, coa_infra: list, retrieved: dict) -> l
             if key in seen_dev:
                 seen_dev[key]["provenance"].append(
                     _prov("DILG-FDP", f"{period}:{row.get('project','')[:40]}",
-                          document=doc.get("source_file", ""), retrieved_at=retrieved.get("fdp")))
+                          document=doc.get("source_file", ""), retrieved_at=retrieved.get("fdp"),
+                          record_role="project_record", source_as_of=period))
                 prev = seen_dev[key].get("reported_costs", [])
                 prev.append(float(row.get("cost") or 0))
                 seen_dev[key]["reported_costs"] = prev
@@ -161,7 +165,8 @@ def build_projects(fdp: dict, dpwh: list, coa_infra: list, retrieved: dict) -> l
             seen_dev[key] = _add(
                 pid, row.get("project", ""), "lgu_development", list(brgys), year,
                 _prov("DILG-FDP", f"{period}:{row.get('project','')[:40]}",
-                      document=doc.get("source_file", ""), retrieved_at=retrieved.get("fdp")),
+                      document=doc.get("source_file", ""), retrieved_at=retrieved.get("fdp"),
+                      record_role="project_record", source_as_of=period),
                 {"reported_costs": [float(row.get("cost") or 0)]},
             )
     for p in dpwh:
@@ -172,17 +177,43 @@ def build_projects(fdp: dict, dpwh: list, coa_infra: list, retrieved: dict) -> l
              normalize_barangays(p.get("barangay_location", "")), year,
              _prov("DPWH Transparency Portal", p.get("contract_id", ""),
                    verification_method="manual",
-                   checked_at=retrieved.get("dpwh")),
+                   checked_at=retrieved.get("dpwh"),
+                   record_role="infrastructure_record",
+                   source_as_of=str(p.get("fiscal_year") or "")),
              {"dpwh_contract_id": p.get("contract_id", ""),
               "contract_amount": p.get("contract_amount"),
               "contractor": p.get("contractor", "")})
     for r in coa_infra:
         year = r.get("year_started") or r.get("year_completed")
+        coa_norm = {"source": "coa", "ref": "", "title": norm_title(r.get("name", "")),
+                    "contractor": "", "amount": 0,
+                    "year": str(year or "") or None, "barangays": []}
+        merged_into = None
+        for p in projects:
+            if p["project_type"] != "lgu_development" or "-C" in p["project_id"] or "-D" in p["project_id"]:
+                continue
+            dev_norm = {"source": "dev", "ref": "", "title": norm_title(p["canonical_name"]),
+                        "contractor": "", "amount": 0,
+                        "year": str(p.get("fiscal_year") or "") or None,
+                        "barangays": p.get("barangay", [])}
+            out = match_records(coa_norm, dev_norm)
+            if out["matched"] and out["level"] in ("explicit", "strong", "probable"):
+                p["provenance"].append(
+                    _prov("COA", r.get("id", ""), report="Mapandan AAR",
+                          retrieved_at=retrieved.get("coa"),
+                          record_role="audit_record",
+                          source_as_of=str(year or "")))
+                merged_into = p["project_id"]
+                break
+        if merged_into:
+            continue
         counters["coa"] = counters.get("coa", 0) + 1
         pid = f"BM-PROJ-{year or 'XXXX'}-C{counters['coa']:03d}"
         _add(pid, r.get("name", ""), "lgu_development", [], year,
              _prov("COA", r.get("id", ""), report="Mapandan AAR",
-                   retrieved_at=retrieved.get("coa")),
+                   retrieved_at=retrieved.get("coa"),
+                   record_role="audit_record",
+                   source_as_of=str(year or "")),
              {"reported_cost": r.get("cost"), "status": r.get("status", "")})
     return projects
 
@@ -213,7 +244,8 @@ def build_funds(fdp: dict, retrieved_at=None) -> list:
             "year": rec.get("year"),
             "figures": {k: v for k, v in rec.items() if k not in ("period", "year")},
             "provenance": [_prov("DILG-FDP", per, document="fdp_disclosures.json",
-                                 retrieved_at=retrieved_at)],
+                                 retrieved_at=retrieved_at,
+                                 record_role="fund_record", source_as_of=per)],
         })
     return funds
 
@@ -234,7 +266,9 @@ def build_audit_findings(audit: dict, retrieved_at=None) -> list:
             "provenance": [_prov("COA", f.get("id", ""),
                                  report="Mapandan AAR "
                                  f"{f.get('first_cited', '')}-{f.get('last_cited', '')}",
-                                 retrieved_at=retrieved_at)],
+                                 retrieved_at=retrieved_at,
+                                 record_role="audit_record",
+                                 source_as_of=str(f.get("last_cited") or ""))],
         })
     return out
 
@@ -245,13 +279,26 @@ def _rel(rid: str, frm: str, to: str, rtype: str, level: str, evidence: list) ->
             "confidence": level, "evidence": evidence}
 
 
-def build_relationships(contracts_n, bids_n, projects: list) -> tuple[list, list]:
+def norm_project_entity(p: dict) -> dict:
+    """Adapter: canonical project entity -> normalized comparison record."""
+    return {"source": "project", "ref": "", "title": norm_title(p.get("canonical_name", "")),
+            "contractor": "", "amount": 0,
+            "year": str(p.get("fiscal_year") or "") or None,
+            "barangays": p.get("barangay", [])}
+
+
+def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | None = None) -> tuple[list, list]:
     """Deterministic edges + near-miss review queue.
 
     - contract -> contractor (awarded_to, explicit: source states it)
     - FDP bid <-> PhilGEPS contract via match_records (has_contract)
+    - dev/COA project entity <-> PhilGEPS contract via match_records
+      (has_contract) — direct pass so shared-contract co-members (e.g. two
+      courts under one award) are never dropped by first-match-wins
+    - DPWH <-> PhilGEPS pairs never auto-link (national vs municipal
+      procurement universes); qualifying near-misses go to review only
     - dev/DPWH/COA project rows carry their own identity; cross-links only
-      where match_records fires (same_project), else unmatched (no edge).
+      where match_records fires, else unmatched (no edge).
     Near-misses (title overlap, same year, no rule fired) -> review queue.
     """
     rels, review = [], []
@@ -304,6 +351,67 @@ def build_relationships(contracts_n, bids_n, projects: list) -> tuple[list, list
                         break
             if len(review) >= 200:
                 break
+    # Direct project-entity <-> contract pass: catches co-members that share
+    # one award (first-match-wins in the bid loop would otherwise drop them).
+    for p in projects:
+        if p.get("project_type") == "dpwh_infrastructure":
+            continue
+        pn = norm_project_entity(p)
+        for c in contracts_n:
+            out = match_records(pn, c["norm"])
+            if out["matched"]:
+                _emit(f"project:{p['project_id']}", f"contract:{c['cid']}", "has_contract",
+                      out["level"], out["evidence"] + [out["rule"]])
+    # DPWH <-> PhilGEPS: review-only, never auto-linked (national vs
+    # municipal procurement universes). Qualifies only with specific
+    # shared work-type tokens (>=2 significant tokens, or 1 token plus
+    # comparable scale) — single generic tokens alone are noise.
+    _STOP = {"of", "the", "and", "for", "at", "in", "with", "along", "brgy",
+             "barangay", "mapandan", "pangasinan", "phase", "section"}
+    for d in dpwh_raw or []:
+        dn = {"source": "dpwh", "ref": d.get("contract_id", ""),
+              "title": norm_title(d.get("project_name", "")),
+              "contractor": "", "amount": 0,
+              "year": str(d.get("fiscal_year") or "") or None, "barangays": []}
+        dc = norm_contractor(d.get("contractor", ""))
+        if not dc:
+            continue
+        for c in contracts_n:
+            try:
+                ydiff = abs(int(dn["year"] or 0) - int(c["norm"].get("year") or 0))
+            except (TypeError, ValueError):
+                continue
+            if ydiff > 1:
+                continue
+            cc = c["norm"].get("contractor", "")
+            if not cc or not (dc == cc or dc in cc or cc in dc):
+                continue
+            overlap = _token_overlap(dn["title"], c["norm"]["title"])
+            shared = sorted({w for w in dn["title"].split() if len(w) > 3 and w not in _STOP} &
+                            {w for w in c["norm"]["title"].split() if len(w) > 3 and w not in _STOP})
+            scale_ok = False
+            try:
+                _da, _ca = float(d.get("contract_amount") or 0), float(c["norm"].get("amount") or 0)
+                scale_ok = bool(_da and _ca) and 0.5 <= _da / _ca <= 2.0
+            except (TypeError, ValueError, ZeroDivisionError):
+                pass
+            if not (len(shared) >= 2 or (len(shared) == 1 and scale_ok)):
+                continue
+            review.append({
+                "candidate_id": _next("MATCH"),
+                "record_a": f"dpwh:{d.get('contract_id', '')}",
+                "record_b": f"contract:{c['cid']}",
+                "match_score": round(overlap, 2),
+                "evidence": ["same contractor",
+                             "same fiscal year" if ydiff == 0 else "adjacent fiscal year",
+                             f"shared work-type token(s): {', '.join(shared)}"] +
+                            (["comparable scale"] if len(shared) == 1 and scale_ok else []),
+                "decision": "pending",
+            })
+            if len(review) >= 200:
+                break
+        if len(review) >= 200:
+            break
     return rels, review
 
 
@@ -476,9 +584,24 @@ def build_all(src_data: Path = SRC_DATA, data_out: Path = SRC_DATA,
                 b["project_id"] = p["project_id"]
                 break
 
-    rels, review = build_relationships(contracts_n, bids_n, projects)
+    rels, review = build_relationships(contracts_n, bids_n, projects, dpwh.get("projects", []))
     indexes = build_indexes(projects, contracts, contractors, findings, funds, rels)
     review = _merge_review_decisions(review, review_dir)
+    # Stewardship loop closed: human-confirmed pairs become edges.
+    _rel_n = sum(1 for _r in rels if _r["id"].startswith("REL-"))
+    for _cand in review:
+        if _cand.get("decision") != "confirmed":
+            continue
+        _a, _b = _cand.get("record_a", ""), _cand.get("record_b", "")
+        if not _a or not _b:
+            continue
+        _exists = any(_r["from"] == _a and _r["to"] == _b and _r["type"] == "has_contract" for _r in rels)
+        if _exists:
+            continue
+        _rel_n += 1
+        rels.append({"id": f"REL-{_rel_n:04d}", "from": _a, "to": _b,
+                     "type": "has_contract", "confidence": "explicit",
+                     "evidence": list(_cand.get("evidence", [])) + ["human-confirmed"]})
 
     ent_dir = data_out / ENTITY_DIRNAME
     ent_dir.mkdir(parents=True, exist_ok=True)

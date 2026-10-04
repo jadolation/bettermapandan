@@ -79,6 +79,54 @@ def test_provenance_points_at_real_files():
                     f"{p['project_id']} provenance document missing: {doc}"
 
 
+def test_shared_contract_comembers_linked(tmp_path):
+    """Co-members sharing one award (002+003 courts, 014+020 market) all link."""
+    out = tmp_path / "data"
+    E.build_all(data_out=out, review_dir=tmp_path / "review")
+    rels = json.loads((out / "relationships.json").read_text(encoding="utf-8"))
+    linked = {(r["from"], r["to"]) for r in rels if r["type"] == "has_contract"}
+    assert ("project:BM-PROJ-2023-002", "contract:INFR-MUN-2023-07-006") in linked
+    assert ("project:BM-PROJ-2023-003", "contract:INFR-MUN-2023-07-006") in linked
+    assert ("project:BM-PROJ-2023-014", "contract:INFR-MUN-2023-11-016") in linked
+    assert ("project:BM-PROJ-2023-020", "contract:INFR-MUN-2023-11-016") in linked
+
+
+def test_coa_duplicates_folded(tmp_path):
+    """COA rows duplicating dev projects merge instead of spawning entities."""
+    out = tmp_path / "data"
+    E.build_all(data_out=out, review_dir=tmp_path / "review")
+    projects = json.loads((out / "entities" / "projects.json").read_text(encoding="utf-8"))
+    stop_shop = [p for p in projects if "Stop Shop Building Phase 4" in p["canonical_name"]]
+    assert len(stop_shop) == 1, [p["project_id"] for p in stop_shop]
+    assert stop_shop[0]["project_id"] == "BM-PROJ-2025-032"
+    assert any(s["source"] == "COA" for s in stop_shop[0]["provenance"])
+
+
+def test_confirmed_review_promotes_edge(tmp_path):
+    """A human-confirmed review pair becomes a has_contract edge on rebuild."""
+    out = tmp_path / "data"
+    rev = tmp_path / "review"
+    E.build_all(data_out=out, review_dir=rev)
+    matches = json.loads((rev / "project-matches.json").read_text(encoding="utf-8"))
+    target = next(m for m in matches if m["decision"] == "pending")
+    target["decision"] = "confirmed"
+    target["decided_by"] = "test"
+    (rev / "project-matches.json").write_text(json.dumps(matches), encoding="utf-8")
+    E.build_all(data_out=out, review_dir=rev)
+    rels = json.loads((out / "relationships.json").read_text(encoding="utf-8"))
+    promoted = [r for r in rels if r["from"] == target["record_a"] and r["to"] == target["record_b"]]
+    assert promoted and "human-confirmed" in promoted[0]["evidence"]
+
+
+def test_dpwh_never_auto_linked(tmp_path):
+    """DPWH pairs only ever reach the review queue, never relationships."""
+    out = tmp_path / "data"
+    E.build_all(data_out=out, review_dir=tmp_path / "review")
+    rels = json.loads((out / "relationships.json").read_text(encoding="utf-8"))
+    assert not [r for r in rels if r["from"].startswith("project:BM-PROJ-")
+                and "-D" in r["from"] and r["type"] == "has_contract"]
+
+
 def test_review_merge_preserves_decisions(tmp_path):
     prior = [{"candidate_id": "MATCH-0001", "record_a": "fdp-bid:X",
               "record_b": "contract:Y", "match_score": 0.9,
@@ -125,3 +173,20 @@ def test_audit_fund_index_fields():
         assert {"category", "first_observed", "last_observed", "amount"} <= set(entry)
     for entry in _load("assets/data/fund-index.json"):
         assert isinstance(entry.get("projects_same_year", []), list)
+
+
+def test_provenance_has_roles_and_as_of():
+    roles = {"project_record", "fund_record", "bid_record", "contract_record",
+             "audit_record", "infrastructure_record"}
+    n_role, n_asof, n_total = 0, 0, 0
+    for name in ("src/data/entities/projects.json", "src/data/entities/contracts.json",
+                 "src/data/entities/funds.json", "src/data/entities/audit-findings.json"):
+        for entity in _load(name):
+            for prov in entity.get("provenance", []):
+                n_total += 1
+                assert prov.get("record_role") in roles, f"{name}: bad role {prov.get('record_role')}"
+                n_role += 1
+                if prov.get("source_as_of"):
+                    n_asof += 1
+    assert n_total > 0 and n_role == n_total
+    assert n_asof > 0, "expected some source_as_of dates"

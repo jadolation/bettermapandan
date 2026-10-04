@@ -13,7 +13,9 @@
         "source": "DILG-FDP",
         "record_id": "2023-Q1",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2023-Q1"
       }
     ]
   },
@@ -31,7 +33,9 @@
         "source": "DILG-FDP",
         "record_id": "2023-Q2",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2023-Q2"
       }
     ]
   },
@@ -49,7 +53,9 @@
         "source": "DILG-FDP",
         "record_id": "2023-Q3",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2023-Q3"
       }
     ]
   },
@@ -67,7 +73,9 @@
         "source": "DILG-FDP",
         "record_id": "2023-Q4",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2023-Q4"
       }
     ]
   },
@@ -85,7 +93,9 @@
         "source": "DILG-FDP",
         "record_id": "2024-Q1",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2024-Q1"
       }
     ]
   },
@@ -103,7 +113,9 @@
         "source": "DILG-FDP",
         "record_id": "2024-Q2",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2024-Q2"
       }
     ]
   },
@@ -121,7 +133,9 @@
         "source": "DILG-FDP",
         "record_id": "2024-Q3",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2024-Q3"
       }
     ]
   },
@@ -139,7 +153,9 @@
         "source": "DILG-FDP",
         "record_id": "2024-Q4",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2024-Q4"
       }
     ]
   },
@@ -157,7 +173,9 @@
         "source": "DILG-FDP",
         "record_id": "2025-Q1",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2025-Q1"
       }
     ]
   },
@@ -175,7 +193,9 @@
         "source": "DILG-FDP",
         "record_id": "2025-Q2",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2025-Q2"
       }
     ]
   },
@@ -191,7 +211,9 @@
         "source": "DILG-FDP",
         "record_id": "2025-Q3",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2025-Q3"
       }
     ]
   },
@@ -209,7 +231,9 @@
         "source": "DILG-FDP",
         "record_id": "2025-Q4",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2025-Q4"
       }
     ]
   },
@@ -227,7 +251,9 @@
         "source": "DILG-FDP",
         "record_id": "2026-Q1",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2026-Q1"
       }
     ]
   },
@@ -245,7 +271,9 @@
         "source": "DILG-FDP",
         "record_id": "2026-Q2",
         "document": "fdp_disclosures.json",
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "fund_record",
+        "source_as_of": "2026-Q2"
       }
     ]
   }

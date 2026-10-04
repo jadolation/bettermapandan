@@ -106,7 +106,7 @@
     "severity": "high",
     "category": "Financial Management",
     "first_observed": 2018,
-    "last_observed": 2024,
+    "last_observed": 2025,
     "amount": 14853746
   },
   {
@@ -118,5 +118,115 @@
     "first_observed": 2024,
     "last_observed": 2024,
     "amount": 269675
+  },
+  {
+    "id": "COA-F-cip-buildings-discrepancy",
+    "title": "CIP-Buildings Account Discrepancy",
+    "status": "open",
+    "severity": "medium",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 1096244.18
+  },
+  {
+    "id": "COA-F-unreleased-check",
+    "title": "Unreleased Check Not Recognized in Liabilities",
+    "status": "open",
+    "severity": "medium",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 878549.46
+  },
+  {
+    "id": "COA-F-petty-cash-misuse",
+    "title": "Petty Cash Fund Used for Financial Assistance",
+    "status": "open",
+    "severity": "high",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 2458319.79
+  },
+  {
+    "id": "COA-F-donations-in-kind",
+    "title": "Donations in Kind Without Complete Documentation",
+    "status": "open",
+    "severity": "medium",
+    "category": "Governance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 263995
+  },
+  {
+    "id": "COA-F-brand-names-specs",
+    "title": "Brand Names in Technical Specifications",
+    "status": "open",
+    "severity": "medium",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 504681
+  },
+  {
+    "id": "COA-F-cctv-ineligible-supplier",
+    "title": "CCTV Procurement Awarded to Ineligible Supplier",
+    "status": "open",
+    "severity": "high",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 1152740
+  },
+  {
+    "id": "COA-F-svp-meals-framework-agreement",
+    "title": "Meals Procured via SVP Without Framework Agreement",
+    "status": "open",
+    "severity": "medium",
+    "category": "Procurement Compliance",
+    "first_observed": 2024,
+    "last_observed": 2025,
+    "amount": 6117351.1
+  },
+  {
+    "id": "COA-F-non-preparation-pmr",
+    "title": "Non-Preparation of Procurement Monitoring Report",
+    "status": "open",
+    "severity": "low",
+    "category": "Procurement Compliance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 0
+  },
+  {
+    "id": "COA-F-hazard-pay-unsupported",
+    "title": "Unsupported Hazard Pay Disbursement",
+    "status": "open",
+    "severity": "medium",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 110550.62
+  },
+  {
+    "id": "COA-F-gaming-laptop-unnecessary",
+    "title": "Unnecessary Gaming Laptop Procurement",
+    "status": "open",
+    "severity": "low",
+    "category": "Financial Management",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 115000
+  },
+  {
+    "id": "COA-F-unrelated-gad-expenditures",
+    "title": "Unrelated GAD Expenditures",
+    "status": "open",
+    "severity": "medium",
+    "category": "Governance",
+    "first_observed": 2025,
+    "last_observed": 2025,
+    "amount": 4527500
   }
 ]

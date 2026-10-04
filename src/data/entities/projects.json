@@ -14,7 +14,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -22,7 +24,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       }
     ],
     "reported_costs": [
@@ -47,7 +51,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -55,7 +61,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -63,7 +71,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -71,7 +81,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -98,7 +110,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -106,7 +120,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -114,7 +130,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -122,7 +140,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -149,7 +169,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -157,7 +179,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -165,7 +189,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -173,7 +199,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -200,7 +228,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -208,7 +238,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -216,7 +248,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       }
     ],
     "reported_costs": [
@@ -242,7 +276,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -250,7 +286,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       }
     ],
     "reported_costs": [
@@ -275,7 +313,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -283,7 +323,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -291,7 +333,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -299,7 +343,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -326,7 +372,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -334,7 +382,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       }
     ],
     "reported_costs": [
@@ -359,7 +409,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -367,7 +419,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -375,7 +429,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -383,7 +439,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -410,7 +468,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -418,7 +478,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -426,7 +488,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -434,7 +498,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -461,7 +527,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -469,7 +537,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -477,7 +547,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -485,7 +557,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -510,7 +584,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -518,7 +594,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -526,7 +604,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -534,7 +614,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       },
       {
         "source": "DILG-FDP",
@@ -542,7 +624,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -550,7 +634,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -558,7 +644,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -566,7 +654,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       },
       {
         "source": "DILG-FDP",
@@ -574,7 +664,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -582,7 +674,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -590,7 +684,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q3_2025.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -598,7 +694,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q4_2025.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q4"
       }
     ],
     "reported_costs": [
@@ -631,7 +729,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -639,7 +739,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       }
     ],
     "reported_costs": [
@@ -664,7 +766,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_25__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -672,7 +776,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -680,7 +786,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       }
     ],
     "reported_costs": [
@@ -706,7 +814,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -714,7 +824,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -739,7 +851,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -747,7 +861,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -772,7 +888,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -780,7 +898,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -805,7 +925,9 @@
         "document": [
           "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -813,7 +935,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -838,7 +962,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -862,7 +988,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_38__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2023-Q4"
       }
     ],
     "reported_costs": [
@@ -886,7 +1014,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -894,7 +1024,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -902,7 +1034,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -910,7 +1044,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -937,7 +1073,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -945,7 +1083,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -953,7 +1093,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -961,7 +1103,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -988,7 +1132,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -996,7 +1142,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1004,7 +1152,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1012,7 +1162,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1039,7 +1191,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1047,7 +1201,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1055,7 +1211,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1063,7 +1221,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1090,7 +1250,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1098,7 +1260,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1106,7 +1270,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1114,7 +1280,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1141,7 +1309,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1149,7 +1319,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1157,7 +1329,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1165,7 +1339,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1192,7 +1368,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1200,7 +1378,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1208,7 +1388,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1216,7 +1398,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1243,7 +1427,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       }
     ],
     "reported_costs": [
@@ -1267,7 +1453,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1275,7 +1463,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1283,7 +1473,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1291,7 +1483,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1318,7 +1512,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_21__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1326,7 +1522,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1334,7 +1532,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1342,7 +1542,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1369,7 +1571,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_14__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1377,7 +1581,9 @@
         "document": [
           "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1385,7 +1591,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_23__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2024-Q4"
       }
     ],
     "reported_costs": [
@@ -1411,7 +1619,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_8__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1419,7 +1629,9 @@
         "document": [
           "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6__Form_7_-_DFU.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q2"
       },
       {
         "source": "DILG-FDP",
@@ -1427,7 +1639,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q3_2025.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q3"
       },
       {
         "source": "DILG-FDP",
@@ -1435,7 +1649,16 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q4_2025.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2025-Q4"
+      },
+      {
+        "source": "COA",
+        "record_id": "one-stop-shop-phase-4",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
       }
     ],
     "reported_costs": [
@@ -1462,7 +1685,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1470,7 +1695,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1493,7 +1720,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1501,7 +1730,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1526,7 +1757,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1534,7 +1767,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1559,7 +1794,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1567,7 +1804,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1592,7 +1831,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1600,7 +1841,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1625,7 +1868,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1633,7 +1878,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1658,7 +1905,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1666,7 +1915,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1691,7 +1942,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1699,7 +1952,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1724,7 +1979,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1732,7 +1989,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1757,7 +2016,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1765,7 +2026,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1790,7 +2053,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1798,7 +2063,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1823,7 +2090,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1831,7 +2100,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1856,7 +2127,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       }
     ],
     "reported_costs": [
@@ -1880,7 +2153,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1888,7 +2163,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1913,7 +2190,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1921,7 +2200,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1946,7 +2227,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1954,7 +2237,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -1979,7 +2264,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -1987,7 +2274,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -2012,7 +2301,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -2020,7 +2311,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -2045,7 +2338,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_15__Q1_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q1"
       },
       {
         "source": "DILG-FDP",
@@ -2053,7 +2348,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -2078,7 +2375,9 @@
         "document": [
           "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__Q2_2026.csv"
         ],
-        "retrieved_at": "2026-09-18"
+        "retrieved_at": "2026-09-18",
+        "record_role": "project_record",
+        "source_as_of": "2026-Q2"
       }
     ],
     "reported_costs": [
@@ -2100,7 +2399,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0117",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0117",
@@ -2122,7 +2423,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0116",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "18AJ0116",
@@ -2144,7 +2447,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0033",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0033",
@@ -2166,7 +2471,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0069",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0069",
@@ -2188,7 +2495,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "21AJ0068",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2021"
       }
     ],
     "dpwh_contract_id": "21AJ0068",
@@ -2210,7 +2519,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0056",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0056",
@@ -2232,7 +2543,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "20AJ0037",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2020"
       }
     ],
     "dpwh_contract_id": "20AJ0037",
@@ -2254,7 +2567,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0098",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0098",
@@ -2274,7 +2589,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0100",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0100",
@@ -2296,7 +2613,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0099",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0099",
@@ -2318,7 +2637,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0011",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0011",
@@ -2340,7 +2661,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "20AJ0101",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2020"
       }
     ],
     "dpwh_contract_id": "20AJ0101",
@@ -2362,7 +2685,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0040",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0040",
@@ -2384,7 +2709,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0097",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0097",
@@ -2406,7 +2733,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0045",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0045",
@@ -2428,7 +2757,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0096",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0096",
@@ -2448,7 +2779,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0110",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0110",
@@ -2470,7 +2803,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0040",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0040",
@@ -2492,7 +2827,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0045",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0045",
@@ -2514,7 +2851,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0023",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0023",
@@ -2536,7 +2875,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "20AJ0032",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2020"
       }
     ],
     "dpwh_contract_id": "20AJ0032",
@@ -2559,7 +2900,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0064",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0064",
@@ -2581,7 +2924,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0039",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0039",
@@ -2603,7 +2948,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "21AJ0026",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2021"
       }
     ],
     "dpwh_contract_id": "21AJ0026",
@@ -2625,7 +2972,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22A00149",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22A00149",
@@ -2648,7 +2997,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0145",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0145",
@@ -2670,7 +3021,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0059",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0059",
@@ -2692,7 +3045,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0012",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0012",
@@ -2715,7 +3070,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "25AJ0055",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2025"
       }
     ],
     "dpwh_contract_id": "25AJ0055",
@@ -2737,7 +3094,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "26AJ0028",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2026"
       }
     ],
     "dpwh_contract_id": "26AJ0028",
@@ -2760,7 +3119,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "16AJ0001",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2016"
       }
     ],
     "dpwh_contract_id": "16AJ0001",
@@ -2782,7 +3143,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0044",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0044",
@@ -2804,7 +3167,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0027",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0027",
@@ -2826,7 +3191,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0089",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0089",
@@ -2848,7 +3215,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0027",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0027",
@@ -2868,7 +3237,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "16AJ0083",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2016"
       }
     ],
     "dpwh_contract_id": "16AJ0083",
@@ -2890,7 +3261,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "25AJ0097",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2025"
       }
     ],
     "dpwh_contract_id": "25AJ0097",
@@ -2910,7 +3283,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0058",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0058",
@@ -2932,7 +3307,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "16AJ0089",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2016"
       }
     ],
     "dpwh_contract_id": "16AJ0089",
@@ -2954,7 +3331,9 @@
         "source": "DPWH Transparency Portal",
         "record_id": "26AJ0027",
         "verification_method": "manual",
-        "checked_at": "2026-10-03"
+        "checked_at": "2026-10-03",
+        "record_role": "infrastructure_record",
+        "source_as_of": "2026"
       }
     ],
     "dpwh_contract_id": "26AJ0027",
@@ -2973,7 +3352,9 @@
       {
         "source": "COA",
         "record_id": "cemetery-extension-2",
-        "report": "Mapandan AAR"
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2022"
       }
     ],
     "reported_cost": 54970000,
@@ -2991,7 +3372,9 @@
       {
         "source": "COA",
         "record_id": "market-improvement",
-        "report": "Mapandan AAR"
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2021"
       }
     ],
     "reported_cost": 15590000,
@@ -3009,7 +3392,9 @@
       {
         "source": "COA",
         "record_id": "abattoir-motorpool",
-        "report": "Mapandan AAR"
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2022"
       }
     ],
     "reported_cost": 12890000,
@@ -3027,7 +3412,9 @@
       {
         "source": "COA",
         "record_id": "town-plaza-fountain",
-        "report": "Mapandan AAR"
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2016"
       }
     ],
     "reported_cost": 5190000,
@@ -3045,7 +3432,9 @@
       {
         "source": "COA",
         "record_id": "road-network",
-        "report": "Mapandan AAR"
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2023"
       }
     ],
     "reported_cost": 4840000,
@@ -3063,7 +3452,9 @@
       {
         "source": "COA",
         "record_id": "mdrrmo-excavator",
-        "report": "Mapandan AAR"
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2023"
       }
     ],
     "reported_cost": 3390000,
@@ -3081,10 +3472,172 @@
       {
         "source": "COA",
         "record_id": "mini-dump-trucks",
-        "report": "Mapandan AAR"
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2023"
       }
     ],
     "reported_cost": 3510000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C008",
+    "canonical_name": "Procurement of 16 Units Rescue Vehicles Isuzu",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "rescue-vehicles-16-units",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 28720000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C009",
+    "canonical_name": "Payment for 2 Units Rescue Motor Vehicle for MDRRMO",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "rescue-motor-mdrrmo-2-units",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 2999000,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C010",
+    "canonical_name": "Procurement/Installation of CCTV Cameras in Barangay Poblacion",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "cctv-cameras-poblacion",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 1152740,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C011",
+    "canonical_name": "Covered Drainage Canal Along Lawin Avenue Phase 3",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "drainage-lawin-ave-phase-3",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 873757.65,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C012",
+    "canonical_name": "Construction of Barangay Golden Child Development Center",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "golden-child-dev-center",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 509755.82,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C013",
+    "canonical_name": "Improvement/Concreting of Road along Palya Street Phase 1",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "road-palya-street-phase-1",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 499298.44,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C014",
+    "canonical_name": "Re-concreting of Road along Orchid Street Phase 1",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "road-orchid-street-phase-1",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 498498.68,
+    "status": "completed"
+  },
+  {
+    "project_id": "BM-PROJ-2025-C015",
+    "canonical_name": "Construction of Barangay Golden Child Development Center Phase 2",
+    "project_type": "lgu_development",
+    "municipality": "Mapandan",
+    "province": "Pangasinan",
+    "barangay": [],
+    "fiscal_year": 2025,
+    "provenance": [
+      {
+        "source": "COA",
+        "record_id": "golden-child-dev-center-phase-2",
+        "report": "Mapandan AAR",
+        "record_role": "audit_record",
+        "source_as_of": "2025"
+      }
+    ],
+    "reported_cost": 1825000,
     "status": "completed"
   }
 ]
