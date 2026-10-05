@@ -112,7 +112,43 @@ def _titles_match(a: str, b: str, min_tokens: int = 2) -> bool:
     return all(w in long_ for w in short)
 
 
+def _phase_markers(title: str) -> set:
+    """Explicit phase/stage markers in a normalized title.
+
+    Returns e.g. {"3"} for "phase iii", "phase 3", "stage 3". Roman
+    numerals (len>=2 only, to avoid matching initials) normalize to digits.
+    """
+    marks = set()
+    for m in re.finditer(r"\b(?:phase|stage|part)\s+([ivxlcdm\d]+)\b", title or ""):
+        tok = m.group(1).upper()
+        roman = {"I": "1", "II": "2", "III": "3", "IV": "4", "V": "5",
+                 "VI": "6", "VII": "7", "VIII": "8", "IX": "9", "X": "10"}
+        marks.add(roman.get(tok, tok.lstrip("0") or "0"))
+    for m in re.finditer(r"\b([IVXLCDM]{2,})\b", title or ""):
+        tok = m.group(1).upper()
+        roman = {"II": "2", "III": "3", "IV": "4", "VI": "6", "VII": "7",
+                 "VIII": "8", "IX": "9"}
+        if tok in roman:
+            marks.add(roman[tok])
+    return marks
+
+
+def _phase_conflict(a: str, b: str) -> bool:
+    """True when titles carry differing explicit phase markers.
+
+    Base-vs-Phase, Phase 3-vs-4, Stage II-vs-III all conflict: generic
+    municipal titles recur across tranches, so phase mismatch blocks
+    title-based auto-matching (Rules 2-4). Exact reference matches
+    (Rule 1) and contractor+amount matches (Rule 5) are unaffected —
+    they do not assert title identity.
+    """
+    ma, mb = _phase_markers(a), _phase_markers(b)
+    # Conflict unless both sides agree (including both unmarked).
+    return bool(ma != mb and (ma or mb))
+
+
 def _amounts_close(a: float, b: float, tolerance: float = 0.05) -> bool:
+    """Amount proximity within tolerance (Rule 5 helper)."""
     if not a or not b:
         return False
     return amount_proximity(a, b, tolerance=tolerance)
@@ -127,7 +163,9 @@ def rule_reference_id(a: dict, b: dict):
 
 def rule_title_year(a: dict, b: dict):
     """Rule 2: same title + same year. Level: probable."""
-    if a.get("title") and a["title"] == b.get("title") and a.get("year") and a["year"] == b.get("year"):
+    if _phase_conflict(a.get("title", ""), b.get("title", "")):
+        return (False, [], "unmatched")
+    if a.get("title") and a["title"] == b["title"] and a.get("year") and a["year"] == b["year"]:
         return (True, ["same project title", "same fiscal year"], "probable")
     if _titles_match(a.get("title", ""), b.get("title", "")) and a.get("year") and a["year"] == b.get("year"):
         return (True, ["similar project title", "same fiscal year"], "probable")
@@ -137,6 +175,8 @@ def rule_title_year(a: dict, b: dict):
 def rule_title_barangay_year(a: dict, b: dict):
     """Rule 3: same title + barangay + year. Level: strong."""
     if not (a.get("title") and b.get("title")):
+        return (False, [], "unmatched")
+    if _phase_conflict(a["title"], b["title"]):
         return (False, [], "unmatched")
     same_title = a["title"] == b["title"] or _titles_match(a["title"], b["title"])
     same_brgy = bool(set(a.get("barangays", [])) & set(b.get("barangays", [])))
@@ -160,6 +200,8 @@ def _contractors_match(a: str, b: str) -> bool:
 def rule_title_contractor_year(a: dict, b: dict):
     """Rule 4: same title + contractor + year. Level: strong."""
     if not (a.get("title") and b.get("title")):
+        return (False, [], "unmatched")
+    if _phase_conflict(a["title"], b["title"]):
         return (False, [], "unmatched")
     same_title = a["title"] == b["title"] or _titles_match(a["title"], b["title"])
     same_cont = _contractors_match(a.get("contractor", ""), b.get("contractor", ""))
@@ -190,6 +232,16 @@ DETERMINISTIC_RULES = (
 
 def match_records(a: dict, b: dict) -> dict:
     """Run deterministic Rules 1-5 strongest-first; first hit wins.
+
+    This resolves ENTITY IDENTITY (are these the same activity?) — a
+    single canonical decision per pair. It does not enumerate every
+    valid association: relationship discovery downstream is multi-valued
+    and may preserve several evidenced links (e.g. two co-member
+    projects sharing one award).
+
+    Title-based rules (2-4) refuse pairs with conflicting explicit phase
+    markers; exact reference (Rule 1) and contractor+amount (Rule 5) do
+    not assert title identity and are unaffected.
 
     Returns {"matched": bool, "rule": name|None, "evidence": [...],
     "level": explicit|strong|probable|possible|unmatched}.

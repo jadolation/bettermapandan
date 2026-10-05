@@ -283,6 +283,20 @@ SCHEMAS = {
             }
         }
     },
+    "entities/bids.json": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["bid_id", "project", "periods", "provenance"],
+            "properties": {
+                "bid_id": {"type": "string"},
+                "project": {"type": "string"},
+                "bidder": {"type": "string"},
+                "periods": {"type": "array"},
+                "provenance": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["source"], "properties": {"source": {"type": "string"}, "record_role": {"type": "string", "enum": ["project_record", "fund_record", "bid_record", "contract_record", "audit_record", "infrastructure_record"]}, "source_as_of": {"type": "string"}}}}
+            }
+        }
+    },
     "relationships.json": {
         "type": "array",
         "items": {
@@ -292,7 +306,9 @@ SCHEMAS = {
                 "id": {"type": "string"},
                 "from": {"type": "string"},
                 "to": {"type": "string"},
-                "type": {"type": "string"},
+                "type": {"type": "string",
+                         "enum": ["awarded_to", "has_contract", "has_bid", "resulted_in",
+                                  "contractor_identity"]},
                 "confidence": {"type": "string",
                                "enum": ["explicit", "strong", "probable",
                                         "possible", "unmatched"]},

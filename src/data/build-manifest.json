@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-10-05T06:48:25Z",
+  "sources": {
+    "procurement.json": {
+      "sha256": "15c56ff4f00824ee77d72d46f7b2aaad1ce323771e075c37457e5bd02fdbeed4"
+    },
+    "dpwh.json": {
+      "sha256": "7cc3383afa74e312ebf2a09bd11cb4809f115f284f8e6655d211faa23f0e9adc"
+    },
+    "fdp_disclosures.json": {
+      "sha256": "45fd29c88cfe7d7a8c19cf0b3dca0d59f0743558067432926321b339f326cf62"
+    },
+    "audit-reports.json": {
+      "sha256": "409ced5d606476a7c47ae80237816bb9dc8d0eed8d6bf0615ea8159da85d1774"
+    }
+  },
+  "derived": {
+    "projects": 107,
+    "contracts": 277,
+    "contractors": 87,
+    "funds": 14,
+    "findings": 23,
+    "bids": 80,
+    "relationships": 366,
+    "review": 35
+  }
+}

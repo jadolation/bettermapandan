@@ -20,19 +20,22 @@ def test_relationship_endpoints_exist():
     projects = {p["project_id"] for p in _load("src/data/entities/projects.json")}
     contracts = {c["contract_id"] for c in _load("src/data/entities/contracts.json")}
     contractors = {c["contractor_id"] for c in _load("src/data/entities/contractors.json")}
+    bids = {b["bid_id"] for b in _load("src/data/entities/bids.json")}
     dpwh_ids = {p.get("contract_id", "") for p in _load("src/data/dpwh.json").get("projects", [])}
     known = projects | contracts | contractors
 
     def _known(ref: str) -> bool:
         kind, _, rid = ref.partition(":")
-        if kind == "project" and rid.startswith("fdp-bid:"):
-            return True  # FDP-side anchor, resolved at render time
+        if kind == "bid":
+            return rid in bids
         if kind == "dpwh":
             return rid in dpwh_ids
         return rid in known or ref in known
 
     orphans = [r["id"] for r in rels if not _known(r["from"]) or not _known(r["to"])]
     assert not orphans, f"orphan relationships: {orphans[:5]}"
+    pseudo = [r["id"] for r in rels if "fdp-bid:" in r["from"] + r["to"]]
+    assert not pseudo, f"legacy pseudo-nodes remain: {pseudo[:5]}"
 
 
 def test_confirmed_relationships_have_evidence():
@@ -83,15 +86,20 @@ def test_provenance_points_at_real_files():
 
 
 def test_shared_contract_comembers_linked(tmp_path):
-    """Co-members sharing one award (002+003 courts, 014+020 market) all link."""
+    """Co-members sharing one award all link; phase-mismatched bases go to review."""
     out = tmp_path / "data"
     E.build_all(data_out=out, review_dir=tmp_path / "review")
     rels = json.loads((out / "relationships.json").read_text(encoding="utf-8"))
     linked = {(r["from"], r["to"]) for r in rels if r["type"] == "has_contract"}
     assert ("project:BM-PROJ-2023-002", "contract:INFR-MUN-2023-07-006") in linked
     assert ("project:BM-PROJ-2023-003", "contract:INFR-MUN-2023-07-006") in linked
-    assert ("project:BM-PROJ-2023-014", "contract:INFR-MUN-2023-11-016") in linked
     assert ("project:BM-PROJ-2023-020", "contract:INFR-MUN-2023-11-016") in linked
+    # 014 is the un-phased base title: phase guard blocks the auto-edge…
+    assert ("project:BM-PROJ-2023-014", "contract:INFR-MUN-2023-11-016") not in linked
+    # …and routes it to human review instead.
+    review = json.loads((tmp_path / "review" / "project-matches.json").read_text(encoding="utf-8"))
+    assert any(r["record_a"] == "project:BM-PROJ-2023-014" and r["decision"] == "pending"
+               for r in review)
 
 
 def test_coa_duplicates_folded(tmp_path):
@@ -195,6 +203,26 @@ def test_provenance_has_roles_and_as_of():
     assert n_asof > 0, "expected some source_as_of dates"
 
 
+def test_bid_entities_and_chain():
+    """Bids are first-class entities; every resulted_in chains from a has_bid."""
+    bids = _load("src/data/entities/bids.json")
+    assert bids, "no bid entities generated"
+    for b in bids:
+        assert b.get("bid_id") and b.get("periods"), b.get("bid_id")
+        assert any(p.get("record_role") == "bid_record" for p in b.get("provenance", [])), b["bid_id"]
+    rels = _load("src/data/relationships.json")
+    bid_ids = {b["bid_id"] for b in bids}
+    for r in rels:
+        if r["type"] == "resulted_in":
+            assert r["from"].split(":", 1)[1] in bid_ids, r["id"]
+    anchored = {r["from"].split(":", 1)[1] for r in rels if r["type"] == "has_bid"}
+    assert anchored, "expected project→bid anchors"
+    # every has_bid target resolves to a real bid
+    for r in rels:
+        if r["type"] == "has_bid":
+            assert r["to"].split(":", 1)[1] in bid_ids, r["id"]
+
+
 def test_no_summed_totals_in_indexes():
     """Non-additivity guard: fund figures must equal their own period's
     source values, never cross-period sums; project index carries no
@@ -232,7 +260,8 @@ def test_relationship_counts_reconcile():
     rels = _load("src/data/relationships.json")
     by_type = Counter(r["type"] for r in rels)
     assert sum(by_type.values()) == len(rels)
-    assert set(by_type) <= {"awarded_to", "has_contract", "same_contractor_as"}, set(by_type)
+    assert set(by_type) <= {"awarded_to", "has_contract", "has_bid", "resulted_in",
+                             "contractor_identity"}, set(by_type)
     n_contracts = len(_load("src/data/entities/contracts.json"))
     assert by_type.get("awarded_to", 0) <= n_contracts
     # every has_contract edge resolves to a known contract
@@ -246,7 +275,7 @@ def test_contractor_identity_edges():
     """DPWH contractor identity links resolve to canonical contractors."""
     rels = _load("src/data/relationships.json")
     contractors = {c["contractor_id"] for c in _load("src/data/entities/contractors.json")}
-    identity = [r for r in rels if r["type"] == "same_contractor_as"]
+    identity = [r for r in rels if r["type"] == "contractor_identity"]
     assert identity, "expected DPWH contractor identity edges"
     for r in identity:
         assert r["from"].startswith("dpwh:")

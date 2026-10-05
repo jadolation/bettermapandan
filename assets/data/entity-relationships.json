@@ -2771,9 +2771,9 @@
   },
   {
     "id": "REL-0278",
-    "from": "project:fdp-bid:GOODS-MUN-2023-01-001",
+    "from": "bid:GOODS-MUN-2023-01-001",
     "to": "contract:GOODS-MUN-2023-01-001",
-    "type": "has_contract",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2784,9 +2784,9 @@
   },
   {
     "id": "REL-0279",
-    "from": "project:fdp-bid:INFR-MUN-2023-04-002",
+    "from": "bid:INFR-MUN-2023-04-002",
     "to": "contract:INFR-MUN-2023-04-002",
-    "type": "has_contract",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2797,23 +2797,22 @@
   },
   {
     "id": "REL-0280",
-    "from": "project:BM-PROJ-2023-014",
-    "to": "contract:INFR-MUN-2023-11-016",
-    "type": "has_contract",
-    "confidence": "probable",
+    "from": "bid:INFR-MUN-2023-06-003",
+    "to": "contract:INFR-MUN-2023-06-003",
+    "type": "resulted_in",
+    "confidence": "explicit",
     "evidence": [
-      "similar project title",
-      "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:BM-PROJ-2023-020"
+      "same reference id",
+      "reported amounts within 0.00% of each other",
+      "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0281",
-    "from": "project:fdp-bid:GOODS-MUN-2023-06-004",
+    "from": "bid:GOODS-MUN-2023-06-004",
     "to": "contract:GOODS-MUN-2023-06-004",
-    "type": "has_contract",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2824,37 +2823,34 @@
   },
   {
     "id": "REL-0282",
-    "from": "project:fdp-bid:INFR-MUN-2023-07-005",
+    "from": "bid:INFR-MUN-2023-07-005",
     "to": "contract:INFR-MUN-2023-09-012",
-    "type": "has_contract",
+    "type": "resulted_in",
     "confidence": "probable",
     "evidence": [
       "similar project title",
       "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:fdp-bid:INFR-MUN-2023-09-012"
+      "rule_title_year"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0283",
     "from": "project:BM-PROJ-2023-002",
-    "to": "contract:INFR-MUN-2023-07-006",
-    "type": "has_contract",
-    "confidence": "explicit",
+    "to": "bid:INFR-MUN-2023-07-006",
+    "type": "has_bid",
+    "confidence": "probable",
     "evidence": [
-      "same reference id",
-      "reported amounts within 0.00% of each other",
-      "rule_reference_id",
-      "shared award — also linked to project:BM-PROJ-2023-003"
-    ],
-    "match_path": "bid-bridge"
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
   },
   {
     "id": "REL-0284",
-    "from": "project:fdp-bid:INFR-MUN-2023-08-009",
-    "to": "contract:INFR-MUN-2023-08-009",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-07-006",
+    "to": "contract:INFR-MUN-2023-07-006",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2865,9 +2861,9 @@
   },
   {
     "id": "REL-0285",
-    "from": "project:BM-PROJ-2023-015",
-    "to": "contract:INFR-MUN-2023-09-010",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-08-009",
+    "to": "contract:INFR-MUN-2023-08-009",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2878,49 +2874,46 @@
   },
   {
     "id": "REL-0286",
-    "from": "project:BM-PROJ-2023-004",
-    "to": "contract:INFR-MUN-2023-09-011",
-    "type": "has_contract",
+    "from": "project:BM-PROJ-2023-015",
+    "to": "bid:INFR-MUN-2023-09-010",
+    "type": "has_bid",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0287",
+    "from": "bid:INFR-MUN-2023-09-010",
+    "to": "contract:INFR-MUN-2023-09-010",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
       "reported amounts within 0.00% of each other",
       "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0287",
-    "from": "project:fdp-bid:INFR-MUN-2023-09-012",
-    "to": "contract:INFR-MUN-2023-09-012",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "reported amounts within 0.00% of each other",
-      "rule_reference_id",
-      "shared award — also linked to project:fdp-bid:INFR-MUN-2023-07-005"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0288",
-    "from": "project:fdp-bid:INFR-MUN-2023-09-013",
-    "to": "contract:INFR-MUN-2023-09-013",
-    "type": "has_contract",
-    "confidence": "explicit",
+    "from": "project:BM-PROJ-2023-004",
+    "to": "bid:INFR-MUN-2023-09-011",
+    "type": "has_bid",
+    "confidence": "probable",
     "evidence": [
-      "same reference id",
-      "reported amounts within 0.00% of each other",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
   },
   {
     "id": "REL-0289",
-    "from": "project:fdp-bid:GOODS-MUN-2023-08-007",
-    "to": "contract:GOODS-MUN-2023-08-007",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-09-011",
+    "to": "contract:INFR-MUN-2023-09-011",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2931,9 +2924,9 @@
   },
   {
     "id": "REL-0290",
-    "from": "project:fdp-bid:GOODS-MUN-2023-08-008",
-    "to": "contract:GOODS-MUN-2023-08-008",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-09-012",
+    "to": "contract:INFR-MUN-2023-09-012",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2944,9 +2937,9 @@
   },
   {
     "id": "REL-0291",
-    "from": "project:fdp-bid:GOODS-MUN-2023-09-015",
-    "to": "contract:GOODS-MUN-2023-09-015",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-09-013",
+    "to": "contract:INFR-MUN-2023-09-013",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2957,9 +2950,9 @@
   },
   {
     "id": "REL-0292",
-    "from": "project:BM-PROJ-2023-018",
-    "to": "contract:INFR-MUN-2023-11-017",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2023-08-007",
+    "to": "contract:GOODS-MUN-2023-08-007",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2970,21 +2963,22 @@
   },
   {
     "id": "REL-0293",
-    "from": "project:fdp-bid:INFR-MUN-2023-11-018",
-    "to": "contract:INFR-MUN-2023-11-018",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2023-08-008",
+    "to": "contract:GOODS-MUN-2023-08-008",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
+      "reported amounts within 0.00% of each other",
       "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0294",
-    "from": "project:fdp-bid:GOODS-MUN-2023-11-020",
-    "to": "contract:GOODS-MUN-2023-11-020",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2023-09-015",
+    "to": "contract:GOODS-MUN-2023-09-015",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -2995,21 +2989,21 @@
   },
   {
     "id": "REL-0295",
-    "from": "project:fdp-bid:GOODS-MUN-2023-11-21",
-    "to": "contract:GOODS-MUN-2023-11-21",
-    "type": "has_contract",
-    "confidence": "explicit",
+    "from": "project:BM-PROJ-2023-020",
+    "to": "bid:INFR-MUN-2023-11-016",
+    "type": "has_bid",
+    "confidence": "probable",
     "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
   },
   {
     "id": "REL-0296",
-    "from": "project:fdp-bid:INFR-MUN-2024-01-003",
-    "to": "contract:INFR-MUN-2024-01-003",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-11-016",
+    "to": "contract:INFR-MUN-2023-11-016",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3019,33 +3013,34 @@
   },
   {
     "id": "REL-0297",
-    "from": "project:fdp-bid:GOODS-MUN-2024-01-001",
-    "to": "contract:GOODS-MUN-2024-01-001",
-    "type": "has_contract",
-    "confidence": "explicit",
+    "from": "project:BM-PROJ-2023-018",
+    "to": "bid:INFR-MUN-2023-11-017",
+    "type": "has_bid",
+    "confidence": "probable",
     "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
   },
   {
     "id": "REL-0298",
-    "from": "project:fdp-bid:GOODS-MUN-2024-01-002",
-    "to": "contract:GOODS-MUN-2024-01-002",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-11-017",
+    "to": "contract:INFR-MUN-2023-11-017",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
+      "reported amounts within 0.00% of each other",
       "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0299",
-    "from": "project:fdp-bid:GOODS-MUN-2024-02-005",
-    "to": "contract:GOODS-MUN-2024-02-005",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2023-11-018",
+    "to": "contract:INFR-MUN-2023-11-018",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3055,21 +3050,22 @@
   },
   {
     "id": "REL-0300",
-    "from": "project:BM-PROJ-2024-030",
-    "to": "contract:INFR-MUN-2024-02-004",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2023-11-020",
+    "to": "contract:GOODS-MUN-2023-11-020",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
+      "reported amounts within 0.00% of each other",
       "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0301",
-    "from": "project:fdp-bid:INFR-MUN-2024-04-010",
-    "to": "contract:INFR-MUN-2024-04-010",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2023-11-21",
+    "to": "contract:GOODS-MUN-2023-11-21",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3079,9 +3075,9 @@
   },
   {
     "id": "REL-0302",
-    "from": "project:fdp-bid:INFR-MUN-2024-04-011",
-    "to": "contract:INFR-MUN-2024-04-011",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2024-01-003",
+    "to": "contract:INFR-MUN-2024-01-003",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3091,36 +3087,33 @@
   },
   {
     "id": "REL-0303",
-    "from": "project:fdp-bid:INFR-MUN-2024-04-012",
-    "to": "contract:INFR-MUN-2024-04-012",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2024-01-001",
+    "to": "contract:GOODS-MUN-2024-01-001",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
-      "rule_reference_id",
-      "shared award — also linked to project:BM-PROJ-2024-026"
+      "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0304",
-    "from": "project:BM-PROJ-2024-026",
-    "to": "contract:INFR-MUN-2024-04-012",
-    "type": "has_contract",
-    "confidence": "probable",
+    "from": "bid:GOODS-MUN-2024-01-002",
+    "to": "contract:GOODS-MUN-2024-01-002",
+    "type": "resulted_in",
+    "confidence": "explicit",
     "evidence": [
-      "similar project title",
-      "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:fdp-bid:INFR-MUN-2024-04-012"
+      "same reference id",
+      "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0305",
-    "from": "project:fdp-bid:GOODS-MUN-2024-03-008",
-    "to": "contract:GOODS-MUN-2024-03-008",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2024-02-005",
+    "to": "contract:GOODS-MUN-2024-02-005",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3130,21 +3123,21 @@
   },
   {
     "id": "REL-0306",
-    "from": "project:fdp-bid:GOODS-MUN-2024-03-009",
-    "to": "contract:GOODS-MUN-2024-03-009",
-    "type": "has_contract",
-    "confidence": "explicit",
+    "from": "project:BM-PROJ-2024-030",
+    "to": "bid:INFR-MUN-2024-02-004",
+    "type": "has_bid",
+    "confidence": "probable",
     "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
+      "same project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
   },
   {
     "id": "REL-0307",
-    "from": "project:fdp-bid:GOODS-MUN-2024-04-014",
-    "to": "contract:GOODS-MUN-2024-04-014",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2024-02-004",
+    "to": "contract:INFR-MUN-2024-02-004",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3154,9 +3147,9 @@
   },
   {
     "id": "REL-0308",
-    "from": "project:fdp-bid:GOODS-MUN-2024-04-015",
-    "to": "contract:GOODS-MUN-2024-04-015",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2024-04-010",
+    "to": "contract:INFR-MUN-2024-04-010",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3166,9 +3159,9 @@
   },
   {
     "id": "REL-0309",
-    "from": "project:fdp-bid:GOODS-MUN-2024-06-015",
-    "to": "contract:GOODS-MUN-2024-06-015",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2024-04-011",
+    "to": "contract:INFR-MUN-2024-04-011",
+    "type": "resulted_in",
     "confidence": "explicit",
     "evidence": [
       "same reference id",
@@ -3178,242 +3171,34 @@
   },
   {
     "id": "REL-0310",
-    "from": "project:fdp-bid:GOODS-MUN-2024-06-017",
-    "to": "contract:GOODS-MUN-2024-08-024",
-    "type": "has_contract",
-    "confidence": "probable",
+    "from": "bid:INFR-MUN-2024-04-012",
+    "to": "contract:INFR-MUN-2024-04-012",
+    "type": "resulted_in",
+    "confidence": "explicit",
     "evidence": [
-      "similar project title",
-      "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:fdp-bid:GOODS-MUN-2024-08-024"
+      "same reference id",
+      "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0311",
-    "from": "project:BM-PROJ-2024-023",
-    "to": "contract:INFR-MUN-2024-07-019",
-    "type": "has_contract",
-    "confidence": "explicit",
+    "from": "project:BM-PROJ-2024-026",
+    "to": "bid:INFR-MUN-2024-04-013",
+    "type": "has_bid",
+    "confidence": "strong",
     "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
+      "same project title",
+      "same barangay",
+      "same fiscal year",
+      "rule_title_barangay_year"
+    ]
   },
   {
     "id": "REL-0312",
-    "from": "project:BM-PROJ-2024-021",
-    "to": "contract:INFR-MUN-2024-07-020",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0313",
-    "from": "project:fdp-bid:INFR-MUN-2024-07-023",
-    "to": "contract:INFR-MUN-2024-07-023",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0314",
-    "from": "project:fdp-bid:GOODS-MUN-2024-007-017",
-    "to": "contract:GOODS-MUN-2024-007-017",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0315",
-    "from": "project:fdp-bid:GOODS-MUN-2024-07-021",
-    "to": "contract:GOODS-MUN-2024-07-021",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id",
-      "shared award — also linked to project:BM-PROJ-2024-027"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0316",
-    "from": "project:fdp-bid:GOODS-MUN-2024-08-024",
-    "to": "contract:GOODS-MUN-2024-08-024",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id",
-      "shared award — also linked to project:fdp-bid:GOODS-MUN-2024-06-017"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0317",
-    "from": "project:fdp-bid:GOODS-MUN-2024-08-025",
-    "to": "contract:GOODS-MUN-2024-08-025",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0318",
-    "from": "project:fdp-bid:INFR-MUN-2024-11-032",
-    "to": "contract:INFR-MUN-2024-11-032",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0319",
-    "from": "project:fdp-bid:INFR-MUN-2025-01-002",
-    "to": "contract:INFR-MUN-2025-01-002",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id",
-      "shared award — also linked to project:BM-PROJ-2025-032"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0320",
-    "from": "project:fdp-bid:GOODS-MUN-2024-09-026",
-    "to": "contract:GOODS-MUN-2024-09-026",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0321",
-    "from": "project:fdp-bid:GOODS-MUN-2024-09-027",
-    "to": "contract:GOODS-MUN-2024-09-027",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0322",
-    "from": "project:fdp-bid:GOODS-MUN-2024-09-028",
-    "to": "contract:GOODS-MUN-2024-09-028",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0323",
-    "from": "project:fdp-bid:GOODS-MUN-2024-10-029",
-    "to": "contract:GOODS-MUN-2024-10-029",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0324",
-    "from": "project:fdp-bid:GOODS-MUN-2024-11-030",
-    "to": "contract:GOODS-MUN-2024-11-030",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0325",
-    "from": "project:fdp-bid:GOODS-MUN-2024-11-031",
-    "to": "contract:GOODS-MUN-2024-11-031",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0326",
-    "from": "project:fdp-bid:GOODS-MUN-2024-11-033",
-    "to": "contract:GOODS-MUN-2024-11-033",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0327",
-    "from": "project:fdp-bid:GOODS-MUN-2024-11-034",
-    "to": "contract:GOODS-MUN-2024-11-034",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0328",
-    "from": "project:fdp-bid:GOODS-MUN-2025-01-001",
-    "to": "contract:GOODS-MUN-2025-01-001",
-    "type": "has_contract",
-    "confidence": "explicit",
-    "evidence": [
-      "same reference id",
-      "rule_reference_id"
-    ],
-    "match_path": "bid-bridge"
-  },
-  {
-    "id": "REL-0329",
-    "from": "project:fdp-bid:GOODS-MUN-2025-01-004",
-    "to": "contract:PHG-00025",
-    "type": "has_contract",
+    "from": "bid:INFR-MUN-2024-04-013",
+    "to": "contract:INFR-MUN-2024-04-012",
+    "type": "resulted_in",
     "confidence": "probable",
     "evidence": [
       "similar project title",
@@ -3423,24 +3208,338 @@
     "match_path": "bid-bridge"
   },
   {
-    "id": "REL-0330",
-    "from": "project:fdp-bid:GOODS-MUN-2025-02-005",
-    "to": "contract:PHG-00002",
-    "type": "has_contract",
+    "id": "REL-0313",
+    "from": "bid:GOODS-MUN-2024-03-008",
+    "to": "contract:GOODS-MUN-2024-03-008",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0314",
+    "from": "bid:GOODS-MUN-2024-03-009",
+    "to": "contract:GOODS-MUN-2024-03-009",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0315",
+    "from": "bid:GOODS-MUN-2024-04-014",
+    "to": "contract:GOODS-MUN-2024-04-014",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0316",
+    "from": "bid:GOODS-MUN-2024-04-015",
+    "to": "contract:GOODS-MUN-2024-04-015",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0317",
+    "from": "bid:GOODS-MUN-2024-06-015",
+    "to": "contract:GOODS-MUN-2024-06-015",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0318",
+    "from": "bid:GOODS-MUN-2024-06-017",
+    "to": "contract:GOODS-MUN-2024-08-024",
+    "type": "resulted_in",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0319",
+    "from": "project:BM-PROJ-2024-023",
+    "to": "bid:INFR-MUN-2024-07-019",
+    "type": "has_bid",
     "confidence": "strong",
     "evidence": [
       "same project title",
-      "same contractor",
+      "same barangay",
       "same fiscal year",
-      "rule_title_contractor_year"
+      "rule_title_barangay_year"
+    ]
+  },
+  {
+    "id": "REL-0320",
+    "from": "bid:INFR-MUN-2024-07-019",
+    "to": "contract:INFR-MUN-2024-07-019",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0321",
+    "from": "project:BM-PROJ-2024-021",
+    "to": "bid:INFR-MUN-2024-07-020",
+    "type": "has_bid",
+    "confidence": "strong",
+    "evidence": [
+      "same project title",
+      "same barangay",
+      "same fiscal year",
+      "rule_title_barangay_year"
+    ]
+  },
+  {
+    "id": "REL-0322",
+    "from": "bid:INFR-MUN-2024-07-020",
+    "to": "contract:INFR-MUN-2024-07-020",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0323",
+    "from": "bid:INFR-MUN-2024-07-023",
+    "to": "contract:INFR-MUN-2024-07-023",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0324",
+    "from": "bid:GOODS-MUN-2024-007-017",
+    "to": "contract:GOODS-MUN-2024-007-017",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0325",
+    "from": "bid:GOODS-MUN-2024-07-021",
+    "to": "contract:GOODS-MUN-2024-07-021",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0326",
+    "from": "bid:GOODS-MUN-2024-08-024",
+    "to": "contract:GOODS-MUN-2024-08-024",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0327",
+    "from": "bid:GOODS-MUN-2024-08-025",
+    "to": "contract:GOODS-MUN-2024-08-025",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0328",
+    "from": "bid:INFR-MUN-2024-11-032",
+    "to": "contract:INFR-MUN-2024-11-032",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0329",
+    "from": "bid:INFR-MUN-2025-01-002",
+    "to": "contract:INFR-MUN-2025-01-002",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0330",
+    "from": "bid:GOODS-MUN-2024-09-026",
+    "to": "contract:GOODS-MUN-2024-09-026",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
     ],
     "match_path": "bid-bridge"
   },
   {
     "id": "REL-0331",
-    "from": "project:fdp-bid:GOODS-MUN-2025-05-006",
-    "to": "contract:PHG-00022",
-    "type": "has_contract",
+    "from": "bid:GOODS-MUN-2024-09-027",
+    "to": "contract:GOODS-MUN-2024-09-027",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0332",
+    "from": "bid:GOODS-MUN-2024-09-028",
+    "to": "contract:GOODS-MUN-2024-09-028",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0333",
+    "from": "bid:GOODS-MUN-2024-10-029",
+    "to": "contract:GOODS-MUN-2024-10-029",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0334",
+    "from": "bid:GOODS-MUN-2024-11-030",
+    "to": "contract:GOODS-MUN-2024-11-030",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0335",
+    "from": "bid:GOODS-MUN-2024-11-031",
+    "to": "contract:GOODS-MUN-2024-11-031",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0336",
+    "from": "bid:GOODS-MUN-2024-11-033",
+    "to": "contract:GOODS-MUN-2024-11-033",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0337",
+    "from": "bid:GOODS-MUN-2024-11-034",
+    "to": "contract:GOODS-MUN-2024-11-034",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0338",
+    "from": "bid:GOODS-MUN-2025-01-001",
+    "to": "contract:GOODS-MUN-2025-01-001",
+    "type": "resulted_in",
+    "confidence": "explicit",
+    "evidence": [
+      "same reference id",
+      "rule_reference_id"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0339",
+    "from": "bid:GOODS-MUN-2025-01-004",
+    "to": "contract:PHG-00025",
+    "type": "resulted_in",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0340",
+    "from": "bid:GOODS-MUN-2025-02-005",
+    "to": "contract:PHG-00002",
+    "type": "resulted_in",
     "confidence": "strong",
     "evidence": [
       "same project title",
@@ -3451,22 +3550,61 @@
     "match_path": "bid-bridge"
   },
   {
-    "id": "REL-0332",
-    "from": "project:fdp-bid:GOODS-MUN-2025-05-007",
-    "to": "contract:PHG-00021",
-    "type": "has_contract",
+    "id": "REL-0341",
+    "from": "bid:GOODS-MUN-2025-05-006",
+    "to": "contract:PHG-00022",
+    "type": "resulted_in",
     "confidence": "strong",
     "evidence": [
       "same project title",
       "same contractor",
       "same fiscal year",
-      "rule_title_contractor_year",
-      "shared award — also linked to project:BM-PROJ-2025-C010"
+      "rule_title_contractor_year"
     ],
     "match_path": "bid-bridge"
   },
   {
-    "id": "REL-0333",
+    "id": "REL-0342",
+    "from": "bid:GOODS-MUN-2025-05-007",
+    "to": "contract:PHG-00021",
+    "type": "resulted_in",
+    "confidence": "strong",
+    "evidence": [
+      "same project title",
+      "same contractor",
+      "same fiscal year",
+      "rule_title_contractor_year"
+    ],
+    "match_path": "bid-bridge"
+  },
+  {
+    "id": "REL-0343",
+    "from": "project:BM-PROJ-2026-033",
+    "to": "bid:INFRA-MUN-2026-01-001",
+    "type": "has_bid",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ]
+  },
+  {
+    "id": "REL-0344",
+    "from": "project:BM-PROJ-2023-002",
+    "to": "contract:INFR-MUN-2023-07-006",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year",
+      "shared award — also linked to project:BM-PROJ-2023-003"
+    ],
+    "match_path": "direct"
+  },
+  {
+    "id": "REL-0345",
     "from": "project:BM-PROJ-2023-003",
     "to": "contract:INFR-MUN-2023-07-006",
     "type": "has_contract",
@@ -3480,7 +3618,46 @@
     "match_path": "direct"
   },
   {
-    "id": "REL-0334",
+    "id": "REL-0346",
+    "from": "project:BM-PROJ-2023-004",
+    "to": "contract:INFR-MUN-2023-09-011",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "direct"
+  },
+  {
+    "id": "REL-0347",
+    "from": "project:BM-PROJ-2023-015",
+    "to": "contract:INFR-MUN-2023-09-010",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "direct"
+  },
+  {
+    "id": "REL-0348",
+    "from": "project:BM-PROJ-2023-018",
+    "to": "contract:INFR-MUN-2023-11-017",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "direct"
+  },
+  {
+    "id": "REL-0349",
     "from": "project:BM-PROJ-2023-020",
     "to": "contract:INFR-MUN-2023-11-016",
     "type": "has_contract",
@@ -3488,13 +3665,51 @@
     "evidence": [
       "similar project title",
       "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:BM-PROJ-2023-014"
+      "rule_title_year"
     ],
     "match_path": "direct"
   },
   {
-    "id": "REL-0335",
+    "id": "REL-0350",
+    "from": "project:BM-PROJ-2024-021",
+    "to": "contract:INFR-MUN-2024-07-020",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "direct"
+  },
+  {
+    "id": "REL-0351",
+    "from": "project:BM-PROJ-2024-023",
+    "to": "contract:INFR-MUN-2024-07-019",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "direct"
+  },
+  {
+    "id": "REL-0352",
+    "from": "project:BM-PROJ-2024-026",
+    "to": "contract:INFR-MUN-2024-04-012",
+    "type": "has_contract",
+    "confidence": "probable",
+    "evidence": [
+      "similar project title",
+      "same fiscal year",
+      "rule_title_year"
+    ],
+    "match_path": "direct"
+  },
+  {
+    "id": "REL-0353",
     "from": "project:BM-PROJ-2024-027",
     "to": "contract:GOODS-MUN-2024-07-021",
     "type": "has_contract",
@@ -3502,13 +3717,12 @@
     "evidence": [
       "similar project title",
       "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:fdp-bid:GOODS-MUN-2024-07-021"
+      "rule_title_year"
     ],
     "match_path": "direct"
   },
   {
-    "id": "REL-0336",
+    "id": "REL-0354",
     "from": "project:BM-PROJ-2025-032",
     "to": "contract:INFR-MUN-2025-01-002",
     "type": "has_contract",
@@ -3516,13 +3730,12 @@
     "evidence": [
       "same project title",
       "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:fdp-bid:INFR-MUN-2025-01-002"
+      "rule_title_year"
     ],
     "match_path": "direct"
   },
   {
-    "id": "REL-0337",
+    "id": "REL-0355",
     "from": "project:BM-PROJ-2025-C010",
     "to": "contract:PHG-00021",
     "type": "has_contract",
@@ -3530,116 +3743,115 @@
     "evidence": [
       "similar project title",
       "same fiscal year",
-      "rule_title_year",
-      "shared award — also linked to project:fdp-bid:GOODS-MUN-2025-05-007"
+      "rule_title_year"
     ],
     "match_path": "direct"
   },
   {
-    "id": "REL-0338",
+    "id": "REL-0356",
     "from": "dpwh:18AJ0116",
     "to": "contractor:CTR-0050",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0339",
+    "id": "REL-0357",
     "from": "dpwh:23AJ0033",
     "to": "contractor:CTR-0031",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0340",
+    "id": "REL-0358",
     "from": "dpwh:20AJ0037",
     "to": "contractor:CTR-0031",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0341",
+    "id": "REL-0359",
     "from": "dpwh:22AJ0099",
     "to": "contractor:CTR-0068",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0342",
+    "id": "REL-0360",
     "from": "dpwh:20AJ0101",
     "to": "contractor:CTR-0050",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0343",
+    "id": "REL-0361",
     "from": "dpwh:22AJ0096",
     "to": "contractor:CTR-0068",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0344",
+    "id": "REL-0362",
     "from": "dpwh:22AJ0059",
     "to": "contractor:CTR-0050",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0345",
+    "id": "REL-0363",
     "from": "dpwh:25AJ0055",
     "to": "contractor:CTR-0031",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0346",
+    "id": "REL-0364",
     "from": "dpwh:17AJ0044",
     "to": "contractor:CTR-0005",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0347",
+    "id": "REL-0365",
     "from": "dpwh:23AJ0027",
     "to": "contractor:CTR-0031",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "explicit",
     "evidence": [
       "same normalized contractor name"
     ]
   },
   {
-    "id": "REL-0348",
+    "id": "REL-0366",
     "from": "dpwh:17AJ0058",
     "to": "contractor:CTR-0069",
-    "type": "same_contractor_as",
+    "type": "contractor_identity",
     "confidence": "probable",
     "evidence": [
       "contractor name token-subset — verify legal entity"
