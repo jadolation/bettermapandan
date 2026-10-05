@@ -325,8 +325,26 @@
     return parts.join(" · ");
   }
 
+  function defaultSort(a, b) {
+    // Default order: multi-coverage projects first (coverage desc),
+    // then newest (year desc, undated last), then name, then id.
+    // Applied only when no search query is active; typed queries keep
+    // match order so results don't reshuffle while searching.
+    var covDiff = coverage(b) - coverage(a);
+    if (covDiff) return covDiff;
+    var ya = parseInt(a.year, 10) || -1, yb = parseInt(b.year, 10) || -1;
+    if (yb !== ya) return yb - ya;
+    var na = String(a.name || ""), nb = String(b.name || "");
+    if (na < nb) return -1;
+    if (na > nb) return 1;
+    if (a.id < b.id) return -1;
+    if (a.id > b.id) return 1;
+    return 0;
+  }
+
   function current() {
-    var q = (document.getElementById("explorer-search").value || "").toLowerCase();
+    var rawQ = document.getElementById("explorer-search").value || "";
+    var q = rawQ.toLowerCase();
     var brgy = document.getElementById("explorer-barangay").value;
     var year = document.getElementById("explorer-year").value;
     var type = document.getElementById("explorer-type").value;
@@ -345,12 +363,14 @@
         if (need === undefined || have < need) return false;
       }
       return true;
-    }).map(projectCard);
+    });
+    if (!rawQ.trim()) out.sort(defaultSort);
+    var cards = out.map(projectCard);
     var box = document.getElementById("explorer-results");
-    box.innerHTML = out.length ? out.join("") :
+    box.innerHTML = cards.length ? cards.join("") :
       '<p class="source-label">No matches. Try a different search or filter.</p>';
     document.getElementById("explorer-count").textContent =
-      out.length + " project" + (out.length === 1 ? "" : "s");
+      cards.length + " project" + (cards.length === 1 ? "" : "s");
   }
 
   function fillFilters() {
