@@ -40,7 +40,6 @@
   }
 
   function trail(p) {
-    var strength = p.link_strength || {};
     function chip(key, name, present, level) {
       var cls, state;
       if (!present) { cls = "trail-off"; state = "No match"; }
@@ -52,7 +51,7 @@
     }
     return '<div class="source-trail" aria-label="Source coverage">' +
       chip("dilg", "DILG", p.sources.dilg) +
-      chip("philgeps", "PhilGEPS", p.sources.philgeps, strength.philgeps) +
+      chip("philgeps", "PhilGEPS", p.sources.philgeps, bestLevel(p)) +
       chip("dpwh", "DPWH", p.sources.dpwh) +
       chip("coa", "COA", p.sources.coa) +
       "</div>";
@@ -60,13 +59,16 @@
 
   function projectCard(p) {
     var cov = coverage(p);
+    var links = linkCountsText(p);
     return '<div class="card explorer-card" data-id="' + esc(p.id) + '">' +
       '<div class="explorer-card-head">' +
       '<div class="explorer-card-title">' +
       '<h3>' + esc(p.name) + '</h3>' +
       '<p class="source-label">' + esc(p.year || "") +
       (p.barangay && p.barangay.length ? " · " + esc(p.barangay.join(", ")) : "") +
-      " · " + esc(p.type || "") + " · " + cov + " of 4 sources</p>" +
+      " · " + esc(typeLabel(p.type)) + "</p>" +
+      '<p class="source-label">Records found in ' + cov + " of 4 sources" +
+      (links ? " · " + esc(links) : "") + "</p>" +
       "</div>" +
       '<button type="button" class="btn btn-outline" data-expand="' + esc(p.id) + '" aria-expanded="false">Evidence</button>' +
       "</div>" +
@@ -198,7 +200,8 @@
           var rule = techRule(e.evidence);
           html += '<details class="tech-details"><summary>Technical details</summary>' +
             "<p>Relationship " + esc(e.id) + " · confidence " + esc(e.confidence) +
-            (rule ? " · " + esc(rule) : "") + "</p></details>";
+            (rule ? " · " + esc(rule) : "") +
+            (e.match_path ? " · via " + esc(String(e.match_path).replace(/-/g, " ")) : "") + "</p></details>";
         });
       } else {
         html += "<h4>How we linked these</h4>" +
@@ -234,15 +237,52 @@
     });
   }
 
-  function bestLevel(p) {
-    var strength = p.link_strength || {};
-    var order = { explicit: 3, strong: 2, probable: 1, possible: 0 };
-    var best = null, bestRank = -1;
-    Object.keys(strength).forEach(function (k) {
-      var r = order[strength[k]] === undefined ? -1 : order[strength[k]];
-      if (r > bestRank) { bestRank = r; best = strength[k]; }
+  var TYPE_LABELS = {
+    lgu_development: "LGU development",
+    dpwh_infrastructure: "DPWH infrastructure"
+  };
+
+  function typeLabel(t) {
+    return TYPE_LABELS[t] || String(t || "").replace(/_/g, " ").replace(/\b\w/g, function (c) {
+      return c.toUpperCase();
     });
-    return best;
+  }
+
+  var TYPE_LABELS = {
+    lgu_development: "LGU development",
+    dpwh_infrastructure: "DPWH infrastructure"
+  };
+
+  function typeLabel(t) {
+    if (TYPE_LABELS[t]) return TYPE_LABELS[t];
+    return String(t || "").replace(/_/g, " ").replace(/\b\w/g, function (c) {
+      return c.toUpperCase();
+    });
+  }
+
+  var LEVEL_RANK = { explicit: 3, strong: 2, probable: 1, possible: 0 };
+
+  function relSummary(p) {
+    return p.relationship_summary || { confirmed: 0, strong: 0, probable: 0, possible: 0 };
+  }
+
+  function bestLevel(p) {
+    var s = relSummary(p);
+    if (s.confirmed) return "explicit";
+    if (s.strong) return "strong";
+    if (s.probable) return "probable";
+    if (s.possible) return "possible";
+    return null;
+  }
+
+  function linkCountsText(p) {
+    var s = relSummary(p);
+    var parts = [];
+    if (s.confirmed) parts.push(s.confirmed + " confirmed");
+    if (s.strong) parts.push(s.strong + " strong");
+    if (s.probable) parts.push(s.probable + " probable");
+    if (s.possible) parts.push(s.possible + " possible");
+    return parts.join(" · ");
   }
 
   function current() {
@@ -258,7 +298,12 @@
       if (year && String(p.year) !== year) return false;
       if (type && p.type !== type) return false;
       if (cov && coverage(p) < Number(cov)) return false;
-      if (match && bestLevel(p) !== match) return false;
+      if (match) {
+        var best = bestLevel(p);
+        var need = LEVEL_RANK[match];
+        var have = best ? LEVEL_RANK[best] : -1;
+        if (need === undefined || have < need) return false;
+      }
       return true;
     }).map(projectCard);
     var box = document.getElementById("explorer-results");
@@ -275,14 +320,14 @@
       if (p.year) years[p.year] = 1;
       if (p.type) types[p.type] = 1;
     });
-    function fill(id, vals) {
+    function fill(id, vals, labelFn) {
       var sel = document.getElementById(id);
       Object.keys(vals).sort().forEach(function (v) {
         var o = document.createElement("option");
-        o.value = v; o.textContent = v; sel.appendChild(o);
+        o.value = v; o.textContent = labelFn ? labelFn(v) : v; sel.appendChild(o);
       });
     }
-    fill("explorer-barangay", brgys); fill("explorer-year", years); fill("explorer-type", types);
+    fill("explorer-barangay", brgys); fill("explorer-year", years); fill("explorer-type", types, typeLabel);
   }
 
   function init() {
