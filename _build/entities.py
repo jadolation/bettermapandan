@@ -287,7 +287,8 @@ def norm_project_entity(p: dict) -> dict:
             "barangays": p.get("barangay", [])}
 
 
-def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | None = None) -> tuple[list, list]:
+def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | None = None,
+                        contractor_lookup: dict | None = None) -> tuple[list, list]:
     """Deterministic edges + near-miss review queue.
 
     - contract -> contractor (awarded_to, explicit: source states it)
@@ -309,11 +310,29 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
         counters[prefix] = counters.get(prefix, 0) + 1
         return f"{prefix}-{counters[prefix]:04d}"
 
-    def _emit(frm: str, to: str, rtype: str, level: str, evidence: list) -> None:
+    def _emit(frm: str, to: str, rtype: str, level: str, evidence: list,
+              match_path: str | None = None) -> None:
         if (frm, to, rtype) in seen_pairs:
             return
         seen_pairs.add((frm, to, rtype))
-        rels.append(_rel(_next("REL"), frm, to, rtype, level, evidence))
+        edge = _rel(_next("REL"), frm, to, rtype, level, evidence)
+        if match_path:
+            edge["match_path"] = match_path
+        rels.append(edge)
+
+    def _amount_note(a_amount, c_amount) -> list:
+        """Corroborating annotation only: never fires, upgrades, or
+        downgrades a match. Records agreement when both sides report
+        amounts within 10%."""
+        try:
+            ba, ca = float(a_amount or 0), float(c_amount or 0)
+            if ba > 0 and ca > 0:
+                pct = abs(ba - ca) / max(ba, ca) * 100
+                if pct <= 10:
+                    return [f"reported amounts within {pct:.2f}% of each other"]
+        except (TypeError, ValueError, ZeroDivisionError):
+            pass
+        return []
 
     for c in contracts_n:
         if c.get("awardee_norm") and c.get("awardee_id"):
@@ -325,8 +344,11 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
             out = match_records(b["norm"], c["norm"])
             if out["matched"]:
                 anchor = b.get("project_id") or f"fdp-bid:{b['ref']}"
+                evidence = list(out["evidence"]) + _amount_note(
+                    b["norm"].get("amount"), c["norm"].get("amount"))
                 _emit(f"project:{anchor}", f"contract:{c['cid']}", "has_contract",
-                      out["level"], out["evidence"] + [out["rule"]])
+                      out["level"], evidence + [out["rule"]],
+                      match_path="bid-bridge")
                 best = out
                 break
         if best is None:
@@ -353,6 +375,7 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
                 break
     # Direct project-entity <-> contract pass: catches co-members that share
     # one award (first-match-wins in the bid loop would otherwise drop them).
+    direct_linked: set[str] = set()
     for p in projects:
         if p.get("project_type") == "dpwh_infrastructure":
             continue
@@ -360,12 +383,54 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
         for c in contracts_n:
             out = match_records(pn, c["norm"])
             if out["matched"]:
+                # Amount corroboration lives on the bid-loop edge, where both
+                # sides report amounts; project entities carry quarterly
+                # allocation series instead of a single figure.
                 _emit(f"project:{p['project_id']}", f"contract:{c['cid']}", "has_contract",
-                      out["level"], out["evidence"] + [out["rule"]])
+                      out["level"], out["evidence"] + [out["rule"]],
+                      match_path="direct")
+                direct_linked.add(p["project_id"])
+    # Dev/COA project entities with no direct match: near-miss review so
+    # synonym cases (renovation/improvement) stay triageable, never silent.
+    for p in projects:
+        if p.get("project_type") == "dpwh_infrastructure":
+            continue
+        if p["project_id"] in direct_linked:
+            continue
+        pn = norm_project_entity(p)
+        for c in contracts_n:
+            try:
+                ydiff = abs(int(pn.get("year") or 0) - int(c["norm"].get("year") or 0))
+            except (TypeError, ValueError):
+                continue
+            if ydiff > 1:
+                continue
+            overlap = _token_overlap(pn["title"], c["norm"]["title"])
+            if overlap < 0.5:
+                continue
+            ev = ["similar project title"]
+            ev.append("same fiscal year" if ydiff == 0 else "adjacent fiscal year (bid vs award lag)")
+            review.append({
+                "candidate_id": _next("MATCH"),
+                "record_a": f"project:{p['project_id']}",
+                "record_b": f"contract:{c['cid']}",
+                "match_score": round(overlap, 2),
+                "evidence": ev,
+                "decision": "pending",
+            })
+            if len(review) >= 200:
+                break
+        if len(review) >= 200:
+            break
     # DPWH <-> PhilGEPS: review-only, never auto-linked (national vs
     # municipal procurement universes). Qualifies only with specific
     # shared work-type tokens (>=2 significant tokens, or 1 token plus
     # comparable scale) — single generic tokens alone are noise.
+    # Separately, DPWH contractor *identity* (not contract linkage) resolves
+    # against canonical contractor entities: exact normalized name, else
+    # token-subset for known variants (e.g. SAFEWAY CONSTRUCTION).
+    lookup = contractor_lookup or {}
+    _seen_identity: set[str] = set()
     _STOP = {"of", "the", "and", "for", "at", "in", "with", "along", "brgy",
              "barangay", "mapandan", "pangasinan", "phase", "section"}
     for d in dpwh_raw or []:
@@ -374,6 +439,23 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
               "contractor": "", "amount": 0,
               "year": str(d.get("fiscal_year") or "") or None, "barangays": []}
         dc = norm_contractor(d.get("contractor", ""))
+        if dc and d.get("contract_id") not in _seen_identity:
+            target = lookup.get(dc)
+            if target:
+                _seen_identity.add(d.get("contract_id", ""))
+                _emit(f"dpwh:{d.get('contract_id', '')}", f"contractor:{target}",
+                      "same_contractor_as", "explicit",
+                      ["same normalized contractor name"])
+            else:
+                for norm, cid in lookup.items():
+                    dt, nt = dc.split(), norm.split()
+                    if len(dt) >= 2 and len(nt) >= 2 and (
+                            all(w in nt for w in dt) or all(w in dt for w in nt)):
+                        _seen_identity.add(d.get("contract_id", ""))
+                        _emit(f"dpwh:{d.get('contract_id', '')}", f"contractor:{cid}",
+                              "same_contractor_as", "probable",
+                              ["contractor name token-subset — verify legal entity"])
+                        break
         if not dc:
             continue
         for c in contracts_n:
@@ -412,6 +494,21 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
                 break
         if len(review) >= 200:
             break
+    # Shared-award conflicts: one contract claimed by multiple projects.
+    # Tag every edge in the group so reviewers see the collision explicitly.
+    _by_contract: dict[str, list] = {}
+    for _r in rels:
+        if _r["type"] == "has_contract":
+            _by_contract.setdefault(_r["to"], []).append(_r)
+    for _cid, _group in _by_contract.items():
+        _projs = sorted({_r["from"] for _r in _group})
+        if len(_projs) < 2:
+            continue
+        for _r in _group:
+            _others = ", ".join(p for p in _projs if p != _r["from"])
+            _tag = f"shared award — also linked to {_others}"
+            if _tag not in _r["evidence"]:
+                _r["evidence"].append(_tag)
     return rels, review
 
 
@@ -423,7 +520,7 @@ def build_indexes(projects, contracts, contractors, findings, funds, rels) -> di
     the Explorer renders without re-running matching client-side.
     """
     by_project_contracts: dict[str, list] = {}
-    strength: dict[str, dict] = {}
+    summary: dict[str, dict] = {}
     for r in rels:
         if r["type"] != "has_contract":
             continue
@@ -436,10 +533,12 @@ def build_indexes(projects, contracts, contractors, findings, funds, rels) -> di
         if cid not in by_project_contracts[pid]:
             by_project_contracts[pid].append(cid)
         lvl = r["confidence"]
-        cur = strength.setdefault(pid, {}).get("philgeps")
-        order = {"explicit": 3, "strong": 2, "probable": 1}
-        if cur is None or order.get(lvl, 0) > order.get(cur, 0):
-            strength[pid]["philgeps"] = lvl
+        if lvl in ("explicit", "strong", "probable", "possible"):
+            key = {"explicit": "confirmed", "strong": "strong",
+                   "probable": "probable", "possible": "possible"}[lvl]
+            s = summary.setdefault(pid, {"confirmed": 0, "strong": 0,
+                                         "probable": 0, "possible": 0})
+            s[key] += 1
     fund_periods: dict[str, list] = {}
     for f in funds:
         fund_periods.setdefault(str(f.get("year", "")), []).append(f["fund_id"])
@@ -455,7 +554,8 @@ def build_indexes(projects, contracts, contractors, findings, funds, rels) -> di
                            "year": p.get("fiscal_year"), "barangay": p.get("barangay", []),
                            "type": p.get("project_type"), "sources": srcs,
                            "contracts": linked,
-                           "link_strength": dict(strength.get(pid, {})),
+                           "relationship_summary": summary.get(pid, {"confirmed": 0, "strong": 0,
+                                                                     "probable": 0, "possible": 0}),
                            "funds_same_year": fund_periods.get(str(p.get("fiscal_year") or ""), [])})
     contracts_by_id = {c["contract_id"]: c for c in contracts}
     contractor_contracts: dict[str, list] = {}
@@ -517,7 +617,9 @@ def _merge_review_decisions(review: list, review_dir: Path | None) -> list:
         if key in prior and prior[key].get("decision", "pending") != "pending":
             keep = dict(cand)
             keep["decision"] = prior[key]["decision"]
-            for extra in ("decided_by", "decided_at", "note"):
+            for extra in ("decided_by", "decided_at", "note",
+                          "reviewed_by", "reviewed_at", "notes",
+                          "evidence_used"):
                 if extra in prior[key]:
                     keep[extra] = prior[key][extra]
             merged.append(keep)
@@ -584,7 +686,8 @@ def build_all(src_data: Path = SRC_DATA, data_out: Path = SRC_DATA,
                 b["project_id"] = p["project_id"]
                 break
 
-    rels, review = build_relationships(contracts_n, bids_n, projects, dpwh.get("projects", []))
+    rels, review = build_relationships(contracts_n, bids_n, projects, dpwh.get("projects", []),
+                                        contractor_lookup)
     indexes = build_indexes(projects, contracts, contractors, findings, funds, rels)
     review = _merge_review_decisions(review, review_dir)
     # Stewardship loop closed: human-confirmed pairs become edges.

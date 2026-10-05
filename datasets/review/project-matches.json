@@ -232,6 +232,72 @@
   },
   {
     "candidate_id": "MATCH-0022",
+    "record_a": "project:BM-PROJ-2023-005",
+    "record_b": "contract:INFR-MUN-2023-11-018",
+    "match_score": 0.5,
+    "evidence": [
+      "similar project title",
+      "same fiscal year"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0023",
+    "record_a": "project:BM-PROJ-2024-022",
+    "record_b": "contract:INFR-MUN-2024-04-010",
+    "match_score": 0.55,
+    "evidence": [
+      "similar project title",
+      "same fiscal year"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0024",
+    "record_a": "project:BM-PROJ-2026-033",
+    "record_b": "contract:INFR-MUN-2025-01-002",
+    "match_score": 0.7,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0025",
+    "record_a": "project:BM-PROJ-2025-C011",
+    "record_b": "contract:INFR-MUN-2024-04-012",
+    "match_score": 0.5,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0026",
+    "record_a": "project:BM-PROJ-2025-C012",
+    "record_b": "contract:INFR-MUN-2024-11-032",
+    "match_score": 0.86,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0027",
+    "record_a": "project:BM-PROJ-2025-C015",
+    "record_b": "contract:INFR-MUN-2024-11-032",
+    "match_score": 0.67,
+    "evidence": [
+      "similar project title",
+      "adjacent fiscal year (bid vs award lag)"
+    ],
+    "decision": "pending"
+  },
+  {
+    "candidate_id": "MATCH-0028",
     "record_a": "dpwh:22AJ0099",
     "record_b": "contract:INFR-MUN-2021-11-017",
     "match_score": 0.08,
@@ -244,7 +310,7 @@
     "decision": "pending"
   },
   {
-    "candidate_id": "MATCH-0023",
+    "candidate_id": "MATCH-0029",
     "record_a": "dpwh:22AJ0099",
     "record_b": "contract:INFR-MUN-2021-04-004",
     "match_score": 0.14,
@@ -257,7 +323,7 @@
     "decision": "pending"
   },
   {
-    "candidate_id": "MATCH-0024",
+    "candidate_id": "MATCH-0030",
     "record_a": "dpwh:22AJ0096",
     "record_b": "contract:INFR-MUN-2021-11-017",
     "match_score": 0.08,
@@ -270,7 +336,7 @@
     "decision": "pending"
   },
   {
-    "candidate_id": "MATCH-0025",
+    "candidate_id": "MATCH-0031",
     "record_a": "dpwh:22AJ0096",
     "record_b": "contract:INFR-MUN-2021-04-004",
     "match_score": 0.14,

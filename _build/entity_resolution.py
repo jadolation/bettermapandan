@@ -12,6 +12,7 @@ Fuzzy similarity (Rule 6) is intentionally absent: anything below the
 deterministic bar belongs in datasets/review/ as `possible`, never as
 a silent auto-match.
 """
+import re
 import sys
 from pathlib import Path
 
@@ -31,8 +32,14 @@ EVIDENCE_LEVELS = ("explicit", "strong", "probable", "possible", "unmatched")
 
 
 def norm_title(title: str) -> str:
-    """Normalized project/contract title for comparison."""
-    return normalize_name(title or "")
+    """Normalized project/contract title for comparison.
+
+    Strips leading program tags (e.g. LDF-) that otherwise poison
+    token-subset matching: "LDF-construction of Landbank ATM Hub"
+    must match "Construction of LandBank ATM Hub at Pandan Avenue".
+    """
+    t = re.sub(r"^[A-Za-z]{2,4}-", "", (title or "").strip())
+    return normalize_name(t)
 
 
 def norm_contractor(name: str) -> str:
