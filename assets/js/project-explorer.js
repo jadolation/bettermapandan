@@ -105,6 +105,32 @@
     });
   }
 
+  function chainContracts(pid) {
+    // Project -> Contract via direct has_contract, or via
+    // has_bid -> resulted_in chain. Returns [{edge, bid, via}].
+    var out = [], seen = {};
+    store.edges.forEach(function (e) {
+      if (e.type === "has_contract" && e.from === "project:" + pid) {
+        var cid = String(e.to).split(":")[1];
+        if (!seen[cid]) { seen[cid] = 1; out.push({ edge: e, bid: null, cid: cid }); }
+      }
+    });
+    store.edges.forEach(function (e) {
+      if (e.type !== "has_bid" || e.from !== "project:" + pid) return;
+      var bidId = String(e.to).split(":")[1];
+      store.edges.forEach(function (r) {
+        if (r.type === "resulted_in" && String(r.from).split(":")[1] === bidId) {
+          var cid = String(r.to).split(":")[1];
+          if (!seen[cid]) {
+            seen[cid] = 1;
+            out.push({ edge: r, bid: { id: bidId, link: e }, cid: cid });
+          }
+        }
+      });
+    });
+    return out;
+  }
+
   function renderDetail(box, id) {
     if (detailCache[id]) {
       box.innerHTML = detailCache[id];
@@ -122,10 +148,11 @@
       return Promise.all([
         get("/assets/data/entity-projects.json", null),
         get("/assets/data/entity-contracts.json", []),
-        get("/assets/data/contractor-index.json", [])
+        get("/assets/data/contractor-index.json", []),
+        get("/assets/data/entity-bids.json", [])
       ]).then(function (all) {
         if (!all[0]) throw new Error("not found");
-        entityCache = { projects: all[0], contracts: all[1], contractors: all[2] };
+        entityCache = { projects: all[0], contracts: all[1], contractors: all[2], bids: all[3] };
         return entityCache;
       });
     }
@@ -137,9 +164,12 @@
       if (!p) throw new Error("not found");
       var byId = {};
       cache.contracts.forEach(function (c) { byId[c.contract_id] = c; });
+      var bidsById = {};
+      (cache.bids || []).forEach(function (b) { bidsById[b.bid_id] = b; });
       var contractorsById = {};
       (cache.contractors || []).forEach(function (c) { contractorsById[c.id] = c; });
-      var edges = edgeEvidence(id).filter(function (e) { return e.type === "has_contract"; });
+      var links = chainContracts(id);
+      var edges = links.map(function (l) { return l.edge; });
       var html = "";
       if (p.project_type === "dpwh_infrastructure") {
         html += '<p class="source-label">DPWH record — manually verified from the official DPWH Transparency Portal.</p>';
@@ -170,23 +200,33 @@
           span + '<details class="tech-details"><summary>Reporting periods</summary><dl>' +
           dilgRows.join("") + "</dl></details></dd>";
       }
-      edges.forEach(function (e) {
-        var c = byId[String(e.to).split(":")[1]] || {};
+      links.forEach(function (l) {
+        var c = byId[l.cid] || {};
         if (!c.contract_id) return;
+        if (l.bid) {
+          var b = bidsById[l.bid.id] || {};
+          html += "<dt>DILG-FDP</dt><dd>Bid " + esc(l.bid.id) +
+            (b.project ? " · " + esc(String(b.project).slice(0, 60)) : "") +
+            (b.bidder ? " · " + esc(b.bidder) : "") + "</dd>";
+        }
         html += "<dt>PhilGEPS</dt><dd>Contract " + esc(c.contract_id) +
           (c.awardee_name ? " · " + esc(c.awardee_name) : "") +
           (c.award_date ? " · awarded " + esc(c.award_date) : "") + "</dd>";
       });
       html += "</dl>";
-      if (edges.length) {
+      if (links.length) {
         html += "<h4>How we linked these</h4>";
-        edges.forEach(function (e) {
-          var cid = String(e.to).split(":")[1];
+        links.forEach(function (l) {
+          var e = l.edge;
+          var cid = l.cid;
           var c = byId[cid] || {};
           html += "<p><strong>" + esc(levelLabel(e.confidence)) + "</strong> — contract " + esc(cid);
           if (c.awardee_name) html += " · " + esc(c.awardee_name);
           if (c.award_amount) html += " · " + peso(c.award_amount);
           html += "</p>";
+          if (l.bid) {
+            html += '<p class="source-label">Via DILG bid ' + esc(l.bid.id) + ".</p>";
+          }
           var ctr = contractorsById[c.awardee_id] || null;
           if (ctr) {
             html += '<p class="source-label">Contractor: ' + esc(ctr.name) + " · " +

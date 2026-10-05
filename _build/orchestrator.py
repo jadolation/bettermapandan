@@ -1005,7 +1005,7 @@ def build() -> None:
     entity_summary = build_entities(assets_out=ROOT / "assets")
     print("  entities: {projects} projects, {contracts} contracts, "
           "{contractors} contractors, {funds} funds, {findings} findings, "
-          "{relationships} relationships, {review} review".format(**entity_summary))
+          "{bids} bids, {relationships} relationships, {review} review".format(**entity_summary))
 
     en_locale = load_locale("en")
     fil_locale = load_locale("fil")

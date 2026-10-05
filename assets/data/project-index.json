@@ -814,7 +814,7 @@
     "relationship_summary": {
       "confirmed": 1,
       "strong": 0,
-      "probable": 0,
+      "probable": 1,
       "possible": 0
     },
     "funds_same_year": [
@@ -874,7 +874,7 @@
     "relationship_summary": {
       "confirmed": 1,
       "strong": 0,
-      "probable": 0,
+      "probable": 1,
       "possible": 0
     },
     "funds_same_year": [
@@ -1142,17 +1142,15 @@
     "type": "lgu_development",
     "sources": {
       "dilg": true,
-      "philgeps": true,
+      "philgeps": false,
       "dpwh": false,
       "coa": false
     },
-    "contracts": [
-      "INFR-MUN-2023-11-016"
-    ],
+    "contracts": [],
     "relationship_summary": {
       "confirmed": 0,
       "strong": 0,
-      "probable": 1,
+      "probable": 0,
       "possible": 0
     },
     "funds_same_year": [
@@ -1182,7 +1180,7 @@
     "relationship_summary": {
       "confirmed": 1,
       "strong": 0,
-      "probable": 0,
+      "probable": 1,
       "possible": 0
     },
     "funds_same_year": [
@@ -1268,7 +1266,7 @@
     "relationship_summary": {
       "confirmed": 1,
       "strong": 0,
-      "probable": 0,
+      "probable": 1,
       "possible": 0
     },
     "funds_same_year": [
@@ -1324,7 +1322,7 @@
       "INFR-MUN-2023-11-016"
     ],
     "relationship_summary": {
-      "confirmed": 0,
+      "confirmed": 1,
       "strong": 0,
       "probable": 1,
       "possible": 0
@@ -1602,7 +1600,7 @@
     "relationship_summary": {
       "confirmed": 1,
       "strong": 0,
-      "probable": 0,
+      "probable": 1,
       "possible": 0
     },
     "funds_same_year": [
@@ -1660,7 +1658,7 @@
     "relationship_summary": {
       "confirmed": 1,
       "strong": 0,
-      "probable": 0,
+      "probable": 1,
       "possible": 0
     },
     "funds_same_year": [
@@ -1746,7 +1744,7 @@
     "relationship_summary": {
       "confirmed": 0,
       "strong": 0,
-      "probable": 1,
+      "probable": 2,
       "possible": 0
     },
     "funds_same_year": [

@@ -1,0 +1,1978 @@
+[
+  {
+    "bid_id": "GOODS-MUN-2023-01-001",
+    "project": "Procurement of Motor Vehicle for Agriculture Office",
+    "bidder": "TOYOTA DAGUPAN CITY INC.",
+    "abc": 1200000.0,
+    "bid_amount": 1109760.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2023-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q1:GOODS-MUN-2023-01-001",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13",
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_26"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2023-06-004",
+    "project": "Procurement of Medicine for the 2nd and 3rd Quarter of 2023",
+    "bidder": "UBET Trading",
+    "abc": 1000000.0,
+    "bid_amount": 998999.7,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2023-Q2",
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:GOODS-MUN-2023-06-004",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:GOODS-MUN-2023-06-004",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2023-08-007",
+    "project": "Support to Farmers- Palay Seed Assistance,",
+    "bidder": "St. Ruiz Agro F/S & General Merchandize",
+    "abc": 1000000.0,
+    "bid_amount": 999635.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:GOODS-MUN-2023-08-007",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2023-08-008",
+    "project": "Support to Farmers- Hybrid Yellow Assistance,",
+    "bidder": "St. Ruiz Agro F/S & General Merchandize",
+    "abc": 2100000.0,
+    "bid_amount": 2099464.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:GOODS-MUN-2023-08-008",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2023-09-015",
+    "project": "Fertilizer Assistance for Local Tobacco Farmers",
+    "bidder": "Misch General Merchandise",
+    "abc": 240000.0,
+    "bid_amount": 237000.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:GOODS-MUN-2023-09-015",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2023-11-020",
+    "project": "Support to Farmers- Fertilizer Assistance",
+    "bidder": "Misch General Merchandise",
+    "abc": 500000.0,
+    "bid_amount": 494568.76,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2023-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:GOODS-MUN-2023-11-020",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_32"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2023-11-21",
+    "project": "Procurement of Generator Equipment for Rural Health Office",
+    "bidder": "UBET Trading",
+    "abc": 700000.0,
+    "bid_amount": 999635.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2023-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:GOODS-MUN-2023-11-21",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_32"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-007-017",
+    "project": "Procurement of Various Office Equipment",
+    "bidder": "UBET Trading",
+    "abc": 1400000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:GOODS-MUN-2024-007-017",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-01-001",
+    "project": "Procurement of Medicine for the First Quarter of 2024",
+    "bidder": "CEDEMED Pharma Distributor",
+    "abc": 462500.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:GOODS-MUN-2024-01-001",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-01-002",
+    "project": "Procurement of Sports Uniforms for Various Teams from Different Barangays",
+    "bidder": "UBET Trading",
+    "abc": 772200.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:GOODS-MUN-2024-01-002",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-02-005",
+    "project": "Procurement and Installation of Outdoor LED Board at Mapandan Auditorium,",
+    "bidder": "ZI-ON Consumer Goods Trading",
+    "abc": 3000000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q1",
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:GOODS-MUN-2024-02-005",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q1"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-02-005",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-02-006",
+    "project": "Payment of Referees and Table Officials (Volleyball Tournament)",
+    "bidder": "N/A",
+    "abc": 378000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-02-006",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-02-007",
+    "project": "Payment of Referees and Table Officials (Basketball Tournament)",
+    "bidder": "N/A",
+    "abc": 414000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-02-007",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-03-008",
+    "project": "the Procurement of Medicine for the Second Quarter of 2024",
+    "bidder": "CEDEMED Pharma Distributor",
+    "abc": 462500.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-03-008",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-03-009",
+    "project": "Support to Farmers- Palay Seed Assistance",
+    "bidder": "St. Ruiz Agro F/S & General Merchandize",
+    "abc": 700000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-03-009",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-04-014",
+    "project": "Procurement/Installation of CCTV Cameras",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 1800000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-04-014",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-04-015",
+    "project": "Procurement of Two (2) units Mini Dump Truck ,",
+    "bidder": "BVC Automotive Spare Parts Trading",
+    "abc": 3514635.85,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-04-015",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-06-015",
+    "project": "Procurement of Medicine for the Third Quarter of 2024",
+    "bidder": "-",
+    "abc": 670450.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2",
+      "2024-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-06-015",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:GOODS-MUN-2024-06-015",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-06-017",
+    "project": "Procurement of Motor Vehicle for Vice Mayor and Sangguniang Bayan Office",
+    "bidder": "-",
+    "abc": 1400000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:GOODS-MUN-2024-06-017",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-07-021",
+    "project": "Procurement and Installation of Industrial Fan at Tulagan Multi-Purposed Gym",
+    "bidder": "Misch General Merchandise",
+    "abc": 300000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:GOODS-MUN-2024-07-021",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-08-024",
+    "project": "Procurement of Motor Vehicle for Vice Mayor and Sanguniang Bayan",
+    "bidder": "North Quadrant Ventures and Resources, INC",
+    "abc": 1670000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q3",
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:GOODS-MUN-2024-08-024",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-08-024",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-08-025",
+    "project": "Procurement of Medicine for the 4th Quarter of 2024",
+    "bidder": "GEEMED ENTERPRISES",
+    "abc": 462200.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q3",
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:GOODS-MUN-2024-08-025",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      },
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-08-025",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-09-026",
+    "project": "Procurement for Support to Farmers- Hybrid Yellow Corn Assistance",
+    "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "abc": 2100000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-09-026",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-09-027",
+    "project": "Procurement for Support to Farmers- Fertilizer Assistance",
+    "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-09-027",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-09-028",
+    "project": "Procurement of Additional Office Equipment in Various Offices",
+    "bidder": "UBET Trading",
+    "abc": 1206100.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-09-028",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-10-029",
+    "project": "Procurement for Sixteen (16) Units Manual Transmission Rescue Vehicles",
+    "bidder": "GLOBAL EIGHT BUILDERS AND EQUIPMENT SUPPLIES",
+    "abc": 28800000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-10-029",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-11-030",
+    "project": "Procurement of Various Materials use to Decorate Various Structures within the Municipality of Mapandan",
+    "bidder": "UBET Trading",
+    "abc": 1103300.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-11-030",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-11-031",
+    "project": "Procurement of Various Goods for Government Affairs",
+    "bidder": "UBET Trading",
+    "abc": 1348500.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-11-031",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-11-033",
+    "project": "Procurement of RHU Chest Type Freezer for Vaccine/Medicine Storage",
+    "bidder": "UBET Trading",
+    "abc": 400000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-11-033",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2024-11-034",
+    "project": "Procurement of Solar Lights to be Distributed to all Barangays,",
+    "bidder": "VILLAR GENERAL CONSTRUCTION & SUPPLIES",
+    "abc": 1008000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2024-11-034",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-01-001",
+    "project": "Procurement of Medicines for 1st Quarter of 2025",
+    "bidder": "UBET Trading",
+    "abc": 610740.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:GOODS-MUN-2025-01-001",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-01-003",
+    "project": "Procurement of Support to Farmers-Fertilizer Assistance",
+    "bidder": "JJEA AGRIVENTURES CO",
+    "abc": 894557.82,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q1:GOODS-MUN-2025-01-003",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_17"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-01-004",
+    "project": "Procurement of Various Uniforms",
+    "bidder": "U-BET TRADING",
+    "abc": 940310.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q1:GOODS-MUN-2025-01-004",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_17"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-02-005",
+    "project": "Procurement of Medicines for 2nd Quarter of 2025",
+    "bidder": "GEEMED ENTERPRISES",
+    "abc": 612300.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q1:GOODS-MUN-2025-02-005",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_17"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-05-006",
+    "project": "Procurement of Medicines for 3rd Quarter of 2025,",
+    "bidder": "LYNCAD ENTERPRISES",
+    "abc": 629255.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q2:GOODS-MUN-2025-05-006",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_7"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-05-007",
+    "project": "Procurement and Installation of CCTV Cameras",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 1153000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q2:GOODS-MUN-2025-05-007",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_7"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-09-008",
+    "project": "Support to Farmers – Hybrid Yellow Corn Assistance",
+    "bidder": "ASIAN HYBRID SEED TECHNOLOGIES, INC.",
+    "abc": 1200000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:GOODS-MUN-2025-09-008",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-09-009",
+    "project": "Procurement of Various Shirts and Sports Uniforms",
+    "bidder": "U-BET TRADING",
+    "abc": 1377000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:GOODS-MUN-2025-09-009",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-10-014",
+    "project": "Procurement of 2 Units Motor Vehicle (Rescue Vehicle)",
+    "bidder": "AUTOKID SUBIC TRADING CORPORATION",
+    "abc": 3000000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:GOODS-MUN-2025-10-014",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-10-015",
+    "project": "Procurement of Medicines for 4th Quarter of 2025",
+    "bidder": "U-BET TRADING",
+    "abc": 638905.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:GOODS-MUN-2025-10-015",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-10-016",
+    "project": "Support to Farmers – Palay Seeds Assistance",
+    "bidder": "OWNER, ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "abc": 900000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:GOODS-MUN-2025-10-016",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-11-018",
+    "project": "Procurement of Various Materials and Christmas Decorations for Public Plaza and Municipal Hall",
+    "bidder": "U-BET TRADING",
+    "abc": 1000000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:GOODS-MUN-2025-11-018",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2025-11-019",
+    "project": "Procurement of 1(One) Delivery Vehicle for the Municipal Agriculture Office",
+    "bidder": "AUTOKID SUBIC TRADING CORPORATION",
+    "abc": 2000000.0,
+    "bid_amount": null,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:GOODS-MUN-2025-11-019",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2026-01-003",
+    "project": "Procurement of Medicines for 1st Quarter of 2026",
+    "bidder": "U-BET TRADING",
+    "abc": 712820.0,
+    "bid_amount": 711864.45,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2026-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:GOODS-MUN-2026-01-003",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2026-01-004",
+    "project": "Procurement of Various Shirts, Jersey, Uniforms for Sports & Government Affairs",
+    "bidder": "U-BET TRADING",
+    "abc": 1471500.0,
+    "bid_amount": 1470043.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2026-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:GOODS-MUN-2026-01-004",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2026-05-005",
+    "project": "Support to Farmers – Palay Seeds Assistance",
+    "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "abc": 700000.0,
+    "bid_amount": 700000.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2026-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:GOODS-MUN-2026-05-005",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2026-05-006",
+    "project": "Support to Farmers – Fertilizer Assistance",
+    "bidder": "ST. RUIZ AGRO FARM SUPPLY & GEN. MERCHANDISE",
+    "abc": 500000.0,
+    "bid_amount": 499968.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2026-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:GOODS-MUN-2026-05-006",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2026-05-007",
+    "project": "Procurement of Medicines for 2nd Quarter of 2026",
+    "bidder": "GEEMED ENTERPRISES",
+    "abc": 719340.0,
+    "bid_amount": 714000.0,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2026-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:GOODS-MUN-2026-05-007",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "GOODS-MUN-2026-05-008",
+    "project": "Installation of CCTV IP Camera for Disaster Impacts and Risks Monitoring",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 1000000.0,
+    "bid_amount": 997000.06,
+    "award_date": "",
+    "location": "",
+    "periods": [
+      "2026-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:GOODS-MUN-2026-05-008",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-04-002",
+    "project": "Rehabilitation of Multi-Puropose Building at Brgy. Apaya",
+    "bidder": "R. F. Flores Construction",
+    "abc": 1200000.0,
+    "bid_amount": 1194982.71,
+    "award_date": "May 19, 2023 at 9:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:INFR-MUN-2023-04-002",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-06-003",
+    "project": "Improvement of Mapandan Public Market- Phase 2",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 850000.0,
+    "bid_amount": 849206.16,
+    "award_date": "July 06, 2023 at 9:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q2:INFR-MUN-2023-06-003",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_13"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-07-005",
+    "project": "Improvement of Brgy. Road and Drainage Canal at (Maya St.,Amanoaoac), (Papaya Ave., Apaya), (Caimito Ext’n Aserda) , (Orchid St., Nilombot), (Bougainvilla St., Poblacion)",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 2514183.31,
+    "bid_amount": 2510319.86,
+    "award_date": "July 27, 2023 at 9:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:INFR-MUN-2023-07-005",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-07-006",
+    "project": "Improvement of Multi-Purpose Covered Court at Brgy. Sta. Maria and Brgy. Baloling,",
+    "bidder": "R. F. Flores Construction",
+    "abc": 1000000.0,
+    "bid_amount": 995014.52,
+    "award_date": "July 27, 2023 at 10:00 AM .",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:INFR-MUN-2023-07-006",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-08-009",
+    "project": "Construction of Covered Drainage Canal along Lawin st.,Poblacion",
+    "bidder": "R. F. Flores Construction",
+    "abc": 1500000.0,
+    "bid_amount": 1494636.38,
+    "award_date": "August 31, 2023 at 10:30 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:INFR-MUN-2023-08-009",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-09-010",
+    "project": "Construction of LandBank ATM Hub bat Pandan Avenue, Poblacion,",
+    "bidder": "R. F. Flores Construction",
+    "abc": 400000.0,
+    "bid_amount": 398401.57,
+    "award_date": "September 19, 2023 at 09:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:INFR-MUN-2023-09-010",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-09-011",
+    "project": "Construction of One (1) Stop Shop Building Phase 3,",
+    "bidder": "J.L. De Guzman Enterprises",
+    "abc": 3000000.0,
+    "bid_amount": 2997955.38,
+    "award_date": "September 18, 2023 at 10:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:INFR-MUN-2023-09-011",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-09-012",
+    "project": "Improvement of Barangay Road and Drainage Canal at Orchids St. Nilombot Phase 2,",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 576000.0,
+    "bid_amount": 575405.85,
+    "award_date": "September 18, 2023 at 11:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:INFR-MUN-2023-09-012",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-09-013",
+    "project": "Improvement of Various Roads to Mitigate/Reduce Disaster Risk,",
+    "bidder": "R. F. Flores Construction",
+    "abc": 846000.0,
+    "bid_amount": 843278.14,
+    "award_date": "September 18, 2023 at 11:30 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q3:INFR-MUN-2023-09-013",
+        "document": [
+          "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-11-016",
+    "project": "Improvement of Mapandan Public Market Phase 3",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 1000000.0,
+    "bid_amount": null,
+    "award_date": "December 11 at 9:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:INFR-MUN-2023-11-016",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_32"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-11-017",
+    "project": "Additional Illumination at Mapandan Town Plaza",
+    "bidder": "R. F. Flores Construction",
+    "abc": 500000.0,
+    "bid_amount": 497686.45,
+    "award_date": "December 11 at 10:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:INFR-MUN-2023-11-017",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_32"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2023-11-018",
+    "project": "Improvement of Mapandan Tennis Club house",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "December 11 at 11:00 AM",
+    "location": "Mapandan, Pangasinan",
+    "periods": [
+      "2023-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2023-Q4:INFR-MUN-2023-11-018",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_32"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2023-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-01-003",
+    "project": "Improvement/Repainting of Roof of the Mapadan Municipal Hall",
+    "bidder": "J.L. De Guzman Enterprises",
+    "abc": 1700000.0,
+    "bid_amount": null,
+    "award_date": "1698498.51",
+    "location": "Mapandan,Pangasinan",
+    "periods": [
+      "2024-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q1:INFR-MUN-2024-01-003",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-02-004",
+    "project": "Additional Illumination of Mapandan Town Plaza-Phase 2",
+    "bidder": "Villar General Construction and Supplies",
+    "abc": 571506.51,
+    "bid_amount": null,
+    "award_date": "569506.49",
+    "location": "Mapandan,Pangasinan",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:INFR-MUN-2024-02-004",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-04-010",
+    "project": "Construction of Cross-drain Canal along Gondol St. Primicias",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "499480.61",
+    "location": "Primicias,Mapandan,Pangasinan",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:INFR-MUN-2024-04-010",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-04-011",
+    "project": "Improvement of Barangay Road and Drainage Canal at Orchids St. Nilombot-Phase 3",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 1000000.0,
+    "bid_amount": null,
+    "award_date": "999113.99",
+    "location": "Nilombot, Mapandan,Pangasinan",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:INFR-MUN-2024-04-011",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-04-012",
+    "project": "Re-Constructioin of Drainage Canal along Pico Avenue Brgy. Coral,",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "499354.81",
+    "location": "Coral, Mapandan,Pangasinan",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:INFR-MUN-2024-04-012",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-04-013",
+    "project": "Construction of Covered Drainage Canal along Lawin Avenue at Brgy. Poblacion,",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "499242.82",
+    "location": "Poblacion,Mapandan,Pangasinan",
+    "periods": [
+      "2024-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q2:INFR-MUN-2024-04-013",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_11"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q2"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-07-019",
+    "project": "Improvement/Extension of Office for MDRRM Command Center at Brgy. Poblacion",
+    "bidder": "Georavin Construction and Supplies",
+    "abc": 700000.0,
+    "bid_amount": null,
+    "award_date": "697894.77",
+    "location": "Brgy. Poblacion, Mapandan, Pangasinan",
+    "periods": [
+      "2024-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:INFR-MUN-2024-07-019",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-07-020",
+    "project": "Construction of Perimeter Fence,Backfilling and Concreting of Super Rural Health Unit's Ground",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 1500000.0,
+    "bid_amount": null,
+    "award_date": "1498197.06",
+    "location": "Brgy. Torres, Mapandan, Pangasinan",
+    "periods": [
+      "2024-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:INFR-MUN-2024-07-020",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-07-023",
+    "project": "Construction of Air-conditioned Waiting Shed at Poblacion, Mapandan",
+    "bidder": "Georavin Construction and Supplies",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "497597.63",
+    "location": "Brgy. Poblacion, Mapandan, Pangasinan",
+    "periods": [
+      "2024-Q3"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q3:INFR-MUN-2024-07-023",
+        "document": [
+          "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_2"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q3"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2024-11-032",
+    "project": "Construction of Barangay Golden Child Development CenterN/A",
+    "bidder": "Aplhin Trading and Construction",
+    "abc": 510000.0,
+    "bid_amount": null,
+    "award_date": "509755.82",
+    "location": "Brgy. Poblacion, Mapandan, Pangasinan",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:INFR-MUN-2024-11-032",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFR-MUN-2025-01-002",
+    "project": "Construction of One (1) Stop Shop Building Phase 4",
+    "bidder": "J.L DE GUZMAN ENTERPRISES",
+    "abc": 8500000.0,
+    "bid_amount": null,
+    "award_date": "8496974.63",
+    "location": "Brgy. Poblacion, Mapandan, Pangasinan",
+    "periods": [
+      "2024-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2024-Q4:INFR-MUN-2025-01-002",
+        "document": [
+          "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_30"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2024-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2025-09-010",
+    "project": "Construction of Barangay Golden Child Development Center Phase II",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 1825000.0,
+    "bid_amount": null,
+    "award_date": "1823276.71",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:INFRA-MUN-2025-09-010",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2025-09-011",
+    "project": "Construction of Covered Drainage Canal along Lawin Avenue, Brgy. Poblacion – Phase III",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 875218.33,
+    "bid_amount": null,
+    "award_date": "873757",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:INFRA-MUN-2025-09-011",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2025-09-012",
+    "project": "Improvement/Concreting of Road along Palya St., Brgy. Lambayan -Phase I",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "499298.44",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:INFRA-MUN-2025-09-012",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2025-09-013",
+    "project": "Reconcreting of Road along Orchids St., Brgy. Nilombot -Phase I",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 500000.0,
+    "bid_amount": null,
+    "award_date": "499054.64",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:INFRA-MUN-2025-09-013",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2025-10-017",
+    "project": "Construction of Curing Barn at Barangay Amanoaoac, INFRA-MUN-2025-10-017",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 600000.0,
+    "bid_amount": null,
+    "award_date": "647968.66",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2025-Q4"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2025-Q4:INFRA-MUN-2025-10-017",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_20"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2025-Q4"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2026-01-001",
+    "project": "Construction of One (1) Stop Shop Building Phase 5 (Early Procurement)",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 6500000.0,
+    "bid_amount": 6494375.04,
+    "award_date": "2026-02-10",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2026-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:INFRA-MUN-2026-01-001",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2026-01-002",
+    "project": "Construction of Emergency Operation Center and Command Center Storage and Kitchen Area (Early Procurement)",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 1000000.0,
+    "bid_amount": 997597.29,
+    "award_date": "2026-02-10",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2026-Q1"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q1:INFRA-MUN-2026-01-002",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_6"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q1"
+      }
+    ]
+  },
+  {
+    "bid_id": "INFRA-MUN-2026-05-009",
+    "project": "Clustered Infrastructure Projects for Various Barangays",
+    "bidder": "Alphin Trading and Construction",
+    "abc": 2500000.0,
+    "bid_amount": 2496290.88,
+    "award_date": "June 08,2026",
+    "location": "MAPANDAN,PANGASINAN",
+    "periods": [
+      "2026-Q2"
+    ],
+    "provenance": [
+      {
+        "source": "DILG-FDP",
+        "record_id": "2026-Q2:INFRA-MUN-2026-05-009",
+        "document": [
+          "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5"
+        ],
+        "retrieved_at": "2026-09-18",
+        "record_role": "bid_record",
+        "source_as_of": "2026-Q2"
+      }
+    ]
+  }
+]

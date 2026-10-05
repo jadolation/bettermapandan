@@ -4,7 +4,7 @@ Source datasets (procurement.json, dpwh.json, fdp_disclosures.json,
 audit-reports.json) stay authoritative and untouched. This module derives
 a knowledge layer from them at build time:
 
-  entities/{projects,contracts,contractors,funds,audit-findings}.json
+  entities/{projects,bids,contracts,contractors,funds,audit-findings}.json
   relationships.json            (every edge carries evidence[])
   review/project-matches.json   (near-misses awaiting human triage)
   assets indexes                (project/contractor/audit/fund)
@@ -13,9 +13,18 @@ Matching reuses _build/entity_resolution.py (deterministic Rules 1-5).
 Anything below that bar becomes a `possible` review candidate — never a
 silent auto-match. All amounts keep full float precision; labels
 distinguish SOURCE REPORTED vs MATCHED/CALCULATED BY BETTER MAPANDAN.
+
+Ontology note: entity identity uses strongest-first single decisions,
+while relationship discovery is multi-valued — one contract may link
+several projects (shared awards), and one project may link several
+contracts. A `has_bid` + `resulted_in` chain (Project → Bid → Contract)
+and a direct `has_contract` edge are different evidentiary paths to the
+same procurement fact, not duplicate claims.
 """
+import hashlib
 import json
 import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 
 from _build.config import SRC_DATA
@@ -287,6 +296,42 @@ def norm_project_entity(p: dict) -> dict:
             "barangays": p.get("barangay", [])}
 
 
+def build_bids(fdp: dict, retrieved_at=None) -> list:
+    """FDP bid rows -> bid entities, deduped by ref across quarters.
+
+    One bid record per reference ID; re-reporting across periods
+    accumulates provenance + periods instead of spawning duplicates.
+    """
+    by_ref: dict[str, dict] = {}
+    for doc in fdp.get("bids", []):
+        period = doc.get("period", "")
+        for key in ("civil_works", "goods", "consulting"):
+            for b in doc.get(key, []) or []:
+                ref = (b.get("ref") or "").strip()
+                if not ref:
+                    continue
+                ent = by_ref.get(ref)
+                if ent is None:
+                    ent = {"bid_id": ref,
+                           "project": b.get("project", ""),
+                           "bidder": b.get("bidder", ""),
+                           "abc": b.get("abc"),
+                           "bid_amount": b.get("bid_amount"),
+                           "award_date": b.get("award_date", ""),
+                           "location": b.get("location", ""),
+                           "periods": [],
+                           "provenance": []}
+                    by_ref[ref] = ent
+                if period and period not in ent["periods"]:
+                    ent["periods"].append(period)
+                ent["provenance"].append(
+                    _prov("DILG-FDP", f"{period}:{ref}",
+                          document=doc.get("source_file", ""),
+                          retrieved_at=retrieved_at,
+                          record_role="bid_record", source_as_of=period))
+    return [by_ref[k] for k in sorted(by_ref)]
+
+
 def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | None = None,
                         contractor_lookup: dict | None = None) -> tuple[list, list]:
     """Deterministic edges + near-miss review queue.
@@ -339,14 +384,34 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
             _emit(f"contract:{c['cid']}", f"contractor:{c['awardee_id']}",
                   "awarded_to", "explicit", ["source record names awardee"])
     for b in bids_n:
+        if not b.get("ref"):
+            continue  # unreferenceable rows stay visible in FDP tables only
         best = None
+        anchor_out = None
+        for p in projects:
+            if p["project_type"] != "lgu_development" or "-D" in p["project_id"] or "-C" in p["project_id"]:
+                continue
+            anchor_out = match_records(
+                {"source": "fdp-bids", "ref": b["ref"], "title": b["norm"]["title"],
+                 "contractor": b["norm"]["contractor"], "amount": b["norm"]["amount"],
+                 "year": b["norm"]["year"], "barangays": b["norm"]["barangays"]},
+                {"source": "dev", "ref": "", "title": norm_title(p["canonical_name"]),
+                 "contractor": "", "amount": 0,
+                 "year": str(p.get("fiscal_year") or "") or None,
+                 "barangays": p.get("barangay", [])})
+            if anchor_out["matched"] and anchor_out["level"] in ("explicit", "strong", "probable"):
+                b["project_id"] = p["project_id"]
+                _emit(f"project:{p['project_id']}", f"bid:{b['ref']}", "has_bid",
+                      anchor_out["level"],
+                      anchor_out["evidence"] + [anchor_out["rule"]])
+                break
+            anchor_out = None
         for c in contracts_n:
             out = match_records(b["norm"], c["norm"])
             if out["matched"]:
-                anchor = b.get("project_id") or f"fdp-bid:{b['ref']}"
                 evidence = list(out["evidence"]) + _amount_note(
                     b["norm"].get("amount"), c["norm"].get("amount"))
-                _emit(f"project:{anchor}", f"contract:{c['cid']}", "has_contract",
+                _emit(f"bid:{b['ref']}", f"contract:{c['cid']}", "resulted_in",
                       out["level"], evidence + [out["rule"]],
                       match_path="bid-bridge")
                 best = out
@@ -363,7 +428,7 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
                     ev.append("same fiscal year" if ydiff == 0 else "adjacent fiscal year (bid vs award lag)")
                     review.append({
                         "candidate_id": _next("MATCH"),
-                        "record_a": f"fdp-bid:{b['ref']}",
+                        "record_a": f"bid:{b['ref']}",
                         "record_b": f"contract:{c['cid']}",
                         "match_score": round(overlap, 2),
                         "evidence": ev,
@@ -444,7 +509,7 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
             if target:
                 _seen_identity.add(d.get("contract_id", ""))
                 _emit(f"dpwh:{d.get('contract_id', '')}", f"contractor:{target}",
-                      "same_contractor_as", "explicit",
+                      "contractor_identity", "explicit",
                       ["same normalized contractor name"])
             else:
                 for norm, cid in lookup.items():
@@ -453,7 +518,7 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
                             all(w in nt for w in dt) or all(w in dt for w in nt)):
                         _seen_identity.add(d.get("contract_id", ""))
                         _emit(f"dpwh:{d.get('contract_id', '')}", f"contractor:{cid}",
-                              "same_contractor_as", "probable",
+                              "contractor_identity", "probable",
                               ["contractor name token-subset — verify legal entity"])
                         break
         if not dc:
@@ -521,7 +586,26 @@ def build_indexes(projects, contracts, contractors, findings, funds, rels) -> di
     """
     by_project_contracts: dict[str, list] = {}
     summary: dict[str, dict] = {}
+    bid_contracts: dict[str, list] = {}
     for r in rels:
+        if r["type"] == "resulted_in":
+            bid_contracts.setdefault(r["from"].split(":", 1)[1], []).append(r)
+    for r in rels:
+        if r["type"] == "has_bid":
+            pid = r["from"].split(":", 1)[1]
+            for br in bid_contracts.get(r["to"].split(":", 1)[1], []):
+                cid = br["to"].split(":", 1)[1]
+                by_project_contracts.setdefault(pid, [])
+                if cid not in by_project_contracts[pid]:
+                    by_project_contracts[pid].append(cid)
+                lvl = br["confidence"]
+                if lvl in ("explicit", "strong", "probable", "possible"):
+                    key = {"explicit": "confirmed", "strong": "strong",
+                           "probable": "probable", "possible": "possible"}[lvl]
+                    s = summary.setdefault(pid, {"confirmed": 0, "strong": 0,
+                                                 "probable": 0, "possible": 0})
+                    s[key] += 1
+            continue
         if r["type"] != "has_contract":
             continue
         frm = r["from"]
@@ -667,25 +751,10 @@ def build_all(src_data: Path = SRC_DATA, data_out: Path = SRC_DATA,
                               audit.get("infrastructure_projects", []), retrieved)
     funds = build_funds(fdp, retrieved["fdp"])
     findings = build_audit_findings(audit)
+    bids = build_bids(fdp, retrieved["fdp"])
 
-    # Link FDP bids to dev projects by title+period for project: anchors.
-    for b in bids_n:
-        b["project_id"] = None
-        for p in projects:
-            if p["project_type"] != "lgu_development" or "-D" in p["project_id"] or "-C" in p["project_id"]:
-                continue
-            out = match_records(
-                {"source": "fdp-bids", "ref": b["ref"], "title": b["norm"]["title"],
-                 "contractor": b["norm"]["contractor"], "amount": b["norm"]["amount"],
-                 "year": b["norm"]["year"], "barangays": b["norm"]["barangays"]},
-                {"source": "dev", "ref": "", "title": norm_title(p["canonical_name"]),
-                 "contractor": "", "amount": 0,
-                 "year": str(p.get("fiscal_year") or "") or None,
-                 "barangays": p.get("barangay", [])})
-            if out["matched"] and out["level"] in ("explicit", "strong", "probable"):
-                b["project_id"] = p["project_id"]
-                break
-
+    # Project <-> bid anchoring now lives inside build_relationships,
+    # which emits has_bid + resulted_in edges directly.
     rels, review = build_relationships(contracts_n, bids_n, projects, dpwh.get("projects", []),
                                         contractor_lookup)
     indexes = build_indexes(projects, contracts, contractors, findings, funds, rels)
@@ -713,6 +782,7 @@ def build_all(src_data: Path = SRC_DATA, data_out: Path = SRC_DATA,
     write_json(ent_dir / "contractors.json", contractors)
     write_json(ent_dir / "funds.json", funds)
     write_json(ent_dir / "audit-findings.json", findings)
+    write_json(ent_dir / "bids.json", bids)
     write_json(data_out / "relationships.json", rels)
     if review_dir is None:
         review_dir = Path(__file__).resolve().parent.parent / "datasets" / "review"
@@ -726,14 +796,31 @@ def build_all(src_data: Path = SRC_DATA, data_out: Path = SRC_DATA,
         for key in ("project-index", "contractor-index", "audit-index", "fund-index"):
             write_json(adir / f"{key}.json", indexes[key])
         # Full detail bundles, lazy-loaded by the Project Explorer only.
-        for name in ("projects.json", "contracts.json"):
+        for name in ("projects.json", "contracts.json", "bids.json"):
             src = ent_dir / name
             if src.exists():
                 shutil.copy2(src, adir / f"entity-{name}")
         rsrc = data_out / "relationships.json"
         if rsrc.exists():
             shutil.copy2(rsrc, adir / "entity-relationships.json")
+    manifest = {
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "sources": {},
+        "derived": {
+            "projects": len(projects), "contracts": len(contracts),
+            "contractors": len(contractors), "funds": len(funds),
+            "findings": len(findings), "bids": len(bids),
+            "relationships": len(rels), "review": len(review),
+        },
+    }
+    for _sf in ("procurement.json", "dpwh.json", "fdp_disclosures.json", "audit-reports.json"):
+        _sp = src_data / _sf
+        if _sp.exists():
+            manifest["sources"][_sf] = {
+                "sha256": hashlib.sha256(_sp.read_bytes()).hexdigest(),
+            }
+    write_json(data_out / "build-manifest.json", manifest)
     return {"projects": len(projects), "contracts": len(contracts),
             "contractors": len(contractors), "funds": len(funds),
-            "findings": len(findings), "relationships": len(rels),
-            "review": len(review)}
+            "findings": len(findings), "bids": len(bids),
+            "relationships": len(rels), "review": len(review)}
