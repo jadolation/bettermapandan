@@ -199,7 +199,7 @@ def generate_dpwh(locale: dict, asset_base: str = ".") -> tuple[str, dict, dict]
     </tbody>
   </table>
 </div>
-<script defer src="{asset_base}/assets/dpwh-table.min.js"></script>
+<script defer src="{asset_base}/assets/js/dpwh-table.min.js"></script>
 <p class="source-label">{labels['DPWH_SOURCE_NOTE']} <a href="https://transparency.dpwh.gov.ph/" target="_blank" rel="noopener">DPWH Transparency Portal</a></p>
 """
 

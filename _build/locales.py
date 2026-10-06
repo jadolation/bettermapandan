@@ -25,3 +25,18 @@ def t(locale: dict, key: str, default: str = "") -> str:
         else:
             return default
     return str(val) if val else default
+
+
+def deep_merge(base: dict, override: dict) -> dict:
+    """Recursively merge override into base. Override values take precedence.
+    Empty strings in override are treated as missing (fall back to base).
+    """
+    result = dict(base)
+    for key, value in override.items():
+        if value == "":
+            continue
+        if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            result[key] = deep_merge(result[key], value)
+        else:
+            result[key] = value
+    return result
