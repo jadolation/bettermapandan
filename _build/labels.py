@@ -273,6 +273,7 @@ def _build_transparency_labels(locale: dict) -> dict:
         "AUDIT_OPINION_TITLE": t(locale, "transparency.audit_opinion_title", ""),
         "AUDIT_OPINION_DESC": t(locale, "transparency.audit_opinion_desc", ""),
         "AUDIT_OPINION_CHART_TITLE": t(locale, "transparency.audit_opinion_chart_title", ""),
+        "AUDIT_OPINION_ARIA": t(locale, "transparency.audit_opinion_aria", "Audit opinion by year, 2014 to 2025."),
         "FINANCIAL_PERF_EYEBROW": t(locale, "transparency.financial_perf_eyebrow", ""),
         "FINANCIAL_PERF_TITLE": t(locale, "transparency.financial_perf_title", ""),
         "FINANCIAL_PERF_DESC": t(locale, "transparency.financial_perf_desc", ""),

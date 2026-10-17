@@ -315,6 +315,81 @@ SCHEMAS = {
                 "evidence": {"type": "array", "minItems": 1}
             }
         }
+    },
+    "audit-reports.json": {
+        "type": "object",
+        "required": ["opinions", "financial_performance", "key_findings",
+                     "implementation_rates", "audit_archive"],
+        "properties": {
+            "opinions": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "object",
+                    "required": ["year", "opinion", "color", "opinion_type"],
+                    "properties": {
+                        "year": {"type": "integer"},
+                        "opinion": {"type": "string"},
+                        "color": {"type": "string"},
+                        "opinion_type": {"type": "string",
+                                         "enum": ["financial_audit", "compliance_audit"]},
+                        "note": {"type": "string"}
+                    }
+                }
+            },
+            "financial_performance": {"type": "array"},
+            "revenue_composition": {"type": "array"},
+            "key_findings": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "object",
+                    "required": ["id", "title", "description", "first_cited",
+                                 "last_cited", "status", "category", "severity"],
+                    "properties": {
+                        "id": {"type": "string"},
+                        "title": {"type": "string"},
+                        "description": {"type": "string"},
+                        "first_cited": {"type": "integer"},
+                        "last_cited": {"type": "integer"},
+                        "amount": {"type": "number"},
+                        "amount_note": {"type": "string"},
+                        "status": {"type": "string",
+                                   "enum": ["open", "chronic", "improving",
+                                            "partial", "resolved"]},
+                        "category": {"type": "string"},
+                        "severity": {"type": "string",
+                                     "enum": ["high", "medium", "low"]}
+                    }
+                }
+            },
+            "implementation_rates": {"type": "array"},
+            "audit_archive": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "object",
+                    "required": ["year", "files"],
+                    "properties": {
+                        "year": {"type": "integer"},
+                        "audit_type": {"type": "string"},
+                        "note": {"type": "string"},
+                        "files": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "type": "object",
+                                "required": ["label", "path"],
+                                "properties": {
+                                    "label": {"type": "string"},
+                                    "path": {"type": "string"}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -101,6 +101,35 @@ def test_revenue_composition_labeled_estimates():
             )
 
 
+def test_audit_json_schema_valid():
+    """audit-reports.json (incl. audit_archive) must satisfy its registered schema."""
+    from src.data.schemas import SCHEMAS, validate_all
+
+    assert "audit-reports.json" in SCHEMAS
+    errors = [e for e in validate_all(ROOT / "src" / "data") if "audit-reports" in e]
+    assert not errors, errors
+
+
+def test_opinion_enum_and_2025_compliance():
+    """Every opinion carries a valid type; 2025 is the LDRRMF compliance audit."""
+    opinions = _load_audit()["opinions"]
+    assert {o["opinion_type"] for o in opinions} <= {"financial_audit", "compliance_audit"}
+    y2025 = next(o for o in opinions if o["year"] == 2025)
+    assert y2025["opinion"] == "Non-Compliant"
+    assert y2025["opinion_type"] == "compliance_audit"
+    assert y2025["color"] == "red"
+    assert all(o["opinion_type"] == "financial_audit" for o in opinions if o["year"] != 2025)
+
+
+def test_findings_status_enum_and_ids_unique():
+    findings = _load_audit()["key_findings"]
+    ids = [f["id"] for f in findings]
+    assert len(ids) == len(set(ids)), "duplicate finding ids"
+    assert {f["status"] for f in findings} <= {
+        "open", "chronic", "improving", "partial", "resolved"
+    }
+
+
 def test_municipal_facts_canonical():
     """Shared facts file must hold the canonical headline figures."""
     from _build.facts import facts_placeholders

@@ -4,6 +4,12 @@ from pathlib import Path
 
 from _build.chrome import assemble_page, build_footer, build_header, build_hero
 from _build.config import SECTION_ANCHORS, SECTION_NAV, SRC_DATA
+from _build.generators.audit import (
+    generate_audit_archive,
+    generate_audit_findings,
+    generate_audit_implementation_table,
+    generate_audit_opinion_sr_table,
+)
 from _build.generators.barangays import (
     build_barangay_comparison_script,
     generate_barangay_councils_table,
@@ -109,6 +115,11 @@ def _process_static_page(
     if len(rel.parts) > 1 and rel.parts[0] == "transparency" and rel.stem != "transparency":
         lang_prefix = f"/{lang_code}" if lang_code != "en" else ""
         body = body.replace("{TRANSPARENCY_TABS}", build_transparency_tabs(locale, rel.stem, lang_prefix), 1)
+    if rel.name == "audit-compliance.html":
+        body = body.replace("{AUDIT_FINDINGS_SECTION}", generate_audit_findings(locale), 1)
+        body = body.replace("{AUDIT_OPINION_SR_TABLE}", generate_audit_opinion_sr_table(locale), 1)
+        body = body.replace("{AUDIT_IMPLEMENTATION_TABLE}", generate_audit_implementation_table(locale), 1)
+        body = body.replace("{AUDIT_ARCHIVE_SECTION}", generate_audit_archive(locale), 1)
     if rel.name in SECTION_NAV:
         body = body.replace("{SECTION_NAV}", build_section_nav(locale, rel.name, body), 1)
     if rel.name == "index.html":

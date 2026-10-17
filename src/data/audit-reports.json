@@ -4,73 +4,85 @@
             "year": 2014,
             "opinion": "Unqualified",
             "color": "green",
-            "note": "Clean opinion — no material misstatements"
+            "note": "Clean opinion — no material misstatements",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2015,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "PPE account not reconciled (₱90.2M)"
+            "note": "PPE account not reconciled (₱90.2M)",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2016,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "PPE not reconciled; Trust Fund projects not capitalized"
+            "note": "PPE not reconciled; Trust Fund projects not capitalized",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2017,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "PPE incomplete; breeding stocks ₱110K ghost account"
+            "note": "PPE incomplete; breeding stocks ₱110K ghost account",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2018,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "PPE accounts still problematic"
+            "note": "PPE accounts still problematic",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2019,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "Road network misclassification; breeding stocks"
+            "note": "Road network misclassification; breeding stocks",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2020,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "Road network depreciation not provided; COVID-19 procurement issues"
+            "note": "Road network depreciation not provided; COVID-19 procurement issues",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2021,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "Misclassification of expenses; breeding stocks; land titling"
+            "note": "Misclassification of expenses; breeding stocks; land titling",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2022,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "Recurring issues plus MRF machineries unused"
+            "note": "Recurring issues plus MRF machineries unused",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2023,
             "opinion": "Unqualified",
             "color": "green",
-            "note": "Clean opinion under new management"
+            "note": "Clean opinion under new management",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2024,
             "opinion": "Qualified",
             "color": "gold",
-            "note": "Procurement irregularities; GAD; consulting services"
+            "note": "Procurement irregularities; GAD; consulting services",
+            "opinion_type": "financial_audit"
         },
         {
             "year": 2025,
             "opinion": "Non-Compliant",
             "color": "red",
-            "note": "LDRRMF special compliance audit — ₱380K under-allocation"
+            "note": "LDRRMF special compliance audit — ₱380K under-allocation",
+            "opinion_type": "compliance_audit"
         }
     ],
     "financial_performance": [
@@ -196,12 +208,12 @@
         },
         {
             "year": 2025,
-            "total_assets": 582216589.67,
-            "liabilities": 119889817.9,
-            "gov_equity": 462326780.77,
-            "income": 201222133.78,
-            "expenses": 213323771.46,
-            "surplus": -12101637.68,
+            "total_assets": 582216590,
+            "liabilities": 119889818,
+            "gov_equity": 462326781,
+            "income": 201222134,
+            "expenses": 213323771,
+            "surplus": -12101637,
             "source": "COA AAR (Audited)"
         }
     ],
@@ -285,8 +297,8 @@
         },
         {
             "year": 2025,
-            "ira": 172412568.16,
-            "local_income": 28809565.62,
+            "ira": 172412568,
+            "local_income": 28809566,
             "other": 0,
             "source": "COA AAR (Audited)"
         }
@@ -1014,7 +1026,7 @@
             "year_completed": 2026,
             "category": "Social Services",
             "source": "COA AAR 2025",
-            "status": "completed"
+            "status": "ongoing"
         }
     ],
     "reform_trackers": [
@@ -1133,6 +1145,242 @@
             ],
             "status": "in_progress",
             "status_label": "In Progress"
+        }
+    ],
+    "audit_archive": [
+        {
+            "year": 2025,
+            "audit_type": "compliance_audit",
+            "note": "LDRRMF special compliance audit (R.A. 10121, Sec. 21) — audit period January 1–December 31, 2025. Published May 5, 2026.",
+            "files": [
+                {
+                    "label": "Compliance Audit (LDRRMF)",
+                    "path": "/datasets/audit-reports/Mapandan2025_car.docx"
+                },
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2025/AAR/01-MapandanPang2025_Audit_Report.doc"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2025/AAR/02-MapandanPang2025_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2025/AAR/03-MapandanPang2025_Annexes.xlsx"
+                },
+                {
+                    "label": "AAPSI",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2025/AAPSI/MapandanPang2025_AAPSI.pdf"
+                },
+                {
+                    "label": "Executive Summary",
+                    "path": "/datasets/Mapandan-Executive-Summary-2025.pdf"
+                }
+            ]
+        },
+        {
+            "year": 2024,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2024/AAR/01-MapandanPang2024_Audit_Report.docx"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2024/AAR/02-MapandanPang2024_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2024/AAR/03-MapandanPang2024_Annexes.xlsx"
+                },
+                {
+                    "label": "AAPSI",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2024/AAPSI_APMT/Mapandan2024_AAPSI.pdf"
+                },
+                {
+                    "label": "APMT",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2024/AAPSI_APMT/Mapandan2024_APMT.pdf"
+                }
+            ]
+        },
+        {
+            "year": 2023,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2023/AAR/01-MapandanPang2023_Audit_Report.pdf"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2023/AAR/02-MapandanPang2023_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2023/AAR/03-MapandanPang2023_Annexes.xlsx"
+                },
+                {
+                    "label": "AAPSI",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2023/AAPSI_APMT/MapandanPang_AAPSI.pdf"
+                },
+                {
+                    "label": "APMT",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2023/AAPSI_APMT/MapandanPang_APMT.docx"
+                }
+            ]
+        },
+        {
+            "year": 2022,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2022/01-MapandanPang2022_Audit_Report.pdf"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2022/02-MapandanPang2022_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2022/03-MapandanPang2022_Annexes.xlsx"
+                }
+            ]
+        },
+        {
+            "year": 2021,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2021/01-MapandanPang2021_Audit_Report.pdf"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2021/02-MapandanPang2021_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2021/03-MapandanPang2021_Annexes.xlsx"
+                }
+            ]
+        },
+        {
+            "year": 2020,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2020/01-MapandanPang2020_Audit_Report.docx"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2020/02-MapandanPang2020_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2020/03-MapandanPang2020_Annexes.xlsx"
+                }
+            ]
+        },
+        {
+            "year": 2019,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2019/01-MapandanPang2019_Audit_Report.pdf"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2019/02-MapandanPang2019_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2019/03-MapandanPang2019_Annexes.pdf"
+                }
+            ]
+        },
+        {
+            "year": 2018,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2018/01-Mapandan2018_Audit_Report.docx"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2018/02-Mapandan2018_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2018/03-Mapandan2018_Annexes.xlsx"
+                }
+            ]
+        },
+        {
+            "year": 2017,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2017/01-Mapandan2017_Audit_Report.pdf"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2017/02-Mapandan2017_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2017/03-Mapandan2017_Annexes.xlsx"
+                }
+            ]
+        },
+        {
+            "year": 2016,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2016/01-MapandanPang2016_Audit_Report.pdf"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2016/02-MapandanPang2016_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2016/03-MapandanPang2016_Annexes.xlsx"
+                }
+            ]
+        },
+        {
+            "year": 2015,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2015/01-MapandanPang2015_Audit_Report.docx"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2015/02-MapandanPang2015_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2015/03-MapandanPang2015_Annexes.xlsx"
+                }
+            ]
+        },
+        {
+            "year": 2014,
+            "files": [
+                {
+                    "label": "Audit Report",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2014/01-MapandanPang2014_Audit_Report.docx"
+                },
+                {
+                    "label": "Financial Statements",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2014/02-MapandanPang2014_FS.xlsx"
+                },
+                {
+                    "label": "Annexes",
+                    "path": "/datasets/Mapandan-Annual-Audit-Report-2014/03-MapandanPang2014_Annexes.xlsx"
+                }
+            ]
         }
     ]
 }

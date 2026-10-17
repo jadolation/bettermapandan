@@ -451,30 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
     reformContainer.innerHTML = html;
   }
 
-  // Audit Opinion Chart - add 2025 data point
-  var opinionCanvas = document.getElementById("chart-audit-opinion");
-  if (opinionCanvas && window.AUDIT_DATA && window.AUDIT_DATA.opinions) {
-    var opinions = window.AUDIT_DATA.opinions;
-    var oLabels = opinions.map(function(o) { return o.year; });
-    var oData = opinions.map(function(o) {
-      if (o.opinion === "Unqualified" || o.opinion === "Unmodified") return 3;
-      if (o.opinion === "Non-Compliant") return 0;
-      return 1;
-    });
-    var oColors = opinions.map(function(o) {
-      if (o.color === "green") return "#16532c";
-      if (o.color === "red") return "#d9534f";
-      return "#f0c040";
-    });
-    // Check if chart already exists and update
-    if (window._auditOpinionChart) {
-      window._auditOpinionChart.data.labels = oLabels;
-      window._auditOpinionChart.data.datasets[0].data = oData;
-      window._auditOpinionChart.data.datasets[0].backgroundColor = oColors;
-      window._auditOpinionChart.update();
-    }
-  }
-
   // COA Compliance Card - update with latest opinion
   var coaOpinionCard = document.getElementById("coa-latest-opinion");
   var coaOpinionDesc = document.getElementById("coa-opinion-desc");

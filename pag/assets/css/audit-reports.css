@@ -22,6 +22,15 @@
   line-height: 1.5;
 }
 
+.findings-group-title {
+  margin: 32px 0 12px;
+  scroll-margin-top: 96px;
+}
+
+.findings-group:first-child .findings-group-title {
+  margin-top: 0;
+}
+
 .audit-file-list {
   list-style: none;
   margin: 0;

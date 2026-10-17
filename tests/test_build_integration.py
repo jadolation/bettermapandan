@@ -205,12 +205,12 @@ def test_section_nav_sidebar_and_edge(built_site: Path):
             assert html.count('class="edge-dot ') == count, f"{lang}/{slug} dots"
             assert 'class="edge-tab"' in html, f"{lang}/{slug} affordance"
             assert 'section-nav.min.js' in html, f"{lang}/{slug} script"
-    # Findings sub-nav shows all 10 id'd headings (cap raised from 8).
+    # Findings sub-nav groups by status (5 headings), not per-card.
     html = _read_subpage(built_site, "en", "audit-compliance")
     assert 'class="section-nav-sub"' in html
-    assert html.count('href="#finding-') == 10
+    assert html.count('href="#findings-') == 5
     # Badges count linked children, never raw h3 volume.
-    assert 'aria-hidden="true">10</span></button>' in html
+    assert 'aria-hidden="true">5</span></button>' in html
     bf = _read_subpage(built_site, "en", "budget-fiscal")
     assert 'aria-hidden="true">202<' not in bf
     assert 'aria-hidden="true">3</span></a>' in bf
@@ -282,6 +282,38 @@ def test_no_pagkasira_mistranslation(built_site: Path):
     html = (built_site / "fil" / "transparency" / "audit-compliance" / "index.html").read_text(encoding="utf-8")
     assert "Pagkasira" not in html
     assert "Pagkakahati ayon sa Panahon" in html
+
+
+def test_audit_page_data_driven(built_site: Path):
+    """Audit & Compliance renders every finding + archive row from JSON in all locales."""
+    audit = json.loads((REPO / "src" / "data" / "audit-reports.json").read_text(encoding="utf-8"))
+    finding_ids = [f["id"] for f in audit["key_findings"]]
+    statuses = sorted({f["status"] for f in audit["key_findings"]})
+    opinion_years = [o["year"] for o in audit["opinions"]]
+    archive_years = [e["year"] for e in audit["audit_archive"]]
+    assert len(finding_ids) == 23
+    for lang in ("en", "fil", "pag"):
+        html = _read_subpage(built_site, lang, "audit-compliance")
+        for fid in finding_ids:
+            assert f'id="finding-{fid}"' in html, f"{lang} missing finding {fid}"
+        for status in statuses:
+            assert f'id="findings-{status}"' in html, f"{lang} missing group {status}"
+        for year in opinion_years:
+            assert f"<td>{year}</td>" in html, f"{lang} sr table missing {year}"
+        for year in archive_years:
+            assert f"CY {year}</h3>" in html, f"{lang} archive missing CY {year}"
+    # 2025 is the newest card and flagged latest.
+    assert html.count('audit-year-latest') == 1
+    # 2025 is a compliance audit, not a full FS opinion.
+    assert "Non-Compliant" in html
+
+
+def test_audit_archive_sizes_present(built_site: Path):
+    """Real on-disk sizes render for the 2025 archive (not placeholder dashes)."""
+    html = _read_subpage(built_site, "en", "audit-compliance")
+    assert "Mapandan2025_car.docx" in html
+    assert "5.3 MB" in html
+    assert '<span class="file-size">—</span>' not in html
 
 
 def test_transparency_hub_has_no_redirect(built_site: Path):

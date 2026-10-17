@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T15:12:19Z",
+  "generated_at": "2026-10-17T07:43:05Z",
   "sources": {
     "procurement.json": {
       "sha256": "15c56ff4f00824ee77d72d46f7b2aaad1ce323771e075c37457e5bd02fdbeed4"
@@ -11,7 +11,7 @@
       "sha256": "45fd29c88cfe7d7a8c19cf0b3dca0d59f0743558067432926321b339f326cf62"
     },
     "audit-reports.json": {
-      "sha256": "409ced5d606476a7c47ae80237816bb9dc8d0eed8d6bf0615ea8159da85d1774"
+      "sha256": "e58572167d7d7cd6d472f59796c93e74eed6752b240e6785fd7c9f7af6ef3321"
     }
   },
   "derived": {
