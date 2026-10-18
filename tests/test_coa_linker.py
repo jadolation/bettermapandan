@@ -4,13 +4,11 @@ import json
 import sys
 from pathlib import Path
 
-import pytest
-
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.data.link_coa_projects import (
-    apply_verified_links,
     amount_proximity,
+    apply_verified_links,
     generate_coa_dpwh_report,
     generate_coa_philgeps_report,
     match_coa_contractor_to_philgeps,

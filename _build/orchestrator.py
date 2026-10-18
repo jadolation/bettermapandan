@@ -76,7 +76,9 @@ def build() -> None:
     generate_barangays()
 
     from _build.entities import build_all as build_entities
-    entity_summary = build_entities(assets_out=ROOT / "assets")
+    entity_summary = build_entities(assets_out=ROOT / "assets",
+                                    src_data=SRC_DATA, data_out=SRC_DATA,
+                                    review_dir=ROOT / "datasets" / "review")
     print("  entities: {projects} projects, {contracts} contracts, "
           "{contractors} contractors, {funds} funds, {findings} findings, "
           "{bids} bids, {relationships} relationships, {review} review".format(**entity_summary))

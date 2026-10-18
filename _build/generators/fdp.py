@@ -70,6 +70,18 @@ def _sre_cards(sre: dict) -> tuple:
     return income, nta, local
 
 
+def _find_sre(data: dict, period: str) -> dict | None:
+    """SRE filing for a period, skipping the SOE-by-function sheet (rendered separately)."""
+    return next((r for r in data.get("sre", [])
+                 if r.get("period") == period and str(r.get("sheet", "")).startswith("sre")), None)
+
+
+def _find_soe(data: dict, period: str) -> dict | None:
+    """Statement of Expenditures by function for a period, if filed."""
+    return next((r for r in data.get("sre", [])
+                 if r.get("period") == period and r.get("sheet") == "soe_report"), None)
+
+
 def _metric_cards(cards: list) -> str:
     out = ['<div class="grid grid-4 stack-gap-lg mt-24">']
     for value, label in cards:
@@ -122,7 +134,7 @@ def _render_period_cards(period: str, data: dict, labels: dict) -> str:
     """Visible metric cards for one quarterly filing period."""
     parts = []
     title = _period_label(period, labels["FDP_UNDATED"])
-    sre = next((r for r in data.get("sre", []) if r.get("period") == period), None)
+    sre = _find_sre(data, period)
     sef = next((r for r in data.get("sef", []) if r.get("period") == period), None)
     ldrrmf = next((r for r in data.get("ldrrmf", []) if r.get("period") == period), None)
     dev = [r for r in data.get("dev_fund", []) if r.get("period") == period]
@@ -154,7 +166,7 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
     parts = []
     title = _period_label(period, labels["FDP_UNDATED"])
     slug = re.sub(r"[^a-z0-9]+", "-", period.lower()).strip("-") or "undated"
-    sre = next((r for r in data.get("sre", []) if r.get("period") == period), None)
+    sre = _find_sre(data, period)
     sef = next((r for r in data.get("sef", []) if r.get("period") == period), None)
     ldrrmf = next((r for r in data.get("ldrrmf", []) if r.get("period") == period), None)
     cash = next((r for r in data.get("cash_flows", []) if r.get("period") == period), None)
@@ -178,6 +190,22 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
             rows.append(cells)
         parts.append(f"<h3 class='mt-24'>Statement of Receipts &amp; Expenditures ({_esc(title)})</h3>")
         parts.append(_sortable_money_table("sre-table-" + slug, "sre-search-" + slug, headers, rows, "Search SRE...", data_cols))
+
+    soe = _find_soe(data, period)
+    if soe:
+        soe_tl_any = any(r.get("trust_liability") for r in soe["rows"])
+        soe_headers = ["Particulars", "Target", "General Fund", "SEF", "Trust Fund"] + (["Trust Liability"] if soe_tl_any else [])
+        soe_cols = ["particulars", "target", "general_fund", "sef", "trust_fund"] + (["trust_liability"] if soe_tl_any else [])
+        soe_rows = []
+        for r in soe["rows"]:
+            cells = [f"<strong>{_esc(r['label'])}</strong>" if r["label"].isupper() else _esc(r["label"]),
+                     _peso(r.get("target")), _peso(r.get("general_fund")),
+                     _peso(r.get("sef")), _peso(r.get("trust_fund"))]
+            if soe_tl_any:
+                cells.append(_peso(r.get("trust_liability")))
+            soe_rows.append(cells)
+        parts.append(f"<h3 class='mt-24'>Statement of Expenditures, by function ({_esc(title)})</h3>")
+        parts.append(_sortable_money_table("soe-table-" + slug, "soe-search-" + slug, soe_headers, soe_rows, "Search SOE...", soe_cols))
 
     if sef:
         parts.append(f"<h3 class='mt-24'>Special Education Fund ({_esc(title)})</h3>")
@@ -293,12 +321,19 @@ def _themed_dialog(slug: str, heading: str, count_line: str, body_html: str, lab
 
 
 def _render_standalone(data: dict, labels: dict) -> str:
+    # NOTE: data["budget_book"] (12 records) is intentionally not rendered. Its rows are
+    # headerless with inconsistent column widths across filings, so no stable schema.
     parts = []
     budgets = sorted(data.get("budget", []), key=lambda r: str(r.get("period", "")), reverse=True)
     if budgets:
         inner = []
         for rec in budgets:
-            inner.append("<h3>Annual Budget by Office ({})</h3>".format(_esc(_period_label(rec["period"], labels["FDP_UNDATED"]))))
+            offices = rec.get("offices", [])
+            period_label = _esc(_period_label(rec["period"], labels["FDP_UNDATED"]))
+            heading = period_label
+            if len(offices) == 1:
+                heading = f"{_esc(offices[0]['office'])} &middot; {period_label}"
+            inner.append(f"<h3>Annual Budget by Office ({heading})</h3>")
             inner.append(_money_table(
                 ["Office", "Personnel", "MOOE", "Capital Outlay", "Proposed Total"],
                 [[_esc(o["office"]), _peso(o.get("ps")), _peso(o.get("mooe")),
@@ -431,7 +466,7 @@ def _render_standalone(data: dict, labels: dict) -> str:
 
 def _quarter_figures(period: str, data: dict):
     """Three headline figures for a compact quarter row."""
-    sre = next((r for r in data.get("sre", []) if r.get("period") == period), None)
+    sre = _find_sre(data, period)
     sef = next((r for r in data.get("sef", []) if r.get("period") == period), None)
     ldrrmf = next((r for r in data.get("ldrrmf", []) if r.get("period") == period), None)
     receipts = None

@@ -37,21 +37,31 @@ def _stage_tree(tmp_path: Path) -> Path:
     for path in (REPO / "assets" / "js").glob("*.js"):
         shutil.copy(path, js_dir / path.name)
     (staged / "llms.txt").write_text("staged", encoding="utf-8")
+    # Audit archive file sizes are computed from disk; symlink datasets so
+    # the staged build can stat the real audit report files without copying 554 MB.
+    (staged / "datasets").symlink_to(REPO / "datasets")
     return staged
 
 
 def _patch_roots(monkeypatch: pytest.MonkeyPatch, staged: Path) -> None:
     """Repoint every module-level path constant at the staged tree."""
     import _build.assets
+    import _build.chrome
     import _build.config
+    import _build.entities
+    import _build.generators.audit
     import _build.generators.barangays
     import _build.generators.dpwh
+    import _build.generators.fdp
+    import _build.generators.fdp_analytics
     import _build.generators.legislative
     import _build.generators.procurement
     import _build.generators.services
     import _build.lint
     import _build.locales
+    import _build.navigation
     import _build.orchestrator
+    import _build.pages
     import _build.templates
 
     staged_paths = {
@@ -67,15 +77,22 @@ def _patch_roots(monkeypatch: pytest.MonkeyPatch, staged: Path) -> None:
     staged_languages = [("en", staged, False), ("fil", staged / "fil", True), ("pag", staged / "pag", True)]
     for module in (
         _build.assets,
+        _build.chrome,
         _build.config,
+        _build.entities,
+        _build.generators.audit,
         _build.generators.barangays,
         _build.generators.dpwh,
+        _build.generators.fdp,
+        _build.generators.fdp_analytics,
         _build.generators.legislative,
         _build.generators.procurement,
         _build.generators.services,
         _build.lint,
         _build.locales,
+        _build.navigation,
         _build.orchestrator,
+        _build.pages,
         _build.templates,
     ):
         for name, value in staged_paths.items():
@@ -86,14 +103,15 @@ def _patch_roots(monkeypatch: pytest.MonkeyPatch, staged: Path) -> None:
     monkeypatch.setattr(_build.orchestrator, "LANGUAGES", staged_languages)
 
 
-@pytest.fixture()
-def built_site(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture) -> Path:
-    staged = _stage_tree(tmp_path)
-    _patch_roots(monkeypatch, staged)
+@pytest.fixture(scope="module")
+def built_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
+    staged = _stage_tree(tmp_path_factory.mktemp("site_root"))
+    mp = pytest.MonkeyPatch()
+    _patch_roots(mp, staged)
     import _build.orchestrator
 
     _build.orchestrator.build()
-    capsys.readouterr()
+    mp.undo()
     return staged
 
 
@@ -126,6 +144,19 @@ def test_search_index_populated(built_site: Path):
     assert index_path.exists()
     entries = json.loads(index_path.read_text(encoding="utf-8"))
     assert len(entries) >= 150, f"only {len(entries)} entries"
+
+
+def test_search_index_urls_resolve_to_pages(built_site: Path):
+    """Every search-result URL must map to a built folder index.html."""
+    entries = json.loads((built_site / "assets" / "search-index.json").read_text(encoding="utf-8"))
+    assert entries
+    for entry in entries:
+        url = entry["url"].split("#", 1)[0]
+        assert url.startswith("/"), entry["url"]
+        rel = url.strip("/")
+        target = built_site / rel / "index.html" if rel else built_site / "index.html"
+        assert target.is_file(), f"{entry['url']} does not resolve ({target})"
+        assert not url.endswith(".html"), f"search URL is not a clean folder URL: {url}"
 
 
 def test_assets_minified(built_site: Path):

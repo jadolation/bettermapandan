@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
 """Check i18n key parity across en.json, fil.json, and pag.json."""
 import json
+import re
 import sys
 from pathlib import Path
 
+CODE_T_CALL = re.compile(r'(?<![A-Za-z0-9_])t\(\s*[A-Za-z_][A-Za-z0-9_]*\s*,\s*"([A-Za-z0-9_.]+)"')
 
+
+def code_referenced_keys(root: Path) -> dict:
+    """Scan _build/**/*.py for t(<locale>, "literal.key") calls."""
+    found: dict[str, str] = {}
+    for py in sorted((root / "_build").rglob("*.py")):
+        for key in CODE_T_CALL.findall(py.read_text(encoding="utf-8")):
+            found.setdefault(key, str(py.relative_to(root)))
+    return found
 
 def flatten_values(data: dict, prefix: str = "") -> dict:
     """Flatten nested dict into dot-notation keys to string values."""
@@ -106,7 +116,17 @@ def main() -> int:
             print(f"  ... and {len(untranslated) - 20} more")
         print()
 
-    if missing_in_fil or missing_in_pag:
+    referenced = code_referenced_keys(root)
+    missing_referenced = sorted(k for k in referenced if k not in en_keys)
+    if missing_referenced:
+        print(f"FAIL: {len(missing_referenced)} locale key(s) referenced in code but missing from en.json:")
+        for key in missing_referenced:
+            print(f"  - {key}  (used in {referenced[key]})")
+        print()
+    else:
+        print(f"OK: All {len(referenced)} code-referenced locale keys exist in en.json")
+
+    if missing_in_fil or missing_in_pag or missing_referenced:
         return 1
 
     return 0

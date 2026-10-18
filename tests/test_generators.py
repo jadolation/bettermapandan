@@ -3,10 +3,19 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from _build.generators.barangays import validate_barangays, build_barangay_comparison_script
-from _build.generators.dpwh import _build_dpwh_labels, _dpwh_status_class, _dpwh_category_icon, generate_dpwh
-from _build.generators.procurement import _build_procurement_labels, generate_homepage_procurement_data, generate_homepage_dpwh_data
+from _build.generators.barangays import build_barangay_comparison_script, validate_barangays
+from _build.generators.dpwh import (
+    _build_dpwh_labels,
+    _dpwh_category_icon,
+    _dpwh_status_class,
+    generate_dpwh,
+)
 from _build.generators.legislative import _build_legislative_labels
+from _build.generators.procurement import (
+    _build_procurement_labels,
+    generate_homepage_dpwh_data,
+    generate_homepage_procurement_data,
+)
 
 
 def test_validate_barangays_empty():

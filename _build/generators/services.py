@@ -73,7 +73,7 @@ def generate_services(locale: dict, lang_code: str = "en") -> tuple[dict[str, st
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
     dir_filled, dir_hero_meta = _generate_services_directory(
-        data, by_category, dir_template, svc_labels, lang_code, asset_base=compute_asset_base(Path("services/index.html"), lang_code), analytics_json=analytics_json
+        data, by_category, dir_template, locale, lang_code, asset_base=compute_asset_base(Path("services/index.html"), lang_code), analytics_json=analytics_json
     )
     pages["services.html"] = dir_filled
     meta["services.html"] = {
@@ -227,7 +227,7 @@ def _build_photo_html(svc: dict, lang_code: str, asset_base: str) -> str:
             </figure>'''
 
 
-def _generate_services_directory(data: dict, by_category: dict, template: str, labels: dict, lang_code: str, asset_base: str = ".", analytics_json: str = ""):
+def _generate_services_directory(data: dict, by_category: dict, template: str, locale: dict, lang_code: str, asset_base: str = ".", analytics_json: str = ""):
     category_cards = []
     for cat in data.get("categories", []):
         cat_services = by_category.get(cat.get("slug", ""), [])
@@ -255,33 +255,33 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
             f"<script>window.SERVICES_ANALYTICS = {analytics_json};</script>"
             if analytics_json else ""
         ),
-        "SVC_TITLE": t(labels, "services_dir.title", "Services"),
-        "SVC_EYEBROW": t(labels, "services_dir.eyebrow", "Citizen's Charter"),
-        "SVC_LEDE": t(labels, "services_dir.lede", "Every service Mapandan offers."),
-        "SVC_DESC": t(labels, "services_dir.desc", "Find the service you need."),
-        "SVC_SEARCH_PLACEHOLDER": t(labels, "services_dir.search_placeholder", "Search services..."),
-        "SVC_NO_RESULTS": t(labels, "services_dir.no_results", "No services match your search."),
-        "SVC_BROWSE_ALL": t(labels, "services_dir.browse_all", "browse all categories"),
-        "SVC_NATIONAL_EYEBROW": t(labels, "services_dir.national_eyebrow", "National Platforms"),
-        "SVC_NATIONAL_TITLE": t(labels, "services_dir.national_title", "Online services"),
-        "SVC_NATIONAL_DESC": t(labels, "services_dir.national_desc", "Several national government services are available online."),
-        "SVC_PHILSYS": t(labels, "services_dir.national_philsys", "PhilSys National ID"),
-        "SVC_PHILSYS_DESC": t(labels, "services_dir.national_philsys_desc", ""),
-        "SVC_PSA": t(labels, "services_dir.national_psa", "PSA Serbilis"),
-        "SVC_PSA_DESC": t(labels, "services_dir.national_psa_desc", ""),
-        "SVC_EGOV": t(labels, "services_dir.national_egov", "eGovPH"),
-        "SVC_EGOV_DESC": t(labels, "services_dir.national_egov_desc", ""),
-        "SVC_ELGU": t(labels, "services_dir.national_elgu", "e-LGU Portal"),
-        "SVC_ELGU_DESC": t(labels, "services_dir.national_elgu_desc", ""),
-        "SVC_ANALYTICS_EYEBROW": t(labels, "services_dir.analytics_eyebrow", "Service Analytics"),
-        "SVC_ANALYTICS_TITLE": t(labels, "services_dir.analytics_title", "Services at a Glance"),
-        "SVC_ANALYTICS_DESC": t(labels, "services_dir.analytics_desc", "Breakdown of services by category, office, classification, and delivery mode."),
-        "SVC_ANALYTICS_BY_CATEGORY": t(labels, "services_dir.analytics_by_category", "Services by Category"),
-        "SVC_ANALYTICS_BY_CATEGORY_DESC": t(labels, "services_dir.analytics_by_category_desc", "Number of services in each category"),
-        "SVC_ANALYTICS_BY_OFFICE": t(labels, "services_dir.analytics_by_office", "Services by Office"),
-        "SVC_ANALYTICS_BY_OFFICE_DESC": t(labels, "services_dir.analytics_by_office_desc", "Number of services handled by each office"),
-        "SVC_ANALYTICS_FEES": t(labels, "services_dir.analytics_fees", "Fees at a Glance"),
-        "SVC_ANALYTICS_FEES_DESC": t(labels, "services_dir.analytics_fees_desc", "Average fee for paid services"),
+        "SVC_TITLE": t(locale, "services_dir.title", "Services"),
+        "SVC_EYEBROW": t(locale, "services_dir.eyebrow", "Citizen's Charter"),
+        "SVC_LEDE": t(locale, "services_dir.lede", "Every service Mapandan offers."),
+        "SVC_DESC": t(locale, "services_dir.desc", "Find the service you need."),
+        "SVC_SEARCH_PLACEHOLDER": t(locale, "services_dir.search_placeholder", "Search services..."),
+        "SVC_NO_RESULTS": t(locale, "services_dir.no_results", "No services match your search."),
+        "SVC_BROWSE_ALL": t(locale, "services_dir.browse_all", "browse all categories"),
+        "SVC_NATIONAL_EYEBROW": t(locale, "services_dir.national_eyebrow", "National Platforms"),
+        "SVC_NATIONAL_TITLE": t(locale, "services_dir.national_title", "Online services"),
+        "SVC_NATIONAL_DESC": t(locale, "services_dir.national_desc", "Several national government services are available online."),
+        "SVC_PHILSYS": t(locale, "services_dir.national_philsys", "PhilSys National ID"),
+        "SVC_PHILSYS_DESC": t(locale, "services_dir.national_philsys_desc", ""),
+        "SVC_PSA": t(locale, "services_dir.national_psa", "PSA Serbilis"),
+        "SVC_PSA_DESC": t(locale, "services_dir.national_psa_desc", ""),
+        "SVC_EGOV": t(locale, "services_dir.national_egov", "eGovPH"),
+        "SVC_EGOV_DESC": t(locale, "services_dir.national_egov_desc", ""),
+        "SVC_ELGU": t(locale, "services_dir.national_elgu", "e-LGU Portal"),
+        "SVC_ELGU_DESC": t(locale, "services_dir.national_elgu_desc", ""),
+        "SVC_ANALYTICS_EYEBROW": t(locale, "services_dir.analytics_eyebrow", "Service Analytics"),
+        "SVC_ANALYTICS_TITLE": t(locale, "services_dir.analytics_title", "Services at a Glance"),
+        "SVC_ANALYTICS_DESC": t(locale, "services_dir.analytics_desc", "Breakdown of services by category, office, classification, and delivery mode."),
+        "SVC_ANALYTICS_BY_CATEGORY": t(locale, "services_dir.analytics_by_category", "Services by Category"),
+        "SVC_ANALYTICS_BY_CATEGORY_DESC": t(locale, "services_dir.analytics_by_category_desc", "Number of services in each category"),
+        "SVC_ANALYTICS_BY_OFFICE": t(locale, "services_dir.analytics_by_office", "Services by Office"),
+        "SVC_ANALYTICS_BY_OFFICE_DESC": t(locale, "services_dir.analytics_by_office_desc", "Number of services handled by each office"),
+        "SVC_ANALYTICS_FEES": t(locale, "services_dir.analytics_fees", "Fees at a Glance"),
+        "SVC_ANALYTICS_FEES_DESC": t(locale, "services_dir.analytics_fees_desc", "Average fee for paid services"),
     })
     hero_meta = _extract_hero_meta(dir_filled)
     return dir_filled, hero_meta

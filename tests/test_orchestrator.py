@@ -4,17 +4,16 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from _build.orchestrator import (
-    build_breadcrumbs,
-    build_hero,
-    assemble_page,
-    build_search_entry,
-    _build_page_body_labels,
     _build_homepage_labels,
+    _build_page_body_labels,
+    _build_search_labels,
     _build_statistics_labels,
     _build_transparency_labels,
-    _build_search_labels,
+    assemble_page,
+    build_breadcrumbs,
+    build_hero,
+    build_search_entry,
 )
-from _build.config import SRC_PARTIALS
 
 
 def test_build_breadcrumbs_root():
@@ -71,19 +70,19 @@ def test_build_search_entry():
     entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", "en", "section")
     assert entry["title"] == "Title"
     assert entry["description"] == "Desc"
-    assert entry["url"] == "test.html"
+    assert entry["url"] == "/test/"
 
 
 def test_build_search_entry_fil():
     """Fil search entry should have fil/ prefix."""
     entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", "fil", "section")
-    assert entry["url"] == "fil/test.html"
+    assert entry["url"] == "/fil/test/"
 
 
 def test_build_search_entry_pag():
     """Pag search entry should have pag/ prefix."""
     entry = build_search_entry(Path("test.html"), "Title", "Desc", "Body", "pag", "section")
-    assert entry["url"] == "pag/test.html"
+    assert entry["url"] == "/pag/test/"
 
 
 def test_build_page_body_labels_has_keys():

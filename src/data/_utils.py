@@ -26,7 +26,7 @@ def parse_date(value):
         import pandas as pd
         ts = pd.to_datetime(value)
         return ts.strftime("%Y-%m-%d")
-    except Exception:
+    except (ValueError, TypeError, OverflowError):
         return None
 
 
@@ -186,7 +186,7 @@ def parse_fdp_date(value):
     for fmt in ("%Y-%m-%d", "%B %d, %Y", "%b %d, %Y", "%m/%d/%Y", "%d/%m/%Y"):
         try:
             from datetime import datetime
-            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
+            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")  # noqa: DTZ007
         except ValueError:
             continue
     # Last resort: pandas-style fuzzy parse is intentionally avoided;

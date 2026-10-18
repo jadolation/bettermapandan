@@ -80,11 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Group by category (first path segment)
+      // Group by category (section) — URLs are site-root folder paths.
       var groups = {};
       matches.forEach(function (m) {
-        var parts = m.url.split("/");
-        var cat = parts.length > 1 ? parts[0].replace(".html", "") : "Pages";
+        var segs = m.url.split("/").filter(function (s) { return s; });
+        if (segs.length && (segs[0] === "fil" || segs[0] === "pag")) segs.shift();
+        var cat = segs.length > 1 ? segs[0].replace(/-/g, " ") : "Pages";
         cat = cat.charAt(0).toUpperCase() + cat.slice(1);
         if (!groups[cat]) groups[cat] = [];
         groups[cat].push(m);

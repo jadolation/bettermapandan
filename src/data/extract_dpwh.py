@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Extract Mapandan DPWH infrastructure data from raw exports."""
-import json
 from pathlib import Path
 
 import pandas as pd
-from ._utils import clean, parse_date, parse_money, fiscal_year_from_contract_id, to_float
+
+from ._utils import clean, fiscal_year_from_contract_id, parse_date, parse_money
 
 CACHE_DIR = Path("datasets/dpwh")
 OUTPUT = Path("src/data/dpwh.json")

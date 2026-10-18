@@ -11,6 +11,17 @@ def to_folder_index(rel: Path) -> Path:
     return rel.parent / rel.stem / "index.html"
 
 
+def page_url(rel: Path) -> str:
+    """Deployed folder URL (no leading slash) for a source page path.
+
+    ``index.html`` -> ``""`` (site root); ``about.html`` -> ``about/``;
+    ``transparency/procurement.html`` -> ``transparency/procurement/``.
+    Matches how pages are written by ``to_folder_index``.
+    """
+    parts = to_folder_index(rel).parent.parts
+    return "/".join(parts) + "/" if parts else ""
+
+
 def parse_page(text: str) -> tuple[dict, str]:
     match = FRONT_MATTER_RE.match(text)
     if not match:

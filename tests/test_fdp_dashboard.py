@@ -138,7 +138,7 @@ def test_year_accordions_and_themed_dialogs():
     # year cards replaced the accordions: no year <details> remain
     import re
     assert not re.search(r"<details[^>]*>\s*<summary><strong>20\d\d</strong>", html)
-    assert html.count("fdp-archive-card") == 11  # 4 year + 1 undated + 6 themed
+    assert html.count("fdp-archive-card") == 10  # 4 year + 6 themed
     for dialog_id in ("fdp-dialog-budget", "fdp-dialog-workforce", "fdp-dialog-debt",
                       "fdp-dialog-proc-plans", "fdp-dialog-gad", "fdp-dialog-funds"):
         assert f'id="{dialog_id}"' in html, dialog_id
@@ -150,11 +150,15 @@ def test_year_accordions_and_themed_dialogs():
 
 
 def test_reverted_tables_render_inline():
-    """Fiscal snapshot, budget trend, and implementation rates show inline by design."""
-    src = (Path(__file__).resolve().parent.parent / "src" / "pages" / "transparency.html").read_text(encoding="utf-8")
+    """Fiscal snapshot and budget trend render inline in the fiscal page by design."""
+    src = (Path(__file__).resolve().parent.parent / "src" / "pages" / "transparency" / "budget-fiscal.html").read_text(encoding="utf-8")
     for modal_id in ("modal-snapshot", "modal-budget-trend", "modal-implrate"):
         assert modal_id not in src, modal_id
     for aria, table_id in (("Multi-year fiscal snapshot", "fiscal-snapshot-table"),
-                           ("Multi-year budget trend", "budget-trend-table"),
-                           ("Audit recommendation implementation rates", "implementation-rates-table")):
+                           ("Multi-year budget trend", "budget-trend-table")):
         assert f'<table aria-label="{aria}" id="{table_id}">' in src, aria
+
+    from _build.generators.audit import generate_audit_implementation_table
+    from _build.locales import load_locale
+    impl = generate_audit_implementation_table(load_locale("en"))
+    assert 'aria-label="Audit recommendation implementation rates" id="implementation-rates-table"' in impl

@@ -4,12 +4,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from _build.templates import (
+    compute_asset_base,
+    compute_url,
     fill,
     parse_page,
     strip_front_matter,
     strip_html,
-    compute_asset_base,
-    compute_url,
 )
 
 
@@ -25,7 +25,7 @@ def test_parse_page_no_front_matter():
     text = "<h1>Hello</h1>"
     try:
         parse_page(text)
-        assert False, "Expected SystemExit"
+        raise AssertionError("Expected SystemExit")
     except SystemExit:
         pass
 

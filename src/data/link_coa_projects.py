@@ -4,7 +4,6 @@ import json
 import re
 from pathlib import Path
 
-
 # ---------------------------------------------------------------------------
 # Normalization helpers
 # ---------------------------------------------------------------------------
@@ -71,7 +70,7 @@ def _token_overlap(a: str, b: str) -> float:
 def _shared_token_count(a: str, b: str) -> int:
     tokens_a = set(a.split())
     tokens_b = set(b.split())
-    stop_words = {"of", "the", "and", "at", "in", "for", "a", "an", "to", "brgy", "barangay", "municipality", "of", "along", "construction", "of", "road"}
+    stop_words = {"of", "the", "and", "at", "in", "for", "a", "an", "to", "brgy", "barangay", "municipality", "along", "construction", "road"}
     tokens_a = tokens_a - stop_words
     tokens_b = tokens_b - stop_words
     return len(tokens_a & tokens_b)

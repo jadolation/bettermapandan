@@ -32,8 +32,8 @@ from _build.navigation import (
 )
 from _build.templates import (
     compute_asset_base,
-    compute_url,
     fill,
+    page_url,
     strip_html,
     to_folder_index,
 )
@@ -43,9 +43,10 @@ _PAGE_META_CACHE: dict[str, dict] = {}
 
 def build_search_entry(rel: Path, title: str, description: str, body: str, lang_code: str, anchors_key: str = "") -> dict:
     """Build a search index entry from page content."""
-    url = compute_url(rel)
+    folder = page_url(rel)
     if lang_code != "en":
-        url = f"{lang_code}/{url}"
+        folder = f"{lang_code}/{folder}" if folder else f"{lang_code}/"
+    url = f"/{folder}"
     plain_body = strip_html(body)
     entry: dict[str, object] = {"title": title, "url": url, "description": description, "body": plain_body}
     if anchors_key:

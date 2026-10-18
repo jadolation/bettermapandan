@@ -148,8 +148,8 @@
   <img class="hero-rays" src="..//assets/municipal-seal.svg" alt="" aria-hidden="true" fetchpriority="high" width="120" height="120" />
   <div class="wrap">
     <span class="eyebrow">Citizen's Charter</span>
-    <h1>Services</h1>
-    <p class="lede">Every service Mapandan offers.</p>
+    <h1>Saray Serbisyo</h1>
+    <p class="lede">Amin a serbisyo ya inaalok na Mapandan, inayos base ed samay labay mon gawaen.</p>
   </div>
 </section>
 <div class="page-with-nav">
@@ -157,7 +157,7 @@
 <div class="section-nav-head"><span class="section-nav-title">Saray Kategorya</span><button type="button" class="section-nav-toggle" aria-expanded="true" aria-controls="section-nav-list" data-hide-label="Taguan so menu" data-show-label="Ipanengneng so menu"><span>Taguan so menu</span><span aria-hidden="true">&lt;</span></button></div>
 <ul id="section-nav-list">
 <li><a href="#services-directory" data-section="services-directory"><i data-lucide="layout-grid" aria-hidden="true"></i><span>Direktoryo na Serbisyo</span></a></li>
-<li><a href="#services-analytics" data-section="services-analytics"><i data-lucide="calculator" aria-hidden="true"></i><span>Panagsuri</span><span class="section-nav-badge" aria-hidden="true">3</span></a><ul class="section-nav-sub"><li><a href="#analytics-by-category" data-section="analytics-by-category">Services by Category</a></li><li><a href="#analytics-by-office" data-section="analytics-by-office">Services by Office</a></li><li><a href="#analytics-fees" data-section="analytics-fees">Fees at a Glance</a></li></ul></li>
+<li><a href="#services-analytics" data-section="services-analytics"><i data-lucide="calculator" aria-hidden="true"></i><span>Panagsuri</span><span class="section-nav-badge" aria-hidden="true">3</span></a><ul class="section-nav-sub"><li><a href="#analytics-by-category" data-section="analytics-by-category">Saray Serbisyo base ed Kategorya</a></li><li><a href="#analytics-by-office" data-section="analytics-by-office">Saray Serbisyo base ed Opisina</a></li><li><a href="#analytics-fees" data-section="analytics-fees">Saray Bayarin ed Sakey a Silew</a></li></ul></li>
 <li><a href="#national-services" data-section="national-services"><i data-lucide="globe" aria-hidden="true"></i><span>Pambansang Serbisyo</span><span class="section-nav-badge" aria-hidden="true">4</span></a><ul class="section-nav-sub"><li><a href="#national-philsys" data-section="national-philsys">PhilSys National ID</a></li><li><a href="#national-psa" data-section="national-psa">PSA Serbilis</a></li><li><a href="#national-egov" data-section="national-egov">eGovPH</a></li><li><a href="#national-emapandan" data-section="national-emapandan">e-LGU Portal</a></li></ul></li>
 </ul>
 </nav>
@@ -176,13 +176,13 @@
 <section class="section" id="services-directory">
   <div class="wrap">
     <div class="section-head">
-      <p>Find the service you need.</p>
+      <p>Anapen so serbisyo ya kailangan mo base ed kategorya. Balang listaan et kaiba so saray kinakailangan, bayarin, oras na proseso, tan opisina ya mangasiwa.</p>
     </div>
     <div class="service-filter">
       <label for="service-filter-input" class="sr-only">Search services</label>
       <div class="service-filter-wrap">
         <svg class="service-filter-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input id="service-filter-input" class="service-filter-input" type="search" placeholder="Search services..." autocomplete="off" />
+        <input id="service-filter-input" class="service-filter-input" type="search" placeholder="Anapen iray serbisyo..." autocomplete="off" />
       </div>
     </div>
     <div class="grid grid-2" id="service-category-grid">
@@ -391,7 +391,7 @@
       </div>
     </div>
     <div class="service-no-results" id="service-no-results" style="display:none">
-      <p>No services match your search. <a href="/services/">browse all categories</a></p>
+      <p>Anggapo’y serbisyo ya tumutumbok ed panag-anap mo. Salien so arom a salita odino <a href="/services/">nengnengen so amin a kategorya</a></p>
     </div>
   </div>
 </section>
@@ -403,25 +403,25 @@
 <section class="section" id="services-analytics">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">Service Analytics</div>
-      <h2>Services at a Glance</h2>
-      <p>Breakdown of services by category, office, classification, and delivery mode.</p>
+      <div class="section-eyebrow">Analytics na Serbisyo</div>
+      <h2>Saray Serbisyo ed Sakey a Silew</h2>
+      <p>Panaghati na saray serbisyo base ed kategorya, opisina, klasipikasyon, tan paraan na panagserbi.</p>
     </div>
     <div class="grid grid-2 stack-gap-lg">
       <div class="card">
-        <h3 id="analytics-by-category">Services by Category</h3>
-        <p class="source-label" style="margin-top:0">Number of services in each category</p>
-        <canvas id="chart-services-categories" height="260" role="img" aria-label="Services by Category"></canvas>
+        <h3 id="analytics-by-category">Saray Serbisyo base ed Kategorya</h3>
+        <p class="source-label" style="margin-top:0">Bilang na serbisyo ed balang kategorya</p>
+        <canvas id="chart-services-categories" height="260" role="img" aria-label="Saray Serbisyo base ed Kategorya"></canvas>
       </div>
       <div class="card">
-        <h3 id="analytics-by-office">Services by Office</h3>
-        <p class="source-label" style="margin-top:0">Number of services handled by each office</p>
-        <canvas id="chart-services-offices" height="260" role="img" aria-label="Services by Office"></canvas>
+        <h3 id="analytics-by-office">Saray Serbisyo base ed Opisina</h3>
+        <p class="source-label" style="margin-top:0">Bilang na serbisyo ya iwawawit na balang opisina</p>
+        <canvas id="chart-services-offices" height="260" role="img" aria-label="Saray Serbisyo base ed Opisina"></canvas>
       </div>
     </div>
     <div class="card" style="margin-top:24px">
-      <h3 id="analytics-fees">Fees at a Glance</h3>
-      <p class="source-label" style="margin-top:0">Average fee for paid services</p>
+      <h3 id="analytics-fees">Saray Bayarin ed Sakey a Silew</h3>
+      <p class="source-label" style="margin-top:0">Average a bayarin para ed saray bayad a serbisyo</p>
       <div id="services-fees-summary" style="display:flex;gap:32px;flex-wrap:wrap;align-items:center;padding:8px 0">
       </div>
     </div>
@@ -433,9 +433,9 @@
 <section class="section" id="national-services">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow">National Platforms</div>
-      <h2>Online services</h2>
-      <p>Several national government services are available online.</p>
+      <div class="section-eyebrow">Saray Pambansang Plataporma</div>
+      <h2>Online a serbisyo</h2>
+      <p>Wala ed online so nanduruman serbisyo na national government diad sarayan opisyal a portal.</p>
     </div>
     <div class="grid grid-4">
       <div class="card">
@@ -443,7 +443,7 @@
           <div class="icon"><i data-lucide="id-card"></i></div>
           <h3 id="national-philsys">PhilSys National ID</h3>
         </div>
-        <p></p>
+        <p>Rehistrasyon tan panag-isyu na National ID. Mag-apply ed itinalaga a PhilSys center.</p>
         <a class="link-arrow" href="https://philsys.gov.ph" target="_blank" rel="noopener">philsys.gov.ph &rarr;</a>
       </div>
       <div class="card">
@@ -451,7 +451,7 @@
           <div class="icon"><i data-lucide="file-text"></i></div>
           <h3 id="national-psa">PSA Serbilis</h3>
         </div>
-        <p></p>
+        <p>Civil Registry System para ed panag-request online na PSA-certified birth, marriage, tan death certificates.</p>
         <a class="link-arrow" href="https://www.psaserbilis.com.ph/" target="_blank" rel="noopener">psaserbilis.com.ph &rarr;</a>
       </div>
       <div class="card">
@@ -459,7 +459,7 @@
           <div class="icon"><i data-lucide="globe"></i></div>
           <h3 id="national-egov">eGovPH</h3>
         </div>
-        <p></p>
+        <p>Unified national government digital services portal. A-access so nanduruman ahensya ed sakey a lugar.</p>
         <a class="link-arrow" href="https://e.gov.ph" target="_blank" rel="noopener">e.gov.ph &rarr;</a>
       </div>
       <div class="card">
@@ -467,7 +467,7 @@
           <div class="icon"><i data-lucide="building-2"></i></div>
           <h3 id="national-emapandan">e-LGU Portal</h3>
         </div>
-        <p></p>
+        <p>Digital a plataporma para ed saray local government unit. Nengnengen no available iray serbisyo na Mapandan.</p>
         <a class="link-arrow" href="https://emapandan.com" target="_blank" rel="noopener">emapandan.com &rarr;</a>
       </div>
     </div>

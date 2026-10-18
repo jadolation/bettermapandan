@@ -3,12 +3,20 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 ROOT = Path(__file__).resolve().parent.parent
 FDP_PATH = ROOT / "src" / "data" / "fdp_disclosures.json"
 
-from src.data.extract_fdp import classify_csv, sniff_kind, read_rows, to_float, parse_year_quarter
+from src.data.extract_fdp import (  # noqa: E402
+    classify_csv,
+    parse_year_quarter,
+    read_rows,
+    sniff_kind,
+    to_float,
+)
 
 
 def _load():
@@ -94,6 +102,8 @@ def test_generator_renders_section():
 
 def test_csv_routing_covers_new_sheets():
     base = ROOT / "datasets" / "fdp-csv" / "2023"
+    if not base.is_dir() or not any(base.glob("*.csv")):
+        pytest.skip("datasets/fdp-csv is a generated, gitignored artifact (run src/data/fdp_to_csv.py)")
     app_file = next(base.glob("*__APP_MDRRM_Office.csv"))
     assert classify_csv(app_file) == "app"
     summary = next(base.glob("*__Form_4b_-_APP_Summary.csv"))

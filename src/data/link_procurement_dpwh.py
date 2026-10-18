@@ -5,7 +5,6 @@ import re
 import sys
 from pathlib import Path
 
-
 # ---------------------------------------------------------------------------
 # Normalization helpers
 # ---------------------------------------------------------------------------
@@ -164,7 +163,7 @@ def _shared_token_count(a: str, b: str) -> int:
     """Count the number of shared tokens between two normalized strings."""
     tokens_a = set(a.split())
     tokens_b = set(b.split())
-    stop_words = {"of", "the", "and", "at", "in", "for", "a", "an", "to", "brgy", "barangay", "municipality", "of", "along"}
+    stop_words = {"of", "the", "and", "at", "in", "for", "a", "an", "to", "brgy", "barangay", "municipality", "along"}
     tokens_a = tokens_a - stop_words
     tokens_b = tokens_b - stop_words
     return len(tokens_a & tokens_b)

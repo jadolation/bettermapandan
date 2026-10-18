@@ -3,13 +3,11 @@
 import sys
 from pathlib import Path
 
-import pytest
-
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.data.link_procurement_dpwh import (
-    apply_verified_links,
     amount_proximity,
+    apply_verified_links,
     compute_match_score,
     dates_overlap,
     generate_candidates,

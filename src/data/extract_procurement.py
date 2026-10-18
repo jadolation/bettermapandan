@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Extract Mapandan procurement data from PhilGEPS parquet."""
-import json
 from pathlib import Path
 
 import pandas as pd
+
 from ._utils import clean, write_json
 
 CACHE_DIR = Path("datasets/PhilGEPS")
@@ -103,7 +103,6 @@ def main():
         "contracts": records,
     }
 
-    from ._utils import write_json
     write_json(OUTPUT, output)
     print(f"Wrote {len(records)} contracts to {OUTPUT}")
     print(f"Total: ₱{total_amount:,.0f} across {contract_count} contracts")
