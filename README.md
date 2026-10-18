@@ -13,8 +13,8 @@ Better Mapandan is a static, client-rendered transparency site covering:
 - **86 services** across 13 categories (business permitting, civil registry, health, education, etc.)
 - **277 procurement contracts** with PhilGEPS tender data
 - **40 DPWH projects** with maps and status tracking
-- **13 years of COA audit reports** (2014–2025), including the 2025 Non-Compliant LDRRMF opinion and 11 new findings
-- **11 years of FDP filings** (DILG Full Disclosure Policy portal data)
+- **12 years of COA audit reports** (2014–2025), including the 2025 Non-Compliant LDRRMF opinion and 11 new findings
+- **4 years of FDP filings** (DILG Full Disclosure Policy portal data, 2023–2026)
 - **Entity resolution layer** — 107 projects, 277 contracts, 87 contractors, 14 funds, 23 audit findings linked via 76 KB relationship graph
 - **Project explorer** — cross-reference page linking COA findings → procurement → DPWH → projects
 - Trilingual: English at root, Filipino under `/fil/`, Pangasinan under `/pag/`
@@ -82,7 +82,7 @@ src/
     legislative.json            Ordinances, resolutions, issuances
     procurement.json            PhilGEPS contract records (~277)
     dpwh.json                   DPWH contract records (40 projects)
-    audit-reports.json          13 years of COA opinion & findings data (2014–2025)
+    audit-reports.json          12 years of COA opinion & findings data (2014–2025)
     coa-project-findings.json   COA project findings by section (procurement, infrastructure, disallowances)
     barangays.json              15 barangay profiles (population, households, officials)
     fdp_disclosures.json        DILG FDP filings (quarterly postings, 2023–2026)
@@ -401,7 +401,7 @@ Settings → Pages → **Source: GitHub Actions**. Custom domain configured via 
 ### Before first deploy
 
 1. **Update `REPO_URL`** in `_build/config.py` to your actual repo URL. This flows into the footer's "Source Code" link on every page.
-2. **Verify data.** All data was compiled from public sources (Wikipedia, Provincial Government of Pangasinan, `mapandan.gov.ph`, COA, PhilGEPS, DPWH Transparency Portal) as of August 2026. Before launch, cross-check names, numbers, and figures directly against official sources.
+2. **Verify data.** All data was compiled from public sources (Wikipedia, Provincial Government of Pangasinan, `mapandan.gov.ph`, COA, PhilGEPS, DPWH Transparency Portal, DILG FDP Portal) as of August 2026. Before launch, cross-check names, numbers, and figures directly against official sources.
 3. **Set custom domain.** Update `CNAME` file content if your domain differs.
 4. **Verify entity data.** Run `python3 -m src.data.link_coa_projects` and `python3 -m src.data.link_procurement_dpwh` to refresh cross-references if procurement or DPWH data changed.
 

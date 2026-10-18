@@ -6105,6 +6105,1680 @@
       "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN__sre_report.csv"
     },
     {
+      "form": "soe",
+      "period": "2025-Q4",
+      "year": 2025,
+      "quarter": 4,
+      "rows": [
+        {
+          "label": "General Public Services",
+          "target": 1000.0,
+          "general_fund": 49325349.1,
+          "sef": 58136035.44,
+          "trust_fund": 0.0,
+          "trust_liability": 4840000.0
+        },
+        {
+          "label": "Office of the Governor/Mayor",
+          "target": 1011.0,
+          "general_fund": 7691941.1,
+          "sef": 34778852.04,
+          "trust_fund": 0.0,
+          "trust_liability": 705000.0
+        },
+        {
+          "label": "Office of the Warden/Maintenance of the Prisoner",
+          "target": 1012.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Civil Security",
+          "target": 1013.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Barangay Secretariat/Barangay Office",
+          "target": 1014.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Business Permit and Licensing Office",
+          "target": 1015.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Vice Governor/Vice Mayor",
+          "target": 1016.0,
+          "general_fund": 4582329.0,
+          "sef": 2725640.0,
+          "trust_fund": 0.0,
+          "trust_liability": 600000.0
+        },
+        {
+          "label": "Sangguniang Panlalawigan/Panlungsod/Pambayan",
+          "target": 1021.0,
+          "general_fund": 16013811.0,
+          "sef": 1994500.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Support Services(Secretary to the Sanggunian)",
+          "target": 1022.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Administrator",
+          "target": 1031.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Personnel Officer/Human Resource Management Office",
+          "target": 1032.0,
+          "general_fund": 2006169.0,
+          "sef": 296700.0,
+          "trust_fund": 0.0,
+          "trust_liability": 75000.0
+        },
+        {
+          "label": "Office of the Planning and Development Coordinator",
+          "target": 1041.0,
+          "general_fund": 3030833.0,
+          "sef": 320350.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Civil Registrar",
+          "target": 1051.0,
+          "general_fund": 2435171.0,
+          "sef": 394690.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "General Services Office",
+          "target": 1061.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Budget Officer",
+          "target": 1071.0,
+          "general_fund": 2615994.0,
+          "sef": 362665.0,
+          "trust_fund": 0.0,
+          "trust_liability": 90000.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Accountant",
+          "target": 1081.0,
+          "general_fund": 3083300.0,
+          "sef": 415605.0,
+          "trust_fund": 0.0,
+          "trust_liability": 70000.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Treasurer",
+          "target": 1091.0,
+          "general_fund": 3399506.5,
+          "sef": 685490.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Assessor",
+          "target": 1101.0,
+          "general_fund": 2683267.0,
+          "sef": 311997.5,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Auditor",
+          "target": 1111.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Information Officer",
+          "target": 1121.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Information Services",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Library Services",
+          "target": 1122.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Legal Officer",
+          "target": 1131.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Prosecutor",
+          "target": 1141.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Regional Trial Court",
+          "target": 1151.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "City/Municipal Trial Court",
+          "target": 1158.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Registry of Deeds",
+          "target": 1161.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Mining Claim Registrations",
+          "target": 1171.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Police Department",
+          "target": 1181.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Fire Protection Services",
+          "target": 1191.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Public Order & Safety Department",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Aids to Barangay",
+          "target": 0.0,
+          "general_fund": 450000.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 450000.0
+        },
+        {
+          "label": "20% Local Development Fund",
+          "target": 1912.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "70% Local Disaster Risk Reduction and Management Fund",
+          "target": 0.0,
+          "general_fund": 3342415.16,
+          "sef": 0.0,
+          "trust_fund": 3300000.0,
+          "trust_liability": 6642415.16
+        },
+        {
+          "label": "Disaster Prevention and Mitigation",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Preparedness",
+          "target": 0.0,
+          "general_fund": 3342415.16,
+          "sef": 0.0,
+          "trust_fund": 3300000.0,
+          "trust_liability": 6642415.16
+        },
+        {
+          "label": "Disaster Response",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Rehabilitation and Recovery",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Procurement/Acquisition of Disaster Equipment for Disaster Response and Rescue Activities",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "30% Local Disaster Risk Reduction and Management Fund",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Local Disaster Risk Reduction Management Office",
+          "target": 1783027.5,
+          "general_fund": 267360.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 2050387.5
+        },
+        {
+          "label": "Office of the Local Government Operations Officer (LGOO)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 1192.0,
+          "general_fund": 0.0,
+          "sef": 11789770.74,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "SOCIAL SERVICES",
+          "target": 14019995.0,
+          "general_fund": 24326789.35,
+          "sef": 0.0,
+          "trust_fund": 563000.0,
+          "trust_liability": 38909784.35
+        },
+        {
+          "label": "Education, Culture & Sports/Manpower Development",
+          "target": 3000.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "General Administration",
+          "target": 3311.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Elementary School",
+          "target": 3321.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Secondary School",
+          "target": 3322.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "University/College Education School",
+          "target": 3323.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Vocational/Technical School",
+          "target": 3324.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Adult Education",
+          "target": 3325.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Education Subsidiary Services",
+          "target": 3331.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Manpower Development Management Tool",
+          "target": 3351.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "20% Local Development Fund",
+          "target": 3918.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 3999.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Health, Nutrition & Population Control",
+          "target": 4000.0,
+          "general_fund": 10808914.5,
+          "sef": 7350000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 377000.0
+        },
+        {
+          "label": "Office of the Health Officer",
+          "target": 4411.0,
+          "general_fund": 10808914.5,
+          "sef": 4360000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 377000.0
+        },
+        {
+          "label": "Field Projects (Immunization, Blood Donors,etc)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Rural Health Unit (RHU)",
+          "target": 10808914.5,
+          "general_fund": 4360000.0,
+          "sef": 0.0,
+          "trust_fund": 377000.0,
+          "trust_liability": 15545914.5
+        },
+        {
+          "label": "Day Care Clinic",
+          "target": 4413.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Hospital",
+          "target": 4421.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Chest Clinic",
+          "target": 4431.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Population Officer",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "20% Local Development Fund",
+          "target": 4919.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Special Health Expenditure",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 4999.0,
+          "general_fund": 0.0,
+          "sef": 2990000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Labor and Employment",
+          "target": 5000.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Labor and Employment",
+          "target": 5001.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 5999.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Housing and Community Development",
+          "target": 6000.0,
+          "general_fund": 0.0,
+          "sef": 2380000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Housing Projects - General administration",
+          "target": 6511.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Street Cleaning",
+          "target": 6521.0,
+          "general_fund": 0.0,
+          "sef": 630000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Garbage Collections",
+          "target": 6522.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Sewerage and Drainage System",
+          "target": 6523.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Street Lighting - General Administration",
+          "target": 6531.0,
+          "general_fund": 0.0,
+          "sef": 1150000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Community Development - General Administration",
+          "target": 6541.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Resettlement, Zonal Improvement, Urban Renewal, etc",
+          "target": 6542.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Beautification",
+          "target": 6543.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Maintenance of Plazas, Parks & Monuments",
+          "target": 6544.0,
+          "general_fund": 0.0,
+          "sef": 600000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "20% Local Development Fund",
+          "target": 6911.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 6999.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Social Services and Social Welfare",
+          "target": 7000.0,
+          "general_fund": 3211080.5,
+          "sef": 14596789.35,
+          "trust_fund": 0.0,
+          "trust_liability": 186000.0
+        },
+        {
+          "label": "Office of the Social Welfare and Development Officer",
+          "target": 7611.0,
+          "general_fund": 3211080.5,
+          "sef": 2942040.0,
+          "trust_fund": 0.0,
+          "trust_liability": 186000.0
+        },
+        {
+          "label": "20% Local Development Fund",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "70% Local Disaster Risk Reduction and Management Fund",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Prevention and Mitigation",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Preparedness",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Response",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Rehabilitation and Recovery",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Procurement/Acquisition of Disaster Equipment for Disaster Response and Rescue Activities",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "30% Local Disaster Risk Reduction and Management Fund",
+          "target": 0.0,
+          "general_fund": 2846749.35,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 2846749.35
+        },
+        {
+          "label": "Local Disaster Risk Reduction Management Office",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Senior Citizen",
+          "target": 0.0,
+          "general_fund": 1280000.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 1280000.0
+        },
+        {
+          "label": "Budgetary Reserve",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "2% Extraordinary Expense",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Local Disability Affairs Office",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 7999.0,
+          "general_fund": 0.0,
+          "sef": 7528000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Economic Services",
+          "target": 8000.0,
+          "general_fund": 8902258.5,
+          "sef": 6980096.83,
+          "trust_fund": 0.0,
+          "trust_liability": 12883165.33
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Agriculturist",
+          "target": 8711.0,
+          "general_fund": 2668908.5,
+          "sef": 3579636.83,
+          "trust_fund": 0.0,
+          "trust_liability": 165500.0
+        },
+        {
+          "label": "Extension and on-site Research Services (BAEX)",
+          "target": 8712.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Demonstration/Farm Nurseries",
+          "target": 8713.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Farm Equipment Pool",
+          "target": 8714.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Quality Control of Agricultural Products",
+          "target": 8715.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Irrigation System",
+          "target": 8716.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Tourism Office",
+          "target": 8717.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Veterinarian",
+          "target": 8721.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Environment and Natural Resources Officer",
+          "target": 8731.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Architect",
+          "target": 8741.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Provincial/City/Municipal Engineer",
+          "target": 8751.0,
+          "general_fund": 2026810.0,
+          "sef": 305000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Motor Pool",
+          "target": 8753.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Office of the Cooperatives Officer",
+          "target": 8761.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Economic Enterprise",
+          "target": 8888.0,
+          "general_fund": 4206540.0,
+          "sef": 3093460.0,
+          "trust_fund": 0.0,
+          "trust_liability": 300000.0
+        },
+        {
+          "label": "Operation of Waterworks System(Water Resource Development Office)",
+          "target": 8771.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Electric Light and PowerSys. (Distribution,etc)",
+          "target": 8781.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Telephone System (Communication)",
+          "target": 8791.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Hospital",
+          "target": 8801.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Markets (Economic Enterprise)",
+          "target": 8811.0,
+          "general_fund": 3118994.0,
+          "sef": 1081006.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Slaughterhouse (Economic Enterprise)",
+          "target": 8812.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Transportation System (Roads and Other Transport)",
+          "target": 8821.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of School (Economic Enterprise)",
+          "target": 8831.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Operation of Cemeteries (Economic Enterprise)",
+          "target": 8841.0,
+          "general_fund": 1087546.0,
+          "sef": 2012454.0,
+          "trust_fund": 0.0,
+          "trust_liability": 300000.0
+        },
+        {
+          "label": "Economic Development Programs (Printing)",
+          "target": 8861.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Agricultural Development Projects",
+          "target": 8851.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Tourism Projects (Hotels, etc.)",
+          "target": 8852.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Commercial Development Projects (Trading, trade fair, etc)",
+          "target": 8853.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Industrial Development Projects (Cottage Industry, etc)",
+          "target": 8854.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Economic Development Projects (Canteen and Restaurant)",
+          "target": 8859.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Economic Enterprises (Rent/Lease, Dormitory, etc.)",
+          "target": 8999.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "20% Local Development Fund",
+          "target": 8911.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 8500000.0
+        },
+        {
+          "label": "70% Local Disaster Risk Reduction and Management Fund",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Prevention and Mitigation",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Preparedness",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Response",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disaster Rehabilitation and Recovery",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Procurement/Acquisition of Disaster Equipment for Disaster Response and Rescue Activities",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "30% Local Disaster Risk Reduction and Management Fund",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 8912.0,
+          "general_fund": 0.0,
+          "sef": 2000.0,
+          "trust_fund": 0.0,
+          "trust_liability": 3917665.33
+        },
+        {
+          "label": "Debt Service",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 25958787.24,
+          "trust_fund": 0.0,
+          "trust_liability": 25958787.24
+        },
+        {
+          "label": "Principal",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 17886775.6,
+          "trust_fund": 0.0,
+          "trust_liability": 17886775.6
+        },
+        {
+          "label": "Local Development Projects",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 17886775.6,
+          "trust_fund": 0.0,
+          "trust_liability": 17886775.6
+        },
+        {
+          "label": "Loan Amortization-Domestic (Debt Service-Principal)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 17886775.6,
+          "trust_fund": 0.0,
+          "trust_liability": 17886775.6
+        },
+        {
+          "label": "Loan Amortization-Foreign (Debt Service-Principal)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Public Debts",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Loan Amortization-Domestic (Debt Service-Principal)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Loan Amortization-Foreign (Debt Service-Principal)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Revolving Loan Fund",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Outlays in Connection with Disasters",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest and Other Charges",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 8072011.64,
+          "trust_fund": 0.0,
+          "trust_liability": 8072011.64
+        },
+        {
+          "label": "Interest Payment - Domestic (Debt Service-Interest",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 8072011.64,
+          "trust_fund": 0.0,
+          "trust_liability": 8072011.64
+        },
+        {
+          "label": "Other Charges - Domestic (Commitment charges, docs. Stamps)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest Payment - Foreign (Debt Service-Interest",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Charges - Foreign (Commitment charges, docs. Stamps)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest Payment - Domestic (Debt Service-Interest",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Charges - Domestic (Commitment charges, docs. Stamps)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest Payment - Foreign (Debt Service-Interest",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Charges - Foreign (Commitment charges, docs. Stamps)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest Payment (Debt Service-Interest",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Charges (Commitment charges, docs. Stamps)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest Payment (Debt Service-Interest",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Charges (Commitment charges, docs. Stamps)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Retirement/Redemption of Bonds/Debt Securities",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "CAPITAL INVESTMENT",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Purchase of Debt Securities of Other Entities (Investment Outlay)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Grant/Make Loan to Other Entities (Investment Outlay)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "OTHER NON-OPERATING EXPENDITURES",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Purchase of Inventory",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Disbursement of Trust Liabilities",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to other NGAs",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to other GOCCs",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to other LGUs",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to National Treasury",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to BIR",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to GSIS",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to PAG-IBIG",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to PhilHealth",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to Officers and Employees",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Grant of Cash Advances",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Intra-Agency Payables",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Due to Other Fund",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Current Liabilities",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Guaranty Deposits Payable",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Performance/Bidders/Bail Bonds Payable",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Payables",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Other Deferred Credits",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Payable Accounts",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Accounts Payable",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Notes Payable",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Dividend Payable",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest Payable",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Payment of Prior Year Expenses Debited to PY Adj",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "TOTAL GENERAL FUND",
+          "target": 72247602.6,
+          "general_fund": 89442921.62,
+          "sef": 25958787.24,
+          "trust_fund": 18286165.33,
+          "trust_liability": 205935476.79
+        },
+        {
+          "label": "General Administration",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Elementary School",
+          "target": 0.0,
+          "general_fund": 3113041.19,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 3113041.19
+        },
+        {
+          "label": "Secondary School",
+          "target": 0.0,
+          "general_fund": 1021968.44,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 1021968.44
+        },
+        {
+          "label": "University/College Education School",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Vocational/Technical School",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Adult Education",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Education Subsidiary Services",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Manpower Development Management Tool",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Maintenance Of Sports Center, Athletic Fields, Playground",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Loan Amortization-Domestic(Debt Service-Principal)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Interest Payment-Domestic(Debt Service-Interest)",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "Others",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 0.0
+        },
+        {
+          "label": "TOTAL SEF",
+          "target": 0.0,
+          "general_fund": 4135009.63,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 4135009.63
+        },
+        {
+          "label": "TOTAL EXPENDITURES",
+          "target": 72247602.6,
+          "general_fund": 93577931.25,
+          "sef": 25958787.24,
+          "trust_fund": 18286165.33,
+          "trust_liability": 210070486.42
+        },
+        {
+          "label": "Payment of Account Payables (Prior Year) - GF",
+          "target": 0.0,
+          "general_fund": 13673986.67,
+          "sef": 0.0,
+          "trust_fund": 49920.0,
+          "trust_liability": 13723906.67
+        },
+        {
+          "label": "Payment of Account Payables (Prior Year) - SEF",
+          "target": 0.0,
+          "general_fund": 32147.0,
+          "sef": 0.0,
+          "trust_fund": 0.0,
+          "trust_liability": 32147.0
+        },
+        {
+          "label": "CONTINUING APPROPRIATION",
+          "target": 0.0,
+          "general_fund": 0.0,
+          "sef": 0.0,
+          "trust_fund": 30559213.09,
+          "trust_liability": 30559213.09
+        }
+      ],
+      "sheet": "soe_report",
+      "source_file": "datasets/fdp-csv/2025/2025-Q4-Expenditure_and_receipts__soe_report.csv"
+    },
+    {
       "form": "sre",
       "period": "2026-Q1",
       "year": 2026,
@@ -12525,6 +14199,16 @@
       "status": "nil",
       "debtors": [],
       "total": 0,
+      "source_file": "datasets/fdp-csv/2025/q4-2025-cash_advances__Form_12_-_UCA.csv"
+    },
+    {
+      "form": "cash_advances",
+      "period": "2025-Q4",
+      "year": 2025,
+      "quarter": 4,
+      "status": "nil",
+      "debtors": [],
+      "total": 0,
       "source_file": "datasets/fdp-csv/2026/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Form_12_-_UCA.csv"
     },
     {
@@ -12739,7 +14423,7 @@
           "progress": ""
         }
       ],
-      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_1__Form_6a_-TFU - Copy.csv"
+      "source_file": "datasets/fdp-csv/2025/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_1__Form_6a_-TFU.csv"
     },
     {
       "form": "trust_fund",
@@ -13797,7 +15481,7 @@
         "incurred": 20234052.82
       },
       "source_file": [
-        "datasets/fdp-csv/2024/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_5__Form_7_-_DFU.csv"
+        "datasets/fdp-csv/2024/Q3-2024-sre__Form_7_-_DFU.csv"
       ]
     },
     {
@@ -49653,7 +51337,7 @@
           "cost": null
         }
       ],
-      "source_file": "datasets/fdp-csv/2023/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Sheet1.csv"
+      "source_file": "datasets/fdp-csv/2022/REGION_I_-_ILOCOS_REGION_PANGASINAN_MAPANDAN_22__Sheet1.csv"
     },
     {
       "form": "gad",
