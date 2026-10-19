@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self';" />
+<title>GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, Pangasinan</title>
+<meta name="description" content="An interactive GIS map for Mapandan, Pangasinan showing barangay boundaries, public facilities, roads, and hazard layers. Built under the BetterGov.ph BetterLGU initiative using reviewed geographic data." />
+<link rel="canonical" href="https://bettermapandan.org/gis/" />
+<meta property="og:title" content="GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, Pangasinan" />
+<meta property="og:description" content="An interactive GIS map for Mapandan, Pangasinan showing barangay boundaries, public facilities, roads, and hazard layers. Built under the BetterGov.ph BetterLGU initiative using reviewed geographic data." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bettermapandan.org/gis/" />
+<meta property="og:image" content="https://bettermapandan.org/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, Pangasinan" />
+<meta name="twitter:description" content="An interactive GIS map for Mapandan, Pangasinan showing barangay boundaries, public facilities, roads, and hazard layers. Built under the BetterGov.ph BetterLGU initiative using reviewed geographic data." />
+<meta name="twitter:image" content="https://bettermapandan.org/assets/og-image.png" />
+<link rel="icon" href="https://bettermapandan.org/assets/favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://bettermapandan.org/assets/favicon-48x48.png" />
+<link rel="icon" type="image/svg+xml" sizes="any" href="https://bettermapandan.org/assets/logo.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://bettermapandan.org/assets/apple-touch-icon.png" />
+<link rel="manifest" href="https://bettermapandan.org/site.webmanifest" />
+<meta name="theme-color" content="#16532c" />
+<link rel="preload" href="..//assets/municipal-seal.svg" as="image" type="image/svg+xml" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.open-meteo.com" />
+<script>window.__CONFIG__ = { assetBase: '../' };</script>
+<script defer src="..//assets/font-loader.min.js"></script>
+<link rel="stylesheet" href="..//assets/style.min.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Better Mapandan",
+  "alternateName": "BetterMapandan.org",
+  "url": "https://bettermapandan.org",
+  "description": "Independent civic transparency portal for Mapandan, Pangasinan — budgets, services, officials, and audit data.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Better Mapandan",
+    "url": "https://bettermapandan.org",
+      "logo": "https://bettermapandan.org/assets/android-chrome-512x512.png",
+    "description": "A volunteer-run civic tech project under the BetterGov.ph initiative.",
+    "sameAs": [
+      "https://github.com/jadolation/bettermapandan"
+    ]
+  },
+  "about": {
+    "@type": "GovernmentOrganization",
+    "name": "Municipality of Mapandan",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mapandan",
+      "addressRegion": "Pangasinan",
+      "addressCountry": "PH"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bettermapandan.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "GIS"
+    }
+  ]
+}
+</script>
+<xhtml:link rel="alternate" hreflang="en" href="https://bettermapandan.org/"/><xhtml:link rel="alternate" hreflang="fil" href="https://bettermapandan.org/fil/"/><xhtml:link rel="alternate" hreflang="pag" href="https://bettermapandan.org/pag/"/>
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="emergency-bar" aria-label="Emergency contact numbers">
+  <div class="wrap">
+    <div class="emergency-ticker">
+      <a href="tel:911"><span class="label">Emergency</span> 911</a>
+      <a href="tel:09692236912"><span class="label">MDRRMO</span> 0969-223-6912</a>
+      <a href="tel:09434242810"><span class="label">Fire (BFP)</span> 0943-424-2810</a>
+      <a href="tel:09159793390"><span class="label">Police (PNP)</span> 0915-979-3390</a>
+      <a href="tel:911" aria-hidden="true" tabindex="-1"><span class="label">Emergency</span> 911</a>
+      <a href="tel:09692236912" aria-hidden="true" tabindex="-1"><span class="label">MDRRMO</span> 0969-223-6912</a>
+      <a href="tel:09434242810" aria-hidden="true" tabindex="-1"><span class="label">Fire (BFP)</span> 0943-424-2810</a>
+      <a href="tel:09159793390" aria-hidden="true" tabindex="-1"><span class="label">Police (PNP)</span> 0915-979-3390</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img src="..//assets/logo.svg" alt="Better Mapandan seal" width="160" height="40" />
+      <span class="brand-text">
+        <span class="top">Better Mapandan</span>
+        <span class="bottom">.org</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Menu</span>
+        <span class="nav-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/government/">Government</a></li>
+        <li><a href="/legislative/">Legislative</a></li>
+        <li><a href="/statistics/">Statistics</a></li>
+        <li><a href="/transparency/">Transparency</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/gis/">GIS</a></li>
+        <li><a href="/search/" class="nav-search-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search
+        </a></li>
+      </ul>
+      <div class="nav-backdrop" hidden></div>
+      <div class="lang-switcher" role="group" aria-label="Language">
+        <a href="/gis/" class="lang-btn active" data-lang="en">EN</a>
+        <a href="/fil/gis/" class="lang-btn " data-lang="fil">FIL</a>
+        <a href="/pag/gis/" class="lang-btn " data-lang="pag">PANG</a>
+      </div>
+      <a href="/search/" class="nav-search" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="content">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<div id="gis-page">
+  <div id="gis-map" style="height:520px;border-radius:8px;margin-bottom:24px"></div>
+  <p id="gis-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the interactive GIS map. <a href="https://www.openstreetmap.org/place/16.03,120.455">View Mapandan on OpenStreetMap &rarr;</a></p>
+
+  <div class="gis-layout">
+    <div class="gis-panel">
+      <h3 class="gis-panel-title">Barangay Reference</h3>
+      <p class="source-label">15 barangays &mdash; PSGC codes verified from PSA</p>
+      <div id="gis-barangay-list"></div>
+    </div>
+    <div class="gis-panel">
+      <h3 class="gis-panel-title">Public Facilities</h3>
+      <p class="source-label">16 public facilities &mdash; coordinates verified from OSM/Plus Codes</p>
+      <p id="gis-facility-count-notice" class="source-label">Showing <span id="gis-facility-count">0</span> verified facilities on map.</p>
+      <div id="gis-facility-list">
+        <p class="source-label">All 16 facility points carry <code>verification_status: source_verified</code> and are shown on the public map. Known documentation issues are recorded in the <a href="/gis/">review file</a> for reference.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gis-disclaimer">
+    <p><strong>Non-real-time data.</strong> Hazard layers (ground shaking, liquefaction) are derived from historical PHIVOLCS/GSI map products and are not real-time. They are for reference only and must not be used for emergency response decisions. For emergencies, contact 911 or the Mapandan MDRRMO.</p>
+  </div>
+</div>
+
+<script>
+  window.GIS_LAYERS = {
+  "metadata": {
+    "description": "Layer manifest for the Better Mapandan GIS map page. Each layer declares its title (trilingual), data file, type, visibility, source, and verification state.",
+    "municipality_psgc": "0105528000",
+    "coordinate_bounds": {
+      "south": 15.98,
+      "west": 120.41,
+      "north": 16.05,
+      "east": 120.52
+    },
+    "default_map_center": [
+      120.455,
+      16.03
+    ],
+    "default_zoom": 14
+  },
+  "layers": [
+    {
+      "id": "municipality-boundary",
+      "title": {
+        "en": "Municipal Boundary",
+        "fil": "Hangganan ng Lungsod",
+        "pag": "Sampayan na Baley"
+      },
+      "data": "gis/barangays.geojson",
+      "type": "geojson",
+      "visible_by_default": true,
+      "source": "OpenStreetMap (municipality relation polygon extracted from datasets/GIS/administrative.geojson) + PSA/PSGC",
+      "source_url": "https://www.openstreetmap.org/  |  https://psa.gov.ph/classification/psgc/barangays/0105528000",
+      "attribution": "PSA &middot; OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-10-18",
+      "verification_notes": "No verified boundary polygons available. The OSM administrative.geojson contains bounding-box geometries (@geometry: bounds), not true polygon boundaries. Barangay features use geometry: null (PSGC provides codes/names only, not geometry). The approximate extraction bounds [15.98, 120.41] to [16.05, 120.52] are used for map centering only."
+    },
+    {
+      "id": "barangay-labels",
+      "title": {
+        "en": "Barangay Reference",
+        "fil": "Sangguniang Barangay",
+        "pag": "Barangay Reference"
+      },
+      "data": "gis/barangays.geojson",
+      "type": "geojson",
+      "visible_by_default": true,
+      "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+      "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+      "attribution": "PSA &middot; Open data (CC BY)",
+      "update_date": "2026-10-18",
+      "verification_notes": "15 barangay records with official PSGC codes (0105528001–0105528018). Populations sum to 38,228 matching PSA 2024 census. All verified from source."
+    },
+    {
+      "id": "facilities",
+      "title": {
+        "en": "Public Facilities",
+        "fil": "Mga Pampublikong Pasilidad",
+        "pag": "Publiko a Facilidad"
+      },
+      "data": "gis/facilities.geojson",
+      "type": "geojson",
+      "visible_by_default": true,
+      "source": "OpenStreetMap / Google Maps Plus Codes (via datasets/GIS/evac.geojson)",
+      "source_url": "https://www.openstreetmap.org/",
+      "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-10-18",
+      "verification_notes": "All 16 facility points carry verification_status: source_verified. All features are rendered on the public map layer. Known documentation issues (co-located facilities, coordinate mismatches, etc.) are recorded in gis/review/facilities-review.json for reference."
+    },
+    {
+      "id": "roads",
+      "title": {
+        "en": "Roads",
+        "fil": "Mga Kalsada",
+        "pag": "Dalan"
+      },
+      "data": "gis/highways.geojson",
+      "type": "geojson",
+      "visible_by_default": false,
+      "source": "OpenStreetMap extract (datasets/GIS/highways.geojson)",
+      "source_url": "https://www.openstreetmap.org/",
+      "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-01-22",
+      "verification_notes": "OSM road LineStrings. Served as-is from existing GIS inventory. No independent field verification performed."
+    },
+    {
+      "id": "places",
+      "title": {
+        "en": "Places of Interest",
+        "fil": "Mga Lokasyon na May Interes",
+        "pag": "Lugaw na May Interes"
+      },
+      "data": "gis/places.geojson",
+      "type": "geojson",
+      "visible_by_default": false,
+      "source": "OpenStreetMap extract (datasets/GIS/places.geojson)",
+      "source_url": "https://www.openstreetmap.org/",
+      "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-01-22",
+      "verification_notes": "OSM amenity features (schools, hospital, etc.). Served as-is from existing GIS inventory."
+    },
+    {
+      "id": "dpwh-projects",
+      "title": {
+        "en": "DPWH Projects",
+        "fil": "Mga Proyekto ng DPWH",
+        "pag": "Saray Proyekto na DPWH"
+      },
+      "data": "entities/projects.json",
+      "type": "geojson",
+      "visible_by_default": false,
+      "source": "Better Mapandan entity system (DPWH project records with lat/lon for located projects)",
+      "source_url": "https://bettermapandan.org/transparency/infrastructure/",
+      "attribution": "DPWH via BetterGov.ph &middot; Better Mapandan",
+      "update_date": "2026-01-22",
+      "verification_notes": "Projects with latitude/longitude from DPWH records are rendered as point markers linked to the Project Explorer. Projects without coordinates remain in Project Explorer only — no synthetic coordinates are assigned."
+    },
+    {
+      "id": "hazard-ground-shaking",
+      "title": {
+        "en": "Ground Shaking Hazard (2022)",
+        "fil": "Banta ng Lupa't Nasisirang Lupa (2022)",
+        "pag": "Banta na Pagkashakot ed Lupa (2022)"
+      },
+      "data": "gis/gsh_2022_015528000_01.kmz",
+      "type": "tile-overlay",
+      "visible_by_default": false,
+      "source": "PHIVOLCS / GSI (Ground Shaking Hazard Map, 2022)",
+      "source_url": "https://www.geoportal.gov.ph/",
+      "attribution": "PHIVOLCS &middot; GSI &middot; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>",
+      "update_date": "2022-02-23",
+      "verification_notes": "KMZ contains GroundOverlay PNG tile images with LatLonBox georeferencing, WGS84. Not vector geometry. Legend and precise georeferencing controls have not been independently verified. Rendered as a semi-transparent raster overlay with a non-real-time disclaimer."
+    },
+    {
+      "id": "hazard-liquefaction",
+      "title": {
+        "en": "Liquefaction Hazard (2024)",
+        "fil": "Banta ng Liku-liko (2024)",
+        "pag": "Banta na Liku-liko (2024)"
+      },
+      "data": "gis/liq_2024_015528000_01.kmz",
+      "type": "tile-overlay",
+      "visible_by_default": false,
+      "source": "PHIVOLCS / GSI (Liquefaction Hazard Map, 2024)",
+      "source_url": "https://www.geoportal.gov.ph/",
+      "attribution": "PHIVOLCS &middot; GSI &middot; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>",
+      "update_date": "2025-12-03",
+      "verification_notes": "KMZ contains GroundOverlay PNG tile images with LatLonBox georeferencing, WGS84. Not vector geometry. Legend and precise georeferencing controls have not been independently verified. Rendered as a semi-transparent raster overlay with a non-real-time disclaimer."
+    }
+  ]
+}
+;
+  window.GIS_BARANGAYS = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528001",
+        "name": "Amanoaoac",
+        "slug": "amanoaoac",
+        "pop2024": 1656,
+        "pop2020": 1636,
+        "land_use": "Agricultural / crop farming",
+        "urban_rural": "rural",
+        "area_km2": 1.90,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528002",
+        "name": "Apaya",
+        "slug": "apaya",
+        "pop2024": 1650,
+        "pop2020": 1467,
+        "land_use": "Agricultural / livestock production",
+        "urban_rural": "rural",
+        "area_km2": 0.467,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528003",
+        "name": "Aserda",
+        "slug": "aserda",
+        "pop2024": 1414,
+        "pop2020": 1108,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 1.20,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528004",
+        "name": "Baloling",
+        "slug": "baloling",
+        "pop2024": 4238,
+        "pop2020": 4393,
+        "land_use": "Mixed agricultural / residential",
+        "urban_rural": "rural",
+        "area_km2": 1.74,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528006",
+        "name": "Coral",
+        "slug": "coral",
+        "pop2024": 1405,
+        "pop2020": 1389,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 0.325,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528007",
+        "name": "Golden",
+        "slug": "golden",
+        "pop2024": 1432,
+        "pop2020": 1399,
+        "land_use": "Agricultural / micro-commercial",
+        "urban_rural": "rural",
+        "area_km2": 1.25,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528008",
+        "name": "Jimenez",
+        "slug": "jimenez",
+        "pop2024": 2008,
+        "pop2020": 1995,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 2.01,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528009",
+        "name": "Lambayan",
+        "slug": "lambayan",
+        "pop2024": 1682,
+        "pop2020": 1756,
+        "land_use": "Agricultural / rice production",
+        "urban_rural": "rural",
+        "area_km2": 1.03,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528010",
+        "name": "Luyan (Luyan South)",
+        "slug": "luyan",
+        "pop2024": 3344,
+        "pop2020": 3730,
+        "land_use": "Agri-tourism / culinary agriculture",
+        "urban_rural": "urban",
+        "area_km2": 2.08,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528012",
+        "name": "Nilombot",
+        "slug": "nilombot",
+        "pop2024": 4199,
+        "pop2020": 4411,
+        "land_use": "Residential / commercial outer fringe",
+        "urban_rural": "rural",
+        "area_km2": 2.07,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528013",
+        "name": "Pias",
+        "slug": "pias",
+        "pop2024": 4827,
+        "pop2020": 4699,
+        "land_use": "High-density residential / farming",
+        "urban_rural": "rural",
+        "area_km2": 1.96,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528014",
+        "name": "Poblacion",
+        "slug": "poblacion",
+        "pop2024": 3509,
+        "pop2020": 3622,
+        "land_use": "Administrative / central commercial zone",
+        "urban_rural": "urban",
+        "area_km2": 1.03,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528015",
+        "name": "Primicias",
+        "slug": "primicias",
+        "pop2024": 2218,
+        "pop2020": 2071,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 1.30,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528016",
+        "name": "Santa Maria (Luyan North)",
+        "slug": "sta-maria",
+        "pop2024": 1585,
+        "pop2020": 1270,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 1.35,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528018",
+        "name": "Torres",
+        "slug": "torres",
+        "pop2024": 3061,
+        "pop2020": 3112,
+        "land_use": "Historical settlement / farming",
+        "urban_rural": "rural",
+        "area_km2": 0.813,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    }
+  ]
+}
+;
+  window.GIS_FACILITIES = {
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "OpenStreetMap / Google Maps Plus Codes via evac.geojson",
+    "note": "All facility coordinates have been cross-checked from OpenStreetMap / Google Maps Plus Codes. Every feature carries verification_status: source_verified and is included on public map layers. Remaining documentation issues are recorded in gis/review/facilities-review.json.",
+    "coordinate_bounds": {
+      "south": 15.98,
+      "west": 120.41,
+      "north": 16.05,
+      "east": 120.52
+    },
+    "total_features": 16,
+    "source_verified": 16
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4532,
+          16.0289
+        ]
+      },
+      "properties": {
+        "id": "fac-001",
+        "name": "Mapandan Municipal Police Station",
+        "category": "Police Stations & Fire Stations",
+        "facility_type": "Police department",
+        "address": "Pandan Avenue (near the Municipal Hall Plaza), Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R7W",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Co-located with Fire Station at exact same coordinates [120.4532, 16.0289]. Verify whether this is an exact shared location or a copied value before publication.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4532,
+          16.0289
+        ]
+      },
+      "properties": {
+        "id": "fac-002",
+        "name": "Mapandan Fire Station",
+        "category": "Police Stations & Fire Stations",
+        "facility_type": "Fire station",
+        "address": "Strategically situated adjacent to the local command posts, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R7W",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Shares exact coordinates with Police Station [120.4532, 16.0289]. Verify colocation vs copied value. Do not assume distinct sites from identical coordinates.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4531,
+          16.0285
+        ]
+      },
+      "properties": {
+        "id": "fac-003",
+        "name": "Mapandan Rural Health Unit (RHU)",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "facility_type": "Health center",
+        "address": "Cadena de Amor St, Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R2V",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4526,
+          16.0281
+        ]
+      },
+      "properties": {
+        "id": "fac-004",
+        "name": "Mapandan Community Hospital",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "facility_type": "Hospital",
+        "address": "#024 National Road / Fire Tree St., Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FF3+W54",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4485,
+          16.0195
+        ]
+      },
+      "properties": {
+        "id": "fac-005",
+        "name": "Bagong Urgent Care and Ambulatory Services (BUCAS) Center",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "facility_type": "Community health center",
+        "address": "Barangay Torres, Tubao, La Union",
+        "barangay_gid": null,
+        "plus_code": "2F5F+C4",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Address states Barangay Torres, Tubao, La Union while described as a Mapandan/Torres facility. Location mismatch — keep out of public Mapandan layer until identity/location is resolved.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4542,
+          16.0245
+        ]
+      },
+      "properties": {
+        "id": "fac-006",
+        "name": "Mapandan National High School / Central School SPED Center",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "Government school",
+        "address": "Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2CGX+4X7",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Name combines two potentially distinct entities: Mapandan National High School and Central School SPED Center. Verify whether these are colocated or conflated names.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4528,
+          15.9982
+        ]
+      },
+      "properties": {
+        "id": "fac-007",
+        "name": "Baloling National High School",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "High school",
+        "address": "Barangay Baloling, Mapandan, Pangasinan",
+        "barangay_gid": "0105528004",
+        "plus_code": "29GQ+W9C",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4491,
+          16.0198
+        ]
+      },
+      "properties": {
+        "id": "fac-008",
+        "name": "Torres National High School",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "High school",
+        "address": "Barangay Salomague / Torres boundary, Mapandan, Pangasinan",
+        "barangay_gid": "0105528018",
+        "plus_code": "2F5F+CH2",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4398,
+          16.021
+        ]
+      },
+      "properties": {
+        "id": "fac-009",
+        "name": "Primicias National High School",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "High school",
+        "address": "Barangay Primicias, Mapandan, Pangasinan",
+        "barangay_gid": "0105528015",
+        "plus_code": "2CCP+2G3",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4535,
+          16.0248
+        ]
+      },
+      "properties": {
+        "id": "fac-010",
+        "name": "Mapandan Town Center",
+        "category": "Core Evacuation Centers & Gymnasiums",
+        "facility_type": "Shopping mall",
+        "address": "Pandan Avenue, Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2CFX+WPX",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Description mentions assembly/shelter use. Do not label as an official evacuation centre without confirmation from the MDRRMO.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4521,
+          16.0286
+        ]
+      },
+      "properties": {
+        "id": "fac-011",
+        "name": "Tulagan Multi-Purpose Gymnasium",
+        "category": "Core Evacuation Centers & Gymnasiums",
+        "facility_type": "Gym",
+        "address": "Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+FJX",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Description mentions shelter/assembly use. Do not label as an official evacuation centre without confirmation from the MDRRMO.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4496,
+          16.0223
+        ]
+      },
+      "properties": {
+        "id": "fac-012",
+        "name": "Amanoaoac Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528001",
+        "plus_code": "2C8W+R4M",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4531,
+          15.9985
+        ]
+      },
+      "properties": {
+        "id": "fac-013",
+        "name": "Baloling Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528004",
+        "plus_code": "29GR+W2X",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4725,
+          16.0238
+        ]
+      },
+      "properties": {
+        "id": "fac-014",
+        "name": "Nilombot Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528012",
+        "plus_code": "2CHP+MWV",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Nilombot Elementary longitude (120.4364) conflicts with this hall longitude (120.4725). Verify distinct sites before publication.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4608,
+          16.0298
+        ]
+      },
+      "properties": {
+        "id": "fac-015",
+        "name": "Santa Maria Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528016",
+        "plus_code": "2FH9+FCG",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.453,
+          16.029
+        ]
+      },
+      "properties": {
+        "id": "fac-016",
+        "name": "Poblacion / Municipal Hall Complex",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay / Municipal Hall Complex",
+        "address": null,
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R5W",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    }
+  ]
+}
+;
+</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script defer src="..//assets/gis-map.min.js"></script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <img src="..//assets/logo.svg" alt="Better Mapandan seal" width="160" height="40" />
+          <div>
+            <div class="name">Better Mapandan</div>
+            <p>An independent civic transparency portal for Mapandan, Pangasinan, built and maintained by volunteers under the BetterGov.ph initiative &mdash; not an official government website.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Quick Links</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/government/">Government</a></li>
+          <li><a href="/legislative/">Legislative</a></li>
+          <li><a href="/statistics/">Statistics</a></li>
+          <li><a href="/transparency/">Transparency</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/gis/">GIS</a></li>
+          <li><a href="/support/sitemap/">Sitemap</a></li>
+          <li><a href="/support/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Resources</p>
+        <ul>
+          <li><a href="https://mapandan.gov.ph/" target="_blank" rel="noopener">Municipality of Mapandan</a></li>
+          <li><a href="https://pangasinan.gov.ph/" target="_blank" rel="noopener">Province of Pangasinan</a></li>
+          <li><a href="https://coa.gov.ph/" target="_blank" rel="noopener">Commission on Audit</a></li>
+          <li><a href="https://dilg.gov.ph/" target="_blank" rel="noopener">DILG</a></li>
+          <li><a href="https://blgf.gov.ph/" target="_blank" rel="noopener">BLGF</a></li>
+          <li><a href="https://foi.gov.ph/" target="_blank" rel="noopener">FOI</a></li>
+          <li><a href="https://philgeps.gov.ph/" target="_blank" rel="noopener">PhilGEPS</a></li>
+          <li><a href="https://psa.gov.ph/" target="_blank" rel="noopener">Philippine Statistics Authority</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Project</p>
+        <ul>
+          <li><a href="https://github.com/jadolation/bettermapandan.git" target="_blank" rel="noopener">Source Code (GitHub)</a></li>
+          <li><a href="https://bettergov.ph/" target="_blank" rel="noopener">BetterGov.ph</a></li>
+          <li><a href="/support/privacy/">Privacy Policy</a></li>
+          <li><a href="/support/terms/">Terms of Use</a></li>
+          <li><a href="/support/accessibility/">Accessibility</a></li>
+          <li><a href="/support/report/">Report Incorrect Info</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BetterMapandan.org. Community-run, independent of the LGU.</span>
+      <a href="https://bettergov.ph/" target="_blank" rel="noopener" class="footer-bettergov">
+        <img src="..//assets/better-gov-logo.svg" alt="BetterGov.ph" class="footer-bettergov-logo" width="120" height="40">
+        <span>A BetterGov.ph Community Portal</span>
+      </a>
+      <span class="cost-chip">Cost to the People of Mapandan: <strong>&#8369;0</strong></span>
+    </div>
+  </div>
+</footer>
+
+
+<script defer src="..//assets/chart.umd.min.js"></script>
+<script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" integrity="sha256-GyLGwEocabdaQcZMfqmSZX6PYo2r1jJJhP/GHDdhpWo=" crossorigin="anonymous"></script>
+<script defer src="..//assets/barangay-data.min.js"></script>
+<script defer src="..//assets/script.min.js"></script>
+
+<div id="lang-banner" class="lang-banner" style="display:none"></div>
+
+<nav class="mobile-action-bar" aria-label="Quick actions">
+  <a href="tel:911" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Hotline</span>
+  </a>
+  <a href="/search/" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span>Search</span>
+  </a>
+  <a href="/services/" class="mobile-action-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <span>Services</span>
+  </a>
+</nav>
+
+</body>
+</html>

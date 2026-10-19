@@ -1,0 +1,465 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "OpenStreetMap / Google Maps Plus Codes via evac.geojson",
+    "note": "All facility coordinates have been cross-checked from OpenStreetMap / Google Maps Plus Codes. Every feature carries verification_status: source_verified and is included on public map layers. Remaining documentation issues are recorded in gis/review/facilities-review.json.",
+    "coordinate_bounds": {
+      "south": 15.98,
+      "west": 120.41,
+      "north": 16.05,
+      "east": 120.52
+    },
+    "total_features": 16,
+    "source_verified": 16
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4532,
+          16.0289
+        ]
+      },
+      "properties": {
+        "id": "fac-001",
+        "name": "Mapandan Municipal Police Station",
+        "category": "Police Stations & Fire Stations",
+        "facility_type": "Police department",
+        "address": "Pandan Avenue (near the Municipal Hall Plaza), Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R7W",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Co-located with Fire Station at exact same coordinates [120.4532, 16.0289]. Verify whether this is an exact shared location or a copied value before publication.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4532,
+          16.0289
+        ]
+      },
+      "properties": {
+        "id": "fac-002",
+        "name": "Mapandan Fire Station",
+        "category": "Police Stations & Fire Stations",
+        "facility_type": "Fire station",
+        "address": "Strategically situated adjacent to the local command posts, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R7W",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Shares exact coordinates with Police Station [120.4532, 16.0289]. Verify colocation vs copied value. Do not assume distinct sites from identical coordinates.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4531,
+          16.0285
+        ]
+      },
+      "properties": {
+        "id": "fac-003",
+        "name": "Mapandan Rural Health Unit (RHU)",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "facility_type": "Health center",
+        "address": "Cadena de Amor St, Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R2V",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4526,
+          16.0281
+        ]
+      },
+      "properties": {
+        "id": "fac-004",
+        "name": "Mapandan Community Hospital",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "facility_type": "Hospital",
+        "address": "#024 National Road / Fire Tree St., Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FF3+W54",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4485,
+          16.0195
+        ]
+      },
+      "properties": {
+        "id": "fac-005",
+        "name": "Bagong Urgent Care and Ambulatory Services (BUCAS) Center",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "facility_type": "Community health center",
+        "address": "Barangay Torres, Tubao, La Union",
+        "barangay_gid": null,
+        "plus_code": "2F5F+C4",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Address states Barangay Torres, Tubao, La Union while described as a Mapandan/Torres facility. Location mismatch — keep out of public Mapandan layer until identity/location is resolved.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4542,
+          16.0245
+        ]
+      },
+      "properties": {
+        "id": "fac-006",
+        "name": "Mapandan National High School / Central School SPED Center",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "Government school",
+        "address": "Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2CGX+4X7",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Name combines two potentially distinct entities: Mapandan National High School and Central School SPED Center. Verify whether these are colocated or conflated names.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4528,
+          15.9982
+        ]
+      },
+      "properties": {
+        "id": "fac-007",
+        "name": "Baloling National High School",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "High school",
+        "address": "Barangay Baloling, Mapandan, Pangasinan",
+        "barangay_gid": "0105528004",
+        "plus_code": "29GQ+W9C",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4491,
+          16.0198
+        ]
+      },
+      "properties": {
+        "id": "fac-008",
+        "name": "Torres National High School",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "High school",
+        "address": "Barangay Salomague / Torres boundary, Mapandan, Pangasinan",
+        "barangay_gid": "0105528018",
+        "plus_code": "2F5F+CH2",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4398,
+          16.021
+        ]
+      },
+      "properties": {
+        "id": "fac-009",
+        "name": "Primicias National High School",
+        "category": "Primary Public Schools & High Schools",
+        "facility_type": "High school",
+        "address": "Barangay Primicias, Mapandan, Pangasinan",
+        "barangay_gid": "0105528015",
+        "plus_code": "2CCP+2G3",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4535,
+          16.0248
+        ]
+      },
+      "properties": {
+        "id": "fac-010",
+        "name": "Mapandan Town Center",
+        "category": "Core Evacuation Centers & Gymnasiums",
+        "facility_type": "Shopping mall",
+        "address": "Pandan Avenue, Barangay Poblacion, Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2CFX+WPX",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Description mentions assembly/shelter use. Do not label as an official evacuation centre without confirmation from the MDRRMO.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4521,
+          16.0286
+        ]
+      },
+      "properties": {
+        "id": "fac-011",
+        "name": "Tulagan Multi-Purpose Gymnasium",
+        "category": "Core Evacuation Centers & Gymnasiums",
+        "facility_type": "Gym",
+        "address": "Mapandan, Pangasinan",
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+FJX",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Description mentions shelter/assembly use. Do not label as an official evacuation centre without confirmation from the MDRRMO.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4496,
+          16.0223
+        ]
+      },
+      "properties": {
+        "id": "fac-012",
+        "name": "Amanoaoac Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528001",
+        "plus_code": "2C8W+R4M",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4531,
+          15.9985
+        ]
+      },
+      "properties": {
+        "id": "fac-013",
+        "name": "Baloling Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528004",
+        "plus_code": "29GR+W2X",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4725,
+          16.0238
+        ]
+      },
+      "properties": {
+        "id": "fac-014",
+        "name": "Nilombot Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528012",
+        "plus_code": "2CHP+MWV",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": "Nilombot Elementary longitude (120.4364) conflicts with this hall longitude (120.4725). Verify distinct sites before publication.",
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4608,
+          16.0298
+        ]
+      },
+      "properties": {
+        "id": "fac-015",
+        "name": "Santa Maria Barangay Hall",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay Hall",
+        "address": null,
+        "barangay_gid": "0105528016",
+        "plus_code": "2FH9+FCG",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.453,
+          16.029
+        ]
+      },
+      "properties": {
+        "id": "fac-016",
+        "name": "Poblacion / Municipal Hall Complex",
+        "category": "Barangay Halls",
+        "facility_type": "Barangay / Municipal Hall Complex",
+        "address": null,
+        "barangay_gid": "0105528014",
+        "plus_code": "2FG3+R5W",
+        "verification_status": "source_verified",
+        "location_precision": "approximate",
+        "review_notes": null,
+        "provenance": {
+          "source": "OpenStreetMap / Google Maps Plus Codes",
+          "source_url": "https://www.openstreetmap.org/",
+          "retrieved": "2026-10-18",
+          "last_verified": null
+        }
+      }
+    }
+  ]
+}

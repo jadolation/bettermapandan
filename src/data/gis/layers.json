@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "description": "Layer manifest for the Better Mapandan GIS map page. Each layer declares its title (trilingual), data file, type, visibility, source, and verification state.",
+    "municipality_psgc": "0105528000",
+    "coordinate_bounds": {
+      "south": 15.98,
+      "west": 120.41,
+      "north": 16.05,
+      "east": 120.52
+    },
+    "default_map_center": [
+      120.455,
+      16.03
+    ],
+    "default_zoom": 14
+  },
+  "layers": [
+    {
+      "id": "municipality-boundary",
+      "title": {
+        "en": "Municipal Boundary",
+        "fil": "Hangganan ng Lungsod",
+        "pag": "Sampayan na Baley"
+      },
+      "data": "gis/barangays.geojson",
+      "type": "geojson",
+      "visible_by_default": true,
+      "source": "OpenStreetMap (municipality relation polygon extracted from datasets/GIS/administrative.geojson) + PSA/PSGC",
+      "source_url": "https://www.openstreetmap.org/  |  https://psa.gov.ph/classification/psgc/barangays/0105528000",
+      "attribution": "PSA &middot; OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-10-18",
+      "verification_notes": "No verified boundary polygons available. The OSM administrative.geojson contains bounding-box geometries (@geometry: bounds), not true polygon boundaries. Barangay features use geometry: null (PSGC provides codes/names only, not geometry). The approximate extraction bounds [15.98, 120.41] to [16.05, 120.52] are used for map centering only."
+    },
+    {
+      "id": "barangay-labels",
+      "title": {
+        "en": "Barangay Reference",
+        "fil": "Sangguniang Barangay",
+        "pag": "Barangay Reference"
+      },
+      "data": "gis/barangays.geojson",
+      "type": "geojson",
+      "visible_by_default": true,
+      "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+      "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+      "attribution": "PSA &middot; Open data (CC BY)",
+      "update_date": "2026-10-18",
+      "verification_notes": "15 barangay records with official PSGC codes (0105528001–0105528018). Populations sum to 38,228 matching PSA 2024 census. All verified from source."
+    },
+    {
+      "id": "facilities",
+      "title": {
+        "en": "Public Facilities",
+        "fil": "Mga Pampublikong Pasilidad",
+        "pag": "Publiko a Facilidad"
+      },
+      "data": "gis/facilities.geojson",
+      "type": "geojson",
+      "visible_by_default": true,
+      "source": "OpenStreetMap / Google Maps Plus Codes (via datasets/GIS/evac.geojson)",
+      "source_url": "https://www.openstreetmap.org/",
+      "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-10-18",
+      "verification_notes": "All 16 facility points carry verification_status: source_verified. All features are rendered on the public map layer. Known documentation issues (co-located facilities, coordinate mismatches, etc.) are recorded in gis/review/facilities-review.json for reference."
+    },
+    {
+      "id": "roads",
+      "title": {
+        "en": "Roads",
+        "fil": "Mga Kalsada",
+        "pag": "Dalan"
+      },
+      "data": "gis/highways.geojson",
+      "type": "geojson",
+      "visible_by_default": false,
+      "source": "OpenStreetMap extract (datasets/GIS/highways.geojson)",
+      "source_url": "https://www.openstreetmap.org/",
+      "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-01-22",
+      "verification_notes": "OSM road LineStrings. Served as-is from existing GIS inventory. No independent field verification performed."
+    },
+    {
+      "id": "places",
+      "title": {
+        "en": "Places of Interest",
+        "fil": "Mga Lokasyon na May Interes",
+        "pag": "Lugaw na May Interes"
+      },
+      "data": "gis/places.geojson",
+      "type": "geojson",
+      "visible_by_default": false,
+      "source": "OpenStreetMap extract (datasets/GIS/places.geojson)",
+      "source_url": "https://www.openstreetmap.org/",
+      "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
+      "update_date": "2026-01-22",
+      "verification_notes": "OSM amenity features (schools, hospital, etc.). Served as-is from existing GIS inventory."
+    },
+    {
+      "id": "dpwh-projects",
+      "title": {
+        "en": "DPWH Projects",
+        "fil": "Mga Proyekto ng DPWH",
+        "pag": "Saray Proyekto na DPWH"
+      },
+      "data": "entities/projects.json",
+      "type": "geojson",
+      "visible_by_default": false,
+      "source": "Better Mapandan entity system (DPWH project records with lat/lon for located projects)",
+      "source_url": "https://bettermapandan.org/transparency/infrastructure/",
+      "attribution": "DPWH via BetterGov.ph &middot; Better Mapandan",
+      "update_date": "2026-01-22",
+      "verification_notes": "Projects with latitude/longitude from DPWH records are rendered as point markers linked to the Project Explorer. Projects without coordinates remain in Project Explorer only — no synthetic coordinates are assigned."
+    },
+    {
+      "id": "hazard-ground-shaking",
+      "title": {
+        "en": "Ground Shaking Hazard (2022)",
+        "fil": "Banta ng Lupa't Nasisirang Lupa (2022)",
+        "pag": "Banta na Pagkashakot ed Lupa (2022)"
+      },
+      "data": "gis/gsh_2022_015528000_01.kmz",
+      "type": "tile-overlay",
+      "visible_by_default": false,
+      "source": "PHIVOLCS / GSI (Ground Shaking Hazard Map, 2022)",
+      "source_url": "https://www.geoportal.gov.ph/",
+      "attribution": "PHIVOLCS &middot; GSI &middot; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>",
+      "update_date": "2022-02-23",
+      "verification_notes": "KMZ contains GroundOverlay PNG tile images with LatLonBox georeferencing, WGS84. Not vector geometry. Legend and precise georeferencing controls have not been independently verified. Rendered as a semi-transparent raster overlay with a non-real-time disclaimer."
+    },
+    {
+      "id": "hazard-liquefaction",
+      "title": {
+        "en": "Liquefaction Hazard (2024)",
+        "fil": "Banta ng Liku-liko (2024)",
+        "pag": "Banta na Liku-liko (2024)"
+      },
+      "data": "gis/liq_2024_015528000_01.kmz",
+      "type": "tile-overlay",
+      "visible_by_default": false,
+      "source": "PHIVOLCS / GSI (Liquefaction Hazard Map, 2024)",
+      "source_url": "https://www.geoportal.gov.ph/",
+      "attribution": "PHIVOLCS &middot; GSI &middot; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>",
+      "update_date": "2025-12-03",
+      "verification_notes": "KMZ contains GroundOverlay PNG tile images with LatLonBox georeferencing, WGS84. Not vector geometry. Legend and precise georeferencing controls have not been independently verified. Rendered as a semi-transparent raster overlay with a non-real-time disclaimer."
+    }
+  ]
+}

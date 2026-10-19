@@ -1,0 +1,1018 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-18T15:17:35Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/12322605",
+        "addr:city": "Mapandan",
+        "addr:street": "Pandan Avenue",
+        "addr:street:corner": "Tibule Street",
+        "addr:village": "Baloling",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Baloling Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "469",
+        "population:pupils:2015": "547",
+        "ref": "101617",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1945",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4571603,
+              16.0381325
+            ],
+            [
+              120.457111,
+              16.0381085
+            ],
+            [
+              120.4565933,
+              16.0377837
+            ],
+            [
+              120.4571955,
+              16.0370671
+            ],
+            [
+              120.4576294,
+              16.0373677
+            ],
+            [
+              120.4571603,
+              16.0381325
+            ]
+          ]
+        ]
+      },
+      "id": "relation/12322605"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/12322606",
+        "addr:city": "Mapandan",
+        "addr:street": "Tibule Street",
+        "addr:village": "Baloling",
+        "amenity": "school",
+        "isced:level": "2-3",
+        "name": "Baloling National High School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "152",
+        "population:pupils:2015": "152",
+        "ref": "300162",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1965",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4571603,
+              16.0381325
+            ],
+            [
+              120.4576294,
+              16.0373677
+            ],
+            [
+              120.4581034,
+              16.0376961
+            ],
+            [
+              120.4576609,
+              16.0383766
+            ],
+            [
+              120.4571603,
+              16.0381325
+            ]
+          ]
+        ]
+      },
+      "id": "relation/12322606"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/12322607",
+        "addr:city": "Mapandan",
+        "addr:street": "Salomague Street",
+        "addr:village": "Torres",
+        "amenity": "school",
+        "isced:level": "2-3",
+        "name": "Torres National High School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "439",
+        "population:pupils:2015": "439",
+        "ref": "300265",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1967",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4692575,
+              16.0149269
+            ],
+            [
+              120.4697496,
+              16.0150435
+            ],
+            [
+              120.4694767,
+              16.0157757
+            ],
+            [
+              120.4691629,
+              16.0156829
+            ],
+            [
+              120.4690393,
+              16.0156476
+            ],
+            [
+              120.4692575,
+              16.0149269
+            ]
+          ]
+        ]
+      },
+      "id": "relation/12322607"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/12322608",
+        "addr:city": "Mapandan",
+        "addr:street": "Salomague Street",
+        "addr:village": "Torres",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Torres Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "499",
+        "population:pupils:2015": "577",
+        "ref": "101627",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1957",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4690393,
+              16.0156476
+            ],
+            [
+              120.4686305,
+              16.0155307
+            ],
+            [
+              120.4685225,
+              16.0155005
+            ],
+            [
+              120.4686941,
+              16.0147934
+            ],
+            [
+              120.4692575,
+              16.0149269
+            ],
+            [
+              120.4690393,
+              16.0156476
+            ]
+          ]
+        ]
+      },
+      "id": "relation/12322608"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13613379",
+        "addr:province": "Pangasinan",
+        "addr:street": "Gondol Road",
+        "addr:town": "Mapandan",
+        "addr:village": "Primicias",
+        "amenity": "school",
+        "isced:level": "2-3",
+        "name": "Primicias National High School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "352",
+        "population:pupils:2015": "352",
+        "ref": "300242",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1973",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4790757,
+              15.9959939
+            ],
+            [
+              120.4791896,
+              15.995599
+            ],
+            [
+              120.479581,
+              15.9957214
+            ],
+            [
+              120.4794518,
+              15.9961057
+            ],
+            [
+              120.4790757,
+              15.9959939
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13613379"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13613380",
+        "addr:street": "Gondol Road",
+        "addr:town": "Mapandan",
+        "addr:village": "Primicias",
+        "amenity": "school",
+        "isced:level": "0-1",
+        "name": "Primicias Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "401",
+        "population:pupils:2015": "471",
+        "ref": "101625",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1965",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.479581,
+              15.9957214
+            ],
+            [
+              120.4799641,
+              15.9958446
+            ],
+            [
+              120.4798273,
+              15.9963564
+            ],
+            [
+              120.47904,
+              15.9961257
+            ],
+            [
+              120.4790757,
+              15.9959939
+            ],
+            [
+              120.4794518,
+              15.9961057
+            ],
+            [
+              120.479581,
+              15.9957214
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13613380"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/156769370",
+        "addr:city": "Mapandan",
+        "addr:street": "Pandan Avenue",
+        "addr:street:corner": "Ilang-ilang Street",
+        "addr:village": "Poblacion",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Mapandan Central School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "1012",
+        "population:pupils:2015": "1180",
+        "ref": "101622",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "2000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4524507,
+              16.0282751
+            ],
+            [
+              120.4528517,
+              16.0276191
+            ],
+            [
+              120.4528221,
+              16.027516
+            ],
+            [
+              120.4530848,
+              16.0271693
+            ],
+            [
+              120.4532446,
+              16.0272608
+            ],
+            [
+              120.4533438,
+              16.0271132
+            ],
+            [
+              120.4543779,
+              16.0277295
+            ],
+            [
+              120.4538521,
+              16.0286606
+            ],
+            [
+              120.4529013,
+              16.0281399
+            ],
+            [
+              120.4527113,
+              16.0284292
+            ],
+            [
+              120.4524507,
+              16.0282751
+            ]
+          ]
+        ]
+      },
+      "id": "way/156769370"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/790262129",
+        "addr:city": "Mapandan",
+        "addr:housenumber": "68",
+        "addr:street": "Pandan Avenue",
+        "addr:village": "Nilombot",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Nilombot Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "561",
+        "population:pupils:2015": "661",
+        "ref": "101623",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1959"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4358612,
+              16.0283925
+            ],
+            [
+              120.4363199,
+              16.0275805
+            ],
+            [
+              120.4369247,
+              16.027846
+            ],
+            [
+              120.4365036,
+              16.0286877
+            ],
+            [
+              120.4358612,
+              16.0283925
+            ]
+          ]
+        ]
+      },
+      "id": "way/790262129"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/813387010",
+        "addr:city": "Mapandan",
+        "addr:street": "Pico Avenue",
+        "addr:village": "Pias",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Pias Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "397",
+        "population:pupils:2015": "460",
+        "ref": "101624",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "2000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4470916,
+              16.0355565
+            ],
+            [
+              120.4473008,
+              16.0357305
+            ],
+            [
+              120.4472686,
+              16.036036
+            ],
+            [
+              120.4470406,
+              16.0363762
+            ],
+            [
+              120.4467557,
+              16.0363202
+            ],
+            [
+              120.446645,
+              16.0362512
+            ],
+            [
+              120.4464921,
+              16.036101
+            ],
+            [
+              120.4470916,
+              16.0355565
+            ]
+          ]
+        ]
+      },
+      "id": "way/813387010"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/813387336",
+        "addr:city": "Mapandan",
+        "addr:street": "Golden Shower Street",
+        "addr:village": "Golden",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Golden Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "237",
+        "population:pupils:2015": "266",
+        "ref": "101618",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1969"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4425251,
+              16.0232211
+            ],
+            [
+              120.4423347,
+              16.0231915
+            ],
+            [
+              120.4421121,
+              16.0231025
+            ],
+            [
+              120.4419418,
+              16.0230226
+            ],
+            [
+              120.4418693,
+              16.022971
+            ],
+            [
+              120.4418251,
+              16.0228666
+            ],
+            [
+              120.4419109,
+              16.0224245
+            ],
+            [
+              120.4426753,
+              16.0226153
+            ],
+            [
+              120.4425251,
+              16.0232211
+            ]
+          ]
+        ]
+      },
+      "id": "way/813387336"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/813389801",
+        "addr:city": "Mapandan",
+        "addr:street": "Ilang-ilang Street",
+        "addr:village": "Poblacion",
+        "amenity": "school",
+        "isced:level": "2-3",
+        "name": "Mapandan National High School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "1961",
+        "population:pupils:2015": "1967",
+        "ref": "300224",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1993"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4526768,
+              16.0292879
+            ],
+            [
+              120.4520282,
+              16.0286297
+            ],
+            [
+              120.4524252,
+              16.0282688
+            ],
+            [
+              120.4524507,
+              16.0282751
+            ],
+            [
+              120.4527113,
+              16.0284292
+            ],
+            [
+              120.4529013,
+              16.0281399
+            ],
+            [
+              120.4538521,
+              16.0286606
+            ],
+            [
+              120.4537661,
+              16.028827
+            ],
+            [
+              120.4535678,
+              16.0287238
+            ],
+            [
+              120.4534484,
+              16.0289159
+            ],
+            [
+              120.4536453,
+              16.0290222
+            ],
+            [
+              120.4535611,
+              16.0291581
+            ],
+            [
+              120.4530381,
+              16.0288754
+            ],
+            [
+              120.4526768,
+              16.0292879
+            ]
+          ]
+        ]
+      },
+      "id": "way/813389801"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/813678723",
+        "addr:city": "Mapandan",
+        "addr:street": "Mangga Street",
+        "addr:village": "Santa Maria",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Santa Maria Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "129",
+        "population:pupils:2015": "149",
+        "ref": "101626",
+        "short_name": "Sta. Maria Elementary School",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "2000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4677708,
+              16.0290491
+            ],
+            [
+              120.4678639,
+              16.0288145
+            ],
+            [
+              120.4679989,
+              16.0284742
+            ],
+            [
+              120.468611,
+              16.0286986
+            ],
+            [
+              120.4683829,
+              16.0292735
+            ],
+            [
+              120.4677708,
+              16.0290491
+            ]
+          ]
+        ]
+      },
+      "id": "way/813678723"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/820946718",
+        "addr:city": "Mapandan",
+        "addr:street": "Raminad Street",
+        "addr:village": "Jimenez",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Jimenez Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "83",
+        "population:pupils:2015": "96",
+        "ref": "101619",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1962"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4652381,
+              16.0098099
+            ],
+            [
+              120.4652824,
+              16.0099207
+            ],
+            [
+              120.4652609,
+              16.0100239
+            ],
+            [
+              120.4651831,
+              16.0101992
+            ],
+            [
+              120.4647272,
+              16.0100574
+            ],
+            [
+              120.4649806,
+              16.0093715
+            ],
+            [
+              120.4652864,
+              16.0094786
+            ],
+            [
+              120.4653374,
+              16.0095314
+            ],
+            [
+              120.4652998,
+              16.0096694
+            ],
+            [
+              120.4652381,
+              16.0098099
+            ]
+          ]
+        ]
+      },
+      "id": "way/820946718"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/820946951",
+        "addr:city": "Mapandan",
+        "addr:housenumber": "74",
+        "addr:street": "Lawin Street",
+        "addr:village": "Amanoaoac",
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Amanaoac Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "178",
+        "population:pupils:2015": "203",
+        "ref": "101616",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1948"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.445485,
+              16.0171073
+            ],
+            [
+              120.4452599,
+              16.0168994
+            ],
+            [
+              120.4448707,
+              16.0165401
+            ],
+            [
+              120.4451483,
+              16.016192
+            ],
+            [
+              120.4454796,
+              16.0162939
+            ],
+            [
+              120.4459262,
+              16.0165233
+            ],
+            [
+              120.4457438,
+              16.0168649
+            ],
+            [
+              120.445485,
+              16.0171073
+            ]
+          ]
+        ]
+      },
+      "id": "way/820946951"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/821761171",
+        "addr:city": "Mapandan",
+        "addr:street": "Chico Street",
+        "addr:village": "Luyan",
+        "amenity": "school",
+        "isced:level": "0-1",
+        "name": "Luyan Elementary School",
+        "old_name": "Luyan Primary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "262",
+        "population:pupils:2015": "296",
+        "ref": "101621",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "1990"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4778297,
+              16.0140948
+            ],
+            [
+              120.4779303,
+              16.0135366
+            ],
+            [
+              120.4787832,
+              16.013855
+            ],
+            [
+              120.4786317,
+              16.0141811
+            ],
+            [
+              120.4784674,
+              16.0141863
+            ],
+            [
+              120.478287,
+              16.0141657
+            ],
+            [
+              120.4780423,
+              16.0141334
+            ],
+            [
+              120.4778297,
+              16.0140948
+            ]
+          ]
+        ]
+      },
+      "id": "way/821761171"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/822288525",
+        "addr:city": "Mapandan",
+        "addr:street": "Pagda Street",
+        "addr:village": "Lambayan",
+        "amenity": "school",
+        "isced:level": "0-1",
+        "name": "Lambayan Elementary School",
+        "operator": "Mapandan District of Pangasinan I, Lingayen Schools Division, DepEd",
+        "operator:type": "public",
+        "population:pupils:2012": "268",
+        "population:pupils:2015": "302",
+        "ref": "101620",
+        "source": "Department of Education, Philippines",
+        "source:date": "2012",
+        "start_date": "2000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4700727,
+              16.0003236
+            ],
+            [
+              120.4701222,
+              15.9997651
+            ],
+            [
+              120.4708493,
+              15.999862
+            ],
+            [
+              120.4708408,
+              16.0003896
+            ],
+            [
+              120.4700727,
+              16.0003236
+            ]
+          ]
+        ]
+      },
+      "id": "way/822288525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1337197863",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Mapandan Community Hospital"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4566673,
+              16.0248972
+            ],
+            [
+              120.4561533,
+              16.0245642
+            ],
+            [
+              120.456353,
+              16.0243364
+            ],
+            [
+              120.4569399,
+              16.0245125
+            ],
+            [
+              120.4566673,
+              16.0248972
+            ]
+          ]
+        ]
+      },
+      "id": "way/1337197863"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12368054770",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Health Point Pharmacy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4562219,
+          16.024288
+        ]
+      },
+      "id": "node/12368054770"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12368141806",
+        "addr:quarter": "Poblacion",
+        "addr:street": "Camia Street",
+        "addr:town": "Mapandan",
+        "amenity": "school",
+        "name": "Mapandan Catholic School"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.4544745,
+          16.0256546
+        ]
+      },
+      "id": "node/12368141806"
+    }
+  ]
+}

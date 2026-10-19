@@ -18,6 +18,7 @@ from _build.templates import to_folder_index
 
 SECTION_NAMES = {
     "about": "nav.about",
+    "gis": "nav.gis",
     "government": "nav.government",
     "legislative": "nav.legislative",
     "statistics": "nav.statistics",

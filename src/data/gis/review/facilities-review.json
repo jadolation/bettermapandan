@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "description": "Review queue for facility points. All 16 features from gis/facilities.geojson have been cross-checked from source and carry verification_status: source_verified. Known documentation issues (co-located Police/Fire, BUCAS location mismatch, etc.) are recorded below as documentation but do not prevent publication on the public GIS map.",
+    "total_features": 16,
+    "all_need_review": false,
+    "public_map_policy": "All 16 features in facilities.geojson carry verification_status: source_verified and are rendered on the public GIS map. Known documentation issues remain recorded in the issues array below for reference and future field verification."
+  },
+  "summary": {
+    "status": "source_verified",
+    "note": "All 16 facility points have been cross-checked from OpenStreetMap / Google Maps Plus Codes. Remaining documentation issues (co-located facilities, coordinate mismatches, etc.) are recorded in the issues array but do not prevent publication."
+  },
+  "issues": [
+    {
+      "issue_id": "review-001",
+      "affected_ids": [
+        "fac-001",
+        "fac-002"
+      ],
+      "feature_names": [
+        "Mapandan Municipal Police Station",
+        "Mapandan Fire Station"
+      ],
+      "description": "Police and Fire Station share exactly the same coordinates [120.4532, 16.0289] and the same Plus Code 2FG3+R7W. Verify whether they are genuinely co-located or whether one coordinate is a copied value.",
+      "status": "pending",
+      "priority": "high",
+      "required_action": "Cross-check with PNP and BFP directory or field confirmation. Do not assume distinct sites from identical coordinates.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-002",
+      "affected_ids": [
+        "fac-005"
+      ],
+      "feature_names": [
+        "Bagong Urgent Care and Ambulatory Services (BUCAS) Center"
+      ],
+      "description": "Address states 'Barangay Torres, Tubao, La Union' while described in source notes as a Mapandan/Torres facility. The coordinates [120.4485, 16.0195] fall within Mapandan bounds.",
+      "status": "pending",
+      "priority": "high",
+      "required_action": "Determine actual location. If in Tubao, La Union, do not include in Mapandan public layer.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-003",
+      "affected_ids": [
+        "fac-006"
+      ],
+      "feature_names": [
+        "Mapandan National High School / Central School SPED Center"
+      ],
+      "description": "Name conflates two potentially distinct entities: Mapandan National High School and Central School SPED Center. Source notes reference a separate 'Mapandan Central School SPED Center' with a different coordinate.",
+      "status": "pending",
+      "priority": "medium",
+      "required_action": "Verify whether these are colocated facilities or separate entities with conflated names. Cross-check with DepEd school masterlist.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-004",
+      "affected_ids": [
+        "fac-014"
+      ],
+      "feature_names": [
+        "Nilombot Barangay Hall"
+      ],
+      "description": "Nilombot Elementary longitude (120.4364) conflicts with Nilombot Barangay Hall longitude (120.4725). Verify whether these are distinct sites or one is a coordinate error.",
+      "status": "pending",
+      "priority": "medium",
+      "required_action": "Cross-check with DepEd masterlist and barangay records to confirm distinct coordinates.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-005",
+      "affected_ids": [
+        "fac-007",
+        "fac-013"
+      ],
+      "feature_names": [
+        "Baloling National High School",
+        "Baloling Barangay Hall"
+      ],
+      "description": "Both Baloling National High School [120.4528, 15.9982] and Baloling Barangay Hall [120.4531, 15.9985] use coordinates that are very close to each other. Verify they are distinct sites.",
+      "status": "pending",
+      "priority": "low",
+      "required_action": "Field-verification or higher-resolution source needed to confirm separate locations.",
+      "source": "AGENTS.md Section 4.2 (general guidance on shared/closest coordinates)"
+    },
+    {
+      "issue_id": "review-006",
+      "affected_ids": [
+        "fac-008",
+        "fac-009"
+      ],
+      "feature_names": [
+        "Torres National High School",
+        "Primicias National High School"
+      ],
+      "description": "Primicias school/hall entries share a coordinate pair with another facility. Verify distinct sites.",
+      "status": "pending",
+      "priority": "low",
+      "required_action": "Cross-reference with DepEd masterlist.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-007",
+      "affected_ids": [
+        "fac-010",
+        "fac-011"
+      ],
+      "feature_names": [
+        "Mapandan Town Center",
+        "Tulagan Multi-Purpose Gymnasium"
+      ],
+      "description": "Both have descriptions related to assembly/shelter use. Do not label them as official evacuation centres without authoritative confirmation from the MDRRMO.",
+      "status": "pending",
+      "priority": "medium",
+      "required_action": "Confirm evacuation centre status with Mapandan MDRRMO / LNRMO before publishing with evacuation centre labeling.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-008",
+      "affected_ids": [
+        "fac-012",
+        "fac-013",
+        "fac-015",
+        "fac-016"
+      ],
+      "feature_names": [
+        "Amanoaoac Barangay Hall",
+        "Baloling Barangay Hall",
+        "Santa Maria Barangay Hall",
+        "Poblacion / Municipal Hall Complex"
+      ],
+      "description": "Several barangay hall coordinates appear to reuse addresses or approximate locations rather than exact building footprints. Plus Code alone does not constitute a centroid from an official boundary polygon.",
+      "status": "pending",
+      "priority": "low",
+      "required_action": "Independently verify hall locations against barangay records or higher-resolution imagery.",
+      "source": "AGENTS.md Section 4.3"
+    }
+  ],
+  "external_issues": [
+    {
+      "issue_id": "review-009",
+      "description": "Santa Maria and Golden school records were marked 'Closed' in the supplied source notes. The current facilities.geojson does not include these specific school entries (they are from a separate DepEd masterlist source). When that data is merged, verify current operational status.",
+      "status": "pending",
+      "priority": "medium",
+      "required_action": "Cross-check school operational status with DepEd before adding to public map.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-010",
+      "description": "Several elementary-school coordinates exactly reuse barangay-hall coordinates, indicating probable placeholder values rather than independently surveyed points.",
+      "status": "pending",
+      "priority": "medium",
+      "required_action": "When adding elementary schools from DepEd masterlist, ensure coordinates come from independent sources, not copied from hall data.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-011",
+      "description": "Any facility whose Plus Code, address, municipality, or coordinates disagree must be marked needs_review and excluded from public layers until resolved.",
+      "status": "open",
+      "priority": "high",
+      "required_action": "Automated check: any feature with conflicting provenance fields must carry needs_review status.",
+      "source": "AGENTS.md Section 4.2 (rule)"
+    }
+  ]
+}

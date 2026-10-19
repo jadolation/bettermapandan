@@ -1,0 +1,38 @@
+---
+title: GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, Pangasinan
+description: An interactive GIS map for Mapandan, Pangasinan showing barangay boundaries, public facilities, roads, and hazard layers. Built under the BetterGov.ph BetterLGU initiative using reviewed geographic data.
+---
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<div id="gis-page">
+  <div id="gis-map" style="height:520px;border-radius:8px;margin-bottom:24px"></div>
+  <p id="gis-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the interactive GIS map. <a href="https://www.openstreetmap.org/place/16.03,120.455">View Mapandan on OpenStreetMap &rarr;</a></p>
+
+  <div class="gis-layout">
+    <div class="gis-panel">
+      <h3 class="gis-panel-title">Barangay Reference</h3>
+      <p class="source-label">15 barangays &mdash; PSGC codes verified from PSA</p>
+      <div id="gis-barangay-list"></div>
+    </div>
+    <div class="gis-panel">
+      <h3 class="gis-panel-title">Public Facilities</h3>
+      <p class="source-label">16 public facilities &mdash; coordinates verified from OSM/Plus Codes</p>
+      <p id="gis-facility-count-notice" class="source-label">Showing <span id="gis-facility-count">0</span> verified facilities on map.</p>
+      <div id="gis-facility-list">
+        <p class="source-label">All 16 facility points carry <code>verification_status: source_verified</code> and are shown on the public map. Known documentation issues are recorded in the <a href="/gis/">review file</a> for reference.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gis-disclaimer">
+    <p><strong>Non-real-time data.</strong> Hazard layers (ground shaking, liquefaction) are derived from historical PHIVOLCS/GSI map products and are not real-time. They are for reference only and must not be used for emergency response decisions. For emergencies, contact 911 or the Mapandan MDRRMO.</p>
+  </div>
+</div>
+
+<script>
+  window.GIS_LAYERS = {GIS_LAYERS_DATA};
+  window.GIS_BARANGAYS = {GIS_BARANGAYS_DATA};
+  window.GIS_FACILITIES = {GIS_FACILITIES_DATA};
+</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script defer src="{{ASSET_BASE}}/assets/gis-map.min.js"></script>

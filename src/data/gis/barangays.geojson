@@ -1,0 +1,350 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528001",
+        "name": "Amanoaoac",
+        "slug": "amanoaoac",
+        "pop2024": 1656,
+        "pop2020": 1636,
+        "land_use": "Agricultural / crop farming",
+        "urban_rural": "rural",
+        "area_km2": 1.90,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528002",
+        "name": "Apaya",
+        "slug": "apaya",
+        "pop2024": 1650,
+        "pop2020": 1467,
+        "land_use": "Agricultural / livestock production",
+        "urban_rural": "rural",
+        "area_km2": 0.467,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528003",
+        "name": "Aserda",
+        "slug": "aserda",
+        "pop2024": 1414,
+        "pop2020": 1108,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 1.20,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528004",
+        "name": "Baloling",
+        "slug": "baloling",
+        "pop2024": 4238,
+        "pop2020": 4393,
+        "land_use": "Mixed agricultural / residential",
+        "urban_rural": "rural",
+        "area_km2": 1.74,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528006",
+        "name": "Coral",
+        "slug": "coral",
+        "pop2024": 1405,
+        "pop2020": 1389,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 0.325,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528007",
+        "name": "Golden",
+        "slug": "golden",
+        "pop2024": 1432,
+        "pop2020": 1399,
+        "land_use": "Agricultural / micro-commercial",
+        "urban_rural": "rural",
+        "area_km2": 1.25,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528008",
+        "name": "Jimenez",
+        "slug": "jimenez",
+        "pop2024": 2008,
+        "pop2020": 1995,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 2.01,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528009",
+        "name": "Lambayan",
+        "slug": "lambayan",
+        "pop2024": 1682,
+        "pop2020": 1756,
+        "land_use": "Agricultural / rice production",
+        "urban_rural": "rural",
+        "area_km2": 1.03,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528010",
+        "name": "Luyan (Luyan South)",
+        "slug": "luyan",
+        "pop2024": 3344,
+        "pop2020": 3730,
+        "land_use": "Agri-tourism / culinary agriculture",
+        "urban_rural": "urban",
+        "area_km2": 2.08,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528012",
+        "name": "Nilombot",
+        "slug": "nilombot",
+        "pop2024": 4199,
+        "pop2020": 4411,
+        "land_use": "Residential / commercial outer fringe",
+        "urban_rural": "rural",
+        "area_km2": 2.07,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528013",
+        "name": "Pias",
+        "slug": "pias",
+        "pop2024": 4827,
+        "pop2020": 4699,
+        "land_use": "High-density residential / farming",
+        "urban_rural": "rural",
+        "area_km2": 1.96,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528014",
+        "name": "Poblacion",
+        "slug": "poblacion",
+        "pop2024": 3509,
+        "pop2020": 3622,
+        "land_use": "Administrative / central commercial zone",
+        "urban_rural": "urban",
+        "area_km2": 1.03,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528015",
+        "name": "Primicias",
+        "slug": "primicias",
+        "pop2024": 2218,
+        "pop2020": 2071,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 1.30,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528016",
+        "name": "Santa Maria (Luyan North)",
+        "slug": "sta-maria",
+        "pop2024": 1585,
+        "pop2020": 1270,
+        "land_use": "Agricultural",
+        "urban_rural": "rural",
+        "area_km2": 1.35,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "gid": "0105528018",
+        "name": "Torres",
+        "slug": "torres",
+        "pop2024": 3061,
+        "pop2020": 3112,
+        "land_use": "Historical settlement / farming",
+        "urban_rural": "rural",
+        "area_km2": 0.813,
+        "verification_status": "source_verified",
+        "source_as_of": "2024 census",
+        "provenance": {
+          "source": "Philippine Statistics Authority (PSA) — PSGC 2Q 2026 & Census of Population 2024",
+          "source_url": "https://psa.gov.ph/classification/psgc/barangays/0105528000",
+          "record_role": "psgc_record",
+          "retrieved": "2026-10-18",
+          "last_verified": "2026-10-18"
+        }
+      }
+    }
+  ]
+}

@@ -130,6 +130,16 @@ def _process_static_page(
         body = body.replace("{HOMEPAGE_DPWH_DATA}", dpwh_data, 1)
     if rel.name == "government.html":
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
+    if rel.name == "gis.html":
+        gis_layers_path = SRC_DATA / "gis" / "layers.json"
+        gis_barangays_path = SRC_DATA / "gis" / "barangays.geojson"
+        gis_facilities_path = SRC_DATA / "gis" / "facilities.geojson"
+        layers_json = gis_layers_path.read_text(encoding="utf-8") if gis_layers_path.exists() else "{}"
+        barangays_json = gis_barangays_path.read_text(encoding="utf-8") if gis_barangays_path.exists() else "[]"
+        facilities_json = gis_facilities_path.read_text(encoding="utf-8") if gis_facilities_path.exists() else "[]"
+        body = body.replace("{GIS_LAYERS_DATA}", layers_json, 1)
+        body = body.replace("{GIS_BARANGAYS_DATA}", barangays_json, 1)
+        body = body.replace("{GIS_FACILITIES_DATA}", facilities_json, 1)
     page_url = f"{lang_code}/{rel}" if lang_code != "en" else str(rel)
     breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url, breadcrumb_jsonld)

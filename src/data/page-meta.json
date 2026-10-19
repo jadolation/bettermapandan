@@ -223,6 +223,16 @@
     },
     "pag_status": "draft"
   },
+  "gis.html": {
+    "fil": {
+      "title": "Mapa ng GIS — BetterMapandan.org",
+      "description": "Isang interaktibong mapa ng GIS para sa Mapandan, Pangasinan na may mga hangganan ng barangay, pampublikong pasilidad, mga kalsada, at mga layer ng banta."
+    },
+    "pag": {
+      "title": "GIS Map — BetterMapandan.org",
+      "description": "Sakey a interaktibong mapa na GIS para ed Mapandan, Pangasinan ngaragpan saray hangganan, publiko a facilidad, dalan, tan hazard layers."
+    }
+  },
   "transparency/projects.html": {
     "fil": {
       "title": "Explorer ng Proyekto — BetterMapandan.org",

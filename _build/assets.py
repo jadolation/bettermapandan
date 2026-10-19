@@ -212,6 +212,7 @@ JS_SOURCES = [
     "assets/search.js",
     "assets/report.js",
     "assets/leaflet-map.js",
+    "assets/gis-map.js",
     "assets/font-loader.js",
     "assets/chart-loader.js",
     "assets/js/common.js",
