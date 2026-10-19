@@ -67,6 +67,9 @@ High-priority issues from the current inventory:
 Do not collapse two records just because they share coordinates, and do not treat identical coordinates as proof that two locations are distinct.
 
 ### 4.3 Preserve provenance and status
+- **Publication status is separate from source status.** `source_verified` means a source record was checked/transcribed; it does not establish identity, coordinate accuracy, current operational status, evacuation designation, or approval to publish.
+- Do not change a verification status merely to make the map show markers or satisfy a test. Status changes require cited evidence and a documented review decision.
+- Until the data schema has separate identity/location/publication fields, any known blocking contradiction must set the affected feature's existing `verification_status` to `needs_review` and exclude it from public output.
 
 Every canonical feature should carry, where available:
 
@@ -80,6 +83,30 @@ Every canonical feature should carry, where available:
 - Existing Better Mapandan entity IDs only when the relationship is supported.
 
 Keep source-reported facts distinct from Better Mapandan calculations and AI proposals. Preserve all significant limitations. Use `null` or a review state for missing information; do not fill gaps with guesses.
+
+### 4.4 Mandatory publication gate (corrective rule)
+
+The publication gate is authoritative if any older comments, data notes, tests, manifest entries, or UI labels disagree with it.
+
+A facility is publishable only when all of the following are true:
+
+1. The source and facility identity are sufficiently established for the displayed claim.
+2. The coordinates are supported by evidence appropriate to the stated `location_precision`.
+3. No unresolved blocking review issue references the feature ID.
+4. The feature is in an approved publication state under the current schema and has required provenance.
+5. The public wording accurately states whether the coordinates are source-reported, approximate, derived from a mapped footprint, or field-verified.
+
+Specific application to the current facility inventory:
+
+- `fac-005` (BUCAS) is blocked until the Tubao, La Union vs. Mapandan location/identity contradiction is resolved.
+- `fac-001` and `fac-002` are blocked as individually located public facilities until the shared police/fire coordinates are explained or independently verified. Identical coordinates do not prove that two sites are the same or different.
+- `fac-006` is blocked until the possibly conflated school identity is resolved.
+- Any facility covered by an unresolved issue stating its location fields conflict, its coordinates may be copied, or its locality is uncertain must remain blocked until a review decision cites resolving evidence.
+- A record may be listed as source-verified while its location is not verified; source status alone must never open the publication gate.
+
+Enforce this gate during the Python build, before candidate records are injected into public HTML or copied into public GIS assets. The browser-side filter is defense in depth, not the publication boundary: excluded facilities must not remain embedded in the public page payload. Internal review notes should not be copied to public artifacts unless they are deliberately rewritten as suitable public-facing uncertainty notes.
+
+The manifest must not claim an implemented/available layer unless the relevant file is emitted to the build output and the runtime has a handler for its declared type. A metadata entry or a passing schema test alone is not evidence that a layer is rendered.
 
 ## 5. GIS tooling and data-source practices
 
@@ -120,6 +147,10 @@ Work in small, testable changes, in this order:
 
 ## 8. Testing requirements
 
+Tests must enforce the publication policy rather than merely encode the current dataset's statuses. Never write a test that assumes every candidate facility is publishable or that all records must remain unverified forever.
+
+Add/extend tests that verify at least:
+
 Add/extend tests that verify at least:
 
 - Every GeoJSON layer parses and has valid geometry type/coordinates.
@@ -129,6 +160,12 @@ Add/extend tests that verify at least:
 - The barangay reference dataset includes all 15 expected codes and the supplied population values sum to `38228` for the stated 2024 POPCEN reference.
 - No hall point is serialized as a polygon or marked as a centroid without a calculated centroid from an approved polygon.
 - Known contradictions are recorded as `needs_review`/excluded until explicitly resolved.
+- Each unresolved blocking review issue causes all affected feature IDs to be excluded from public GIS payloads at build time, regardless of a conflicting `source_verified` value.
+- A regression fixture with `verification_status: source_verified` plus an open blocking review issue is still excluded from public output.
+- Resolved issues can be published only after a persisted review decision cites evidence; tests must not require a permanent blanket status/count for all candidate records.
+- Public map text and counts reflect the publishable subset, and do not claim that coordinates are verified when `location_precision` is approximate or last verification is absent.
+- The generated public HTML does not contain excluded facility records or internal review notes.
+- Manifest layers marked available resolve to actual emitted data assets and supported renderer handlers; declared-but-missing data fails validation or is explicitly marked unavailable.
 - Unreviewed features are not shown in production layers by default.
 - Unlocated projects do not receive synthetic coordinates.
 - Source or layer download failures do not silently replace existing data with an empty file.
@@ -150,7 +187,7 @@ If a relevant data claim cannot be tested automatically, document a manual revie
 
 ## 10. Definition of done
 
-The first release is done only when the GIS page integrates into the current static site, is usable on mobile, has proper map attribution, uses only sourced/validated geometries, makes uncertainty visible, has a fallback when data is missing, passes relevant tests/build/localization checks, and documents how to update the data. A visually complete map made from unverified or fabricated geographic features is not considered done.
+The first release is done only when the GIS page integrates into the current static site, is usable on mobile, has proper map attribution, uses only sourced/validated geometries, makes uncertainty visible, has a fallback when data is missing, passes relevant tests/build/localization checks, and documents how to update the data. A visually complete map made from unverified or fabricated geographic features is not considered done. The build-time publication gate must be tested against unresolved review blockers, including a fixture that falsely labels a conflicted record as `source_verified`.
 
 ## Starting reference links
 
