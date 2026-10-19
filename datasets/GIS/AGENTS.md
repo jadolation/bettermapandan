@@ -85,6 +85,19 @@ Every canonical feature should carry, where available:
 Keep source-reported facts distinct from Better Mapandan calculations and AI proposals. Preserve all significant limitations. Use `null` or a review state for missing information; do not fill gaps with guesses.
 
 ### 4.4 Numerical coordinates are not automatically exact
+The coordinate inventory in `datasets/GIS/bettermapandan-gis-implementation-plan.md` §3.5 contains short Plus Codes supplied on 19 October 2026 and candidate decimal coordinates recovered from them. Use that section as the conversion record.
+
+- Recover short codes only with the official Open Location Code `recoverNearest` algorithm and the documented Mapandan reference point. Do not invent the missing prefix.
+- Preserve the original short code, recovered full Plus Code, reference coordinate, recovery method, conversion date, decoded cell bounds/precision where available, and resulting cell-centre coordinates.
+- A short Plus Code identifies a bounded cell. Its cell centre is a representative coordinate, not an exact surveyed location. More decimal places do not increase source accuracy.
+- If locality context/reference cannot be established, leave the conversion unresolved rather than pretending the short code is globally unique.
+- When a recovered cell centre differs from a previous decimal point, keep both candidates and retain/open a review issue. Do not silently overwrite, average, or choose whichever one appears more plausible.
+- In particular, the new BUCAS code supplied with Mapandan context resolves to a different candidate point from the older coordinate tied to a Tubao, La Union address. Treat this as new evidence requiring resolution, not as automatic proof the identity conflict is resolved.
+- The police and fire station entries use the same code `2FG3+R7W`, so they resolve to the same cell centre. Do not publish them as independently verified locations until their identities/site relationship is checked.
+- Centroids computed from OSM polygons are a separate method and must not be conflated with Plus Code cell centres.
+
+Reference implementation: https://github.com/google/open-location-code/blob/main/python/openlocationcode/openlocationcode.py
+
 
 When a user requests numerical coordinates, provide decimal latitude and longitude where a candidate coordinate exists, but do not describe decimal formatting as proof of positional accuracy.
 
@@ -95,7 +108,7 @@ When a user requests numerical coordinates, provide decimal latitude and longitu
 - A coordinate may be published only if the publication gate in this document passes. A known contradiction blocks the feature even if another source has a numerically precise-looking coordinate.
 - Public UI wording must distinguish source-reported coordinates, approximate points, footprint-derived centroids, and field-verified positions. Number of decimal places must not be interpreted as measurement accuracy.
 
-### 4.4 Mandatory publication gate (corrective rule)
+### 4.5 Mandatory publication gate (corrective rule)
 
 The publication gate is authoritative if any older comments, data notes, tests, manifest entries, or UI labels disagree with it.
 
@@ -110,6 +123,7 @@ A facility is publishable only when all of the following are true:
 Specific application to the current facility inventory:
 
 - `fac-005` (BUCAS) is blocked until the Tubao, La Union vs. Mapandan location/identity contradiction is resolved.
+- The newer BUCAS code `2F5F+C4` supplied with Mapandan context recovers to candidate cell centre `16.0085625, 120.4728125`; keep the old `16.0195000, 120.4485000` candidate and Tubao address evidence in the review record until resolved.
 - `fac-001` and `fac-002` are blocked as individually located public facilities until the shared police/fire coordinates are explained or independently verified. Identical coordinates do not prove that two sites are the same or different.
 - `fac-006` is blocked until the possibly conflated school identity is resolved.
 - Any facility covered by an unresolved issue stating its location fields conflict, its coordinates may be copied, or its locality is uncertain must remain blocked until a review decision cites resolving evidence.
@@ -129,6 +143,7 @@ The manifest must not claim an implemented/available layer unless the relevant f
 - Keep source asset bytes and source URLs/dates. Verify the availability, license, and intended usage of each layer before redistribution.
 - OpenStreetMap attribution must be displayed in a suitable place and link to https://www.openstreetmap.org/copyright. Assess ODbL obligations when publishing OSM data or a derived database.
 - Inspect each KMZ before conversion. Determine if it contains vector geometry, placemarks, or image GroundOverlays. Confirm CRS, coverage, legend, source, date, and semantics. A KMZ extension alone does not establish a GIS layer's meaning or accuracy.
+- For short Plus Codes listed in implementation plan §3.5, preserve original/recovered codes and cell-centre values; do not mark converted coordinates verified without resolving any conflict with existing source values and facility identity.
 - Do not publish the municipality's 2020 hazard-map image as an accurately georeferenced GIS overlay unless it is georeferenced using documented controls and its transformation error/limitations are recorded.
 
 ## 6. Implementation sequence
@@ -159,8 +174,6 @@ Work in small, testable changes, in this order:
 ## 8. Testing requirements
 
 Tests must enforce the publication policy rather than merely encode the current dataset's statuses. Never write a test that assumes every candidate facility is publishable or that all records must remain unverified forever.
-
-Add/extend tests that verify at least:
 
 Add/extend tests that verify at least:
 
