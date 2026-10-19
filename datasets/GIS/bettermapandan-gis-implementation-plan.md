@@ -97,6 +97,8 @@ The source text also provides Plus Codes. Preserve them as source attributes if 
 
 ### 3.3 Candidate public safety, health, and school points
 
+**Coordinate-source update (19 October 2026):** the additional Plus Codes in §3.5 below provide a newer coordinate candidate for the named locations. Where a facility appears in both this section and §3.5, keep the older decimal point as a conflicting source value in the review history; do not silently overwrite it or assume either value is correct until identity and location have been reconciled.
+
 Coordinates below are transcribed from the supplied notes. They are **unverified candidates** until independently checked against the original source, an official directory, a map, or the responsible institution. Their inclusion here is an inventory, not a claim that they are correct or currently operating.
 
 #### Police, fire, health, and other facilities
@@ -151,6 +153,54 @@ Do not infer that two entries are duplicates just because their coordinates are 
 | Barangay PSGC table | 15 barangays, codes, urban/rural classes, 2024 population | Preserve as official reference attributes; obtain boundaries separately |
 
 For the hazard layers, do not infer that an unavailable or unparsed KMZ layer means there is no hazard. Do not publish a hazard-colored region until its meaning, coverage, legend, source, and data date are understood.
+
+### 3.5 New facility location references supplied as Google Maps Plus Codes (19 October 2026)
+
+The following short Plus Codes were supplied with locality context by the project maintainer. They have been expanded using the official Open Location Code `recoverNearest` algorithm relative to an approximate Mapandan reference point of **16.030000, 120.455000**. The resulting decimal coordinates are the **centres of the decoded Plus Code cells**, not surveyed coordinates and not proof that the named institution is correctly identified or currently operating.
+
+For reproducibility, the recovered full Plus Code is recorded beside the original short code. The full-code prefix is inferred from the Mapandan reference locality; confirm the result by opening the full code in Google Maps or checking it with the responsible institution before publication. The OLC specification explicitly says shortened codes require a nearby reference location and decoding returns an area, not an exact surveyed point. See: https://github.com/google/open-location-code/blob/main/README.md and https://github.com/google/open-location-code/blob/main/Documentation/Specification/specification.md.
+
+- Datum/coordinate convention: WGS84 geographic coordinates; list latitude first, longitude second.
+- Codes with three characters after `+` produce an approximately 2.8 m × 3.3 m cell at Mapandan latitude; codes with two characters after `+` produce an approximately 14 m × 13 m cell. Decimal places in the displayed cell-centre coordinate do not increase the actual accuracy of the source.
+- Preserve the user's original short code, the recovered full code, the reference point used, retrieval/conversion date, and method (e.g. `open_location_code_recover_nearest`).
+- These results are candidate points for review, not automatic approval to publish. Where they conflict with older points, a mapped footprint, a locality/address, or facility identity, retain both candidates and resolve the contradiction.
+- This table supersedes earlier candidate decimal values only as a *new candidate source*, not as verified ground truth.
+
+#### Evacuation-centre candidates and associated facilities
+
+| Place / facility | Original short Plus Code | Recovered full Plus Code | Latitude (cell centre) | Longitude (cell centre) | Precision / review note |
+|---|---|---|---:|---:|---|
+| Mapandan Central School | `2FG3+XFW` | `7Q822FG3+XFW` | 16.0274875 | 120.4537031 | ~2.8 m × 3.3 m code cell; confirm school identity and designated evacuation role |
+| Aloha Building, Firetree Ave | `2FG3+HMQ` | `7Q822FG3+HMQ` | 16.0264625 | 120.4542344 | Code-derived point; no previous coordinate available |
+| Tulagan Gym / Cong. Tulagan Gym | `2FG3+FJX` | `7Q822FG3+FJX` | 16.0262375 | 120.4541094 | Conflicts with earlier candidate (16.028600, 120.452100); review both |
+| Coral Barangay Hall | `2FJ2+CQH` | `7Q822FJ2+CQH` | 16.0310625 | 120.4519844 | Conflicts with earlier supplied point (16.034300, 120.451000); review both |
+| Primicias Elementary School | `XFWH+CRF` | `7Q72XFWH+CRF` | 15.9960625 | 120.4795469 | Conflicts materially with older supplied point (16.021000, 120.439800); mapped OSM campus centroid is similar but identity/location still needs source reconciliation |
+| Primicias National High School | `XFWH+9X2` | `7Q72XFWH+9X2` | 15.9958875 | 120.4798906 | Conflicts materially with older supplied point (16.021000, 120.439800); check against school source |
+| Santa Maria Elementary School | `2FH9+H73` | `7Q822FH9+H73` | 16.0288875 | 120.4681719 | Conflicts with older supplied point (16.029800, 120.460800); confirm current operating status |
+| Baloling Elementary School | `2FP4+VVR` | `7Q822FP4+VVR` | 16.0372375 | 120.4571406 | Conflicts materially with older supplied point (15.998500, 120.452800); mapped OSM school footprint lies nearby but needs reconciliation |
+| Jimenez Elementary School | `2F58+V27` | `7Q822F58+V27` | 16.0096625 | 120.4650469 | Close to older candidate (16.009800, 120.465000); still source-verify |
+| Lambayan Elementary School | `2F2C+35P` | `7Q822F2C+35P` | 16.0002125 | 120.4704531 | Close to older candidate (16.000500, 120.469900); still source-verify |
+| Nilombot Elementary School | `2CHP+7H2` | `7Q822CHP+7H2` | 16.0281375 | 120.4363906 | Consistent with older candidate (16.028100, 120.436400); resolve separate hall point conflict |
+| Golden Elementary School | `2CFR+4RV` | `7Q822CFR+4RV` | 16.0228625 | 120.4420469 | Near older candidate (16.022300, 120.441900); confirm operating status |
+| Torres Elementary School | `2F89+4JH` | `7Q822F89+4JH` | 16.0153125 | 120.4691094 | Near older candidate (16.015000, 120.468900); reconcile locality/official school record |
+
+#### Health facilities
+
+| Place / facility | Original short Plus Code | Recovered full Plus Code | Latitude (cell centre) | Longitude (cell centre) | Precision / review note |
+|---|---|---|---:|---:|---|
+| Mapandan Rural Health Unit (RHU) | `2FG3+9P` | `7Q822FG3+9P` | 16.0259375 | 120.4543125 | ~14 m × 13 m code cell; conflicts with older candidate (16.028500, 120.453100) |
+| Mapandan Community Hospital | `2FF4+RH` | `7Q822FF4+RH` | 16.0245625 | 120.4564375 | ~14 m × 13 m code cell; aligns closely with mapped hospital footprint but conflicts with older candidate (16.028100, 120.452600) |
+| BUCAS Center | `2F5F+C4` | `7Q822F5F+C4` | 16.0085625 | 120.4728125 | ~14 m × 13 m code cell; old record says Tubao, La Union and gave different coordinates (16.019500, 120.448500); identity/locality conflict remains blocking |
+
+#### Emergency responders and government facility
+
+| Place / facility | Original short Plus Code | Recovered full Plus Code | Latitude (cell centre) | Longitude (cell centre) | Precision / review note |
+|---|---|---|---:|---:|---|
+| Mapandan Municipal Police Station | `2FG3+R7W` | `7Q822FG3+R7W` | 16.0271125 | 120.4532031 | ~2.8 m × 3.3 m code cell; same code as fire station, confirm independent identities/sites |
+| Mapandan Fire Station | `2FG3+R7W` | `7Q822FG3+R7W` | 16.0271125 | 120.4532031 | Same source cell as police station; blocked as a separately verified point until reviewed |
+| Municipal Hall | `2FG3+Q5` | `7Q822FG3+Q5` | 16.0269375 | 120.4529375 | ~14 m × 13 m code cell; conflicts with older municipal-complex candidate (16.029000, 120.453000); confirm exact facility and address |
+
+**Important correction for the existing facility inventory:** the user-supplied Plus Codes are new source evidence, but they do not by themselves resolve every contradiction. In particular, BUCAS still conflicts with the older locality/address record; police and fire still use the same code; and several older decimal coordinates materially disagree with the converted cells. The public GIS must not publish those as verified merely because the recovered values look precise.
 
 ## 4. Data acquisition strategy
 
@@ -320,12 +370,13 @@ Tasks:
 4. Publish only reviewed entries by default; provide correction workflow to improve the inventory.
 
 Priority review queue:
-- BUCAS: stated as Tubao, La Union but described elsewhere as Mapandan/Torres.
-- Police and fire station: identical coordinates; confirm if colocated or duplicated.
-- Combined Mapandan National High School / Central School SPED Center versus the separately listed Mapandan Central School SPED Center: resolve identities and coordinates.
-- Nilombot Elementary School coordinate at 120.4364 longitude versus Nilombot hall at 120.4725: independently verify.
-- Multiple elementary school points exactly match their barangay-hall points: treat as possible placeholder/reuse rather than accurate school locations.
-- Primicias Hall, elementary school, and high school entries reuse the same coordinate: independently verify.
+- Reconcile the newer Plus Code-derived point and older decimal candidate for every facility in §3.5; materially conflicting pairs remain blocked.
+- BUCAS: old source says Tubao, La Union and gave 16.019500, 120.448500; new short code supplied with Mapandan context resolves to 16.0085625, 120.4728125. Preserve both candidates and resolve the facility identity/locality.
+- Police and fire station: both new entries use 2FG3+R7W and resolve to 16.0271125, 120.4532031; confirm whether the facilities are colocated or one record uses a reused code.
+- Tulagan Gym, Coral Barangay Hall, Mapandan RHU, Community Hospital, Municipal Hall, Primicias schools, Santa Maria Elementary, and Baloling Elementary have material differences between older decimal points and new code-derived centers; investigate using the responsible institution / source map.
+- Combined Mapandan National High School / Central School SPED Center versus separately mapped schools: resolve identity and keep separate source IDs where distinct.
+- Nilombot Elementary's Plus Code coordinate (16.0281375, 120.4363906) agrees with its older school coordinate, while Nilombot Barangay Hall is at a different candidate point; verify each independently rather than treating this as a contradiction by proximity alone.
+- Multiple elementary school points exactly matched barangay-hall points in the older list; the new school Plus Codes provide separate candidates for several schools. Preserve the historical candidates and resolve them rather than overwriting silently.
 - Santa Maria and Golden school records are labelled “Closed” in the supplied notes: verify current status; never infer current closure from undated content.
 - Mapandan Town Center's stated evacuation/assembly role and Tulagan gym's shelter role: confirm formal designation with appropriate local source before using the official “evacuation center” category.
 
@@ -374,6 +425,8 @@ The MVP is ready for public review when:
 - [ ] No invented barangay polygons or guessed project sites are published.
 - [ ] Every displayed facility has a stable ID, source/provenance, and visible/accessible verification state.
 - [ ] All known coordinate contradictions above are resolved or excluded from public display.
+- [ ] Every supplied short Plus Code is preserved alongside its recovered full code, reference location, conversion method, and cell-centre coordinates; decimal digits are not represented as survey accuracy.
+- [ ] Material differences between older decimal points and Plus Code-derived candidate points are reconciled or excluded from publication.
 - [ ] Official names and PSGC codes are validated against the relevant PSA reference.
 - [ ] Hazard layers have source, date, legend, coverage, and correct interpretation; unresolved layers are not published.
 - [ ] Data validation rejects malformed GeoJSON, invalid coordinates, duplicate IDs, and absent provenance where required.
@@ -396,7 +449,7 @@ Track these during development:
 ## 10. Immediate next actions
 
 1. Locate and inventory the two KMZ files and the original municipal hazard-map asset.
-2. Create an inventory file from the exact 15-row PSGC table and all candidate points listed above; preserve them as *unreviewed*.
+2. Create/update the coordinate inventory with all new short Plus Codes from §3.5 expanded using the official Open Location Code recovery algorithm relative to the recorded Mapandan reference point; preserve original codes, recovered full codes, cell centres, and conflicting older candidates as *unreviewed*.
 3. Download/export a small Overpass sample using the approximate bounds `15.98,120.42,16.05,120.49` (south, west, north, east). If the map remains elsewhere, inspect Overpass Turbo's **Data** tab and use **Zoom to data**; zero results are not proof that features do not exist.
 4. Find an appropriate boundary polygon source for Mapandan and the 15 barangays. Do not attempt to derive polygons from the 15 point coordinates.
 5. Inspect the current repository before code changes and then implement Phase 1 before adding the public map layer.
