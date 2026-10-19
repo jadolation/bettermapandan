@@ -1,211 +1,134 @@
-/* Depends on: Leaflet 1.9.4 (loaded from unpkg before this script) */
-
-/* Better Mapandan GIS Map — Leaflet + injected GeoJSON data */
+/* Depends on Leaflet 1.9.4. Public facilities are gated by the Python build. */
 (function () {
   "use strict";
 
-  var gisMapInitialized = false;
-
-  function escapeHtml(str) {
-    return String(str == null ? "" : str)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
+  function escapeHtml(value) {
+    return String(value == null ? "" : value).replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  function showFallback() {
-    var el = document.getElementById("gis-map");
-    if (el) el.style.display = "none";
-    var fallback = document.getElementById("gis-map-fallback");
-    if (fallback) fallback.style.display = "block";
-  }
-
-  function populateBarangayList() {
-    var brgays = window.GIS_BARANGAYS && window.GIS_BARANGAYS.features || [];
-    var listEl = document.getElementById("gis-barangay-list");
-    if (!listEl) return;
-
-    if (!brgays.length) {
-      listEl.innerHTML = '<p class="source-label">No barangay data available.</p>';
-      return;
-    }
-
-    var items = brgays.map(function (f) {
-      var p = f.properties;
-      var badge = p.verification_status === "source_verified"
-        ? '<span class="badge badge-sm badge-official">Verified</span>'
-        : '<span class="badge badge-sm badge-review">Pending</span>';
-      return '<div class="barangay-list-item">' +
-        '<span class="barangay-code">' + escapeHtml(p.gid) + '</span>' +
-        '<span class="barangay-name">' + escapeHtml(p.name) + badge + '</span>' +
-        '<span class="barangay-pop">Pop. ' + (p.pop2024 || "—") + '</span>' +
-        '</div>';
-    });
-
-    listEl.innerHTML = '<div class="barangay-list">' + items.join("") + "</div>";
-  }
-
-  function filterPublishableFacilities() {
-    var facs = window.GIS_FACILITIES && window.GIS_FACILITIES.features || [];
-    var publishable = ["source_verified", "field_verified"];
-    return facs.filter(function (f) {
-      return publishable.indexOf(f.properties.verification_status) !== -1;
-    });
-  }
-
-  function updateFacilityCount(count) {
-    var countEl = document.getElementById("gis-facility-count");
-    if (countEl) countEl.textContent = String(count);
-  }
-
-  function createLegend(map) {
-    var legend = L.control({ position: "bottomright" });
-
-    legend.onAdd = function () {
-      var div = L.DomUtil.create("div", "gis-legend");
-      div.innerHTML =
-        '<h4>Legend</h4>' +
-        '<div class="gis-legend-item">' +
-        '<span class="gis-legend-swatch gis-legend-rect"></span>' +
-        '<span>Approximate extent — not a legal boundary</span>' +
-        '</div>' +
-        '<div class="gis-legend-item">' +
-        '<span class="gis-legend-swatch gis-legend-green"></span>' +
-        '<span>Verified facility</span>' +
-        '</div>' +
-        '<div class="gis-legend-item" style="font-size:0.6875rem">' +
-        '<span style="flex:1"></span>' +
-        '<span>Hazard layers are raster overlays for reference only</span>' +
-        '</div>';
-      return div;
-    };
-
-    legend.addTo(map);
+  function validPoint(coords) {
+    return Array.isArray(coords) && coords.length === 2 &&
+      coords.every(function (n) { return typeof n === "number" && Number.isFinite(n); }) &&
+      Math.abs(coords[0]) <= 180 && Math.abs(coords[1]) <= 90;
   }
 
   function initMap() {
-    var mapEl = document.getElementById("gis-map");
-    if (!mapEl) return;
-
-    if (gisMapInitialized) return;
-    gisMapInitialized = true;
-
+    var el = document.getElementById("gis-map");
+    if (!el || el.dataset.initialized) return;
+    el.dataset.initialized = "true";
+    var messages = document.getElementById("gis-page").dataset;
+    var fallback = document.getElementById("gis-map-fallback");
+    var status = document.getElementById("gis-map-status");
+    function message(key) { return messages[key] || ""; }
+    function fail(key) {
+      fallback.hidden = false;
+      status.textContent = message(key);
+    }
     if (typeof L === "undefined") {
-      showFallback();
+      el.hidden = true;
+      fail("libraryError");
       return;
     }
 
-    var manifest = window.GIS_LAYERS || {};
-    var meta = manifest.metadata || {};
+    try {
+      var meta = (window.GIS_LAYERS || {}).metadata || {};
+      var center = validPoint(meta.default_map_center) ? meta.default_map_center : [120.455, 16.03];
+      var zoom = Number.isFinite(meta.default_zoom) && meta.default_zoom >= 0 && meta.default_zoom <= 19
+        ? meta.default_zoom : 14;
+      var map = L.map("gis-map").setView([center[1], center[0]], zoom);
+      var tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+      });
+      var tileFailed = false;
+      tiles.on("tileerror", function () {
+        tileFailed = true;
+        fail("tileError");
+      });
+      tiles.on("load", function () {
+        if (!tileFailed) {
+          status.textContent = message("ready");
+          fallback.hidden = true;
+        }
+      });
+      tiles.addTo(map);
 
-    /* default_map_center is stored as [lon, lat] per GeoJSON convention.
-       Leaflet's setView expects [lat, lng], so we swap the array order. */
-    var center = meta.default_map_center
-      ? meta.default_map_center : [120.455, 16.03];
-    var zoom = meta.default_zoom ? meta.default_zoom : 14;
-    var map = L.map("gis-map").setView([center[1], center[0]], zoom);
-
-    var osmLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19,
-    });
-
-    var baseMaps = {
-      "OSM": osmLayer,
-    };
-
-    /* Municipality extent rectangle — approximate bounds from layers.json
-       metadata, NOT a legal boundary. Per AGENTS.md §4.1, we never invent
-       spatial data; this dashed rectangle visualizes the data extraction
-       extent only. Rendered on its own toggleable "Municipal Extent" layer. */
-    var extentLayer = L.layerGroup();
-    var bounds = meta.coordinate_bounds;
-    if (bounds && bounds.south != null && bounds.west != null &&
-        bounds.north != null && bounds.east != null) {
-      var rectBounds = L.latLngBounds(
-        [bounds.south, bounds.west],
-        [bounds.north, bounds.east]
-      );
-      L.rectangle(rectBounds, {
-        color: "#3b82f6",
-        weight: 2,
-        dashArray: "6,4",
-        fill: false,
-        clickable: false,
-      }).addTo(extentLayer);
-    }
-    extentLayer.addTo(map);
-
-    /* Municipality extent label — clarifies the rectangle is approximate. */
-    var extentLabel = document.createElement("div");
-    extentLabel.className = "gis-extent-label";
-    extentLabel.innerHTML =
-      '<span class="gis-extent-label-inner">Municipal extent (approximate)</span>';
-    map.getContainer().appendChild(extentLabel);
-
-    var publishable = filterPublishableFacilities();
-
-    /* Facility layer — only source_verified/field_verified features
-       are rendered as green circleMarkers. All 16 facilities are
-       source_verified per maintainer review decision (19 October 2026). */
-    var facilityLayer = L.layerGroup();
-    publishable.forEach(function (feat) {
-      if (feat.geometry && feat.geometry.type === "Point") {
-        var coords = feat.geometry.coordinates;
-        var props = feat.properties;
-        var marker = L.circleMarker([coords[1], coords[0]], {
-          radius: 6,
-          fillColor: "#2d6b1f",
-          color: "#2d6b1f",
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 0.8,
-        }).addTo(facilityLayer);
-        marker.bindPopup(
-          "<strong>" + escapeHtml(props.name) + "</strong><br>" +
-          escapeHtml(props.category || "") + "<br>" +
-          escapeHtml(props.address || "")
-        );
+      var overlays = {};
+      var bounds = meta.coordinate_bounds;
+      if (bounds && validPoint([bounds.west, bounds.south]) &&
+          validPoint([bounds.east, bounds.north]) && bounds.south < bounds.north && bounds.west < bounds.east) {
+        var extent = L.layerGroup().addTo(map);
+        L.rectangle([[bounds.south, bounds.west], [bounds.north, bounds.east]], {
+          color: "#3b82f6", weight: 2, dashArray: "6,4", fill: false, interactive: false,
+        }).addTo(extent);
+        overlays[message("extent")] = extent;
       }
-    });
-    facilityLayer.addTo(map);
 
-    /* Layer control — OSM base map + toggleable overlays. */
-    var overlayMaps = {
-      "Municipal Extent": extentLayer,
-      "Public Facilities": facilityLayer,
-    };
-    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
+      // Validate defensively, but never substitute the canonical candidate inventory.
+      var candidates = (window.GIS_FACILITIES || {}).features;
+      var groups = new Map();
+      var count = 0;
+      (Array.isArray(candidates) ? candidates : []).forEach(function (feature) {
+        if (!feature || feature.type !== "Feature" || !feature.properties || !feature.geometry ||
+            feature.geometry.type !== "Point" || !validPoint(feature.geometry.coordinates)) return;
+        var props = feature.properties;
+        if (["source_verified", "field_verified"].indexOf(props.verification_status) === -1 ||
+            typeof props.name !== "string" || !props.name.trim()) return;
+        var coords = feature.geometry.coordinates;
+        var key = JSON.stringify(coords);
+        if (!groups.has(key)) groups.set(key, { coords: coords, records: [] });
+        groups.get(key).records.push(props);
+        count += 1;
+      });
 
-    /* Legend control explaining symbols and data-status conventions. */
-    createLegend(map);
-
-    /* Update the facility count display in the page sidebar. */
-    updateFacilityCount(publishable.length);
-
-    /* Non-real-time hazard disclaimer (pinned below the legend). */
-    var disclaimer = document.createElement("div");
-    disclaimer.className = "gis-disclaimer-popup";
-    disclaimer.innerHTML =
-      '<div class="source-label" style="margin-top:8px">' +
-      '<strong>⚠ Non-real-time data.</strong> Hazard layers are for reference only, ' +
-      "not for emergency decisions. Call 911 or local MDRRMO for emergencies." +
-      "</div>";
-    map.getContainer().appendChild(disclaimer);
-
-    populateBarangayList();
-    map.invalidateSize();
-
-    /* Recompute center on window resize (container may have shifted). */
-    window.addEventListener("resize", function () {
-      if (map) map.invalidateSize();
-    });
+      var facilities = L.layerGroup().addTo(map);
+      groups.forEach(function (group) {
+        var popup = group.records.length > 1 ? "<p>" + escapeHtml(message("shared")) + "</p>" : "";
+        popup += "<ul>" + group.records.map(function (props) {
+          var method = {
+            source_reported: props.location_precision === "approximate" ? "approximateSource" : "sourceReported",
+            plus_code_cell_center: "cellCenter", polygon_centroid: "centroid", field_observation: "fieldPosition",
+          }[props.coordinate_method];
+          var provenance = props.provenance || {};
+          var source = typeof provenance.source === "string" ? provenance.source : "";
+          var url = typeof provenance.source_url === "string" && /^https?:\/\//i.test(provenance.source_url)
+            ? provenance.source_url : null;
+          return "<li><strong>" + escapeHtml(props.name) + "</strong><br>" +
+            escapeHtml(props.category) + "<br>" + escapeHtml(props.address) + "<br>" +
+            escapeHtml(message(method || "unknownPrecision")) + "<br>" +
+            escapeHtml(message("source")) + ": " + (url ? '<a href="' + escapeHtml(url) + '">' +
+              escapeHtml(source) + "</a>" : escapeHtml(source)) + "<br>" +
+            escapeHtml(message("checked")) + ": " + escapeHtml(provenance.last_verified) + "</li>";
+        }).join("") + "</ul>";
+        L.circleMarker([group.coords[1], group.coords[0]], {
+          radius: 7, fillColor: "#2d6b1f", color: "#2d6b1f", weight: 1, fillOpacity: 0.8,
+        }).addTo(facilities).bindPopup(popup);
+      });
+      overlays[message("facilities")] = facilities;
+      var baseMaps = {};
+      baseMaps[message("basemap")] = tiles;
+      L.control.layers(baseMaps, overlays, { collapsed: true }).addTo(map);
+      var controls = map.getContainer();
+      [[".leaflet-control-zoom-in", "zoomIn"], [".leaflet-control-zoom-out", "zoomOut"],
+        [".leaflet-control-layers-toggle", "layers"]].forEach(function (entry) {
+        var control = controls.querySelector(entry[0]);
+        if (control) {
+          control.title = message(entry[1]);
+          control.setAttribute("aria-label", message(entry[1]));
+        }
+      });
+      document.getElementById("gis-facility-count").textContent = String(count);
+      document.getElementById("gis-marker-count").textContent = String(groups.size);
+      document.getElementById("gis-facility-empty").hidden = count !== 0;
+      map.invalidateSize();
+      window.addEventListener("resize", function () { map.invalidateSize(); });
+    } catch (error) {
+      fail("mapError");
+    }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initMap);
-  } else {
-    initMap();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initMap);
+  else initMap();
 })();

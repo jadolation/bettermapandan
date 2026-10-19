@@ -212,7 +212,7 @@ def _build_related_links(svc: dict, services: list, lang_code: str) -> str:
 
 def _build_photo_html(svc: dict, lang_code: str, asset_base: str) -> str:
     photo_ref = svc.get("photo-referenced", "")
-    if not photo_ref:
+    if not photo_ref or not (ROOT / photo_ref.lstrip('/')).is_file():
         return ""
     photo_filename = photo_ref.split("/")[-1]
     service_name = html.escape(svc.get("name", ""))

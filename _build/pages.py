@@ -1,5 +1,6 @@
 """Page processors: static/generated pages, page-meta, search entries."""
 import json
+import re
 from pathlib import Path
 
 from _build.chrome import assemble_page, build_footer, build_header, build_hero
@@ -21,6 +22,14 @@ from _build.generators.procurement import (
     generate_homepage_dpwh_data,
     generate_homepage_procurement_data,
     generate_procurement,
+)
+from _build.gis import (
+    directory_html,
+    load_json,
+    parse_json,
+    public_facilities,
+    public_layer_manifest,
+    script_json,
 )
 from _build.labels import resolve_body_placeholders
 from _build.navigation import (
@@ -93,40 +102,9 @@ def _apply_page_meta(meta: dict, rel: Path, lang_code: str) -> dict:
     return meta
 
 def _filter_public_facilities(raw_json: str) -> str:
-    """Apply the AGENTS.md §4.5 publication gate to facility data.
-
-    Excludes facilities with blocking review issues and strips internal
-    review_notes from the public payload. Excluded facilities must not
-    remain embedded in the public page payload.
-    """
-    data = json.loads(raw_json)
-    if not isinstance(data, dict) or "features" not in data:
-        return raw_json  # fallback — emit as-is if not a FeatureCollection
-
-    review_path = SRC_DATA / "gis" / "review" / "facilities-review.json"
-    blocked_ids = set()
-    if review_path.exists():
-        review = json.loads(review_path.read_text(encoding="utf-8"))
-        blocked_ids = set(review.get("blocked_feature_ids", []))
-
-    public_features = []
-    blocked_count = 0
-    for feat in data["features"]:
-        fid = feat.get("properties", {}).get("id", "")
-        if fid in blocked_ids:
-            blocked_count += 1
-            continue  # excluded — not embedded in public payload
-        # Strip internal review_notes per §4.5
-        feat["properties"].pop("review_notes", None)
-        public_features.append(feat)
-
-    if "metadata" in data:
-        data["metadata"]["rendered_features"] = len(public_features)
-        data["metadata"]["excluded_features"] = blocked_count
-        data["metadata"]["excluded_ids"] = sorted(blocked_ids)
-
-    data["features"] = public_features
-    return json.dumps(data, ensure_ascii=False, indent=2)
+    """Gate canonical facilities, then serialize safely for HTML script context."""
+    review = load_json(SRC_DATA / "gis" / "review" / "facilities-review.json")
+    return script_json(public_facilities(parse_json(raw_json), review))
 
 
 def _process_static_page(
@@ -168,21 +146,26 @@ def _process_static_page(
     if rel.name == "government.html":
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
     if rel.name == "gis.html":
-        gis_layers_path = SRC_DATA / "gis" / "layers.json"
-        gis_barangays_path = SRC_DATA / "gis" / "barangays.geojson"
-        gis_facilities_path = SRC_DATA / "gis" / "facilities.geojson"
-        layers_json = gis_layers_path.read_text(encoding="utf-8") if gis_layers_path.exists() else "{}"
-        barangays_json = gis_barangays_path.read_text(encoding="utf-8") if gis_barangays_path.exists() else "[]"
-
-        # --- Build-time publication gate (AGENTS.md §4.5) ---
-        # Excluded facilities must NOT remain in the public page payload.
-        # Internal review notes must NOT be copied to public artifacts.
-        facilities_json_raw = gis_facilities_path.read_text(encoding="utf-8") if gis_facilities_path.exists() else "[]"
-        facilities_json = _filter_public_facilities(facilities_json_raw)
-        # --- End publication gate ---
-        body = body.replace("{GIS_LAYERS_DATA}", layers_json, 1)
-        body = body.replace("{GIS_BARANGAYS_DATA}", barangays_json, 1)
-        body = body.replace("{GIS_FACILITIES_DATA}", facilities_json, 1)
+        gis_dir = SRC_DATA / "gis"
+        layers = load_json(gis_dir / "layers.json")
+        barangays = load_json(gis_dir / "barangays.geojson")
+        facilities = public_facilities(
+            load_json(gis_dir / "facilities.geojson"),
+            load_json(gis_dir / "review" / "facilities-review.json"),
+        )
+        # Optional page-agent interface: counts and lists share the gated payload.
+        # Replace template tokens before inserting data so source strings cannot
+        # accidentally act as placeholders in a later replacement pass.
+        replacements = {
+            "GIS_LAYERS_DATA": script_json(public_layer_manifest(layers, len(facilities["features"]))),
+            "GIS_BARANGAYS_DATA": script_json(barangays),
+            "GIS_FACILITIES_DATA": script_json(facilities),
+            "GIS_FACILITY_DIRECTORY": directory_html(facilities, "facilities", locale),
+            "GIS_BARANGAY_DIRECTORY": directory_html(barangays, "barangays", locale),
+            "GIS_FACILITY_COUNT": str(len(facilities["features"])),
+            "GIS_BARANGAY_COUNT": str(len(barangays["features"])),
+        }
+        body = re.sub(r"\{(GIS_[A-Z_]+)\}", lambda match: replacements.get(match[1], match[0]), body)
     page_url = f"{lang_code}/{rel}" if lang_code != "en" else str(rel)
     breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url, breadcrumb_jsonld)

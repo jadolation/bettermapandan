@@ -1,36 +1,46 @@
 ---
 title: GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, Pangasinan
-description: An interactive GIS map for Mapandan, Pangasinan showing barangay boundaries, public facilities, roads, and hazard layers. Built under the BetterGov.ph BetterLGU initiative using reviewed geographic data.
+description: Mapandan reference map with an approximate extraction extent, barangay directory and publication-approved facility points when available. Hazard, boundary and road overlays are unavailable.
 ---
 
-<div id="gis-page">
-  <div id="gis-map" style="height:520px;border-radius:8px;margin-bottom:24px"></div>
-  <p id="gis-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the interactive GIS map. <a href="https://www.openstreetmap.org/place/16.03,120.455">View Mapandan on OpenStreetMap &rarr;</a></p>
+<div id="gis-page"
+  data-library-error="{{GIS_LIBRARY_ERROR}}" data-tile-error="{{GIS_TILE_ERROR}}"
+  data-map-error="{{GIS_MAP_ERROR}}" data-ready="{{GIS_READY}}"
+  data-extent="{{GIS_EXTENT}}" data-facilities="{{GIS_FACILITIES}}" data-basemap="{{GIS_BASEMAP}}"
+  data-shared="{{GIS_SHARED}}" data-source="{{GIS_SOURCE}}" data-checked="{{GIS_CHECKED}}"
+  data-source-reported="{{GIS_SOURCE_REPORTED}}" data-approximate-source="{{GIS_APPROXIMATE_SOURCE}}"
+  data-cell-center="{{GIS_CELL_CENTER}}" data-centroid="{{GIS_CENTROID}}"
+  data-field-position="{{GIS_FIELD_POSITION}}" data-unknown-precision="{{GIS_UNKNOWN_PRECISION}}"
+  data-zoom-in="{{GIS_ZOOM_IN}}" data-zoom-out="{{GIS_ZOOM_OUT}}" data-layers="{{GIS_LAYERS}}">
+  <p>{{GIS_INTRO}}</p>
+  <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
+  <p id="gis-map-help" class="source-label">{{GIS_MAP_HELP}}</p>
+  <p id="gis-map-status" role="status" class="source-label"></p>
+  <p id="gis-map-fallback" class="source-label">{{GIS_FALLBACK}} <a href="https://www.openstreetmap.org/#map=14/16.03/120.455">{{GIS_OPEN_OSM}}</a></p>
 
   <div class="gis-layout">
-    <div class="gis-panel">
-      <h3 class="gis-panel-title">Barangay Reference</h3>
-      <p class="source-label">15 barangays &mdash; PSGC codes verified from PSA</p>
-      <div id="gis-barangay-list"></div>
-    </div>
-    <div class="gis-panel">
-      <h3 class="gis-panel-title">Public Facilities</h3>
-      <p class="source-label">16 public facilities &mdash; all source_verified</p>
-      <p id="gis-facility-count-notice" class="source-label">Showing <span id="gis-facility-count">16</span> verified facilities on map.</p>
-      <div id="gis-facility-list">
-        <p class="source-label">16 facility points carry <code>verification_status: source_verified</code> and are shown on the public map. Known documentation issues (co-located Police/Fire, BUCAS locality) have been resolved per maintainer review decision and are recorded in <a href="/gis/">the review file</a> for reference.</p>
-      </div>
-    </div>
+    <section class="gis-panel" aria-labelledby="gis-barangay-title">
+      <h2 id="gis-barangay-title" class="gis-panel-title">{{GIS_BARANGAYS}}</h2>
+      <p class="source-label">{{GIS_BARANGAY_TOTAL}}: {GIS_BARANGAY_COUNT}. {{GIS_BARANGAY_NOTE}}</p>
+      <div id="gis-barangay-list">{GIS_BARANGAY_DIRECTORY}</div>
+    </section>
+    <section class="gis-panel" aria-labelledby="gis-facility-title">
+      <h2 id="gis-facility-title" class="gis-panel-title">{{GIS_FACILITIES}}</h2>
+      <p class="source-label">{{GIS_FACILITY_TOTAL}}: <span id="gis-facility-count">{GIS_FACILITY_COUNT}</span>.</p>
+      <p class="source-label">{{GIS_MARKER_TOTAL}}: <span id="gis-marker-count">{{GIS_MAP_PENDING}}</span>.</p>
+      <div id="gis-facility-list">{GIS_FACILITY_DIRECTORY}</div>
+      <p id="gis-facility-empty" class="source-label">{{GIS_EMPTY}}</p>
+    </section>
   </div>
-
   <div class="gis-disclaimer">
-    <p><strong>Non-real-time data.</strong> Hazard layers (ground shaking, liquefaction) are derived from historical PHIVOLCS/GSI map products and are not real-time. They are for reference only and must not be used for emergency response decisions. For emergencies, contact 911 or the Mapandan MDRRMO.</p>
+    <p>{{GIS_UNAVAILABLE}}</p>
+    <p>{{GIS_PRECISION}}</p>
+    <p>{{GIS_SAFETY}}</p>
   </div>
 </div>
 
 <script>
   window.GIS_LAYERS = {GIS_LAYERS_DATA};
-  window.GIS_BARANGAYS = {GIS_BARANGAYS_DATA};
   window.GIS_FACILITIES = {GIS_FACILITIES_DATA};
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>

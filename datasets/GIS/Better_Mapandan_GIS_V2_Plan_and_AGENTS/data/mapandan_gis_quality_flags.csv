@@ -1,0 +1,10 @@
+id,severity,description
+soil_area_sum,high,"Soil class area entries sum to 2631.981 ha, not reported 2132.704 ha"
+land_capability_area_sum,high,"Land capability class area entries sum to 2132.143 ha, not reported 3291.752 ha"
+land_capability_percentages,high,"Class percentages roughly correspond to 2132 ha denominator, not 3291.752 ha municipal area; do not use for whole-municipality exposure estimates."
+slope_table_alignment,medium,Flat category 86.57% is under Land Area (has) in pasted table; treat as percentage and mark missing class-area value.
+population_vintage,medium,"RHU 2023 population 43722 differs from PSA 2024 population 38228 recorded on branch; different sources/vintages, do not overwrite."
+coordinate_longitude_text,medium,Physical characteristics prose gives longitude 120°56′; map graticules show approximately 120°25′–120°29′. Verify original text before using coordinate description.
+municipality_area_scope,medium,MPDC 3291.752 ha and assessor taxable 2459.6652 ha measure different scopes; retain both.
+drainage_measurement,medium,"Angalacan River described as length 3.924 meters and area 70 hectares; likely unit/transcription issue, leave uncorrected."
+hazard_vectorization,high,Map classes shown in raster imagery must not be treated as verified polygon boundaries until georeferenced and validated.

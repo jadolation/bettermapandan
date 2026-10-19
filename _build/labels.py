@@ -1,4 +1,6 @@
 """Locale label dicts resolved into body placeholders."""
+from html import escape
+
 from _build.facts import facts_placeholders
 from _build.generators.dpwh import _build_dpwh_labels
 from _build.locales import t
@@ -15,6 +17,9 @@ def resolve_body_placeholders(body: str, locale: dict, asset_base: str) -> str:
         ** _build_statistics_labels(locale),
         ** _build_transparency_labels(locale),
         ** _build_search_labels(locale),
+        # GIS strings are plain text shared by HTML prose and quoted attributes.
+        **{f"GIS_{key.upper()}": escape(str(value))
+           for key, value in locale.get("gis", {}).items()},
     })
 
 def _build_page_body_labels(locale: dict) -> dict:

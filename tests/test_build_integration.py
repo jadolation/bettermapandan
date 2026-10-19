@@ -37,9 +37,19 @@ def _stage_tree(tmp_path: Path) -> Path:
     for path in (REPO / "assets" / "js").glob("*.js"):
         shutil.copy(path, js_dir / path.name)
     (staged / "llms.txt").write_text("staged", encoding="utf-8")
-    # Audit archive file sizes are computed from disk; symlink datasets so
-    # the staged build can stat the real audit report files without copying 554 MB.
-    (staged / "datasets").symlink_to(REPO / "datasets")
+    # Only audit files are read through links; review outputs must stay isolated.
+    archive = json.loads((staged / "src/data/audit-reports.json").read_text(encoding="utf-8"))
+    for entry in archive["audit_archive"]:
+        for document in entry["files"]:
+            rel = document["path"].lstrip("/")
+            target = staged / rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.symlink_to(REPO / rel)
+    review = REPO / "datasets/review"
+    if review.exists():
+        shutil.copytree(review, staged / "datasets/review")
+    (staged / "_site/stale").mkdir(parents=True)
+    (staged / "_site/stale/index.html").write_text("stale artifact", encoding="utf-8")
     return staged
 
 
@@ -110,8 +120,14 @@ def built_site(tmp_path_factory: pytest.TempPathFactory) -> Path:
     _patch_roots(mp, staged)
     import _build.orchestrator
 
-    _build.orchestrator.build()
-    mp.undo()
+    def offline_run(*args, **kwargs):
+        raise OSError("Integration tests disable subprocess/network; use copy-through fallback")
+
+    mp.setattr("subprocess.run", offline_run)
+    try:
+        _build.orchestrator.build()
+    finally:
+        mp.undo()
     return staged
 
 
@@ -137,6 +153,7 @@ def test_sitemap_clean_urls(built_site: Path):
     locs = [u.find("{http://www.sitemaps.org/schemas/sitemap/0.9}loc").text for u in urls]
     assert all(loc.startswith("https://bettermapandan.org/") for loc in locs)
     assert not any("kilo" in loc or loc.startswith(".") for loc in locs), "worktree pollution"
+    assert not any("/_site/" in loc for loc in locs), "staged artifact pollution"
 
 
 def test_search_index_populated(built_site: Path):
