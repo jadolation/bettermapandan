@@ -60,8 +60,8 @@
       "source": "OpenStreetMap / Google Maps Plus Codes (via datasets/GIS/evac.geojson)",
       "source_url": "https://www.openstreetmap.org/",
       "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
-      "update_date": "2026-10-18",
-      "verification_notes": "All 16 facility points carry verification_status: source_verified. All features are rendered on the public map layer. Known documentation issues (co-located facilities, coordinate mismatches, etc.) are recorded in gis/review/facilities-review.json for reference."
+      "update_date": "2026-10-19",
+      "verification_notes": "All 16 facilities carry verification_status: source_verified and are rendered. Coordinates are approximate Plus Code cell centers (§3.5). 5 formerly blocked facilities (fac-001, fac-002, fac-005, fac-006, fac-014) were released for publication following maintainer review decision on 2026-10-19."
     },
     {
       "id": "roads",

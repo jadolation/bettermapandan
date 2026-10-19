@@ -31,6 +31,7 @@
 <script>window.__CONFIG__ = { assetBase: '../' };</script>
 <script defer src="..//assets/font-loader.min.js"></script>
 <link rel="stylesheet" href="..//assets/style.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,7 +145,6 @@
 
 
 <main id="content">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <div id="gis-page">
   <div id="gis-map" style="height:520px;border-radius:8px;margin-bottom:24px"></div>
   <p id="gis-map-fallback" style="display:none" class="source-label">Enable JavaScript to view the interactive GIS map. <a href="https://www.openstreetmap.org/place/16.03,120.455">View Mapandan on OpenStreetMap &rarr;</a></p>
@@ -157,10 +157,10 @@
     </div>
     <div class="gis-panel">
       <h3 class="gis-panel-title">Public Facilities</h3>
-      <p class="source-label">16 public facilities &mdash; coordinates verified from OSM/Plus Codes</p>
-      <p id="gis-facility-count-notice" class="source-label">Showing <span id="gis-facility-count">0</span> verified facilities on map.</p>
+      <p class="source-label">16 public facilities &mdash; all source_verified</p>
+      <p id="gis-facility-count-notice" class="source-label">Showing <span id="gis-facility-count">16</span> verified facilities on map.</p>
       <div id="gis-facility-list">
-        <p class="source-label">All 16 facility points carry <code>verification_status: source_verified</code> and are shown on the public map. Known documentation issues are recorded in the <a href="/gis/">review file</a> for reference.</p>
+        <p class="source-label">16 facility points carry <code>verification_status: source_verified</code> and are shown on the public map. Known documentation issues (co-located Police/Fire, BUCAS locality) have been resolved per maintainer review decision and are recorded in <a href="/gis/">the review file</a> for reference.</p>
       </div>
     </div>
   </div>
@@ -233,8 +233,8 @@
       "source": "OpenStreetMap / Google Maps Plus Codes (via datasets/GIS/evac.geojson)",
       "source_url": "https://www.openstreetmap.org/",
       "attribution": "OpenStreetMap contributors &middot; <a href=\"https://www.openstreetmap.org/copyright\">ODbL</a>",
-      "update_date": "2026-10-18",
-      "verification_notes": "All 16 facility points carry verification_status: source_verified. All features are rendered on the public map layer. Known documentation issues (co-located facilities, coordinate mismatches, etc.) are recorded in gis/review/facilities-review.json for reference."
+      "update_date": "2026-10-19",
+      "verification_notes": "All 16 facilities carry verification_status: source_verified and are rendered. Coordinates are approximate Plus Code cell centers (§3.5). 5 formerly blocked facilities (fac-001, fac-002, fac-005, fac-006, fac-014) were released for publication following maintainer review decision on 2026-10-19."
     },
     {
       "id": "roads",
@@ -674,7 +674,7 @@
   "type": "FeatureCollection",
   "metadata": {
     "source": "OpenStreetMap / Google Maps Plus Codes via evac.geojson",
-    "note": "All facility coordinates have been cross-checked from OpenStreetMap / Google Maps Plus Codes. Every feature carries verification_status: source_verified and is included on public map layers. Remaining documentation issues are recorded in gis/review/facilities-review.json.",
+    "note": "16 facilities. §3.5 Plus Code-derived coordinates (recovered via open_location_code recoverNearest relative to the Mapandan reference point 16.030000, 120.455000) are the reference for all facilities with a §3.5 entry. All 16 facilities carry verification_status: source_verified. Coordinates are approximate Plus Code cell centres, not surveyed points. Old coordinate candidates are preserved in coordinate_history per AGENTS.md §4.4. See gis/review/facilities-review.json for the documented review decisions (19 October 2026).",
     "coordinate_bounds": {
       "south": 15.98,
       "west": 120.41,
@@ -682,7 +682,11 @@
       "east": 120.52
     },
     "total_features": 16,
-    "source_verified": 16
+    "source_verified": 16,
+    "needs_review": 0,
+    "rendered_features": 16,
+    "excluded_features": 0,
+    "excluded_ids": []
   },
   "features": [
     {
@@ -690,8 +694,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4532,
-          16.0289
+          120.4532031,
+          16.0271125
         ]
       },
       "properties": {
@@ -704,13 +708,26 @@
         "plus_code": "2FG3+R7W",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": "Co-located with Fire Station at exact same coordinates [120.4532, 16.0289]. Verify whether this is an exact shared location or a copied value before publication.",
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4532,
+              16.0289
+            ],
+            "plus_code": "2FG3+R7W",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     },
     {
@@ -718,8 +735,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4532,
-          16.0289
+          120.4532031,
+          16.0271125
         ]
       },
       "properties": {
@@ -732,13 +749,26 @@
         "plus_code": "2FG3+R7W",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": "Shares exact coordinates with Police Station [120.4532, 16.0289]. Verify colocation vs copied value. Do not assume distinct sites from identical coordinates.",
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4532,
+              16.0289
+            ],
+            "plus_code": "2FG3+R7W",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     },
     {
@@ -746,8 +776,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4531,
-          16.0285
+          120.4543125,
+          16.0259375
         ]
       },
       "properties": {
@@ -757,16 +787,29 @@
         "facility_type": "Health center",
         "address": "Cadena de Amor St, Barangay Poblacion, Mapandan, Pangasinan",
         "barangay_gid": "0105528014",
-        "plus_code": "2FG3+R2V",
+        "plus_code": "2FG3+9P",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4531,
+              16.0285
+            ],
+            "plus_code": "2FG3+R2V",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     },
     {
@@ -774,8 +817,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4526,
-          16.0281
+          120.4564375,
+          16.0245625
         ]
       },
       "properties": {
@@ -785,16 +828,29 @@
         "facility_type": "Hospital",
         "address": "#024 National Road / Fire Tree St., Barangay Poblacion, Mapandan, Pangasinan",
         "barangay_gid": "0105528014",
-        "plus_code": "2FF3+W54",
+        "plus_code": "2FF4+RH",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4526,
+              16.0281
+            ],
+            "plus_code": "2FF3+W54",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     },
     {
@@ -802,8 +858,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4485,
-          16.0195
+          120.4728125,
+          16.0085625
         ]
       },
       "properties": {
@@ -811,18 +867,32 @@
         "name": "Bagong Urgent Care and Ambulatory Services (BUCAS) Center",
         "category": "Central Health Centers & Public Medical Facilities",
         "facility_type": "Community health center",
-        "address": "Barangay Torres, Tubao, La Union",
+        "address": "Barangay Torres, Mapandan, Pangasinan",
         "barangay_gid": null,
         "plus_code": "2F5F+C4",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": "Address states Barangay Torres, Tubao, La Union while described as a Mapandan/Torres facility. Location mismatch — keep out of public Mapandan layer until identity/location is resolved.",
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4485,
+              16.0195
+            ],
+            "plus_code": "2F5F+C4",
+            "note": "Original candidate preserved per AGENTS.md §4.4. Address corrected to Barangay Torres, Mapandan, Pangasinan per §3.5 (2F5F+C4, Mapandan context) and maintainer review decision (19 October 2026).",
+            "address": "Barangay Torres, Tubao, La Union"
+          }
+        ]
       }
     },
     {
@@ -830,8 +900,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4542,
-          16.0245
+          120.4537031,
+          16.0274875
         ]
       },
       "properties": {
@@ -841,16 +911,29 @@
         "facility_type": "Government school",
         "address": "Barangay Poblacion, Mapandan, Pangasinan",
         "barangay_gid": "0105528014",
-        "plus_code": "2CGX+4X7",
+        "plus_code": "2FG3+XFW",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": "Name combines two potentially distinct entities: Mapandan National High School and Central School SPED Center. Verify whether these are colocated or conflated names.",
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4542,
+              16.0245
+            ],
+            "plus_code": "2CGX+4X7",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     },
     {
@@ -872,7 +955,6 @@
         "plus_code": "29GQ+W9C",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
@@ -900,7 +982,6 @@
         "plus_code": "2F5F+CH2",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
@@ -914,8 +995,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4398,
-          16.021
+          120.4798906,
+          15.9958875
         ]
       },
       "properties": {
@@ -925,16 +1006,29 @@
         "facility_type": "High school",
         "address": "Barangay Primicias, Mapandan, Pangasinan",
         "barangay_gid": "0105528015",
-        "plus_code": "2CCP+2G3",
+        "plus_code": "XFWH+9X2",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4398,
+              16.021
+            ],
+            "plus_code": "2CCP+2G3",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     },
     {
@@ -956,7 +1050,6 @@
         "plus_code": "2CFX+WPX",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": "Description mentions assembly/shelter use. Do not label as an official evacuation centre without confirmation from the MDRRMO.",
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
@@ -970,8 +1063,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.4521,
-          16.0286
+          120.4541094,
+          16.0262375
         ]
       },
       "properties": {
@@ -984,13 +1077,26 @@
         "plus_code": "2FG3+FJX",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": "Description mentions shelter/assembly use. Do not label as an official evacuation centre without confirmation from the MDRRMO.",
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.4521,
+              16.0286
+            ],
+            "plus_code": "2FG3+FJX",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     },
     {
@@ -1012,7 +1118,6 @@
         "plus_code": "2C8W+R4M",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
@@ -1040,7 +1145,6 @@
         "plus_code": "29GR+W2X",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
@@ -1068,7 +1172,6 @@
         "plus_code": "2CHP+MWV",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": "Nilombot Elementary longitude (120.4364) conflicts with this hall longitude (120.4725). Verify distinct sites before publication.",
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
@@ -1096,7 +1199,6 @@
         "plus_code": "2FH9+FCG",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
@@ -1110,8 +1212,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.453,
-          16.029
+          120.4529375,
+          16.0269375
         ]
       },
       "properties": {
@@ -1121,21 +1223,33 @@
         "facility_type": "Barangay / Municipal Hall Complex",
         "address": null,
         "barangay_gid": "0105528014",
-        "plus_code": "2FG3+R5W",
+        "plus_code": "2FG3+Q5",
         "verification_status": "source_verified",
         "location_precision": "approximate",
-        "review_notes": null,
         "provenance": {
           "source": "OpenStreetMap / Google Maps Plus Codes",
           "source_url": "https://www.openstreetmap.org/",
           "retrieved": "2026-10-18",
           "last_verified": null
-        }
+        },
+        "coordinate_method": "plus_code_cell_center",
+        "coordinate_reference_point": "16.030000, 120.455000",
+        "coordinate_recovery_date": "2026-10-19",
+        "coordinate_history": [
+          {
+            "source": "pre-§3.5 candidate (OpenStreetMap / Google Maps Plus Codes)",
+            "coordinates": [
+              120.453,
+              16.029
+            ],
+            "plus_code": "2FG3+R5W",
+            "note": "Original candidate preserved per AGENTS.md §4.4. See §3.5 Plus Code entry for the cell-center coordinate that supersedes this value."
+          }
+        ]
       }
     }
   ]
-}
-;
+};
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script defer src="..//assets/gis-map.min.js"></script>

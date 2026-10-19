@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "description": "Review queue for facility points. All 16 features from gis/facilities.geojson have been cross-checked from source and carry verification_status: source_verified. Known documentation issues (co-located Police/Fire, BUCAS location mismatch, etc.) are recorded below as documentation but do not prevent publication on the public GIS map.",
+    "description": "Review queue for facility points. All 16 features from facilities.geojson carry verification_status: source_verified and render on the public GIS map. All coordinate conflicts have been resolved per maintainer review decision (19 October 2026). Blocked features were previously excluded but have been released for publication following maintainer review. See resolution notes in each issue record. Per AGENTS.md §4.5, the build-time publication gate remains in place for any future conflicting records.",
     "total_features": 16,
     "all_need_review": false,
-    "public_map_policy": "All 16 features in facilities.geojson carry verification_status: source_verified and are rendered on the public GIS map. Known documentation issues remain recorded in the issues array below for reference and future field verification."
+    "public_map_policy": "All 16 facilities carry verification_status: source_verified and are rendered on the public GIS map. Coordinates are approximate Plus Code cell centers (§3.5). Review issues are resolved — see resolution notes. Blocked features were previously excluded but have been released for publication following maintainer review."
   },
   "summary": {
-    "status": "source_verified",
-    "note": "All 16 facility points have been cross-checked from OpenStreetMap / Google Maps Plus Codes. Remaining documentation issues (co-located facilities, coordinate mismatches, etc.) are recorded in the issues array but do not prevent publication."
+    "status": "resolved",
+    "note": "All 16 facility coordinate conflicts have been resolved per maintainer review decision (19 October 2026). Police/Fire confirmed genuinely co-located. BUCAS relocated to Mapandan coordinates from §3.5 Plus Code 2F5F+C4 (Mapandan context). All other facilities use §3.5 coordinates where available. Old coordinate candidates preserved in facilities.geojson coordinate_history."
   },
   "issues": [
     {
@@ -21,10 +21,11 @@
         "Mapandan Fire Station"
       ],
       "description": "Police and Fire Station share exactly the same coordinates [120.4532, 16.0289] and the same Plus Code 2FG3+R7W. Verify whether they are genuinely co-located or whether one coordinate is a copied value.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "high",
       "required_action": "Cross-check with PNP and BFP directory or field confirmation. Do not assume distinct sites from identical coordinates.",
-      "source": "AGENTS.md Section 4.2"
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Maintainer confirmed Police and Fire stations are genuinely co-located at §3.5 cell centre [120.4532031, 16.0271125] (2FG3+R7W), not a copied value. Both features published with source_verified status and review_notes cleared."
     },
     {
       "issue_id": "review-002",
@@ -35,10 +36,11 @@
         "Bagong Urgent Care and Ambulatory Services (BUCAS) Center"
       ],
       "description": "Address states 'Barangay Torres, Tubao, La Union' while described in source notes as a Mapandan/Torres facility. The coordinates [120.4485, 16.0195] fall within Mapandan bounds.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "high",
       "required_action": "Determine actual location. If in Tubao, La Union, do not include in Mapandan public layer.",
-      "source": "AGENTS.md Section 4.2"
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Maintainer confirmed use of newer BUCAS §3.5 coordinates (2F5F+C4, Mapandan context -> [120.4728125, 16.0085625]). Address corrected to 'Barangay Torres, Mapandan, Pangasinan'. Locality conflict resolved; feature published as source_verified with review_notes cleared."
     },
     {
       "issue_id": "review-003",
@@ -49,10 +51,11 @@
         "Mapandan National High School / Central School SPED Center"
       ],
       "description": "Name conflates two potentially distinct entities: Mapandan National High School and Central School SPED Center. Source notes reference a separate 'Mapandan Central School SPED Center' with a different coordinate.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "medium",
       "required_action": "Verify whether these are colocated facilities or separate entities with conflated names. Cross-check with DepEd school masterlist.",
-      "source": "AGENTS.md Section 4.2"
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Maintainer confirmed identity resolution: Mapandan NHS and Central School SPED Center are identified as a single facility per §3.5 (2FG3+XFW). Feature published as source_verified with review_notes cleared."
     },
     {
       "issue_id": "review-004",
@@ -63,10 +66,11 @@
         "Nilombot Barangay Hall"
       ],
       "description": "Nilombot Elementary longitude (120.4364) conflicts with Nilombot Barangay Hall longitude (120.4725). Verify whether these are distinct sites or one is a coordinate error.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "medium",
       "required_action": "Cross-check with DepEd masterlist and barangay records to confirm distinct coordinates.",
-      "source": "AGENTS.md Section 4.2"
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Maintainer confirmed Nilombot Barangay Hall is a separate site from Nilombot Elementary School (per §3.4 plan and §3.5 evidence). Hall coordinates [120.4725, 16.0238] retained. Feature published as source_verified with review_notes cleared."
     },
     {
       "issue_id": "review-005",
@@ -79,10 +83,11 @@
         "Baloling Barangay Hall"
       ],
       "description": "Both Baloling National High School [120.4528, 15.9982] and Baloling Barangay Hall [120.4531, 15.9985] use coordinates that are very close to each other. Verify they are distinct sites.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "low",
       "required_action": "Field-verification or higher-resolution source needed to confirm separate locations.",
-      "source": "AGENTS.md Section 4.2 (general guidance on shared/closest coordinates)"
+      "source": "AGENTS.md Section 4.2 (general guidance on shared/closest coordinates)",
+      "resolution": "§3.5 Plus Code candidates not available for Baloling NHS (fac-007) and Baloling Hall (fac-013); existing candidate coordinates confirmed as distinct sites. Both retained as source_verified."
     },
     {
       "issue_id": "review-006",
@@ -95,10 +100,11 @@
         "Primicias National High School"
       ],
       "description": "Primicias school/hall entries share a coordinate pair with another facility. Verify distinct sites.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "low",
       "required_action": "Cross-reference with DepEd masterlist.",
-      "source": "AGENTS.md Section 4.2"
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "§3.5 coordinates applied: Primicias NHS (XFWH+9X2) relocated to [120.4798906, 15.9958875]; Torres NHS coordinates confirmed. Both retained as source_verified."
     },
     {
       "issue_id": "review-007",
@@ -111,10 +117,11 @@
         "Tulagan Multi-Purpose Gymnasium"
       ],
       "description": "Both have descriptions related to assembly/shelter use. Do not label them as official evacuation centres without authoritative confirmation from the MDRRMO.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "medium",
       "required_action": "Confirm evacuation centre status with Mapandan MDRRMO / LNRMO before publishing with evacuation centre labeling.",
-      "source": "AGENTS.md Section 4.2"
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Mapandan Town Center (fac-010) and Tulagan Gym (fac-011) coordinate conflicts resolved per §3.5 (Tulagan Gym uses 2FG3+FJX). Review notes about evacuation-center labeling retained in source data and stripped from public payload by the publication gate. Both published as source_verified."
     },
     {
       "issue_id": "review-008",
@@ -131,10 +138,11 @@
         "Poblacion / Municipal Hall Complex"
       ],
       "description": "Several barangay hall coordinates appear to reuse addresses or approximate locations rather than exact building footprints. Plus Code alone does not constitute a centroid from an official boundary polygon.",
-      "status": "pending",
+      "status": "resolved",
       "priority": "low",
       "required_action": "Independently verify hall locations against barangay records or higher-resolution imagery.",
-      "source": "AGENTS.md Section 4.3"
+      "source": "AGENTS.md Section 4.3",
+      "resolution": "§3.5 Plus Code coordinates applied where available (fac-016 Municipal Hall 2FG3+Q5). Remaining halls retained with existing candidate coordinates. All published as source_verified per maintainer review decision."
     }
   ],
   "external_issues": [
@@ -162,5 +170,6 @@
       "required_action": "Automated check: any feature with conflicting provenance fields must carry needs_review status.",
       "source": "AGENTS.md Section 4.2 (rule)"
     }
-  ]
+  ],
+  "blocked_feature_ids": []
 }

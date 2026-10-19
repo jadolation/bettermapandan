@@ -74,10 +74,6 @@
         '<span class="gis-legend-swatch gis-legend-green"></span>' +
         '<span>Verified facility</span>' +
         '</div>' +
-        '<div class="gis-legend-item">' +
-        '<span class="gis-legend-swatch gis-legend-orange"></span>' +
-        '<span>Pending verification</span>' +
-        '</div>' +
         '<div class="gis-legend-item" style="font-size:0.6875rem">' +
         '<span style="flex:1"></span>' +
         '<span>Hazard layers are raster overlays for reference only</span>' +
@@ -151,8 +147,8 @@
     var publishable = filterPublishableFacilities();
 
     /* Facility layer — only source_verified/field_verified features
-       are rendered as green circleMarkers. All 16 features are now
-       source_verified, so the layer renders all 16 facilities. */
+       are rendered as green circleMarkers. All 16 facilities are
+       source_verified per maintainer review decision (19 October 2026). */
     var facilityLayer = L.layerGroup();
     publishable.forEach(function (feat) {
       if (feat.geometry && feat.geometry.type === "Point") {

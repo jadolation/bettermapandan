@@ -92,6 +92,43 @@ def _apply_page_meta(meta: dict, rel: Path, lang_code: str) -> dict:
             meta[mkey] = override[mkey]
     return meta
 
+def _filter_public_facilities(raw_json: str) -> str:
+    """Apply the AGENTS.md §4.5 publication gate to facility data.
+
+    Excludes facilities with blocking review issues and strips internal
+    review_notes from the public payload. Excluded facilities must not
+    remain embedded in the public page payload.
+    """
+    data = json.loads(raw_json)
+    if not isinstance(data, dict) or "features" not in data:
+        return raw_json  # fallback — emit as-is if not a FeatureCollection
+
+    review_path = SRC_DATA / "gis" / "review" / "facilities-review.json"
+    blocked_ids = set()
+    if review_path.exists():
+        review = json.loads(review_path.read_text(encoding="utf-8"))
+        blocked_ids = set(review.get("blocked_feature_ids", []))
+
+    public_features = []
+    blocked_count = 0
+    for feat in data["features"]:
+        fid = feat.get("properties", {}).get("id", "")
+        if fid in blocked_ids:
+            blocked_count += 1
+            continue  # excluded — not embedded in public payload
+        # Strip internal review_notes per §4.5
+        feat["properties"].pop("review_notes", None)
+        public_features.append(feat)
+
+    if "metadata" in data:
+        data["metadata"]["rendered_features"] = len(public_features)
+        data["metadata"]["excluded_features"] = blocked_count
+        data["metadata"]["excluded_ids"] = sorted(blocked_ids)
+
+    data["features"] = public_features
+    return json.dumps(data, ensure_ascii=False, indent=2)
+
+
 def _process_static_page(
     lang_code: str, locale: dict, rel: Path, meta: dict, body: str,
     base: str, page_hero_raw: str, out_root: Path, search_entries: list
@@ -136,7 +173,13 @@ def _process_static_page(
         gis_facilities_path = SRC_DATA / "gis" / "facilities.geojson"
         layers_json = gis_layers_path.read_text(encoding="utf-8") if gis_layers_path.exists() else "{}"
         barangays_json = gis_barangays_path.read_text(encoding="utf-8") if gis_barangays_path.exists() else "[]"
-        facilities_json = gis_facilities_path.read_text(encoding="utf-8") if gis_facilities_path.exists() else "[]"
+
+        # --- Build-time publication gate (AGENTS.md §4.5) ---
+        # Excluded facilities must NOT remain in the public page payload.
+        # Internal review notes must NOT be copied to public artifacts.
+        facilities_json_raw = gis_facilities_path.read_text(encoding="utf-8") if gis_facilities_path.exists() else "[]"
+        facilities_json = _filter_public_facilities(facilities_json_raw)
+        # --- End publication gate ---
         body = body.replace("{GIS_LAYERS_DATA}", layers_json, 1)
         body = body.replace("{GIS_BARANGAYS_DATA}", barangays_json, 1)
         body = body.replace("{GIS_FACILITIES_DATA}", facilities_json, 1)

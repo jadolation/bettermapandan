@@ -129,14 +129,19 @@ def test_facility_ids_unique():
     assert len(ids) == len(set(ids)), f"Duplicate facility IDs: {ids}"
 
 
-def test_all_facilities_source_verified():
-    """Every facility carries verification_status source_verified."""
+def test_all_facilities_are_source_verified():
+    """All 16 facilities carry verification_status: source_verified (no needs_review remains).
+
+    Per maintainer review decision (19 October 2026), all §3.5 coordinate conflicts
+    were resolved and the 5 previously blocked facilities were released.
+    """
     data = _load_geojson(FACILITIES_PATH)
     for feat in data["features"]:
-        status = feat["properties"]["verification_status"]
-        assert status == "source_verified", (
-            f"{feat['properties']['name']}: expected source_verified, got {status}"
+        assert feat["properties"]["verification_status"] == "source_verified", (
+            f"{feat['properties']['id']}: expected source_verified, got "
+            f"{feat['properties']['verification_status']}"
         )
+    assert len(data["features"]) == EXPECTED_FACILITIES
 
 
 def test_facility_provenance_has_source():
@@ -185,7 +190,7 @@ def test_no_hall_marked_as_centroid():
 
 
 def test_review_queue_documents_all_contradictions():
-    """The review queue lists all known facility contradictions from AGENTS.md."""
+    """The review queue lists all known facility contradictions, now resolved."""
     review = _load_json(REVIEW_PATH)
     assert "issues" in review, "Review queue missing 'issues' array"
     issue_ids = {i["issue_id"] for i in review["issues"]}
@@ -195,31 +200,160 @@ def test_review_queue_documents_all_contradictions():
     assert not missing, f"Review queue missing expected issues: {missing}"
     assert review["metadata"]["all_need_review"] is False
     assert review["metadata"]["total_features"] == EXPECTED_FACILITIES
+    assert "blocked_feature_ids" in review, "Review queue missing 'blocked_feature_ids'"
+    assert review["blocked_feature_ids"] == [], (
+        "All facility coordinate conflicts resolved — blocked_feature_ids should be empty"
+    )
+    assert review["summary"]["status"] == "resolved"
 
 
-def test_police_fire_colocated_flagged_in_review():
-    """The co-located police/fire issue is recorded in the review queue."""
+def test_police_fire_colocated_resolution_documented():
+    """The co-located police/fire issue is resolved in the review queue with a resolution."""
     review = _load_json(REVIEW_PATH)
     pol_fire = next(i for i in review["issues"] if i["issue_id"] == "review-001")
     assert "fac-001" in pol_fire["affected_ids"]
     assert "fac-002" in pol_fire["affected_ids"]
+    assert pol_fire["status"] == "resolved"
+    assert "resolution" in pol_fire, "review-001 missing resolution field"
 
 
-def test_bucas_external_issue_flagged():
-    """BUCAS (Tubao, La Union mismatch) is recorded in the review queue."""
+def test_bucas_locality_resolution_documented():
+    """BUCAS locality conflict is resolved in the review queue with a resolution."""
     review = _load_json(REVIEW_PATH)
     bucas = next(i for i in review["issues"] if i["issue_id"] == "review-002")
     assert "fac-005" in bucas["affected_ids"]
+    assert bucas["status"] == "resolved"
+    assert "resolution" in bucas, "review-002 missing resolution field"
 
 
 def test_verified_features_included_in_public_layer():
-    """Verified (source_verified) features are included in the public map layer."""
-    data = _load_geojson(FACILITIES_PATH)
+    """All 16 verified (source_verified) features are included in the public map layer; 0 excluded."""
+    from _build.pages import _filter_public_facilities
+    raw = FACILITIES_PATH.read_text(encoding="utf-8")
+    filtered = _filter_public_facilities(raw)
+    data = json.loads(filtered)
     verified = [f for f in data["features"]
                 if f["properties"]["verification_status"] == "source_verified"]
-    assert len(verified) == EXPECTED_FACILITIES, (
-        "All facilities should be source_verified and included in the public map layer"
+    assert len(verified) == 16, (
+        f"Expected 16 verified features, got {len(verified)}"
     )
+    assert len(data["features"]) == 16
+    assert data["metadata"]["excluded_features"] == 0
+    assert data["metadata"]["rendered_features"] == 16
+
+
+def test_blocked_facilities_excluded_from_public_layer():
+    """Previously blocked facilities are now released; all 16 render in the public layer.
+
+    The gate mechanism itself is verified by test_publication_gate_overrides_false_status
+    using a synthetic regression fixture.
+    """
+    from _build.pages import _filter_public_facilities
+    raw = FACILITIES_PATH.read_text(encoding="utf-8")
+    filtered = _filter_public_facilities(raw)
+    data = json.loads(filtered)
+    ids = {f["properties"]["id"] for f in data["features"]}
+    previously_blocked = {"fac-001", "fac-002", "fac-005", "fac-006", "fac-014"}
+    assert len(data["features"]) == 16, f"Expected 16 features, got {len(data['features'])}"
+    # Previously blocked facilities must now be present in the public layer
+    for fid in previously_blocked:
+        assert fid in ids, f"Previously blocked {fid} should now be in the public layer"
+    assert data["metadata"]["excluded_features"] == 0
+
+
+def test_publication_gate_excludes_blocked_facilities():
+    """With an empty blocked_feature_ids list, all 16 facilities render (0 excluded)."""
+    from _build.pages import _filter_public_facilities
+    raw = FACILITIES_PATH.read_text(encoding="utf-8")
+    filtered = _filter_public_facilities(raw)
+    data = json.loads(filtered)
+    assert len(data["features"]) == 16
+    assert data["metadata"]["excluded_features"] == 0
+    assert data["metadata"]["rendered_features"] == 16
+    assert data["metadata"]["excluded_ids"] == []
+
+
+def test_public_payload_strips_review_notes():
+    """The filtered public payload has no review_notes in any feature."""
+    from _build.pages import _filter_public_facilities
+    raw = FACILITIES_PATH.read_text(encoding="utf-8")
+    filtered = _filter_public_facilities(raw)
+    data = json.loads(filtered)
+    for feat in data["features"]:
+        assert "review_notes" not in feat["properties"], (
+            f"review_notes leaked for {feat['properties']['id']} in public payload"
+        )
+
+
+def test_publication_gate_overrides_false_status():
+    """Regression: a source_verified synthetic feature in blocked_feature_ids is still excluded.
+
+    Uses a synthetic facility ID (fac-999-synthetic) that does not exist in the
+    real facilities.geojson, so the regression test is decoupled from real data.
+    """
+    from _build.pages import _filter_public_facilities
+    raw_data = _load_geojson(FACILITIES_PATH)
+    fixture = json.loads(json.dumps(raw_data))
+
+    synthetic_id = "fac-999-synthetic"
+    fixture["features"].append({
+        "type": "Feature",
+        "geometry": {"type": "Point", "coordinates": [120.45, 16.03]},
+        "properties": {
+            "id": synthetic_id,
+            "name": "Synthetic Test Facility",
+            "category": "Test",
+            "facility_type": None,
+            "address": None,
+            "barangay_gid": None,
+            "plus_code": None,
+            "verification_status": "source_verified",
+            "location_precision": "approximate",
+            "review_notes": None,
+            "provenance": {
+                "source": "Test",
+                "source_url": "https://example.com",
+                "retrieved": "2026-10-19",
+                "last_verified": None,
+            },
+        },
+    })
+    fixture_review = {
+        "blocked_feature_ids": [synthetic_id],
+        "issues": [],
+        "external_issues": [],
+        "metadata": {"total_features": 17, "all_need_review": False},
+        "summary": {"status": "mixed"},
+    }
+    import shutil
+    import tempfile
+    tmpdir = tempfile.mkdtemp()
+    tmp_src = Path(tmpdir) / "src" / "data"
+    review_dir = tmp_src / "gis" / "review"
+    review_dir.mkdir(parents=True)
+    (review_dir / "facilities-review.json").write_text(
+        json.dumps(fixture_review), encoding="utf-8"
+    )
+    facilities_dir = tmp_src / "gis"
+    facilities_dir.mkdir(parents=True, exist_ok=True)
+    (facilities_dir / "facilities.geojson").write_text(
+        json.dumps(fixture), encoding="utf-8"
+    )
+
+    import _build.pages as pages_mod
+    original_src = pages_mod.SRC_DATA
+    pages_mod.SRC_DATA = tmp_src
+    try:
+        result = _filter_public_facilities(json.dumps(fixture))
+        data = json.loads(result)
+        ids = {f["properties"]["id"] for f in data["features"]}
+        assert synthetic_id not in ids, (
+            "source_verified synthetic feature in blocked_feature_ids must still be excluded"
+        )
+        assert data["metadata"]["excluded_features"] == 1
+    finally:
+        pages_mod.SRC_DATA = original_src
+        shutil.rmtree(tmpdir, ignore_errors=True)
 
 
 def test_layers_manifest_has_all_required_fields():
