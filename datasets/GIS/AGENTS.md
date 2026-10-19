@@ -84,6 +84,17 @@ Every canonical feature should carry, where available:
 
 Keep source-reported facts distinct from Better Mapandan calculations and AI proposals. Preserve all significant limitations. Use `null` or a review state for missing information; do not fill gaps with guesses.
 
+### 4.4 Numerical coordinates are not automatically exact
+
+When a user requests numerical coordinates, provide decimal latitude and longitude where a candidate coordinate exists, but do not describe decimal formatting as proof of positional accuracy.
+
+- Coordinates copied from Plus Codes, search snippets, user-supplied lists, or general map listings are candidate values until their facility identity and location are corroborated.
+- Coordinates computed from the centroid of an OSM school/building polygon are derived representative points, not the source's surveyed entrance coordinates. Record `coordinate_method: polygon_centroid`, source feature ID, retrieval date, and `location_precision: approximate` (or equivalent). Do not use "exact" or "field-verified" for these.
+- When sources disagree materially, preserve the separate candidate coordinates in the review record. Do not silently average, overwrite, or select the coordinate that best fits the expected area.
+- If no reliable numerical point can be found, leave the coordinate missing and record the retrieval/review gap. Do not invent a point from the barangay name, hall, another facility, or approximate administrative bounds.
+- A coordinate may be published only if the publication gate in this document passes. A known contradiction blocks the feature even if another source has a numerically precise-looking coordinate.
+- Public UI wording must distinguish source-reported coordinates, approximate points, footprint-derived centroids, and field-verified positions. Number of decimal places must not be interpreted as measurement accuracy.
+
 ### 4.4 Mandatory publication gate (corrective rule)
 
 The publication gate is authoritative if any older comments, data notes, tests, manifest entries, or UI labels disagree with it.
