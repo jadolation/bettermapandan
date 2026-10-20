@@ -195,6 +195,7 @@ def point_in_polygon(lon, lat, polygon):
 # its assigned barangay_gid boundary polygon (previously it landed in a neighbour).
 @pytest.mark.parametrize('fac_id, expected, barangay_gid', [
     ('fac-007', [120.4581, 16.0377], '0105528004'),        # Baloling National High School
+    ('fac-008', [120.4693, 16.0153], '0105528018'),        # Torres National High School
     ('fac-013', [120.4571406, 16.0372375], '0105528004'),  # Baloling Barangay Hall
     ('fac-014', [120.4364, 16.0281], '0105528012'),        # Nilombot Barangay Hall
 ])
