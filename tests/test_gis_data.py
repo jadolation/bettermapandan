@@ -48,7 +48,12 @@ def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp
     result = prepare_inputs(ROOT, tmp_path)
     assert all(layer['available'] for layer in result['layers'])
     assert len(result['facilities']['features']) == len(load('facilities.geojson')['features'])
-    assert all(record['geometry'] is None for record in result['records'])
+    references = [r for r in result['records'] if r['layer_id'] == 'project-references']
+    dpwh = [r for r in result['records'] if r['layer_id'] == 'dpwh-projects']
+    assert len(references) == 107
+    assert all(record['geometry'] is None for record in references)
+    assert len(dpwh) == 40
+    assert all(record['geometry'] is None or record['geometry']['type'] == 'Point' for record in dpwh)
     places = json.loads((tmp_path / 'assets/gis/places.geojson').read_text())
     assert any(feature['geometry']['type'] == 'Polygon' for feature in places['features'])
     assert all(layer.get('images') for layer in result['layers'] if layer['type'] == 'raster-image-overlay')

@@ -53,6 +53,22 @@ def test_selected_symlink_rejected(tmp_path):
         copy_inputs(root, tmp_path / 'workspace')
 
 
+def test_small_boundary_source_and_sidecar_copied_without_archive(tmp_path):
+    root = fixture_root(tmp_path)
+    entry = layer('barangay-boundaries', 'src/data/gis/barangay_boundaries.geojson')
+    entry['dependencies'] = ['src/data/gis/barangay_boundaries_sources.json']
+    configuration(root, [entry])
+    for name in ('barangay_boundaries.geojson', 'barangay_boundaries_sources.json'):
+        (root / 'src/data/gis' / name).write_text('{}')
+    (root / 'datasets/GIS').mkdir(parents=True)
+    (root / 'datasets/GIS/large-original.geojson').write_text('DO_NOT_COPY')
+    workspace = tmp_path / 'workspace'
+    copy_inputs(root, workspace)
+    assert (workspace / 'src/data/gis/barangay_boundaries.geojson').is_file()
+    assert (workspace / 'src/data/gis/barangay_boundaries_sources.json').is_file()
+    assert not (workspace / 'datasets/GIS/large-original.geojson').exists()
+
+
 def test_worker_mutates_only_workspace_and_exports_site(monkeypatch, tmp_path):
     import _build.preview as preview
     root = fixture_root(tmp_path)

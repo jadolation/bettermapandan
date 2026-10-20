@@ -70,3 +70,16 @@ def test_unsafe_source_urls_are_not_projected():
     data['features'][0]['properties']['provenance'] = {'source': 'Source', 'source_url': 'javascript:alert(1)'}
     result = facilities_collection(data)
     assert result['features'][0]['properties']['provenance'] == {'source': 'Source'}
+
+
+def test_dpwh_static_directory_scopes_records_and_preserves_location_details():
+    records = [{'name': '<DPWH road>', 'project_url': '/transparency/infrastructure/#dpwh-project-abc',
+                'layer_id': 'dpwh-projects', 'source_transaction_id': 'abc', 'status': 'Ongoing',
+                'contractor': '<Builder>', 'barangay_location': 'Apaya', 'location_precision': 'source_reported'},
+               {'name': 'Unlocated project', 'layer_id': 'dpwh-projects', 'geometry': None}]
+    html = record_directory_html(records)
+    assert html.count('data-layer-id="dpwh-projects"') == 2
+    assert 'infrastructure/#dpwh-project-abc' in html and 'Apaya' in html
+    assert '<DPWH' not in html and '&lt;DPWH road&gt;' in html
+    assert '<Builder>' not in html and '&lt;Builder&gt;' in html
+    assert 'Unlocated project' in html

@@ -90,7 +90,7 @@ function initDPWHTable() {
         map_link = '<a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lng + '#map=16/' + lat + '/' + lng + '" target="_blank" rel="noopener">View map &rarr;</a>';
       }
       rows.push(
-        "<tr>" +
+        '<tr id="dpwh-project-' + String(p.transaction_id || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '">' +
         "<td>" + (p.category !== undefined ? p.category : "") + "</td>" +
         "<td>" + (p.project_name !== undefined ? p.project_name : "") + "</td>" +
         "<td>" + (p.executing_agency !== undefined ? p.executing_agency : "") + "</td>" +
@@ -140,7 +140,24 @@ function initDPWHTable() {
     });
   });
 
-  render();
+  function followProjectFragment() {
+    var id;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); } catch (error) { return false; }
+    if (id.indexOf("dpwh-project-") !== 0) return false;
+    var transactionId = id.slice("dpwh-project-".length);
+    var index = projects.findIndex(function(p) { return p.transaction_id === transactionId; });
+    if (index < 0) return false;
+    searchQuery = "";
+    if (searchInput) searchInput.value = "";
+    index = getFilteredSorted().findIndex(function(p) { return p.transaction_id === transactionId; });
+    currentPage = Math.floor(index / pageSize) + 1;
+    render();
+    var row = document.getElementById(id);
+    if (row) row.scrollIntoView({ block: "center" });
+    return true;
+  }
+  window.addEventListener("hashchange", followProjectFragment);
+  if (!followProjectFragment()) render();
 }
 
 document.addEventListener("DOMContentLoaded", function () {

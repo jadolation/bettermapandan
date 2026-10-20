@@ -19,6 +19,8 @@
       "attribution": "OpenStreetMap contributors (ODbL)",
       "source_date": "2026-10-19",
       "semantic_role": "facility",
+      "group": {"en": "Public Facilities", "fil": "Mga Pampublikong Pasilidad", "pag": "Publiko a Facilidad"},
+      "pane": "facilities",
       "limitations": ["Source positions and descriptions retained; operational status and shelter designation are not independently confirmed."]
     },
     {
@@ -33,8 +35,29 @@
       "attribution": "Philippine Statistics Authority",
       "source_date": "2026-10-18",
       "semantic_role": "nonspatial_barangay_reference",
+      "group": {"en": "Administrative References", "fil": "Mga Sangguniang Administratibo", "pag": "Administratibo a Reference"},
+      "pane": "administrative",
       "precision": "nonspatial",
       "limitations": ["Nonspatial references only; no barangay positions or boundaries inferred."]
+    },
+    {
+      "id": "barangay-boundaries",
+      "title": {"en": "Very coarse barangay source geometry", "fil": "Napakagaspang na hugis ng barangay mula sa sanggunian", "pag": "Very coarse barangay source geometry"},
+      "type": "geojson",
+      "source": "src/data/gis/barangay_boundaries.geojson",
+      "dependencies": ["src/data/gis/barangay_boundaries_sources.json"],
+      "source_label": "Local barangay-boundaries-repository 2023-10-24 hierarchical_t0p005 extract",
+      "source_url": "https://github.com/bendlikeabamboo/barangay-boundaries-repository",
+      "attribution": "NAMRIA / PSA lineage as described by barangay-boundaries-repository; local simplified derivative",
+      "source_date": "2022-11-09; source validOn 2023-11-06",
+      "enabled": true,
+      "visible_by_default": false,
+      "semantic_role": "barangay_reference_geometry",
+      "group": {"en": "Administrative References", "fil": "Mga Sangguniang Administratibo", "pag": "Administratibo a Reference"},
+      "pane": "administrative",
+      "precision": "very_coarse",
+      "opacity": 0.55,
+      "limitations": ["Not reliable administrative boundaries: 6 triangles and 9 quadrilaterals only.", "Compared with the same simplified municipality: 4.764 km2 uncovered (25.31%), 1.397 km2 outside, 0.436 km2 overlapping.", "Optional source reference only. Canonical barangay directory remains primary; no shapes repaired or invented.", "AREA_SQKM is pre-simplification source metadata, not geometry area. See barangay_boundaries_sources.json for analysis."]
     },
     {
       "id": "roads",
@@ -47,7 +70,9 @@
       "source_url": "https://www.openstreetmap.org/",
       "attribution": "OpenStreetMap contributors (ODbL)",
       "source_date": "2026-10-18T14:51:05Z",
-      "semantic_role": "mapped_roads_and_waterways"
+      "semantic_role": "mapped_roads_and_waterways",
+      "group": {"en": "Infrastructure", "fil": "Imprastraktura", "pag": "Imprastraktura"},
+      "pane": "infrastructure"
     },
     {
       "id": "places",
@@ -60,19 +85,37 @@
       "source_url": "https://www.openstreetmap.org/",
       "attribution": "OpenStreetMap contributors (ODbL)",
       "source_date": "2026-10-18T15:17:35Z",
-      "semantic_role": "mapped_places"
+      "semantic_role": "mapped_places",
+      "group": {"en": "Public Facilities", "fil": "Mga Pampublikong Pasilidad", "pag": "Publiko a Facilidad"},
+      "pane": "facilities"
     },
     {
       "id": "dpwh-projects",
       "title": {"en": "DPWH Projects", "fil": "Mga Proyekto ng DPWH", "pag": "Saray Proyekto na DPWH"},
+      "type": "dpwh",
+      "source": "src/data/dpwh.json",
+      "dependencies": ["src/data/entities/projects.json"],
+      "source_label": "DPWH Transparency Portal source project records",
+      "enabled": true,
+      "visible_by_default": false,
+      "attribution": "DPWH via BetterGov.ph; Better Mapandan",
+      "semantic_role": "dpwh_project",
+      "group": {"en": "Infrastructure", "fil": "Imprastraktura", "pag": "Imprastraktura"},
+      "pane": "infrastructure",
+      "limitations": ["Source-reported project points, not surveyed footprints or complete alignments. Invalid or missing positions remain list-only."]
+    },
+    {
+      "id": "project-references",
+      "title": {"en": "Project References", "fil": "Mga Sanggunian ng Proyekto", "pag": "Project References"},
       "type": "records",
       "source": "src/data/entities/projects.json",
       "source_label": "Better Mapandan canonical project records",
       "enabled": true,
       "visible_by_default": false,
-      "attribution": "DPWH via BetterGov.ph; Better Mapandan",
       "semantic_role": "nonspatial_project",
-      "limitations": ["No supplied project positions; links use canonical project IDs."]
+      "group": {"en": "Infrastructure", "fil": "Imprastraktura", "pag": "Imprastraktura"},
+      "pane": "infrastructure",
+      "limitations": ["All canonical project references retained. No geometry inferred; exact canonical project IDs only."]
     },
     {
       "id": "hazard-ground-shaking",
@@ -86,6 +129,9 @@
       "attribution": "PHIVOLCS; GSI; OpenStreetMap contributors",
       "source_date": "2022-02-23",
       "semantic_role": "historical_hazard_scenario",
+      "group": {"en": "Natural Hazards", "fil": "Mga Likas na Panganib", "pag": "Natural Hazards"},
+      "pane": "hazards",
+      "opacity": 0.65,
       "limitations": ["Supplied KML LatLonBox registration; legend and registration not independently verified. Historical source, not live safety information."]
     },
     {
@@ -100,6 +146,9 @@
       "attribution": "PHIVOLCS; GSI; OpenStreetMap contributors",
       "source_date": "2024 (filename only)",
       "semantic_role": "historical_susceptibility",
+      "group": {"en": "Natural Hazards", "fil": "Mga Likas na Panganib", "pag": "Natural Hazards"},
+      "pane": "hazards",
+      "opacity": 0.65,
       "limitations": ["The 2024 filename is not equated with the December 2025 poster. Supplied KML LatLonBox registration; legend and registration not independently verified."]
     }
   ]

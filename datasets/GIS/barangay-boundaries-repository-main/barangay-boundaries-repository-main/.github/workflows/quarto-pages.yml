@@ -1,0 +1,49 @@
+name: Quarto Pages
+
+# Publishes the `quarto-docs/` Quarto site to the `gh-pages` branch, which is
+# the GitHub Pages source. This is the live documentation pipeline since the
+# MkDocs cutover (the old `docs/` + `mkdocs.yml` + `pages.yml` have been
+# retired). See `quarto-docs/DEPLOYMENT.md` for the deployment runbook.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "quarto-docs/**"
+      - ".github/workflows/quarto-pages.yml"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: quarto-pages
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render site
+        run: quarto render quarto-docs/
+
+      - name: Publish to gh-pages branch
+        id: deployment
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: quarto-docs/_site
+          publish_branch: gh-pages
+          keep_files: false
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: "Publish Quarto site (${{ github.sha }})"

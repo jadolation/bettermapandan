@@ -137,6 +137,25 @@ class GISRuntimeTests(unittest.TestCase):
         for lang in ("fil", "pag"):
             self.assertNotRegex(meta[lang]["description"], r"aprubado|naaproban|Hindi magagamit|Ag magagamit")
 
+    def test_v3_controls_and_cautions_are_localized(self):
+        template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
+        keys = ("opacity", "reference_only", "list_records", "locate", "coarse_geometry",
+                "contract_amount", "approved_budget", "accomplishment", "fiscal_year",
+                "contractor", "project_status", "status_key", "transaction_id", "project_id",
+                "contract_id", "actual_start_date", "actual_completion_date", "contract_effectivity_date",
+                "contract_expiry_date", "status_completed", "status_ongoing", "status_not_started", "status_unknown")
+        for lang in ("en", "fil", "pag"):
+            locale = json.loads((ROOT / f"locales/{lang}.json").read_text(encoding="utf-8"))
+            rendered = resolve_body_placeholders(template, locale, "..")
+            for key in keys:
+                self.assertTrue(locale["gis"][key].strip(), (lang, key))
+                self.assertIn(f'data-{key.replace("_", "-")}="{escape(locale["gis"][key])}"', rendered)
+        runtime = (ROOT / "assets/gis-map.js").read_text(encoding="utf-8")
+        self.assertIn('interactive: false', runtime)
+        self.assertIn('rasterPane.style.pointerEvents = "none"', runtime)
+        self.assertIn('slider.setAttribute("aria-label"', runtime)
+        self.assertIn('slider.setAttribute("aria-valuetext"', runtime)
+
     def test_typed_payload_tokens_remain_distinct_from_locale_labels(self):
         template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
         for name in ("LAYERS", "FACILITIES", "BARANGAYS", "RECORDS"):

@@ -26,8 +26,11 @@ def copy_inputs(root, workspace):
         source = input_path(root, layer['source'])
         if layer['enabled'] and source.is_file():
             roots.append(Path(layer['source']))
-    disabled = {Path(layer['source']) for layer in config['layers'] if not layer['enabled']}
-    enabled = {Path(layer['source']) for layer in config['layers'] if layer['enabled']}
+            for dependency in layer.get('dependencies', []):
+                if input_path(root, dependency).is_file():
+                    roots.append(Path(dependency))
+    disabled = {Path(name) for layer in config['layers'] if not layer['enabled'] for name in [layer['source'], *layer.get('dependencies', [])]}
+    enabled = {Path(name) for layer in config['layers'] if layer['enabled'] for name in [layer['source'], *layer.get('dependencies', [])]}
     disabled -= enabled
     total, copied = 0, set()
 

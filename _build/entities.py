@@ -190,6 +190,7 @@ def build_projects(fdp: dict, dpwh: list, coa_infra: list, retrieved: dict) -> l
                    record_role="infrastructure_record",
                    source_as_of=str(p.get("fiscal_year") or "")),
              {"dpwh_contract_id": p.get("contract_id", ""),
+              "source_transaction_id": p.get("transaction_id", ""),
               "contract_amount": p.get("contract_amount"),
               "contractor": p.get("contractor", "")})
     for r in coa_infra:

@@ -11,11 +11,22 @@ MAX_VERTICES = 200000
 FIELDS = ("id", "name", "category", "facility_type", "address", "barangay_gid",
           "plus_code", "verification_status", "location_precision", "coordinate_method",
           "source", "source_date", "scenario", "class", "class_name", "label", "description",
-          "gid", "slug", "source_as_of", "highway", "waterway", "amenity", "building")
+          "gid", "psgc", "psgc_code", "source_name", "slug", "source_as_of", "highway", "waterway", "amenity", "building",
+          "source_transaction_id", "project_id", "status_key", "raw_status", "status", "contractor",
+          "start_date", "completion_date", "contract_effectivity_date", "expiry_date", "semantic_role", "layer_id",
+          "contract_id", "barangay_location", "executing_agency", "source_of_funds", "contract_expiry_date",
+          "actual_start_date", "actual_completion_date")
 
 
 def safe_text(value):
     return value if isinstance(value, str) and len(value) <= 2000 else None
+
+
+def finite_number(value):
+    try:
+        return type(value) in (int, float) and math.isfinite(value)
+    except OverflowError:
+        return False
 
 
 def safe_url(value):
@@ -48,7 +59,7 @@ def feature_collection(data, *, points_only=False, nonspatial=False, label="GIS"
             budget[0] -= 1
             if budget[0] < 0:
                 raise ValueError("Coordinate resource limit")
-            if len(value) != 2 or not all(type(n) in (int, float) and math.isfinite(n) for n in value):
+            if len(value) != 2 or not all(finite_number(n) for n in value):
                 raise ValueError("Coordinates must be finite longitude/latitude pairs")
             if not (-180 <= value[0] <= 180 and -90 <= value[1] <= 90):
                 raise ValueError("Coordinates out of range")
@@ -94,15 +105,27 @@ def feature_collection(data, *, points_only=False, nonspatial=False, label="GIS"
             for key in ("pop2024", "pop2020"):
                 if type(original.get(key)) is int and original[key] >= 0:
                     props[key] = original[key]
+            for key in ('fiscal_year', 'contract_amount', 'approved_budget', 'accomplishment_percent', 'source_area_sqkm'):
+                value = original.get(key)
+                if finite_number(value):
+                    props[key] = value
+                elif key in original and value is None:
+                    props[key] = None
+            if 'project_id' in original and original['project_id'] is None:
+                props['project_id'] = None
             provenance = original.get('provenance')
             if isinstance(provenance, dict):
                 props['provenance'] = {key: value for key in ('source', 'source_record_id', 'retrieved', 'last_verified')
                                        if (value := safe_text(provenance.get(key))) is not None}
                 if safe_url(provenance.get('source_url')):
                     props['provenance']['source_url'] = provenance['source_url']
-            if safe_url(original.get('source_url')):
-                props['source_url'] = original['source_url']
-            for key in ('quality_flags', 'limitations'):
+            for key in ('source_url', 'source_document_url'):
+                if safe_url(original.get(key)):
+                    props[key] = original[key]
+            project_url = original.get('project_url')
+            if isinstance(project_url, str) and len(project_url) <= 4000 and re.fullmatch(r'/(?:fil/|pag/)?transparency/(?:projects/\?project=|infrastructure/#dpwh-project-)(?:[A-Za-z0-9_.~-]|%[A-Fa-f0-9]{2})+', project_url):
+                props['project_url'] = project_url
+            for key in ('quality_flags', 'limitations', 'contractors'):
                 values = original.get(key)
                 if isinstance(values, list):
                     props[key] = [clean for value in values[:100] if (clean := safe_text(value)) is not None]

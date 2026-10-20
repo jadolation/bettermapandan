@@ -48,14 +48,24 @@ function fixture(lang, scenario = "normal") {
     layer("disabled", "geojson", { enabled: false, visible_by_default: true, url: "assets/gis/disabled.geojson" }),
     layer("unavailable", "geojson", { available: false, visible_by_default: true, url: "assets/gis/unavailable.geojson" }),
     layer("records", "reference", { data_key: "GIS_RECORDS" }),
+    layer("other-records", "reference", { data_key: "GIS_RECORDS" }),
+    layer("dpwh-projects", "geojson", { semantic_role: "dpwh_project", pane: "infrastructure", url: "assets/gis/dpwh.geojson" }),
+    layer("boundaries", "geojson", { semantic_role: "barangay_boundary", pane: "administrative", url: "assets/gis/boundaries.geojson" }),
+    layer("coarse", "geojson", { semantic_role: "barangay_reference_geometry", pane: "administrative", url: "assets/gis/coarse.geojson" }),
+    layer("broken-boundaries", "geojson", { semantic_role: "barangay_boundary", url: "assets/gis/broken-boundaries.geojson" }),
+    layer("physical-a", "raster-image-overlay", { pane: "physical", opacity: 0.3, exclusive_group: "physical-theme", images: [{ url: "assets/gis/map.png", bounds }, { url: "assets/gis/map.png", bounds }] }),
+    layer("physical-b", "raster-image-overlay", { pane: "physical", opacity: 0.8, exclusive_group: "physical-theme", images: [{ url: "assets/gis/map.png", bounds }] }),
+    layer("hazard", "raster-image-overlay", { pane: "hazards", images: [{ url: "assets/gis/map.png", bounds }] }),
     layer("hostile", "geojson", { visible_by_default: true, url: "assets/private/forbidden.geojson" })];
   const values = {
     GIS_LAYERS_DATA: { schema_version: 1, metadata: { asset_base: "/" }, layers },
     GIS_FACILITIES_DATA: fc(scenario === "empty" ? [] : Array.from({ length: 16 }, (_, i) =>
       feature(i === 0 ? malicious + "</script><script>window.__injected=1</script>" : `Facility ${i}`, { type: "Point", coordinates: i < 2 ? [120.45, 16.03] : [120.45 + i / 10000, 16.03] }, { id: `fac-${i}` }))),
     GIS_BARANGAYS_DATA: fc(Array.from({ length: 15 }, (_, i) => feature(`Barangay ${i}`, null, { gid: `PSGC${i}` }))),
-    GIS_RECORDS_DATA: [ { name: "Project reference", project_id: "canonical-1", confidence: "explicit", evidence: "Source record test" } ],
+    GIS_RECORDS_DATA: [ { name: "Project reference", layer_id: "records", project_id: "canonical-1", confidence: "explicit", evidence: "Source record test" },
+      { name: "Other record", layer_id: "other-records", id: "other-ref" } ],
   };
+  if (scenario === "legacy") values.GIS_RECORDS_DATA.forEach(row => { delete row.layer_id; });
   html = html.replace(/\{(GIS_\w+_DATA)\}/g, (_, key) => inline(values[key]));
   const replacements = {
     GIS_RECORD_DIRECTORY: '<section id="gis-record-directory">Project reference</section>',
@@ -70,15 +80,18 @@ function fixture(lang, scenario = "normal") {
 }
 
 function leafletMock() {
-  const stats = window.__gisTest = { markers: [], images: [], fits: 0, pans: 0, views: 0, vectors: 0, resizes: 0 };
+  const stats = window.__gisTest = { markers: [], markerStyles: [], vectorStyles: [], images: [], imageItems: [], panes: {}, fits: 0, pans: 0, views: 0, vectors: 0, resizes: 0 };
   const bounds = () => ({ isValid: () => true, extend() { return this; } });
   function layer(buttonClass) {
     const item = { handlers: {}, children: [], on(event, fn) { this.handlers[event] = fn; return this; },
       addTo(target) { target.addLayer(this); return this; },
       addLayer(child) { this.children.push(child); if (this.container) child.mount(this.container); return this; },
-      mount(container) { this.container = container; if (this.button) container.appendChild(this.button);
+      mount(container) { this.mounted = true; this.container = container; if (this.button) container.appendChild(this.button);
         this.children.forEach(child => child.mount(container)); },
-      remove() { if (this.button) this.button.remove(); this.children.forEach(child => child.remove()); },
+      remove() { this.mounted = false; this.container = null; if (this.button) this.button.remove(); this.children.forEach(child => child.remove()); },
+      setOpacity(value) { this.options.opacity = value; return this; },
+      setStyle(value) { Object.assign(this.options, value); return this; },
+      getPane() { return stats.panes[this.options.pane]; },
       getBounds: bounds, bindTooltip(value) { this.tooltip = value; return this; } };
     if (buttonClass) {
       item.button = document.createElement("button"); item.button.type = "button"; item.button.className = buttonClass;
@@ -92,21 +105,156 @@ function leafletMock() {
       for (const cls of ["leaflet-control-zoom-in", "leaflet-control-zoom-out"]) {
         const b = document.createElement("button"); b.className = cls; container.appendChild(b);
       }
-      return { setView() { stats.views++; return this; }, addLayer(item) { item.mount(container); return this; },
+       return { createPane(name) { const pane = document.createElement("div"); stats.panes[name] = pane; return pane; },
+         getPane(name) { return stats.panes[name]; },
+         setView() { stats.views++; return this; }, addLayer(item) { item.mount(container); return this; },
         removeLayer(item) { item.remove(); }, panTo() { stats.pans++; }, fitBounds() { stats.fits++; },
         invalidateSize() { stats.resizes++; }, getContainer() { return container; } };
     },
     tileLayer() { const item = layer(); setTimeout(() => { if (item.handlers.tileerror) item.handlers.tileerror(); }, 20); return item; },
     featureGroup: () => layer(), latLngBounds: bounds,
-    circleMarker(coords) { const item = layer("gis-test-marker"); stats.markers.push(coords); return item; },
+    circleMarker(coords, options) { const item = layer("gis-test-marker"); item.options = options; stats.markers.push(coords); stats.markerStyles.push(options); return item; },
     geoJSON(payload, options = {}) { const item = layer(); for (const f of payload.features || [payload]) {
-      stats.vectors++; const child = layer("gis-test-shape"); if (options.onEachFeature) options.onEachFeature(f, child); item.addLayer(child);
+      stats.vectors++; const child = layer("gis-test-shape"); child.options = { ...options.style, pane: options.pane }; stats.vectorStyles.push(child.options); if (options.onEachFeature) options.onEachFeature(f, child); item.addLayer(child);
     } return item; },
-    imageOverlay(url) { const item = layer(); stats.images.push(url); const image = new Image();
+    imageOverlay(url, bounds, options) { const item = layer(); item.options = options; stats.images.push(url); stats.imageItems.push(item); const image = new Image();
       image.onload = () => item.handlers.load && item.handlers.load(); image.onerror = () => item.handlers.error && item.handlers.error();
       image.src = url; return item; },
     control: { scale: () => ({ addTo() {} }) },
   };
+}
+
+async function v3Checks(page, locale) {
+  const setSearch = async (query = "", id = "") => {
+    await page.select("#gis-layer-filter", id);
+    await page.$eval("#gis-search", (el, value) => { el.value = value; el.dispatchEvent(new Event("input")); }, query);
+    await click(page, "#gis-explore-tab");
+  };
+  const toggle = async (id, checked) => {
+    await page.$eval(`[data-layer-id="${id}"] input[type="checkbox"]`, (el, value) => { if (el.checked !== value) el.click(); }, checked);
+  };
+  const loaded = async id => page.waitForFunction(id => document.querySelector(`[data-layer-id="${id}"] small`).textContent === document.getElementById("gis-page").dataset.loaded, {}, id);
+  await page.keyboard.press("Escape");
+  assert.equal(await page.$('[data-layer-id="records"] input[type="checkbox"]'), null, "References are not broken map toggles");
+  await click(page, "#gis-layers-tab");
+  await page.$$eval('[data-layer-id="other-records"] button', buttons => buttons[1].click());
+  assert.equal(await page.$eval("#gis-layer-filter", el => el.value), "other-records");
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1, "Mixed reference globals are scoped by layer_id");
+  assert.match(await page.$eval("#gis-results", el => el.textContent), /Other record/);
+  assert.deepEqual(await page.evaluate(() => Object.fromEntries(Object.entries(window.__gisTest.panes).filter(([key]) => !key.endsWith("-raster")).map(([key, pane]) => [key, pane.style.zIndex]))),
+    { "gis-physical": "250", "gis-hazards": "300", "gis-administrative": "400", "gis-infrastructure": "450", "gis-facilities": "500" });
+  assert.ok(await page.evaluate(() => Object.entries(window.__gisTest.panes).filter(([key]) => key.endsWith("-raster")).every(([, pane]) => pane.style.pointerEvents === "none")));
+  await toggle("raster", false);
+  assert.equal(await page.$eval("#gis-legend", el => el.hidden), true, "Empty configured legends do not invent map classes");
+  await toggle("dpwh-projects", true); await toggle("dpwh-projects", false); await loaded("dpwh-projects");
+  assert.equal(await page.$eval('[data-layer-id="dpwh-projects"] input', el => el.checked), false);
+  assert.equal(await page.$eval("#gis-legend", el => el.hidden), true, "Late vector load does not resurrect a hidden layer");
+  await toggle("dpwh-projects", true);
+  assert.match(await page.$eval("#gis-legend", el => el.textContent), new RegExp(locale.status_completed));
+  assert.match(await page.$eval("#gis-legend", el => el.textContent), new RegExp(locale.status_unknown));
+  await setSearch("", "dpwh-projects");
+  const source = await page.evaluate(async () => (await (await fetch("/assets/gis/dpwh.geojson")).json()).features);
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), source.length, "Null DPWH records remain in results");
+  const points = source.filter(f => f.geometry && f.geometry.type === "Point");
+  const pointGroups = new Set(points.map(f => JSON.stringify(f.geometry.coordinates)));
+  assert.equal(await page.evaluate(() => window.__gisTest.markerStyles.filter(style => style.pane === "gis-infrastructure").length), pointGroups.size, "Coordinate groups are derived, not frozen to the point count");
+  await setSearch("canonical-1");
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1, "Default canonical-ID dedup prefers DPWH");
+  assert.match(await page.$eval(".gis-result small", el => el.textContent), /dpwh-projects/);
+  await setSearch("canonical-1", "records");
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1, "Layer-specific references remain useful");
+  for (const query of ["txn-2", "Exact Contractor", "ongoing", "2025", locale.status_ongoing]) {
+    await setSearch(query, "dpwh-projects");
+    assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1, `DPWH search: ${query}`);
+  }
+  await click(page, ".gis-result");
+  const detail = await page.$eval("#gis-detail-content", el => el.textContent);
+  assert.match(detail, /1,234,567\.89/); assert.match(detail, /42\.5%/); assert.match(detail, /2025-01-02/);
+  assert.equal(await page.$eval("#gis-detail-content a:last-child", el => el.getAttribute("href")),
+    (await page.$eval("html", el => el.lang)) === "en" ? "/transparency/projects/?project=canonical-2" : `/${await page.$eval("html", el => el.lang)}/transparency/projects/?project=canonical-2`, "Hostile URL falls back to exact canonical ID");
+  await page.keyboard.press("Escape"); await setSearch("txn 3", "dpwh-projects"); await click(page, ".gis-result");
+  assert.equal(await page.$eval("#gis-detail-content a:last-child", el => el.getAttribute("href")), "/transparency/infrastructure/#dpwh-project-txn%203");
+  await page.keyboard.press("Escape");
+  await setSearch("canonical-1", "dpwh-projects");
+  const beforeNull = await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]);
+  await click(page, ".gis-result");
+  assert.deepEqual(await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]), beforeNull);
+  await page.keyboard.press("Escape");
+
+  await toggle("coarse", true); await loaded("coarse"); await setSearch("PSGC2");
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1);
+  assert.match(await page.$eval(".gis-result", el => el.textContent), /Coarse source name/);
+  await click(page, ".gis-result");
+  assert.ok((await page.$eval("#gis-detail-content", el => el.textContent)).includes(locale.coarse_geometry));
+  await page.keyboard.press("Escape");
+  await toggle("coarse", false); await setSearch("PSGC2");
+  assert.match(await page.$eval(".gis-result", el => el.textContent), /Barangay 2/, "Hidden coarse geometry does not silently replace the directory");
+  await setSearch("PSGC0");
+  const beforeShape = await page.evaluate(() => window.__gisTest.fits);
+  await click(page, ".gis-result"); await loaded("boundaries");
+  await page.waitForFunction(previous => window.__gisTest.fits > previous, {}, beforeShape);
+  assert.match(await page.$eval("#gis-detail-content", el => el.textContent), /Canonical shape name/);
+  await page.keyboard.press("Escape");
+  await setSearch("PSGC0");
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1);
+  assert.match(await page.$eval(".gis-result", el => el.textContent), /Canonical shape name/);
+  await setSearch("", "barangays");
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), 15, "Layer-specific null references survive shape load and another shape failure");
+  await click(page, "#gis-barangay-list li button");
+  assert.match(await page.$eval("#gis-detail-content", el => el.textContent), /Canonical shape name/, "Static directory enhancement joins by gid, not name");
+  await page.keyboard.press("Escape");
+  assert.ok(await page.evaluate(() => window.__gisTest.vectorStyles.some(style => style.dashArray === "6 5")));
+
+  await toggle("hazard", true); await loaded("hazard");
+  await toggle("physical-a", true); await toggle("physical-a", false); await loaded("physical-a");
+  assert.ok(await page.evaluate(() => window.__gisTest.imageItems.filter(item => item.options.pane === "gis-physical-raster" && item.options.opacity === 0.3).every(item => !item.mounted)), "Hidden imagery is not resurrected after loading");
+  await toggle("physical-a", true);
+  await click(page, "#gis-layers-tab");
+  await page.$eval('[data-layer-id="physical-a"] input[type="range"]', el => { el.value = "44"; el.dispatchEvent(new Event("input")); });
+  await page.focus('[data-layer-id="physical-a"] input[type="range"]'); await page.keyboard.press("ArrowRight");
+  assert.ok(await page.evaluate(() => window.__gisTest.imageItems.filter(item => item.options.pane === "gis-physical-raster" && item.mounted).every(item => item.options.opacity === 0.45)), "Opacity updates every image in the active raster");
+  assert.ok((await page.$eval('[data-layer-id="physical-a"] input[type="range"]', el => el.getAttribute("aria-valuetext"))).includes(locale.opacity));
+  await toggle("physical-b", true); await loaded("physical-b");
+  assert.equal(await page.$eval('[data-layer-id="physical-a"] input[type="checkbox"]', el => el.checked), false);
+  assert.equal(await page.$eval('[data-layer-id="hazard"] input[type="checkbox"]', el => el.checked), true, "Hazards remain independent of the physical exclusive group");
+  await toggle("physical-a", true);
+  assert.equal(await page.$eval('[data-layer-id="physical-b"] input[type="checkbox"]', el => el.checked), false);
+  assert.equal(await page.$eval('[data-layer-id="physical-a"] input[type="range"]', el => el.value), "45", "Opacity persists across toggles");
+  assert.ok(await page.evaluate(() => window.__gisTest.imageItems.every(item => item.options.interactive === false && item.getPane().style.pointerEvents === "none")));
+  await click(page, "#gis-layers-tab");
+}
+
+async function builtV3Checks(page) {
+  const data = await page.evaluate(async () => {
+    const layer = window.GIS_LAYERS.layers.find(layer => layer.semantic_role === "dpwh_project" && layer.enabled && layer.available);
+    if (!layer) return null;
+    const base = new URL(window.GIS_LAYERS.metadata.asset_base, location.href);
+    return { layer, source: (await (await fetch(new URL(layer.url, base))).json()).features };
+  });
+  if (!data) return;
+  const { layer, source } = data;
+  await page.select("#gis-layer-filter", layer.id);
+  await page.$eval("#gis-search", el => { el.value = ""; el.dispatchEvent(new Event("input")); });
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), source.length, "Built DPWH results retain every source record including null geometry");
+  const groups = new Map();
+  for (const f of source) if (f.geometry && f.geometry.type === "Point") {
+    const key = JSON.stringify(f.geometry.coordinates); if (!groups.has(key)) groups.set(key, f);
+  }
+  const markers = await page.evaluate(() => window.__gisTest.markers.map((coordinates, index) => ({ coordinates, style: window.__gisTest.markerStyles[index] })));
+  for (const f of groups.values()) {
+    assert.ok(markers.some(marker => marker.style.pane === `gis-${layer.pane || "infrastructure"}` && marker.coordinates[0] === f.geometry.coordinates[1] && marker.coordinates[1] === f.geometry.coordinates[0]), "Built DPWH exact-coordinate group is rendered");
+  }
+  const nullRecord = source.find(f => !f.geometry);
+  if (nullRecord) {
+    await page.$eval("#gis-search", (el, id) => { el.value = id; el.dispatchEvent(new Event("input")); }, nullRecord.properties.id);
+    const before = await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]);
+    await click(page, ".gis-result");
+    assert.deepEqual(await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]), before, "Built null DPWH does not navigate");
+    assert.ok(await page.$$eval("#gis-detail-content a", (links, href) => links.some(link => link.getAttribute("href") === href), nullRecord.properties.project_url), "Built project link preserves the exact adapter URL");
+    await page.keyboard.press("Escape");
+  }
+  await page.select("#gis-layer-filter", "");
+  await page.$eval("#gis-search", el => { el.value = ""; el.dispatchEvent(new Event("input")); });
 }
 
 async function main() {
@@ -151,6 +299,22 @@ async function main() {
         places: { type: "Polygon", coordinates: [[[120.44, 16.02], [120.46, 16.02], [120.46, 16.04], [120.44, 16.02]]] },
         anchors: { type: "Point", coordinates: [120.45, 16.03] },
       };
+      if (pathname === "/assets/gis/dpwh.geojson") {
+        const prefix = "";
+        const rows = [
+          feature("Project reference", null, { id: "txn-1", source_transaction_id: "txn-1", project_id: "canonical-1", project_url: prefix + "/transparency/projects/?project=canonical-1", status: "Completed", status_key: "completed" }),
+          feature("Drainage works", geometries.anchors, { id: "txn-2", source_transaction_id: "txn-2", project_id: "canonical-2", project_url: "https://evil.invalid/transparency/projects/?project=canonical-2", status: "On-Going", status_key: "ongoing", fiscal_year: 2025, contractor: "Exact Contractor", contract_amount: 1234567.89, approved_budget: 2000000, accomplishment_percent: 42.5, actual_start_date: "2025-01-02" }),
+          feature("Source only", geometries.anchors, { id: "txn 3", source_transaction_id: "txn 3", project_url: "/transparency/infrastructure/#dpwh-project-txn%203", status: "Not Started", status_key: "not_started" }),
+          feature("Unreported works", { type: "Point", coordinates: [120.451, 16.031] }, { id: "txn-4", source_transaction_id: "txn-4", status_key: "unknown" }),
+        ];
+        res.setHeader("content-type", "application/json"); setTimeout(() => res.end(JSON.stringify(fc(rows))), 100); return;
+      }
+      if (/^\/assets\/gis\/(boundaries|coarse)\.geojson$/.test(pathname)) {
+        const coarse = pathname.includes("coarse");
+        const rows = [feature(coarse ? "Coarse source name" : "Canonical shape name", geometries.places, { gid: coarse ? "PSGC2" : "PSGC0", source_name: "Different spelling", pop2024: 1656, source_date: "2016", limitations: ["Source geometry only"] }),
+          feature("Unrelated same name", geometries.places, { gid: "PSGC_OTHER" })];
+        res.setHeader("content-type", "application/json"); setTimeout(() => res.end(JSON.stringify(fc(rows))), 100); return;
+      }
       const key = pathname.match(/^\/assets\/gis\/(roads|places|anchors)\.geojson$/);
       if (key) { res.setHeader("content-type", "application/json"); setTimeout(() => res.end(JSON.stringify(fc([feature(key[1], geometries[key[1]])]))), 150); return; }
     }
@@ -219,11 +383,6 @@ async function main() {
         if (fixtures) {
           await page.select("#gis-layer-filter", "barangays");
           assert.equal(await page.$eval("#gis-results", el => el.children.length), 15);
-          const before = await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]);
-          await click(page, ".gis-result");
-          assert.deepEqual(await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]), before, "Null barangays never navigate");
-          assert.equal(await page.$eval("#gis-detail-content", el => el.textContent.includes(document.getElementById("gis-page").dataset.precisionLabel)), false, "Missing precision is not repeated as an unknown warning");
-          await page.keyboard.press("Escape");
           await page.select("#gis-layer-filter", "facilities");
           assert.equal(await page.$eval("#gis-results", el => el.children.length), 16);
           await page.select("#gis-layer-filter", "");
@@ -232,12 +391,13 @@ async function main() {
         if (!fixtures) {
           await click(page, "#gis-layers-tab");
           const before = await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.views]);
-          await page.$$eval('#gis-layer-list input:not(:disabled)', inputs => inputs.forEach(input => { if (!input.checked) input.click(); }));
+          await page.$$eval('#gis-layer-list input[type="checkbox"]:not(:disabled)', inputs => inputs.forEach(input => { if (!input.checked) input.click(); }));
           await page.waitForFunction(() => [...document.querySelectorAll(".gis-layer small")].every(el => el.textContent !== document.getElementById("gis-page").dataset.loading));
           assert.equal(await page.$$eval(".gis-layer small", els => els.filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length), 0, "Every generated available layer must load");
           assert.deepEqual(await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.views]), before);
           assert.equal(page.url(), url, "Layer toggles must not navigate away from the map");
           await click(page, "#gis-explore-tab");
+          await builtV3Checks(page);
         }
         await page.focus("#gis-search"); await page.keyboard.type("NO_SUCH_RECORD_123");
         assert.equal(await page.$eval("#gis-results", el => el.children.length), 0);
@@ -278,14 +438,14 @@ async function main() {
           await click(page, "#gis-layers-tab");
           for (const id of ["roads", "places", "anchors", "raster", "broken", "broken-image"]) {
             const checkbox = await page.evaluateHandle(id => {
-              const rows = [...document.querySelectorAll(".gis-layer")]; return rows.find(row => row.querySelector("label span").textContent === id).querySelector("input");
+              return document.querySelector(`[data-layer-id="${id}"] input[type="checkbox"]`);
             }, id);
             await checkbox.asElement().evaluate(el => el.scrollIntoView({ block: "center", behavior: "instant" }));
             await checkbox.asElement().click();
-            if (id === "roads") assert.equal(await page.evaluate(() => [...document.querySelectorAll(".gis-layer")].find(row => row.querySelector("label span").textContent === "roads").querySelector("small").textContent), locale.loading);
+            if (id === "roads") assert.equal(await page.$eval('[data-layer-id="roads"] small', el => el.textContent), locale.loading);
           }
           await page.waitForFunction(() => [...document.querySelectorAll(".gis-layer small")].filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length >= 3);
-          await page.waitForFunction(() => window.__gisTest.vectors >= 2 && [...document.querySelectorAll(".gis-layer")].find(row => row.querySelector("label span").textContent === "anchors").querySelector("small").textContent === document.getElementById("gis-page").dataset.loaded);
+          await page.waitForFunction(() => window.__gisTest.vectors >= 2 && document.querySelector('[data-layer-id="anchors"] small').textContent === document.getElementById("gis-page").dataset.loaded);
           assert.deepEqual(await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.views]), initial);
           assert.equal(await page.$eval("#gis-legend", el => !el.hidden), true);
           assert.ok(await page.evaluate(() => window.__gisTest.vectors >= 2));
@@ -302,6 +462,7 @@ async function main() {
           await click(page, ".gis-result");
           assert.deepEqual(await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]), navigation, "Null projects never navigate");
           assert.match(await page.$eval("#gis-detail-content a", el => el.getAttribute("href")), /\/transparency\/projects\/\?project=canonical-1$/);
+          await v3Checks(page, locale);
         }
         assert.deepEqual(errors, [], `Browser errors: ${errors}`);
         if (mobile) {
@@ -309,7 +470,7 @@ async function main() {
           await page.setViewport({ width: 320, height: 740 });
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), true, "No narrow-mobile overflow");
           await page.keyboard.press("Escape");
-          await page.click("#gis-layers-tab");
+          await click(page, "#gis-layers-tab");
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2), true, "Layer panel has no narrow-mobile overflow");
           await click(page, ".gis-layer button");
           await page.keyboard.press("Escape");
@@ -335,7 +496,7 @@ async function main() {
       checks++; await missing.close();
     }
     if (fixtures) {
-      for (const lang of ["en", "fil", "pag"]) for (const scenario of ["empty", "missing"]) {
+      for (const lang of ["en", "fil", "pag"]) for (const scenario of ["empty", "missing", "legacy"]) {
         const page = await browser.newPage(), errors = [];
         await page.evaluateOnNewDocument(leafletMock);
         await page.setRequestInterception(true);
@@ -343,14 +504,17 @@ async function main() {
         page.on("pageerror", e => errors.push(e.message));
         await page.goto(`${origin}/fixtures/${lang}/gis/?data=${scenario}`, { waitUntil: "domcontentloaded" });
         await page.waitForSelector('#gis-workspace[data-ready="true"]');
-        await page.select("#gis-layer-filter", "facilities");
-        assert.equal(await page.$eval("#gis-results", el => el.children.length), 0);
-        assert.equal(await page.evaluate(() => window.__gisTest.markers.length), 0);
-        if (scenario === "empty") {
+        await page.select("#gis-layer-filter", scenario === "legacy" ? "records" : "facilities");
+        assert.equal(await page.$eval("#gis-results", el => el.children.length), scenario === "legacy" ? 2 : 0);
+        assert.equal(await page.evaluate(() => window.__gisTest.markers.length), scenario === "legacy" ? 15 : 0);
+        if (scenario === "legacy") {
+          await page.select("#gis-layer-filter", "other-records");
+          assert.equal(await page.$eval("#gis-results", el => el.children.length), 0, "Legacy unscoped global is consumed once, not duplicated in every reference layer");
+        } else if (scenario === "empty") {
           assert.equal(await page.$eval("#gis-facility-empty", el => !el.hidden), true);
           assert.equal(await page.$eval("#gis-marker-count", el => el.textContent), "0");
         } else {
-          assert.equal(await page.$$eval(".gis-layer small", els => els.filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length), 4);
+          assert.equal(await page.$$eval(".gis-layer small", els => els.filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length), 5);
         }
         assert.deepEqual(errors, []);
         checks++; await page.close();

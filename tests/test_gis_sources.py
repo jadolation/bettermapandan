@@ -58,7 +58,7 @@ def test_normalization_is_immutable_and_safe():
     assert 'verification_status' not in result['features'][0]['properties']
 
 
-@pytest.mark.parametrize('coordinates', [[999, 16], [120, -91], [True, 16], [120, float('inf')], [120], []])
+@pytest.mark.parametrize('coordinates', [[999, 16], [120, -91], [True, 16], [120, float('inf')], [10 ** 500, 16], [120], []])
 def test_invalid_individual_coordinates_skipped(coordinates, caplog):
     source = point()
     bad = copy.deepcopy(source['features'][0])
@@ -187,3 +187,66 @@ def test_asset_manifest_rejects_traversal_and_ignores_stale_files(tmp_path):
     manifest.write_text(json.dumps({'schema_version': 1, 'files': ['assets/gis/../bad.png']}))
     with pytest.raises(ValueError, match='Unsafe'):
         gis_asset_outputs(tmp_path)
+
+
+@pytest.mark.parametrize('change', [
+    {'opacity': True}, {'opacity': -0.1}, {'opacity': 1.1}, {'opacity': '0.5'},
+    {'pane': 'unknown'}, {'group': {'en': 'Only English'}}, {'exclusive_group': ''},
+    {'exclusive_group': False}, {'dependencies': 'src/data/file'},
+    {'dependencies': ['../unsafe']},
+])
+def test_v3_metadata_validation(tmp_path, change):
+    entry = layer('example', 'src/data/example.geojson', enabled=False)
+    entry.update(change)
+    configuration(tmp_path, [entry])
+    with pytest.raises(ValueError):
+        layer_configuration(tmp_path)
+
+
+def test_v3_metadata_forwarded_without_governance(tmp_path):
+    entry = layer('example', 'src/data/example.geojson')
+    metadata = {'group': {'en': 'Physical', 'fil': 'Pisikal', 'pag': 'Physical'},
+                'pane': 'physical', 'opacity': 0.65, 'exclusive_group': 'historical-physical',
+                'semantic_role': 'historical_physical_characteristic'}
+    entry.update(metadata)
+    directory = configuration(tmp_path, [entry])
+    (directory / 'example.geojson').write_text(json.dumps(point()))
+    result = prepare_inputs(tmp_path)
+    assert all(result['layers'][0][key] == value for key, value in metadata.items())
+
+
+def test_dpwh_emitted_with_null_records_and_full_safe_contract(tmp_path):
+    entry = layer('dpwh-projects', 'src/data/dpwh.json', 'dpwh')
+    configuration(tmp_path, [entry])
+    directory = tmp_path / 'src/data'
+    (directory / 'entities').mkdir()
+    canonical = [{'project_id': 'prj-1', 'canonical_name': 'Road', 'source_transaction_id': 'tx-1'}]
+    (directory / 'entities/projects.json').write_text(json.dumps(canonical))
+    source = {'projects': [{'transaction_id': 'tx-1', 'project_name': 'Road', 'longitude': 120.45,
+                            'latitude': 16.03, 'status': 'Completed', 'contract_amount': 1234.5,
+                            'actual_start_date': '2024-01-01', 'private_notes': 'DO NOT EMIT'},
+                           {'transaction_id': 'tx-2', 'project_name': 'Unlocated'}]}
+    (directory / 'dpwh.json').write_text(json.dumps(source))
+    result = prepare_inputs(tmp_path, lang_code='fil')
+    data = json.loads((tmp_path / 'assets/gis/dpwh-projects.geojson').read_text())
+    assert len(data['features']) == 2 and data['features'][1]['geometry'] is None
+    first = data['features'][0]['properties']
+    assert first['project_id'] == 'prj-1' and first['status_key'] == 'completed'
+    assert first['contract_amount'] == 1234.5 and first['actual_start_date'] == '2024-01-01'
+    assert first['project_url'] == '/fil/transparency/projects/?project=prj-1'
+    assert data['features'][1]['properties']['project_url'] == '/fil/transparency/infrastructure/#dpwh-project-tx-2'
+    assert all(record['layer_id'] == 'dpwh-projects' for record in result['records'])
+    assert 'DO NOT EMIT' not in script_json(result)
+
+
+def test_numeric_allowlist_rejects_unsafe_values_and_preserves_psgc():
+    source = point()
+    props = source['features'][0]['properties']
+    props.update(psgc='0105528001', source_name='Source Name', contract_amount=float('inf'),
+                 approved_budget=True, accomplishment_percent=95.5, fiscal_year=2025,
+                 private_number=1234, source_area_sqkm=1.23)
+    result = feature_collection(source)['features'][0]['properties']
+    assert result['psgc'] == '0105528001' and result['source_name'] == 'Source Name'
+    assert result['accomplishment_percent'] == 95.5 and result['fiscal_year'] == 2025
+    assert result['source_area_sqkm'] == 1.23
+    assert not {'contract_amount', 'approved_budget', 'private_number'} & result.keys()

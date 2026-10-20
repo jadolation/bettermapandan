@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+brgybnd = "barangay_boundaries_repository.cli:cli"
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
+barangay = { path = "../barangay", editable = true }
+
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+
+[project]
+name = "barangay-boundaries-repository"
+version = "0.1.0"
+description = "Enriched Philippine barangay boundaries (GeoJSON) and PSGC RDF linked data generated from PSA snapshots and NAMRIA shapefiles."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.13"
+keywords = [
+    "psgc",
+    "barangay",
+    "philippines",
+    "geojson",
+    "boundaries",
+    "namria",
+    "rdf",
+    "linked-data",
+    "shapefile",
+    "administrative-boundaries",
+    "geospatial",
+    "huc",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+authors = [
+    { name = "Manuel Balmeo" },
+]
+dependencies = [
+    "barangay>=2026.4.13.4",
+    "click>=8.0",
+    "geojson>=3.3.0",
+    "geopandas>=1.1.3",
+    "ipykernel>=7.3.0",
+    "kreuzberg>=4.9.9",
+    "leafmap>=0.62.0",
+    "openai>=1.0",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.3",
+    "pydantic>=2.0",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "quarto>=0.1.0",
+    "quarto-cli>=1.9.38",
+    "rdflib>=7.6.0",
+    "rich>=15.0.0",
+    "ruff>=0.15.16",
+    "shapely>=2.1.2",
+    "ty>=0.0.45",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]

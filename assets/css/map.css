@@ -250,6 +250,11 @@
 .gis-layer:last-child { border-bottom: 0; }
 .gis-layer label { display: flex; gap: 10px; align-items: center; min-height: 44px; overflow-wrap: anywhere; font-size: .9rem; font-weight: 600; }
 .gis-layer input { width: 20px; height: 20px; flex-shrink: 0; accent-color: var(--green); }
+.gis-layer input[type="range"] { width: min(100%, 140px); min-width: 60px; min-height: 44px; flex: 1; }
+.gis-layer output { min-width: 0; font-size: .75rem; overflow-wrap: anywhere; }
+.gis-layer > div:first-child { min-height: 44px; display: flex; align-items: center; font-weight: 600; }
+.gis-caution { border-left: 3px solid var(--gold-dark); padding-left: 8px; color: var(--ink-soft); font-size: .8rem; }
+.gis-directory button { display: block; min-height: 44px; margin-top: 6px; border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 10px; color: var(--green-deep); background: var(--paper); cursor: pointer; }
 .gis-layer small { display: block; color: var(--ink-soft); margin: 0 0 6px 30px; }
 .gis-layer button, .gis-toolbar button, #gis-close { min-height: 44px; cursor: pointer; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--green-deep); font: inherit; padding: 8px 12px; }
 .gis-layer button { font-size: .8rem; margin-left: 30px; }

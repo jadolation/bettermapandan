@@ -57,13 +57,25 @@ def layer_configuration(root):
         if not isinstance(identifier, str) or not re.fullmatch(r'[a-z][a-z0-9-]{0,79}', identifier) or identifier in seen:
             raise ValueError(f"Invalid or duplicate GIS layer ID: {identifier!r}")
         seen.add(identifier)
-        if layer.get('type') not in {'geojson', 'records', 'kmz'}:
-            raise ValueError(f"GIS layer {identifier}: type must be geojson, records, or kmz")
+        if layer.get('type') not in {'geojson', 'records', 'kmz', 'dpwh'}:
+            raise ValueError(f"GIS layer {identifier}: type must be geojson, records, kmz, or dpwh")
         if type(layer.get('enabled')) is not bool or type(layer.get('visible_by_default')) is not bool:
             raise ValueError(f"GIS layer {identifier}: enabled and visible_by_default must be booleans")
         if not isinstance(layer.get('title'), dict) or not isinstance(layer['title'].get('en'), str):
             raise ValueError(f"GIS layer {identifier}: title.en is required")
         input_path(root, layer.get('source'))
+        if 'dependencies' in layer and (not isinstance(layer['dependencies'], list) or len(layer['dependencies']) > 10):
+            raise ValueError('GIS dependencies must be a bounded list')
+        for dependency in layer.get('dependencies', []):
+            input_path(root, dependency)
+        if 'group' in layer and (not isinstance(layer['group'], dict) or not all(isinstance(layer['group'].get(lang), str) for lang in ('en', 'fil', 'pag'))):
+            raise ValueError('GIS group requires en, fil, and pag labels')
+        if 'pane' in layer and layer['pane'] not in {'physical', 'hazards', 'administrative', 'infrastructure', 'facilities'}:
+            raise ValueError('Invalid GIS pane')
+        if 'opacity' in layer and (type(layer['opacity']) not in (int, float) or not 0 <= layer['opacity'] <= 1 or not math.isfinite(layer['opacity'])):
+            raise ValueError('GIS opacity must be a finite number from 0 to 1')
+        if 'exclusive_group' in layer and (not isinstance(layer['exclusive_group'], str) or not layer['exclusive_group'] or len(layer['exclusive_group']) > 100):
+            raise ValueError('GIS exclusive_group must be a nonempty string')
         if 'source_url' in layer and not safe_url(layer['source_url']):
             raise ValueError(f"GIS layer {identifier}: source_url must be HTTP(S)")
     return data
@@ -158,7 +170,8 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
         outputs.add('assets/gis/' + filename)
 
     fields = ('id', 'title', 'enabled', 'visible_by_default', 'attribution', 'source_url',
-              'source_label', 'source_date', 'precision', 'limitations', 'legend', 'semantic_role')
+              'source_label', 'source_date', 'precision', 'limitations', 'legend', 'semantic_role',
+              'group', 'pane', 'opacity', 'exclusive_group')
     for configured in config['layers']:
         identifier, kind = configured['id'], configured['type']
         layer = {key: configured[key] for key in fields if key in configured}
@@ -186,6 +199,16 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
                     filename = identifier + '.geojson'
                     emit(filename, script_json(data).encode('utf-8'))
                     layer.update(type='geojson', url='assets/gis/' + filename)
+            elif kind == 'dpwh':
+                from .gis_projects import dpwh_collection
+                canonical = parse_json(bounded_bytes(input_path(root, 'src/data/entities/projects.json')).decode('utf-8'))
+                data = feature_collection(dpwh_collection(parse_json(raw.decode('utf-8')), canonical, lang_code), label=identifier)
+                for feature in data['features']:
+                    props = dict(feature['properties'], layer_id=identifier, geometry=feature['geometry'])
+                    result['records'].append(props)
+                filename = identifier + '.geojson'
+                emit(filename, script_json(data).encode('utf-8'))
+                layer.update(type='geojson', url='assets/gis/' + filename)
             elif kind == 'records':
                 records = project_records(parse_json(raw.decode('utf-8')), lang_code)
                 for item in records:

@@ -85,5 +85,8 @@ def directory_html(data, kind, locale=None):
 
 def record_directory_html(records):
     return '<ul class="gis-directory">' + ''.join(
-        '<li><a href="' + escape(item['project_url'], quote=True) + '">' + escape(item['name']) + '</a></li>'
+        '<li data-layer-id="' + escape(item.get('layer_id', ''), quote=True) + '">' +
+        ('<a href="' + escape(item['project_url'], quote=True) + '">' + escape(item['name']) + '</a>'
+         if item.get('project_url') else '<strong>' + escape(item['name']) + '</strong>') +
+        '<span>' + escape(' / '.join(str(item[key]) for key in ('source_transaction_id', 'status', 'contractor', 'barangay_location', 'location_precision') if item.get(key))) + '</span></li>'
         for item in records) + '</ul>'

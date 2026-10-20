@@ -1,0 +1,165 @@
+{
+  "description": "Descriptive provenance and measured quality, not an approval ledger.",
+  "source_url": "https://github.com/bendlikeabamboo/barangay-boundaries-repository",
+  "attribution": "Repository describes NAMRIA administrative shapefiles enriched with PSA PSGC; local simplified derivative only, not independently verified.",
+  "municipality_comparison": {
+    "path": "datasets/GIS/barangay-boundaries-repository-main/barangay-boundaries-repository-main/2023-10-24/hierarchical_t0p005/municipalities.geojson",
+    "sha256": "3c6d8f48f33dab01d6bd0b83a31229577817286a01ac23e5d290ddbd4c6f51ef"
+  },
+  "source_path": "datasets/GIS/barangay-boundaries-repository-main/barangay-boundaries-repository-main/2023-10-24/hierarchical_t0p005/barangays.geojson",
+  "source_sha256": "10606e46cd7b4b34a61f4975f3568bb3c11a48fa355cbe3c4d78c3737e0fcfa9",
+  "source_variant": "2023-10-24/hierarchical_t0p005",
+  "source_date": "2022-11-09",
+  "source_valid_on": "2023-11-06",
+  "join": "Exact ADM3_PCODE PH0105528 and ADM4_PCODE PH + canonical ten-digit gid; no name matching",
+  "original_shapefiles_available": false,
+  "quality_report": {
+    "limitations": [
+      "Very coarse simplified source geometry, not a reliable administrative boundary.",
+      "Severe gaps, overlaps and geometry outside the same simplified municipality; do not use for parcel, routing, hazard or area analysis.",
+      "Source AREA_SQKM describes pre-simplification metadata, not the area of these shapes.",
+      "Original detailed shapefiles are absent; no detail, coordinate or boundary has been invented or repaired."
+    ],
+    "feature_count": 15,
+    "topology_checked": true,
+    "disposition": "optional_off_by_default_reference_geometry",
+    "analysis_libraries": {
+      "shapely": "2.2.0",
+      "pyproj": "3.8.0"
+    },
+    "measurement_crs": "EPSG:32651 (WGS84 / UTM zone 51N)",
+    "all_individually_valid": true,
+    "comparison_limitations": "Municipality input is also simplified; comparison is not against an authoritative detailed boundary.",
+    "sum_geometry_area_km2": 15.886850764322595,
+    "union_area_km2": 15.451348153181765,
+    "municipality_geometry_area_km2": 18.81758815719844,
+    "overlap_area_km2": 0.43550261114083044,
+    "municipality_uncovered_km2": 4.763562512198867,
+    "outside_municipality_km2": 1.3973225081821,
+    "municipality_uncovered_percent": 25.314415813572918,
+    "source_municipality_area_sqkm_metadata": 20.4157646219,
+    "source_barangay_area_sqkm_metadata_sum": 20.415764621903,
+    "features": [
+      {
+        "gid": "0105528001",
+        "geometry_area_km2": 1.1302561845542414,
+        "source_area_sqkm_metadata": 1.89358945625,
+        "ring_vertex_counts": [
+          3
+        ]
+      },
+      {
+        "gid": "0105528002",
+        "geometry_area_km2": 0.22947581706118383,
+        "source_area_sqkm_metadata": 0.464131743911,
+        "ring_vertex_counts": [
+          3
+        ]
+      },
+      {
+        "gid": "0105528003",
+        "geometry_area_km2": 0.3927453294371263,
+        "source_area_sqkm_metadata": 1.19778465718,
+        "ring_vertex_counts": [
+          3
+        ]
+      },
+      {
+        "gid": "0105528004",
+        "geometry_area_km2": 1.2236076159848384,
+        "source_area_sqkm_metadata": 1.72787103874,
+        "ring_vertex_counts": [
+          3
+        ]
+      },
+      {
+        "gid": "0105528006",
+        "geometry_area_km2": 0.07492420539967555,
+        "source_area_sqkm_metadata": 0.322770390491,
+        "ring_vertex_counts": [
+          3
+        ]
+      },
+      {
+        "gid": "0105528007",
+        "geometry_area_km2": 1.1043060821948638,
+        "source_area_sqkm_metadata": 1.24194685309,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528008",
+        "geometry_area_km2": 1.7189084234635197,
+        "source_area_sqkm_metadata": 1.99392355921,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528009",
+        "geometry_area_km2": 0.2321261480612725,
+        "source_area_sqkm_metadata": 1.02911463813,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528010",
+        "geometry_area_km2": 1.838658789623855,
+        "source_area_sqkm_metadata": 2.06909263857,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528012",
+        "geometry_area_km2": 1.939593011717943,
+        "source_area_sqkm_metadata": 2.06015437857,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528013",
+        "geometry_area_km2": 1.981591998396379,
+        "source_area_sqkm_metadata": 1.94829408115,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528014",
+        "geometry_area_km2": 0.5860717269285818,
+        "source_area_sqkm_metadata": 1.02480839117,
+        "ring_vertex_counts": [
+          3
+        ]
+      },
+      {
+        "gid": "0105528015",
+        "geometry_area_km2": 1.1912535095939585,
+        "source_area_sqkm_metadata": 1.29424701816,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528016",
+        "geometry_area_km2": 1.3309190538265336,
+        "source_area_sqkm_metadata": 1.33972350679,
+        "ring_vertex_counts": [
+          4
+        ]
+      },
+      {
+        "gid": "0105528018",
+        "geometry_area_km2": 0.9124128680786237,
+        "source_area_sqkm_metadata": 0.808312270491,
+        "ring_vertex_counts": [
+          4
+        ]
+      }
+    ]
+  }
+}
