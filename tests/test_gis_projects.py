@@ -158,3 +158,53 @@ def test_collection_validation():
     for source in (None, {}, {"projects": {}}, {"projects": [None]}):
         with pytest.raises(ValueError, match="DPWH"):
             dpwh_collection(source, [])
+
+
+def load_facilities():
+    return json.loads((ROOT / 'src/data/gis/facilities.geojson').read_text(encoding='utf-8'))
+
+
+def load_boundaries():
+    return json.loads((ROOT / 'src/data/gis/barangay_boundaries.geojson').read_text(encoding='utf-8'))
+
+
+def point_in_polygon(lon, lat, polygon):
+    # Winding-number test over the (possibly overlapping/gapped, indicative)
+    # PSGC ADM4 boundary rings. Robust to the self-touching edges that a naive
+    # ray-cast mishandles, so it is preferred over a bounding-box approximation.
+    x, y = lon, lat
+    winding = 0
+    for ring in polygon:
+        points = ring
+        count = len(points)
+        j = count - 1
+        for i in range(count):
+            xi, yi = points[i]
+            xj, yj = points[j]
+            if yi <= y:
+                if yj > y and (xj - xi) * (y - yi) - (x - xi) * (yj - yi) > 0:
+                    winding += 1
+            elif yj <= y and (xj - xi) * (y - yi) - (x - xi) * (yj - yi) < 0:
+                winding -= 1
+            j = i
+    return winding != 0
+
+
+# Facilities corrected per .kilo/plans/1792394702315-fix-misplaced-facility-coordinates.md.
+# Each row asserts the corrected coordinate and that the point now falls within
+# its assigned barangay_gid boundary polygon (previously it landed in a neighbour).
+@pytest.mark.parametrize('fac_id, expected, barangay_gid', [
+    ('fac-007', [120.4581, 16.0377], '0105528004'),        # Baloling National High School
+    ('fac-013', [120.4571406, 16.0372375], '0105528004'),  # Baloling Barangay Hall
+    ('fac-014', [120.4364, 16.0281], '0105528012'),        # Nilombot Barangay Hall
+])
+def test_corrected_facility_coordinates_within_assigned_barangay(fac_id, expected, barangay_gid):
+    boundaries = load_boundaries()
+    polygons = {feature['properties']['gid']: feature['geometry']['coordinates']
+                for feature in boundaries['features']}
+    facilities = load_facilities()
+    feature = next(f for f in facilities['features'] if f['properties']['id'] == fac_id)
+    lon, lat = feature['geometry']['coordinates']
+    assert [lon, lat] == expected
+    assert feature['properties']['barangay_gid'] == barangay_gid
+    assert point_in_polygon(lon, lat, polygons[barangay_gid])

@@ -70,7 +70,7 @@
       "priority": "medium",
       "required_action": "Cross-check with DepEd masterlist and barangay records to confirm distinct coordinates.",
       "source": "AGENTS.md Section 4.2",
-      "resolution": "Maintainer confirmed Nilombot Barangay Hall is a separate site from Nilombot Elementary School (per §3.4 plan and §3.5 evidence). Hall coordinates [120.4725, 16.0238] retained. Feature published as source_verified with review_notes cleared."
+      "resolution": "Point-in-polygon validation against the Nilombot barangay_gid boundary (PSGC ADM4) showed the previous coordinates [120.4725, 16.0238] fell outside Nilombot and inside Aserda. Maintainer re-resolved per plan §3.5: Nilombot Barangay Hall relocated to [120.4364, 16.0281] (Nilombot Elementary candidate, confirmed within the Nilombot polygon). Confirmed a separate site from Nilombot Elementary School. Feature published as source_verified with review_notes cleared."
     },
     {
       "issue_id": "review-005",
@@ -87,7 +87,7 @@
       "priority": "low",
       "required_action": "Field-verification or higher-resolution source needed to confirm separate locations.",
       "source": "AGENTS.md Section 4.2 (general guidance on shared/closest coordinates)",
-      "resolution": "§3.5 Plus Code candidates not available for Baloling NHS (fac-007) and Baloling Hall (fac-013); existing candidate coordinates confirmed as distinct sites. Both retained as source_verified."
+      "resolution": "Point-in-polygon validation against the Baloling barangay_gid boundary (PSGC ADM4) showed both previous coordinates ([120.4528, 15.9982] and [120.4531, 15.9985]) fell outside Baloling and inside Poblacion. Maintainer re-resolved per plan §3.5: Baloling Barangay Hall relocated to the §3.5 Plus Code cell centre [120.4571406, 16.0372375]; Baloling NHS relocated to the OSM school-footprint centroid [120.4581, 16.0377]. Both confirmed within the Baloling polygon and distinct sites. Both published as source_verified."
     },
     {
       "issue_id": "review-006",
