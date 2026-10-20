@@ -26,7 +26,9 @@ const bounds = { west: 120.44, south: 16.01, east: 120.46, north: 16.04 };
 async function click(page, selector) {
   // Puppeteer's nearest-edge scrolling can leave controls under fixed site bars.
   await page.$eval(selector, el => el.scrollIntoView({ block: "center", behavior: "instant" }));
-  await page.click(selector);
+  if (selector === "#gis-explore-tab" || selector === "#gis-layers-tab" || selector === ".gis-result" || selector === ".gis-layer button") {
+    await page.focus(selector); await page.keyboard.press("Enter");
+  } else await page.click(selector);
 }
 function fixture(lang, scenario = "normal") {
   const locale = JSON.parse(fs.readFileSync(path.join(repo, `locales/${lang}.json`))).gis;
@@ -36,11 +38,11 @@ function fixture(lang, scenario = "normal") {
   const layer = (id, type, extra = {}) => ({ id, title: { en: id, fil: id, pag: id }, group: "References",
     type, enabled: true, available: true, visible_by_default: false, legend: [], ...extra });
   const layers = [layer("barangays", "reference", { data_key: "GIS_BARANGAYS" }),
-    layer("facilities", "inline-geojson", { data_key: "GIS_FACILITIES", visible_by_default: true }),
+    layer("facilities", "inline-geojson", { data_key: "GIS_FACILITIES", semantic_role: "facility", visible_by_default: true }),
     layer("roads", "geojson", { url: "assets/gis/roads.geojson" }),
     layer("places", "geojson", { url: "assets/gis/places.geojson" }),
     layer("anchors", "geojson", { url: "assets/gis/anchors.geojson", semantic_role: "label_anchor" }),
-    layer("raster", "raster-image-overlay", { images: [{ url: "assets/gis/map.png", bounds }], source_date: "2012-12-15", attribution: malicious,
+    layer("raster", "raster-image-overlay", { images: [{ url: "assets/gis/map.png", bounds }], source_date: "2021-12-15", attribution: malicious,
       limitations: [malicious], legend: [{ color: "#c80", label: { en: "Class A", fil: "Klase A", pag: "Klase A" } }] }),
     layer("broken", "geojson", { url: "assets/gis/broken.geojson" }),
     layer("broken-image", "raster-image-overlay", { images: [{ url: "assets/gis/missing.png", bounds }] }),
@@ -60,7 +62,7 @@ function fixture(lang, scenario = "normal") {
   const values = {
     GIS_LAYERS_DATA: { schema_version: 1, metadata: { asset_base: "/" }, layers },
     GIS_FACILITIES_DATA: fc(scenario === "empty" ? [] : Array.from({ length: 16 }, (_, i) =>
-      feature(i === 0 ? malicious + "</script><script>window.__injected=1</script>" : `Facility ${i}`, { type: "Point", coordinates: i < 2 ? [120.45, 16.03] : [120.45 + i / 10000, 16.03] }, { id: `fac-${i}` }))),
+      feature(i === 0 ? malicious + "</script><script>window.__injected=1</script>" : `Facility ${i}`, { type: "Point", coordinates: i < 2 ? [120.45, 16.03] : [120.45 + i / 10000, 16.03] }, { id: `fac-${i}`, category: ["Evacuation / gym", "School", "Health / medical", "Police / fire", "Barangay hall", "Other"][i % 6] }))),
     GIS_BARANGAYS_DATA: fc(Array.from({ length: 15 }, (_, i) => feature(`Barangay ${i}`, null, { gid: `PSGC${i}` }))),
     GIS_RECORDS_DATA: [ { name: "Project reference", layer_id: "records", project_id: "canonical-1", confidence: "explicit", evidence: "Source record test" },
       { name: "Other record", layer_id: "other-records", id: "other-ref" } ],
@@ -68,7 +70,6 @@ function fixture(lang, scenario = "normal") {
   if (scenario === "legacy") values.GIS_RECORDS_DATA.forEach(row => { delete row.layer_id; });
   html = html.replace(/\{(GIS_\w+_DATA)\}/g, (_, key) => inline(values[key]));
   const replacements = {
-    GIS_RECORD_DIRECTORY: '<section id="gis-record-directory">Project reference</section>',
     GIS_BARANGAY_COUNT: "15", GIS_FACILITY_COUNT: String(values.GIS_FACILITIES_DATA.features.length),
     GIS_BARANGAY_DIRECTORY: `<ul class="gis-directory">${Array.from({ length: 15 }, (_, i) => `<li>Barangay ${i}</li>`).join("")}</ul>`,
     GIS_FACILITY_DIRECTORY: `<ul class="gis-directory">${values.GIS_FACILITIES_DATA.features.map(f => `<li>${esc(f.properties.name)}</li>`).join("")}</ul>`,
@@ -87,12 +88,14 @@ function leafletMock() {
       addTo(target) { target.addLayer(this); return this; },
       addLayer(child) { this.children.push(child); if (this.container) child.mount(this.container); return this; },
       mount(container) { this.mounted = true; this.container = container; if (this.button) container.appendChild(this.button);
-        this.children.forEach(child => child.mount(container)); },
+        this.children.forEach(child => child.mount(container)); if (this.handlers.add) this.handlers.add(); },
       remove() { this.mounted = false; this.container = null; if (this.button) this.button.remove(); this.children.forEach(child => child.remove()); },
       setOpacity(value) { this.options.opacity = value; return this; },
       setStyle(value) { Object.assign(this.options, value); return this; },
       getPane() { return stats.panes[this.options.pane]; },
-      getBounds: bounds, bindTooltip(value) { this.tooltip = value; return this; } };
+      getElement() { return this.button; },
+      getBounds: bounds, bindTooltip(value) { this.tooltip = value; return this; },
+      openTooltip() { this.tooltipOpen = true; return this; }, closeTooltip() { this.tooltipOpen = false; return this; } };
     if (buttonClass) {
       item.button = document.createElement("button"); item.button.type = "button"; item.button.className = buttonClass;
       item.button.textContent = "Map feature"; item.button.onclick = () => item.handlers.click && item.handlers.click();
@@ -106,13 +109,19 @@ function leafletMock() {
         const b = document.createElement("button"); b.className = cls; container.appendChild(b);
       }
        return { createPane(name) { const pane = document.createElement("div"); stats.panes[name] = pane; return pane; },
-         getPane(name) { return stats.panes[name]; },
+          getPane(name) { return stats.panes[name]; }, getZoom() { return 14; }, on() { return this; },
          setView() { stats.views++; return this; }, addLayer(item) { item.mount(container); return this; },
         removeLayer(item) { item.remove(); }, panTo() { stats.pans++; }, fitBounds() { stats.fits++; },
         invalidateSize() { stats.resizes++; }, getContainer() { return container; } };
     },
     tileLayer() { const item = layer(); setTimeout(() => { if (item.handlers.tileerror) item.handlers.tileerror(); }, 20); return item; },
     featureGroup: () => layer(), latLngBounds: bounds,
+    divIcon: options => options,
+    marker(coords, options) { const item = layer("gis-test-marker"); item.options = options;
+      item.button.className += " " + options.icon.className; item.button.innerHTML = options.icon.html;
+      item.button.title = options.title; item.button.setAttribute("aria-label", options.alt);
+      item.button.style.width = options.icon.iconSize[0] + "px"; item.button.style.height = options.icon.iconSize[1] + "px";
+      stats.markers.push(coords); stats.markerStyles.push(options); return item; },
     circleMarker(coords, options) { const item = layer("gis-test-marker"); item.options = options; stats.markers.push(coords); stats.markerStyles.push(options); return item; },
     geoJSON(payload, options = {}) { const item = layer(); for (const f of payload.features || [payload]) {
       stats.vectors++; const child = layer("gis-test-shape"); child.options = { ...options.style, pane: options.pane }; stats.vectorStyles.push(child.options); if (options.onEachFeature) options.onEachFeature(f, child); item.addLayer(child);
@@ -122,6 +131,7 @@ function leafletMock() {
       image.src = url; return item; },
     control: { scale: () => ({ addTo() {} }) },
   };
+  if (new URL(location.href).searchParams.get("data") === "fallback") { delete window.L.marker; delete window.L.divIcon; }
 }
 
 async function v3Checks(page, locale) {
@@ -145,6 +155,7 @@ async function v3Checks(page, locale) {
     { "gis-physical": "250", "gis-hazards": "300", "gis-administrative": "400", "gis-infrastructure": "450", "gis-facilities": "500" });
   assert.ok(await page.evaluate(() => Object.entries(window.__gisTest.panes).filter(([key]) => key.endsWith("-raster")).every(([, pane]) => pane.style.pointerEvents === "none")));
   await toggle("raster", false);
+  await toggle("facilities", false);
   assert.equal(await page.$eval("#gis-legend", el => el.hidden), true, "Empty configured legends do not invent map classes");
   await toggle("dpwh-projects", true); await toggle("dpwh-projects", false); await loaded("dpwh-projects");
   assert.equal(await page.$eval('[data-layer-id="dpwh-projects"] input', el => el.checked), false);
@@ -154,6 +165,8 @@ async function v3Checks(page, locale) {
   assert.match(await page.$eval("#gis-legend", el => el.textContent), new RegExp(locale.status_unknown));
   await setSearch("", "dpwh-projects");
   const source = await page.evaluate(async () => (await (await fetch("/assets/gis/dpwh.geojson")).json()).features);
+  assert.equal(source.length, 40);
+  assert.equal(source.filter(f => !f.geometry).length, 2);
   assert.equal(await page.$$eval(".gis-result", rows => rows.length), source.length, "Null DPWH records remain in results");
   const points = source.filter(f => f.geometry && f.geometry.type === "Point");
   const pointGroups = new Set(points.map(f => JSON.stringify(f.geometry.coordinates)));
@@ -163,7 +176,9 @@ async function v3Checks(page, locale) {
   assert.match(await page.$eval(".gis-result small", el => el.textContent), /dpwh-projects/);
   await setSearch("canonical-1", "records");
   assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1, "Layer-specific references remain useful");
-  for (const query of ["txn-2", "Exact Contractor", "ongoing", "2025", locale.status_ongoing]) {
+  await setSearch("txn-2", "dpwh-projects");
+  assert.equal(await page.$$eval(".gis-result", rows => rows.length), 11, "ID substring search retains txn-2 and txn-20 through txn-29");
+  for (const query of ["Exact Contractor", "ongoing", "2025", locale.status_ongoing]) {
     await setSearch(query, "dpwh-projects");
     assert.equal(await page.$$eval(".gis-result", rows => rows.length), 1, `DPWH search: ${query}`);
   }
@@ -242,12 +257,13 @@ async function builtV3Checks(page) {
   }
   const markers = await page.evaluate(() => window.__gisTest.markers.map((coordinates, index) => ({ coordinates, style: window.__gisTest.markerStyles[index] })));
   for (const f of groups.values()) {
-    assert.ok(markers.some(marker => marker.style.pane === `gis-${layer.pane || "infrastructure"}` && marker.coordinates[0] === f.geometry.coordinates[1] && marker.coordinates[1] === f.geometry.coordinates[0]), "Built DPWH exact-coordinate group is rendered");
+    assert.ok(markers.some(marker => marker.style.pane === `gis-${layer.pane || "infrastructure"}` && marker.coordinates[0] === f.geometry.coordinates[1] && marker.coordinates[1] === f.geometry.coordinates[0]), "Built DPWH exact-coordinate group is created");
   }
   const nullRecord = source.find(f => !f.geometry);
   if (nullRecord) {
     await page.$eval("#gis-search", (el, id) => { el.value = id; el.dispatchEvent(new Event("input")); }, nullRecord.properties.id);
     const before = await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]);
+    await click(page, "#gis-explore-tab");
     await click(page, ".gis-result");
     assert.deepEqual(await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]), before, "Built null DPWH does not navigate");
     assert.ok(await page.$$eval("#gis-detail-content a", (links, href) => links.some(link => link.getAttribute("href") === href), nullRecord.properties.project_url), "Built project link preserves the exact adapter URL");
@@ -307,6 +323,7 @@ async function main() {
           feature("Source only", geometries.anchors, { id: "txn 3", source_transaction_id: "txn 3", project_url: "/transparency/infrastructure/#dpwh-project-txn%203", status: "Not Started", status_key: "not_started" }),
           feature("Unreported works", { type: "Point", coordinates: [120.451, 16.031] }, { id: "txn-4", source_transaction_id: "txn-4", status_key: "unknown" }),
         ];
+        for (let i = 5; i <= 40; i++) rows.push(feature(`Additional works ${i}`, i === 40 ? null : { type: "Point", coordinates: [120.45 + i / 10000, 16.032] }, { id: `txn-${i}`, source_transaction_id: `txn-${i}`, status_key: "completed" }));
         res.setHeader("content-type", "application/json"); setTimeout(() => res.end(JSON.stringify(fc(rows))), 100); return;
       }
       if (/^\/assets\/gis\/(boundaries|coarse)\.geojson$/.test(pathname)) {
@@ -378,6 +395,12 @@ async function main() {
         await page.waitForFunction(previous => window.__gisTest.resizes > previous, {}, resizes);
         await page.$eval("#gis-map", el => { el.style.height = ""; });
         assert.equal(await page.$eval("#gis-results", el => getComputedStyle(el).overflowY), "auto");
+        if (!mobile) {
+          await page.waitForFunction(() => Math.abs(document.querySelector(".gis-sidebar").getBoundingClientRect().bottom - document.querySelector(".gis-map-pane").getBoundingClientRect().bottom) <= 2);
+          assert.ok(await page.$eval("#gis-results", el => el.clientHeight > 0 && el.scrollHeight > el.clientHeight), "Results have a bounded scroll region");
+        } else {
+          assert.ok(await page.$eval(".gis-sidebar", el => el.getBoundingClientRect().height <= 620), "Mobile sidebar stays bounded");
+        }
         assert.equal(await page.evaluate(() => Number(document.getElementById("gis-facility-count").textContent) === window.GIS_FACILITIES.features.length), true, "Facility count matches emitted points");
         assert.equal(await page.evaluate(() => document.getElementById("gis-facility-list").querySelectorAll("li").length === window.GIS_FACILITIES.features.length), true, "Static directory matches supplied facilities");
         if (fixtures) {
@@ -423,6 +446,17 @@ async function main() {
         if (fixtures) {
           assert.equal(await page.evaluate(() => window.GIS_FACILITIES.features.length), 16);
           assert.equal(await page.evaluate(() => window.__gisTest.markers.length), 15);
+          assert.equal(await page.$$eval("#gis-map .gis-test-marker", markers => markers.length), 15, "Created markers must actually attach to the feature group and map");
+          assert.equal(await page.$$eval("#gis-map .gis-icon-marker svg path", paths => paths.length > 15), true, "Glyphs are actual SVG path nodes");
+          assert.equal(await page.$eval("#gis-map .gis-icon-marker", el => el.textContent), "2", "Mixed coordinate group has a count, no raw path text");
+          assert.ok((await page.$eval("#gis-map .gis-icon-marker", el => el.title)).includes(locale.category_school));
+          assert.ok((await page.$eval("#gis-legend", el => el.textContent)).includes(locale.category_school), "Inline facilities legend is localized");
+          assert.equal(await page.$eval(".gis-result", el => [...el.childNodes].filter(node => node.nodeType === Node.TEXT_NODE).length), 0, "Result title is not duplicated as a raw text node");
+          await page.focus("#gis-map .gis-icon-marker"); await page.keyboard.press("Space");
+          assert.equal(await page.$eval("#gis-map .gis-icon-marker", el => el.classList.contains("gis-marker-selected")), true);
+          assert.equal(await page.$eval("#gis-map .gis-icon-marker", el => el.getAttribute("aria-pressed")), "true");
+          await page.keyboard.press("Escape");
+          assert.equal(await page.$eval("#gis-map .gis-icon-marker", el => el.classList.contains("gis-marker-selected")), false);
           assert.deepEqual(await page.evaluate(() => window.__gisTest.markers[0]), [16.03, 120.45]);
           assert.equal(await page.$eval("#gis-facility-list", el => el.querySelectorAll("li").length), 16);
           assert.ok(!requests.some(url => /\/(disabled|unavailable|forbidden)\.geojson/.test(url)), "Disabled and unsafe URLs never fetch");
@@ -496,7 +530,7 @@ async function main() {
       checks++; await missing.close();
     }
     if (fixtures) {
-      for (const lang of ["en", "fil", "pag"]) for (const scenario of ["empty", "missing", "legacy"]) {
+      for (const lang of ["en", "fil", "pag"]) for (const scenario of ["empty", "missing", "legacy", "fallback"]) {
         const page = await browser.newPage(), errors = [];
         await page.evaluateOnNewDocument(leafletMock);
         await page.setRequestInterception(true);
@@ -505,14 +539,19 @@ async function main() {
         await page.goto(`${origin}/fixtures/${lang}/gis/?data=${scenario}`, { waitUntil: "domcontentloaded" });
         await page.waitForSelector('#gis-workspace[data-ready="true"]');
         await page.select("#gis-layer-filter", scenario === "legacy" ? "records" : "facilities");
-        assert.equal(await page.$eval("#gis-results", el => el.children.length), scenario === "legacy" ? 2 : 0);
-        assert.equal(await page.evaluate(() => window.__gisTest.markers.length), scenario === "legacy" ? 15 : 0);
+        assert.equal(await page.$eval("#gis-results", el => el.children.length), scenario === "legacy" ? 2 : scenario === "fallback" ? 16 : 0);
+        assert.equal(await page.evaluate(() => window.__gisTest.markers.length), ["legacy", "fallback"].includes(scenario) ? 15 : 0);
         if (scenario === "legacy") {
           await page.select("#gis-layer-filter", "other-records");
           assert.equal(await page.$eval("#gis-results", el => el.children.length), 0, "Legacy unscoped global is consumed once, not duplicated in every reference layer");
         } else if (scenario === "empty") {
           assert.equal(await page.$eval("#gis-facility-empty", el => !el.hidden), true);
           assert.equal(await page.$eval("#gis-marker-count", el => el.textContent), "0");
+        } else if (scenario === "fallback") {
+          assert.equal(await page.$$eval("#gis-map .gis-test-marker", markers => markers.length), 15, "Circle fallback markers attach to their group");
+          await page.focus("#gis-map .gis-test-marker"); await page.keyboard.press("Enter");
+          assert.equal(await page.$eval("#gis-details", el => el.hidden), false);
+          await page.keyboard.press("Escape");
         } else {
           assert.equal(await page.$$eval(".gis-layer small", els => els.filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length), 5);
         }

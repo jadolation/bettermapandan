@@ -150,7 +150,7 @@ def test_gis_page_payloads_and_directories_follow_content_edits_all_locales(monk
     monkeypatch.setattr(pages, 'assemble_page', lambda base, asset_base, title, description, header, body, *args: body)
     template = ''.join(f'<script>window.GIS_{key} = {{GIS_{key}_DATA}};</script>'
                        for key in ('LAYERS', 'FACILITIES', 'BARANGAYS', 'RECORDS'))
-    template += '<div>{GIS_FACILITY_COUNT}{GIS_FACILITY_DIRECTORY}{GIS_RECORD_DIRECTORY}</div>'
+    template += '<div>{GIS_FACILITY_COUNT}{GIS_FACILITY_DIRECTORY}</div>'
     for lang in ('en', 'fil', 'pag'):
         output = tmp_path / lang
         pages._process_static_page(lang, {}, Path('gis.html'), {'title': 'GIS', 'description': 'Map'},
@@ -166,7 +166,12 @@ def test_gis_page_payloads_and_directories_follow_content_edits_all_locales(monk
         assert 'GIS_MODE' not in html and 'publication' not in html
         assert '&lt;Facility&gt; {GIS_FACILITY_COUNT}' in html
         expected = ('' if lang == 'en' else '/' + lang) + '/transparency/projects/?project=exact-id'
-        assert expected in html and '&lt;Project&gt;' in html
+        records = json.loads(re.search(r'window.GIS_RECORDS = (.*?);</script>', html).group(1))
+        assert records[0]['name'] == '<Project>'
+        assert records[0]['project_url'] == expected
+        static_html = re.sub(r'<script>.*?</script>', '', html)
+        assert '<Project>' not in static_html and '&lt;Project&gt;' not in static_html
+        assert 'GIS_RECORD_DIRECTORY' not in html
     # Ordinary content edits require no companion approval/hash update.
     source['features'].append(point('Added facility')['features'][0])
     source['features'][1]['properties']['id'] = 'added'

@@ -53,6 +53,24 @@ def test_selected_symlink_rejected(tmp_path):
         copy_inputs(root, tmp_path / 'workspace')
 
 
+def test_prepared_physical_kmz_only_copied_not_original_archive(tmp_path):
+    root = fixture_root(tmp_path)
+    selected = 'datasets/GIS/physical/prepared/physical-elevation.kmz'
+    configuration(root, [layer('physical-elevation', selected, 'kmz')])
+    source = root / selected
+    source.parent.mkdir(parents=True)
+    source.write_bytes(b'prepared KMZ fixture')
+    original = root / 'datasets/GIS/physical/originals/elevation.png'
+    original.parent.mkdir(parents=True)
+    original.write_bytes(b'not a build input')
+    (source.parent / 'registration.json').write_text('{}')
+    workspace = tmp_path / 'workspace'
+    copy_inputs(root, workspace)
+    assert (workspace / selected).read_bytes() == b'prepared KMZ fixture'
+    assert not (workspace / original.relative_to(root)).exists()
+    assert not (workspace / source.parent.relative_to(root) / 'registration.json').exists()
+
+
 def test_small_boundary_source_and_sidecar_copied_without_archive(tmp_path):
     root = fixture_root(tmp_path)
     entry = layer('barangay-boundaries', 'src/data/gis/barangay_boundaries.geojson')

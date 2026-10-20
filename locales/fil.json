@@ -1,6 +1,15 @@
 {
   "lang_code": "fil",
   "gis": {
+    "category_shelter": "Evacuation / gym / silungan",
+    "category_school": "Paaralan",
+    "category_health": "Kalusugan / medikal",
+    "category_emergency": "Pulisya / bumbero",
+    "category_barangay": "Barangay",
+    "category_project": "Proyektong DPWH",
+    "category_default": "Lokasyon sa mapa",
+    "category_shared": "Magkaparehong coordinate",
+    "category_nonspatial": "Talang walang lokasyon sa mapa",
     "title": "Tagasiyasat ng Mapandan",
     "place": "Mapandan, Pangasinan",
     "explore": "Siyasatin",

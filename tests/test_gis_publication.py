@@ -10,7 +10,6 @@ from _build.gis import (
     directory_html,
     facilities_collection,
     parse_json,
-    record_directory_html,
     script_json,
 )
 
@@ -36,9 +35,6 @@ def test_directories_escape_and_counts_follow_normalized_features():
     directory = directory_html(result, 'facilities')
     assert '<img' not in directory and '&lt;img' in directory
     assert directory.count('<li>') == len(result['features'])
-    records = [{'project_url': '/transparency/projects/?project=prj-1', 'name': '<script>bad</script>'}]
-    assert '<script>' not in record_directory_html(records)
-    assert 'project=prj-1' in record_directory_html(records)
 
 
 def test_barangays_stay_nonspatial_and_editable():
@@ -72,14 +68,12 @@ def test_unsafe_source_urls_are_not_projected():
     assert result['features'][0]['properties']['provenance'] == {'source': 'Source'}
 
 
-def test_dpwh_static_directory_scopes_records_and_preserves_location_details():
-    records = [{'name': '<DPWH road>', 'project_url': '/transparency/infrastructure/#dpwh-project-abc',
-                'layer_id': 'dpwh-projects', 'source_transaction_id': 'abc', 'status': 'Ongoing',
-                'contractor': '<Builder>', 'barangay_location': 'Apaya', 'location_precision': 'source_reported'},
-               {'name': 'Unlocated project', 'layer_id': 'dpwh-projects', 'geometry': None}]
-    html = record_directory_html(records)
-    assert html.count('data-layer-id="dpwh-projects"') == 2
-    assert 'infrastructure/#dpwh-project-abc' in html and 'Apaya' in html
-    assert '<DPWH' not in html and '&lt;DPWH road&gt;' in html
-    assert '<Builder>' not in html and '&lt;Builder&gt;' in html
-    assert 'Unlocated project' in html
+def test_project_records_remain_searchable_without_static_project_dump():
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[1]
+    template = (root / 'src/pages/gis.html').read_text(encoding='utf-8')
+    assert '{GIS_RECORD_DIRECTORY}' not in template
+    assert 'window.GIS_RECORDS = {GIS_RECORDS_DATA}' in template
+    assert '{{ASSET_BASE}}transparency/projects/' in template
+    assert template.count('<details class="gis-panel"') == 2

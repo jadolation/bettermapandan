@@ -9,6 +9,31 @@ const feature = (geometry, properties = {}) => ({ type: "Feature", geometry, pro
 const point = (coords = [120.455, 16.03]) => feature({ type: "Point", coordinates: coords });
 const collection = features => ({ type: "FeatureCollection", features });
 
+test("static category glyphs produce path nodes, not SVG path text or injected data", () => {
+  const expected = [
+    ["Evacuation centers / gymnasiums", "home"], ["School", "graduation-cap"],
+    ["Health / medical", "heart-pulse"], ["Police / fire", "shield"],
+    ["Barangay hall", "landmark"], ["Other", "map-pin"],
+  ];
+  for (const [category, icon] of expected) {
+    assert.equal(gis.categoryIcon(category), icon);
+    const svg = gis.iconSvg(icon, gis.categoryColor(category), 20);
+    assert.match(svg, /<path d="[Mm]/);
+    assert.doesNotMatch(svg, />[Mm]\d|<svg[^>]*>[^<]/);
+    assert.match(svg, /fill="none"/);
+  }
+  assert.equal(gis.categoryIcon("", "dpwh_project"), "hard-hat");
+  assert.match(gis.iconSvg("hard-hat", "#287943", 20), /<path /);
+  assert.match(gis.iconSvg("layers", "#53616a", 20), /<path /);
+  assert.doesNotMatch(gis.iconSvg('<img src=x>', 'red" onload="alert(1)', '20" bad="1'), /onload|alert|<img|bad=/);
+  for (const key of Object.keys(gis.statusColors)) assert.equal(gis.categoryColor("", "dpwh_project", key), gis.statusColors[key]);
+  assert.equal(gis.categoryColor("", "dpwh_project", "unexpected"), gis.statusColors.unknown);
+  const source = fs.readFileSync(require.resolve("../assets/gis-map.js"), "utf8");
+  assert.equal((source.match(/function categoryIcon\(/g) || []).length, 1);
+  assert.equal((source.match(/function categoryColor\(/g) || []).length, 1);
+  assert.match(source, /marker\.addTo\(group\)/);
+});
+
 test("DPWH fallback fragments retain raw escaped row IDs and select the target page", () => {
   const id = 'txn /#%"<&';
   const projects = Array.from({ length: 41 }, (_, i) => ({ transaction_id: `txn-${i}` }));

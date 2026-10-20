@@ -10,13 +10,14 @@ Install the project dependencies once, then build from the repository root:
 
 ```sh
 python3 -m pip install -r requirements.txt
-python3 build.py --isolated --offline
+python3 build.py --isolated --offline --sync-gis
 python3 -m http.server 8000 --bind 127.0.0.1 --directory _site
 ```
 
 Open <http://127.0.0.1:8000/gis/>. Filipino and Pangasinan are at `/fil/gis/` and
 `/pag/gis/`. The isolated build uses a disposable workspace and exports `_site/`;
-it does not replace the checkout's legacy generated page trees.
+it does not replace the checkout's legacy generated page trees. The explicit
+`--sync-gis` refreshes only the managed GIS mirror described below.
 
 VS Code Live Server is configured with root `/_site` and port `5501`. After
 building, start Live Server and open <http://127.0.0.1:5501/gis/index.html>
@@ -117,9 +118,9 @@ replace the existing configured layers:
 ```
 
 The configuration includes facilities, roads, places, barangay reference records,
-source-reported DPWH project points, all canonical Project References, optional
-very coarse barangay source geometry, and supported ground-shaking/liquefaction
-KMZ overlays. Records without supplied valid geometry remain searchable
+source-reported DPWH project points, all canonical Project References, indicative
+barangay boundaries, four historical physical-characteristic KMZ overlays, and
+ground-shaking/liquefaction KMZ overlays. Records without supplied valid geometry remain searchable
 nonspatial records; project links use exact canonical IDs when matched. No points are invented.
 Approximate extraction bounds are not administrative boundaries. Experimental
 traced outlines, label anchors, and color-segmented polygons are not selected;
@@ -140,74 +141,84 @@ similarity or a guessed ID. Otherwise the link targets that source record in the
 infrastructure directory. The separate `project-references` layer retains all
 107 canonical nonspatial records. `GIS_RECORDS` carries each record's `layer_id`
 so the runtime can scope references and avoid default-list duplicates for exact
-canonical matches. DPWH records also appear in the escaped static/no-JS directory.
+canonical matches. Project records are not expanded into a second below-map
+directory. A compact canonical Project Explorer link works without JS; all project
+search data and exact links remain in `GIS_RECORDS`. Barangay and facility no-JS
+directories remain in collapsed `details` sections with existing DOM IDs.
 No canonical coordinates, reference populations or project IDs are changed here.
 
-## Coarse Barangay Geometry
+## Indicative Boundaries
 
-`src/data/gis/barangay_boundaries.geojson` preserves the coordinates of exactly
-15 source polygons from the local repository's
-`2023-10-24/hierarchical_t0p005/barangays.geojson`. The join requires exact
-`ADM3_PCODE=PH0105528` and `ADM4_PCODE=PH` plus each canonical ten-digit `gid`,
-cross-checking `psgc_code` when present. Names and populations come from the
-unchanged canonical directory; original names remain `source_name`. The original
-detailed shapefiles are absent. Repository lineage describes NAMRIA geometry
-enriched with PSA PSGC, not independent verification of this local derivative.
+`src/data/gis/barangay_boundaries.geojson` is the small prepared runtime source;
+`barangay_boundaries_sources.json` describes raw-source provenance and comparison,
+not approval. Both supplied shapefile sets have SHP, SHX, DBF and PRJ components:
+geographic `BgySubMuns` and projected UTM zone 51N `PH_Adm4_BgySubMuns`. Their DBFs
+do not establish a source vintage; no source date or field verification is invented.
 
-Actual analysis with temporary Shapely 2.2.0 and pyproj 3.8.0, measured in
-WGS84 / UTM zone 51N (EPSG:32651), found six triangles and nine quadrilaterals.
-All are individually valid, but they do not form a usable administrative partition:
+The layer uses `barangay_boundary`, is titled **Barangay Boundaries (Indicative)**,
+and remains off by default. Canonical ten-digit PSGC identities, names and
+population vintages remain separate from geometry provenance. Source names are
+retained; normalization maps source geometry IDs to `provenance.source_record_id`
+and source notes to `limitations`.
 
-| Measurement | Square Kilometres |
-| --- | ---: |
-| Sum of individual simplified geometry areas | 15.88685 |
-| Union | 15.45135 |
-| Same-source simplified municipality | 18.81759 |
-| Overlap excess | 0.43550 |
-| Municipality not covered | 4.76356 (25.31%) |
-| Outside municipality | 1.39732 |
-| Source municipality `AREA_SQKM` metadata | 20.41576 |
+The candidate extent is about 20.44 km2, whereas historical CLUP text reports
+32.91752 km2. This discrepancy is unresolved. Valid polygons do not establish
+legal jurisdiction, surveyed accuracy or official territory area. Do not infer
+address jurisdiction or precise soil/hazard classes from these boundaries.
+The old hierarchical_t0p005 source remains in raw source directories, but its
+six-triangle/nine-quadrilateral statistics do not describe replacement geometry.
+Detailed raw-source comparison belongs in the descriptive sidecar; independent
+field and jurisdictional verification remain unclaimed.
 
-The comparison municipality is itself simplified, not a detailed authoritative
-control. `AREA_SQKM` is retained pre-simplification metadata, not measured shape
-area. The descriptive sidecar `barangay_boundaries_sources.json` records source
-and comparison hashes, library versions, per-feature measurements and warnings;
-it is not an approval file. No gaps or overlaps have been repaired or concealed.
-
-Because these defects are material, the selectable layer is explicitly titled
-**Very coarse barangay source geometry**, uses role `barangay_reference_geometry`,
-and is **off by default**, not advertised as `barangay_boundary`. The null-geometry
-canonical directory stays primary when this layer is off. Do not use these shapes
-for parcel, routing, service-area or hazard analysis. A reliable detailed boundary
-layer remains missing; images have not been used to invent extra detail.
-
-Extraction is an explicit development operation, not a build-time archive scan:
-
-```sh
-python3 -m _build.gis_boundaries \
-  --input datasets/GIS/barangay-boundaries-repository-main/barangay-boundaries-repository-main/2023-10-24/hierarchical_t0p005/barangays.geojson \
-  --canonical src/data/gis/barangays.geojson \
-  --municipality datasets/GIS/barangay-boundaries-repository-main/barangay-boundaries-repository-main/2023-10-24/hierarchical_t0p005/municipalities.geojson \
-  --output /tmp/new-barangay-boundaries.geojson \
-  --sources-output /tmp/new-barangay-boundaries-sources.json
-```
-
-Outputs must not exist, and inputs are never overwritten. All 15 codes are
-required unless `--allow-subset` is explicitly supplied. Shapely and pyproj are
-optional development-only analysis libraries, not new application dependencies;
-without them the report says topology was not checked and cannot certify it.
+The recorded raw-source comparison measures 15 valid polygons with 985 coordinate
+positions and union area 20.4368683561 km2 in EPSG:32651. The geographic source
+matches the bundled candidate coordinates exactly. Reprojecting the second raw
+source gives only floating-point differences (maximum Hausdorff distance below
+0.000001 m). No pair exceeds the report's 1 m2 overlap tolerance and no interior
+holes were found. These are source-agreement/topology checks, not independent
+positional or legal verification, and they do not resolve missing external
+territory. The old byte-faithful extract is retained at
+`datasets/GIS/boundaries/legacy_hierarchical_t0p005_mapandan_barangays.geojson`.
 
 ## Historical Overlays
 
 The two existing hazards are grouped as Natural Hazards in the `hazards` pane,
 off by default with opacity 0.65. They retain their original native KMZ registration
 and limitations. Hazard overlays are not a mutually exclusive physical group.
-The four historical physical-characteristic originals requested by V3 are absent;
-no placeholder URLs, guessed georeferencing or image-derived polygons are added.
-The supported zero-rotation GroundOverlay/LatLonBox KMZ path is ready for future
-properly registered inputs, with role `historical_physical_characteristic`, pane
-`physical` and an optional shared `exclusive_group`. A general raster engine is
-not introduced by this implementation.
+All four original physical posters are present under the V3.1 package's
+`sources/physical/`: `elevation.png`, `slope.png`, `soil_classification.png` and
+`land_capability.png`. Their printed MPDC preparation date is **2021-12-15**, not
+2012. The underlying thematic-data vintage is unknown; older CSV labels do not
+establish the posters' source year.
+
+Prepared inputs are `datasets/GIS/physical/prepared/physical-elevation.kmz`,
+`physical-slope.kmz`, `physical-soil.kmz` and `physical-land-capability.kmz`.
+The existing KMZ loader validates north-up PNG GroundOverlay registration and
+emits `assets/gis/physical-*-0.png`, without copying original posters or archives
+into the isolated child build. Configuration uses pane `physical`, initial
+opacity 0.6, shared `exclusive_group: physical-characteristics`, and off-by-default
+visibility. These are historical references, not field measurements or live
+safety guidance. Source-pixel legends must match the preparation report; the
+land-capability poster's heading says Slope, its visible classes are A/B, and no
+geographic Class X extent is invented. Independent controls and residuals are
+only claimed where the preparation report actually documents them.
+
+Each `physical-*.source.json` beside the prepared KMZ records original source
+path, printed credits and sampled legend RGB. Each `physical-*.registration.json`
+records crop, transformation, six fit and six withheld printed-grid crossings,
+meter residuals, datum assumption and source-context checks. Withheld internal
+grid RMSE is about 0.020 m for elevation/slope, 0.811 m for soil and 1.065 m for
+land capability; these tiny grid-fit numbers are not thematic/source accuracy.
+Independent OSM road-junction comparisons show approximately 15-93 m offsets;
+the preparation does not move the source to erase them. No suspect candidate
+boundary was used as a truth mask. White exterior pixels are made transparent,
+but some source road/context markings and graticule lines remain.
+
+With current inputs the generated manifest enumerates 89 resources: 85 PNGs
+(81 native hazards plus four physical overlays) and four GeoJSONs (roads, places,
+DPWH projects, indicative barangay boundaries). The manifest itself is the 90th
+managed GIS file. Isolation and staging select these exact resources, never the
+original scans, shapefile directories or registration reports.
 
 ## Rebuild After Edits
 

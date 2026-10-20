@@ -1,6 +1,15 @@
 {
   "lang_code": "en",
   "gis": {
+    "category_shelter": "Evacuation / gym / shelter",
+    "category_school": "School",
+    "category_health": "Health / medical",
+    "category_emergency": "Police / fire",
+    "category_barangay": "Barangay",
+    "category_project": "DPWH project",
+    "category_default": "Mapped location",
+    "category_shared": "Shared coordinates",
+    "category_nonspatial": "Nonspatial record",
     "title": "Mapandan Explorer",
     "place": "Mapandan, Pangasinan",
     "explore": "Explore",

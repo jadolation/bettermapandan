@@ -1,9 +1,60 @@
 /* Maintainer-configured explorer with bounded, same-origin layer loading. */
+/*! Inline glyphs: ISC License, Copyright (c) 2026 Lucide Icons and Contributors.
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
 (function () {
   "use strict";
   var TYPES = ["inline-geojson", "geojson", "raster-image-overlay", "reference"];
   var PANES = { physical: 250, hazards: 300, administrative: 400, infrastructure: 450, facilities: 500 };
   var STATUS_COLORS = { completed: "#287943", ongoing: "#b66b08", not_started: "#536ba1", unknown: "#737373" };
+  var ICONS = {
+    // Vetted static nodes from https://github.com/lucide-icons/lucide/tree/main/icons.
+    "hard-hat": '<path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/>',
+    "home": '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+    "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+    "heart-pulse": '<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>',
+    "shield": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+    "landmark": '<path d="M10 18v-7"/><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/>',
+    "map-pin": '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+    "layers": '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>'
+  };
+  function categoryColor(category, semanticRole, statusKey) {
+    if (semanticRole === "dpwh_project") return Object.hasOwn(STATUS_COLORS, statusKey) ? STATUS_COLORS[statusKey] : STATUS_COLORS.unknown;
+    var cat = (category || "").toLowerCase();
+    if (/evacuation|gym|shelter/.test(cat)) return "#b66b08";
+    if (/school/.test(cat)) return "#2563eb";
+    if (/health|medical|hosp/.test(cat)) return "#c0392b";
+    if (/police|fire/.test(cat)) return "#1e3a8a";
+    if (/barangay/.test(cat)) return "#0f4c3a";
+    return "#2d6b1f";
+  }
+  function iconSvg(iconName, color, size) {
+    var safeColor = /^#[0-9a-f]{6}$/i.test(color) ? color : "#737373";
+    var safeSize = Number.isFinite(size) && size >= 12 && size <= 36 ? size : 20;
+    return '<svg viewBox="0 0 24 24" width="' + safeSize + '" height="' + safeSize + '" fill="none" stroke="' + safeColor + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + (Object.hasOwn(ICONS, iconName) ? ICONS[iconName] : ICONS["map-pin"]) + "</svg>";
+  }
+  function categoryIcon(category, semanticRole) {
+    var cat = (category || "").toLowerCase();
+    if (semanticRole === "dpwh_project") return "hard-hat";
+    if (/evacuation|gym|shelter/.test(cat)) return "home";
+    if (/school/.test(cat)) return "graduation-cap";
+    if (/health|medical|hospital/.test(cat)) return "heart-pulse";
+    if (/police|fire/.test(cat)) return "shield";
+    if (/barangay/.test(cat)) return "landmark";
+    return "map-pin";
+  }
+  function categoryKey(icon) {
+    return { home: "Shelter", "graduation-cap": "School", "heart-pulse": "Health", shield: "Emergency", landmark: "Barangay", "hard-hat": "Project", layers: "Shared" }[icon] || "Default";
+  }
   function opacity(value) { return typeof value === "number" && Number.isFinite(value) ? Math.max(0, Math.min(1, value)) : 0.65; }
   function spatialBarangay(s, f) {
     return s.layer.available === true && !!s.overlay && !!f.geometry && ["Polygon", "MultiPolygon"].indexOf(f.geometry.type) >= 0 &&
@@ -116,6 +167,7 @@
     allowed: allowed, assetUrl: assetUrl, records: records, exactGroups: exactGroups,
     validBounds: validBounds, validPoint: validPoint, escapeHtml: escapeHtml,
     opacity: opacity, projectUrl: projectUrl, defaultEntries: defaultEntries, panes: PANES, statusColors: STATUS_COLORS,
+    iconSvg: iconSvg, categoryIcon: categoryIcon, categoryColor: categoryColor,
   };
   if (typeof document === "undefined") return;
   function init() {
@@ -157,12 +209,16 @@
       var bar = document.querySelector(".mobile-action-bar");
       var clearance = bar && bar.getClientRects().length ? Math.ceil(bar.getBoundingClientRect().height) + 8 : 8;
       page.style.setProperty("--gis-sticky-clearance", clearance + "px");
+      var column = page.querySelector(".gis-map-pane");
+      if (column) page.style.setProperty("--gis-column-height", Math.ceil(column.getBoundingClientRect().height) + "px");
       if (map) map.invalidateSize();
     }
     window.addEventListener("resize", resize);
     if (typeof ResizeObserver !== "undefined") {
       var observer = new ResizeObserver(resize);
       observer.observe(node("map"));
+      var column = page.querySelector(".gis-map-pane");
+      if (column) observer.observe(column);
       var sticky = document.querySelector(".mobile-action-bar");
       if (sticky) observer.observe(sticky);
     }
@@ -199,10 +255,18 @@
       return key ? text(key) : local(p.source_precision || p.location_precision || l.precision);
     }
     function name(f, s) { var p = f.properties; return local(p.name || p.title || p.project_name || p.project_id || p.id || p.gid) || s.title; }
+    function featureCategory(f) { return f.properties.facility_type || f.properties.category || (f.properties.gid ? "barangay" : ""); }
     function selection(feature, item) {
-      if (selectedItem && selectedItem.setStyle) selectedItem.setStyle({ weight: 2 });
+      function highlight(target, active) {
+        if (!target) return;
+        if (target.setStyle) target.setStyle(active ? { weight: 4, fillOpacity: 0.18 } : target.gisBaseStyle || { weight: 2 });
+        var element = target.getElement && target.getElement();
+        if (element) { element.classList.toggle("gis-marker-selected", active); element.setAttribute("aria-pressed", String(active)); }
+      }
+      highlight(selectedItem, false);
       selectedFeature = feature; selectedItem = item;
-      if (selectedItem && selectedItem.setStyle) selectedItem.setStyle({ weight: 5 });
+      highlight(selectedItem, true);
+      updateBoundaryLabels();
       node("results").querySelectorAll("button").forEach(function (button) {
         button.setAttribute("aria-pressed", String(button.gisFeature === feature));
       });
@@ -324,32 +388,61 @@
             p.contract_id, p.contractor, p.contractors, p.status, p.raw_status, p.status_key, p.status_key ? statusLabel(p.status_key) : "", p.fiscal_year,
             p.category, p.address, p.barangay, p.barangay_location, s.title].join(" ").toLocaleLowerCase();
           if (q && haystack.indexOf(q) < 0) return;
-          count++; var b = el("button", name(f, s), el("li", null, list)); b.type = "button"; b.className = "gis-result";
+          count++; var b = el("button", null, el("li", null, list)); b.type = "button"; b.className = "gis-result";
           b.setAttribute("aria-controls", "gis-details"); b.gisFeature = f;
           if (sameRecord(focused, f)) replacementFocus = b;
           if (sameRecord(previousReturn, f)) returnFocus = b;
-          b.setAttribute("aria-pressed", String(f === selectedFeature)); el("small", [s.title, precision(p, s.layer)].filter(Boolean).join(" · "), b);
+          b.setAttribute("aria-pressed", String(f === selectedFeature));
+          var prefix = el("span", "", b); prefix.className = "gis-result-prefix"; prefix.innerHTML = iconSvg(categoryIcon(featureCategory(f), s.layer.semantic_role), categoryColor(featureCategory(f), s.layer.semantic_role, p.status_key), 20);
+          el("span", name(f, s) + " ", b); el("small", [s.title, precision(p, s.layer)].filter(Boolean).join(" · "), b);
           b.onclick = function () { choose(f, s, b); };
       });
       if (replacementFocus) replacementFocus.focus({ preventScroll: true });
       node("result-count").textContent = count + " " + text("results"); node("no-results").hidden = count !== 0;
     }
     ["search", "layer-filter"].forEach(function (id) { node(id).addEventListener(id === "search" ? "input" : "change", updateList); });
-    function legend() {
+     function legend() {
       var box = node("legend"); box.replaceChildren();
       states.forEach(function (s) {
         if (!s.visible || !s.overlay) return;
-        var entries = s.layer.semantic_role === "dpwh_project" ? Object.keys(STATUS_COLORS).map(function (key) {
-          return { color: STATUS_COLORS[key], label: statusLabel(key) };
-        }) : s.layer.legend;
-        if (!Array.isArray(entries) || !entries.length) return;
-        el("h3", s.title, box); el("p", [local(s.layer.scenario), s.layer.source_date, local(s.layer.attribution)].filter(Boolean).join(" · "), box);
-        entries.forEach(function (entry) {
-          var row = el("p", null, box), swatch = el("span", "", row); swatch.className = "gis-legend-swatch";
-          if (/^#[0-9a-f]{3,8}$/i.test(entry.color)) swatch.style.backgroundColor = entry.color;
-          el("span", local(entry.label || entry.title || entry.name || entry.value || entry.class), row);
-        });
-        (s.layer.limitations || []).forEach(function (v) { el("p", local(v), box); });
+        var role = s.layer.semantic_role;
+        var sourceLine = [local(s.layer.scenario), s.layer.source_date, local(s.layer.attribution)].filter(Boolean).join(" · ");
+        var limitations = (s.layer.limitations || []).map(local);
+        if (role === "dpwh_project") {
+          el("h3", s.title, box);
+          if (sourceLine) el("p", sourceLine, box);
+          Object.keys(STATUS_COLORS).forEach(function (key) {
+            var row = el("p", null, box), swatch = el("span", "", row); swatch.className = "gis-legend-icon"; swatch.innerHTML = iconSvg("hard-hat", STATUS_COLORS[key], 20);
+            el("span", local(text("status" + key.replace(/(^|_)([a-z])/g, function (_, gap, c) { return c.toUpperCase(); }))), row);
+          });
+          limitations.forEach(function (v) { el("p", v, box); });
+        } else if (role === "facility" || s.layer.data_key === "GIS_FACILITIES") {
+          var seen = [], rows = [];
+          s.features.forEach(function (f) {
+            var category = featureCategory(f);
+            var icon = categoryIcon(category, role);
+            if (seen.indexOf(icon) >= 0) return;
+            seen.push(icon);
+            rows.push({ icon: icon, color: categoryColor(category, role), label: text("category" + categoryKey(icon)) });
+          });
+          if (rows.length) {
+            el("h3", s.title, box);
+            if (sourceLine) el("p", sourceLine, box);
+            rows.forEach(function (entry) {
+              var row = el("p", null, box), swatch = el("div", null, row); swatch.className = "gis-legend-icon"; swatch.innerHTML = iconSvg(entry.icon, entry.color, 18);
+              el("span", entry.label, row);
+            });
+            limitations.forEach(function (v) { el("p", v, box); });
+          }
+        } else if (Array.isArray(s.layer.legend) && s.layer.legend.length) {
+          el("h3", s.title, box); if (sourceLine) el("p", sourceLine, box);
+          if (Array.isArray(s.layer.legend)) s.layer.legend.forEach(function (entry) {
+            var row = el("p", null, box), swatch = el("span", "", row); swatch.className = "gis-legend-swatch";
+            if (/^#[0-9a-f]{3,8}$/i.test(entry.color)) swatch.style.backgroundColor = entry.color;
+            el("span", local(entry.label || entry.title || entry.name || entry.value || entry.class), row);
+          });
+          limitations.forEach(function (v) { el("p", v, box); });
+        }
       }); box.hidden = !box.childNodes.length;
     }
     node("fit").onclick = function () {
@@ -374,24 +467,68 @@
         return JSON.parse(new TextDecoder().decode(bytes));
       } finally { clearTimeout(timeout); }
     }
+    function iconMarker(shared, s) {
+      var p = shared[0].properties || {};
+      var iconName = categoryIcon(featureCategory(shared[0]), s.layer.semantic_role), color = categoryColor(featureCategory(shared[0]), s.layer.semantic_role, p.status_key);
+      var mixed = shared.some(function (f) { return categoryIcon(featureCategory(f), s.layer.semantic_role) !== iconName || categoryColor(featureCategory(f), s.layer.semantic_role, f.properties.status_key) !== color; });
+      var svg = iconSvg(mixed ? "layers" : iconName, mixed ? "#53616a" : color, 20);
+      if (shared.length > 1) svg += '<span class="gis-marker-count" aria-hidden="true">' + shared.length + '</span>';
+      return L.divIcon({ html: svg, className: "gis-icon-marker", iconSize: [36, 36], iconAnchor: [18, 18] });
+    }
+    function updateBoundaryLabels() {
+      states.forEach(function (s) {
+        if (s.layer.semantic_role !== "barangay_boundary") return;
+        s.items.forEach(function (item) {
+          if (!item.openTooltip) return;
+          if (item === selectedItem || map && map.getZoom() >= 15) item.openTooltip();
+          else if (item.closeTooltip) item.closeTooltip();
+        });
+      });
+    }
+    if (map && map.on) map.on("zoomend", updateBoundaryLabels);
     function vector(s) {
       if (!map || s.layer.type === "reference") return null;
       var group = L.featureGroup();
       s.pointGroups.forEach(function (shared) {
         var p = shared[0].geometry.coordinates;
-        var marker = L.circleMarker([p[1], p[0]], { radius: s.layer.semantic_role === "label_anchor" ? 4 : 7,
-          pane: s.pane, color: s.layer.semantic_role === "dpwh_project" ? STATUS_COLORS[shared[0].properties.status_key] || STATUS_COLORS.unknown : "#2d6b1f",
-          weight: 2, fillOpacity: 0.8 }).addTo(group);
+        var title = shared.map(function (f) { return name(f, s) + " (" + text("category" + categoryKey(categoryIcon(featureCategory(f), s.layer.semantic_role))) + (s.layer.semantic_role === "dpwh_project" ? ": " + statusLabel(f.properties.status_key) : "") + ")"; }).join("; ");
+        if (shared.length > 1) title = text("categoryShared") + " (" + shared.length + "): " + title;
+        var marker = L.marker && L.divIcon
+          ? L.marker([p[1], p[0]], { pane: s.pane, icon: iconMarker(shared, s), keyboard: true, title: title, alt: title })
+          : L.circleMarker([p[1], p[0]], { radius: s.layer.semantic_role === "label_anchor" ? 4 : 7,
+            pane: s.pane, color: categoryColor(featureCategory(shared[0]), s.layer.semantic_role, shared[0].properties.status_key),
+            weight: 2, fillOpacity: 0.8, title: title });
+        marker.addTo(group);
+        marker.gisBaseStyle = { weight: 2, fillOpacity: 0.8 };
+        marker.on("add", function () {
+          var element = marker.getElement && marker.getElement();
+          if (!element) return;
+          element.setAttribute("role", "button"); element.setAttribute("aria-label", title); element.setAttribute("aria-pressed", String(marker === selectedItem));
+          element.classList.toggle("gis-marker-selected", marker === selectedItem);
+          element.tabIndex = 0;
+          element.onkeydown = function (event) {
+            if (event.key === " " || event.key === "Enter") { event.preventDefault(); event.stopPropagation(); select(shared[0], s, element, shared, false); }
+          };
+        });
         shared.forEach(function (f) { s.items.set(f, marker); });
-        marker.bindTooltip(escapeHtml(name(shared[0], s)), { permanent: s.layer.semantic_role === "label_anchor" });
+        if (marker.bindTooltip) marker.bindTooltip(escapeHtml(title), { permanent: s.layer.semantic_role === "label_anchor" });
         marker.on("click", function () { select(shared[0], s, null, shared, false); });
       });
       L.geoJSON({ type: "FeatureCollection", features: s.features.filter(function (f) { return f.geometry && f.geometry.type !== "Point"; }) }, {
         pane: s.pane,
         style: { color: s.layer.semantic_role === "barangay_reference_geometry" ? "#9b650e" : "#486b87", weight: 2,
-          fillOpacity: s.layer.semantic_role === "barangay_boundary" ? 0.04 : s.layer.semantic_role === "barangay_reference_geometry" ? 0.025 : 0.16,
+          fillOpacity: s.layer.semantic_role === "barangay_boundary" ? 0.08 : s.layer.semantic_role === "barangay_reference_geometry" ? 0.025 : 0.16,
           dashArray: s.layer.semantic_role === "barangay_reference_geometry" ? "6 5" : null },
-        onEachFeature: function (f, item) { s.items.set(f, item); item.on("click", function () { select(f, s, null, null, false); }); },
+        onEachFeature: function (f, item) {
+          s.items.set(f, item); item.gisBaseStyle = { weight: 2, fillOpacity: s.layer.semantic_role === "barangay_boundary" ? 0.08 : s.layer.semantic_role === "barangay_reference_geometry" ? 0.025 : 0.16 };
+          item.on("click", function () { select(f, s, null, null, false); });
+          if (s.layer.semantic_role === "barangay_boundary") {
+            if (item.bindTooltip) item.bindTooltip(escapeHtml(name(f, s)), { permanent: true, direction: "center", className: "gis-boundary-label" });
+            item.on("mouseover", function () { if (item !== selectedItem) item.setStyle({ weight: 3, fillOpacity: 0.14 }); });
+            item.on("mouseout", function () { if (item !== selectedItem) item.setStyle(item.gisBaseStyle); });
+            item.on("add", updateBoundaryLabels);
+          }
+        },
       }).addTo(group); return group;
     }
     async function load(s) {
@@ -433,8 +570,8 @@
             if (l.type === "reference") s.features = s.features.map(function (f) { return { type: "Feature", properties: f.properties, geometry: null }; });
             s.pointGroups = exactGroups(s.features); s.overlay = vector(s);
             if (l.data_key === "GIS_FACILITIES") {
-              node("marker-count").textContent = String(s.pointGroups.size);
-              node("facility-empty").hidden = s.features.length !== 0;
+              if (node("marker-count")) node("marker-count").textContent = String(s.overlay ? s.pointGroups.size : 0);
+               if (node("facility-empty")) node("facility-empty").hidden = s.features.length !== 0;
             }
           }
           s.message.textContent = text(s.features.length || l.type === "raster-image-overlay" ? "loaded" : "emptyLayer");
@@ -509,7 +646,9 @@
       if (l.data_key || s.visible || l.type === "reference") load(s);
     });
     // Directory order is generated from this exact payload; never join by display name.
-    var directoryRows = node("barangay-list").querySelectorAll("li"), barangayState = states.find(function (s) { return s.layer.data_key === "GIS_BARANGAYS"; });
+    var directoryRows = node("barangay-list") ? node("barangay-list").querySelectorAll("li") : [], barangayState = states.find(function (s) { return s.layer.data_key === "GIS_BARANGAYS"; });
+    var directoryLink = page.querySelector('.gis-toolbar a[href="#gis-barangay-title"]');
+    if (directoryLink && !node("barangay-title")) directoryLink.hidden = true;
     if (barangayState) directoryRows.forEach(function (row, index) {
       var f = barangayState.features[index]; if (!f) return;
       var button = el("button", text("locate"), row); button.type = "button";

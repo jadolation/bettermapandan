@@ -25,7 +25,6 @@ from _build.generators.procurement import (
 )
 from _build.gis import (
     directory_html,
-    record_directory_html,
     script_json,
 )
 from _build.labels import resolve_body_placeholders
@@ -149,8 +148,6 @@ def _process_static_page(
         replacements = {
             "GIS_LAYERS_DATA": script_json(manifest),
             "GIS_RECORDS_DATA": script_json(records),
-            "GIS_RECORD_DIRECTORY": record_directory_html(records),
-            "GIS_RECORD_COUNT": str(len(records)),
             "GIS_BARANGAYS_DATA": script_json(barangays),
             "GIS_FACILITIES_DATA": script_json(facilities),
             "GIS_FACILITY_DIRECTORY": directory_html(facilities, "facilities", locale),

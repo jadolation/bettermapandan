@@ -250,3 +250,26 @@ def test_numeric_allowlist_rejects_unsafe_values_and_preserves_psgc():
     assert result['accomplishment_percent'] == 95.5 and result['fiscal_year'] == 2025
     assert result['source_area_sqkm'] == 1.23
     assert not {'contract_amount', 'approved_budget', 'private_number'} & result.keys()
+
+
+def test_boundary_source_identity_and_note_project_to_supported_fields():
+    source = point()
+    props = source['features'][0]['properties']
+    props.update(source_geometry_id=123, source_name='Original source name',
+                 source_note='Indicative only; source vintage unknown.',
+                 limitations=['Not legal boundaries.'])
+    result = feature_collection(source)['features'][0]['properties']
+    assert result['provenance']['source_record_id'] == '123'
+    assert result['source_name'] == 'Original source name'
+    assert result['limitations'] == ['Not legal boundaries.', 'Indicative only; source vintage unknown.']
+    assert 'provenance' not in props
+
+
+def test_boundary_source_identity_does_not_override_explicit_provenance():
+    source = point()
+    source['features'][0]['properties'].update(
+        source_geometry_id='candidate-1', source_note=123,
+        provenance={'source': 'Raw shapefile', 'source_record_id': 'raw-1'})
+    result = feature_collection(source)['features'][0]['properties']
+    assert result['provenance'] == {'source': 'Raw shapefile', 'source_record_id': 'raw-1'}
+    assert 'limitations' not in result

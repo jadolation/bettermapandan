@@ -11,6 +11,11 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   data-source-reported="{{GIS_SOURCE_REPORTED}}" data-approximate-source="{{GIS_APPROXIMATE_SOURCE}}"
   data-cell-center="{{GIS_CELL_CENTER}}" data-centroid="{{GIS_CENTROID}}"
   data-field-position="{{GIS_FIELD_POSITION}}"
+  data-category-shelter="{{GIS_CATEGORY_SHELTER}}" data-category-school="{{GIS_CATEGORY_SCHOOL}}"
+  data-category-health="{{GIS_CATEGORY_HEALTH}}" data-category-emergency="{{GIS_CATEGORY_EMERGENCY}}"
+  data-category-barangay="{{GIS_CATEGORY_BARANGAY}}" data-category-project="{{GIS_CATEGORY_PROJECT}}"
+  data-category-default="{{GIS_CATEGORY_DEFAULT}}" data-category-shared="{{GIS_CATEGORY_SHARED}}"
+  data-category-nonspatial="{{GIS_CATEGORY_NONSPATIAL}}"
   data-zoom-in="{{GIS_ZOOM_IN}}" data-zoom-out="{{GIS_ZOOM_OUT}}" data-layers="{{GIS_LAYERS}}"
   data-label-anchor="{{GIS_LABEL_ANCHOR}}" data-precision-label="{{GIS_PRECISION_LABEL}}"
   data-source-date="{{GIS_SOURCE_DATE}}" data-attribution="{{GIS_ATTRIBUTION}}"
@@ -60,9 +65,9 @@ description: Explore Mapandan geographic and nonspatial references with source, 
     </aside>
     <div class="gis-map-pane">
       <div class="gis-toolbar" role="group" aria-label="{{GIS_MAP_CONTROLS}}">
-        <button id="gis-fit" type="button">{{GIS_FIT}}</button>
-        <button id="gis-reset" type="button">{{GIS_RESET}}</button>
-        <a href="#gis-barangay-title">{{GIS_DIRECTORY_LINK}}</a>
+      <button id="gis-fit" type="button">{{GIS_FIT}}</button>
+      <button id="gis-reset" type="button">{{GIS_RESET}}</button>
+      <a href="#gis-barangay-title">{{GIS_DIRECTORY_LINK}}</a>
       </div>
       <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
       <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" hidden></section>
@@ -76,20 +81,20 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   <p id="gis-map-status" role="status" class="source-label"></p>
   <p id="gis-map-fallback" class="source-label">{{GIS_FALLBACK}} <a href="https://www.openstreetmap.org/#map=14/16.03/120.455">{{GIS_OPEN_OSM}}</a></p>
   <div class="gis-layout">
-    <section class="gis-panel" aria-labelledby="gis-barangay-title">
-      <h2 id="gis-barangay-title" class="gis-panel-title">{{GIS_BARANGAYS}}</h2>
+    <details class="gis-panel" aria-labelledby="gis-barangay-title">
+      <summary id="gis-barangay-title" class="gis-panel-title">{{GIS_BARANGAYS}} ({GIS_BARANGAY_COUNT})</summary>
       <p class="source-label">{{GIS_BARANGAY_TOTAL}}: {GIS_BARANGAY_COUNT}. {{GIS_BARANGAY_NOTE}}</p>
       <div id="gis-barangay-list">{GIS_BARANGAY_DIRECTORY}</div>
-    </section>
-    <section class="gis-panel" aria-labelledby="gis-facility-title">
-      <h2 id="gis-facility-title" class="gis-panel-title">{{GIS_FACILITIES}}</h2>
+    </details>
+    <details class="gis-panel" aria-labelledby="gis-facility-title">
+      <summary id="gis-facility-title" class="gis-panel-title">{{GIS_FACILITIES}} ({GIS_FACILITY_COUNT})</summary>
       <p class="source-label">{{GIS_FACILITY_TOTAL}}: <span id="gis-facility-count">{GIS_FACILITY_COUNT}</span>.</p>
       <p class="source-label">{{GIS_MARKER_TOTAL}}: <span id="gis-marker-count">{{GIS_MAP_PENDING}}</span>.</p>
       <div id="gis-facility-list">{GIS_FACILITY_DIRECTORY}</div>
       <p id="gis-facility-empty" class="source-label">{{GIS_EMPTY}}</p>
-    </section>
+    </details>
   </div>
-  {GIS_RECORD_DIRECTORY}
+  <p class="source-label"><a href="{{ASSET_BASE}}transparency/projects/">{{GIS_PROJECT_LINK}}</a></p>
   <div class="gis-disclaimer">
     <p>{{GIS_UNAVAILABLE}}</p><p>{{GIS_PRECISION}}</p><p>{{GIS_SAFETY}}</p>
   </div>

@@ -1,165 +1,1156 @@
 {
-  "description": "Descriptive provenance and measured quality, not an approval ledger.",
-  "source_url": "https://github.com/bendlikeabamboo/barangay-boundaries-repository",
-  "attribution": "Repository describes NAMRIA administrative shapefiles enriched with PSA PSGC; local simplified derivative only, not independently verified.",
-  "municipality_comparison": {
-    "path": "datasets/GIS/barangay-boundaries-repository-main/barangay-boundaries-repository-main/2023-10-24/hierarchical_t0p005/municipalities.geojson",
-    "sha256": "3c6d8f48f33dab01d6bd0b83a31229577817286a01ac23e5d290ddbd4c6f51ef"
-  },
-  "source_path": "datasets/GIS/barangay-boundaries-repository-main/barangay-boundaries-repository-main/2023-10-24/hierarchical_t0p005/barangays.geojson",
-  "source_sha256": "10606e46cd7b4b34a61f4975f3568bb3c11a48fa355cbe3c4d78c3737e0fcfa9",
-  "source_variant": "2023-10-24/hierarchical_t0p005",
-  "source_date": "2022-11-09",
-  "source_valid_on": "2023-11-06",
-  "join": "Exact ADM3_PCODE PH0105528 and ADM4_PCODE PH + canonical ten-digit gid; no name matching",
-  "original_shapefiles_available": false,
-  "quality_report": {
-    "limitations": [
-      "Very coarse simplified source geometry, not a reliable administrative boundary.",
-      "Severe gaps, overlaps and geometry outside the same simplified municipality; do not use for parcel, routing, hazard or area analysis.",
-      "Source AREA_SQKM describes pre-simplification metadata, not the area of these shapes.",
-      "Original detailed shapefiles are absent; no detail, coordinate or boundary has been invented or repaired."
-    ],
-    "feature_count": 15,
-    "topology_checked": true,
-    "disposition": "optional_off_by_default_reference_geometry",
-    "analysis_libraries": {
-      "shapely": "2.2.0",
-      "pyproj": "3.8.0"
+  "description": "Descriptive source extraction and measured quality; not legal certification or an approval ledger.",
+  "source": {
+    "path": "datasets/GIS/PH_Adm4_BgySubMuns.shp/BgySubMuns.shp.shp",
+    "record_count": 45597,
+    "source_crs": "EPSG:4326",
+    "output_crs": "EPSG:4326",
+    "source_date": null,
+    "source_date_status": "unknown; neither DBF has a date field",
+    "reprojected": false,
+    "field_mapping": {
+      "municipality": "adm3_pcode",
+      "source_geometry_id": "adm4_pcode",
+      "source_record_id": "adm4_pcode",
+      "source_name": "adm4_en",
+      "canonical_values": "exact gid join to canonical directory"
     },
+    "components_sha256": {
+      "BgySubMuns.shp.shp": "7d2fef302baad324281ab3df3d0eaa20a3e8e1ff0cbace7ea3a2d1848b69b77e",
+      "BgySubMuns.shp.dbf": "28ee1bb98e1564479e6954045f682ef4e0c2bd9d1fd38eb5190abcc5e905652c",
+      "BgySubMuns.shp.prj": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "BgySubMuns.shp.shx": "77b0d8ac324901d70fe4390e9f30c29ad8185822a28ec61d24e79b140371630d",
+      "BgySubMuns.shp.cpg": "09fc313075748ce8ead962229ed89c919d5a9ff71974ee725a0b48bb87d975a2"
+    }
+  },
+  "comparison_source": {
+    "path": "datasets/GIS/PH_Adm4_BgySubMuns.shp/PH_Adm4_BgySubMuns.shp.shp",
+    "record_count": 42017,
+    "source_crs": "EPSG:32651",
+    "output_crs": "EPSG:4326",
+    "source_date": null,
+    "source_date_status": "unknown; neither DBF has a date field",
+    "reprojected": true,
+    "field_mapping": {
+      "municipality": "adm3_psgc",
+      "source_geometry_id": "adm4_psgc",
+      "source_record_id": "adm4_psgc",
+      "source_name": "adm4_en",
+      "canonical_values": "exact gid join to canonical directory"
+    },
+    "components_sha256": {
+      "PH_Adm4_BgySubMuns.shp.shp": "ac54a054a24a38e167131e5e7acb94cfcfd3f484d38ba4adcd12b3b9b21ea6a2",
+      "PH_Adm4_BgySubMuns.shp.dbf": "9f64c702382b72c53fe50e04280b7679f741a8f9ee46e1ea706bd2bf76a6b0bb",
+      "PH_Adm4_BgySubMuns.shp.prj": "01fbf2c44b71ea8a0a0a4253817bc070539d7b073da64fdbd4729c43b4c77415",
+      "PH_Adm4_BgySubMuns.shp.shx": "e19e237cec55fd286e25acf77fd3c41a1528b90e377dc7d692f1858fa1941dfb",
+      "PH_Adm4_BgySubMuns.shp.cpg": "09fc313075748ce8ead962229ed89c919d5a9ff71974ee725a0b48bb87d975a2"
+    }
+  },
+  "canonical_directory": {
+    "path": "src/data/gis/barangays.geojson",
+    "sha256": "86c1fc519c2fc5a3eac360bf0b72a083831bae97a3ecda228a0ad3354baedd7a"
+  },
+  "candidate": {
+    "path": "datasets/GIS/Better_Mapandan_GIS_V3_1_Updated_Package/Better_Mapandan_GIS_V3_1/sources/barangay/mapandan_barangay_boundaries_ADM4_candidate.geojson",
+    "sha256": "b44a3320c66b3f6a8ffdb39b2611fc58f0b1b5de72a38a3ddcdd4c6a7b290a04",
+    "quality_report": {
+      "feature_count": 15,
+      "coordinate_positions": 985,
+      "measurement_crs": "EPSG:32651 (WGS84 / UTM zone 51N)",
+      "topology_checked": true,
+      "all_individually_valid": true,
+      "bbox_wgs84": [
+        120.41911892300004,
+        15.98973245700006,
+        120.4874242840001,
+        16.04477501300005
+      ],
+      "sum_geometry_area_km2": 20.436868356071876,
+      "union_area_km2": 20.43686835607186,
+      "overlap_area_km2": 1.8626451492309572e-14,
+      "cross_barangay_overlap_tolerance_m2": 1.0,
+      "cross_barangay_pairs_exceeding_tolerance": [],
+      "maximum_pair_overlap_m2": 0.0,
+      "interior_gap_area_m2": 0,
+      "gap_limitations": "Interior holes only; external missing territory cannot be measured without independent boundary truth.",
+      "disposition": "optional_off_by_default_indicative_boundary",
+      "limitations": [
+        "Indicative source-derived administrative boundaries, not a legal survey or cadastral boundary.",
+        "Source date, acquisition history, licensing and legal currency have not been independently verified.",
+        "Geometry validation and agreement between derivatives do not establish positional accuracy or legal authority.",
+        "No coordinates have been simplified, snapped, buffered or repaired; source overlaps and gaps are retained.",
+        "Source municipality area near 20.44 km2 and printed CLUP area 32.91752 km2 remain unresolved; shapes are not rescaled."
+      ],
+      "features": [
+        {
+          "gid": "0105528001",
+          "coordinate_positions": 15,
+          "ring_position_counts": [
+            15
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.89556832987143,
+          "bbox_wgs84": [
+            120.4367794640001,
+            16.007093591000057,
+            120.45550193500003,
+            16.022079331000043
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528002",
+          "coordinate_positions": 80,
+          "ring_position_counts": [
+            80
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 0.4646196218395512,
+          "bbox_wgs84": [
+            120.43984405300012,
+            16.023574636000035,
+            120.44773924200001,
+            16.03131948300006
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528003",
+          "coordinate_positions": 20,
+          "ring_position_counts": [
+            20
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.1990076945878685,
+          "bbox_wgs84": [
+            120.45639361400004,
+            16.01948561200004,
+            120.47639500700006,
+            16.027508650000073
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528004",
+          "coordinate_positions": 90,
+          "ring_position_counts": [
+            90
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.729658980160492,
+          "bbox_wgs84": [
+            120.44460549300004,
+            16.02925920000007,
+            120.46540389300003,
+            16.04477501300005
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528006",
+          "coordinate_positions": 46,
+          "ring_position_counts": [
+            46
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 0.32310610593528616,
+          "bbox_wgs84": [
+            120.44687751200001,
+            16.028849937000075,
+            120.45570666300011,
+            16.034221116000026
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528007",
+          "coordinate_positions": 65,
+          "ring_position_counts": [
+            65
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.2432620668613883,
+          "bbox_wgs84": [
+            120.42976234800005,
+            16.014399807000075,
+            120.44791716500004,
+            16.02563641000006
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528008",
+          "coordinate_positions": 68,
+          "ring_position_counts": [
+            68
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.9959723727296779,
+          "bbox_wgs84": [
+            120.45118598200008,
+            16.003632117000052,
+            120.46830986700002,
+            16.020569677000026
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528009",
+          "coordinate_positions": 136,
+          "ring_position_counts": [
+            136
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.0301628754187842,
+          "bbox_wgs84": [
+            120.45698029500011,
+            15.991437702000042,
+            120.47585069100012,
+            16.005480170000055
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528010",
+          "coordinate_positions": 14,
+          "ring_position_counts": [
+            14
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 2.071175459968157,
+          "bbox_wgs84": [
+            120.46592573700002,
+            16.002320205000046,
+            120.48135431700007,
+            16.02094448300005
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528012",
+          "coordinate_positions": 61,
+          "ring_position_counts": [
+            61
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 2.0623585780770255,
+          "bbox_wgs84": [
+            120.41911892300004,
+            16.019151557000043,
+            120.44015757500006,
+            16.03456129700004
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528013",
+          "coordinate_positions": 99,
+          "ring_position_counts": [
+            99
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.9503447645540342,
+          "bbox_wgs84": [
+            120.4331874290001,
+            16.026064269000074,
+            120.45275099900005,
+            16.043073763000052
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528014",
+          "coordinate_positions": 63,
+          "ring_position_counts": [
+            63
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.0258707945826375,
+          "bbox_wgs84": [
+            120.44716639600006,
+            16.02023584600005,
+            120.46059080500004,
+            16.03016952100006
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528015",
+          "coordinate_positions": 80,
+          "ring_position_counts": [
+            80
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.2955414233505598,
+          "bbox_wgs84": [
+            120.47263428400004,
+            15.98973245700006,
+            120.4874242840001,
+            16.004461879000075
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528016",
+          "coordinate_positions": 79,
+          "ring_position_counts": [
+            79
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 1.3410835205818548,
+          "bbox_wgs84": [
+            120.45722804100001,
+            16.024641304000056,
+            120.47403642400002,
+            16.03748900000005
+          ],
+          "is_valid": true
+        },
+        {
+          "gid": "0105528018",
+          "coordinate_positions": 69,
+          "ring_position_counts": [
+            69
+          ],
+          "geometry_type": "Polygon",
+          "geometry_area_km2": 0.8091357675531305,
+          "bbox_wgs84": [
+            120.46025625700008,
+            16.005480170000055,
+            120.47349743100006,
+            16.020256637000045
+          ],
+          "is_valid": true
+        }
+      ]
+    }
+  },
+  "source_date": null,
+  "original_shapefiles_available": true,
+  "selection": "Geographic raw source selected after projected equivalence check; all original positions retained, no candidate copy.",
+  "join": "Exact municipality aliases and canonical ten-digit gid, restoring numeric DBF leading zero; canonical names/populations unchanged.",
+  "reprojection": "Projected comparison transformed EPSG:32651 to EPSG:4326 using always_xy; chosen geographic coordinates unchanged.",
+  "comparisons": {
+    "projected_raw": {
+      "measurement_crs": "EPSG:32651",
+      "features": [
+        {
+          "gid": "0105528001",
+          "coordinates_equal": false,
+          "hausdorff_m": 4.656612873077393e-10,
+          "symmetric_difference_m2": 3.343498531613816e-07,
+          "area_difference_m2": 3.073364496231079e-08
+        },
+        {
+          "gid": "0105528002",
+          "coordinates_equal": false,
+          "hausdorff_m": 7.009130540997893e-10,
+          "symmetric_difference_m2": 1.9339622741578613e-07,
+          "area_difference_m2": -4.42960299551487e-08
+        },
+        {
+          "gid": "0105528003",
+          "coordinates_equal": false,
+          "hausdorff_m": 7.009130540997893e-10,
+          "symmetric_difference_m2": 8.010129509869571e-07,
+          "area_difference_m2": 6.263144314289093e-08
+        },
+        {
+          "gid": "0105528004",
+          "coordinates_equal": false,
+          "hausdorff_m": 7.081267575614875e-10,
+          "symmetric_difference_m2": 5.498822173644467e-07,
+          "area_difference_m2": -3.057066351175308e-07
+        },
+        {
+          "gid": "0105528006",
+          "coordinates_equal": false,
+          "hausdorff_m": 6.984919309616089e-10,
+          "symmetric_difference_m2": 2.3148284468627652e-07,
+          "area_difference_m2": 1.6653211787343025e-07
+        },
+        {
+          "gid": "0105528007",
+          "coordinates_equal": false,
+          "hausdorff_m": 7.009130540997893e-10,
+          "symmetric_difference_m2": 6.32739455888997e-07,
+          "area_difference_m2": -2.4889595806598663e-07
+        },
+        {
+          "gid": "0105528008",
+          "coordinates_equal": false,
+          "hausdorff_m": 5.820766091346741e-10,
+          "symmetric_difference_m2": 3.615510219183558e-07,
+          "area_difference_m2": -2.3399479687213898e-07
+        },
+        {
+          "gid": "0105528009",
+          "coordinates_equal": false,
+          "hausdorff_m": 7.275957614183426e-10,
+          "symmetric_difference_m2": 4.2816384825233506e-07,
+          "area_difference_m2": 1.9918661564588547e-07
+        },
+        {
+          "gid": "0105528010",
+          "coordinates_equal": false,
+          "hausdorff_m": 4.692851652099372e-10,
+          "symmetric_difference_m2": 5.619590995180604e-07,
+          "area_difference_m2": -2.5425106287002563e-07
+        },
+        {
+          "gid": "0105528012",
+          "coordinates_equal": false,
+          "hausdorff_m": 6.984919309616089e-10,
+          "symmetric_difference_m2": 8.579940806752443e-07,
+          "area_difference_m2": 6.335321813821793e-07
+        },
+        {
+          "gid": "0105528013",
+          "coordinates_equal": false,
+          "hausdorff_m": 6.984919309616089e-10,
+          "symmetric_difference_m2": 6.187602438135673e-07,
+          "area_difference_m2": 1.2596137821674347e-07
+        },
+        {
+          "gid": "0105528014",
+          "coordinates_equal": false,
+          "hausdorff_m": 6.984919309616089e-10,
+          "symmetric_difference_m2": 5.006212410096259e-07,
+          "area_difference_m2": 5.657784640789032e-08
+        },
+        {
+          "gid": "0105528015",
+          "coordinates_equal": false,
+          "hausdorff_m": 7.009130540997893e-10,
+          "symmetric_difference_m2": 5.624195146966788e-07,
+          "area_difference_m2": 3.725290298461914e-08
+        },
+        {
+          "gid": "0105528016",
+          "coordinates_equal": false,
+          "hausdorff_m": 7.009130540997893e-10,
+          "symmetric_difference_m2": 6.635162211274598e-07,
+          "area_difference_m2": -4.377216100692749e-08
+        },
+        {
+          "gid": "0105528018",
+          "coordinates_equal": false,
+          "hausdorff_m": 5.820766091346741e-10,
+          "symmetric_difference_m2": 3.5872465213599846e-07,
+          "area_difference_m2": -9.546056389808655e-09
+        }
+      ],
+      "coordinates_equal": false,
+      "equivalence_tolerance": {
+        "hausdorff_m": 0.01,
+        "symmetric_difference_m2": 1.0
+      },
+      "equivalent_within_tolerance": true,
+      "maximum_hausdorff_m": 7.275957614183426e-10,
+      "total_symmetric_difference_m2": 7.656573472651171e-06
+    },
+    "bundled_candidate": {
+      "measurement_crs": "EPSG:32651",
+      "features": [
+        {
+          "gid": "0105528001",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528002",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528003",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528004",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528006",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528007",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528008",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528009",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528010",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528012",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528013",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528014",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528015",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528016",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        },
+        {
+          "gid": "0105528018",
+          "coordinates_equal": true,
+          "hausdorff_m": 0.0,
+          "symmetric_difference_m2": 0.0,
+          "area_difference_m2": 0.0
+        }
+      ],
+      "coordinates_equal": true,
+      "equivalence_tolerance": {
+        "hausdorff_m": 0.01,
+        "symmetric_difference_m2": 1.0
+      },
+      "equivalent_within_tolerance": true,
+      "maximum_hausdorff_m": 0.0,
+      "total_symmetric_difference_m2": 0.0
+    }
+  },
+  "projected_quality_report": {
+    "feature_count": 15,
+    "coordinate_positions": 985,
     "measurement_crs": "EPSG:32651 (WGS84 / UTM zone 51N)",
+    "topology_checked": true,
     "all_individually_valid": true,
-    "comparison_limitations": "Municipality input is also simplified; comparison is not against an authoritative detailed boundary.",
-    "sum_geometry_area_km2": 15.886850764322595,
-    "union_area_km2": 15.451348153181765,
-    "municipality_geometry_area_km2": 18.81758815719844,
-    "overlap_area_km2": 0.43550261114083044,
-    "municipality_uncovered_km2": 4.763562512198867,
-    "outside_municipality_km2": 1.3973225081821,
-    "municipality_uncovered_percent": 25.314415813572918,
-    "source_municipality_area_sqkm_metadata": 20.4157646219,
-    "source_barangay_area_sqkm_metadata_sum": 20.415764621903,
+    "bbox_wgs84": [
+      120.41911892300004,
+      15.989732457000061,
+      120.4874242840001,
+      16.044775013000052
+    ],
+    "sum_geometry_area_km2": 20.43686835607205,
+    "union_area_km2": 20.43686835607204,
+    "overlap_area_km2": 1.1175870895385742e-14,
+    "cross_barangay_overlap_tolerance_m2": 1.0,
+    "cross_barangay_pairs_exceeding_tolerance": [],
+    "maximum_pair_overlap_m2": 0.0,
+    "interior_gap_area_m2": 0,
+    "gap_limitations": "Interior holes only; external missing territory cannot be measured without independent boundary truth.",
+    "disposition": "optional_off_by_default_indicative_boundary",
+    "limitations": [
+      "Indicative source-derived administrative boundaries, not a legal survey or cadastral boundary.",
+      "Source date, acquisition history, licensing and legal currency have not been independently verified.",
+      "Geometry validation and agreement between derivatives do not establish positional accuracy or legal authority.",
+      "No coordinates have been simplified, snapped, buffered or repaired; source overlaps and gaps are retained.",
+      "Source municipality area near 20.44 km2 and printed CLUP area 32.91752 km2 remain unresolved; shapes are not rescaled."
+    ],
     "features": [
       {
         "gid": "0105528001",
-        "geometry_area_km2": 1.1302561845542414,
-        "source_area_sqkm_metadata": 1.89358945625,
-        "ring_vertex_counts": [
-          3
-        ]
+        "coordinate_positions": 15,
+        "ring_position_counts": [
+          15
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.8955683298714607,
+        "bbox_wgs84": [
+          120.43677946400011,
+          16.00709359100006,
+          120.45550193500003,
+          16.022079331000047
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528002",
-        "geometry_area_km2": 0.22947581706118383,
-        "source_area_sqkm_metadata": 0.464131743911,
-        "ring_vertex_counts": [
-          3
-        ]
+        "coordinate_positions": 80,
+        "ring_position_counts": [
+          80
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 0.4646196218395069,
+        "bbox_wgs84": [
+          120.43984405300012,
+          16.02357463600004,
+          120.44773924200001,
+          16.03131948300006
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528003",
-        "geometry_area_km2": 0.3927453294371263,
-        "source_area_sqkm_metadata": 1.19778465718,
-        "ring_vertex_counts": [
-          3
-        ]
+        "coordinate_positions": 20,
+        "ring_position_counts": [
+          20
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.199007694587931,
+        "bbox_wgs84": [
+          120.45639361400002,
+          16.019485612000036,
+          120.47639500700008,
+          16.02750865000007
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528004",
-        "geometry_area_km2": 1.2236076159848384,
-        "source_area_sqkm_metadata": 1.72787103874,
-        "ring_vertex_counts": [
-          3
-        ]
+        "coordinate_positions": 90,
+        "ring_position_counts": [
+          90
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.7296589801601863,
+        "bbox_wgs84": [
+          120.44460549300005,
+          16.02925920000007,
+          120.46540389300004,
+          16.044775013000052
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528006",
-        "geometry_area_km2": 0.07492420539967555,
-        "source_area_sqkm_metadata": 0.322770390491,
-        "ring_vertex_counts": [
-          3
-        ]
+        "coordinate_positions": 46,
+        "ring_position_counts": [
+          46
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 0.3231061059354527,
+        "bbox_wgs84": [
+          120.44687751200003,
+          16.028849937000075,
+          120.45570666300011,
+          16.03422111600003
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528007",
-        "geometry_area_km2": 1.1043060821948638,
-        "source_area_sqkm_metadata": 1.24194685309,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 65,
+        "ring_position_counts": [
+          65
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.2432620668611394,
+        "bbox_wgs84": [
+          120.42976234800005,
+          16.014399807000075,
+          120.44791716500005,
+          16.02563641000006
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528008",
-        "geometry_area_km2": 1.7189084234635197,
-        "source_area_sqkm_metadata": 1.99392355921,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 68,
+        "ring_position_counts": [
+          68
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.995972372729444,
+        "bbox_wgs84": [
+          120.4511859820001,
+          16.003632117000052,
+          120.46830986700002,
+          16.020569677000022
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528009",
-        "geometry_area_km2": 0.2321261480612725,
-        "source_area_sqkm_metadata": 1.02911463813,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 136,
+        "ring_position_counts": [
+          136
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.0301628754189833,
+        "bbox_wgs84": [
+          120.45698029500012,
+          15.991437702000038,
+          120.47585069100012,
+          16.005480170000055
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528010",
-        "geometry_area_km2": 1.838658789623855,
-        "source_area_sqkm_metadata": 2.06909263857,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 14,
+        "ring_position_counts": [
+          14
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 2.0711754599679026,
+        "bbox_wgs84": [
+          120.46592573700002,
+          16.00232020500005,
+          120.48135431700008,
+          16.020944483000054
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528012",
-        "geometry_area_km2": 1.939593011717943,
-        "source_area_sqkm_metadata": 2.06015437857,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 61,
+        "ring_position_counts": [
+          61
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 2.062358578077659,
+        "bbox_wgs84": [
+          120.41911892300004,
+          16.019151557000036,
+          120.44015757500006,
+          16.03456129700004
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528013",
-        "geometry_area_km2": 1.981591998396379,
-        "source_area_sqkm_metadata": 1.94829408115,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 99,
+        "ring_position_counts": [
+          99
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.9503447645541603,
+        "bbox_wgs84": [
+          120.43318742900011,
+          16.02606426900007,
+          120.45275099900006,
+          16.04307376300005
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528014",
-        "geometry_area_km2": 0.5860717269285818,
-        "source_area_sqkm_metadata": 1.02480839117,
-        "ring_vertex_counts": [
-          3
-        ]
+        "coordinate_positions": 63,
+        "ring_position_counts": [
+          63
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.0258707945826941,
+        "bbox_wgs84": [
+          120.44716639600006,
+          16.020235846000045,
+          120.46059080500005,
+          16.030169521000058
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528015",
-        "geometry_area_km2": 1.1912535095939585,
-        "source_area_sqkm_metadata": 1.29424701816,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 80,
+        "ring_position_counts": [
+          80
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.295541423350597,
+        "bbox_wgs84": [
+          120.47263428400004,
+          15.989732457000061,
+          120.4874242840001,
+          16.004461879000075
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528016",
-        "geometry_area_km2": 1.3309190538265336,
-        "source_area_sqkm_metadata": 1.33972350679,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 79,
+        "ring_position_counts": [
+          79
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.341083520581811,
+        "bbox_wgs84": [
+          120.45722804100002,
+          16.024641304000056,
+          120.47403642400002,
+          16.03748900000005
+        ],
+        "is_valid": true
       },
       {
         "gid": "0105528018",
-        "geometry_area_km2": 0.9124128680786237,
-        "source_area_sqkm_metadata": 0.808312270491,
-        "ring_vertex_counts": [
-          4
-        ]
+        "coordinate_positions": 69,
+        "ring_position_counts": [
+          69
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 0.809135767553121,
+        "bbox_wgs84": [
+          120.46025625700007,
+          16.005480170000055,
+          120.47349743100007,
+          16.020256637000042
+        ],
+        "is_valid": true
       }
     ]
+  },
+  "quality_report": {
+    "feature_count": 15,
+    "coordinate_positions": 985,
+    "measurement_crs": "EPSG:32651 (WGS84 / UTM zone 51N)",
+    "topology_checked": true,
+    "all_individually_valid": true,
+    "bbox_wgs84": [
+      120.41911892300004,
+      15.98973245700006,
+      120.4874242840001,
+      16.04477501300005
+    ],
+    "sum_geometry_area_km2": 20.436868356071876,
+    "union_area_km2": 20.43686835607186,
+    "overlap_area_km2": 1.8626451492309572e-14,
+    "cross_barangay_overlap_tolerance_m2": 1.0,
+    "cross_barangay_pairs_exceeding_tolerance": [],
+    "maximum_pair_overlap_m2": 0.0,
+    "interior_gap_area_m2": 0,
+    "gap_limitations": "Interior holes only; external missing territory cannot be measured without independent boundary truth.",
+    "disposition": "optional_off_by_default_indicative_boundary",
+    "limitations": [
+      "Indicative source-derived administrative boundaries, not a legal survey or cadastral boundary.",
+      "Source date, acquisition history, licensing and legal currency have not been independently verified.",
+      "Geometry validation and agreement between derivatives do not establish positional accuracy or legal authority.",
+      "No coordinates have been simplified, snapped, buffered or repaired; source overlaps and gaps are retained.",
+      "Source municipality area near 20.44 km2 and printed CLUP area 32.91752 km2 remain unresolved; shapes are not rescaled."
+    ],
+    "features": [
+      {
+        "gid": "0105528001",
+        "coordinate_positions": 15,
+        "ring_position_counts": [
+          15
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.89556832987143,
+        "bbox_wgs84": [
+          120.4367794640001,
+          16.007093591000057,
+          120.45550193500003,
+          16.022079331000043
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528002",
+        "coordinate_positions": 80,
+        "ring_position_counts": [
+          80
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 0.4646196218395512,
+        "bbox_wgs84": [
+          120.43984405300012,
+          16.023574636000035,
+          120.44773924200001,
+          16.03131948300006
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528003",
+        "coordinate_positions": 20,
+        "ring_position_counts": [
+          20
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.1990076945878685,
+        "bbox_wgs84": [
+          120.45639361400004,
+          16.01948561200004,
+          120.47639500700006,
+          16.027508650000073
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528004",
+        "coordinate_positions": 90,
+        "ring_position_counts": [
+          90
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.729658980160492,
+        "bbox_wgs84": [
+          120.44460549300004,
+          16.02925920000007,
+          120.46540389300003,
+          16.04477501300005
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528006",
+        "coordinate_positions": 46,
+        "ring_position_counts": [
+          46
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 0.32310610593528616,
+        "bbox_wgs84": [
+          120.44687751200001,
+          16.028849937000075,
+          120.45570666300011,
+          16.034221116000026
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528007",
+        "coordinate_positions": 65,
+        "ring_position_counts": [
+          65
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.2432620668613883,
+        "bbox_wgs84": [
+          120.42976234800005,
+          16.014399807000075,
+          120.44791716500004,
+          16.02563641000006
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528008",
+        "coordinate_positions": 68,
+        "ring_position_counts": [
+          68
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.9959723727296779,
+        "bbox_wgs84": [
+          120.45118598200008,
+          16.003632117000052,
+          120.46830986700002,
+          16.020569677000026
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528009",
+        "coordinate_positions": 136,
+        "ring_position_counts": [
+          136
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.0301628754187842,
+        "bbox_wgs84": [
+          120.45698029500011,
+          15.991437702000042,
+          120.47585069100012,
+          16.005480170000055
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528010",
+        "coordinate_positions": 14,
+        "ring_position_counts": [
+          14
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 2.071175459968157,
+        "bbox_wgs84": [
+          120.46592573700002,
+          16.002320205000046,
+          120.48135431700007,
+          16.02094448300005
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528012",
+        "coordinate_positions": 61,
+        "ring_position_counts": [
+          61
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 2.0623585780770255,
+        "bbox_wgs84": [
+          120.41911892300004,
+          16.019151557000043,
+          120.44015757500006,
+          16.03456129700004
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528013",
+        "coordinate_positions": 99,
+        "ring_position_counts": [
+          99
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.9503447645540342,
+        "bbox_wgs84": [
+          120.4331874290001,
+          16.026064269000074,
+          120.45275099900005,
+          16.043073763000052
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528014",
+        "coordinate_positions": 63,
+        "ring_position_counts": [
+          63
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.0258707945826375,
+        "bbox_wgs84": [
+          120.44716639600006,
+          16.02023584600005,
+          120.46059080500004,
+          16.03016952100006
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528015",
+        "coordinate_positions": 80,
+        "ring_position_counts": [
+          80
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.2955414233505598,
+        "bbox_wgs84": [
+          120.47263428400004,
+          15.98973245700006,
+          120.4874242840001,
+          16.004461879000075
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528016",
+        "coordinate_positions": 79,
+        "ring_position_counts": [
+          79
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 1.3410835205818548,
+        "bbox_wgs84": [
+          120.45722804100001,
+          16.024641304000056,
+          120.47403642400002,
+          16.03748900000005
+        ],
+        "is_valid": true
+      },
+      {
+        "gid": "0105528018",
+        "coordinate_positions": 69,
+        "ring_position_counts": [
+          69
+        ],
+        "geometry_type": "Polygon",
+        "geometry_area_km2": 0.8091357675531305,
+        "bbox_wgs84": [
+          120.46025625700008,
+          16.005480170000055,
+          120.47349743100006,
+          16.020256637000045
+        ],
+        "is_valid": true
+      }
+    ]
+  },
+  "limitations": [
+    "Indicative source-derived administrative boundaries, not a legal survey or cadastral boundary.",
+    "Source date, acquisition history, licensing and legal currency have not been independently verified.",
+    "Geometry validation and agreement between derivatives do not establish positional accuracy or legal authority.",
+    "No coordinates have been simplified, snapped, buffered or repaired; source overlaps and gaps are retained.",
+    "Source municipality area near 20.44 km2 and printed CLUP area 32.91752 km2 remain unresolved; shapes are not rescaled."
+  ],
+  "area_discrepancy": {
+    "known_municipality_source_area_km2_approx": 20.44,
+    "printed_clup_area_km2": 32.91752,
+    "calculated_union_area_km2": 20.43686835607186,
+    "measurement_crs": "EPSG:32651 (WGS84 / UTM zone 51N)",
+    "status": "unresolved; neither figure used to alter shapes; calculated area is not official area"
+  },
+  "analysis_libraries": {
+    "pyshp": "3.1.6",
+    "pyproj": "3.8.0",
+    "shapely": "2.2.0"
+  },
+  "reproduction_command": [
+    "python",
+    "-m",
+    "_build.gis_boundaries",
+    "--input",
+    "datasets/GIS/PH_Adm4_BgySubMuns.shp/BgySubMuns.shp.shp",
+    "--comparison-input",
+    "datasets/GIS/PH_Adm4_BgySubMuns.shp/PH_Adm4_BgySubMuns.shp.shp",
+    "--canonical",
+    "src/data/gis/barangays.geojson",
+    "--candidate",
+    "datasets/GIS/Better_Mapandan_GIS_V3_1_Updated_Package/Better_Mapandan_GIS_V3_1/sources/barangay/mapandan_barangay_boundaries_ADM4_candidate.geojson",
+    "--output",
+    "src/data/gis/barangay_boundaries.geojson",
+    "--sources-output",
+    "src/data/gis/barangay_boundaries_sources.json",
+    "--legacy-archive",
+    "datasets/GIS/boundaries/legacy_hierarchical_t0p005_mapandan_barangays.geojson"
+  ],
+  "legacy_archive": {
+    "path": "datasets/GIS/boundaries/legacy_hierarchical_t0p005_mapandan_barangays.geojson",
+    "sha256": "a075793183a8f31b98d00cb82deedf787b16d217a56ffc206c41382ce4217a59",
+    "disposition": "Archived coarse predecessor; never used as boundary truth"
   }
 }

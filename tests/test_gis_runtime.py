@@ -113,8 +113,9 @@ class GISRuntimeTests(unittest.TestCase):
 
     def test_mobile_height_is_not_overridden_by_inline_style(self):
         css = (ROOT / "assets/css/map.css").read_text(encoding="utf-8")
-        self.assertRegex(css, r"#gis-map\s*\{[^}]*min-height: 320px")
-        self.assertRegex(css, r"@media[^}]+\}[^}]*#gis-map\s*\{\s*height: 360px")
+        self.assertRegex(css, r"#gis-map\s*\{[^}]*min-height: 280px")
+        self.assertIn("--gis-map-height: clamp(280px, 46dvh, 420px)", css)
+        self.assertIn("height: var(--gis-column-height)", css)
 
     def test_explorer_tokens_and_accessible_panels(self):
         template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
@@ -160,7 +161,7 @@ class GISRuntimeTests(unittest.TestCase):
         template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
         for name in ("LAYERS", "FACILITIES", "BARANGAYS", "RECORDS"):
             self.assertIn(f"window.GIS_{name} = {{GIS_{name}_DATA}};", template)
-        self.assertIn("{GIS_RECORD_DIRECTORY}", template)
+        self.assertNotIn("{GIS_RECORD_DIRECTORY}", template)
         for removed in ("GIS_MODE", "GIS_PREVIEW_BANNER", "GIS_RESEARCH_DIRECTORY", "gis-status-filter"):
             self.assertNotIn(removed, template)
         self.assertIn('id="gis-workspace" class="gis-workspace" hidden', template)

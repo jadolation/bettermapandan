@@ -1,6 +1,15 @@
 {
   "lang_code": "pag",
   "gis": {
+    "category_shelter": "Evacuation / gym / silungan",
+    "category_school": "Eskuelaan",
+    "category_health": "Salun-at / medikal",
+    "category_emergency": "Pulisya / bumbero",
+    "category_barangay": "Barangay",
+    "category_project": "Proyekto na DPWH",
+    "category_default": "Lokasyon ed mapa",
+    "category_shared": "Parehon coordinate",
+    "category_nonspatial": "Tala ya anggapoy lokasyon ed mapa",
     "title": "Siyasaten so Mapandan",
     "place": "Mapandan, Pangasinan",
     "explore": "Siyasaten",

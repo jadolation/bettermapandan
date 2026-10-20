@@ -168,6 +168,12 @@ If a tool needs the checkout's root GIS routes, use
 the three GIS pages and required assets. Ordinary isolated builds do not update
 root pages. See the workflow for synchronization safety and scope.
 
+V3.1 integrates indicative barangay boundaries and four historical physical
+posters prepared as KMZ inputs. The posters are dated 2021-12-15, not 2012;
+underlying data vintage and official jurisdictional accuracy are not established.
+Project records remain searchable with canonical links, without a duplicated
+below-map project listing; compact barangay/facility directories support no-JS use.
+
 1. `build.py` loads EN, FIL, and PAG locales from `locales/` (Pangasinan falls back to English for untranslated keys).
 2. Static pages in `src/pages/` are parsed for front matter and body (titles/heroes localized via `src/data/page-meta.json`).
 3. Programmatic generators expand service pages, legislative sections, DPWH maps, and procurement tables from `src/data/*.json`.

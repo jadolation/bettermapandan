@@ -129,6 +129,12 @@ def feature_collection(data, *, points_only=False, nonspatial=False, label="GIS"
                 values = original.get(key)
                 if isinstance(values, list):
                     props[key] = [clean for value in values[:100] if (clean := safe_text(value)) is not None]
+            source_geometry_id = original.get('source_geometry_id')
+            if type(source_geometry_id) is int or safe_text(source_geometry_id) is not None:
+                props.setdefault('provenance', {}).setdefault('source_record_id', str(source_geometry_id))
+            source_note = safe_text(original.get('source_note'))
+            if source_note and source_note not in props.get('limitations', []):
+                props.setdefault('limitations', []).append(source_note)
             safe_geometry = None if geometry is None else {'type': geometry['type'], 'coordinates': deepcopy(geometry['coordinates'])}
             result.append({"type": "Feature", "geometry": safe_geometry, "properties": props})
             seen.add(identifier)

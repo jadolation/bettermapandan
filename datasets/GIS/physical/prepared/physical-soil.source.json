@@ -1,0 +1,60 @@
+{
+  "id": "physical-soil",
+  "source_label": "Municipality of Mapandan, Office of the MPDC (historical physical map)",
+  "prepared_date": "2021-12-15",
+  "date_kind": "poster preparation date, not underlying data date",
+  "data_vintage": "unknown",
+  "publisher": "Municipal Planning and Development Coordinator, Mapandan",
+  "source_credits": "Mapandan Cadastral Survey & Index Map; Google Earth; Bureau of Soils and Water Management (BSWM)",
+  "raw_source": "datasets/GIS/Better_Mapandan_GIS_V3_1_Updated_Package/Better_Mapandan_GIS_V3_1/sources/physical/soil_classification.png",
+  "raw_sha256": "1aaaf6de1a5363b28a75c01e88a2fd5efdc92f1cb0dc6f1f5e4242e51b6f3aa7",
+  "source_pixel_dimensions": [
+    1773,
+    1883
+  ],
+  "prepared_resource": "datasets/GIS/physical/prepared/physical-soil.kmz",
+  "registration_report": "physical-soil.registration.json",
+  "bounds": {
+    "west": 120.4190919946367,
+    "south": 15.988548570616693,
+    "east": 120.48883173598838,
+    "north": 16.047632606270774
+  },
+  "legend": [
+    {
+      "label": "San Manuel Fine Sandy Loam",
+      "color": "#98d393",
+      "source_pixel": [
+        1040,
+        1611
+      ]
+    },
+    {
+      "label": "San Manuel Silt Loam",
+      "color": "#d1d338",
+      "source_pixel": [
+        1040,
+        1633
+      ]
+    },
+    {
+      "label": "San Manuel Silty Clay Loam",
+      "color": "#e37e7f",
+      "source_pixel": [
+        1040,
+        1654
+      ]
+    },
+    {
+      "label": "River Wash",
+      "color": "#9f9f9f",
+      "source_pixel": [
+        1040,
+        1675
+      ]
+    }
+  ],
+  "usage": "Historical cartographic context only; not current conditions, cadastral authority, engineering or parcel decisions",
+  "rights": "Municipal source; republication license not stated in poster",
+  "legend_notes": "Labels and RGB swatches sampled from the original legend; no analytical classification inferred."
+}
