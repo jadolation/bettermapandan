@@ -25,10 +25,7 @@ from _build.generators.procurement import (
 )
 from _build.gis import (
     directory_html,
-    load_json,
-    parse_json,
-    public_facilities,
-    public_layer_manifest,
+    record_directory_html,
     script_json,
 )
 from _build.labels import resolve_body_placeholders
@@ -101,12 +98,6 @@ def _apply_page_meta(meta: dict, rel: Path, lang_code: str) -> dict:
             meta[mkey] = override[mkey]
     return meta
 
-def _filter_public_facilities(raw_json: str) -> str:
-    """Gate canonical facilities, then serialize safely for HTML script context."""
-    review = load_json(SRC_DATA / "gis" / "review" / "facilities-review.json")
-    return script_json(public_facilities(parse_json(raw_json), review))
-
-
 def _process_static_page(
     lang_code: str, locale: dict, rel: Path, meta: dict, body: str,
     base: str, page_hero_raw: str, out_root: Path, search_entries: list
@@ -146,18 +137,20 @@ def _process_static_page(
     if rel.name == "government.html":
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
     if rel.name == "gis.html":
-        gis_dir = SRC_DATA / "gis"
-        layers = load_json(gis_dir / "layers.json")
-        barangays = load_json(gis_dir / "barangays.geojson")
-        facilities = public_facilities(
-            load_json(gis_dir / "facilities.geojson"),
-            load_json(gis_dir / "review" / "facilities-review.json"),
-        )
-        # Optional page-agent interface: counts and lists share the gated payload.
+        from _build.gis_sources import prepare_inputs
+        projection = prepare_inputs(SRC_DATA.parent.parent, lang_code=lang_code)
+        facilities, barangays, records = projection['facilities'], projection['barangays'], projection['records']
+        manifest = {key: projection[key] for key in ('schema_version', 'metadata', 'layers')}
+        # GIS resources use the canonical root, not the locale's copied assets.
+        manifest['metadata']['asset_base'] = ('../' if lang_code != 'en' else '') + asset_base.rstrip('/') + '/'
+        # Counts and static directories use the same normalized map payload.
         # Replace template tokens before inserting data so source strings cannot
         # accidentally act as placeholders in a later replacement pass.
         replacements = {
-            "GIS_LAYERS_DATA": script_json(public_layer_manifest(layers, len(facilities["features"]))),
+            "GIS_LAYERS_DATA": script_json(manifest),
+            "GIS_RECORDS_DATA": script_json(records),
+            "GIS_RECORD_DIRECTORY": record_directory_html(records),
+            "GIS_RECORD_COUNT": str(len(records)),
             "GIS_BARANGAYS_DATA": script_json(barangays),
             "GIS_FACILITIES_DATA": script_json(facilities),
             "GIS_FACILITY_DIRECTORY": directory_html(facilities, "facilities", locale),

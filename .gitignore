@@ -50,6 +50,12 @@ datasets/fdp-csv/
 
 __pycache__/
 .kilo/
+/_site/
+# Legacy local GIS files remain ignored to avoid exposing old private configs.
+/_preview_gis/
+/src/data/gis/research-projection.json
+/.gis-research-inputs.json
+/assets/gis-preview/
 
 frontend-text-extract.txt
 /pangasinan-filipino-translation

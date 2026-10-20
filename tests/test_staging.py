@@ -27,7 +27,10 @@ def put(root, rel, content="public"):
 
 
 @pytest.fixture
-def site(tmp_path):
+def site(tmp_path, monkeypatch):
+    # GIS generation is tested with its helper; boundary fixtures enumerate only
+    # explicitly selected outputs, without running a full build.
+    monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: set())
     for rel in ("src/pages/index.html", "src/pages/gis.html",
                 "src/pages/support/faq.html", "src/pages/transparency/projects.html"):
         put(tmp_path, rel, "source only")
@@ -165,7 +168,7 @@ def test_download_manifest_cannot_widen_boundary(site, url):
         stage_site(site)
 
 
-def test_real_current_build_contract_in_isolated_fixture(tmp_path):
+def test_real_current_build_contract_in_isolated_fixture(tmp_path, monkeypatch):
     # Derive all current routes and linked downloads, but synthesize outputs.
     # This catches drift without running build.py or reading stale root HTML.
     shutil.copytree(REPO / "src/pages", tmp_path / "src/pages")
@@ -178,6 +181,7 @@ def test_real_current_build_contract_in_isolated_fixture(tmp_path):
     for rel in ROOT_FILES:
         put(tmp_path, rel)
     (tmp_path / "assets").mkdir()
+    monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: set())
     artifact = stage_site(tmp_path)
     for locale in ("", "fil", "pag"):
         for route in ("index.html", "gis/index.html", "services/index.html",
@@ -188,15 +192,102 @@ def test_real_current_build_contract_in_isolated_fixture(tmp_path):
     assert len(_download_outputs(tmp_path)) == 43
 
 
-def test_current_asset_tree_is_fully_covered():
-    # New browser assets require an explicit review of the staging policy.
-    assert _asset_outputs(REPO) == {
-        path.relative_to(REPO) for path in (REPO / "assets").rglob("*") if path.is_file()
-    }
+def test_generated_gis_assets_only_include_enumerated_resources(site, monkeypatch):
+    generated = {Path("assets/gis/roads.geojson"), Path("assets/gis/hazard/image.png")}
+    for rel in generated:
+        put(site, rel, "generated resource")
+    put(site, "assets/gis/unconfigured.geojson", "not selected")
+    put(site, "assets/gis/source.kmz", "raw archive")
+    monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: generated)
+    artifact = stage_site(site)
+    for locale in ("", "fil", "pag"):
+        for rel in generated:
+            assert (artifact / locale / rel).read_text() == "generated resource"
+        assert not (artifact / locale / "assets/gis/unconfigured.geojson").exists()
+        assert not (artifact / locale / "assets/gis/source.kmz").exists()
+
+
+def test_generated_manifest_seam_and_removed_layer_cleanup(site, monkeypatch):
+    from _build.gis_sources import gis_asset_outputs
+
+    monkeypatch.setattr("_build.staging.gis_asset_outputs", gis_asset_outputs)
+    generated = "assets/gis/roads.geojson"
+    put(site, generated, "generated vector")
+    put(site, "assets/gis/unconfigured.geojson", "stale generated vector")
+    put(site, "assets/gis/manifest.json", json.dumps({"schema_version": 1, "files": [generated]}))
+    artifact = stage_site(site)
+    for locale in ("", "fil", "pag"):
+        assert (artifact / locale / generated).read_text() == "generated vector"
+        assert (artifact / locale / "assets/gis/manifest.json").is_file()
+        assert not (artifact / locale / "assets/gis/unconfigured.geojson").exists()
+    put(site, "assets/gis/manifest.json", json.dumps({"schema_version": 1, "files": []}))
+    stage_site(site)
+    for locale in ("", "fil", "pag"):
+        assert not (artifact / locale / generated).exists()
+    assert (site / generated).is_file()
+
+
+@pytest.mark.parametrize("rel", [
+    "assets/gis/run.js", "assets/gis/source.kmz", "assets/gis/.hidden.json",
+    "assets/gis/../private.json", "src/data/gis/facilities.geojson", "/assets/gis/map.png",
+])
+def test_gis_enumeration_cannot_widen_asset_boundary(site, monkeypatch, rel):
+    monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: {Path(rel)})
+    with pytest.raises(ValueError, match="Unsafe generated GIS asset"):
+        stage_site(site)
+
+
+def test_missing_generated_gis_asset_preserves_existing_artifact(site, monkeypatch):
+    artifact = stage_site(site)
+    put(artifact, "sentinel", "untouched")
+    monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: {Path("assets/gis/missing.png")})
+    with pytest.raises(ValueError, match="Missing public build output"):
+        stage_site(site)
+    assert (artifact / "sentinel").read_text() == "untouched"
+
+
+def test_ordinary_content_edits_do_not_require_hash_updates(site):
+    put(site, "assets/logo.svg", "edited logo")
+    put(site, "datasets/Mapandan-Executive-Summary-2025.pdf", "edited report")
+    put(site, "gis/index.html", "Facility records: 16; candidate source description")
+    artifact = stage_site(site)
+    assert (artifact / "assets/logo.svg").read_text() == "edited logo"
+    assert (artifact / "datasets/Mapandan-Executive-Summary-2025.pdf").read_text() == "edited report"
+    assert (artifact / "gis/index.html").read_text().startswith("Facility records: 16")
 
 
 def test_workflow_uploads_only_staging_directory():
     workflow = (REPO / ".github/workflows/pages.yml").read_text()
-    assert "run: python -m _build.staging" in workflow
-    assert "path: _site" in workflow
+    checks = (REPO / ".github/workflows/quality.yml").read_text()
+    assert "uses: ./.github/workflows/quality.yml" in workflow
+    assert "needs: build" in workflow
+    assert "upload_pages: true" in workflow
+    assert "run: python build.py --isolated --offline" in checks
+    assert "path: _site" in checks
     assert "path: .\n" not in workflow
+    assert "continue-on-error" not in checks + workflow
+    assert "pull_request_target" not in checks + workflow
+    assert checks.index("python build.py --isolated --offline") < checks.index('--root "$PWD/_site"')
+    assert checks.index('--root "$PWD/_site"') < checks.index("actions/upload-pages-artifact")
+    assert checks.index("lycheeverse/lychee-action") < checks.index("actions/upload-pages-artifact")
+    assert "--fixtures" in checks
+    for obsolete in ("gis_release", "gis-release-manifest", "--mode", "GIS_MODE", "GIS_RESEARCH_INPUTS"):
+        assert obsolete not in checks + workflow
+    assert "node --test tests/gis-runtime.cjs" in checks
+    assert "PYTHONDONTWRITEBYTECODE=1 python -B -m pytest -p no:cacheprovider tests/ -q" in checks
+
+
+def test_maintainer_documentation_uses_valid_configuration_and_current_commands(tmp_path):
+    from _build.gis_sources import layer_configuration
+
+    documentation = (REPO / "docs/gis.md").read_text(encoding="utf-8")
+    example = json.loads(documentation.split("```json\n", 1)[1].split("```", 1)[0])
+    put(tmp_path, "src/data/gis/layers.json", json.dumps(example))
+    assert layer_configuration(tmp_path) == example
+    assert "python3 build.py --isolated --offline" in documentation
+    assert "python3 -m http.server 8000 --bind 127.0.0.1 --directory _site" in documentation
+    assert 'node tests/browser/gis-explorer.cjs --root "$PWD/_site"' in documentation
+    readme = (REPO / "README.md").read_text(encoding="utf-8")
+    assert "(docs/gis.md)" in readme
+    for obsolete in ("gis-preview.md", "gis-release.md", "GIS_MODE", "GIS_RESEARCH_INPUTS"):
+        assert obsolete not in readme + documentation

@@ -1,23 +1,70 @@
 ---
 title: GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, Pangasinan
-description: Mapandan reference map with an approximate extraction extent, barangay directory and publication-approved facility points when available. Hazard, boundary and road overlays are unavailable.
+description: Explore Mapandan geographic and nonspatial references with source, precision and availability details.
 ---
 
-<div id="gis-page"
+<div id="gis-page" data-asset-base="{{ASSET_BASE}}"
   data-library-error="{{GIS_LIBRARY_ERROR}}" data-tile-error="{{GIS_TILE_ERROR}}"
   data-map-error="{{GIS_MAP_ERROR}}" data-ready="{{GIS_READY}}"
   data-extent="{{GIS_EXTENT}}" data-facilities="{{GIS_FACILITIES}}" data-basemap="{{GIS_BASEMAP}}"
-  data-shared="{{GIS_SHARED}}" data-source="{{GIS_SOURCE}}" data-checked="{{GIS_CHECKED}}"
+  data-shared="{{GIS_SHARED}}" data-source="{{GIS_SOURCE}}"
   data-source-reported="{{GIS_SOURCE_REPORTED}}" data-approximate-source="{{GIS_APPROXIMATE_SOURCE}}"
   data-cell-center="{{GIS_CELL_CENTER}}" data-centroid="{{GIS_CENTROID}}"
-  data-field-position="{{GIS_FIELD_POSITION}}" data-unknown-precision="{{GIS_UNKNOWN_PRECISION}}"
-  data-zoom-in="{{GIS_ZOOM_IN}}" data-zoom-out="{{GIS_ZOOM_OUT}}" data-layers="{{GIS_LAYERS}}">
-  <p>{{GIS_INTRO}}</p>
-  <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
+  data-field-position="{{GIS_FIELD_POSITION}}"
+  data-zoom-in="{{GIS_ZOOM_IN}}" data-zoom-out="{{GIS_ZOOM_OUT}}" data-layers="{{GIS_LAYERS}}"
+  data-label-anchor="{{GIS_LABEL_ANCHOR}}" data-precision-label="{{GIS_PRECISION_LABEL}}"
+  data-source-date="{{GIS_SOURCE_DATE}}" data-attribution="{{GIS_ATTRIBUTION}}"
+  data-scenario="{{GIS_SCENARIO}}" data-address="{{GIS_ADDRESS}}" data-limitations="{{GIS_LIMITATIONS}}"
+  data-project-link="{{GIS_PROJECT_LINK}}" data-confidence="{{GIS_CONFIDENCE}}" data-evidence="{{GIS_EVIDENCE}}"
+  data-nonspatial="{{GIS_NONSPATIAL}}" data-results="{{GIS_RESULTS}}" data-no-geometry="{{GIS_NO_GEOMETRY}}"
+  data-loading="{{GIS_LOADING}}" data-loaded="{{GIS_LOADED}}" data-empty-layer="{{GIS_EMPTY_LAYER}}"
+  data-layer-error="{{GIS_LAYER_ERROR}}" data-not-loaded="{{GIS_NOT_LOADED}}"
+  data-unavailable-layer="{{GIS_UNAVAILABLE_LAYER}}" data-details="{{GIS_DETAILS}}">
+  <header class="gis-heading">
+    <p class="gis-eyebrow">{{GIS_PLACE}}</p>
+    <h1>{{GIS_TITLE}}</h1>
+    <p>{{GIS_INTRO}}</p>
+  </header>
+  <div id="gis-workspace" class="gis-workspace" hidden>
+    <aside class="gis-sidebar" aria-label="{{GIS_EXPLORER}}">
+      <h2 class="gis-sidebar-title">{{GIS_EXPLORER}}</h2>
+      <div class="gis-tabs" role="tablist" aria-label="{{GIS_EXPLORER}}">
+        <button id="gis-explore-tab" type="button" role="tab" aria-selected="true" aria-controls="gis-explore-panel">{{GIS_EXPLORE}}</button>
+        <button id="gis-layers-tab" type="button" role="tab" aria-selected="false" aria-controls="gis-layers-panel" tabindex="-1">{{GIS_LAYERS}}</button>
+      </div>
+      <section id="gis-explore-panel" class="gis-explore-panel" role="tabpanel" aria-labelledby="gis-explore-tab">
+      <label for="gis-search">{{GIS_SEARCH}}</label>
+      <input id="gis-search" type="search" autocomplete="off" aria-controls="gis-results">
+      <div class="gis-filters">
+        <label for="gis-layer-filter">{{GIS_LAYERS}}</label>
+        <select id="gis-layer-filter"><option value="">{{GIS_ALL_LAYERS}}</option></select>
+      </div>
+      <p id="gis-result-count" role="status" aria-live="polite"></p>
+      <p id="gis-no-results">{{GIS_NO_RESULTS}}</p>
+      <ul id="gis-results" class="gis-results" aria-label="{{GIS_SEARCH}}" tabindex="0"></ul>
+      </section>
+      <section id="gis-layers-panel" class="gis-layer-controls" role="tabpanel" aria-labelledby="gis-layers-tab" tabindex="0" hidden>
+        <p class="gis-panel-note">{{GIS_LAYER_HELP}}</p>
+        <div id="gis-layer-list"></div>
+      </section>
+    </aside>
+    <div class="gis-map-pane">
+      <div class="gis-toolbar" role="group" aria-label="{{GIS_MAP_CONTROLS}}">
+        <button id="gis-fit" type="button">{{GIS_FIT}}</button>
+        <button id="gis-reset" type="button">{{GIS_RESET}}</button>
+        <a href="#gis-barangay-title">{{GIS_DIRECTORY_LINK}}</a>
+      </div>
+      <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
+      <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" hidden></section>
+    </div>
+    <section id="gis-details" class="gis-details" role="region" aria-label="{{GIS_DETAILS}}" hidden>
+      <button id="gis-close" type="button">{{GIS_CLOSE}}</button>
+      <div id="gis-detail-content"></div>
+    </section>
+  </div>
   <p id="gis-map-help" class="source-label">{{GIS_MAP_HELP}}</p>
   <p id="gis-map-status" role="status" class="source-label"></p>
   <p id="gis-map-fallback" class="source-label">{{GIS_FALLBACK}} <a href="https://www.openstreetmap.org/#map=14/16.03/120.455">{{GIS_OPEN_OSM}}</a></p>
-
   <div class="gis-layout">
     <section class="gis-panel" aria-labelledby="gis-barangay-title">
       <h2 id="gis-barangay-title" class="gis-panel-title">{{GIS_BARANGAYS}}</h2>
@@ -32,16 +79,17 @@ description: Mapandan reference map with an approximate extraction extent, baran
       <p id="gis-facility-empty" class="source-label">{{GIS_EMPTY}}</p>
     </section>
   </div>
+  {GIS_RECORD_DIRECTORY}
   <div class="gis-disclaimer">
-    <p>{{GIS_UNAVAILABLE}}</p>
-    <p>{{GIS_PRECISION}}</p>
-    <p>{{GIS_SAFETY}}</p>
+    <p>{{GIS_UNAVAILABLE}}</p><p>{{GIS_PRECISION}}</p><p>{{GIS_SAFETY}}</p>
   </div>
 </div>
 
 <script>
   window.GIS_LAYERS = {GIS_LAYERS_DATA};
   window.GIS_FACILITIES = {GIS_FACILITIES_DATA};
+  window.GIS_BARANGAYS = {GIS_BARANGAYS_DATA};
+  window.GIS_RECORDS = {GIS_RECORDS_DATA};
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script defer src="{{ASSET_BASE}}/assets/gis-map.min.js"></script>
+<script defer src="{{ASSET_BASE}}assets/gis-map.min.js"></script>

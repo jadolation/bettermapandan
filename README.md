@@ -158,17 +158,27 @@ datasets/                       Raw research and extraction sources
 
 ## How it works
 
+For editing map data, configuring layers, and building a local preview, see [GIS Maintainer Workflow](docs/gis.md).
+
+The editable map layout lives in `src/pages/gis.html`, not generated root HTML.
+Build with `python3 build.py --isolated --offline`; VS Code Live Server serves
+`_site/` on port `5501` at <http://127.0.0.1:5501/gis/index.html>.
+If a tool needs the checkout's root GIS routes, use
+`python3 build.py --isolated --offline --sync-gis` to explicitly refresh only
+the three GIS pages and required assets. Ordinary isolated builds do not update
+root pages. See the workflow for synchronization safety and scope.
+
 1. `build.py` loads EN, FIL, and PAG locales from `locales/` (Pangasinan falls back to English for untranslated keys).
 2. Static pages in `src/pages/` are parsed for front matter and body (titles/heroes localized via `src/data/page-meta.json`).
 3. Programmatic generators expand service pages, legislative sections, DPWH maps, and procurement tables from `src/data/*.json`.
 3.5. Entity resolution links COA findings, procurement contracts, DPWH projects, and FDP records into a searchable relationship graph (`src/data/entities/` + `relationships.json`).
 4. All pages are assembled with `base.html`, `header.html`, and `footer.html`.
 5. Locale strings are injected via `t()` calls, resolved against `locales/en.json`, `locales/fil.json`, and `locales/pag.json`.
-6. Output is written to root (EN), `fil/` (FIL), and `pag/` (PAG).
+6. Output is written to root (EN), `fil/` (FIL), and `pag/` (PAG) within the build workspace. `--isolated` uses a disposable workspace and exports only `_site/`; `--sync-gis` additionally mirrors the GIS routes and dependencies into the checkout.
 7. `search-index.json` is regenerated from all rendered page content.
 8. `sitemap.xml` and `llms.txt` are generated for SEO/AI discovery.
 
-Build output directory structure (what actually gets served):
+Site layout within the staged `_site/` artifact (not the repository publish root):
 
 ```
 index.html                     Homepage (EN)
@@ -199,7 +209,7 @@ llms.txt                       LLM-readable site digest
 
 ### Page copy
 
-Edit `src/pages/*.html` (for static pages) or `src/data/*.json` (for programmatic content such as services, procurement, legislative records, and barangay data). Run `python3 build.py` to regenerate.
+Edit `src/pages/*.html` (for static pages) or `src/data/*.json` (for programmatic content such as services, procurement, legislative records, and barangay data). Run `python3 build.py --isolated --offline` and preview `_site/`.
 
 Page front matter format:
 
@@ -243,7 +253,13 @@ This enables cross-reference queries such as: "Show all COA findings related to 
 ## Commands
 
 ```bash
-# Full build (EN + FIL + PAG)
+# Preferred local preview build (EN + FIL + PAG), serve _site/
+python3 build.py --isolated --offline
+
+# Explicitly refresh checkout GIS pages and required assets after isolated build
+python3 build.py --isolated --offline --sync-gis
+
+# Legacy full checkout build (replaces generated locale trees)
 python3 build.py
 
 # Image optimization only (mozjpeg + WebP conversion)
@@ -384,11 +400,11 @@ Long-form pages (transparency subpages, services, government, legislative, stati
 
 ## Deploying
 
-The site is deployed via **GitHub Pages with GitHub Actions** (`.github/workflows/pages.yml` builds with `python3 build.py` and deploys the artifact). The custom domain `bettermapandan.org` is registered through **Hostinger** and configured with DNS A records pointing to GitHub Pages.
+The site is deployed via **GitHub Pages with GitHub Actions**. The workflow publishes only the tested `_site/` artifact, not the repository root. Lint, Python/Node tests, locale parity, browser checks, and internal-link checks run before upload. The custom domain `bettermapandan.org` is registered through **Hostinger** and configured with DNS A records pointing to GitHub Pages.
 
-Generated output (`index.html`, section folders, `services/`, `fil/`, `pag/`, `sitemap.xml`, `style.min.css`, `search-index.json`, `*.min.js`) is **not committed** — it is rebuilt on every push. Run `python3 build.py` locally to preview.
+Generated output (`index.html`, section folders, `services/`, `fil/`, `pag/`, `sitemap.xml`, `style.min.css`, `search-index.json`, `*.min.js`) is **not committed** and is rebuilt on every push. For a reliable local preview, run `python3 build.py --isolated --offline` and serve `_site/` as described in the GIS workflow.
 
-Any static host works — run `python3 build.py`, then deploy the root `.html` files plus `assets/`, `fil/`, `pag/`, and top-level files (`sitemap.xml`, `robots.txt`, `CNAME`).
+For another static host, build with `python3 build.py --isolated --offline`, test that output, and publish only `_site/`. Never publish the repository root or raw research directories. See [GIS Maintainer Workflow](docs/gis.md) for editing map data and viewing a fresh build.
 
 ### GitHub Pages
 
@@ -396,7 +412,7 @@ Settings → Pages → **Source: GitHub Actions**. Custom domain configured via 
 
 ### Other hosts
 
-- **Netlify / Vercel**: set the build command to `python3 build.py` and `/` as the publish directory.
+- **Netlify / Vercel**: use `python3 build.py --isolated --offline` and `_site/` as the publish directory, never the repository root.
 
 ### Before first deploy
 
@@ -413,7 +429,7 @@ This project is part of the BetterLGU initiative. If you want to contribute:
 
 1. Fork and clone the repo.
 2. Make your changes in `src/` or `locales/`.
-3. Run `python3 build.py` to preview locally (generated output is git-ignored — commit source changes only).
+3. Run `python3 build.py --isolated --offline` and serve `_site/` to preview locally (generated output is git-ignored; commit source changes only).
 4. Open a pull request to `main`.
 
 Once live, update this LGU's entry in the [BetterLGU directory](https://directory.bettergov.ph/) from 🔵 Planned to 🟢 Active.

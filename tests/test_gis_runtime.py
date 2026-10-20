@@ -99,7 +99,8 @@ class GISRuntimeTests(unittest.TestCase):
             self.assertIn(escape(locale["about"]["population"]), rendered)
             self.assertIn("PSGC: 0105528001", rendered)
             self.assertIn("1656 (2024 POPCEN)", rendered)
-        self.assertIn("0105528001 / 1656 (2024 POPCEN)", directory_html(data, "barangays"))
+        self.assertIn("0105528001", directory_html(data, "barangays"))
+        self.assertIn("1656 (2024 POPCEN)", directory_html(data, "barangays"))
         unsafe = '<img src=x onerror="alert(1)"> & \'quoted\''
         rendered = directory_html(data, "barangays", {"about": {"population": unsafe}})
         self.assertIn(escape(unsafe), rendered)
@@ -114,6 +115,38 @@ class GISRuntimeTests(unittest.TestCase):
         css = (ROOT / "assets/css/map.css").read_text(encoding="utf-8")
         self.assertRegex(css, r"#gis-map\s*\{[^}]*min-height: 320px")
         self.assertRegex(css, r"@media[^}]+\}[^}]*#gis-map\s*\{\s*height: 360px")
+
+    def test_explorer_tokens_and_accessible_panels(self):
+        template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
+        self.assertEqual(template.count("<h1>"), 1)
+        self.assertIn("<h1>{{GIS_TITLE}}</h1>", template)
+        self.assertIn('role="tablist"', template)
+        for panel in ("explore", "layers"):
+            self.assertIn(f'aria-controls="gis-{panel}-panel"', template)
+            self.assertIn(f'role="tabpanel" aria-labelledby="gis-{panel}-tab"', template)
+        css = (ROOT / "assets/css/map.css").read_text(encoding="utf-8")
+        self.assertNotRegex(css, r"var\(--(?:surface|text(?:-secondary)?|amber(?:-pale|-line|-text)?|blue)\)")
+        self.assertIn("--gis-sticky-clearance", css)
+        self.assertIn("overscroll-behavior: contain", css)
+        tokens = (ROOT / "assets/css/tokens.css").read_text(encoding="utf-8")
+        defined = set(re.findall(r"(--[\w-]+)\s*:", tokens + css))
+        self.assertLessEqual(set(re.findall(r"var\((--[\w-]+)", css)), defined | {"--gis-sticky-clearance"})
+
+    def test_gis_metadata_describes_current_explorer(self):
+        meta = json.loads((ROOT / "src/data/page-meta.json").read_text(encoding="utf-8"))["gis.html"]
+        for lang in ("fil", "pag"):
+            self.assertNotRegex(meta[lang]["description"], r"aprubado|naaproban|Hindi magagamit|Ag magagamit")
+
+    def test_typed_payload_tokens_remain_distinct_from_locale_labels(self):
+        template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
+        for name in ("LAYERS", "FACILITIES", "BARANGAYS", "RECORDS"):
+            self.assertIn(f"window.GIS_{name} = {{GIS_{name}_DATA}};", template)
+        self.assertIn("{GIS_RECORD_DIRECTORY}", template)
+        for removed in ("GIS_MODE", "GIS_PREVIEW_BANNER", "GIS_RESEARCH_DIRECTORY", "gis-status-filter"):
+            self.assertNotIn(removed, template)
+        self.assertIn('id="gis-workspace" class="gis-workspace" hidden', template)
+        self.assertIn('id="gis-results"', template)
+        self.assertIn('type="search"', template)
 
 
 if __name__ == "__main__":

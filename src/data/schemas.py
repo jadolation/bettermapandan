@@ -216,7 +216,7 @@ SCHEMAS = {
             "type": {"type": "string", "enum": ["FeatureCollection"]},
             "features": {
                 "type": "array",
-                "minItems": 1,
+                "maxItems": 10000,
                 "items": {
                     "type": "object",
                     "required": ["type", "geometry", "properties"],
@@ -230,8 +230,7 @@ SCHEMAS = {
                         },
                         "properties": {
                             "type": "object",
-                            "required": ["gid", "name", "slug",
-                                         "verification_status", "provenance"],
+                            "required": ["gid", "name"],
                             "properties": {
                                 "gid": {"type": "string"},
                                 "name": {"type": "string"},
@@ -250,7 +249,6 @@ SCHEMAS = {
                                 "source_as_of": {"type": "string"},
                                 "provenance": {
                                     "type": "object",
-                                    "required": ["source", "source_url"],
                                     "properties": {
                                         "source": {"type": "string"},
                                         "source_url": {"type": "string"},
@@ -276,7 +274,7 @@ SCHEMAS = {
             "type": {"type": "string", "enum": ["FeatureCollection"]},
             "features": {
                 "type": "array",
-                "minItems": 1,
+                "maxItems": 10000,
                 "items": {
                     "type": "object",
                     "required": ["type", "geometry", "properties"],
@@ -303,8 +301,7 @@ SCHEMAS = {
                         },
                         "properties": {
                             "type": "object",
-                            "required": ["id", "name", "category",
-                                         "verification_status", "provenance"],
+                            "required": ["id", "name"],
                             "properties": {
                                 "id": {"type": "string"},
                                 "name": {"type": "string"},
@@ -327,7 +324,6 @@ SCHEMAS = {
                                 "review_notes": {"type": ["string", "null"]},
                                 "provenance": {
                                     "type": "object",
-                                    "required": ["source", "source_url"],
                                     "properties": {
                                         "source": {"type": "string"},
                                         "source_url": {"type": "string"},
@@ -348,23 +344,28 @@ SCHEMAS = {
         "properties": {
             "layers": {
                 "type": "array",
-                "minItems": 1,
+                "maxItems": 100,
                 "items": {
                     "type": "object",
-                    "required": ["id", "title", "data", "type",
-                                 "visible_by_default", "source", "attribution"],
+                    "required": ["id", "title", "type", "enabled",
+                                 "visible_by_default", "source"],
                     "properties": {
-                        "id": {"type": "string"},
-                        "title": {"type": "object"},
-                        "data": {"type": "string"},
+                        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,79}$"},
+                        "title": {"type": "object", "required": ["en"],
+                                  "additionalProperties": {"type": "string"}},
                         "type": {"type": "string",
-                                 "enum": ["geojson", "kml", "tile-overlay"]},
+                                 "enum": ["geojson", "records", "kmz"]},
+                        "enabled": {"type": "boolean"},
                         "visible_by_default": {"type": "boolean"},
                         "source": {"type": "string"},
                         "source_url": {"type": "string"},
                         "attribution": {"type": "string"},
-                        "update_date": {"type": "string"},
-                        "verification_notes": {"type": "string"},
+                        "source_label": {"type": "string"},
+                        "source_date": {"type": "string"},
+                        "precision": {"type": "string"},
+                        "semantic_role": {"type": "string"},
+                        "limitations": {"type": "array", "items": {"type": "string"}},
+                        "legend": {"type": "array"},
                     },
                 }
             }

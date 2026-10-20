@@ -226,11 +226,11 @@
   "gis.html": {
     "fil": {
       "title": "Mapa ng GIS — BetterMapandan.org",
-      "description": "Mapang sanggunian ng Mapandan na may tinatayang saklaw ng pagkuha ng datos, direktoryo ng barangay at mga puntong pasilidad na aprubadong ilathala kung mayroon. Hindi magagamit ang mga overlay ng panganib, hangganan at kalsada."
+      "description": "Siyasatin ang mapa, mga pasilidad at mga talang sanggunian ng Mapandan kasama ang pinagmulan, katumpakan at limitasyon ng bawat layer."
     },
     "pag": {
       "title": "GIS Map — BetterMapandan.org",
-      "description": "Mapa a reperensya na Mapandan ya walay tinansya a sakop na panagkuha na datos, direktoryo na barangay tan saray punto na pasilidad ya naaproban ya ipalathala no wala. Ag magagamit iray overlay na peligro, ketegan tan dalan."
+      "description": "Siyasaten so mapa, saray pasilidad tan reperensya na Mapandan pati pinanlapuan, katumpakan tan limitasyon na kada layer."
     }
   },
   "transparency/projects.html": {

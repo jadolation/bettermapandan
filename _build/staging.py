@@ -1,7 +1,7 @@
 """Allowlisted Pages artifact boundary: python -m _build.staging after build.
 
-Canonical GIS is never an asset: facilities exist only in publication-gated HTML.
-New public data/download contracts need explicit policy here, not arbitrary links.
+GIS resources are enumerated from the configured generated outputs, never by
+copying raw input trees. Other assets and downloads retain explicit contracts.
 """
 import json
 import re
@@ -9,6 +9,7 @@ import shutil
 from pathlib import Path
 
 from _build.assets import JS_SOURCES
+from _build.gis_sources import gis_asset_outputs
 from _build.templates import to_folder_index
 
 STAGING_DIR = "_site"
@@ -101,6 +102,14 @@ def _asset_outputs(root: Path) -> set[Path]:
                 or rel.as_posix() in {"style.css", "style.min.css"}
                 or (len(rel.parts) == 2 and rel.parts[0] == "css" and rel.suffix == ".css")):
             outputs.add(path)
+    for path in gis_asset_outputs(root):
+        if (not isinstance(path, Path) or path.is_absolute() or ".." in path.parts
+                or path.parts[:2] != ("assets", "gis") or len(path.parts) < 3
+                or any(part.startswith(".") for part in path.parts)
+                or path.suffix.lower() not in {".geojson", ".json", ".png"}):
+            raise ValueError(f"Unsafe generated GIS asset: {path}")
+        _regular_file(root, path)
+        outputs.add(path)
     return outputs
 
 
