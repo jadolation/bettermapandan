@@ -79,6 +79,7 @@
     "status_completed": "Natapos",
     "status_ongoing": "Isinasagawa",
     "status_not_started": "Hindi pa nasisimulan",
+    "status_stopped": "Itinigil / sinuspinde",
     "status_unknown": "Hindi alam / hindi iniulat",
     "confidence": "Kumpiyansa sa ugnayan",
     "evidence": "Ebidensya ng ugnayan",

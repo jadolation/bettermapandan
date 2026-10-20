@@ -79,6 +79,7 @@
     "status_completed": "Completed",
     "status_ongoing": "Ongoing",
     "status_not_started": "Not started",
+    "status_stopped": "Stopped / suspended",
     "status_unknown": "Unknown / not reported",
     "confidence": "Relationship confidence",
     "evidence": "Relationship evidence",

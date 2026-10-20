@@ -277,7 +277,8 @@
 .gis-legend-swatch { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-right: 8px; border: 1px solid var(--ink-soft); border-radius: 50%; }
 .gis-legend-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-right: 6px; flex-shrink: 0; }
 .gis-result-prefix { display: inline-flex; align-items: center; justify-content: center; width: 20px; flex-shrink: 0; margin-right: 6px; }
-.gis-icon-marker { background: var(--paper); border: 2px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: visible; box-shadow: 0 1px 4px #0003; }
+.leaflet-marker-icon.gis-icon-marker { background: var(--paper); border: 2px solid var(--line); border-radius: 50%; display: grid; place-items: center; padding: 0; box-sizing: border-box; line-height: 0; overflow: visible; box-shadow: 0 1px 4px #0003; }
+.gis-icon-marker > svg { display: block; margin: 0; }
 .gis-icon-marker.gis-marker-selected { border-color: var(--green-deep); outline: 3px solid var(--gold); outline-offset: 2px; }
 .gis-marker-count { position: absolute; top: -7px; right: -7px; min-width: 18px; height: 18px; padding: 0 3px; border-radius: 10px; background: var(--green-deep); color: var(--paper); font-size: 11px; line-height: 18px; text-align: center; }
 .gis-boundary-label { background: var(--paper); color: var(--green-deep); border: 1px solid var(--line); box-shadow: none; font-size: 11px; }

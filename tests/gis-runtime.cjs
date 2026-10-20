@@ -34,6 +34,17 @@ test("static category glyphs produce path nodes, not SVG path text or injected d
   assert.match(source, /marker\.addTo\(group\)/);
 });
 
+test("DPWH colors consistently represent completed, ongoing, not-started and stopped projects", () => {
+  assert.deepEqual(gis.statusColors, {
+    completed: "#287943", ongoing: "#b66b08", not_started: "#c0392b",
+    stopped: "#c0392b", unknown: "#737373",
+  });
+  for (const [status, color] of Object.entries(gis.statusColors)) {
+    assert.equal(gis.categoryColor("", "dpwh_project", status), color);
+    assert.match(gis.iconSvg("hard-hat", color, 20), new RegExp(`stroke="${color}"`));
+  }
+});
+
 test("DPWH fallback fragments retain raw escaped row IDs and select the target page", () => {
   const id = 'txn /#%"<&';
   const projects = Array.from({ length: 41 }, (_, i) => ({ transaction_id: `txn-${i}` }));
@@ -194,6 +205,6 @@ test("default results dedup only explicit IDs, preferring DPWH and usable barang
 });
 test("pane ordering and status palette are explicit rather than inferred from titles", () => {
   assert.deepEqual(gis.panes, { physical: 250, hazards: 300, administrative: 400, infrastructure: 450, facilities: 500 });
-  assert.deepEqual(Object.keys(gis.statusColors), ["completed", "ongoing", "not_started", "unknown"]);
+  assert.deepEqual(Object.keys(gis.statusColors), ["completed", "ongoing", "not_started", "stopped", "unknown"]);
   assert.equal(new Set(Object.values(gis.statusColors)).size, 4);
 });

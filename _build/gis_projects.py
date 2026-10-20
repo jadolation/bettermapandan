@@ -78,9 +78,12 @@ def dpwh_collection(source: dict, canonical_projects: list, lang_code="en") -> d
             limitations.append("No unique canonical project match by source transaction ID; linked to the infrastructure source record.")
         year = _number(row.get("fiscal_year"))
         status = _text(row.get("status"))
-        status_key = {"completed": "completed", "ongoing": "ongoing",
-                      "on-going": "ongoing", "on going": "ongoing",
-                      "not started": "not_started", "not yet started": "not_started"}.get(status.casefold(), "unknown")
+        status_key = {"completed": "completed", "finished": "completed", "ongoing": "ongoing",
+                       "on-going": "ongoing", "on going": "ongoing",
+                      "in progress": "ongoing", "in-progress": "ongoing",
+                      "not started": "not_started", "not yet started": "not_started",
+                      "stopped": "stopped", "suspended": "stopped", "halted": "stopped",
+                      "on hold": "stopped", "on-hold": "stopped"}.get(status.casefold(), "unknown")
         props = {
             "id": transaction, "source_transaction_id": transaction,
             "name": _text(row.get("project_name")),

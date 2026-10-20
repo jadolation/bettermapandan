@@ -15,7 +15,7 @@
   "use strict";
   var TYPES = ["inline-geojson", "geojson", "raster-image-overlay", "reference"];
   var PANES = { physical: 250, hazards: 300, administrative: 400, infrastructure: 450, facilities: 500 };
-  var STATUS_COLORS = { completed: "#287943", ongoing: "#b66b08", not_started: "#536ba1", unknown: "#737373" };
+  var STATUS_COLORS = { completed: "#287943", ongoing: "#b66b08", not_started: "#c0392b", stopped: "#c0392b", unknown: "#737373" };
   var ICONS = {
     // Vetted static nodes from https://github.com/lucide-icons/lucide/tree/main/icons.
     "hard-hat": '<path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/>',

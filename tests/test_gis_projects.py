@@ -75,8 +75,11 @@ def test_duplicate_source_ids_fail_even_if_name_or_position_differs():
 
 
 @pytest.mark.parametrize("status,key", [
-    ("Completed", "completed"), (" On-Going ", "ongoing"), ("Ongoing", "ongoing"),
+    ("Completed", "completed"), ("Finished", "completed"), (" On-Going ", "ongoing"), ("Ongoing", "ongoing"),
+    ("In Progress", "ongoing"), ("In-Progress", "ongoing"),
     ("Not Yet Started", "not_started"), ("Not Started", "not_started"),
+    ("Stopped", "stopped"), (" SUSPENDED ", "stopped"), ("Halted", "stopped"),
+    ("On Hold", "stopped"), ("On-Hold", "stopped"),
     ("Reported complete pending review", "unknown"), (None, "unknown"), ("", "unknown"),
 ])
 def test_status_is_explicit_not_inferred_from_accomplishment(status, key):

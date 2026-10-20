@@ -79,6 +79,7 @@
     "status_completed": "Asumpal",
     "status_ongoing": "Nagawa ni",
     "status_not_started": "Ag ni inggapo",
+    "status_stopped": "Nipatunda / sinuspinde",
     "status_unknown": "Ag amta / ag niulat",
     "confidence": "Kompiyansa ed relasyon",
     "evidence": "Ebidensya na relasyon",
