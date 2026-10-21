@@ -15,4 +15,5 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
     - name: Build static site
+      shell: bash
       run: python build.py
