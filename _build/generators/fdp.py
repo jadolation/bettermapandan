@@ -161,6 +161,149 @@ def _render_period_cards(period: str, data: dict, labels: dict) -> str:
     return "\n".join(parts)
 
 
+def _render_sre_table(sre: dict, slug: str, title: str) -> list:
+    """Statement of Receipts & Expenditures table."""
+    tl_any = any(r.get("trust_liability") for r in sre["rows"])
+    base_headers = ["Particulars", "Target", "General Fund", "SEF", "Trust Fund"]
+    headers = base_headers + (["Trust Liability"] if tl_any else [])
+    base_cols = ["particulars", "target", "general_fund", "sef", "trust_fund"]
+    data_cols = base_cols + (["trust_liability"] if tl_any else [])
+    rows = []
+    for r in sre["rows"]:
+        cells = [f"<strong>{_esc(r['label'])}</strong>" if r["label"].isupper() else _esc(r['label']),
+                 _peso(r.get("target")), _peso(r.get("general_fund")),
+                 _peso(r.get("sef")), _peso(r.get("trust_fund"))]
+        if tl_any:
+            cells.append(_peso(r.get("trust_liability")))
+        rows.append(cells)
+    return [f"<h3 class='mt-24'>Statement of Receipts &amp; Expenditures ({_esc(title)})</h3>",
+            _sortable_money_table("sre-table-" + slug, "sre-search-" + slug, headers, rows, "Search SRE...", data_cols)]
+
+
+def _render_soe_table(soe: dict, slug: str, title: str) -> list:
+    """Statement of Expenditures by function table."""
+    tl_any = any(r.get("trust_liability") for r in soe["rows"])
+    base_headers = ["Particulars", "Target", "General Fund", "SEF", "Trust Fund"]
+    headers = base_headers + (["Trust Liability"] if tl_any else [])
+    base_cols = ["particulars", "target", "general_fund", "sef", "trust_fund"]
+    cols = base_cols + (["trust_liability"] if tl_any else [])
+    rows = []
+    for r in soe["rows"]:
+        cells = [f"<strong>{_esc(r['label'])}</strong>" if r["label"].isupper() else _esc(r['label']),
+                 _peso(r.get("target")), _peso(r.get("general_fund")),
+                 _peso(r.get("sef")), _peso(r.get("trust_fund"))]
+        if tl_any:
+            cells.append(_peso(r.get("trust_liability")))
+        rows.append(cells)
+    return [f"<h3 class='mt-24'>Statement of Expenditures, by function ({_esc(title)})</h3>",
+            _sortable_money_table("soe-table-" + slug, "soe-search-" + slug, headers, rows, "Search SOE...", cols)]
+
+
+def _render_sef_block(sef: dict, slug: str, title: str, labels: dict) -> list:
+    """Special Education Fund metrics + items."""
+    parts = [f"<h3 class='mt-24'>Special Education Fund ({_esc(title)})</h3>"]
+    parts.append(_metric_cards([(_peso(sef.get("receipt")), "SEF receipts"),
+                                (_peso(sef.get("subtotal")), "Disbursed"),
+                                (_peso(sef.get("balance")), "Balance")]))
+    if sef.get("items"):
+        parts.append(_sortable_money_table("sef-table-" + slug, "sef-search-" + slug,
+                                           ["Item", "Amount"],
+                                           [[_esc(i["label"]), _peso(i["amount"])] for i in sef["items"]],
+                                           "Search SEF items...",
+                                           ["item", "amount"]))
+    return parts
+
+
+def _render_ldrrmf_block(ldrrmf: dict, slug: str, title: str, labels: dict) -> list:
+    """Disaster fund utilization metrics + utilization table."""
+    totals = ldrrmf.get("totals", {})
+    parts = [f"<h3 class='mt-24'>Disaster Fund Utilization ({_esc(title)})</h3>"]
+    parts.append(_metric_cards([(_peso(totals.get("available")), "Available"),
+                                (_peso(totals.get("utilization")), "Utilized"),
+                                (_peso(totals.get("unutilized")), "Unutilized")]))
+    items = [u for u in ldrrmf.get("utilization", [])
+             if (u.get("total") or 0) != 0 or (u.get("qrf") or 0) != 0]
+    if items:
+        parts.append(_sortable_money_table("ldrrmf-table-" + slug, "ldrrmf-search-" + slug,
+                                           ["Utilization", "QRF", "Total"],
+                                           [[_esc(u["label"]), _peso(u.get("qrf")), _peso(u.get("total"))] for u in items],
+                                           "Search disaster fund...",
+                                           ["utilization", "qrf", "total"]))
+    return parts
+
+
+def _render_dev_fund_block(dev: list, slug: str, title: str) -> list:
+    """Development fund projects tables."""
+    parts = []
+    idx = 0
+    for rec in dev:
+        if not rec.get("projects"):
+            continue
+        idx += 1
+        parts.append(f"<h3 class='mt-24'>20% Development Fund Projects ({_esc(title)})</h3>")
+        rows = [[_esc(p["project"]), _esc(p["location"]), _peso(p.get("cost")),
+                 _pct(p.get("pct")), _peso(p.get("incurred"))] for p in rec["projects"]]
+        totals = rec.get("totals") or {}
+        if totals.get("cost") is not None:
+            rows.append(["<strong>Total</strong>", "", f"<strong>{_peso(totals.get('cost'))}</strong>",
+                         f"<strong>{_pct(totals.get('pct'))}</strong>",
+                         f"<strong>{_peso(totals.get('incurred'))}</strong>"])
+        parts.append(_sortable_money_table("devfund-table-" + slug + "-" + str(idx),
+                                           "devfund-search-" + slug + "-" + str(idx),
+                                           ["Project", "Location", "Cost", "Completion", "Incurred"], rows,
+                                           "Search development fund...",
+                                           ["project", "location", "cost", "completion", "incurred"]))
+    return parts
+
+
+def _render_bids_block(bids: dict, slug: str, title: str, labels: dict) -> list:
+    """Bids awarded tables by category."""
+    parts = [f"<h3 class='mt-24'>Bids Awarded ({_esc(title)})</h3>"]
+    idx = 0
+    bid_parts = []
+    for kind, label in (("civil_works", "Civil Works"), ("goods", "Goods"), ("consulting", "Consulting")):
+        items = bids.get(kind, [])
+        if items:
+            idx += 1
+            bid_parts.append(_sortable_money_table("bids-table-" + slug + "-" + str(idx),
+                                                   "bids-search-" + slug + "-" + str(idx),
+                                                   [label, "ABC", "Winning Bidder", "Bid Amount"],
+                                                   [[_esc(b.get("project") or b.get("ref", "")), _peso(b.get("abc")),
+                                                     _esc(b.get("bidder")), _peso(b.get("bid_amount"))] for b in items],
+                                                   "Search bids...",
+                                                   ["project", "abc", "bidder", "bid_amount"]))
+        else:
+            bid_parts.append(f"<p class='note-inline'>{label}: {labels['FDP_NIL']}</p>")
+    parts.append("<div class='mt-24'></div>".join(bid_parts))
+    return parts
+
+
+def _render_cash_advances_block(adv: dict, title: str, labels: dict) -> list:
+    """Unliquidated cash advances."""
+    parts = [f"<h3 class='mt-24'>Unliquidated Cash Advances ({_esc(title)})</h3>"]
+    if adv.get("status") == "nil" or not adv.get("debtors"):
+        parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
+    else:
+        parts.append(_money_table(
+            ["Debtor", "Balance", "Granted", "Purpose"],
+            [[_esc(d["debtor"]), _peso(d.get("balance")),
+              _esc(d.get("date_granted")), _esc(d.get("purpose"))] for d in adv["debtors"]]))
+    return parts
+
+
+def _render_trust_fund_block(trust: dict, title: str, labels: dict) -> list:
+    """Trust fund programs."""
+    parts = [f"<h3 class='mt-24'>Trust Fund Programs ({_esc(title)})</h3>"]
+    if trust.get("status") == "nil" or not trust.get("items"):
+        parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
+    else:
+        parts.append(_money_table(
+            ["Program", "Location", "Cost", "Completion"],
+            [[_esc(t["program"]), _esc(t["location"]), _peso(t.get("cost")),
+              _esc(t.get("completion"))] for t in trust["items"]]))
+    return parts
+
+
 def _render_period_tables(period: str, data: dict, labels: dict) -> str:
     """Full tables for one quarterly filing period (lives inside a dialog)."""
     parts = []
@@ -177,125 +320,25 @@ def _render_period_tables(period: str, data: dict, labels: dict) -> str:
     bids = next((r for r in data.get("bids", []) if r.get("period") == period), None)
 
     if sre:
-        tl_any = any(r.get("trust_liability") for r in sre["rows"])
-        headers = ["Particulars", "Target", "General Fund", "SEF", "Trust Fund"] + (["Trust Liability"] if tl_any else [])
-        data_cols = ["particulars", "target", "general_fund", "sef", "trust_fund"] + (["trust_liability"] if tl_any else [])
-        rows = []
-        for r in sre["rows"]:
-            cells = [f"<strong>{_esc(r['label'])}</strong>" if r["label"].isupper() else _esc(r["label"]),
-                     _peso(r.get("target")), _peso(r.get("general_fund")),
-                     _peso(r.get("sef")), _peso(r.get("trust_fund"))]
-            if tl_any:
-                cells.append(_peso(r.get("trust_liability")))
-            rows.append(cells)
-        parts.append(f"<h3 class='mt-24'>Statement of Receipts &amp; Expenditures ({_esc(title)})</h3>")
-        parts.append(_sortable_money_table("sre-table-" + slug, "sre-search-" + slug, headers, rows, "Search SRE...", data_cols))
-
+        parts.extend(_render_sre_table(sre, slug, title))
     soe = _find_soe(data, period)
     if soe:
-        soe_tl_any = any(r.get("trust_liability") for r in soe["rows"])
-        soe_headers = ["Particulars", "Target", "General Fund", "SEF", "Trust Fund"] + (["Trust Liability"] if soe_tl_any else [])
-        soe_cols = ["particulars", "target", "general_fund", "sef", "trust_fund"] + (["trust_liability"] if soe_tl_any else [])
-        soe_rows = []
-        for r in soe["rows"]:
-            cells = [f"<strong>{_esc(r['label'])}</strong>" if r["label"].isupper() else _esc(r["label"]),
-                     _peso(r.get("target")), _peso(r.get("general_fund")),
-                     _peso(r.get("sef")), _peso(r.get("trust_fund"))]
-            if soe_tl_any:
-                cells.append(_peso(r.get("trust_liability")))
-            soe_rows.append(cells)
-        parts.append(f"<h3 class='mt-24'>Statement of Expenditures, by function ({_esc(title)})</h3>")
-        parts.append(_sortable_money_table("soe-table-" + slug, "soe-search-" + slug, soe_headers, soe_rows, "Search SOE...", soe_cols))
-
+        parts.extend(_render_soe_table(soe, slug, title))
     if sef:
-        parts.append(f"<h3 class='mt-24'>Special Education Fund ({_esc(title)})</h3>")
-        parts.append(_metric_cards([(_peso(sef.get("receipt")), "SEF receipts"),
-                                    (_peso(sef.get("subtotal")), "Disbursed"),
-                                    (_peso(sef.get("balance")), "Balance")]))
-        if sef.get("items"):
-            parts.append(_sortable_money_table("sef-table-" + slug, "sef-search-" + slug,
-                                               ["Item", "Amount"],
-                                               [[_esc(i["label"]), _peso(i["amount"])] for i in sef["items"]],
-                                               "Search SEF items...",
-                                               ["item", "amount"]))
-
+        parts.extend(_render_sef_block(sef, slug, title, labels))
     if ldrrmf:
-        totals = ldrrmf.get("totals", {})
-        parts.append(f"<h3 class='mt-24'>Disaster Fund Utilization ({_esc(title)})</h3>")
-        parts.append(_metric_cards([(_peso(totals.get("available")), "Available"),
-                                    (_peso(totals.get("utilization")), "Utilized"),
-                                    (_peso(totals.get("unutilized")), "Unutilized")]))
-        items = [u for u in ldrrmf.get("utilization", [])
-                 if (u.get("total") or 0) != 0 or (u.get("qrf") or 0) != 0]
-        if items:
-            parts.append(_sortable_money_table("ldrrmf-table-" + slug, "ldrrmf-search-" + slug,
-                                               ["Utilization", "QRF", "Total"],
-                                               [[_esc(u["label"]), _peso(u.get("qrf")), _peso(u.get("total"))] for u in items],
-                                               "Search disaster fund...",
-                                               ["utilization", "qrf", "total"]))
-
+        parts.extend(_render_ldrrmf_block(ldrrmf, slug, title, labels))
     if dev:
-        dev_idx = [0]
-        for rec in dev:
-            if not rec.get("projects"):
-                continue
-            dev_idx[0] += 1
-            parts.append(f"<h3 class='mt-24'>20% Development Fund Projects ({_esc(title)})</h3>")
-            rows = [[_esc(p["project"]), _esc(p["location"]), _peso(p.get("cost")),
-                     _pct(p.get("pct")), _peso(p.get("incurred"))] for p in rec["projects"]]
-            totals = rec.get("totals") or {}
-            if totals.get("cost") is not None:
-                rows.append(["<strong>Total</strong>", "", f"<strong>{_peso(totals.get('cost'))}</strong>",
-                             f"<strong>{_pct(totals.get('pct'))}</strong>",
-                             f"<strong>{_peso(totals.get('incurred'))}</strong>"])
-            parts.append(_sortable_money_table("devfund-table-" + slug + "-" + str(dev_idx[0]),
-                                               "devfund-search-" + slug + "-" + str(dev_idx[0]),
-                                               ["Project", "Location", "Cost", "Completion", "Incurred"], rows,
-                                               "Search development fund...",
-                                               ["project", "location", "cost", "completion", "incurred"]))
-
+        parts.extend(_render_dev_fund_block(dev, slug, title))
     if bids:
-        parts.append(f"<h3 class='mt-24'>Bids Awarded ({_esc(title)})</h3>")
-        bid_idx = [0]
-        bid_parts = []
-        for kind, label in (("civil_works", "Civil Works"), ("goods", "Goods"), ("consulting", "Consulting")):
-            items = bids.get(kind, [])
-            if items:
-                bid_idx[0] += 1
-                bid_parts.append(_sortable_money_table("bids-table-" + slug + "-" + str(bid_idx[0]),
-                                                       "bids-search-" + slug + "-" + str(bid_idx[0]),
-                                                       [label, "ABC", "Winning Bidder", "Bid Amount"],
-                                                       [[_esc(b.get("project") or b.get("ref", "")), _peso(b.get("abc")),
-                                                         _esc(b.get("bidder")), _peso(b.get("bid_amount"))] for b in items],
-                                                       "Search bids...",
-                                                       ["project", "abc", "bidder", "bid_amount"]))
-            else:
-                bid_parts.append(f"<p class='note-inline'>{label}: {labels['FDP_NIL']}</p>")
-        parts.append("<div class='mt-24'></div>".join(bid_parts))
-
+        parts.extend(_render_bids_block(bids, slug, title, labels))
     if adv:
-        parts.append(f"<h3 class='mt-24'>Unliquidated Cash Advances ({_esc(title)})</h3>")
-        if adv.get("status") == "nil" or not adv.get("debtors"):
-            parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
-        else:
-            parts.append(_money_table(
-                ["Debtor", "Balance", "Granted", "Purpose"],
-                [[_esc(d["debtor"]), _peso(d.get("balance")),
-                  _esc(d.get("date_granted")), _esc(d.get("purpose"))] for d in adv["debtors"]]))
-
+        parts.extend(_render_cash_advances_block(adv, title, labels))
     if trust:
-        parts.append(f"<h3 class='mt-24'>Trust Fund Programs ({_esc(title)})</h3>")
-        if trust.get("status") == "nil" or not trust.get("items"):
-            parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
-        else:
-            parts.append(_money_table(
-                ["Program", "Location", "Cost", "Completion"],
-                [[_esc(t["program"]), _esc(t["location"]), _peso(t.get("cost")),
-                  _esc(t.get("completion"))] for t in trust["items"]]))
+        parts.extend(_render_trust_fund_block(trust, title, labels))
     if lgsf and (lgsf.get("status") == "nil" or not lgsf.get("items")):
         parts.append(f"<h3 class='mt-24'>Local Government Support Fund ({_esc(title)})</h3>")
         parts.append(f"<p class='note-inline'>{labels['FDP_NIL']}</p>")
-
     if cash and cash.get("key"):
         key = cash["key"]
         parts.append(f"<h3 class='mt-24'>Cash Flows ({_esc(title)})</h3>")
@@ -320,65 +363,74 @@ def _themed_dialog(slug: str, heading: str, count_line: str, body_html: str, lab
     ])
 
 
-def _render_standalone(data: dict, labels: dict) -> str:
-    # NOTE: data["budget_book"] (12 records) is intentionally not rendered. Its rows are
-    # headerless with inconsistent column widths across filings, so no stable schema.
-    parts = []
-    budgets = sorted(data.get("budget", []), key=lambda r: str(r.get("period", "")), reverse=True)
-    if budgets:
-        inner = []
-        for rec in budgets:
-            offices = rec.get("offices", [])
-            period_label = _esc(_period_label(rec["period"], labels["FDP_UNDATED"]))
-            heading = period_label
-            if len(offices) == 1:
-                heading = f"{_esc(offices[0]['office'])} &middot; {period_label}"
-            inner.append(f"<h3>Annual Budget by Office ({heading})</h3>")
-            inner.append(_money_table(
-                ["Office", "Personnel", "MOOE", "Capital Outlay", "Proposed Total"],
-                [[_esc(o["office"]), _peso(o.get("ps")), _peso(o.get("mooe")),
-                  _peso(o.get("co")), _peso(o.get("proposed"))] for o in rec["offices"]]))
-        n_off = sum(len(r["offices"]) for r in budgets)
-        parts.append(_themed_dialog("budget", "Annual Budget by Office",
-                                    f"{len(budgets)} filing(s) · {n_off} office rows",
-                                    "\n".join(inner), labels))
+def _render_standalone_budget(budgets: list, labels: dict) -> list:
+    """Annual Budget by Office section."""
+    if not budgets:
+        return []
+    inner = []
+    for rec in budgets:
+        offices = rec.get("offices", [])
+        period_label = _esc(_period_label(rec["period"], labels["FDP_UNDATED"]))
+        heading = period_label
+        if len(offices) == 1:
+            heading = f"{_esc(offices[0]['office'])} &middot; {period_label}"
+        inner.append(f"<h3>Annual Budget by Office ({heading})</h3>")
+        inner.append(_money_table(
+            ["Office", "Personnel", "MOOE", "Capital Outlay", "Proposed Total"],
+            [[_esc(o["office"]), _peso(o.get("ps")), _peso(o.get("mooe")),
+              _peso(o.get("co")), _peso(o.get("proposed"))] for o in rec["offices"]]))
+    n_off = sum(len(r["offices"]) for r in budgets)
+    return [_themed_dialog("budget", "Annual Budget by Office",
+                            f"{len(budgets)} filing(s) · {n_off} office rows",
+                            "\n".join(inner), labels)]
 
-    loans = {}
-    for loan in data.get("indebtedness", []):
+
+def _render_standalone_indebtedness(loans_data: list, labels: dict) -> list:
+    """Indebtedness section, keeping only the latest statement per loan name."""
+    loans: dict = {}
+    for loan in loans_data:
         key = loan.get("loan", "")
         if key not in loans or str(loan.get("report_date", "")) > str(loans[key].get("report_date", "")):
             loans[key] = loan
-    if loans:
-        rows = []
-        for name in sorted(loans):
-            items = loans[name].get("items", {})
-            amount = next((v for k, v in items.items() if "amount approved" in k.lower()), "")
-            purpose = next((v for k, v in items.items() if "purpose" in k.lower()), "")
-            rows.append([_esc(name), _esc(purpose), _esc(amount),
-                         _esc(loans[name].get("report_date", ""))])
-        parts.append(_themed_dialog("debt", "Indebtedness",
-                                    f"{len(loans)} loan facilities (latest statements)",
-                                    _money_table(["Loan", "Purpose", "Approved", "Reported"], rows), labels))
+    if not loans:
+        return []
+    rows = []
+    for name in sorted(loans):
+        items = loans[name].get("items", {})
+        amount = next((v for k, v in items.items() if "amount approved" in k.lower()), "")
+        purpose = next((v for k, v in items.items() if "purpose" in k.lower()), "")
+        rows.append([_esc(name), _esc(purpose), _esc(amount),
+                     _esc(loans[name].get("report_date", ""))])
+    return [_themed_dialog("debt", "Indebtedness",
+                           f"{len(loans)} loan facilities (latest statements)",
+                           _money_table(["Loan", "Purpose", "Approved", "Reported"], rows), labels)]
 
-    if data.get("manpower"):
-        inner = []
-        for mp in data.get("manpower", []):
-            inner.append("<h3>Manpower Complement ({})</h3>".format(
-                _esc(_period_label(mp.get("period", ""), labels["FDP_UNDATED"]))))
-            if mp.get("note"):
-                inner.append(f"<p class='note-inline'>{_esc(mp['note'])}</p>")
-            rows = [[_esc(i["class"]), _esc(i.get("count")), _peso(i.get("amount"))] for i in mp.get("items", [])]
-            total = mp.get("total") or {}
-            if total.get("count") is not None:
-                rows.append(["<strong>Total</strong>", f"<strong>{_esc(total.get('count'))}</strong>",
-                             f"<strong>{_peso(total.get('amount'))}</strong>"])
-            inner.append(_money_table(["Appointment", "Count", "Salaries"], rows))
-        parts.append(_themed_dialog("workforce", "Workforce history",
-                                    f"{len(data.get('manpower', []))} snapshots",
-                                    "\n".join(inner), labels))
 
+def _render_standalone_workforce(manpower: list, labels: dict) -> list:
+    """Workforce history section."""
+    if not manpower:
+        return []
+    inner = []
+    for mp in manpower:
+        inner.append("<h3>Manpower Complement ({})</h3>".format(
+            _esc(_period_label(mp.get("period", ""), labels["FDP_UNDATED"]))))
+        if mp.get("note"):
+            inner.append(f"<p class='note-inline'>{_esc(mp['note'])}</p>")
+        rows = [[_esc(i["class"]), _esc(i.get("count")), _peso(i.get("amount"))] for i in mp.get("items", [])]
+        total = mp.get("total") or {}
+        if total.get("count") is not None:
+            rows.append(["<strong>Total</strong>", f"<strong>{_esc(total.get('count'))}</strong>",
+                         f"<strong>{_peso(total.get('amount'))}</strong>"])
+        inner.append(_money_table(["Appointment", "Count", "Salaries"], rows))
+    return [_themed_dialog("workforce", "Workforce history",
+                           f"{len(manpower)} snapshots",
+                           "\n".join(inner), labels)]
+
+
+def _render_standalone_procurement(spp_data: list, app_data: list, labels: dict) -> list:
+    """Procurement Plans section (supplemental + annual APP)."""
     proc_inner = []
-    for spp in data.get("spp", []):
+    for spp in spp_data:
         with_items = [o for o in spp.get("offices", []) if o.get("items")]
         if with_items:
             proc_inner.append("<h3>Supplemental Procurement ({})</h3>".format(
@@ -395,7 +447,7 @@ def _render_standalone(data: dict, labels: dict) -> str:
                 ["Office", "Head", "Total Cost"],
                 [[_esc(s.get("office", "")), _esc(s.get("head", "")),
                   _peso(s.get("total"))] for s in spp["summary"]]))
-    for app in data.get("app", []):
+    for app in app_data:
         if app.get("form") == "app_summary":
             if app.get("summary"):
                 proc_inner.append("<h3>{} ({})</h3>".format(
@@ -415,33 +467,43 @@ def _render_standalone(data: dict, labels: dict) -> str:
             ["Item", "End User", "Mode", "Total"],
             [[_esc(i["project"]), _esc(i.get("end_user")),
               _esc(i.get("mode")), _peso(i.get("total"))] for i in app["items"]]))
-    if proc_inner:
-        n_tables = sum(1 for _ in re.finditer(r"<table", "\n".join(proc_inner)))
-        parts.append(_themed_dialog("proc-plans", "Procurement Plans",
-                                    f"{n_tables} tables (supplemental + annual plans)",
-                                    "\n".join(proc_inner), labels))
+    if not proc_inner:
+        return []
+    n_tables = sum(1 for _ in re.finditer(r"<table", "\n".join(proc_inner)))
+    return [_themed_dialog("proc-plans", "Procurement Plans",
+                            f"{n_tables} tables (supplemental + annual plans)",
+                            "\n".join(proc_inner), labels)]
 
-    if data.get("gad"):
-        gad_inner = []
-        for gad in data.get("gad", []):
-            gad_inner.append("<h3>{} ({})</h3>".format(
-                labels["FDP_GAD_TITLE"],
-                _esc(_period_label(gad.get("period", ""), labels["FDP_UNDATED"]))))
-            totals = gad.get("totals", {})
-            if totals:
-                gad_inner.append(_metric_cards([(_peso(totals.get("lgu_budget")), "Total LGU budget"),
-                                                (_peso(totals.get("gad_budget")), "GAD budget")]))
-            if gad.get("entries"):
-                gad_inner.append(_money_table(
-                    ["Issue", "Program", "Result", "Budget"],
-                    [[_esc(e["issue"]), _esc(e.get("program")),
-                      _esc(e.get("result")), _peso(e.get("budget"))] for e in gad["entries"]]))
-        parts.append(_themed_dialog("gad", "Gender and Development",
-                                    f"{len(data.get('gad', []))} report(s)",
-                                    "\n".join(gad_inner), labels))
 
+def _render_standalone_gad(gad_data: list, labels: dict) -> list:
+    """Gender and Development section."""
+    if not gad_data:
+        return []
+    gad_inner = []
+    for gad in gad_data:
+        gad_inner.append("<h3>{} ({})</h3>".format(
+            labels["FDP_GAD_TITLE"],
+            _esc(_period_label(gad.get("period", ""), labels["FDP_UNDATED"]))))
+        totals = gad.get("totals", {})
+        if totals:
+            gad_inner.append(_metric_cards([(_peso(totals.get("lgu_budget")), "Total LGU budget"),
+                                           (_peso(totals.get("gad_budget")), "GAD budget")]))
+        if gad.get("entries"):
+            gad_inner.append(_money_table(
+                ["Issue", "Program", "Result", "Budget"],
+                [[_esc(e["issue"]), _esc(e.get("program")),
+                  _esc(e.get("result")), _peso(e.get("budget"))] for e in gad["entries"]]))
+    return [_themed_dialog("gad", "Gender and Development",
+                           f"{len(gad_data)} report(s)",
+                           "\n".join(gad_inner), labels)]
+
+
+def _render_standalone_fund_matrix(fund_data: list, spa_data: list, labels: dict) -> list:
+    """Fund Matrices & Special Appropriations section."""
+    if not fund_data and not spa_data:
+        return []
     fund_inner = []
-    for fund in data.get("fund_matrix", []):
+    for fund in fund_data:
         fund_inner.append("<h3>{} ({})</h3>".format(
             _esc(fund.get("fund", "")), _esc(_period_label(fund.get("period", ""), labels["FDP_UNDATED"]))))
         fund_inner.append(_money_table(
@@ -449,17 +511,29 @@ def _render_standalone(data: dict, labels: dict) -> str:
             [[_esc(o["office"]), _peso(o.get("ps")), _peso(o.get("mooe")),
               _peso(o.get("co")), _peso(o.get("non_office")), _peso(o.get("total"))]
              for o in fund.get("offices", [])]))
-    for spa in data.get("spa", []):
+    for spa in spa_data:
         fund_inner.append("<h3>{} ({})</h3>".format(
             _esc(spa.get("fund", "")), _esc(_period_label(spa.get("period", ""), labels["FDP_UNDATED"]))))
         fund_inner.append(_money_table(
             ["Project", "Past", "Current", "Proposed"],
             [[_esc(i["project"]), _peso(i.get("past")),
               _peso(i.get("current")), _peso(i.get("proposed"))] for i in spa.get("items", [])]))
-    if fund_inner:
-        parts.append(_themed_dialog("funds", "Fund Matrices & Special Appropriations",
-                                    "General Fund, Economic Enterprise, development, non-office & calamity funds",
-                                    "\n".join(fund_inner), labels))
+    return [_themed_dialog("funds", "Fund Matrices & Special Appropriations",
+                           "General Fund, Economic Enterprise, development, non-office & calamity funds",
+                           "\n".join(fund_inner), labels)]
+
+
+def _render_standalone(data: dict, labels: dict) -> str:
+    # NOTE: data["budget_book"] (12 records) is intentionally not rendered. Its rows are
+    # headerless with inconsistent column widths across filings, so no stable schema.
+    parts = []
+    budgets = sorted(data.get("budget", []), key=lambda r: str(r.get("period", "")), reverse=True)
+    parts.extend(_render_standalone_budget(budgets, labels))
+    parts.extend(_render_standalone_indebtedness(data.get("indebtedness", []), labels))
+    parts.extend(_render_standalone_workforce(data.get("manpower", []), labels))
+    parts.extend(_render_standalone_procurement(data.get("spp", []), data.get("app", []), labels))
+    parts.extend(_render_standalone_gad(data.get("gad", []), labels))
+    parts.extend(_render_standalone_fund_matrix(data.get("fund_matrix", []), data.get("spa", []), labels))
     return "\n".join(parts)
 
 
