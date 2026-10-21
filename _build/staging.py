@@ -86,6 +86,9 @@ def page_outputs(root: Path) -> set[Path]:
 
 
 def _is_accepted_asset(rel: Path) -> bool:
+    # Social metadata uses og-image.png; keep the unused SVG source out of Pages.
+    if rel == Path("og-image.svg"):
+        return False
     if any(part.startswith(".") or part.lower() in PRIVATE_PARTS for part in rel.parts):
         return False
     scripts = {Path(source).relative_to("assets").as_posix() for source in JS_SOURCES}

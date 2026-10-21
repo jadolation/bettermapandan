@@ -120,6 +120,21 @@ def test_symlinks_fail_closed(site, rel, is_dir):
         assert target.read_text() == "untouched"
 
 
+def test_social_image_stages_raster_not_unused_svg_in_all_locales(site):
+    put(site, "assets/og-image.svg", "x" * 102401)
+    put(site, "assets/og-image.png", "social raster")
+    artifact = stage_site(site)
+    for locale in ("", "fil", "pag"):
+        assert not (artifact / locale / "assets/og-image.svg").exists()
+        assert (artifact / locale / "assets/og-image.png").read_text() == "social raster"
+        assert (artifact / locale / "assets/logo.svg").is_file()
+    assert (site / "assets/og-image.svg").is_file()
+    base = (REPO / "src/partials/base.html").read_text(encoding="utf-8")
+    assert 'property="og:image" content="https://bettermapandan.org/assets/og-image.png"' in base
+    assert 'name="twitter:image" content="https://bettermapandan.org/assets/og-image.png"' in base
+    assert "og-image.svg" not in base
+
+
 def test_restage_cleans_stale_files_without_touching_sources(site):
     artifact = stage_site(site)
     put(artifact, "src/data/gis/facilities.geojson", "stale private")
