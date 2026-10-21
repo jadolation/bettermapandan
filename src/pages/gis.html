@@ -4,6 +4,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
 ---
 
 <div id="gis-page" data-asset-base="{{ASSET_BASE}}"
+  data-listed-evacuation="{{GIS_LISTED_EVACUATION}}" data-availability-unknown="{{GIS_AVAILABILITY_UNKNOWN}}"
   data-library-error="{{GIS_LIBRARY_ERROR}}" data-tile-error="{{GIS_TILE_ERROR}}"
   data-map-error="{{GIS_MAP_ERROR}}" data-ready="{{GIS_READY}}"
   data-extent="{{GIS_EXTENT}}" data-facilities="{{GIS_FACILITIES}}" data-basemap="{{GIS_BASEMAP}}"
@@ -105,6 +106,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   window.GIS_FACILITIES = {GIS_FACILITIES_DATA};
   window.GIS_BARANGAYS = {GIS_BARANGAYS_DATA};
   window.GIS_RECORDS = {GIS_RECORDS_DATA};
+  window.GIS_RESIDENTS = {GIS_RESIDENTS_DATA};
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script defer src="{{ASSET_BASE}}assets/gis-map.min.js"></script>

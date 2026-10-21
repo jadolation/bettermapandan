@@ -60,6 +60,7 @@ function fixture(lang, scenario = "normal") {
     layer("hazard", "raster-image-overlay", { pane: "hazards", images: [{ url: "assets/gis/map.png", bounds }] }),
     layer("hostile", "geojson", { visible_by_default: true, url: "assets/private/forbidden.geojson" })];
   const values = {
+    GIS_RESIDENTS_DATA: { labels: locale.resident },
     GIS_LAYERS_DATA: { schema_version: 1, metadata: { asset_base: "/" }, layers },
     GIS_FACILITIES_DATA: fc(scenario === "empty" ? [] : Array.from({ length: 16 }, (_, i) =>
       feature(i === 0 ? malicious + "</script><script>window.__injected=1</script>" : `Facility ${i}`, { type: "Point", coordinates: i < 2 ? [120.45, 16.03] : [120.45 + i / 10000, 16.03] }, { id: `fac-${i}`, category: ["Evacuation / gym", "School", "Health / medical", "Police / fire", "Barangay hall", "Other"][i % 6] }))),
@@ -185,10 +186,10 @@ async function v3Checks(page, locale) {
   await click(page, ".gis-result");
   const detail = await page.$eval("#gis-detail-content", el => el.textContent);
   assert.match(detail, /1,234,567\.89/); assert.match(detail, /42\.5%/); assert.match(detail, /2025-01-02/);
-  assert.equal(await page.$eval("#gis-detail-content a:last-child", el => el.getAttribute("href")),
+  assert.equal(await page.$eval('#gis-detail-content a[href*="transparency/"]', el => el.getAttribute("href")),
     (await page.$eval("html", el => el.lang)) === "en" ? "/transparency/projects/?project=canonical-2" : `/${await page.$eval("html", el => el.lang)}/transparency/projects/?project=canonical-2`, "Hostile URL falls back to exact canonical ID");
   await page.keyboard.press("Escape"); await setSearch("txn 3", "dpwh-projects"); await click(page, ".gis-result");
-  assert.equal(await page.$eval("#gis-detail-content a:last-child", el => el.getAttribute("href")), "/transparency/infrastructure/#dpwh-project-txn%203");
+  assert.equal(await page.$eval('#gis-detail-content a[href*="transparency/"]', el => el.getAttribute("href")), "/transparency/infrastructure/#dpwh-project-txn%203");
   await page.keyboard.press("Escape");
   await setSearch("canonical-1", "dpwh-projects");
   const beforeNull = await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]);
@@ -401,8 +402,8 @@ async function main() {
         } else {
           assert.ok(await page.$eval(".gis-sidebar", el => el.getBoundingClientRect().height <= 620), "Mobile sidebar stays bounded");
         }
-        assert.equal(await page.evaluate(() => Number(document.getElementById("gis-facility-count").textContent) === window.GIS_FACILITIES.features.length), true, "Facility count matches emitted points");
-        assert.equal(await page.evaluate(() => document.getElementById("gis-facility-list").querySelectorAll("li").length === window.GIS_FACILITIES.features.length), true, "Static directory matches supplied facilities");
+        assert.equal(await page.evaluate(() => Number(document.getElementById("gis-facility-count").textContent) === window.GIS_FACILITIES.features.length + window.GIS_RECORDS.filter(row => ['evacuation-references', 'facility-references'].includes(row.layer_id)).length), true, "Facility count includes point and unresolved reference identities");
+        assert.equal(await page.evaluate(() => document.getElementById("gis-facility-list").querySelectorAll("li").length === Number(document.getElementById("gis-facility-count").textContent)), true, "Static directory matches supplied facilities and references");
         if (fixtures) {
           await page.select("#gis-layer-filter", "barangays");
           assert.equal(await page.$eval("#gis-results", el => el.children.length), 15);

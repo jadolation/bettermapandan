@@ -129,15 +129,22 @@ def _process_static_page(
     if rel.name in SECTION_NAV:
         body = body.replace("{SECTION_NAV}", build_section_nav(locale, rel.name, body), 1)
     if rel.name == "index.html":
+        from _build.gis_residents import contact_placeholders
+        for key, value in contact_placeholders(SRC_DATA.parent.parent).items():
+            body = body.replace('{' + key + '}', value)
         proc_data = generate_homepage_procurement_data()
         body = body.replace("{HOMEPAGE_PROCUREMENT_DATA}", proc_data, 1)
         dpwh_data = generate_homepage_dpwh_data()
         body = body.replace("{HOMEPAGE_DPWH_DATA}", dpwh_data, 1)
     if rel.name == "government.html":
+        from _build.gis_residents import contact_placeholders
+        for key, value in contact_placeholders(SRC_DATA.parent.parent).items():
+            body = body.replace('{' + key + '}', value)
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
     if rel.name == "gis.html":
         from _build.gis_sources import prepare_inputs
         projection = prepare_inputs(SRC_DATA.parent.parent, lang_code=lang_code)
+        projection['residents']['labels'] = locale.get('gis', {}).get('resident', {})
         facilities, barangays, records = projection['facilities'], projection['barangays'], projection['records']
         manifest = {key: projection[key] for key in ('schema_version', 'metadata', 'layers')}
         # GIS resources use the canonical root, not the locale's copied assets.
@@ -148,11 +155,13 @@ def _process_static_page(
         replacements = {
             "GIS_LAYERS_DATA": script_json(manifest),
             "GIS_RECORDS_DATA": script_json(records),
+            "GIS_RESIDENTS_DATA": script_json(projection['residents']),
             "GIS_BARANGAYS_DATA": script_json(barangays),
             "GIS_FACILITIES_DATA": script_json(facilities),
-            "GIS_FACILITY_DIRECTORY": directory_html(facilities, "facilities", locale),
-            "GIS_BARANGAY_DIRECTORY": directory_html(barangays, "barangays", locale),
-            "GIS_FACILITY_COUNT": str(len(facilities["features"])),
+            "GIS_FACILITY_DIRECTORY": directory_html({'features': facilities['features'] + [
+                {'properties': row} for row in records if row.get('layer_id') in ('evacuation-references', 'facility-references')]}, "facilities", locale, projection['residents']),
+            "GIS_BARANGAY_DIRECTORY": directory_html(barangays, "barangays", locale, projection['residents']),
+            "GIS_FACILITY_COUNT": str(len(facilities["features"]) + sum(row.get('layer_id') in ('evacuation-references', 'facility-references') for row in records)),
             "GIS_BARANGAY_COUNT": str(len(barangays["features"])),
         }
         body = re.sub(r"\{(GIS_[A-Z_]+)\}", lambda match: replacements.get(match[1], match[0]), body)

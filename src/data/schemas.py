@@ -313,7 +313,7 @@ SCHEMAS = {
                                 "verification_status": {
                                     "type": "string",
                                     "enum": ["unreviewed", "needs_review",
-                                             "source_verified", "field_verified",
+                                             "source_reported", "source_verified", "field_verified",
                                              "rejected"],
                                 },
                                 "location_precision": {

@@ -1,6 +1,17 @@
 {
   "lang_code": "fil",
   "gis": {
+    "listed_evacuation": "Nakalistang evacuation center",
+    "availability_unknown": "Hindi kumpirmado ang kasalukuyang availability",
+    "resident": {
+      "purpose":"Paglalarawan / layunin", "retrieved":"Kinuha ang sanggunian", "operationUnknown":"Nakasulat na Closed sa lumang tala na walang petsa; hindi kumpirmado ang kasalukuyang operasyon ng paaralan.",
+      "listedEvacuation":"Nakalistang evacuation center", "availabilityUnknown":"Hindi kumpirmado ang kasalukuyang availability. Makipag-ugnayan sa MDRRMO bago bumiyahe; hindi patunay ng pagbubukas, kaligtasan o kapasidad ang listahan.",
+      "sourceMap":"Sanggunian at impormasyon ng mapa", "placeType":"Uri ng lugar", "barangayName":"Barangay", "population":"Populasyon (2024)",
+      "officials":"Mga opisyal ng barangay (hindi tagapamahala ng pasilidad)", "captain":"Punong Barangay", "council":"Buong listahan ng mga opisyal", "barangayContact":"Tulong ng barangay", "officeContact":"Kontak ng pampublikong tanggapan", "officialPage":"Opisyal na pahina ng barangay", "directory":"Direktoryo ng barangay",
+      "schoolContactUnknown":"Walang makuhang kontak ng paaralan", "contactDate":"Pahayag ng beripikasyon sa sanggunian: Agosto 2026; walang kasalukuyang kumpirmasyon.",
+      "capacityUnknown":"Walang ibinigay na kapasidad", "dimensions":"Nakalistang sukat (walang ibinigay na yunit)", "nearbyHealth":"Nakalistang malapit na health center (lumang distansya, hindi ruta)", "nearbyHospital":"Nakalistang malapit na ospital (lumang distansya, hindi ruta)",
+      "unknownSource":"Hindi alam ang naglathala at petsa ng listahan; hindi independiyenteng napatunayang opisyal o kasalukuyan.", "mdrrmo":"Tulong ng MDRRMO (hindi telepono ng pasilidad)", "counts":"Mga listing / nasa mapa / listahan lamang / magkakaibang coordinate", "unresolved":"Hindi tiyak ang lokasyon ng gusali; listahan lamang", "placeUnknown":"Walang ibinigay na detalye ng lokasyon", "sourceId":"Tala sa sanggunian", "internalId":"ID ng tala sa mapa", "plusCode":"Plus Code"
+    },
     "category_shelter": "Evacuation / gym / silungan",
     "category_school": "Paaralan",
     "category_health": "Kalusugan / medikal",

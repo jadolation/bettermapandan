@@ -28,7 +28,7 @@ class GISRuntimeTests(unittest.TestCase):
         expected = None
         for lang in ("en", "fil", "pag"):
             locale = json.loads((ROOT / f"locales/{lang}.json").read_text(encoding="utf-8"))
-            self.assertEqual(keys, {key.upper() for key in locale["gis"]})
+            self.assertEqual(keys, {key.upper() for key, value in locale["gis"].items() if isinstance(value, str)})
             if expected is not None:
                 self.assertEqual(set(locale["gis"]), expected)
             expected = set(locale["gis"])

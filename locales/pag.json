@@ -1,6 +1,17 @@
 {
   "lang_code": "pag",
   "gis": {
+    "listed_evacuation": "Nakalista a evacuation center",
+    "availability_unknown": "Agni kumpirmado so availability natan",
+    "resident": {
+      "purpose":"Deskripsyon / gagala", "retrieved":"Inala so pinanlapuan", "operationUnknown":"Closed so walad daan a tala ya anggapoy petsa; agni kumpirmado so operasyon na eskuela natan.",
+      "listedEvacuation":"Nakalista a evacuation center", "availabilityUnknown":"Agni kumpirmado so availability natan. Kontaken so MDRRMO antis a manbiahe; ag prueba so listaan na activation, kaligtasan odino kapasidad.",
+      "sourceMap":"Pinanlapuan tan impormasyon na mapa", "placeType":"Klase na pasen", "barangayName":"Barangay", "population":"Populasyon (2024)",
+      "officials":"Saray opisyal na barangay (aliwan manmamaneho na facilidad)", "captain":"Punong Barangay", "council":"Kompleto a listaan na saray opisyal", "barangayContact":"Tulong na barangay", "officeContact":"Kontak na publiko a opisina", "officialPage":"Opisyal a pahina na barangay", "directory":"Direktoryo na barangay",
+      "schoolContactUnknown":"Anggapo ni kontak na eskuela", "contactDate":"Pahayag na beripikasyon ed pinanlapuan: Agosto 2026; anggapo ni kumpirmasyon natan.",
+      "capacityUnknown":"Anggapo so niiter a kapasidad", "dimensions":"Nakalista a sukat (anggapo so yunit)", "nearbyHealth":"Nakalista a health center (daan a distansya, aliwan ruta)", "nearbyHospital":"Nakalista a ospital (daan a distansya, aliwan ruta)",
+      "unknownSource":"Ag amta so nanipalapag tan petsa na listaan; agni napatunayan a opisyal odino bago.", "mdrrmo":"Tulong na MDRRMO (aliwan telepono na facilidad)", "counts":"Saray listing / walad mapa / listaan labat / nanduruman coordinate", "unresolved":"Agni segurado so pasen na bilding; listaan labat", "placeUnknown":"Anggapo so detalye na lokasyon", "sourceId":"Tala ed pinanlapuan", "internalId":"ID na tala ed mapa", "plusCode":"Plus Code"
+    },
     "category_shelter": "Evacuation / gym / silungan",
     "category_school": "Eskuelaan",
     "category_health": "Salun-at / medikal",

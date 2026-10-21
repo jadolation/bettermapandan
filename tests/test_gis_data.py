@@ -47,7 +47,8 @@ def test_initial_layers_are_real_inputs_not_fictional_boundaries():
 def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp_path):
     result = prepare_inputs(ROOT, tmp_path)
     assert all(layer['available'] for layer in result['layers'])
-    assert len(result['facilities']['features']) == len(load('facilities.geojson')['features'])
+    assert len(result['facilities']['features']) == len(load('facilities.geojson')['features']) - 5
+    assert not {'fac-006', 'fac-010', 'fac-012', 'fac-013', 'fac-014'} & {f['properties']['id'] for f in result['facilities']['features']}
     references = [r for r in result['records'] if r['layer_id'] == 'project-references']
     dpwh = [r for r in result['records'] if r['layer_id'] == 'dpwh-projects']
     assert len(references) == 107

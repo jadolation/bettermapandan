@@ -1,0 +1,14 @@
+{
+  "source": "/government/",
+  "source_verification_claim": "August 2026",
+  "current_confirmation": null,
+  "offices": {
+    "mdrrmo": {"name":"MDRRMO assistance","phones":["(075) 600-2564","911","0969-223-6912"],"email":"mdrrm@mapandan.gov.ph"},
+    "fire": {"name":"Bureau of Fire Protection","phones":["(075) 632-1750","911","0943-424-2810"]},
+    "police": {"name":"Philippine National Police","phones":["(075) 632-1754","911","0915-979-3390","0933-318-5445"]},
+    "rhu": {"name":"Municipal Health Office / RHU","phones":["(075) 632-1874"]},
+    "hospital": {"name":"Mapandan Community Hospital","phones":["(075) 632-0491","0916-551-2522","0908-886-2830"]}
+  },
+  "facility_offices": {"fac-001":"police","fac-002":"fire","fac-003":"rhu","fac-004":"hospital"},
+  "homepage_phone_counts": {"mdrrmo":3,"fire":3,"police":3,"rhu":1,"hospital":2}
+}

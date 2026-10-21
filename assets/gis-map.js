@@ -30,7 +30,7 @@
   function categoryColor(category, semanticRole, statusKey) {
     if (semanticRole === "dpwh_project") return Object.hasOwn(STATUS_COLORS, statusKey) ? STATUS_COLORS[statusKey] : STATUS_COLORS.unknown;
     var cat = (category || "").toLowerCase();
-    if (/evacuation|gym|shelter/.test(cat)) return "#b66b08";
+    if (cat === "listed-evacuation") return "#b66b08";
     if (/school/.test(cat)) return "#2563eb";
     if (/health|medical|hosp/.test(cat)) return "#c0392b";
     if (/police|fire/.test(cat)) return "#1e3a8a";
@@ -45,7 +45,7 @@
   function categoryIcon(category, semanticRole) {
     var cat = (category || "").toLowerCase();
     if (semanticRole === "dpwh_project") return "hard-hat";
-    if (/evacuation|gym|shelter/.test(cat)) return "home";
+    if (cat === "listed-evacuation") return "home";
     if (/school/.test(cat)) return "graduation-cap";
     if (/health|medical|hospital/.test(cat)) return "heart-pulse";
     if (/police|fire/.test(cat)) return "shield";
@@ -61,9 +61,10 @@
       (s.layer.semantic_role === "barangay_boundary" || (s.layer.semantic_role === "barangay_reference_geometry" && s.visible));
   }
   function defaultEntries(states) {
-    var projects = new Set(), barangays = new Map();
+    var projects = new Set(), barangays = new Map(), facilities = new Set();
     states.forEach(function (s) { s.features.forEach(function (f) {
-      var p = f.properties;
+       var p = f.properties;
+       if (s.layer.data_key === "GIS_FACILITIES") facilities.add(p.id);
       if (s.layer.semantic_role === "dpwh_project" && typeof p.project_id === "string" && p.project_id) projects.add(p.project_id);
       if (p.gid && spatialBarangay(s, f) && (!barangays.has(String(p.gid)) || s.layer.semantic_role === "barangay_boundary")) barangays.set(String(p.gid), f);
     }); });
@@ -80,7 +81,8 @@
       }
       // Optional coarse source geometry is not a second directory when switched off.
       if (s.layer.semantic_role === "barangay_reference_geometry" && !s.visible) return;
-      entries.push({ feature: f, state: s });
+       if (p.canonical_facility_id && facilities.has(p.canonical_facility_id)) return;
+       entries.push({ feature: f, state: s });
     }); });
     return entries;
   }
@@ -178,7 +180,8 @@
     var lang = document.documentElement.lang || "en", states = [], groups = new Map(), map = null, returnFocus;
     var selectedFeature = null, selectedItem = null, selectionRequest = 0;
     function node(id) { return document.getElementById("gis-" + id); }
-    function text(key) { return page.dataset[key] || key; }
+    var residentData = window.GIS_RESIDENTS || {}, residentLabels = residentData.labels || {};
+    function text(key) { return residentLabels[key === "categoryShelter" ? "listedEvacuation" : key] || page.dataset[key] || key; }
     function statusLabel(key) { return text("status" + (Object.hasOwn(STATUS_COLORS, key) ? key : "unknown").replace(/(^|_)([a-z])/g, function (_, gap, c) { return c.toUpperCase(); })); }
     function local(v) { return v && typeof v === "object" ? String(v[lang] || v.en || "") : String(v == null ? "" : v); }
     function el(tag, value, parent) {
@@ -186,6 +189,10 @@
     }
     function announce(key) { node("map-status").textContent = text(key); }
     node("workspace").hidden = false;
+    if (meta.evacuation_counts) {
+      var counts = meta.evacuation_counts;
+      el("p", text("counts") + ": " + [counts.listings, counts.spatial_locations, counts.unresolved_listings, counts.unique_coordinates].join(" / "), node("explore-panel"));
+    }
     function activateTab(id, focus) {
       ["explore", "layers"].forEach(function (key) {
         var active = key === id, tab = node(key + "-tab");
@@ -255,7 +262,7 @@
       return key ? text(key) : local(p.source_precision || p.location_precision || l.precision);
     }
     function name(f, s) { var p = f.properties; return local(p.name || p.title || p.project_name || p.project_id || p.id || p.gid) || s.title; }
-    function featureCategory(f) { return f.properties.facility_type || f.properties.category || (f.properties.gid ? "barangay" : ""); }
+    function featureCategory(f) { return f.properties.evacuation_id ? "listed-evacuation" : f.properties.facility_type || f.properties.category || (f.properties.gid ? "barangay" : ""); }
     function selection(feature, item) {
       function highlight(target, active) {
         if (!target) return;
@@ -291,22 +298,61 @@
       var box = node("detail-content"); box.replaceChildren(); el("h3", name(f, s), box);
       var p = f.properties, l = s.layer, provenance = p.provenance || {}, dl = el("dl", null, box);
       function field(key, value) { if (value != null && value !== "") { el("dt", text(key), dl); el("dd", local(value), dl); } }
-      field("precisionLabel", precision(p, l));
-      field("source", provenance.source || p.source || l.source_label || l.source_id); field("sourceDate", p.source_date || l.source_date);
-      field("attribution", l.attribution);
-      if (typeof l.source_url === "string") {
-        try { var sourceUrl = new URL(l.source_url);
-          if (/^https?:$/.test(sourceUrl.protocol) && !sourceUrl.username && !sourceUrl.password) {
-            var sourceLink = el("a", text("source"), box); sourceLink.href = sourceUrl.href; sourceLink.rel = "noopener";
-          }
-        } catch (error) { /* Optional source links must not break record inspection. */ }
+      var gid = p.barangay_gid || p.gid, barangay = (residentData.barangays || {})[gid];
+      field("placeType", p.facility_type || p.highway || p.waterway || p.amenity || p.class_name || l.title);
+      field("barangayName", barangay ? barangay.name : p.barangay_location);
+      field("address", p.address);
+      field("purpose", p.description);
+      field("population", p.pop2024);
+      field("scenario", l.scenario);
+      function action(label, raw, parent) {
+        if (typeof raw !== "string" || /[\x00-\x20]/.test(raw)) return;
+        try { var url = new URL(raw, location.origin);
+          if (url.username || url.password || !/^(https?:|tel:|mailto:)$/.test(url.protocol)) return;
+          if (url.protocol === "tel:" && !/^tel:\+?\d{3,15}$/.test(raw)) return;
+          if (url.protocol === "mailto:" && !/^mailto:[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}$/.test(raw)) return;
+          var link = el("a", label, el("p", null, parent || box)); link.href = url.href; link.rel = "noopener";
+        } catch (error) { /* Invalid optional contact must not break details. */ }
       }
-      field("scenario", l.scenario); field("address", p.address);
+      function officeContact(key, label) {
+        var contacts = residentData.contacts || {}, office = (contacts.offices || {})[key];
+        if (!office) return;
+        el("h4", label || office.name, box);
+        (office.phones || []).forEach(function (phone) {
+          if (typeof phone === "string" && /^[+()\d .-]{3,40}$/.test(phone)) action(phone, "tel:" + phone.replace(/[^\d+]/g, ""));
+        });
+        if (office.email) action(office.email, "mailto:" + office.email);
+        el("p", text("contactDate"), box);
+      }
+      if (p.evacuation_id) {
+        el("h4", text("listedEvacuation"), box);
+        el("p", text("availabilityUnknown"), box).className = "gis-caution";
+        officeContact("mdrrmo", text("mdrrmo"));
+        el("p", text("unknownSource"), box);
+        el("p", text("capacityUnknown"), box);
+        if (p.operational_caution) el("p", text("operationUnknown"), box).className = "gis-caution";
+        var placeDetails = dl; dl = el("dl", null, box);
+        field("dimensions", p.evacuation_dimensions); field("nearbyHealth", p.evacuation_health); field("nearbyHospital", p.evacuation_hospital);
+        dl = placeDetails;
+      }
+      if (/school/i.test(p.facility_type || "")) el("p", text("schoolContactUnknown"), box);
+      var officeKey = ((residentData.contacts || {}).facility_offices || {})[p.id];
+      if (officeKey) officeContact(officeKey);
+      if (barangay) {
+        el("h4", text("officials"), box);
+        if (barangay.punong_barangay) el("p", text("captain") + ": " + barangay.punong_barangay, box);
+        var council = el("details", null, box); el("summary", text("council"), council);
+        var officials = el("ul", null, council);
+        (barangay.officials || []).forEach(function (official) { el("li", official.name + " - " + official.role, officials); });
+        if (barangay.phone && /^[+()\d .-]{3,40}$/.test(barangay.phone)) action(text("barangayContact") + ": " + barangay.phone, "tel:" + barangay.phone.replace(/[^\d+]/g, ""));
+        if (barangay.official_page) action(text("officialPage"), barangay.official_page);
+        var prefix = lang === "en" ? "" : "/" + lang;
+        if (barangay.url === "/government/#barangay-councils") action(text("directory"), prefix + barangay.url);
+      }
       if (l.semantic_role === "barangay_reference_geometry") el("p", text("coarseGeometry"), box).className = "gis-caution";
       var formatted = {
         contract_amount: "contractAmount", approved_budget: "approvedBudget", accomplishment_percent: "accomplishment",
-        fiscal_year: "fiscalYear", contractor: "contractor", status: "projectStatus", status_key: "statusKey",
-        source_transaction_id: "transactionId", project_id: "projectId", contract_id: "contractId",
+        fiscal_year: "fiscalYear", contractor: "contractor", status: "projectStatus", status_key: "projectStatus",
         actual_start_date: "actualStartDate", actual_completion_date: "actualCompletionDate",
         contract_effectivity_date: "contractEffectivityDate", contract_expiry_date: "contractExpiryDate",
       };
@@ -321,12 +367,6 @@
         }
         if (key === "status_key") value = statusLabel(value);
         field(formatted[key], value);
-      });
-      Object.keys(p).forEach(function (key) {
-        if (Object.hasOwn(formatted, key) || ["project_url", "layer_id", "name", "title", "address", "source", "source_date", "provenance", "limitations", "quality_flags", "coordinate_method", "location_precision", "verification_status", "publication_status", "review_notes", "coordinate_history", "source_record_id"].indexOf(key) >= 0) return;
-        if (typeof p[key] === "string" || typeof p[key] === "number" || typeof p[key] === "boolean") {
-          el("dt", key.replace(/_/g, " "), dl); el("dd", String(p[key]), dl);
-        }
       });
       if (shared && shared.length > 1) {
         el("p", text("shared"), box); var ul = el("ul", null, box);
@@ -344,6 +384,22 @@
         field("confidence", p.relationship_confidence || p.confidence); field("evidence", p.relationship_evidence || p.evidence);
       }
       if (!f.geometry) el("p", text("nonspatial"), box);
+      var technical = el("details", null, box); el("summary", text("sourceMap"), technical);
+      dl = el("dl", null, technical);
+      field("precisionLabel", precision(p, l));
+      field("source", provenance.source || p.source || l.source_label);
+      field("sourceDate", p.source_date || l.source_date);
+      field("sourceId", provenance.source_record_id || p.evacuation_id);
+      field("internalId", p.id); field("plusCode", p.plus_code);
+      field("attribution", l.attribution);
+      if (provenance.retrieved) field("retrieved", provenance.retrieved);
+      action(text("source"), provenance.source_url || p.source_url || l.source_url, technical);
+      if (p.canonical_facility_id) {
+        var canonicalState = states.find(function (state) { return state.layer.data_key === "GIS_FACILITIES"; });
+        var canonicalFacility = canonicalState && canonicalState.features.find(function (feature) { return feature.properties.id === p.canonical_facility_id; });
+        if (canonicalFacility) { var canonicalButton = el("button", name(canonicalFacility, canonicalState), box); canonicalButton.type = "button";
+          canonicalButton.onclick = function () { select(canonicalFacility, canonicalState, trigger, null, false); }; }
+      }
       node("details").hidden = false; node("close").focus({ preventScroll: true });
       if (navigate && map && f.geometry && l.semantic_role !== "label_anchor") {
         if (f.geometry.type === "Point") map.panTo([f.geometry.coordinates[1], f.geometry.coordinates[0]]);
@@ -384,9 +440,10 @@
       }) : defaultEntries(states);
       entries.forEach(function (entry) {
           var f = entry.feature, s = entry.state;
-          var p = f.properties, haystack = [name(f, s), p.id, p.gid, p.psgc, p.source_name, p.project_id, p.source_transaction_id,
+           var p = f.properties, haystack = [name(f, s), p.id, p.gid, p.psgc, p.source_name, p.project_id, p.source_transaction_id,
             p.contract_id, p.contractor, p.contractors, p.status, p.raw_status, p.status_key, p.status_key ? statusLabel(p.status_key) : "", p.fiscal_year,
-            p.category, p.address, p.barangay, p.barangay_location, s.title].join(" ").toLocaleLowerCase();
+             p.category, p.address, p.barangay, p.barangay_location, s.title].join(" ").toLocaleLowerCase();
+           if (p.canonical_facility_id && states.some(function (state) { return state.layer.data_key === "GIS_FACILITIES" && state.features.some(function (facility) { return facility.properties.id === p.canonical_facility_id; }); })) return;
           if (q && haystack.indexOf(q) < 0) return;
           count++; var b = el("button", null, el("li", null, list)); b.type = "button"; b.className = "gis-result";
           b.setAttribute("aria-controls", "gis-details"); b.gisFeature = f;

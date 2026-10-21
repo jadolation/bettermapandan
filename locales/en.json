@@ -1,6 +1,17 @@
 {
   "lang_code": "en",
   "gis": {
+    "listed_evacuation": "Listed evacuation center",
+    "availability_unknown": "Current availability not confirmed",
+    "resident": {
+      "purpose":"Description / purpose", "retrieved":"Source retrieved", "operationUnknown":"Older undated notes say Closed; current school operation is not confirmed.",
+      "listedEvacuation":"Listed evacuation center", "availabilityUnknown":"Current availability not confirmed. Contact MDRRMO before travelling; a listing does not confirm activation, safety or capacity.",
+      "sourceMap":"Source and map information", "placeType":"Place type", "barangayName":"Barangay", "population":"Population (2024)",
+      "officials":"Barangay officials (not facility managers)", "captain":"Punong Barangay", "council":"Full barangay officials list", "barangayContact":"Barangay assistance", "officeContact":"Public office contact", "officialPage":"Official barangay page", "directory":"Barangay directory",
+      "schoolContactUnknown":"School contact not available", "contactDate":"Contact source verification claim: August 2026; current confirmation unavailable.",
+      "capacityUnknown":"Capacity not provided", "dimensions":"Source-listed dimensions (units not supplied)", "nearbyHealth":"Source-listed nearby health center (historical distance, not routing)", "nearbyHospital":"Source-listed nearby hospital (historical distance, not routing)",
+      "unknownSource":"Evacuation listing publisher and date unknown; not independently established as official or current.", "mdrrmo":"MDRRMO assistance (not a facility phone)", "counts":"Evacuation listings / mapped / list only / distinct coordinates", "unresolved":"Building position unresolved; list only", "placeUnknown":"Location details not provided", "sourceId":"Source record", "internalId":"Map record ID", "plusCode":"Plus Code"
+    },
     "category_shelter": "Evacuation / gym / shelter",
     "category_school": "School",
     "category_health": "Health / medical",

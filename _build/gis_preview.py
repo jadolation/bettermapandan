@@ -15,7 +15,7 @@ FIELDS = ("id", "name", "category", "facility_type", "address", "barangay_gid",
           "source_transaction_id", "project_id", "status_key", "raw_status", "status", "contractor",
           "start_date", "completion_date", "contract_effectivity_date", "expiry_date", "semantic_role", "layer_id",
           "contract_id", "barangay_location", "executing_agency", "source_of_funds", "contract_expiry_date",
-          "actual_start_date", "actual_completion_date")
+          "actual_start_date", "actual_completion_date", "canonical_facility_id")
 
 
 def safe_text(value):

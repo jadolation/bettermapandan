@@ -25,6 +25,9 @@ def _stage_tree(tmp_path: Path) -> Path:
     staged = tmp_path / "site"
     for dirname in ("src", "locales"):
         shutil.copytree(REPO / dirname, staged / dirname)
+    # Required nonspatial evacuation reference is a configured GIS dependency.
+    (staged / 'datasets/GIS').mkdir(parents=True)
+    shutil.copyfile(REPO / 'datasets/GIS/evacuation.json', staged / 'datasets/GIS/evacuation.json')
     css_dir = staged / "assets" / "css"
     css_dir.mkdir(parents=True)
     shutil.copy(REPO / "assets" / "style.css", staged / "assets" / "style.css")

@@ -63,7 +63,7 @@ def barangay_collection(data):
     return feature_collection(data, nonspatial=True, label='barangays')
 
 
-def directory_html(data, kind, locale=None):
+def directory_html(data, kind, locale=None, residents=None):
     """Return an escaped semantic directory from the same data sent to the map."""
     rows = []
     for feature in data.get('features', []):
@@ -79,5 +79,25 @@ def directory_html(data, kind, locale=None):
         else:
             population = t(locale, 'about.population', 'Population') if locale is not None else 'Population'
             detail = f"PSGC: {props.get('gid', '')} / {population}: {props.get('pop2024', '?')} (2024 POPCEN)"
-        rows.append(f'<li><strong>{escape(str(props["name"]))}</strong> <span>{escape(str(detail))}</span></li>')
+        if props.get('evacuation_id'):
+            detail = (t(locale, 'gis.listed_evacuation', 'Listed evacuation center') if locale else 'Listed evacuation center') + '. ' + (t(locale, 'gis.availability_unknown', 'Current availability not confirmed') if locale else 'Current availability not confirmed')
+            detail += '. ' + ('Approximate mapped location' if feature.get('geometry') else 'Location unresolved; list only')
+            detail += '. Source publisher/date unknown; capacity not provided.'
+            if props.get('operational_caution'):
+                detail += ' ' + (locale or {}).get('gis', {}).get('resident', {}).get('operationUnknown', 'Older undated notes say Closed; current school operation is not confirmed.')
+        elif props.get('location_precision') == 'unresolved':
+            detail = (locale or {}).get('gis', {}).get('resident', {}).get('unresolved', 'Building position unresolved; list only')
+        extra = ''
+        if residents:
+            from _build.gis_residents import phone_link
+            barangay = residents['barangays'].get(props.get('barangay_gid') or props.get('gid'))
+            if barangay:
+                extra += '<p>' + escape(barangay['name'] + ' / Punong Barangay: ' + barangay.get('punong_barangay', 'Not provided')) + '</p>'
+                if phone_link(barangay.get('phone')):
+                    label = (locale or {}).get('gis', {}).get('resident', {}).get('barangayContact', 'Barangay assistance')
+                    extra += f'<p>{escape(label)}: <a href="{escape(phone_link(barangay["phone"]), quote=True)}">{escape(barangay["phone"])}</a></p>'
+            if props.get('evacuation_id'):
+                phone = residents['contacts']['offices']['mdrrmo']['phones'][0]
+                extra += f'<p>MDRRMO: <a href="{escape(phone_link(phone), quote=True)}">{escape(phone)}</a></p>'
+        rows.append(f'<li><strong>{escape(str(props["name"]))}</strong> <span>{escape(str(detail))}</span>{extra}</li>')
     return '<ul class="gis-directory">' + ''.join(rows) + '</ul>'

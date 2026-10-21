@@ -11,7 +11,8 @@ const collection = features => ({ type: "FeatureCollection", features });
 
 test("static category glyphs produce path nodes, not SVG path text or injected data", () => {
   const expected = [
-    ["Evacuation centers / gymnasiums", "home"], ["School", "graduation-cap"],
+    ["listed-evacuation", "home"], ["School", "graduation-cap"],
+    ["Gymnasium", "map-pin"],
     ["Health / medical", "heart-pulse"], ["Police / fire", "shield"],
     ["Barangay hall", "landmark"], ["Other", "map-pin"],
   ];

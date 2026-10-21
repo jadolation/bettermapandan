@@ -1,6 +1,0 @@
-/.quarto/
-/_site/
-/.luarc.json
-/\.jupyter_cache.*
-
-**/*.quarto_ipynb

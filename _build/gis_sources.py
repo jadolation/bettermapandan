@@ -155,7 +155,8 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
     config = layer_configuration(root)
     result = {"schema_version": 1, "metadata": config.get('metadata', {}).copy(),
               "layers": [], "facilities": {"type": "FeatureCollection", "features": []},
-              "barangays": {"type": "FeatureCollection", "features": []}, "records": []}
+              "barangays": {"type": "FeatureCollection", "features": []}, "records": [],
+              "residents": {"barangays": {}, "contacts": {"offices": {}}}}
     asset_dir = workspace / "assets/gis"
     if asset_dir.is_symlink() or (workspace / 'assets').is_symlink():
         raise ValueError("Symlink in generated GIS asset directory")
@@ -230,11 +231,39 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
                 reason = 'Input file is missing'
             layer['unavailable_reason'] = reason
             LOG.warning('GIS layer %s (%s): unavailable: %s', identifier, relative, reason)
+    if any('src/data/gis/evacuation-crosswalk.json' in layer.get('dependencies', []) for layer in config['layers'] if layer['enabled']):
+        _resident_projection(root, result, asset_dir, emit)
     manifest = asset_dir / 'manifest.json'
     if manifest.is_symlink():
         raise ValueError('Symlink in generated GIS asset manifest')
     manifest.write_text(script_json({'schema_version': 1, 'files': sorted(outputs)}), encoding='utf-8')
     return result
+
+
+def _resident_projection(root, result, asset_dir, emit):
+    from _build.gis_residents import reconcile, residents
+    crosswalk = reconcile(root, result['facilities'], result['records'])
+    result['residents'] = residents(root)
+    linked = {osm: row['facility_id'] for row in crosswalk['listings'] if row['facility_id'] for osm in row['osm_ids']}
+    # Retain linked footprints, but suppress duplicate directory entries by explicit ID.
+    for layer in result['layers']:
+        if layer['id'] != 'places' or not layer.get('available'):
+            continue
+        path = asset_dir / 'places.geojson'
+        places = parse_json(path.read_text(encoding='utf-8'))
+        places['features'] = [f for f in places['features'] if f['properties']['id'] not in crosswalk['excluded_osm_ids']]
+        for feature in places['features']:
+            canonical = linked.get(feature['properties']['id'])
+            if canonical:
+                feature['properties']['canonical_facility_id'] = canonical
+        emit('places.geojson', script_json(places).encode('utf-8'))
+    for identifier, title in [('evacuation-references', {'en':'Listed evacuation centers (list only)', 'fil':'Nakalistang evacuation center (listahan lamang)', 'pag':'Nakalista a evacuation center (listaan labat)'}),
+                              ('facility-references', {'en':'Facilities with unresolved locations', 'fil':'Mga pasilidad na hindi tiyak ang lokasyon', 'pag':'Facilidad a agni segurado so lokasyon'})]:
+        result['layers'].append({'id': identifier, 'title': title, 'enabled': True, 'visible_by_default': True,
+                                 'available': True, 'type': 'reference', 'data_key': 'GIS_RECORDS', 'semantic_role': 'facility'})
+    spatial = [f for f in result['facilities']['features'] if f['properties'].get('evacuation_id')]
+    result['metadata']['evacuation_counts'] = {'listings': 12, 'spatial_locations': len(spatial),
+        'unresolved_listings': 12 - len(spatial), 'unique_coordinates': len({tuple(f['geometry']['coordinates']) for f in spatial})}
 
 
 def gis_asset_outputs(root):

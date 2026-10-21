@@ -12,6 +12,7 @@
       "title": {"en": "Public Facilities", "fil": "Mga Pampublikong Pasilidad", "pag": "Publiko a Facilidad"},
       "type": "geojson",
       "source": "src/data/gis/facilities.geojson",
+      "dependencies": ["src/data/gis/evacuation-crosswalk.json", "datasets/GIS/evacuation.json", "src/data/barangays.json", "src/data/public-contacts.json"],
       "source_label": "OpenStreetMap / Google Maps Plus Codes (via datasets/GIS/evac.geojson)",
       "enabled": true,
       "visible_by_default": true,

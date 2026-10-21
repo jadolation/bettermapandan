@@ -2,18 +2,27 @@
   "type": "FeatureCollection",
   "metadata": {
     "source": "OpenStreetMap / Google Maps Plus Codes via evac.geojson",
-    "note": "16 facilities. §3.5 Plus Code-derived coordinates (recovered via open_location_code recoverNearest relative to the Mapandan reference point 16.030000, 120.455000) are the reference for all facilities with a §3.5 entry. All 16 facilities carry verification_status: source_verified. Coordinates are approximate Plus Code cell centres, not surveyed points. Old coordinate candidates are preserved in coordinate_history per AGENTS.md §4.4. See gis/review/facilities-review.json for the documented review decisions (19 October 2026).",
+    "note": "24 source identities. Eight elementary-school points use approximate named OSM footprint centroids (2026-10-18 extract). Earlier source_verified assertions are historical, not independent building verification. Publication crosswalk excludes Town Center and retains unresolved hall/combined-school identities as list-only references. Raw coordinates and coordinate_history are preserved, not endorsed as correct. See evacuation-crosswalk.json and review/facilities-review.json.",
     "coordinate_bounds": {
       "south": 15.98,
       "west": 120.41,
       "north": 16.05,
       "east": 120.52
     },
-    "total_features": 16,
-    "source_verified": 16,
-    "needs_review": 0
+    "total_features": 24,
+    "source_verified": 13,
+    "source_reported": 8,
+    "needs_review": 3
   },
   "features": [
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4534512,16.0278798]},"properties":{"id":"fac-017","name":"Mapandan Central School","facility_type":"School","barangay_gid":"0105528014","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","provenance":{"source":"Named OSM school footprint","source_record_id":"way/156769370","source_url":"https://www.openstreetmap.org/way/156769370","retrieved":"2026-10-18"}}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4681909,16.0288739]},"properties":{"id":"fac-018","name":"Santa Maria Elementary School","facility_type":"School","barangay_gid":"0105528016","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","limitations":["Older undated notes describe this school as Closed. Current operation and availability are not confirmed."],"provenance":{"source":"Named OSM school footprint","source_record_id":"way/813678723","source_url":"https://www.openstreetmap.org/way/813678723","retrieved":"2026-10-18"}}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4571324,16.0376022]},"properties":{"id":"fac-019","name":"Baloling Elementary School","facility_type":"School","barangay_gid":"0105528004","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","provenance":{"source":"Named OSM school footprint","source_record_id":"relation/12322605","source_url":"https://www.openstreetmap.org/relation/12322605","retrieved":"2026-10-18"}}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4364005,16.0281317]},"properties":{"id":"fac-020","name":"Nilombot Elementary School","facility_type":"School","barangay_gid":"0105528012","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","provenance":{"source":"Named OSM school footprint","source_record_id":"way/790262129","source_url":"https://www.openstreetmap.org/way/790262129","retrieved":"2026-10-18"}}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4688811,16.0152130]},"properties":{"id":"fac-021","name":"Torres Elementary School","facility_type":"School","barangay_gid":"0105528018","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","provenance":{"source":"Named OSM school footprint","source_record_id":"relation/12322608","source_url":"https://www.openstreetmap.org/relation/12322608","retrieved":"2026-10-18"}}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4422409,16.0228158]},"properties":{"id":"fac-022","name":"Golden Elementary School","facility_type":"School","barangay_gid":"0105528007","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","limitations":["Older undated notes describe this school as Closed. Current operation and availability are not confirmed."],"provenance":{"source":"Named OSM school footprint","source_record_id":"way/813387336","source_url":"https://www.openstreetmap.org/way/813387336","retrieved":"2026-10-18"}}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4650555,16.0098007]},"properties":{"id":"fac-023","name":"Jimenez Elementary School","facility_type":"School","barangay_gid":"0105528008","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","provenance":{"source":"Named OSM school footprint","source_record_id":"way/820946718","source_url":"https://www.openstreetmap.org/way/820946718","retrieved":"2026-10-18"}}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[120.4704671,16.0000870]},"properties":{"id":"fac-024","name":"Lambayan Elementary School","facility_type":"School","barangay_gid":"0105528009","coordinate_method":"polygon_centroid","location_precision":"approximate","verification_status":"source_reported","provenance":{"source":"Named OSM school footprint","source_record_id":"way/822288525","source_url":"https://www.openstreetmap.org/way/822288525","retrieved":"2026-10-18"}}},
     {
       "type": "Feature",
       "geometry": {
@@ -452,7 +461,8 @@
         "address": null,
         "barangay_gid": "0105528001",
         "plus_code": "2C8W+R4M",
-        "verification_status": "source_verified",
+        "verification_status": "needs_review",
+        "coordinate_history": [{"coordinates":[120.4496,16.0223],"note":"Historical candidate retained; no independent hall building evidence. Not published as a point."}],
         "location_precision": "approximate",
         "review_notes": null,
         "provenance": {
@@ -480,7 +490,8 @@
         "address": null,
         "barangay_gid": "0105528004",
         "plus_code": "29GR+W2X",
-        "verification_status": "source_verified",
+        "verification_status": "needs_review",
+        "coordinate_history": [{"coordinates":[120.4531,15.9985],"note":"Older hall candidate."},{"coordinates":[120.4571406,16.0372375],"note":"Unsupported move to elementary-school Plus Code candidate; withdrawn from point publication."}],
         "location_precision": "approximate",
         "review_notes": null,
         "provenance": {
@@ -508,7 +519,8 @@
         "address": null,
         "barangay_gid": "0105528012",
         "plus_code": "2CHP+MWV",
-        "verification_status": "source_verified",
+        "verification_status": "needs_review",
+        "coordinate_history": [{"coordinates":[120.4725,16.0238],"note":"Older hall candidate."},{"coordinates":[120.4364,16.0281],"note":"Unsupported move to elementary-school candidate; withdrawn from point publication."}],
         "location_precision": "approximate",
         "review_notes": null,
         "provenance": {
