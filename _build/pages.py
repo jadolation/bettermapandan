@@ -158,10 +158,8 @@ def _process_static_page(
             "GIS_RESIDENTS_DATA": script_json(projection['residents']),
             "GIS_BARANGAYS_DATA": script_json(barangays),
             "GIS_FACILITIES_DATA": script_json(facilities),
-            "GIS_FACILITY_DIRECTORY": directory_html({'features': facilities['features'] + [
-                {'properties': row} for row in records if row.get('layer_id') in ('evacuation-references', 'facility-references')]}, "facilities", locale, projection['residents']),
-            "GIS_BARANGAY_DIRECTORY": directory_html(barangays, "barangays", locale, projection['residents']),
-            "GIS_FACILITY_COUNT": str(len(facilities["features"]) + sum(row.get('layer_id') in ('evacuation-references', 'facility-references') for row in records)),
+            "GIS_FACILITY_DIRECTORY": directory_html({'features': facilities['features']}, "facilities", locale, projection['residents']),
+            "GIS_FACILITY_COUNT": str(len(facilities["features"])),
             "GIS_BARANGAY_COUNT": str(len(barangays["features"])),
         }
         body = re.sub(r"\{(GIS_[A-Z_]+)\}", lambda match: replacements.get(match[1], match[0]), body)

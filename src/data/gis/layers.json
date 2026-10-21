@@ -26,7 +26,7 @@
     },
     {
       "id": "barangay-labels",
-      "title": {"en": "Barangay Reference", "fil": "Sangguniang Barangay", "pag": "Barangay Reference"},
+      "title": {"en": "Barangay List", "fil": "Sangguniang Barangay", "pag": "Sangguniang Barangay"},
       "type": "geojson",
       "source": "src/data/gis/barangays.geojson",
       "source_label": "Philippine Statistics Authority (PSA) - PSGC 2Q 2026 & Census of Population 2024",
@@ -36,7 +36,7 @@
       "attribution": "Philippine Statistics Authority",
       "source_date": "2026-10-18",
       "semantic_role": "nonspatial_barangay_reference",
-      "group": {"en": "Administrative References", "fil": "Mga Sangguniang Administratibo", "pag": "Administratibo a Reference"},
+      "group": {"en": "Administrative", "fil": "Administratibo", "pag": "Administratibo"},
       "pane": "administrative",
       "precision": "nonspatial",
       "limitations": ["Nonspatial references only; no barangay positions or boundaries inferred."]
@@ -50,7 +50,7 @@
       "source_label": "BgySubMuns.shp geographic ADM4 source; exact canonical PSA PSGC identity join",
       "attribution": "Local BgySubMuns shapefile source; PSA canonical names and populations",
       "enabled": true,
-      "visible_by_default": false,
+      "visible_by_default": true,
       "semantic_role": "barangay_boundary",
       "group": {"en": "Administrative", "fil": "Administratibo", "pag": "Administratibo"},
       "pane": "administrative",

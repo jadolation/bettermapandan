@@ -263,10 +263,6 @@ def _resident_projection(root, result, asset_dir, emit):
             if canonical:
                 feature['properties']['canonical_facility_id'] = canonical
         emit('places.geojson', script_json(places).encode('utf-8'))
-    for identifier, title in [('evacuation-references', {'en':'Listed evacuation centers (list only)', 'fil':'Nakalistang evacuation center (listahan lamang)', 'pag':'Nakalista a evacuation center (listaan labat)'}),
-                              ('facility-references', {'en':'Facilities with unresolved locations', 'fil':'Mga pasilidad na hindi tiyak ang lokasyon', 'pag':'Facilidad a agni segurado so lokasyon'})]:
-        result['layers'].append({'id': identifier, 'title': title, 'enabled': True, 'visible_by_default': True,
-                                 'available': True, 'type': 'reference', 'data_key': 'GIS_RECORDS', 'semantic_role': 'facility'})
     spatial = [f for f in result['facilities']['features'] if f['properties'].get('evacuation_id')]
     result['metadata']['evacuation_counts'] = {'listings': 12, 'spatial_locations': len(spatial),
         'unresolved_listings': 12 - len(spatial), 'unique_coordinates': len({tuple(f['geometry']['coordinates']) for f in spatial})}

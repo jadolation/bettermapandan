@@ -631,9 +631,9 @@
                if (node("facility-empty")) node("facility-empty").hidden = s.features.length !== 0;
             }
           }
-          s.loaded = true;
-          s.message.textContent = text(s.features.length || l.type === "raster-image-overlay" ? "loaded" : "emptyLayer");
-          if (s.overlay && map) { if (s.visible) s.overlay.addTo(map); else map.removeLayer(s.overlay); }
+           s.loaded = true;
+           if (s.message) s.message.textContent = "";
+           if (s.overlay && map) { if (s.visible) s.overlay.addTo(map); else map.removeLayer(s.overlay); }
         } catch (error) {
           if (s.overlay && map) map.removeLayer(s.overlay);
           var restore = s.visible && s.previous && s.previous.loaded ? s.previous : null;
@@ -673,8 +673,6 @@
         overlay: null, toggle: toggle, message: message, images: [], opacity: opacity(l.opacity),
         pane: "gis-" + pane + (l.type === "raster-image-overlay" ? "-raster" : "") }; states.push(s);
       if (l.semantic_role === "barangay_reference_geometry") el("p", text("coarseGeometry"), row).className = "gis-caution";
-      var inspect = el("button", text("details"), row); inspect.type = "button";
-      inspect.onclick = function () { select({ properties: { name: title }, geometry: null }, s, inspect, null, false); };
       if (l.type === "reference" && !l.data_key) {
         message.textContent = text("nonspatial");
         (l.limitations || []).forEach(function (note) { el("p", local(note), row).className = "gis-panel-note"; });
@@ -689,7 +687,6 @@
       if (!canLoad) return;
       var option = el("option", title, node("layer-filter")); option.value = l.id;
       if (l.type === "reference") {
-        el("p", text("referenceOnly"), row).className = "gis-panel-note";
         var directory = el("button", text("listRecords"), row); directory.type = "button";
         directory.onclick = function () { node("layer-filter").value = l.id; node("search").value = ""; updateList(); activateTab("explore", false); node("layer-filter").focus(); };
       }

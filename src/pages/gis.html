@@ -23,10 +23,10 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   data-scenario="{{GIS_SCENARIO}}" data-address="{{GIS_ADDRESS}}" data-limitations="{{GIS_LIMITATIONS}}"
   data-project-link="{{GIS_PROJECT_LINK}}" data-confidence="{{GIS_CONFIDENCE}}" data-evidence="{{GIS_EVIDENCE}}"
   data-nonspatial="{{GIS_NONSPATIAL}}" data-results="{{GIS_RESULTS}}" data-no-geometry="{{GIS_NO_GEOMETRY}}"
-  data-loading="{{GIS_LOADING}}" data-loaded="{{GIS_LOADED}}" data-empty-layer="{{GIS_EMPTY_LAYER}}"
+  data-loading="{{GIS_LOADING}}" data-empty-layer="{{GIS_EMPTY_LAYER}}"
   data-layer-error="{{GIS_LAYER_ERROR}}" data-not-loaded="{{GIS_NOT_LOADED}}"
-  data-unavailable-layer="{{GIS_UNAVAILABLE_LAYER}}" data-details="{{GIS_DETAILS}}"
-  data-opacity="{{GIS_OPACITY}}" data-reference-only="{{GIS_REFERENCE_ONLY}}" data-list-records="{{GIS_LIST_RECORDS}}"
+  data-unavailable-layer="{{GIS_UNAVAILABLE_LAYER}}"
+  data-opacity="{{GIS_OPACITY}}" data-list-records="{{GIS_LIST_RECORDS}}"
   data-locate="{{GIS_LOCATE}}" data-coarse-geometry="{{GIS_COARSE_GEOMETRY}}"
   data-contract-amount="{{GIS_CONTRACT_AMOUNT}}" data-approved-budget="{{GIS_APPROVED_BUDGET}}"
   data-accomplishment="{{GIS_ACCOMPLISHMENT}}" data-fiscal-year="{{GIS_FISCAL_YEAR}}" data-contractor="{{GIS_CONTRACTOR}}"
@@ -36,11 +36,6 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   data-contract-effectivity-date="{{GIS_CONTRACT_EFFECTIVITY_DATE}}" data-contract-expiry-date="{{GIS_CONTRACT_EXPIRY_DATE}}"
   data-status-completed="{{GIS_STATUS_COMPLETED}}" data-status-ongoing="{{GIS_STATUS_ONGOING}}"
   data-status-not-started="{{GIS_STATUS_NOT_STARTED}}" data-status-unknown="{{GIS_STATUS_UNKNOWN}}">
-  <header class="gis-heading">
-    <p class="gis-eyebrow">{{GIS_PLACE}}</p>
-    <h1>{{GIS_TITLE}}</h1>
-    <p>{{GIS_INTRO}}</p>
-  </header>
   <div id="gis-workspace" class="gis-workspace" hidden>
     <aside class="gis-sidebar" aria-label="{{GIS_EXPLORER}}">
       <h2 class="gis-sidebar-title">{{GIS_EXPLORER}}</h2>
@@ -68,40 +63,19 @@ description: Explore Mapandan geographic and nonspatial references with source, 
       <div class="gis-toolbar" role="group" aria-label="{{GIS_MAP_CONTROLS}}">
       <button id="gis-fit" type="button">{{GIS_FIT}}</button>
       <button id="gis-reset" type="button">{{GIS_RESET}}</button>
-      <a href="#gis-barangay-title">{{GIS_DIRECTORY_LINK}}</a>
       </div>
       <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
       <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" hidden></section>
     </div>
-    <section id="gis-details" class="gis-details" role="region" aria-label="{{GIS_DETAILS}}" hidden>
+    <section id="gis-details" class="gis-details" role="region" hidden>
       <button id="gis-close" type="button">{{GIS_CLOSE}}</button>
       <div id="gis-detail-content"></div>
     </section>
   </div>
   <p id="gis-map-help" class="source-label">{{GIS_MAP_HELP}}</p>
   <p id="gis-map-status" role="status" class="source-label"></p>
-  <p id="gis-map-fallback" class="source-label">{{GIS_FALLBACK}} <a href="https://www.openstreetmap.org/#map=14/16.03/120.455">{{GIS_OPEN_OSM}}</a></p>
-  <section id="gis-flood-reference" class="gis-panel" aria-labelledby="gis-flood-title">
-    <h2 id="gis-flood-title" class="gis-panel-title"><a href="https://mapandan.gov.ph/disaster-awareness/" rel="noopener">{{GIS_FLOOD_REFERENCE}}</a></h2>
-    <p class="source-label">{{GIS_FLOOD_INFO}}</p>
-    <ul class="source-label"><li><span class="gis-legend-swatch gis-flood-high" aria-hidden="true"></span> {{GIS_FLOOD_HIGH}}</li><li><span class="gis-legend-swatch gis-flood-medium" aria-hidden="true"></span> {{GIS_FLOOD_MEDIUM}}</li></ul>
-  </section>
-  <div class="gis-layout">
-    <details class="gis-panel" aria-labelledby="gis-barangay-title">
-      <summary id="gis-barangay-title" class="gis-panel-title">{{GIS_BARANGAYS}} ({GIS_BARANGAY_COUNT})</summary>
-      <p class="source-label">{{GIS_BARANGAY_TOTAL}}: {GIS_BARANGAY_COUNT}. {{GIS_BARANGAY_NOTE}}</p>
-      <div id="gis-barangay-list">{GIS_BARANGAY_DIRECTORY}</div>
-    </details>
-    <details class="gis-panel" aria-labelledby="gis-facility-title">
-      <summary id="gis-facility-title" class="gis-panel-title">{{GIS_FACILITIES}} ({GIS_FACILITY_COUNT})</summary>
-      <p class="source-label">{{GIS_FACILITY_TOTAL}}: <span id="gis-facility-count">{GIS_FACILITY_COUNT}</span>.</p>
-      <p class="source-label">{{GIS_MARKER_TOTAL}}: <span id="gis-marker-count">{{GIS_MAP_PENDING}}</span>.</p>
-      <div id="gis-facility-list">{GIS_FACILITY_DIRECTORY}</div>
-      <p id="gis-facility-empty" class="source-label">{{GIS_EMPTY}}</p>
-    </details>
-  </div>
-  <p class="source-label"><a href="{{ASSET_BASE}}transparency/projects/">{{GIS_PROJECT_LINK}}</a></p>
-  <div class="gis-disclaimer">
+   <p id="gis-map-fallback" class="source-label">{{GIS_FALLBACK}} <a href="https://www.openstreetmap.org/#map=14/16.03/120.455">{{GIS_OPEN_OSM}}</a></p>
+   <div class="gis-disclaimer">
     <p>{{GIS_UNAVAILABLE}}</p><p>{{GIS_PRECISION}}</p><p>{{GIS_SAFETY}}</p>
   </div>
 </div>
