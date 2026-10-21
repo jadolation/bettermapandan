@@ -57,8 +57,8 @@ def layer_configuration(root):
         if not isinstance(identifier, str) or not re.fullmatch(r'[a-z][a-z0-9-]{0,79}', identifier) or identifier in seen:
             raise ValueError(f"Invalid or duplicate GIS layer ID: {identifier!r}")
         seen.add(identifier)
-        if layer.get('type') not in {'geojson', 'records', 'kmz', 'dpwh'}:
-            raise ValueError(f"GIS layer {identifier}: type must be geojson, records, kmz, or dpwh")
+        if layer.get('type') not in {'geojson', 'records', 'kmz', 'dpwh', 'source-reference'}:
+            raise ValueError(f"GIS layer {identifier}: unsupported input type")
         if type(layer.get('enabled')) is not bool or type(layer.get('visible_by_default')) is not bool:
             raise ValueError(f"GIS layer {identifier}: enabled and visible_by_default must be booleans")
         if not isinstance(layer.get('title'), dict) or not isinstance(layer['title'].get('en'), str):
@@ -78,6 +78,8 @@ def layer_configuration(root):
             raise ValueError('GIS exclusive_group must be a nonempty string')
         if 'source_url' in layer and not safe_url(layer['source_url']):
             raise ValueError(f"GIS layer {identifier}: source_url must be HTTP(S)")
+        if layer['type'] == 'source-reference' and (not layer.get('source_url') or layer['visible_by_default']):
+            raise ValueError('GIS source reference requires source_url and must be off by default')
     return data
 
 
@@ -181,6 +183,10 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
         result['layers'].append(layer)
         if not configured['enabled']:
             layer['unavailable_reason'] = 'Disabled in layers.json'
+            continue
+        if kind == 'source-reference':
+            # A citation is not permission to read, copy, or publish its local artwork.
+            layer.update(type='reference', available=True)
             continue
         relative = configured['source']
         try:

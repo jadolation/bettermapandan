@@ -130,7 +130,7 @@
       "group": {"en": "Physical Characteristics", "fil": "Mga Pisikal na Katangian", "pag": "Pisikal a Katangian"},
       "pane": "physical",
       "opacity": 0.6,
-      "exclusive_group": "physical-characteristics",
+      "exclusive_group": "thematic-rasters",
       "precision": "historical_cartographic_reference",
       "legend": [
         {"label": "1 m above sea level", "color": "#0d0887"},
@@ -158,7 +158,7 @@
       "group": {"en": "Physical Characteristics", "fil": "Mga Pisikal na Katangian", "pag": "Pisikal a Katangian"},
       "pane": "physical",
       "opacity": 0.6,
-      "exclusive_group": "physical-characteristics",
+      "exclusive_group": "thematic-rasters",
       "precision": "historical_cartographic_reference",
       "legend": [{"label": "0 - 3%", "color": "#4368ff"}, {"label": "3 - 8%", "color": "#ff5c43"}],
       "limitations": ["2021-12-15 is the poster preparation date; underlying thematic-data vintage is unknown. Historical cartographic reference only, not current conditions or engineering measurements.", "Rectified from printed graticule under an explicit WGS84 datum assumption. Internal grid residuals are not independent source-position accuracy. See physical-slope.registration.json in the prepared source directory.", "Source license is not stated on the poster. Do not infer precise slope for a clicked address from poster color."]
@@ -177,7 +177,7 @@
       "group": {"en": "Physical Characteristics", "fil": "Mga Pisikal na Katangian", "pag": "Pisikal a Katangian"},
       "pane": "physical",
       "opacity": 0.6,
-      "exclusive_group": "physical-characteristics",
+      "exclusive_group": "thematic-rasters",
       "precision": "historical_cartographic_reference",
       "legend": [
         {"label": "San Manuel Fine Sandy Loam", "color": "#98d393"},
@@ -201,7 +201,7 @@
       "group": {"en": "Physical Characteristics", "fil": "Mga Pisikal na Katangian", "pag": "Pisikal a Katangian"},
       "pane": "physical",
       "opacity": 0.6,
-      "exclusive_group": "physical-characteristics",
+      "exclusive_group": "thematic-rasters",
       "precision": "historical_cartographic_reference",
       "legend": [{"label": "Class A", "color": "#ffd848"}, {"label": "Class B", "color": "#ff5c43"}],
       "limitations": ["2021-12-15 is the poster preparation date; underlying thematic-data vintage is unknown. Historical cartographic reference only, not current land suitability or parcel guidance.", "The original legend is headed Slope, but visibly maps Class A and Class B. Class X is mentioned in accompanying historical text, not mapped as a separate geographic extent.", "Rectified from printed graticule under an explicit WGS84 datum assumption. Internal grid residuals are not independent source-position accuracy. See physical-land-capability.registration.json in the prepared source directory.", "Source license is not stated on the poster. Reported historical class areas do not resolve the municipal-area discrepancy."]
@@ -221,6 +221,7 @@
       "group": {"en": "Natural Hazards", "fil": "Mga Likas na Panganib", "pag": "Natural Hazards"},
       "pane": "hazards",
       "opacity": 0.65,
+      "exclusive_group": "thematic-rasters",
       "limitations": ["Supplied KML LatLonBox registration; legend and registration not independently verified. Historical source, not live safety information."]
     },
     {
@@ -238,7 +239,30 @@
       "group": {"en": "Natural Hazards", "fil": "Mga Likas na Panganib", "pag": "Natural Hazards"},
       "pane": "hazards",
       "opacity": 0.65,
+      "exclusive_group": "thematic-rasters",
       "limitations": ["The 2024 filename is not equated with the December 2025 poster. Supplied KML LatLonBox registration; legend and registration not independently verified."]
+    },
+    {
+      "id": "flood-susceptibility",
+      "title": {"en": "Flood Susceptibility (Municipal Map)", "fil": "Pagkamadaling Bahain (Mapa ng Munisipyo)", "pag": "Flood Susceptibility (Municipal Map)"},
+      "type": "source-reference",
+      "source": "datasets/GIS/Better_Mapandan_GIS_V3_2_Flood_Layer_Package/Better_Mapandan_GIS_V3_2_Flood_Layer/sources/flood/Mapandan-Hazard-Map-scaled.jpeg",
+      "source_url": "https://mapandan.gov.ph/disaster-awareness/",
+      "source_label": {"en": "Municipality of Mapandan website; map issuing office unverified", "fil": "Website ng Munisipalidad ng Mapandan; hindi pa tiyak ang tanggapang gumawa ng mapa", "pag": "Website na Munisipalidad na Mapandan; agni segurado so opisina a nanggawa na mapa"},
+      "source_date": "Unknown / Hindi tiyak / Agni segurado",
+      "enabled": true,
+      "visible_by_default": false,
+      "semantic_role": "flood_susceptibility_reference",
+      "group": {"en": "Natural Hazards", "fil": "Mga Likas na Panganib", "pag": "Natural Hazards"},
+      "pane": "hazards",
+      "opacity": 0.6,
+      "exclusive_group": "thematic-rasters",
+      "precision": "nonspatial",
+      "limitations": [
+        {"en": "Flood overlay and local image viewer unavailable: image reuse rights and geographic registration are not established. Open the official source instead.", "fil": "Hindi magagamit ang flood overlay at lokal na larawan: hindi pa tiyak ang pahintulot sa muling paggamit at geographic registration. Buksan ang opisyal na sanggunian.", "pag": "Agni available so flood overlay tan lokal a litrato: agni segurado so permiso ed paggamit tan geographic registration. Lukasan so opisyal a source."},
+        {"en": "Map date unknown. The attachment page says published September 2, 2020; that is a website publication date, not the hazard survey or map date. Issuing office and hazard model are unverified.", "fil": "Hindi tiyak ang petsa ng mapa. Setyembre 2, 2020 ang publikasyon sa attachment page, hindi petsa ng hazard survey o mapa. Hindi pa tiyak ang tanggapang gumawa at hazard model.", "pag": "Agni segurado so petsa na mapa. September 2, 2020 so publikasyon ed attachment page, aliwan petsa na hazard survey odino mapa. Agni segurado so opisina tan hazard model."},
+        {"en": "Historical flood-susceptibility reference only. The source legend shows High (red) and Medium (orange). Uncolored areas are not necessarily flood-free. Not live conditions, flood depth, parcel risk, or routing advice; confirm current advisories with local disaster authorities.", "fil": "Makasaysayang sanggunian lamang sa pagbaha. High (pula) at Medium (kahel) ang nasa legend. Ang walang kulay ay hindi nangangahulugang ligtas sa baha. Hindi ito kasalukuyang kondisyon, lalim ng baha, panganib sa lote, o gabay sa ruta; tingnan ang kasalukuyang abiso ng lokal na awtoridad.", "pag": "Historical flood-susceptibility reference labat. High (ambalanga) tan Medium (orange) so walad legend. Saray lugar a anggapoy kolor et aliwan seguradon anggapoy delap. Aliwan live conditions, flood depth, parcel risk, odino routing advice; kumpirmaen so balo a abiso ed lokal a disaster authorities."}
+      ]
     }
   ]
 }

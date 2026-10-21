@@ -664,6 +664,17 @@
       if (l.semantic_role === "barangay_reference_geometry") el("p", text("coarseGeometry"), row).className = "gis-caution";
       var inspect = el("button", text("details"), row); inspect.type = "button";
       inspect.onclick = function () { select({ properties: { name: title }, geometry: null }, s, inspect, null, false); };
+      if (l.type === "reference" && !l.data_key) {
+        message.textContent = text("nonspatial");
+        (l.limitations || []).forEach(function (note) { el("p", local(note), row).className = "gis-panel-note"; });
+        try {
+          var source = new URL(l.source_url);
+          if (/^https?:$/.test(source.protocol) && !source.username && !source.password) {
+            var citation = el("a", text("source"), row); citation.href = source.href; citation.rel = "noopener";
+          }
+        } catch (error) { /* Invalid citation must not prevent other layers loading. */ }
+        return;
+      }
       if (!canLoad) return;
       var option = el("option", title, node("layer-filter")); option.value = l.id;
       if (l.type === "reference") {

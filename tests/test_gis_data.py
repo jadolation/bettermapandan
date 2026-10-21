@@ -78,7 +78,7 @@ def test_physical_configuration_matches_prepared_source_legends_and_dates():
         assert entry['source_date'] == source['prepared_date'] == '2021-12-15'
         assert entry['source_label'] == source['source_label']
         assert entry['legend'] == [{key: item[key] for key in ('label', 'color')} for item in source['legend']]
-        assert entry['exclusive_group'] == 'physical-characteristics' and entry['opacity'] == 0.6
+        assert entry['exclusive_group'] == 'thematic-rasters' and entry['opacity'] == 0.6
         assert all(entry['title'].get(lang) and entry['group'].get(lang) for lang in ('en', 'fil', 'pag'))
         assert 'vintage is unknown' in ' '.join(entry['limitations'])
 

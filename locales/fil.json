@@ -70,6 +70,8 @@
     "project_link": "Tingnan ang kaugnay na tala ng proyekto",
     "opacity": "Antas ng pagkakita",
     "reference_only": "Direktoryo lamang: walang ibinigay na heometriya sa mapa.",
+    "flood_reference": "Pagkamadaling Bahain (Mapa ng Munisipyo): Opisyal na Sanggunian",
+    "flood_unavailable": "Hindi magagamit ang flood overlay at lokal na larawan: hindi pa tiyak ang pahintulot sa muling paggamit at geographic registration. Hindi tiyak ang petsa at tanggapang gumawa ng mapa. High (pula) at Medium (kahel) ang nasa sanggunian; ang walang kulay ay hindi nangangahulugang ligtas sa baha. Tingnan ang kasalukuyang abiso ng lokal na awtoridad.",
     "list_records": "Ilista ang mga tala",
     "locate": "Hanapin / detalye",
     "coarse_geometry": "Lubhang pinasimpleng heometriya ng sanggunian, hindi opisyal na hangganan ng barangay. Hindi angkop ang mga puwang at hugis para hanapin ang address o tukuyin ang hurisdiksyon.",

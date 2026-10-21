@@ -273,3 +273,49 @@ def test_boundary_source_identity_does_not_override_explicit_provenance():
     result = feature_collection(source)['features'][0]['properties']
     assert result['provenance'] == {'source': 'Raw shapefile', 'source_record_id': 'raw-1'}
     assert 'limitations' not in result
+
+
+def test_source_reference_never_reads_or_emits_artwork(tmp_path, monkeypatch):
+    entry = layer('flood-susceptibility', 'datasets/GIS/missing-original.jpeg', 'source-reference')
+    entry.update(visible_by_default=False, source_url='https://mapandan.gov.ph/disaster-awareness/',
+                 limitations=[{'en': 'Rights and registration unresolved', 'fil': 'Hindi tiyak', 'pag': 'Agni segurado'}])
+    directory = configuration(tmp_path, [entry, layer('roads', 'src/data/gis/roads.geojson')])
+    (directory / 'roads.geojson').write_text(json.dumps(point()))
+    import _build.gis_sources as sources
+    bounded = sources.bounded_bytes
+
+    def read(path, *args):
+        assert not str(path).endswith('.jpeg')
+        return bounded(path, *args)
+
+    monkeypatch.setattr(sources, 'bounded_bytes', read)
+    result = prepare_inputs(tmp_path)
+    reference, roads = result['layers']
+    assert reference['available'] and reference['type'] == 'reference'
+    assert not {'data_key', 'url', 'images'} & reference.keys()
+    assert reference['limitations'] == entry['limitations']
+    assert roads['available']
+    assert gis_asset_outputs(tmp_path) == {Path('assets/gis/manifest.json'), Path('assets/gis/roads.geojson')}
+
+
+@pytest.mark.parametrize('change', [{'visible_by_default': True}, {'source_url': ''}, {'source_url': 'javascript:alert(1)'}])
+def test_invalid_source_reference_configuration_fails_before_inputs(tmp_path, change):
+    entry = layer('flood', 'datasets/GIS/missing.jpeg', 'source-reference')
+    entry.update(visible_by_default=False, source_url='https://mapandan.gov.ph/disaster-awareness/')
+    entry.update(change)
+    configuration(tmp_path, [entry])
+    with pytest.raises(ValueError):
+        prepare_inputs(tmp_path)
+
+
+def test_flood_fallback_and_seven_coordinated_thematic_sources():
+    root = Path(__file__).resolve().parents[1]
+    layers = layer_configuration(root)['layers']
+    themes = [entry for entry in layers if entry.get('exclusive_group') == 'thematic-rasters']
+    assert len(themes) == 7
+    assert all(not entry['visible_by_default'] for entry in themes)
+    flood = next(entry for entry in themes if entry['id'] == 'flood-susceptibility')
+    assert flood['type'] == 'source-reference' and flood['pane'] == 'hazards' and flood['opacity'] == 0.6
+    assert flood['source_url'] == 'https://mapandan.gov.ph/disaster-awareness/'
+    assert 'legend' not in flood
+    assert all(set(note) == {'en', 'fil', 'pag'} for note in flood['limitations'])
