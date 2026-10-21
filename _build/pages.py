@@ -159,6 +159,7 @@ def _process_static_page(
             "GIS_BARANGAYS_DATA": script_json(barangays),
             "GIS_FACILITIES_DATA": script_json(facilities),
             "GIS_FACILITY_DIRECTORY": directory_html({'features': facilities['features']}, "facilities", locale, projection['residents']),
+            "GIS_BARANGAY_DIRECTORY": directory_html(barangays, "barangays", locale),
             "GIS_FACILITY_COUNT": str(len(facilities["features"])),
             "GIS_BARANGAY_COUNT": str(len(barangays["features"])),
         }

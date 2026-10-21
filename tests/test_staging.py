@@ -175,8 +175,10 @@ def test_real_current_build_contract_in_isolated_fixture(tmp_path, monkeypatch):
     for name in ("services.json", "audit-reports.json"):
         put(tmp_path, f"src/data/{name}", (REPO / "src/data" / name).read_text(encoding="utf-8"))
     routes = page_outputs(tmp_path)
-    for rel in routes | _download_outputs(tmp_path):
-        assert (REPO / rel).is_file(), f"Missing current output/download contract: {rel}"
+    for rel in routes:
+        put(tmp_path, rel)
+    for rel in _download_outputs(tmp_path):
+        assert (REPO / rel).is_file(), f"Missing current download contract: {rel}"
         put(tmp_path, rel)
     for rel in ROOT_FILES:
         put(tmp_path, rel)

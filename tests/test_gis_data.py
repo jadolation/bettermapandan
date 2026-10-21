@@ -61,9 +61,14 @@ def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp
     outputs = gis_asset_outputs(tmp_path)
     images = [image for layer in result['layers'] for image in layer.get('images', [])]
     assert {Path(image['url']) for image in images} == {path for path in outputs if path.suffix == '.png'}
-    assert len(images) == 85  # 81 native hazard images and four prepared physical images.
+    assert {layer['id']: len(layer['images']) for layer in result['layers'] if layer.get('images')} == {
+        'physical-elevation': 1, 'physical-slope': 1, 'physical-soil': 1,
+        'physical-land-capability': 1, 'hazard-ground-shaking': 29,
+        'hazard-liquefaction': 52, 'flood-susceptibility': 1,
+    }
+    assert len(images) == 86  # 81 native hazard, four physical and one flood image.
     assert len([path for path in outputs if path.suffix == '.geojson']) == 4
-    assert len(outputs) == 90  # 89 emitted resources plus their exact manifest.
+    assert len(outputs) == 91  # 86 images, four vectors and their exact manifest.
 
 
 def test_physical_configuration_matches_prepared_source_legends_and_dates():

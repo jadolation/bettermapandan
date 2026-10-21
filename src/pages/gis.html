@@ -3,7 +3,15 @@ title: GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, P
 description: Explore Mapandan geographic and nonspatial references with source, precision and availability details.
 ---
 
+<header class="page-header">
+  <p>{{GIS_PLACE}}</p>
+  <h1>{{GIS_TITLE}}</h1>
+  <p>{{GIS_INTRO}}</p>
+  <a href="#gis-directories">{{GIS_DIRECTORY_LINK}}</a>
+</header>
 <div id="gis-page" data-asset-base="{{ASSET_BASE}}"
+  data-reference-only="{{GIS_REFERENCE_ONLY}}" data-loaded="{{GIS_LOADED}}"
+  data-details="{{GIS_DETAILS}}" data-marker-total="{{GIS_MARKER_TOTAL}}" data-empty="{{GIS_EMPTY}}"
   data-listed-evacuation="{{GIS_LISTED_EVACUATION}}" data-availability-unknown="{{GIS_AVAILABILITY_UNKNOWN}}"
   data-library-error="{{GIS_LIBRARY_ERROR}}" data-tile-error="{{GIS_TILE_ERROR}}"
   data-map-error="{{GIS_MAP_ERROR}}" data-ready="{{GIS_READY}}"
@@ -73,12 +81,32 @@ description: Explore Mapandan geographic and nonspatial references with source, 
     </section>
   </div>
   <p id="gis-map-help" class="source-label">{{GIS_MAP_HELP}}</p>
-  <p id="gis-map-status" role="status" class="source-label"></p>
+  <p id="gis-map-status" role="status" class="source-label">{{GIS_MAP_PENDING}}</p>
    <p id="gis-map-fallback" class="source-label">{{GIS_FALLBACK}} <a href="https://www.openstreetmap.org/#map=14/16.03/120.455">{{GIS_OPEN_OSM}}</a></p>
    <div class="gis-disclaimer">
     <p>{{GIS_UNAVAILABLE}}</p><p>{{GIS_PRECISION}}</p><p>{{GIS_SAFETY}}</p>
   </div>
 </div>
+
+<section id="gis-directories" aria-label="{{GIS_DIRECTORY_LINK}}">
+  <details class="gis-panel">
+    <summary>{{GIS_FACILITIES}}: {GIS_FACILITY_COUNT}</summary>
+    <p>{{GIS_FACILITY_TOTAL}}</p>
+    {GIS_FACILITY_DIRECTORY}
+  </details>
+  <details class="gis-panel">
+    <summary>{{GIS_BARANGAYS}}: {GIS_BARANGAY_COUNT}</summary>
+    <p>{{GIS_BARANGAY_TOTAL}}</p>
+    <p>{{GIS_BARANGAY_NOTE}}</p>
+    {GIS_BARANGAY_DIRECTORY}
+  </details>
+  <p><a href="{{ASSET_BASE}}transparency/projects/">{{GIS_PROJECT_LINK}}</a></p>
+  <details>
+    <summary>{{GIS_FLOOD_REFERENCE}}</summary>
+    <p>{{GIS_FLOOD_INFO}}</p>
+    <p>{{GIS_LEGEND}}: {{GIS_FLOOD_HIGH}} / {{GIS_FLOOD_MEDIUM}}</p>
+  </details>
+</section>
 
 <script>
   window.GIS_LAYERS = {GIS_LAYERS_DATA};
