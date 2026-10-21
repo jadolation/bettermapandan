@@ -94,7 +94,7 @@ def test_indicative_boundary_contract_preserves_canonical_reference_data():
     config = layer_configuration(ROOT)
     entry = next(layer for layer in config['layers'] if layer['id'] == 'barangay-boundaries')
     assert entry['semantic_role'] == 'barangay_boundary'
-    assert entry['enabled'] and not entry['visible_by_default'] and entry['pane'] == 'administrative'
+    assert entry['enabled'] and entry['visible_by_default'] and entry['pane'] == 'administrative'
     boundaries = feature_collection(load('barangay_boundaries.geojson'))
     canonical = {feature['properties']['gid']: feature['properties'] for feature in load('barangays.geojson')['features']}
     assert {feature['properties']['gid'] for feature in boundaries['features']} == set(canonical)

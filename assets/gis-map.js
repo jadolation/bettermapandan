@@ -632,7 +632,7 @@
             }
           }
            s.loaded = true;
-           if (s.message) s.message.textContent = "";
+            if (s.message) s.message.textContent = text("loaded");
            if (s.overlay && map) { if (s.visible) s.overlay.addTo(map); else map.removeLayer(s.overlay); }
         } catch (error) {
           if (s.overlay && map) map.removeLayer(s.overlay);
@@ -686,6 +686,8 @@
       }
       if (!canLoad) return;
       var option = el("option", title, node("layer-filter")); option.value = l.id;
+      var details = el("button", text("details"), row); details.type = "button";
+      details.onclick = function () { select({ properties: { name: title }, geometry: null }, s, details, null, false); };
       if (l.type === "reference") {
         var directory = el("button", text("listRecords"), row); directory.type = "button";
         directory.onclick = function () { node("layer-filter").value = l.id; node("search").value = ""; updateList(); activateTab("explore", false); node("layer-filter").focus(); };

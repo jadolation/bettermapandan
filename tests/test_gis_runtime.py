@@ -121,6 +121,9 @@ class GISRuntimeTests(unittest.TestCase):
         template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
         self.assertEqual(template.count("<h1>"), 1)
         self.assertIn("<h1>{{GIS_TITLE}}</h1>", template)
+        self.assertRegex(template, r'<header class="sr-only">\s*<p>\{\{GIS_PLACE\}\}</p>\s*<h1>')
+        self.assertNotIn('class="page-header"', template)
+        self.assertLess(template.index('</header>'), template.index('id="gis-workspace"'))
         self.assertIn('role="tablist"', template)
         for panel in ("explore", "layers"):
             self.assertIn(f'aria-controls="gis-{panel}-panel"', template)

@@ -3,12 +3,6 @@ title: GIS Map — Better Mapandan — Civic Transparency Portal for Mapandan, P
 description: Explore Mapandan geographic and nonspatial references with source, precision and availability details.
 ---
 
-<header class="page-header">
-  <p>{{GIS_PLACE}}</p>
-  <h1>{{GIS_TITLE}}</h1>
-  <p>{{GIS_INTRO}}</p>
-  <a href="#gis-directories">{{GIS_DIRECTORY_LINK}}</a>
-</header>
 <div id="gis-page" data-asset-base="{{ASSET_BASE}}"
   data-reference-only="{{GIS_REFERENCE_ONLY}}" data-loaded="{{GIS_LOADED}}"
   data-details="{{GIS_DETAILS}}" data-marker-total="{{GIS_MARKER_TOTAL}}" data-empty="{{GIS_EMPTY}}"
@@ -44,6 +38,12 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   data-contract-effectivity-date="{{GIS_CONTRACT_EFFECTIVITY_DATE}}" data-contract-expiry-date="{{GIS_CONTRACT_EXPIRY_DATE}}"
   data-status-completed="{{GIS_STATUS_COMPLETED}}" data-status-ongoing="{{GIS_STATUS_ONGOING}}"
   data-status-not-started="{{GIS_STATUS_NOT_STARTED}}" data-status-unknown="{{GIS_STATUS_UNKNOWN}}">
+  <header class="sr-only">
+    <p>{{GIS_PLACE}}</p>
+    <h1>{{GIS_TITLE}}</h1>
+    <p>{{GIS_INTRO}}</p>
+    <a href="#gis-directories">{{GIS_DIRECTORY_LINK}}</a>
+  </header>
   <div id="gis-workspace" class="gis-workspace" hidden>
     <aside class="gis-sidebar" aria-label="{{GIS_EXPLORER}}">
       <h2 class="gis-sidebar-title">{{GIS_EXPLORER}}</h2>
@@ -70,7 +70,8 @@ description: Explore Mapandan geographic and nonspatial references with source, 
     <div class="gis-map-pane">
       <div class="gis-toolbar" role="group" aria-label="{{GIS_MAP_CONTROLS}}">
       <button id="gis-fit" type="button">{{GIS_FIT}}</button>
-      <button id="gis-reset" type="button">{{GIS_RESET}}</button>
+       <button id="gis-reset" type="button">{{GIS_RESET}}</button>
+       <p>{{GIS_MARKER_TOTAL}}: <span id="gis-marker-count">0</span></p>
       </div>
       <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
       <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" hidden></section>
@@ -90,15 +91,16 @@ description: Explore Mapandan geographic and nonspatial references with source, 
 
 <section id="gis-directories" aria-label="{{GIS_DIRECTORY_LINK}}">
   <details class="gis-panel">
-    <summary>{{GIS_FACILITIES}}: {GIS_FACILITY_COUNT}</summary>
+    <summary>{{GIS_FACILITIES}}: <span id="gis-facility-count">{GIS_FACILITY_COUNT}</span></summary>
     <p>{{GIS_FACILITY_TOTAL}}</p>
-    {GIS_FACILITY_DIRECTORY}
+    <div id="gis-facility-list">{GIS_FACILITY_DIRECTORY}</div>
+    <p id="gis-facility-empty" hidden>{{GIS_EMPTY}}</p>
   </details>
   <details class="gis-panel">
-    <summary>{{GIS_BARANGAYS}}: {GIS_BARANGAY_COUNT}</summary>
+    <summary>{{GIS_BARANGAYS}}: <span id="gis-barangay-count">{GIS_BARANGAY_COUNT}</span></summary>
     <p>{{GIS_BARANGAY_TOTAL}}</p>
     <p>{{GIS_BARANGAY_NOTE}}</p>
-    {GIS_BARANGAY_DIRECTORY}
+    <div id="gis-barangay-list">{GIS_BARANGAY_DIRECTORY}</div>
   </details>
   <p><a href="{{ASSET_BASE}}transparency/projects/">{{GIS_PROJECT_LINK}}</a></p>
   <details>

@@ -222,7 +222,9 @@ async function v3Checks(page, locale) {
   assert.match(await page.$eval(".gis-result", el => el.textContent), /Canonical shape name/);
   await setSearch("", "barangays");
   assert.equal(await page.$$eval(".gis-result", rows => rows.length), 15, "Layer-specific null references survive shape load and another shape failure");
+  await click(page, '#gis-directories details:has(#gis-barangay-list) summary');
   await click(page, "#gis-barangay-list li button");
+  await page.waitForFunction(() => document.getElementById("gis-detail-content").textContent.includes("Canonical shape name"));
   assert.match(await page.$eval("#gis-detail-content", el => el.textContent), /Canonical shape name/, "Static directory enhancement joins by gid, not name");
   await page.keyboard.press("Escape");
   assert.ok(await page.evaluate(() => window.__gisTest.vectorStyles.some(style => style.dashArray === "6 5")));
@@ -510,7 +512,7 @@ async function main() {
               return document.querySelector(`[data-layer-id="${id}"] input[type="checkbox"]`);
             }, id);
             await checkbox.asElement().evaluate(el => el.scrollIntoView({ block: "center", behavior: "instant" }));
-            await checkbox.asElement().click();
+            await checkbox.asElement().evaluate(el => el.click());
             if (id === "roads") assert.equal(await page.$eval('[data-layer-id="roads"] small', el => el.textContent), locale.loading);
           }
           await page.waitForFunction(() => [...document.querySelectorAll(".gis-layer small")].filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length >= 3);

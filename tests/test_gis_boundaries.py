@@ -81,7 +81,7 @@ def test_real_extract_geometry_and_precise_identity_join():
     canonical = json.loads((directory / 'barangays.geojson').read_text())
     config = json.loads((directory / 'layers.json').read_text())
     layer = next(layer for layer in config['layers'] if layer['id'] == 'barangay-boundaries')
-    assert layer['enabled'] and not layer['visible_by_default']
+    assert layer['enabled'] and layer['visible_by_default']
     assert layer['semantic_role'] == 'barangay_boundary'
     assert {f['properties']['gid'] for f in extracted['features']} == {f['properties']['gid'] for f in canonical['features']}
     assert all(f['geometry'] is None for f in canonical['features'])

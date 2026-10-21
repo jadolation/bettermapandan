@@ -89,7 +89,7 @@
       "source_label": "BgySubMuns.shp geographic ADM4 source; exact canonical PSA PSGC identity join",
       "attribution": "Local BgySubMuns shapefile source; PSA canonical names and populations",
       "enabled": true,
-      "visible_by_default": false,
+      "visible_by_default": true,
       "semantic_role": "barangay_boundary",
       "group": {
         "en": "Administrative",
