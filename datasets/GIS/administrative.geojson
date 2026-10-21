@@ -1,0 +1,731 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-10-18T15:20:36Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13308922",
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Mapandan",
+        "name:ko": "마판단",
+        "old_ref": "015528000",
+        "population": "38058",
+        "population:date": "2020-05-01",
+        "ref": "0105528000",
+        "source:population": "Philippine Statistics Authority",
+        "type": "boundary",
+        "wikidata": "Q42006",
+        "wikipedia": "en:Mapandan",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4192167,
+              15.990189
+            ],
+            [
+              120.4874774,
+              15.990189
+            ],
+            [
+              120.4874774,
+              16.0450711
+            ],
+            [
+              120.4192167,
+              16.0450711
+            ],
+            [
+              120.4192167,
+              15.990189
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13308922"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13315002",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Nilombot",
+        "old_ref": "015528012",
+        "population": "4411",
+        "population:date": "2020-05-01",
+        "ref": "0105528012",
+        "type": "boundary",
+        "wikidata": "Q31812645",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4192167,
+              16.0158582
+            ],
+            [
+              120.439843,
+              16.0158582
+            ],
+            [
+              120.439843,
+              16.0346063
+            ],
+            [
+              120.4192167,
+              16.0346063
+            ],
+            [
+              120.4192167,
+              16.0158582
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13315002"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13315054",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Golden",
+        "old_ref": "015528007",
+        "population": "1399",
+        "population:date": "2020-05-01",
+        "ref": "0105528007",
+        "type": "boundary",
+        "wikidata": "Q108857696",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4247475,
+              16.0133213
+            ],
+            [
+              120.4473236,
+              16.0133213
+            ],
+            [
+              120.4473236,
+              16.026093
+            ],
+            [
+              120.4247475,
+              16.026093
+            ],
+            [
+              120.4247475,
+              16.0133213
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13315054"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13315085",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Amanoaoac",
+        "old_ref": "015528001",
+        "population": "1636",
+        "population:date": "2020-05-01",
+        "ref": "0105528001",
+        "type": "boundary",
+        "wikidata": "Q108857691",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4347145,
+              16.0063499
+            ],
+            [
+              120.455389,
+              16.0063499
+            ],
+            [
+              120.455389,
+              16.0226488
+            ],
+            [
+              120.4347145,
+              16.0226488
+            ],
+            [
+              120.4347145,
+              16.0063499
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13315085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13319937",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Pias",
+        "old_ref": "015528013",
+        "population": "4699",
+        "population:date": "2020-05-01",
+        "ref": "0105528013",
+        "type": "boundary",
+        "wikidata": "Q108857700",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4331761,
+              16.026093
+            ],
+            [
+              120.4531179,
+              16.026093
+            ],
+            [
+              120.4531179,
+              16.0430347
+            ],
+            [
+              120.4331761,
+              16.0430347
+            ],
+            [
+              120.4331761,
+              16.026093
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13319937"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13319981",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Apaya",
+        "old_ref": "015528002",
+        "population": "1467",
+        "population:date": "2020-05-01",
+        "ref": "0105528002",
+        "type": "boundary",
+        "wikidata": "Q108857692",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.439843,
+              16.0232932
+            ],
+            [
+              120.4475811,
+              16.0232932
+            ],
+            [
+              120.4475811,
+              16.0302965
+            ],
+            [
+              120.439843,
+              16.0302965
+            ],
+            [
+              120.439843,
+              16.0232932
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13319981"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13319996",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Coral",
+        "old_ref": "015528006",
+        "population": "1389",
+        "population:date": "2020-05-01",
+        "ref": "0105528006",
+        "type": "boundary",
+        "wikidata": "Q108857695",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4458833,
+              16.026994
+            ],
+            [
+              120.4557109,
+              16.026994
+            ],
+            [
+              120.4557109,
+              16.0338562
+            ],
+            [
+              120.4458833,
+              16.0338562
+            ],
+            [
+              120.4458833,
+              16.026994
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13319996"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13320933",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Baloling",
+        "old_ref": "015528004",
+        "population": "4393",
+        "population:date": "2020-05-01",
+        "ref": "0105528004",
+        "type": "boundary",
+        "wikidata": "Q108857694",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4446548,
+              16.0292743
+            ],
+            [
+              120.4661347,
+              16.0292743
+            ],
+            [
+              120.4661347,
+              16.0450711
+            ],
+            [
+              120.4446548,
+              16.0450711
+            ],
+            [
+              120.4446548,
+              16.0292743
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13320933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13320942",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Primicias",
+        "old_ref": "015528015",
+        "population": "2071",
+        "population:date": "2020-05-01",
+        "ref": "0105528015",
+        "type": "boundary",
+        "wikidata": "Q108857702",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4742839,
+              15.990189
+            ],
+            [
+              120.4874774,
+              15.990189
+            ],
+            [
+              120.4874774,
+              16.0044627
+            ],
+            [
+              120.4742839,
+              16.0044627
+            ],
+            [
+              120.4742839,
+              15.990189
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13320942"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13321061",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Lambayan",
+        "old_ref": "015528009",
+        "population": "1756",
+        "population:date": "2020-05-01",
+        "ref": "0105528009",
+        "type": "boundary",
+        "wikidata": "Q108857698",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4542732,
+              15.9916864
+            ],
+            [
+              120.4785552,
+              15.9916864
+            ],
+            [
+              120.4785552,
+              16.0083108
+            ],
+            [
+              120.4542732,
+              16.0083108
+            ],
+            [
+              120.4542732,
+              15.9916864
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13321061"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13327618",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Jimenez",
+        "old_ref": "015528008",
+        "population": "1995",
+        "population:date": "2020-05-01",
+        "ref": "0105528008",
+        "type": "boundary",
+        "wikidata": "Q108857697",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4513603,
+              16.0054914
+            ],
+            [
+              120.4683897,
+              16.0054914
+            ],
+            [
+              120.4683897,
+              16.0219904
+            ],
+            [
+              120.4513603,
+              16.0219904
+            ],
+            [
+              120.4513603,
+              16.0054914
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13327618"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13327629",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Torres",
+        "old_ref": "015528018",
+        "population": "3112",
+        "population:date": "2020-05-01",
+        "ref": "0105528018",
+        "type": "boundary",
+        "wikidata": "Q108857704",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4606381,
+              16.0055687
+            ],
+            [
+              120.4732592,
+              16.0055687
+            ],
+            [
+              120.4732592,
+              16.0235279
+            ],
+            [
+              120.4606381,
+              16.0235279
+            ],
+            [
+              120.4606381,
+              16.0055687
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13327629"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13328107",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Luyan",
+        "old_ref": "015528010",
+        "population": "3730",
+        "population:date": "2020-05-01",
+        "ref": "0105528010",
+        "type": "boundary",
+        "wikidata": "Q108857699",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4668233,
+              16.0033135
+            ],
+            [
+              120.4817873,
+              16.0033135
+            ],
+            [
+              120.4817873,
+              16.0258996
+            ],
+            [
+              120.4668233,
+              16.0258996
+            ],
+            [
+              120.4668233,
+              16.0033135
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13328107"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13331748",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Santa Maria",
+        "old_ref": "015528016",
+        "population": "1270",
+        "population:date": "2020-05-01",
+        "ref": "0105528016",
+        "short_name": "Sta. Maria",
+        "type": "boundary",
+        "wikidata": "Q108857703",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4596725,
+              16.0235279
+            ],
+            [
+              120.4735288,
+              16.0235279
+            ],
+            [
+              120.4735288,
+              16.0374879
+            ],
+            [
+              120.4596725,
+              16.0374879
+            ],
+            [
+              120.4596725,
+              16.0235279
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13331748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13331759",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Aserda",
+        "old_ref": "015528003",
+        "population": "1108",
+        "population:date": "2020-05-01",
+        "ref": "0105528003",
+        "type": "boundary",
+        "wikidata": "Q108857693",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4562557,
+              16.0200708
+            ],
+            [
+              120.4668233,
+              16.0200708
+            ],
+            [
+              120.4668233,
+              16.028691
+            ],
+            [
+              120.4562557,
+              16.028691
+            ],
+            [
+              120.4562557,
+              16.0200708
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13331759"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13331775",
+        "admin_level": "10",
+        "border_type": "barangay",
+        "boundary": "administrative",
+        "name": "Poblacion",
+        "old_ref": "015528014",
+        "population": "3622",
+        "population:date": "2020-05-01",
+        "ref": "0105528014",
+        "type": "boundary",
+        "wikidata": "Q108857701",
+        "@geometry": "bounds"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.4466954,
+              16.020593
+            ],
+            [
+              120.4602826,
+              16.020593
+            ],
+            [
+              120.4602826,
+              16.0320248
+            ],
+            [
+              120.4466954,
+              16.0320248
+            ],
+            [
+              120.4466954,
+              16.020593
+            ]
+          ]
+        ]
+      },
+      "id": "relation/13331775"
+    }
+  ]
+}

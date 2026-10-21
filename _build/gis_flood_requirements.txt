@@ -1,0 +1,4 @@
+# Optional local registration tools, not runtime/build dependencies.
+Pillow>=10.0
+numpy>=1.26
+pyproj>=3.6

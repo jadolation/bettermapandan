@@ -1,0 +1,232 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4532, 16.0289]
+      },
+      "properties": {
+        "name": "Mapandan Municipal Police Station",
+        "category": "Police Stations & Fire Stations",
+        "type": "Police department",
+        "address": "Pandan Avenue (near the Municipal Hall Plaza), Barangay Poblacion, Mapandan, Pangasinan",
+        "plus_code": "2FG3+R7W"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4532, 16.0289]
+      },
+      "properties": {
+        "name": "Mapandan Fire Station",
+        "category": "Police Stations & Fire Stations",
+        "type": "Fire station",
+        "address": "Strategically situated adjacent to the local command posts, Mapandan, Pangasinan",
+        "plus_code": "2FG3+R7W"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4531, 16.0285]
+      },
+      "properties": {
+        "name": "Mapandan Rural Health Unit (RHU)",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "type": "Hospital",
+        "rating": "5.0(1)",
+        "address": "Cadena de Amor St, Barangay Poblacion, Mapandan, Pangasinan",
+        "plus_code": "2FG3+R2V"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4526, 16.0281]
+      },
+      "properties": {
+        "name": "Mapandan Community Hospital",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "type": "Hospital",
+        "rating": "3.5(13)",
+        "address": "#024 National Road / Fire Tree St., Barangay Poblacion, Mapandan, Pangasinan",
+        "plus_code": "2FF3+W54"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4485, 16.0195]
+      },
+      "properties": {
+        "name": "Bagong Urgent Care and Ambulatory Services (BUCAS) Center",
+        "category": "Central Health Centers & Public Medical Facilities",
+        "type": "Community health center",
+        "rating": "4.5(2)",
+        "address": "Barangay Torres, Tubao, La Union",
+        "description": "Newly established regional public healthcare extension situated in Barangay Torres.",
+        "plus_code": "2F5F+C4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4542, 16.0245]
+      },
+      "properties": {
+        "name": "Mapandan National High School / Central School SPED Center",
+        "category": "Primary Public Schools & High Schools",
+        "type": "Government school",
+        "address": "Barangay Poblacion, Mapandan, Pangasinan",
+        "plus_code": "2CGX+4X7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4581, 16.0377]
+      },
+      "properties": {
+        "name": "Baloling National High School",
+        "category": "Primary Public Schools & High Schools",
+        "type": "Elementary school",
+        "address": "Barangay Baloling, Mapandan, Pangasinan",
+        "plus_code": "29GQ+W9C"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4693, 16.0153]
+      },
+      "properties": {
+        "name": "Torres National High School",
+        "category": "Primary Public Schools & High Schools",
+        "type": "High school",
+        "address": "Barangay Salomague / Torres boundary, Mapandan, Pangasinan",
+        "plus_code": "2F5F+CH2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4398, 16.0210]
+      },
+      "properties": {
+        "name": "Primicias National High School",
+        "category": "Primary Public Schools & High Schools",
+        "type": "High school",
+        "address": "Barangay Primicias, Mapandan, Pangasinan",
+        "plus_code": "2CCP+2G3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4535, 16.0248]
+      },
+      "properties": {
+        "name": "Mapandan Town Center",
+        "category": "Core Evacuation Centers & Gymnasiums",
+        "type": "Shopping mall",
+        "rating": "4.6(28)",
+        "address": "Pandan Avenue, Barangay Poblacion, Mapandan, Pangasinan",
+        "description": "Primary administrative structural assembly zone.",
+        "plus_code": "2CFX+WPX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4521, 16.0286]
+      },
+      "properties": {
+        "name": "Tulagan Multi-Purpose Gymnasium",
+        "category": "Core Evacuation Centers & Gymnasiums",
+        "type": "Gym",
+        "rating": "4.5(2)",
+        "address": "Mapandan, Pangasinan",
+        "description": "Often utilized for heavy humanitarian aid, relief operations, and central shelter distribution.",
+        "plus_code": "2FG3+FJX"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4496, 16.0223]
+      },
+      "properties": {
+        "name": "Amanoaoac Barangay Hall",
+        "category": "Barangay Halls",
+        "type": "Barangay Hall",
+        "plus_code": "2C8W+R4M"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4571406, 16.0372375]
+      },
+      "properties": {
+        "name": "Baloling Barangay Hall",
+        "category": "Barangay Halls",
+        "type": "Barangay Hall",
+        "plus_code": "29GR+W2X"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4364, 16.0281]
+      },
+      "properties": {
+        "name": "Nilombot Barangay Hall",
+        "category": "Barangay Halls",
+        "type": "Barangay Hall",
+        "plus_code": "2CHP+MWV"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4608, 16.0298]
+      },
+      "properties": {
+        "name": "Santa Maria Barangay Hall",
+        "category": "Barangay Halls",
+        "type": "Barangay Hall",
+        "plus_code": "2FH9+FCG"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4530, 16.0290]
+      },
+      "properties": {
+        "name": "Poblacion / Municipal Hall Complex",
+        "category": "Barangay Halls",
+        "type": "Barangay / Municipal Hall Complex",
+        "plus_code": "2FG3+R5W"
+      }
+    }
+  ]
+}

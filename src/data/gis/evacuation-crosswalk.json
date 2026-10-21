@@ -1,0 +1,25 @@
+{
+  "source": "datasets/GIS/evacuation.json",
+  "source_date": null,
+  "source_publisher": null,
+  "review_date": "2026-10-21",
+  "limitations": "Undated local source listing; publisher and current official designation unknown. Current availability not confirmed.",
+  "listings": [
+    {"id":"evac-001","source_name":"MAPANDAN CENTRAL SCHOOL","facility_id":"fac-017","osm_ids":["way/156769370"],"barangay_gid":"0105528014","resolution":"Separate named OSM Central School footprint, not fac-006 combined NHS/SPED identity. Approximate footprint centre, not a verified shelter entrance."},
+    {"id":"evac-002","source_name":"ALOHA BUILDING","facility_id":null,"osm_ids":[],"barangay_gid":"0105528014","resolution":"Plus Code candidate only; no independently matched footprint. Identity and position unresolved."},
+    {"id":"evac-003","source_name":"CONG. TULAGAN GYM","facility_id":"fac-011","osm_ids":[],"barangay_gid":"0105528014","resolution":"Explicit alias of existing Tulagan Multi-Purpose Gymnasium. Retains approximate supplied Plus Code position; older coordinate conflict and exact building remain unconfirmed."},
+    {"id":"evac-004","source_name":"CORAL BARANGAY HALL","facility_id":null,"osm_ids":[],"barangay_gid":"0105528006","resolution":"Conflicting decimal and Plus Code candidates, no matched footprint; position unresolved."},
+    {"id":"evac-005","source_name":"PRIMICIAS ELEMENTARY/HIGH SCHOOL","facility_id":null,"osm_ids":["relation/13613379","relation/13613380"],"barangay_gid":"0105528015","resolution":"Single source listing covers two separately named school footprints. No evidence assigning the listing or dimensions to either institution; retained once, list-only. Not assigned to fac-009."},
+    {"id":"evac-006","source_name":"STA. MARIA ELEMNTARY SCHOOL","facility_id":"fac-018","osm_ids":["way/813678723"],"barangay_gid":"0105528016","resolution":"Named OSM school footprint agrees with newer Plus Code candidate. Older notes say Closed; current operation unresolved."},
+    {"id":"evac-007","source_name":"BALOLING ELEMENTARY SCHOOL","facility_id":"fac-019","osm_ids":["relation/12322605"],"barangay_gid":"0105528004","resolution":"Named elementary school footprint corroborates newer locality, distinct from national high school footprint. Not a barangay hall location."},
+    {"id":"evac-008","source_name":"NILOMBOT ELEMENTARY SCHOOL","facility_id":"fac-020","osm_ids":["way/790262129"],"barangay_gid":"0105528012","resolution":"Named school footprint agrees with school decimal and Plus Code candidates. Not evidence for a hall location."},
+    {"id":"evac-009","source_name":"TORRES ELEMENTARY SCHOOL","facility_id":"fac-021","osm_ids":["relation/12322608"],"barangay_gid":"0105528018","resolution":"Named elementary school footprint near supplied candidates; separate high school footprint retained."},
+    {"id":"evac-010","source_name":"GOLDEN ELEMENTARY SCHOOL","facility_id":"fac-022","osm_ids":["way/813387336"],"barangay_gid":"0105528007","resolution":"Named school footprint near supplied candidates. Older notes say Closed; current operation unresolved."},
+    {"id":"evac-011","source_name":"JIMENEZ ELEMENTARY SCHOOL","facility_id":"fac-023","osm_ids":["way/820946718"],"barangay_gid":"0105528008","resolution":"Named school footprint agrees with nearby decimal and Plus Code candidates."},
+    {"id":"evac-012","source_name":"LAMBAYAN ELEMENTARY SCHOOL","facility_id":"fac-024","osm_ids":["way/822288525"],"barangay_gid":"0105528009","resolution":"Named school footprint agrees with nearby decimal and Plus Code candidates."}
+  ],
+  "publication_exclusions": ["fac-010"],
+  "excluded_osm_ids": [],
+  "unresolved_halls": ["fac-012", "fac-013", "fac-014"],
+  "unresolved_facilities": ["fac-006"]
+}

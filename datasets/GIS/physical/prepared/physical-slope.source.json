@@ -1,0 +1,44 @@
+{
+  "id": "physical-slope",
+  "source_label": "Municipality of Mapandan, Office of the MPDC (historical physical map)",
+  "prepared_date": "2021-12-15",
+  "date_kind": "poster preparation date, not underlying data date",
+  "data_vintage": "unknown",
+  "publisher": "Municipal Planning and Development Coordinator, Mapandan",
+  "source_credits": "Mapandan Cadastral Survey & Index Map; Google Earth; NASA (Shuttle Radar Topography Mission)",
+  "raw_source": "datasets/GIS/Better_Mapandan_GIS_V3_1_Updated_Package/Better_Mapandan_GIS_V3_1/sources/physical/slope.png",
+  "raw_sha256": "cab65da90a5aff84c0f38ff40a331b22bb494d9bf056da6a2b9b0b4399b14689",
+  "source_pixel_dimensions": [
+    1773,
+    1883
+  ],
+  "prepared_resource": "datasets/GIS/physical/prepared/physical-slope.kmz",
+  "registration_report": "physical-slope.registration.json",
+  "bounds": {
+    "west": 120.41910285725743,
+    "south": 15.988546827048294,
+    "east": 120.48883206346333,
+    "north": 16.047632617836175
+  },
+  "legend": [
+    {
+      "label": "0 - 3%",
+      "color": "#4368ff",
+      "source_pixel": [
+        1040,
+        1611
+      ]
+    },
+    {
+      "label": "3 - 8%",
+      "color": "#ff5c43",
+      "source_pixel": [
+        1040,
+        1633
+      ]
+    }
+  ],
+  "usage": "Historical cartographic context only; not current conditions, cadastral authority, engineering or parcel decisions",
+  "rights": "Municipal source; republication license not stated in poster",
+  "legend_notes": "Labels and RGB swatches sampled from the original legend; no analytical classification inferred."
+}

@@ -1,3 +1,5 @@
+import json
+import re
 import sys
 from pathlib import Path
 
@@ -127,3 +129,55 @@ def test_label_fallbacks():
     labels = _build_page_body_labels({})
     assert labels["HERO_EYEBROW"] == ""
     assert labels["HERO_TITLE"] == ""
+
+
+def test_gis_page_payloads_and_directories_follow_content_edits_all_locales(monkeypatch, tmp_path):
+    from test_gis_sources import configuration, layer, point
+
+    import _build.pages as pages
+
+    root = tmp_path / 'inputs'
+    directory = configuration(root, [layer('facilities', 'src/data/gis/facilities.geojson'),
+                                     layer('projects', 'src/data/entities/projects.json', 'records')])
+    source = point('<Facility> {GIS_FACILITY_COUNT}')
+    (directory / 'facilities.geojson').write_text(json.dumps(source))
+    projects = root / 'src/data/entities/projects.json'
+    projects.parent.mkdir()
+    projects.write_text(json.dumps([{'project_id': 'exact-id', 'canonical_name': '<Project>'}]))
+    monkeypatch.setattr(pages, 'SRC_DATA', root / 'src/data')
+    for name in ('build_header', 'build_footer', 'build_hero', 'build_breadcrumbs', 'build_breadcrumb_jsonld'):
+        monkeypatch.setattr(pages, name, lambda *args: '')
+    monkeypatch.setattr(pages, 'assemble_page', lambda base, asset_base, title, description, header, body, *args: body)
+    template = ''.join(f'<script>window.GIS_{key} = {{GIS_{key}_DATA}};</script>'
+                       for key in ('LAYERS', 'FACILITIES', 'BARANGAYS', 'RECORDS'))
+    template += '<div>{GIS_FACILITY_COUNT}{GIS_FACILITY_DIRECTORY}</div>'
+    for lang in ('en', 'fil', 'pag'):
+        output = tmp_path / lang
+        pages._process_static_page(lang, {}, Path('gis.html'), {'title': 'GIS', 'description': 'Map'},
+                                   template, '', '', output, [])
+        html = (output / 'gis/index.html').read_text()
+        layers = json.loads(re.search(r'window.GIS_LAYERS = (.*?);</script>', html).group(1))
+        assert layers['schema_version'] == 1
+        assert layers['metadata']['asset_base'].endswith('/')
+        assert not layers['metadata']['asset_base'].endswith('//')
+        from urllib.parse import urljoin
+        page_url = 'https://example.test/' + ('' if lang == 'en' else lang + '/') + 'gis/'
+        assert urljoin(urljoin(page_url, layers['metadata']['asset_base']), 'assets/gis/roads.geojson') == 'https://example.test/assets/gis/roads.geojson'
+        assert 'GIS_MODE' not in html and 'publication' not in html
+        assert '&lt;Facility&gt; {GIS_FACILITY_COUNT}' in html
+        expected = ('' if lang == 'en' else '/' + lang) + '/transparency/projects/?project=exact-id'
+        records = json.loads(re.search(r'window.GIS_RECORDS = (.*?);</script>', html).group(1))
+        assert records[0]['name'] == '<Project>'
+        assert records[0]['project_url'] == expected
+        static_html = re.sub(r'<script>.*?</script>', '', html)
+        assert '<Project>' not in static_html and '&lt;Project&gt;' not in static_html
+        assert 'GIS_RECORD_DIRECTORY' not in html
+    # Ordinary content edits require no companion approval/hash update.
+    source['features'].append(point('Added facility')['features'][0])
+    source['features'][1]['properties']['id'] = 'added'
+    (directory / 'facilities.geojson').write_text(json.dumps(source))
+    output = tmp_path / 'edited'
+    pages._process_static_page('en', {}, Path('gis.html'), {'title': 'GIS', 'description': 'Map'},
+                               template, '', '', output, [])
+    html = (output / 'gis/index.html').read_text()
+    assert '<div>2<ul' in html and 'Added facility' in html

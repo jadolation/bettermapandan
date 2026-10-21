@@ -209,6 +209,173 @@ SCHEMAS = {
             "peso_amounts_near_project_names": {"type": "array"}
         }
     },
+    "gis/barangays.geojson": {
+        "type": "object",
+        "required": ["type", "features"],
+        "properties": {
+            "type": {"type": "string", "enum": ["FeatureCollection"]},
+            "features": {
+                "type": "array",
+                "maxItems": 10000,
+                "items": {
+                    "type": "object",
+                    "required": ["type", "geometry", "properties"],
+                    "properties": {
+                        "type": {"type": "string", "enum": ["Feature"]},
+                        "geometry": {
+                            "oneOf": [
+                                {"type": "object"},
+                                {"type": "null"},
+                            ]
+                        },
+                        "properties": {
+                            "type": "object",
+                            "required": ["gid", "name"],
+                            "properties": {
+                                "gid": {"type": "string"},
+                                "name": {"type": "string"},
+                                "slug": {"type": "string"},
+                                "pop2024": {"type": ["integer", "null"]},
+                                "pop2020": {"type": ["integer", "null"]},
+                                "land_use": {"type": "string"},
+                                "urban_rural": {"type": "string",
+                                                "enum": ["urban", "rural", "unknown"]},
+                                "area_km2": {"type": ["number", "null"]},
+                                "verification_status": {
+                                    "type": "string",
+                                    "enum": ["source_verified", "needs_coding",
+                                             "needs_review", "draft"],
+                                },
+                                "source_as_of": {"type": "string"},
+                                "provenance": {
+                                    "type": "object",
+                                    "properties": {
+                                        "source": {"type": "string"},
+                                        "source_url": {"type": "string"},
+                                        "record_role": {"type": "string",
+                                                        "enum": ["administrative_record",
+                                                                 "census_record",
+                                                                 "psgc_record"]},
+                                        "retrieved": {"type": "string"},
+                                        "last_verified": {"type": "string"},
+                                    },
+                                },
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "gis/facilities.geojson": {
+        "type": "object",
+        "required": ["type", "features"],
+        "properties": {
+            "type": {"type": "string", "enum": ["FeatureCollection"]},
+            "features": {
+                "type": "array",
+                "maxItems": 10000,
+                "items": {
+                    "type": "object",
+                    "required": ["type", "geometry", "properties"],
+                    "properties": {
+                        "type": {"type": "string", "enum": ["Feature"]},
+                        "geometry": {
+                            "oneOf": [
+                                {
+                                    "type": "object",
+                                    "required": ["type", "coordinates"],
+                                    "properties": {
+                                        "type": {"type": "string",
+                                                 "enum": ["Point"]},
+                                        "coordinates": {
+                                            "type": "array",
+                                            "minItems": 2,
+                                            "maxItems": 2,
+                                            "items": {"type": "number"},
+                                        },
+                                    },
+                                },
+                                {"type": "null"},
+                            ]
+                        },
+                        "properties": {
+                            "type": "object",
+                            "required": ["id", "name"],
+                            "properties": {
+                                "id": {"type": "string"},
+                                "name": {"type": "string"},
+                                "category": {"type": "string"},
+                                "facility_type": {"type": ["string", "null"]},
+                                "address": {"type": ["string", "null"]},
+                                "barangay_gid": {"type": ["string", "null"]},
+                                "plus_code": {"type": ["string", "null"]},
+                                "verification_status": {
+                                    "type": "string",
+                                    "enum": ["unreviewed", "needs_review",
+                                             "source_reported", "source_verified", "field_verified",
+                                             "rejected"],
+                                },
+                                "location_precision": {
+                                    "type": "string",
+                                    "enum": ["exact_from_source", "approximate",
+                                             "barangay_level", "unknown"],
+                                },
+                                "review_notes": {"type": ["string", "null"]},
+                                "provenance": {
+                                    "type": "object",
+                                    "properties": {
+                                        "source": {"type": "string"},
+                                        "source_url": {"type": "string"},
+                                        "retrieved": {"type": ["string", "null"]},
+                                        "last_verified": {"type": ["string", "null"]},
+                                    },
+                                },
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "gis/layers.json": {
+        "type": "object",
+        "required": ["layers"],
+        "properties": {
+            "layers": {
+                "type": "array",
+                "maxItems": 100,
+                "items": {
+                    "type": "object",
+                    "required": ["id", "title", "type", "enabled",
+                                 "visible_by_default", "source"],
+                    "properties": {
+                        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,79}$"},
+                        "title": {"type": "object", "required": ["en"],
+                                  "additionalProperties": {"type": "string"}},
+                        "type": {"type": "string",
+                                 "enum": ["geojson", "records", "kmz", "dpwh", "source-reference"]},
+                        "group": {"type": "object", "required": ["en", "fil", "pag"], "additionalProperties": {"type": "string"}},
+                        "pane": {"enum": ["physical", "hazards", "administrative", "infrastructure", "facilities"]},
+                        "opacity": {"type": "number", "minimum": 0, "maximum": 1},
+                        "exclusive_group": {"type": "string", "minLength": 1, "maxLength": 100},
+                        "dependencies": {"type": "array", "maxItems": 10, "items": {"type": "string"}},
+                        "enabled": {"type": "boolean"},
+                        "visible_by_default": {"type": "boolean"},
+                        "source": {"type": "string"},
+                        "source_url": {"type": "string"},
+                        "attribution": {"type": "string"},
+                        "source_label": {"anyOf": [{"type": "string"}, {"type": "object", "required": ["en", "fil", "pag"], "additionalProperties": {"type": "string"}}]},
+                        "source_date": {"type": "string"},
+                        "precision": {"type": "string"},
+                        "semantic_role": {"type": "string"},
+                        "limitations": {"type": "array", "items": {"anyOf": [{"type": "string"}, {"type": "object", "required": ["en", "fil", "pag"], "additionalProperties": {"type": "string"}}]}},
+                        "legend": {"type": "array"},
+                    },
+                }
+            }
+        }
+    },
     "entities/projects.json": {
         "type": "array",
         "items": {

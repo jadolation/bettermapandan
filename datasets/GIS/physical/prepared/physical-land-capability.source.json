@@ -1,0 +1,44 @@
+{
+  "id": "physical-land-capability",
+  "source_label": "Municipality of Mapandan, Office of the MPDC (historical physical map)",
+  "prepared_date": "2021-12-15",
+  "date_kind": "poster preparation date, not underlying data date",
+  "data_vintage": "unknown",
+  "publisher": "Municipal Planning and Development Coordinator, Mapandan",
+  "source_credits": "Mapandan Cadastral Survey & Index Map; Google Earth; NASA (Shuttle Radar Topography Mission)",
+  "raw_source": "datasets/GIS/Better_Mapandan_GIS_V3_1_Updated_Package/Better_Mapandan_GIS_V3_1/sources/physical/land_capability.png",
+  "raw_sha256": "3243983c14a65602775de571b66223ac1d6e79a0b08f5e150dc6015abef099ee",
+  "source_pixel_dimensions": [
+    768,
+    816
+  ],
+  "prepared_resource": "datasets/GIS/physical/prepared/physical-land-capability.kmz",
+  "registration_report": "physical-land-capability.registration.json",
+  "bounds": {
+    "west": 120.41907227092162,
+    "south": 15.98856474459349,
+    "east": 120.48891696628836,
+    "north": 16.047631661709975
+  },
+  "legend": [
+    {
+      "label": "Class A",
+      "color": "#ffd848",
+      "source_pixel": [
+        450,
+        698
+      ]
+    },
+    {
+      "label": "Class B",
+      "color": "#ff5c43",
+      "source_pixel": [
+        450,
+        707
+      ]
+    }
+  ],
+  "usage": "Historical cartographic context only; not current conditions, cadastral authority, engineering or parcel decisions",
+  "rights": "Municipal source; republication license not stated in poster",
+  "legend_notes": "Poster incorrectly heads legend Slope; mapped classes A and B only. Class X mentioned in accompanying text is not mapped."
+}

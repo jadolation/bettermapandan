@@ -1,0 +1,23 @@
+{
+  "id": "flood-susceptibility",
+  "status": "registered_historical_display",
+  "source_label": "Municipality of Mapandan website; map issuing office unverified",
+  "source_url": "https://mapandan.gov.ph/disaster-awareness/",
+  "attachment_url": "https://mapandan.gov.ph/disaster-awareness/mapandan-hazard-map/",
+  "source_date": null,
+  "website_attachment_publication_date": "2020-09-02",
+  "date_kind": "Website attachment publication only; artwork, survey and hazard-data dates unknown",
+  "source_host": "Municipality of Mapandan website; not necessarily the rights holder",
+  "issuing_office": "unverified",
+  "rights": "Image-specific republication license not stated; rights ownership and embedded-imagery license unverified",
+  "raw_source": "datasets/GIS/Better_Mapandan_GIS_V3_2_Flood_Layer_Package/Better_Mapandan_GIS_V3_2_Flood_Layer/sources/flood/Mapandan-Hazard-Map-scaled.jpeg",
+  "raw_sha256": "c0f70629843a37312541f14910af92c91649bd605cc65c31b6a72aea263cf8b5",
+  "source_pixel_dimensions": [2048, 1448],
+  "prepared_resource": "datasets/GIS/flood/prepared/flood-susceptibility.kmz",
+  "registration_report": "flood-susceptibility.registration.json",
+  "geographic_certainty": "Assumed WGS84, not verified; faithful to printed graticule, not independently verified ground accuracy",
+  "bounds": {"west": 120.40921286716969, "south": 15.989908977519955, "east": 120.4924912852006, "north": 16.04842813556753},
+  "legend": [{"label": "High", "color": "#fa8689", "source_pixel": [380, 1216]}, {"label": "Medium", "color": "#ffbb7c", "source_pixel": [380, 1240]}],
+  "usage": "Historical municipal overview only; no certified scale, ground-accuracy tolerance, parcel classification, routing or shelter-safety inference",
+  "legend_notes": "Measured original JPEG swatches; uncolored areas are not necessarily flood-free. Documentary raster includes satellite artwork and source linework, not a hazard-only classification."
+}

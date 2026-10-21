@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "review_update_2026_10_21": "Prior resolved claims below are historical assertions, not independent verification. review-003, review-004 and review-005 reopened; Amanoaoac hall also unresolved. Explicit evacuation publication crosswalk supersedes historical all-pins policy: fac-006 and fac-012/013/014 list-only; fac-010 excluded. School positions and boundary containment cannot verify hall buildings. Original coordinates and prior resolution text retained as history.",
+    "description": "Current facility review queue. Previous source_verified assertions and issue resolution text below are historical, not independent building verification. Exact publication policy and evacuation identity joins are in evacuation-crosswalk.json.",
+    "total_features": 24,
+    "all_need_review": false,
+    "public_map_policy": "Town Center excluded. fac-006 and fac-012/013/014 list-only, no pins. Eight named OSM school-footprint centroids are approximate source-reported locations, not surveyed entrances or current evacuation availability. Other source candidates remain approximate."
+  },
+  "summary": {
+    "status": "needs_review",
+    "note": "Five identity/building/status issues reopened. Prior resolutions retained below as history. Old coordinate candidates preserved in facilities.geojson coordinate_history. Current operation and designation of local evacuation listings not confirmed."
+  },
+  "issues": [
+    {
+      "issue_id": "review-001",
+      "affected_ids": [
+        "fac-001",
+        "fac-002"
+      ],
+      "feature_names": [
+        "Mapandan Municipal Police Station",
+        "Mapandan Fire Station"
+      ],
+      "description": "Police and Fire Station share exactly the same coordinates [120.4532, 16.0289] and the same Plus Code 2FG3+R7W. Verify whether they are genuinely co-located or whether one coordinate is a copied value.",
+      "status": "resolved",
+      "priority": "high",
+      "required_action": "Cross-check with PNP and BFP directory or field confirmation. Do not assume distinct sites from identical coordinates.",
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Maintainer confirmed Police and Fire stations are genuinely co-located at §3.5 cell centre [120.4532031, 16.0271125] (2FG3+R7W), not a copied value. Both features published with source_verified status and review_notes cleared."
+    },
+    {
+      "issue_id": "review-002",
+      "affected_ids": [
+        "fac-005"
+      ],
+      "feature_names": [
+        "Bagong Urgent Care and Ambulatory Services (BUCAS) Center"
+      ],
+      "description": "Address states 'Barangay Torres, Tubao, La Union' while described in source notes as a Mapandan/Torres facility. The coordinates [120.4485, 16.0195] fall within Mapandan bounds.",
+      "status": "resolved",
+      "priority": "high",
+      "required_action": "Determine actual location. If in Tubao, La Union, do not include in Mapandan public layer.",
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Maintainer confirmed use of newer BUCAS §3.5 coordinates (2F5F+C4, Mapandan context -> [120.4728125, 16.0085625]). Address corrected to 'Barangay Torres, Mapandan, Pangasinan'. Locality conflict resolved; feature published as source_verified with review_notes cleared."
+    },
+    {
+      "issue_id": "review-003",
+      "affected_ids": [
+        "fac-006"
+      ],
+      "feature_names": [
+        "Mapandan National High School / Central School SPED Center"
+      ],
+      "description": "Name conflates two potentially distinct entities: Mapandan National High School and Central School SPED Center. Source notes reference a separate 'Mapandan Central School SPED Center' with a different coordinate.",
+      "status": "open",
+      "current_review": "Separate named Central School and NHS OSM footprints contradict the unsupported combined identity resolution below. fac-006 list-only; fac-017 uses the Central School footprint and receives the single Central School source listing.",
+      "priority": "medium",
+      "required_action": "Verify whether these are colocated facilities or separate entities with conflated names. Cross-check with DepEd school masterlist.",
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Maintainer confirmed identity resolution: Mapandan NHS and Central School SPED Center are identified as a single facility per §3.5 (2FG3+XFW). Feature published as source_verified with review_notes cleared."
+    },
+    {
+      "issue_id": "review-004",
+      "affected_ids": [
+        "fac-014"
+      ],
+      "feature_names": [
+        "Nilombot Barangay Hall"
+      ],
+      "description": "Nilombot Elementary longitude (120.4364) conflicts with Nilombot Barangay Hall longitude (120.4725). Verify whether these are distinct sites or one is a coordinate error.",
+      "status": "open",
+      "current_review": "Prior hall move onto a school point was unsupported. Hall building unresolved, list-only. Previous resolution retained as history, not current evidence.",
+      "priority": "medium",
+      "required_action": "Cross-check with DepEd masterlist and barangay records to confirm distinct coordinates.",
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Point-in-polygon validation against the Nilombot barangay_gid boundary (PSGC ADM4) showed the previous coordinates [120.4725, 16.0238] fell outside Nilombot and inside Aserda. Maintainer re-resolved per plan §3.5: Nilombot Barangay Hall relocated to [120.4364, 16.0281] (Nilombot Elementary candidate, confirmed within the Nilombot polygon). Confirmed a separate site from Nilombot Elementary School. Feature published as source_verified with review_notes cleared."
+    },
+    {
+      "issue_id": "review-005",
+      "affected_ids": [
+        "fac-007",
+        "fac-013"
+      ],
+      "feature_names": [
+        "Baloling National High School",
+        "Baloling Barangay Hall"
+      ],
+      "description": "Both Baloling National High School [120.4528, 15.9982] and Baloling Barangay Hall [120.4531, 15.9985] use coordinates that are very close to each other. Verify they are distinct sites.",
+      "status": "open",
+      "current_review": "Prior hall move onto the elementary-school Plus Code was unsupported. Hall building unresolved, list-only. Previous containment claims are not building evidence.",
+      "priority": "low",
+      "required_action": "Field-verification or higher-resolution source needed to confirm separate locations.",
+      "source": "AGENTS.md Section 4.2 (general guidance on shared/closest coordinates)",
+      "resolution": "Point-in-polygon validation against the Baloling barangay_gid boundary (PSGC ADM4) showed both previous coordinates ([120.4528, 15.9982] and [120.4531, 15.9985]) fell outside Baloling and inside Poblacion. Maintainer re-resolved per plan §3.5: Baloling Barangay Hall relocated to the §3.5 Plus Code cell centre [120.4571406, 16.0372375]; Baloling NHS relocated to the OSM school-footprint centroid [120.4581, 16.0377]. Both confirmed within the Baloling polygon and distinct sites. Both published as source_verified."
+    },
+    {
+      "issue_id": "review-006",
+      "affected_ids": [
+        "fac-008",
+        "fac-009"
+      ],
+      "feature_names": [
+        "Torres National High School",
+        "Primicias National High School"
+      ],
+      "description": "Primicias school/hall entries share a coordinate pair with another facility. Verify distinct sites.",
+      "status": "resolved",
+      "priority": "low",
+      "required_action": "Cross-reference with DepEd masterlist.",
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "§3.5 coordinates applied: Primicias NHS (XFWH+9X2) relocated to [120.4798906, 15.9958875]; Torres NHS coordinates confirmed. Both retained as source_verified."
+    },
+    {
+      "issue_id": "review-007",
+      "affected_ids": [
+        "fac-010",
+        "fac-011"
+      ],
+      "feature_names": [
+        "Mapandan Town Center",
+        "Tulagan Multi-Purpose Gymnasium"
+      ],
+      "description": "Both have descriptions related to assembly/shelter use. Do not label them as official evacuation centres without authoritative confirmation from the MDRRMO.",
+      "status": "open",
+      "current_review": "Town Center excluded from publication. Tulagan receives its explicit undated local listing, not official/current designation; exact building and current availability remain unconfirmed. Historical resolution below is not current verification.",
+      "priority": "medium",
+      "required_action": "Confirm evacuation centre status with Mapandan MDRRMO / LNRMO before publishing with evacuation centre labeling.",
+      "source": "AGENTS.md Section 4.2",
+      "resolution": "Mapandan Town Center (fac-010) and Tulagan Gym (fac-011) coordinate conflicts resolved per §3.5 (Tulagan Gym uses 2FG3+FJX). Review notes about evacuation-center labeling retained in source data and stripped from public payload by the publication gate. Both published as source_verified."
+    },
+    {
+      "issue_id": "review-008",
+      "affected_ids": [
+        "fac-012",
+        "fac-013",
+        "fac-015",
+        "fac-016"
+      ],
+      "feature_names": [
+        "Amanoaoac Barangay Hall",
+        "Baloling Barangay Hall",
+        "Santa Maria Barangay Hall",
+        "Poblacion / Municipal Hall Complex"
+      ],
+      "description": "Several barangay hall coordinates appear to reuse addresses or approximate locations rather than exact building footprints. Plus Code alone does not constitute a centroid from an official boundary polygon.",
+      "status": "open",
+      "current_review": "Amanoaoac hall candidate falls in indicative Poblacion polygon, not evidence for its named barangay. Baloling hall was moved to a school candidate. Both are list-only with no verified building. Existing Poblacion/Santa Maria candidates remain approximate source locations, not independently verified buildings. Earlier resolution retained as history.",
+      "priority": "low",
+      "required_action": "Independently verify hall locations against barangay records or higher-resolution imagery.",
+      "source": "AGENTS.md Section 4.3",
+      "resolution": "§3.5 Plus Code coordinates applied where available (fac-016 Municipal Hall 2FG3+Q5). Remaining halls retained with existing candidate coordinates. All published as source_verified per maintainer review decision."
+    }
+  ],
+  "external_issues": [
+    {
+      "issue_id": "review-009",
+      "description": "Santa Maria and Golden school records were marked 'Closed' in older undated supplied notes. fac-018/fac-022 now retain named OSM footprint locations with explicit unresolved operational-status warnings. Neither current operation nor availability is established.",
+      "status": "pending",
+      "priority": "medium",
+      "required_action": "Cross-check school operational status with DepEd before adding to public map.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-010",
+      "description": "Several elementary-school coordinates exactly reuse barangay-hall coordinates, indicating probable placeholder values rather than independently surveyed points.",
+      "status": "pending",
+      "priority": "medium",
+      "required_action": "When adding elementary schools from DepEd masterlist, ensure coordinates come from independent sources, not copied from hall data.",
+      "source": "AGENTS.md Section 4.2"
+    },
+    {
+      "issue_id": "review-011",
+      "description": "Any facility whose Plus Code, address, municipality, or coordinates disagree must be marked needs_review and excluded from public layers until resolved.",
+      "status": "open",
+      "priority": "high",
+      "required_action": "Automated check: any feature with conflicting provenance fields must carry needs_review status.",
+      "source": "AGENTS.md Section 4.2 (rule)"
+    }
+  ],
+  "blocked_feature_ids": ["fac-006", "fac-010", "fac-012", "fac-013", "fac-014"]
+}

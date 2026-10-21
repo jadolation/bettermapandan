@@ -6,7 +6,7 @@
   "use strict";
 
   function base() {
-    if (window.__CONFIG__ && window.__CONFIG__.assetBase) return window.__CONFIG__.assetBase;
+    if (window.__CONFIG__ && typeof window.__CONFIG__.assetBase === "string") return window.__CONFIG__.assetBase;
     return location.pathname.indexOf("/fil/") !== -1 || location.pathname.indexOf("/pag/") !== -1 ? "../.." : ".";
   }
 
@@ -395,7 +395,10 @@
     if (!root || root.hasAttribute("data-explorer-bound")) return;
     root.setAttribute("data-explorer-bound", "true");
     var b = base();
-    fetch(b + "/assets/data/project-index.json").then(function (r) { return r.json(); }).then(function (projects) {
+    fetch(b + "/assets/data/project-index.json").then(function (r) {
+      if (!r.ok) throw new Error("index unavailable");
+      return r.json();
+    }).then(function (projects) {
       store.projects = projects;
       return fetch(b + "/assets/data/entity-relationships.json").then(function (r) {
         return r.ok ? r.json() : [];
@@ -404,6 +407,29 @@
       store.edges = rels;
       fillFilters();
       current();
+      var requested = new URLSearchParams(location.search).get("project");
+      if (requested) {
+        var project = store.projects.find(function (item) { return item.id === requested; });
+        if (!project) {
+          var notice = document.createElement("p");
+          notice.className = "source-label";
+          notice.setAttribute("role", "status");
+          notice.textContent = "No project with this canonical ID is present in the loaded index.";
+          root.prepend(notice);
+          return;
+        }
+        document.getElementById("explorer-search").value = project.id;
+        current();
+        var card = Array.from(root.querySelectorAll(".explorer-card")).find(function (item) {
+          return item.getAttribute("data-id") === requested;
+        });
+        if (card) {
+          var button = card.querySelector("[data-expand]");
+          button.setAttribute("aria-expanded", "true");
+          renderDetail(card.querySelector(".explorer-detail"), requested);
+          button.focus();
+        }
+      }
     }).catch(function () {
       root.innerHTML = '<p class="source-label">Index unavailable offline.</p>';
     });

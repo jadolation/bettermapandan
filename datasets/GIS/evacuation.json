@@ -1,0 +1,161 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "MAPANDAN CENTRAL SCHOOL",
+        "location": "POBLACION",
+        "proximity_to_health_center": "MUNICIPAL HEALTH CENTER (194 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (424 meters)",
+        "floor_area": "50 X 30",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "ALOHA BUILDING",
+        "location": "POBLACION",
+        "proximity_to_health_center": "MUNICIPAL HEALTH CENTER (62 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (288 meters)",
+        "floor_area": "12 X 8",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "CONG. TULAGAN GYM",
+        "location": "POBLACION",
+        "proximity_to_health_center": "MUNICIPAL HEALTH CENTER (142 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (367 meters)",
+        "floor_area": "36.40 X 27.40",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "CORAL BARANGAY HALL",
+        "location": "CORAL",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (3 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (936 meters)",
+        "floor_area": "10 X 6",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "PRIMICIAS ELEMENTARY/HIGH SCHOOL",
+        "location": "PRIMICIAS",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (150 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (4.16 km.)",
+        "floor_area": "28.5 X 16",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "STA. MARIA ELEMNTARY SCHOOL",
+        "location": "STA. MARIA",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (28 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (1.90 km.)",
+        "floor_area": "28.40 X 15",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "BALOLING ELEMENTARY SCHOOL",
+        "location": "BALOLING",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (183 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (1.80 km.)",
+        "floor_area": "29.8 X 17.7",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "NILOMBOT ELEMENTARY SCHOOL",
+        "location": "NILOMBOT",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (142 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (2.50 km.)",
+        "floor_area": "29.91 X 17.54",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "TORRES ELEMENTARY SCHOOL",
+        "location": "TORRES",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (290 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (1.79 km.)",
+        "floor_area": "29.6 X 17",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "GOLDEN ELEMENTARY SCHOOL",
+        "location": "GOLDEN",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (30 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (1.95 km.)",
+        "floor_area": "29.8 X 17.7",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "JIMENEZ ELEMENTARY SCHOOL",
+        "location": "JIMENEZ",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (251 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (2.2 km.)",
+        "floor_area": "28 X 15.5",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "name_of_evacuation_center": "LAMBAYAN ELEMENTARY SCHOOL",
+        "location": "LAMBAYAN",
+        "proximity_to_health_center": "BARANGAY HEALTH CENTER (274 meters)",
+        "proximity_to_hospital": "MAPANDAN COMMUNITY HOSPITAL (3.35 km.)",
+        "floor_area": "27.4 X 14.6",
+        "no_of_evacuees": null,
+        "other_characterized": "GOVERNMENT"
+      }
+    }
+  ]
+}

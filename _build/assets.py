@@ -19,7 +19,7 @@ def generate_sitemap() -> None:
     def _is_output_index(path: Path) -> bool:
         """Check if an index.html is a build output, not a source/template file."""
         parts = path.parts
-        if any(part in ("src", "node_modules", ".venv", ".git", "__pycache__", ".kilo") for part in parts):
+        if any(part in ("src", "_site", "node_modules", ".venv", ".git", "__pycache__", ".kilo") for part in parts):
             return False
         if path.name != "index.html":
             return False
@@ -212,6 +212,7 @@ JS_SOURCES = [
     "assets/search.js",
     "assets/report.js",
     "assets/leaflet-map.js",
+    "assets/gis-map.js",
     "assets/font-loader.js",
     "assets/chart-loader.js",
     "assets/js/common.js",

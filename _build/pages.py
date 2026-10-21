@@ -1,5 +1,6 @@
 """Page processors: static/generated pages, page-meta, search entries."""
 import json
+import re
 from pathlib import Path
 
 from _build.chrome import assemble_page, build_footer, build_header, build_hero
@@ -21,6 +22,10 @@ from _build.generators.procurement import (
     generate_homepage_dpwh_data,
     generate_homepage_procurement_data,
     generate_procurement,
+)
+from _build.gis import (
+    directory_html,
+    script_json,
 )
 from _build.labels import resolve_body_placeholders
 from _build.navigation import (
@@ -124,12 +129,40 @@ def _process_static_page(
     if rel.name in SECTION_NAV:
         body = body.replace("{SECTION_NAV}", build_section_nav(locale, rel.name, body), 1)
     if rel.name == "index.html":
+        from _build.gis_residents import contact_placeholders
+        for key, value in contact_placeholders(SRC_DATA.parent.parent).items():
+            body = body.replace('{' + key + '}', value)
         proc_data = generate_homepage_procurement_data()
         body = body.replace("{HOMEPAGE_PROCUREMENT_DATA}", proc_data, 1)
         dpwh_data = generate_homepage_dpwh_data()
         body = body.replace("{HOMEPAGE_DPWH_DATA}", dpwh_data, 1)
     if rel.name == "government.html":
+        from _build.gis_residents import contact_placeholders
+        for key, value in contact_placeholders(SRC_DATA.parent.parent).items():
+            body = body.replace('{' + key + '}', value)
         body = body.replace("{BARANGAY_COUNCILS_TABLE}", generate_barangay_councils_table(locale), 1)
+    if rel.name == "gis.html":
+        from _build.gis_sources import prepare_inputs
+        projection = prepare_inputs(SRC_DATA.parent.parent, lang_code=lang_code)
+        projection['residents']['labels'] = locale.get('gis', {}).get('resident', {})
+        facilities, barangays, records = projection['facilities'], projection['barangays'], projection['records']
+        manifest = {key: projection[key] for key in ('schema_version', 'metadata', 'layers')}
+        # GIS resources use the canonical root, not the locale's copied assets.
+        manifest['metadata']['asset_base'] = ('../' if lang_code != 'en' else '') + asset_base.rstrip('/') + '/'
+        # Counts and static directories use the same normalized map payload.
+        # Replace template tokens before inserting data so source strings cannot
+        # accidentally act as placeholders in a later replacement pass.
+        replacements = {
+            "GIS_LAYERS_DATA": script_json(manifest),
+            "GIS_RECORDS_DATA": script_json(records),
+            "GIS_RESIDENTS_DATA": script_json(projection['residents']),
+            "GIS_BARANGAYS_DATA": script_json(barangays),
+            "GIS_FACILITIES_DATA": script_json(facilities),
+            "GIS_FACILITY_DIRECTORY": directory_html({'features': facilities['features']}, "facilities", locale, projection['residents']),
+            "GIS_FACILITY_COUNT": str(len(facilities["features"])),
+            "GIS_BARANGAY_COUNT": str(len(barangays["features"])),
+        }
+        body = re.sub(r"\{(GIS_[A-Z_]+)\}", lambda match: replacements.get(match[1], match[0]), body)
     page_url = f"{lang_code}/{rel}" if lang_code != "en" else str(rel)
     breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)
     page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url, breadcrumb_jsonld)

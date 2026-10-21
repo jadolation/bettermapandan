@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "layer_id": "physical-elevation",
+  "status": "registered_historical_display",
+  "source_pixel_dimensions": [
+    1773,
+    1883
+  ],
+  "source_sha256": "21e9bccedb46f9cb3976d6f6ba9ccbfdc5dcc167e1d460137200f6e63496f763",
+  "pixel_convention": "zero-based pixel centres; crop edges at half pixels",
+  "crop_pixel_box_exclusive": [
+    70,
+    90,
+    1734,
+    1500
+  ],
+  "control_detection": "local median darkness profiles, seven-pixel windows, antialiased centroids",
+  "control_selection": "checkerboard distributed six crossings fit; other six withheld",
+  "sampling_notes": "Each crossing measured locally without inferred regular spacing.",
+  "affine_pixel_to_lon_lat": [
+    [
+      4.190456621326851e-05,
+      -1.9457331924008718e-11
+    ],
+    [
+      -2.936539900133539e-14,
+      -4.190477336769166e-05
+    ],
+    [
+      120.41619050150489,
+      16.05138305594645
+    ]
+  ],
+  "fit": {
+    "points": [
+      [
+        90.91,
+        271.643216080402,
+        120.42,
+        16.04
+      ],
+      [
+        1045.455,
+        271.643216080402,
+        120.46,
+        16.04
+      ],
+      [
+        568.1844262295082,
+        748.9065040650406,
+        120.44,
+        16.02
+      ],
+      [
+        1522.7386934673366,
+        748.91,
+        120.48,
+        16.02
+      ],
+      [
+        90.91,
+        1226.1859296482412,
+        120.42,
+        16.0
+      ],
+      [
+        1045.455,
+        1226.1908893709328,
+        120.46,
+        16.0
+      ]
+    ],
+    "residual_metres": [
+      0.011413044940963228,
+      0.021144341121791376,
+      0.03191992420964172,
+      0.025870518273040034,
+      0.005020315344683374,
+      0.029395191510023587
+    ],
+    "rmse_metres": 0.02293028159310711,
+    "max_metres": 0.03191992420964172
+  },
+  "withheld": {
+    "points": [
+      [
+        568.1855670103092,
+        271.6426116838488,
+        120.44,
+        16.04
+      ],
+      [
+        1522.7386934673366,
+        271.643216080402,
+        120.48,
+        16.04
+      ],
+      [
+        90.91,
+        748.91,
+        120.42,
+        16.02
+      ],
+      [
+        1045.4554794520548,
+        748.9078498293516,
+        120.46,
+        16.02
+      ],
+      [
+        568.1859296482412,
+        1226.1859296482412,
+        120.44,
+        16.0
+      ],
+      [
+        1522.7372881355932,
+        1226.1869688385268,
+        120.48,
+        16.0
+      ]
+    ],
+    "residual_metres": [
+      0.01144690034361779,
+      0.02578872543773148,
+      0.01733898933790306,
+      0.028772755492083676,
+      0.009246854984830258,
+      0.017107125975449364
+    ],
+    "rmse_metres": 0.01959064395443625,
+    "max_metres": 0.028772755492083676
+  },
+  "datum_assumption": "Printed graticule has no datum. EPSG:4326 / WGS84 assumed for display, not verified.",
+  "printed_graticule": {
+    "longitude": [
+      120.42,
+      120.44,
+      120.46,
+      120.48
+    ],
+    "latitude": [
+      16.04,
+      16.02,
+      16.0
+    ]
+  },
+  "target_crs": "EPSG:3857",
+  "resampling": "bilinear premultiplied RGBA inverse mapping; not a geographic bounding-box stretch",
+  "registration_scope": "Faithful to printed graticule only; independent feature disagreement retained, not repaired. No claim of ground-validated registration.",
+  "projected_bounds_metres": [
+    13404993.213139057,
+    1803396.4612070133,
+    13412755.431978362,
+    1810239.5438440621
+  ],
+  "bounds": {
+    "west": 120.41910286881269,
+    "south": 15.988546814552308,
+    "east": 120.48883206703296,
+    "north": 16.047632577377755
+  },
+  "output_pixel_dimensions": [
+    1664,
+    1410
+  ],
+  "external_checks": {
+    "method": "Visual identification of road-junction line centres against independent OSM coordinates; not used in fit",
+    "source": "datasets/GIS/highways.geojson (OpenStreetMap export 2026-10-18; ODbL)",
+    "source_sha256": "68a1ecaa5c8fe84f6fe035ebb10bfeb52f40e6c4ecf60dc3204e9c2d3d97d50a",
+    "visual_review": "OSM secondary roads and Angalacan River overplotted in QA; broad correspondence, not exact agreement. Central Fire Tree/Pandan junction disagrees materially (see measured offset); do not use this overlay for precise road/parcel placement. Neither junction adjusts the fit.",
+    "features": [
+      "Fire Tree Avenue / Mango Avenue",
+      "Fire Tree Avenue / Pandan Avenue"
+    ],
+    "points": [
+      [
+        1032.0,
+        716.0,
+        120.459316,
+        16.0214496
+      ],
+      [
+        913.0,
+        567.0,
+        120.4538252,
+        16.0271765
+      ]
+    ],
+    "residual_metres": [
+      15.021094053866396,
+      83.08832534407556
+    ],
+    "rmse_metres": 59.704702809150845,
+    "max_metres": 83.08832534407556
+  },
+  "accuracy_statement": "Grid residuals measure internal poster registration only, not source accuracy. OSM checks are independent visual diagnostics, not surveyed validation. No invented accuracy threshold.",
+  "alpha_method": "Near-white exterior connectivity with 5px bridges; no municipal polygon clipping. Black exterior road/context labels and printed grid remain. No white thematic legend class.",
+  "legend": [
+    {
+      "label": "1 m above sea level",
+      "color": "#0d0887",
+      "source_pixel": [
+        1040,
+        1611
+      ]
+    },
+    {
+      "label": "4 m above sea level",
+      "color": "#5301a4",
+      "source_pixel": [
+        1040,
+        1633
+      ]
+    },
+    {
+      "label": "8 m above sea level",
+      "color": "#8b09a5",
+      "source_pixel": [
+        1040,
+        1654
+      ]
+    },
+    {
+      "label": "12 m above sea level",
+      "color": "#b93289",
+      "source_pixel": [
+        1040,
+        1675
+      ]
+    },
+    {
+      "label": "16 m above sea level",
+      "color": "#db5c68",
+      "source_pixel": [
+        1040,
+        1696
+      ]
+    },
+    {
+      "label": "20 m above sea level",
+      "color": "#f48849",
+      "source_pixel": [
+        1040,
+        1718
+      ]
+    },
+    {
+      "label": "24 m above sea level",
+      "color": "#febc2b",
+      "source_pixel": [
+        1040,
+        1739
+      ]
+    },
+    {
+      "label": "28 m above sea level",
+      "color": "#f0f921",
+      "source_pixel": [
+        1040,
+        1760
+      ]
+    }
+  ]
+}

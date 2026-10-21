@@ -1,13 +1,8 @@
-import html
-import json
 import re
-import shutil
-import sys
-from collections import Counter
 from pathlib import Path
 
 try:
-    from src.data.schemas import validate_all
+    from src.data.schemas import validate_all as validate_all
     HAS_SCHEMA_VALIDATION = True
 except ImportError:
     HAS_SCHEMA_VALIDATION = False

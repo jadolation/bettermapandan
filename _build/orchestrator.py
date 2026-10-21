@@ -73,6 +73,21 @@ __all__ = [
 
 
 def build() -> None:
+    _check_removed_gis_options()
+    _build_workspace()
+
+
+def _check_removed_gis_options():
+    import os
+    obsolete = [key for key in os.environ if key == 'GIS_MODE' or key.startswith('GIS_RESEARCH_')]
+    if obsolete:
+        raise ValueError('Obsolete GIS options: ' + ', '.join(sorted(obsolete))
+                         + '. Remove them; edit src/data/gis/layers.json and build the single map workflow.')
+
+
+def _build_workspace() -> None:
+    """Pipeline used by the disposable subprocess and legacy normal builds."""
+    _check_removed_gis_options()
     generate_barangays()
 
     from _build.entities import build_all as build_entities
@@ -149,7 +164,27 @@ def build() -> None:
     )
     print(f"\nSearch index: {len(all_search_entries)} total entries")
 
-    minify_assets()
+    if "--offline" in sys.argv:
+        import os
+        import subprocess
+
+        from _build.assets import JS_SOURCES, minify_css, resolve_css_imports
+        binary = os.environ.get('GIS_ESBUILD_BINARY')
+        if binary and (not Path(binary).is_absolute() or not Path(binary).is_file()):
+            raise ValueError('GIS_ESBUILD_BINARY must identify an existing absolute local executable')
+        css = ROOT / "assets/style.css"
+        (ROOT / "assets/style.min.css").write_text(
+            minify_css(resolve_css_imports(css.read_text(encoding="utf-8"), css.parent)), encoding="utf-8")
+        for source in JS_SOURCES:
+            path = ROOT / source
+            if path.is_file():
+                if binary:
+                    subprocess.run([binary, str(path), '--minify',
+                                    '--outfile=' + str(path.with_suffix('.min.js'))], check=True, timeout=90)
+                else:
+                    shutil.copyfile(path, path.with_suffix(".min.js"))
+    else:
+        minify_assets()
 
     assets_src = ROOT / "assets"
     for out_dir in [FIL_DIR, PAG_DIR]:
@@ -166,6 +201,18 @@ def build() -> None:
 
 
 def main():
+    if "--sync-gis" in sys.argv and "--isolated" not in sys.argv:
+        raise ValueError("--sync-gis requires --isolated; no root build was started")
+    _check_removed_gis_options()
+    if "--isolated" in sys.argv:
+        if "--compress" in sys.argv or "--verify-translations" in sys.argv:
+            raise ValueError("Isolated site build cannot combine maintenance commands")
+        from _build.preview import isolated_build
+        site = isolated_build(ROOT, offline="--offline" in sys.argv)
+        if "--sync-gis" in sys.argv:
+            from _build.gis_sync import synchronize_gis
+            synchronize_gis(ROOT, site)
+        return
     if "--compress" in sys.argv:
         compress_images()
     if "--verify-translations" in sys.argv:

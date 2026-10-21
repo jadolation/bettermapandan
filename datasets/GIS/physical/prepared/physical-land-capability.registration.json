@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "layer_id": "physical-land-capability",
+  "status": "registered_historical_display",
+  "source_pixel_dimensions": [
+    768,
+    816
+  ],
+  "source_sha256": "3243983c14a65602775de571b66223ac1d6e79a0b08f5e150dc6015abef099ee",
+  "pixel_convention": "zero-based pixel centres; crop edges at half pixels",
+  "crop_pixel_box_exclusive": [
+    30,
+    39,
+    752,
+    650
+  ],
+  "control_detection": "local median darkness profiles, seven-pixel windows, antialiased centroids",
+  "control_selection": "checkerboard distributed six crossings fit; other six withheld",
+  "sampling_notes": "Each crossing measured locally. Land-capability longitude 120.46 at north/south rows uses clear same-line y72:90 and y550:570 segments because roads/water obscure the local profile.",
+  "affine_pixel_to_lon_lat": [
+    [
+      9.673780456522059e-05,
+      1.4293562602098708e-08
+    ],
+    [
+      7.703282456361649e-13,
+      -9.665564184007519e-05
+    ],
+    [
+      120.41621850565727,
+      16.051342162308522
+    ]
+  ],
+  "fit": {
+    "points": [
+      [
+        39.0919540229885,
+        117.4186046511628,
+        120.42,
+        16.04
+      ],
+      [
+        452.57471264367814,
+        117.4186046511628,
+        120.46,
+        16.04
+      ],
+      [
+        245.83333333333337,
+        324.26063829787233,
+        120.44,
+        16.02
+      ],
+      [
+        659.3294117647059,
+        324.2613636363636,
+        120.48,
+        16.02
+      ],
+      [
+        39.0919540229885,
+        531.0952380952381,
+        120.42,
+        16.0
+      ],
+      [
+        452.57471264367814,
+        531.4223107569721,
+        120.46,
+        16.0
+      ]
+    ],
+    "residual_metres": [
+      0.7139458228078915,
+      0.0740882194999005,
+      0.4490102320721772,
+      1.0969003761744722,
+      1.0370378588091766,
+      1.8079560953928484
+    ],
+    "rmse_metres": 1.0217763200592052,
+    "max_metres": 1.8079560953928484
+  },
+  "withheld": {
+    "points": [
+      [
+        245.83333333333337,
+        117.4207650273224,
+        120.44,
+        16.04
+      ],
+      [
+        659.3294117647059,
+        117.4186046511628,
+        120.48,
+        16.04
+      ],
+      [
+        39.0919540229885,
+        324.2613636363636,
+        120.42,
+        16.02
+      ],
+      [
+        452.5783783783784,
+        324.26063829787233,
+        120.46,
+        16.02
+      ],
+      [
+        245.83908045977012,
+        531.0952380952381,
+        120.44,
+        16.0
+      ],
+      [
+        659.3260869565216,
+        531.094890510949,
+        120.48,
+        16.0
+      ]
+    ],
+    "residual_metres": [
+      0.40999232413498127,
+      0.2745837744456659,
+      0.11561197919170894,
+      0.7758684927222593,
+      1.364689466518909,
+      2.0218110691176707
+    ],
+    "rmse_metres": 1.0652797239852523,
+    "max_metres": 2.0218110691176707
+  },
+  "datum_assumption": "Printed graticule has no datum. EPSG:4326 / WGS84 assumed for display, not verified.",
+  "printed_graticule": {
+    "longitude": [
+      120.42,
+      120.44,
+      120.46,
+      120.48
+    ],
+    "latitude": [
+      16.04,
+      16.02,
+      16.0
+    ]
+  },
+  "target_crs": "EPSG:3857",
+  "resampling": "bilinear premultiplied RGBA inverse mapping; not a geographic bounding-box stretch",
+  "registration_scope": "Faithful to printed graticule only; independent feature disagreement retained, not repaired. No claim of ground-validated registration.",
+  "projected_bounds_metres": [
+    13404989.806997404,
+    1803398.5374873765,
+    13412764.882920241,
+    1810239.437779282
+  ],
+  "bounds": {
+    "west": 120.41907227092162,
+    "south": 15.98856474459349,
+    "east": 120.48891696628836,
+    "north": 16.047631661709975
+  },
+  "output_pixel_dimensions": [
+    722,
+    611
+  ],
+  "external_checks": {
+    "method": "Visual identification of road-junction line centres against independent OSM coordinates; not used in fit",
+    "source": "datasets/GIS/highways.geojson (OpenStreetMap export 2026-10-18; ODbL)",
+    "source_sha256": "68a1ecaa5c8fe84f6fe035ebb10bfeb52f40e6c4ecf60dc3204e9c2d3d97d50a",
+    "visual_review": "OSM secondary roads and Angalacan River overplotted in QA; broad correspondence, not exact agreement. Central Fire Tree/Pandan junction disagrees materially (see measured offset); do not use this overlay for precise road/parcel placement. Neither junction adjusts the fit.",
+    "features": [
+      "Fire Tree Avenue / Mango Avenue",
+      "Fire Tree Avenue / Pandan Avenue"
+    ],
+    "points": [
+      [
+        447.0,
+        309.0,
+        120.459316,
+        16.0214496
+      ],
+      [
+        396.0,
+        245.0,
+        120.4538252,
+        16.0271765
+      ]
+    ],
+    "residual_metres": [
+      15.85356557088924,
+      92.65093258821211
+    ],
+    "rmse_metres": 66.46627284110306,
+    "max_metres": 92.65093258821211
+  },
+  "accuracy_statement": "Grid residuals measure internal poster registration only, not source accuracy. OSM checks are independent visual diagnostics, not surveyed validation. No invented accuracy threshold.",
+  "alpha_method": "Near-white exterior connectivity with 5px bridges; no municipal polygon clipping. Black exterior road/context labels and printed grid remain. No white thematic legend class.",
+  "legend": [
+    {
+      "label": "Class A",
+      "color": "#ffd848",
+      "source_pixel": [
+        450,
+        698
+      ]
+    },
+    {
+      "label": "Class B",
+      "color": "#ff5c43",
+      "source_pixel": [
+        450,
+        707
+      ]
+    }
+  ]
+}

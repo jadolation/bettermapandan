@@ -9,7 +9,9 @@ from _build.templates import fill, to_folder_index
 def build_header(locale: dict, asset_base: str, lang_code: str, lang_urls: dict[str, str]) -> str:
     """Build the site header with navigation and locale strings."""
     header_raw = (SRC_PARTIALS / "header.html").read_text(encoding="utf-8")
+    from _build.gis_residents import contact_placeholders
     return fill(header_raw, {
+        **contact_placeholders(SRC_PARTIALS.parent.parent),
         "ASSET_BASE": asset_base,
         "NAV_HOME": t(locale, "nav.home", "Home"),
         "NAV_SERVICES": t(locale, "nav.services", "Services"),
@@ -18,6 +20,7 @@ def build_header(locale: dict, asset_base: str, lang_code: str, lang_urls: dict[
         "NAV_STATISTICS": t(locale, "nav.statistics", "Statistics"),
         "NAV_TRANSPARENCY": t(locale, "nav.transparency", "Transparency"),
         "NAV_ABOUT": t(locale, "nav.about", "About"),
+        "NAV_GIS": t(locale, "nav.gis", "GIS"),
         "NAV_SEARCH": t(locale, "nav.search", "Search"),
         "NAV_MENU": t(locale, "nav.menu", "Menu"),
         "EMERGENCY_LABEL": t(locale, "emergency.label", "Emergency"),
@@ -48,6 +51,7 @@ def build_footer(locale: dict, asset_base: str) -> str:
         "NAV_STATISTICS": t(locale, "nav.statistics", "Statistics"),
         "NAV_TRANSPARENCY": t(locale, "nav.transparency", "Transparency"),
         "NAV_ABOUT": t(locale, "nav.about", "About"),
+        "NAV_GIS": t(locale, "nav.gis", "GIS"),
         "FOOTER_BRAND_DESC": t(locale, "footer.brand_desc", ""),
         "FOOTER_QUICK_LINKS": t(locale, "footer.quick_links", "Quick Links"),
         "FOOTER_RESOURCES": t(locale, "footer.resources", "Resources"),

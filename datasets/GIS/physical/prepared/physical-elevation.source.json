@@ -1,0 +1,92 @@
+{
+  "id": "physical-elevation",
+  "source_label": "Municipality of Mapandan, Office of the MPDC (historical physical map)",
+  "prepared_date": "2021-12-15",
+  "date_kind": "poster preparation date, not underlying data date",
+  "data_vintage": "unknown",
+  "publisher": "Municipal Planning and Development Coordinator, Mapandan",
+  "source_credits": "Mapandan Cadastral Survey & Index Map; Google Earth; NASA (Shuttle Radar Topography Mission)",
+  "raw_source": "datasets/GIS/Better_Mapandan_GIS_V3_1_Updated_Package/Better_Mapandan_GIS_V3_1/sources/physical/elevation.png",
+  "raw_sha256": "21e9bccedb46f9cb3976d6f6ba9ccbfdc5dcc167e1d460137200f6e63496f763",
+  "source_pixel_dimensions": [
+    1773,
+    1883
+  ],
+  "prepared_resource": "datasets/GIS/physical/prepared/physical-elevation.kmz",
+  "registration_report": "physical-elevation.registration.json",
+  "bounds": {
+    "west": 120.41910286881269,
+    "south": 15.988546814552308,
+    "east": 120.48883206703296,
+    "north": 16.047632577377755
+  },
+  "legend": [
+    {
+      "label": "1 m above sea level",
+      "color": "#0d0887",
+      "source_pixel": [
+        1040,
+        1611
+      ]
+    },
+    {
+      "label": "4 m above sea level",
+      "color": "#5301a4",
+      "source_pixel": [
+        1040,
+        1633
+      ]
+    },
+    {
+      "label": "8 m above sea level",
+      "color": "#8b09a5",
+      "source_pixel": [
+        1040,
+        1654
+      ]
+    },
+    {
+      "label": "12 m above sea level",
+      "color": "#b93289",
+      "source_pixel": [
+        1040,
+        1675
+      ]
+    },
+    {
+      "label": "16 m above sea level",
+      "color": "#db5c68",
+      "source_pixel": [
+        1040,
+        1696
+      ]
+    },
+    {
+      "label": "20 m above sea level",
+      "color": "#f48849",
+      "source_pixel": [
+        1040,
+        1718
+      ]
+    },
+    {
+      "label": "24 m above sea level",
+      "color": "#febc2b",
+      "source_pixel": [
+        1040,
+        1739
+      ]
+    },
+    {
+      "label": "28 m above sea level",
+      "color": "#f0f921",
+      "source_pixel": [
+        1040,
+        1760
+      ]
+    }
+  ],
+  "usage": "Historical cartographic context only; not current conditions, cadastral authority, engineering or parcel decisions",
+  "rights": "Municipal source; republication license not stated in poster",
+  "legend_notes": "Labels and RGB swatches sampled from the original legend; no analytical classification inferred."
+}

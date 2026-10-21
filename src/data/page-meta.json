@@ -223,6 +223,16 @@
     },
     "pag_status": "draft"
   },
+  "gis.html": {
+    "fil": {
+      "title": "Mapa ng GIS — BetterMapandan.org",
+      "description": "Siyasatin ang mapa, mga pasilidad at mga talang sanggunian ng Mapandan kasama ang pinagmulan, katumpakan at limitasyon ng bawat layer."
+    },
+    "pag": {
+      "title": "GIS Map — BetterMapandan.org",
+      "description": "Siyasaten so mapa, saray pasilidad tan reperensya na Mapandan pati pinanlapuan, katumpakan tan limitasyon na kada layer."
+    }
+  },
   "transparency/projects.html": {
     "fil": {
       "title": "Explorer ng Proyekto — BetterMapandan.org",

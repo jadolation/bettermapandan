@@ -18,6 +18,21 @@ from _build.generators.procurement import (
 )
 
 
+def test_service_photo_omits_unavailable_document(tmp_path, monkeypatch):
+    from _build.generators import services
+
+    monkeypatch.setattr(services, 'ROOT', tmp_path)
+    service = {'name': 'Example', 'photo-referenced': 'assets/citizens-charter/example.jpg'}
+    assert services._build_photo_html(service, 'en', '../..') == ''
+    photo = tmp_path / service['photo-referenced']
+    photo.parent.mkdir(parents=True)
+    photo.write_bytes(b'synthetic image')
+    assert '<img ' in services._build_photo_html(service, 'en', '../..')
+    assert services._build_photo_html({'name': 'Example'}, 'en', '../..') == ''
+
+
+
+
 def test_validate_barangays_empty():
     """Empty list should pass validation."""
     assert validate_barangays([]) == []

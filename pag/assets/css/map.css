@@ -24,5 +24,170 @@
   height: 100%;
   min-height: 400px;
   background: var(--green-pale);
-  z-index: 0;
+}
+
+/* ==========================================================================
+   GIS Map Page — Leaflet barangay/facility map
+   ========================================================================== */
+
+#gis-map {
+  width: 100%;
+  height: 520px;
+  min-height: 400px;
+  background: var(--green-pale);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.gis-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.gis-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.gis-panel-title {
+  font-size: 1.125rem;
+  margin: 0 0 8px 0;
+}
+
+.barangay-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+
+.barangay-list-item:last-child {
+  border-bottom: none;
+}
+
+.barangay-code {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+}
+
+.barangay-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.barangay-pop {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+}
+
+.gis-disclaimer {
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: var(--amber-pale);
+  border: 1px solid var(--amber-line);
+  border-radius: var(--radius);
+  font-size: 0.8125rem;
+}
+
+.gis-disclaimer strong {
+  color: var(--amber-text);
+}
+
+.gis-disclaimer-popup {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 700;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .gis-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #gis-map {
+    height: 360px;
+  }
+}
+
+/* ==========================================================================
+   GIS Map — Legend, extent label, and layer-control styles
+   ========================================================================== */
+
+.gis-legend {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.gis-legend h4 {
+  font-size: 0.8125rem;
+  margin-bottom: 8px;
+}
+
+.gis-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+}
+
+.gis-legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gis-legend-rect {
+  width: 18px;
+  height: 18px;
+  border: 1px dashed var(--blue);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.gis-legend-green {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.gis-legend-orange {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.gis-extent-label {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 700;
+  background: var(--surface);
+  padding: 4px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+.gis-extent-label-inner {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.barangay-list-item .badge {
+  /* Existing badge styles preserved — no overrides needed. */
 }
