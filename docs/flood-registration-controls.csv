@@ -1,1 +1,23 @@
-id,role,pixel_x,pixel_y,longitude,latitude,crs,evidence,independent_error_m
+id,role,pixel_x,pixel_y,longitude,latitude,crs,evidence,uncertainty_px
+G00,fit,276,340,120.420,16.035,EPSG:4326_assumed,Printed cross; 120d25m12s E / 16d2m6s N,2
+G10,grid_check,639,340,120.435,16.035,EPSG:4326_assumed,Printed cross; 120d26m6s E / 16d2m6s N,3
+G20,fit,1003,340,120.450,16.035,EPSG:4326_assumed,Printed cross partly crossed by road; 120d27m0s E / 16d2m6s N,4
+G30,grid_check,1366,340,120.465,16.035,EPSG:4326_assumed,Printed cross over red shading; 120d27m54s E / 16d2m6s N,2
+G40,fit,1730,340,120.480,16.035,EPSG:4326_assumed,Printed cross below north arrow; 120d28m48s E / 16d2m6s N,2
+G01,grid_check,276,703,120.420,16.020,EPSG:4326_assumed,Printed cross; 120d25m12s E / 16d1m12s N,2
+G11,fit,639,703,120.435,16.020,EPSG:4326_assumed,Printed cross near Golden text; 120d26m6s E / 16d1m12s N,4
+G21,grid_check,1003,703,120.450,16.020,EPSG:4326_assumed,Printed cross over cyan irrigation; 120d27m0s E / 16d1m12s N,3
+G31,fit,1366,703,120.465,16.020,EPSG:4326_assumed,Printed cross beside orange patch; 120d27m54s E / 16d1m12s N,3
+G41,grid_check,1730,703,120.480,16.020,EPSG:4326_assumed,Printed cross over farmland; 120d28m48s E / 16d1m12s N,2
+G02,fit,276,1067,120.420,16.005,EPSG:4326_assumed,Printed cross above legend; 120d25m12s E / 16d0m18s N,3
+G12,grid_check,639,1067,120.435,16.005,EPSG:4326_assumed,Printed cross below Sta Barbara text; 120d26m6s E / 16d0m18s N,3
+G32,grid_check,1366,1067,120.465,16.005,EPSG:4326_assumed,Printed cross over orange shading; 120d27m54s E / 16d0m18s N,2
+G42,fit,1730,1067,120.480,16.005,EPSG:4326_assumed,Printed cross over farmland; 120d28m48s E / 16d0m18s N,3
+OSM1,independent_candidate,1227.5,667,120.459316,16.0214496,EPSG:4326,Visual provincial-road junction Fire Tree / Mango; OSM way/35866813 endpoint; not used in fit,4
+OSM2,independent_candidate,1096.5,527.5,120.4538252,16.0271765,EPSG:4326,Visual provincial-road junction Fire Tree / Pandan; OSM Pandan Avenue vertex; not used in fit,4
+Pias,nearest_road,808,220,,,EPSG:4326_assumed,Visible blue provincial road northeast of Pias; nearest OSM motor-road line diagnostic only,4
+Baloling,nearest_road,1083,130,,,EPSG:4326_assumed,Visible blue provincial road north of Baloling; nearest OSM motor-road line diagnostic only,4
+Primicias,nearest_road,1846,1250,,,EPSG:4326_assumed,Visible blue diagonal provincial road east of Primicias; nearest OSM motor-road line diagnostic only,4
+RiverNW,nearest_river,985,272.5,,,EPSG:4326_assumed,Visible red-tinted braided Angalacan channel upstream northwest arm; nearest OSM river line not surveyed centreline,10
+RiverBend,nearest_river,1127.5,445,,,EPSG:4326_assumed,Visible red-tinted Angalacan channel approaching central bend; nearest OSM river line not surveyed centreline,10
+RiverNE,nearest_river,1332.5,360,,,EPSG:4326_assumed,Visible red-tinted northeast river arm; nearest OSM river line not surveyed centreline,10

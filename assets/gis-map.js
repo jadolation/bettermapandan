@@ -631,16 +631,27 @@
                if (node("facility-empty")) node("facility-empty").hidden = s.features.length !== 0;
             }
           }
+          s.loaded = true;
           s.message.textContent = text(s.features.length || l.type === "raster-image-overlay" ? "loaded" : "emptyLayer");
           if (s.overlay && map) { if (s.visible) s.overlay.addTo(map); else map.removeLayer(s.overlay); }
         } catch (error) {
           if (s.overlay && map) map.removeLayer(s.overlay);
-          s.overlay = null; s.features = []; s.visible = false;
-          if (s.toggle) { s.toggle.checked = false; s.toggle.disabled = true; }
+          var restore = s.visible && s.previous && s.previous.loaded ? s.previous : null;
+          s.overlay = null; s.images = []; s.features = []; s.visible = false;
+          if (s.toggle) { s.toggle.checked = false; s.toggle.disabled = s.layer.type !== "raster-image-overlay"; }
+          // Only the current selection may roll back. A later selection hides
+          // this state before its asynchronous load can finish or fail.
+          if (restore) {
+            restore.visible = true; restore.toggle.checked = true;
+            if (map && restore.overlay) restore.overlay.addTo(map);
+          }
           s.message.textContent = text("layerError");
         }
         updateList(); legend();
-      })(); return s.promise;
+      })();
+      var pending = s.promise;
+      pending.then(function () { if (!s.loaded && s.promise === pending) s.promise = null; });
+      return pending;
     }
     var layers = manifest.schema_version === 1 && Array.isArray(manifest.layers) ? manifest.layers.slice(0, 200) : [], seen = new Set();
     layers.forEach(function (l) {
@@ -704,6 +715,10 @@
         });
       }
       if (toggle) toggle.addEventListener("change", function () {
+        if (toggle.checked && l.exclusive_group) {
+          var current = states.find(function (other) { return other !== s && other.visible && other.layer.exclusive_group === l.exclusive_group; });
+          s.previous = current ? (current.loaded ? current : current.previous) : null;
+        }
         s.visible = toggle.checked;
         excludeOthers();
         if (s.visible) load(s).then(function () { if (s.visible && s.overlay && map) s.overlay.addTo(map); });

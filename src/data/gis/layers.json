@@ -245,11 +245,12 @@
     {
       "id": "flood-susceptibility",
       "title": {"en": "Flood Susceptibility (Municipal Map)", "fil": "Pagkamadaling Bahain (Mapa ng Munisipyo)", "pag": "Flood Susceptibility (Municipal Map)"},
-      "type": "source-reference",
-      "source": "datasets/GIS/Better_Mapandan_GIS_V3_2_Flood_Layer_Package/Better_Mapandan_GIS_V3_2_Flood_Layer/sources/flood/Mapandan-Hazard-Map-scaled.jpeg",
+      "type": "kmz",
+      "source": "datasets/GIS/flood/prepared/flood-susceptibility.kmz",
+      "dependencies": ["datasets/GIS/flood/prepared/flood-susceptibility.registration.json", "datasets/GIS/flood/prepared/flood-susceptibility.source.json"],
       "source_url": "https://mapandan.gov.ph/disaster-awareness/",
       "source_label": {"en": "Municipality of Mapandan website; map issuing office unverified", "fil": "Website ng Munisipalidad ng Mapandan; hindi pa tiyak ang tanggapang gumawa ng mapa", "pag": "Website na Munisipalidad na Mapandan; agni segurado so opisina a nanggawa na mapa"},
-      "source_date": "Unknown / Hindi tiyak / Agni segurado",
+      "source_date": null,
       "enabled": true,
       "visible_by_default": false,
       "semantic_role": "flood_susceptibility_reference",
@@ -257,9 +258,14 @@
       "pane": "hazards",
       "opacity": 0.6,
       "exclusive_group": "thematic-rasters",
-      "precision": "nonspatial",
+      "precision": "historical_cartographic_reference",
+      "legend": [
+        {"label": {"en": "High", "fil": "Mataas (High)", "pag": "Atagey (High)"}, "color": "#fa8689"},
+        {"label": {"en": "Medium", "fil": "Katamtaman (Medium)", "pag": "Medium"}, "color": "#ffbb7c"}
+      ],
       "limitations": [
-        {"en": "Flood overlay and local image viewer unavailable: image reuse rights and geographic registration are not established. Open the official source instead.", "fil": "Hindi magagamit ang flood overlay at lokal na larawan: hindi pa tiyak ang pahintulot sa muling paggamit at geographic registration. Buksan ang opisyal na sanggunian.", "pag": "Agni available so flood overlay tan lokal a litrato: agni segurado so permiso ed paggamit tan geographic registration. Lukasan so opisyal a source."},
+        {"en": "Registered historical display only; WGS84 datum is assumed, not verified. Printed-grid fit RMSE 1.43 m and two central OSM candidate mismatches of 7.46 and 9.84 m do not establish ground accuracy. No certified scale or parcel-level use.", "fil": "Rehistradong makasaysayang larawan lamang; ipinagpalagay ang WGS84 datum, hindi napatunayan. Ang grid-fit RMSE na 1.43 m at dalawang sentral na OSM candidate mismatch na 7.46 at 9.84 m ay hindi patunay ng katumpakan sa lupa. Walang sertipikadong scale o gamit sa antas ng lote.", "pag": "Registered historical display labat; assumed so WGS84 datum, agni verified. Say grid-fit RMSE a 1.43 m tan duaran central OSM candidate mismatch a 7.46 tan 9.84 m et aliwan pruweba na ground accuracy. Anggapoy certified scale odino parcel-level use."},
+        {"en": "Municipal website hosts the source; rights ownership is unverified and the image-specific republication license is not stated. Embedded imagery remains part of the documentary artwork.", "fil": "Nasa website ng munisipalidad ang sanggunian; hindi pa tiyak ang may-ari ng karapatan at walang nakasaad na lisensiya sa muling paglalathala ng larawan. Bahagi ng dokumentaryong larawan ang nakapaloob na imagery.", "pag": "Walad municipal website so source; agni verified so rights owner tan anggapoy stated image-specific republication license. Say embedded imagery et kabiangan na documentary artwork."},
         {"en": "Map date unknown. The attachment page says published September 2, 2020; that is a website publication date, not the hazard survey or map date. Issuing office and hazard model are unverified.", "fil": "Hindi tiyak ang petsa ng mapa. Setyembre 2, 2020 ang publikasyon sa attachment page, hindi petsa ng hazard survey o mapa. Hindi pa tiyak ang tanggapang gumawa at hazard model.", "pag": "Agni segurado so petsa na mapa. September 2, 2020 so publikasyon ed attachment page, aliwan petsa na hazard survey odino mapa. Agni segurado so opisina tan hazard model."},
         {"en": "Historical flood-susceptibility reference only. The source legend shows High (red) and Medium (orange). Uncolored areas are not necessarily flood-free. Not live conditions, flood depth, parcel risk, or routing advice; confirm current advisories with local disaster authorities.", "fil": "Makasaysayang sanggunian lamang sa pagbaha. High (pula) at Medium (kahel) ang nasa legend. Ang walang kulay ay hindi nangangahulugang ligtas sa baha. Hindi ito kasalukuyang kondisyon, lalim ng baha, panganib sa lote, o gabay sa ruta; tingnan ang kasalukuyang abiso ng lokal na awtoridad.", "pag": "Historical flood-susceptibility reference labat. High (ambalanga) tan Medium (orange) so walad legend. Saray lugar a anggapoy kolor et aliwan seguradon anggapoy delap. Aliwan live conditions, flood depth, parcel risk, odino routing advice; kumpirmaen so balo a abiso ed lokal a disaster authorities."}
       ]

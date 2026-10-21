@@ -57,8 +57,14 @@ function fixture(lang, scenario = "normal") {
     layer("broken-boundaries", "geojson", { semantic_role: "barangay_boundary", url: "assets/gis/broken-boundaries.geojson" }),
     layer("physical-a", "raster-image-overlay", { pane: "physical", opacity: 0.3, exclusive_group: "physical-theme", images: [{ url: "assets/gis/map.png", bounds }, { url: "assets/gis/map.png", bounds }] }),
     layer("physical-b", "raster-image-overlay", { pane: "physical", opacity: 0.8, exclusive_group: "physical-theme", images: [{ url: "assets/gis/map.png", bounds }] }),
+    layer("physical-fail", "raster-image-overlay", { pane: "physical", exclusive_group: "physical-theme", images: [{ url: "assets/gis/map.png", bounds }, { url: "assets/gis/missing.png", bounds }] }),
+    layer("physical-late-fail", "raster-image-overlay", { pane: "physical", exclusive_group: "physical-theme", images: [{ url: "assets/gis/late-missing.png", bounds }] }),
+    layer("physical-late", "raster-image-overlay", { pane: "physical", exclusive_group: "physical-theme", images: [{ url: "assets/gis/late.png", bounds }] }),
     layer("hazard", "raster-image-overlay", { pane: "hazards", images: [{ url: "assets/gis/map.png", bounds }] }),
     layer("hostile", "geojson", { visible_by_default: true, url: "assets/private/forbidden.geojson" })];
+  for (let i = 1; i <= 7; i++) layers.push(layer("shared-raster-" + i, "raster-image-overlay", {
+    pane: i < 5 ? "physical" : "hazards", opacity: i === 7 ? 0.6 : 0.4,
+    exclusive_group: "thematic-rasters", images: [{ url: "assets/gis/map.png", bounds }] }));
   const values = {
     GIS_RESIDENTS_DATA: { labels: locale.resident },
     GIS_LAYERS_DATA: { schema_version: 1, metadata: { asset_base: "/" }, layers },
@@ -236,6 +242,32 @@ async function v3Checks(page, locale) {
   await toggle("physical-a", true);
   assert.equal(await page.$eval('[data-layer-id="physical-b"] input[type="checkbox"]', el => el.checked), false);
   assert.equal(await page.$eval('[data-layer-id="physical-a"] input[type="range"]', el => el.value), "45", "Opacity persists across toggles");
+  const checked = id => page.$eval(`[data-layer-id="${id}"] input[type="checkbox"]`, el => el.checked);
+  const failed = id => page.waitForFunction(id => document.querySelector(`[data-layer-id="${id}"] small`).textContent === document.getElementById("gis-page").dataset.layerError, {}, id);
+  const viewport = await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.pans, window.__gisTest.views]);
+  await toggle("physical-fail", true); await failed("physical-fail");
+  assert.equal(await checked("physical-a"), true, "Failed multi-image replacement restores previous usable layer");
+  assert.equal(await checked("physical-fail"), false);
+  assert.equal(await page.$eval('[data-layer-id="physical-fail"] input[type="checkbox"]', el => el.disabled), false, "Raster failure allows retry");
+  await toggle("physical-fail", true); await failed("physical-fail");
+  assert.equal(await checked("physical-a"), true, "Retry failure still restores previous layer");
+  await toggle("physical-late-fail", true); await toggle("physical-b", true); await failed("physical-late-fail");
+  assert.equal(await checked("physical-b"), true, "Late failure cannot replace newer selection with rollback");
+  assert.equal(await checked("physical-a"), false);
+  await toggle("physical-late", true); await toggle("physical-a", true); await loaded("physical-late");
+  assert.equal(await checked("physical-a"), true, "Late success cannot replace newer selection");
+  assert.equal(await checked("physical-late"), false);
+  assert.deepEqual(await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.pans, window.__gisTest.views]), viewport, "Rollback and races preserve viewport");
+  assert.equal(await page.$eval('[data-layer-id="physical-a"] input[type="range"]', el => el.value), "45");
+  await toggle("physical-a", false); await toggle("physical-b", false);
+  await toggle("physical-fail", true); await failed("physical-fail");
+  assert.equal(await checked("physical-fail"), false, "Failure without a previous raster leaves none selected");
+  const facilitiesBefore = await checked("facilities");
+  for (let i = 1; i <= 7; i++) {
+    await toggle("shared-raster-" + i, true); await loaded("shared-raster-" + i);
+    assert.equal(await page.$$eval('[data-layer-id^="shared-raster-"] input[type="checkbox"]', inputs => inputs.filter(el => el.checked).length), 1, "All seven physical/hazard/flood fixtures share one exclusive group");
+  }
+  assert.equal(await checked("facilities"), facilitiesBefore, "Seven-way thematic selection preserves facility overlay state");
   assert.ok(await page.evaluate(() => window.__gisTest.imageItems.every(item => item.options.interactive === false && item.getPane().style.pointerEvents === "none")));
   await click(page, "#gis-layers-tab");
 }
@@ -308,6 +340,8 @@ async function main() {
       const match = pathname.match(/^\/fixtures\/(en|fil|pag)\/gis\/$/);
       if (match) { res.setHeader("content-type", "text/html"); res.end(fixture(match[1], new URL("http://localhost" + req.url).searchParams.get("data") || "normal")); return; }
       if (pathname === "/assets/gis-map.min.js") { res.setHeader("content-type", "text/javascript"); res.end(fs.readFileSync(path.join(repo, "assets/gis-map.js"))); return; }
+      if (pathname === "/assets/gis/late-missing.png") { setTimeout(() => res.writeHead(404).end(), 350); return; }
+      if (pathname === "/assets/gis/late.png") { setTimeout(() => { res.setHeader("content-type", "image/png"); res.end(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a5wAAAABJRU5ErkJggg==", "base64")); }, 350); return; }
       if (pathname === "/assets/gis/map.png") {
         res.setHeader("content-type", "image/png"); res.end(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a5wAAAABJRU5ErkJggg==", "base64")); return;
       }

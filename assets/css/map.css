@@ -30,6 +30,9 @@
    GIS Map Page — Leaflet barangay/facility map
    ========================================================================== */
 
+.gis-flood-high { background: #fa8689; }
+.gis-flood-medium { background: #ffbb7c; }
+
 #gis-map {
   width: 100%;
   height: var(--gis-map-height);

@@ -308,14 +308,18 @@ def test_invalid_source_reference_configuration_fails_before_inputs(tmp_path, ch
         prepare_inputs(tmp_path)
 
 
-def test_flood_fallback_and_seven_coordinated_thematic_sources():
+def test_flood_publication_and_seven_coordinated_thematic_sources():
     root = Path(__file__).resolve().parents[1]
     layers = layer_configuration(root)['layers']
     themes = [entry for entry in layers if entry.get('exclusive_group') == 'thematic-rasters']
     assert len(themes) == 7
     assert all(not entry['visible_by_default'] for entry in themes)
     flood = next(entry for entry in themes if entry['id'] == 'flood-susceptibility')
-    assert flood['type'] == 'source-reference' and flood['pane'] == 'hazards' and flood['opacity'] == 0.6
+    assert flood['type'] == 'kmz' and flood['pane'] == 'hazards' and flood['opacity'] == 0.6
     assert flood['source_url'] == 'https://mapandan.gov.ph/disaster-awareness/'
-    assert 'legend' not in flood
+    assert flood['semantic_role'] == 'flood_susceptibility_reference'
+    assert [entry['color'] for entry in flood['legend']] == ['#fa8689', '#ffbb7c']
+    assert all(set(entry['label']) == {'en', 'fil', 'pag'} for entry in flood['legend'])
+    images = inspect_kmz((root / flood['source']).read_bytes())
+    assert len(images) == 1
     assert all(set(note) == {'en', 'fil', 'pag'} for note in flood['limitations'])

@@ -114,7 +114,7 @@ def background_alpha(image):
     return Image.fromarray(rgba)
 
 
-def warp(image, matrix, crop):
+def warp(image, matrix, crop, *, transparent_background=True):
     """Inverse-map a north-up EPSG:3857 rectangle, bilinear in premultiplied RGBA."""
     left, top, right, bottom = crop
     corners = np.array([[left-.5, top-.5, 1], [right-.5, top-.5, 1],
@@ -128,7 +128,8 @@ def warp(image, matrix, crop):
     inverse = np.linalg.inv(np.vstack((matrix.T, [0, 0, 1])))
     sx = inverse[0, 0]*lon + inverse[0, 1]*lat + inverse[0, 2] - left
     sy = inverse[1, 0]*lon + inverse[1, 1]*lat + inverse[1, 2] - top
-    source = np.asarray(background_alpha(image.crop(crop)), dtype=float) / 255
+    cropped = image.crop(crop)
+    source = np.asarray(background_alpha(cropped) if transparent_background else cropped.convert('RGBA'), dtype=float) / 255
     source[:, :, :3] *= source[:, :, 3:4]
     out = np.zeros((height, width, 4))
     ix, iy = np.floor(sx).astype(int), np.floor(sy).astype(int)

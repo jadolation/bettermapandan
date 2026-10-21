@@ -22,9 +22,9 @@ const server = http.createServer((req, res) => {
   const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH, headless: true, args: ["--no-sandbox"] });
   try {
     const origin = `http://127.0.0.1:${server.address().port}`;
-    for (const locale of ["", "fil/", "pag/"]) for (const mode of ["leaflet", "unsupported", "no-js"]) {
+    for (const locale of ["", "fil/", "pag/"]) for (const width of [1440, 390]) for (const mode of ["leaflet", "unsupported", "no-js"]) {
       const page = await browser.newPage();
-      await page.setViewport({ width: locale === "" ? 1280 : 390, height: 900 });
+      await page.setViewport({ width, height: 900 });
       const errors = [], requests = [];
       page.on("pageerror", error => errors.push(error.message));
       page.on("request", request => requests.push(request.url()));
@@ -50,30 +50,38 @@ const server = http.createServer((req, res) => {
           return { layer, count: window.GIS_BARANGAYS.features.length };
         });
         assert.equal(payload.count, 15);
-        assert.equal(payload.layer.type, "reference");
+        assert.equal(payload.layer.type, "raster-image-overlay");
+        assert.equal(payload.layer.available, true);
         assert.equal(payload.layer.visible_by_default, false);
-        assert.equal(payload.layer.images, undefined);
+        assert.equal(payload.layer.images.length, 1);
+        assert.equal(payload.layer.images[0].url, "assets/gis/flood-susceptibility-0.png");
         await page.focus("#gis-layers-tab"); await page.keyboard.press("Enter");
         const row = '.gis-layer[data-layer-id="flood-susceptibility"]';
         assert.equal(await page.$eval(row + " a", a => a.href), official);
-        assert.equal(await page.$(row + ' input'), null);
-        assert.equal(await page.$(row + ' button + button'), null);
+        assert.equal(await page.$eval(row + ' input[type="checkbox"]', e => e.checked), false);
+        assert.equal(await page.$eval(row + ' input[type="checkbox"]', e => e.disabled), mode !== "leaflet");
         assert.ok(!(await page.$eval(row + ' small', e => e.textContent)).includes("failed"));
         await page.focus(row + " a");
         assert.equal(await page.evaluate(() => document.activeElement.href), official);
         if (mode === "leaflet") {
           assert.equal(await page.evaluate(() => L.version), "1.9.4");
           assert.ok(await page.$eval("#gis-map", map => map.getBoundingClientRect().height > 100));
+          assert.ok(!requests.some(url => /flood-susceptibility-0\.png/.test(url)), "Default-off flood artwork is lazy loaded");
+          await page.$eval(row + ' input[type="checkbox"]', e => e.click());
+          await page.waitForFunction(() => [...document.querySelectorAll("#gis-map img")].some(img => /flood-susceptibility-0\.png/.test(img.src) && img.complete && img.naturalWidth === 2018));
+          assert.ok((await page.$eval("#gis-legend", e => e.textContent)).includes("High"));
+          assert.ok((await page.$eval("#gis-legend", e => e.textContent)).includes("Medium"));
         }
       }
-      assert.ok(!requests.some(url => /Mapandan-Hazard-Map|flood[^/]*\.(png|jpe?g|kmz)/i.test(url)), "No flood artwork requested");
+      assert.equal(requests.filter(url => /flood-susceptibility-0\.png/.test(url)).length, mode === "leaflet" ? 1 : 0);
+      assert.ok(!requests.some(url => /Mapandan-Hazard-Map|\.kmz(?:\?|$)/i.test(url)), "No original JPEG or KMZ fetched by browser");
       assert.deepEqual(errors, []);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false);
       if (process.env.GIS_FLOOD_SCREENSHOT_DIR) {
         fs.mkdirSync(process.env.GIS_FLOOD_SCREENSHOT_DIR, { recursive: true });
-        await page.screenshot({ path: path.join(process.env.GIS_FLOOD_SCREENSHOT_DIR, `flood-${locale.replace("/", "") || "en"}-${mode}.png`), fullPage: true });
+        await page.screenshot({ path: path.join(process.env.GIS_FLOOD_SCREENSHOT_DIR, `flood-${locale.replace("/", "") || "en"}-${width}-${mode}.png`), fullPage: true });
       }
-      console.log(JSON.stringify({ locale: locale || "en", mode, source: official, artworkRequests: 0 }));
+      console.log(JSON.stringify({ locale: locale || "en", width, mode, source: official, artworkRequests: mode === "leaflet" ? 1 : 0 }));
       await page.close();
     }
   } finally { await browser.close(); server.close(); }
