@@ -75,11 +75,10 @@ def test_no_analysis_dependencies_never_claims_topology_certification():
     assert report['disposition'] == 'optional_off_by_default_reference_geometry'
 
 
-def test_real_small_extract_report_and_configuration_are_honest():
+def test_real_extract_geometry_and_precise_identity_join():
     directory = ROOT / 'src/data/gis'
     extracted = json.loads((directory / 'barangay_boundaries.geojson').read_text())
     canonical = json.loads((directory / 'barangays.geojson').read_text())
-    report = json.loads((directory / 'barangay_boundaries_sources.json').read_text())['quality_report']
     config = json.loads((directory / 'layers.json').read_text())
     layer = next(layer for layer in config['layers'] if layer['id'] == 'barangay-boundaries')
     assert layer['enabled'] and not layer['visible_by_default']
@@ -91,6 +90,13 @@ def test_real_small_extract_report_and_configuration_are_honest():
               for p in ([f['geometry']['coordinates']] if f['geometry']['type'] == 'Polygon' else f['geometry']['coordinates'])
               for r in p]
     assert sum(counts) == 985
+
+
+def test_real_extract_quality_report_is_honest():
+    directory = ROOT / 'src/data/gis'
+    extracted = json.loads((directory / 'barangay_boundaries.geojson').read_text())
+    canonical = json.loads((directory / 'barangays.geojson').read_text())
+    report = json.loads((directory / 'barangay_boundaries_sources.json').read_text())['quality_report']
     assert report['topology_checked'] and report['all_individually_valid']
     assert report['union_area_km2'] == pytest.approx(20.436868356, abs=0.000001)
     assert report['overlap_area_km2'] < 1e-6

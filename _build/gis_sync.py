@@ -102,23 +102,20 @@ class _Dependencies(HTMLParser):
             self.urls.extend(a or b for a, b in CSS_URL.findall(attrs["style"]))
 
 
-def synchronize_gis(root, site=None):
-    """Mirror three GIS routes and their assets; return sorted copied relative Paths.
-
-    Call only after a fresh build. Ordinary isolated builds never call this.
-    Missing/unsafe inputs or destinations fail preflight before any root mutation.
-    Raw scripts/styles and existing images must already match; never replace them.
-    """
-    root = _base(root)
-    site = _base(site if site is not None else root / "_site")
-    if site == root or site in root.parents or (site.is_relative_to(root) and site != root / "_site"):
-        raise ValueError("GIS sync needs a separate staged site, not a source directory")
+def _collect_outputs(root, site):
+    """Collect output paths from manifest resources and GIS pages."""
     outputs = set(PAGES)
-    previous, managed = set(), set()
+    managed = set()
+    previous = set()
     for locale in LOCALES:
         managed.update(_resources(site, locale, required=True))
         previous.update(_resources(root, locale, required=False))
     outputs.update(managed)
+    return outputs, managed, previous
+
+
+def _discover_dependencies(site, outputs, managed):
+    """Walk GIS page references to discover required browser assets."""
     pending = []
     for page in sorted(PAGES):
         parser = _Dependencies()
@@ -136,8 +133,9 @@ def synchronize_gis(root, site=None):
         if rel.suffix == ".css":
             pending.extend((a or b, rel) for a, b in CSS_URL.findall(source.read_text(encoding="utf-8")))
 
-    # Materialize all input bytes and validate ALL destinations before making dirs,
-    # writing pages, or pruning only old manifest-managed resources.
+
+def _materialize_copies(root, site, outputs, managed):
+    """Validate all destinations and collect byte payloads before writing."""
     copies = {}
     for rel in sorted(outputs):
         payload = _safe_path(site, rel, required=True).read_bytes()
@@ -151,6 +149,23 @@ def synchronize_gis(root, site=None):
             if rel.suffix in {".js", ".css"}:
                 raise ValueError(f"Required raw script/style must exist unchanged: {rel}")
         copies[rel] = payload
+    return copies
+
+
+def synchronize_gis(root, site=None):
+    """Mirror three GIS routes and their assets; return sorted copied relative Paths.
+
+    Call only after a fresh build. Ordinary isolated builds never call this.
+    Missing/unsafe inputs or destinations fail preflight before any root mutation.
+    Raw scripts/styles and existing images must already match; never replace them.
+    """
+    root = _base(root)
+    site = _base(site if site is not None else root / "_site")
+    if site == root or site in root.parents or (site.is_relative_to(root) and site != root / "_site"):
+        raise ValueError("GIS sync needs a separate staged site, not a source directory")
+    outputs, managed, previous = _collect_outputs(root, site)
+    _discover_dependencies(site, outputs, managed)
+    copies = _materialize_copies(root, site, outputs, managed)
     stale = previous - managed
     for rel in stale:
         _safe_path(root, rel)

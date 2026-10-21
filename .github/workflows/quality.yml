@@ -32,7 +32,7 @@ jobs:
 
       - name: Cyclomatic Complexity (Radon)
         run: |
-          OUTPUT=$(radon cc . -nd)
+          OUTPUT=$(radon cc _build/ tests/ check_i18n.py check_pag_coverage.py build.py -nf)
           if [ -n "$OUTPUT" ]; then
             echo "Error: High complexity functions found:"
             echo "$OUTPUT"

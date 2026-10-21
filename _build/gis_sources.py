@@ -83,68 +83,92 @@ def layer_configuration(root):
     return data
 
 
+def _validate_kmz_entries(archive):
+    """Validate KMZ archive entries; return (names, kmls)."""
+    entries = archive.infolist()
+    if len(entries) > 512 or sum(x.file_size for x in entries) > 128 * 1024 * 1024:
+        raise ValueError("KMZ resource limit")
+    names = set()
+    for entry in entries:
+        name = PurePosixPath(entry.filename)
+        if (name.is_absolute() or ".." in name.parts or "\\" in entry.filename or ":" in entry.filename
+                or entry.filename in names or entry.flag_bits & 1
+                or (entry.external_attr >> 16) & 0o170000 == 0o120000
+                or entry.file_size > MAX_SOURCE_BYTES
+                or entry.file_size > max(1, entry.compress_size) * 1000):
+            raise ValueError("Unsafe KMZ entry")
+        names.add(entry.filename)
+    kmls = [x for x in names if x.lower().endswith(".kml")]
+    if not kmls:
+        raise ValueError("KMZ has no KML")
+    return names, kmls
+
+
+def _validate_kml_xml(xml):
+    """Parse and validate KML XML; return ElementTree root."""
+    if len(xml) > 2 * 1024 * 1024 or b'\x00' in xml or re.search(br"<!\s*(?:DOCTYPE|ENTITY)", xml, re.I):
+        raise ValueError("Unsafe KML XML")
+    tree = ElementTree.fromstring(xml)
+    nodes = list(tree.iter())
+    if len(nodes) > 20000:
+        raise ValueError("KML resource limit")
+    if any(x.tag.rsplit("}", 1)[-1] in {"NetworkLink", "Link", "Model", "LatLonQuad"} for x in nodes):
+        raise ValueError("Unsupported external or rotated KML registration")
+    return tree
+
+
+def _validate_overlay_bounds(box, ns):
+    """Validate LatLonBox bounds; return bounds dict."""
+    if box is None or float(box.findtext("k:rotation", "0", ns)) != 0:
+        raise ValueError("Unsupported overlay registration/rotation")
+    bounds = {key: float(box.findtext("k:" + key, "nan", ns)) for key in ("west", "south", "east", "north")}
+    if (not all(math.isfinite(x) for x in bounds.values())
+            or not -180 <= bounds["west"] < bounds["east"] <= 180
+            or not -90 <= bounds["south"] < bounds["north"] <= 90):
+        raise ValueError("Invalid overlay bounds")
+    return bounds
+
+
+def _extract_overlay_image(archive, name, href, names, bounds, extracted_bytes, total_pixels, images):
+    """Read and validate a PNG overlay image from the KMZ archive."""
+    reference = PurePosixPath(href)
+    if not href or reference.is_absolute() or ".." in reference.parts or ":" in href or "\\" in href:
+        raise ValueError("Unsafe overlay image reference")
+    filename = (PurePosixPath(name).parent / reference).as_posix()
+    if filename not in names or not filename.lower().endswith(".png"):
+        raise ValueError("Unsupported overlay resource")
+    image = archive.read(filename)
+    extracted_bytes += len(image)
+    if extracted_bytes > 128 * 1024 * 1024:
+        raise ValueError("Extracted raster resource limit")
+    from PIL import Image
+    with Image.open(io.BytesIO(image)) as decoded:
+        total_pixels += decoded.width * decoded.height
+        if decoded.format != "PNG" or decoded.width * decoded.height > 16000000 or total_pixels > 64000000:
+            raise ValueError("Raster resource limit")
+        decoded.verify()
+    images.append((image, bounds))
+    if len(images) > 128:
+        raise ValueError("Overlay resource limit")
+    return extracted_bytes, total_pixels
+
+
 def inspect_kmz(raw):
     """Only finite zero-rotation LatLonBox PNG overlays; no network or KML scripts."""
     images = []
     extracted_bytes = total_pixels = 0
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
-        entries = archive.infolist()
-        if len(entries) > 512 or sum(x.file_size for x in entries) > 128 * 1024 * 1024:
-            raise ValueError("KMZ resource limit")
-        names = set()
-        for entry in entries:
-            name = PurePosixPath(entry.filename)
-            if (name.is_absolute() or ".." in name.parts or "\\" in entry.filename or ":" in entry.filename
-                    or entry.filename in names or entry.flag_bits & 1
-                    or (entry.external_attr >> 16) & 0o170000 == 0o120000
-                    or entry.file_size > MAX_SOURCE_BYTES
-                    or entry.file_size > max(1, entry.compress_size) * 1000):
-                raise ValueError("Unsafe KMZ entry")
-            names.add(entry.filename)
-        kmls = [x for x in names if x.lower().endswith(".kml")]
-        if not kmls:
-            raise ValueError("KMZ has no KML")
+        names, kmls = _validate_kmz_entries(archive)
         for name in sorted(kmls):
             xml = archive.read(name)
-            if len(xml) > 2 * 1024 * 1024 or b'\x00' in xml or re.search(br"<!\s*(?:DOCTYPE|ENTITY)", xml, re.I):
-                raise ValueError("Unsafe KML XML")
-            tree = ElementTree.fromstring(xml)
-            nodes = list(tree.iter())
-            if len(nodes) > 20000:
-                raise ValueError("KML resource limit")
-            if any(x.tag.rsplit("}", 1)[-1] in {"NetworkLink", "Link", "Model", "LatLonQuad"} for x in nodes):
-                raise ValueError("Unsupported external or rotated KML registration")
+            tree = _validate_kml_xml(xml)
             ns = {"k": "http://www.opengis.net/kml/2.2"}
             for overlay in tree.findall(".//k:GroundOverlay", ns):
                 box = overlay.find("k:LatLonBox", ns)
-                if box is None or float(box.findtext("k:rotation", "0", ns)) != 0:
-                    raise ValueError("Unsupported overlay registration/rotation")
-                bounds = {key: float(box.findtext("k:" + key, "nan", ns)) for key in ("west", "south", "east", "north")}
-                if (not all(math.isfinite(x) for x in bounds.values())
-                        or not -180 <= bounds["west"] < bounds["east"] <= 180
-                        or not -90 <= bounds["south"] < bounds["north"] <= 90):
-                    raise ValueError("Invalid overlay bounds")
+                bounds = _validate_overlay_bounds(box, ns)
                 href = overlay.findtext("k:Icon/k:href", "", ns)
-                reference = PurePosixPath(href)
-                if not href or reference.is_absolute() or ".." in reference.parts or ":" in href or "\\" in href:
-                    raise ValueError("Unsafe overlay image reference")
-                filename = (PurePosixPath(name).parent / reference).as_posix()
-                if filename not in names or not filename.lower().endswith(".png"):
-                    raise ValueError("Unsupported overlay resource")
-                image = archive.read(filename)
-                extracted_bytes += len(image)
-                if extracted_bytes > 128 * 1024 * 1024:
-                    raise ValueError("Extracted raster resource limit")
-                # Pillow validates image structure before browser extraction. No URL is opened.
-                from PIL import Image
-                with Image.open(io.BytesIO(image)) as decoded:
-                    total_pixels += decoded.width * decoded.height
-                    if decoded.format != "PNG" or decoded.width * decoded.height > 16000000 or total_pixels > 64000000:
-                        raise ValueError("Raster resource limit")
-                    decoded.verify()
-                images.append((image, bounds))
-                if len(images) > 128:
-                    raise ValueError("Overlay resource limit")
+                extracted_bytes, total_pixels = _extract_overlay_image(
+                    archive, name, href, names, bounds, extracted_bytes, total_pixels, images)
     if not images:
         raise ValueError("No understood image overlays")
     return images

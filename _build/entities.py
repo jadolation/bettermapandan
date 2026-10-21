@@ -333,6 +333,231 @@ def build_bids(fdp: dict, retrieved_at=None) -> list:
     return [by_ref[k] for k in sorted(by_ref)]
 
 
+def _link_contracts_to_contractors(contracts_n, emit):
+    """Phase 1: contract -> contractor (awarded_to, explicit)."""
+    for c in contracts_n:
+        if c.get("awardee_norm") and c.get("awardee_id"):
+            emit(f"contract:{c['cid']}", f"contractor:{c['awardee_id']}",
+                 "awarded_to", "explicit", ["source record names awardee"])
+
+
+def _match_bid_to_project(b, projects):
+    """Find the project that this FDP bid anchors to."""
+    for p in projects:
+        if p["project_type"] != "lgu_development" or "-D" in p["project_id"] or "-C" in p["project_id"]:
+            continue
+        anchor_out = match_records(
+            {"source": "fdp-bids", "ref": b["ref"], "title": b["norm"]["title"],
+             "contractor": b["norm"]["contractor"], "amount": b["norm"]["amount"],
+             "year": b["norm"]["year"], "barangays": b["norm"]["barangays"]},
+            {"source": "dev", "ref": "", "title": norm_title(p["canonical_name"]),
+             "contractor": "", "amount": 0,
+             "year": str(p.get("fiscal_year") or "") or None,
+             "barangays": p.get("barangay", [])})
+        if anchor_out["matched"] and anchor_out["level"] in ("explicit", "strong", "probable"):
+            b["project_id"] = p["project_id"]
+            return p, anchor_out
+    return None, None
+
+
+def _match_bid_to_contract(b, contracts_n):
+    """Match a bid to a PhilGEPS contract via match_records."""
+    for c in contracts_n:
+        out = match_records(b["norm"], c["norm"])
+        if out["matched"]:
+            return c, out
+    return None, None
+
+
+def _near_miss_bid_contract(b, contracts_n, _next):
+    """Find near-miss bid-contract pairs for review."""
+    candidates = []
+    for c in contracts_n:
+        try:
+            ydiff = abs(int(b["norm"].get("year") or 0) - int(c["norm"].get("year") or 0))
+        except (TypeError, ValueError):
+            continue
+        overlap = _token_overlap(b["norm"]["title"], c["norm"]["title"])
+        if ydiff <= 1 and overlap >= 0.5:
+            ev = ["similar project title"]
+            ev.append("same fiscal year" if ydiff == 0 else "adjacent fiscal year (bid vs award lag)")
+            candidates.append({
+                "candidate_id": _next("MATCH"),
+                "record_a": f"bid:{b['ref']}",
+                "record_b": f"contract:{c['cid']}",
+                "match_score": round(overlap, 2),
+                "evidence": ev,
+                "decision": "pending",
+            })
+    return candidates
+
+
+def _link_bids_to_projects_and_contracts(bids_n, projects, contracts_n, emit, _next, _amount_note):
+    """Phase 2: FDP bid <-> project anchoring + bid <-> contract matching + near-misses."""
+    review = []
+    for b in bids_n:
+        if not b.get("ref"):
+            continue
+        p, anchor_out = _match_bid_to_project(b, projects)
+        if p is not None:
+            emit(f"project:{p['project_id']}", f"bid:{b['ref']}", "has_bid",
+                 anchor_out["level"], anchor_out["evidence"] + [anchor_out["rule"]])
+        c, out = _match_bid_to_contract(b, contracts_n)
+        if c is not None:
+            evidence = list(out["evidence"]) + _amount_note(b["norm"].get("amount"), c["norm"].get("amount"))
+            emit(f"bid:{b['ref']}", f"contract:{c['cid']}", "resulted_in",
+                 out["level"], evidence + [out["rule"]], match_path="bid-bridge")
+            continue
+        review.extend(_near_miss_bid_contract(b, contracts_n, _next))
+        if len(review) >= 200:
+            break
+    return review
+
+
+def _link_projects_to_contracts(projects, contracts_n, emit):
+    """Phase 3: dev/COA project entity <-> PhilGEPS contract (co-members)."""
+    direct_linked = set()
+    for p in projects:
+        if p.get("project_type") == "dpwh_infrastructure":
+            continue
+        pn = norm_project_entity(p)
+        for c in contracts_n:
+            out = match_records(pn, c["norm"])
+            if out["matched"]:
+                emit(f"project:{p['project_id']}", f"contract:{c['cid']}", "has_contract",
+                     out["level"], out["evidence"] + [out["rule"]], match_path="direct")
+                direct_linked.add(p["project_id"])
+    return direct_linked
+
+
+def _synonym_near_misses(projects, contracts_n, direct_linked, _next, _emit):
+    """Phase 4: synonym cases (renovation/improvement) for unmatched projects."""
+    review = []
+    for p in projects:
+        if p.get("project_type") == "dpwh_infrastructure" or p["project_id"] in direct_linked:
+            continue
+        pn = norm_project_entity(p)
+        for c in contracts_n:
+            try:
+                ydiff = abs(int(pn.get("year") or 0) - int(c["norm"].get("year") or 0))
+            except (TypeError, ValueError):
+                continue
+            if ydiff > 1:
+                continue
+            overlap = _token_overlap(pn["title"], c["norm"]["title"])
+            if overlap < 0.5:
+                continue
+            ev = ["similar project title"]
+            ev.append("same fiscal year" if ydiff == 0 else "adjacent fiscal year (bid vs award lag)")
+            review.append({
+                "candidate_id": _next("MATCH"),
+                "record_a": f"project:{p['project_id']}",
+                "record_b": f"contract:{c['cid']}",
+                "match_score": round(overlap, 2),
+                "evidence": ev,
+                "decision": "pending",
+            })
+            if len(review) >= 200:
+                return review
+    return review
+
+
+def _dpwh_near_match_and_identity(dpwh_raw, contracts_n, contractor_lookup, _next, _emit):
+    """Phase 5: DPWH <-> PhilGEPS review-only matching + contractor identity resolution."""
+    review = []
+    lookup = contractor_lookup or {}
+    _seen_identity: set[str] = set()
+    _STOP = {"of", "the", "and", "for", "at", "in", "with", "along", "brgy",
+             "barangay", "mapandan", "pangasinan", "phase", "section"}
+    for d in dpwh_raw or []:
+        dn = {"source": "dpwh", "ref": d.get("contract_id", ""),
+              "title": norm_title(d.get("project_name", "")),
+              "contractor": "", "amount": 0,
+              "year": str(d.get("fiscal_year") or "") or None, "barangays": []}
+        dc = norm_contractor(d.get("contractor", ""))
+        if dc and d.get("contract_id") not in _seen_identity:
+            _resolve_contractor_identity(d, dc, lookup, _seen_identity, _emit)
+        if not dc:
+            continue
+        for c in contracts_n:
+            try:
+                ydiff = abs(int(dn["year"] or 0) - int(c["norm"].get("year") or 0))
+            except (TypeError, ValueError):
+                continue
+            if ydiff > 1:
+                continue
+            cc = c["norm"].get("contractor", "")
+            if not cc or not (dc == cc or dc in cc or cc in dc):
+                continue
+            overlap = _token_overlap(dn["title"], c["norm"]["title"])
+            shared = sorted({w for w in dn["title"].split() if len(w) > 3 and w not in _STOP} &
+                            {w for w in c["norm"]["title"].split() if len(w) > 3 and w not in _STOP})
+            scale_ok = _scale_comparable(d, c)
+            if not (len(shared) >= 2 or (len(shared) == 1 and scale_ok)):
+                continue
+            review.append({
+                "candidate_id": _next("MATCH"),
+                "record_a": f"dpwh:{d.get('contract_id', '')}",
+                "record_b": f"contract:{c['cid']}",
+                "match_score": round(overlap, 2),
+                "evidence": ["same contractor",
+                             "same fiscal year" if ydiff == 0 else "adjacent fiscal year",
+                             f"shared work-type token(s): {', '.join(shared)}"] +
+                            (["comparable scale"] if len(shared) == 1 and scale_ok else []),
+                "decision": "pending",
+            })
+            if len(review) >= 200:
+                break
+        if len(review) >= 200:
+            break
+    return review
+
+
+def _resolve_contractor_identity(d, dc, lookup, _seen_identity, _emit):
+    """Match DPWH contractor to canonical contractor entity."""
+    target = lookup.get(dc)
+    contract_id = d.get("contract_id", "")
+    if target:
+        _seen_identity.add(contract_id)
+        _emit(f"dpwh:{contract_id}", f"contractor:{target}",
+              "contractor_identity", "explicit", ["same normalized contractor name"])
+        return
+    for norm, cid in lookup.items():
+        dt, nt = dc.split(), norm.split()
+        if len(dt) >= 2 and len(nt) >= 2 and (all(w in nt for w in dt) or all(w in dt for w in nt)):
+            _seen_identity.add(contract_id)
+            _emit(f"dpwh:{contract_id}", f"contractor:{cid}",
+                  "contractor_identity", "probable",
+                  ["contractor name token-subset — verify legal entity"])
+            break
+
+
+def _scale_comparable(d, c):
+    """Check if contract amounts are within a 2x scale factor."""
+    try:
+        _da, _ca = float(d.get("contract_amount") or 0), float(c["norm"].get("amount") or 0)
+        return bool(_da and _ca) and 0.5 <= _da / _ca <= 2.0
+    except (TypeError, ValueError, ZeroDivisionError):
+        return False
+
+
+def _tag_shared_award_conflicts(rels):
+    """Tag edges in shared-award groups so reviewers see collisions."""
+    _by_contract: dict[str, list] = {}
+    for _r in rels:
+        if _r["type"] == "has_contract":
+            _by_contract.setdefault(_r["to"], []).append(_r)
+    for _cid, _group in _by_contract.items():
+        _projs = sorted({_r["from"] for _r in _group})
+        if len(_projs) < 2:
+            continue
+        for _r in _group:
+            _others = ", ".join(p for p in _projs if p != _r["from"])
+            _tag = f"shared award — also linked to {_others}"
+            if _tag not in _r["evidence"]:
+                _r["evidence"].append(_tag)
+
+
 def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | None = None,
                         contractor_lookup: dict | None = None) -> tuple[list, list]:
     """Deterministic edges + near-miss review queue.
@@ -380,201 +605,14 @@ def build_relationships(contracts_n, bids_n, projects: list, dpwh_raw: list | No
             pass
         return []
 
-    for c in contracts_n:
-        if c.get("awardee_norm") and c.get("awardee_id"):
-            _emit(f"contract:{c['cid']}", f"contractor:{c['awardee_id']}",
-                  "awarded_to", "explicit", ["source record names awardee"])
-    for b in bids_n:
-        if not b.get("ref"):
-            continue  # unreferenceable rows stay visible in FDP tables only
-        best = None
-        anchor_out = None
-        for p in projects:
-            if p["project_type"] != "lgu_development" or "-D" in p["project_id"] or "-C" in p["project_id"]:
-                continue
-            anchor_out = match_records(
-                {"source": "fdp-bids", "ref": b["ref"], "title": b["norm"]["title"],
-                 "contractor": b["norm"]["contractor"], "amount": b["norm"]["amount"],
-                 "year": b["norm"]["year"], "barangays": b["norm"]["barangays"]},
-                {"source": "dev", "ref": "", "title": norm_title(p["canonical_name"]),
-                 "contractor": "", "amount": 0,
-                 "year": str(p.get("fiscal_year") or "") or None,
-                 "barangays": p.get("barangay", [])})
-            if anchor_out["matched"] and anchor_out["level"] in ("explicit", "strong", "probable"):
-                b["project_id"] = p["project_id"]
-                _emit(f"project:{p['project_id']}", f"bid:{b['ref']}", "has_bid",
-                      anchor_out["level"],
-                      anchor_out["evidence"] + [anchor_out["rule"]])
-                break
-            anchor_out = None
-        for c in contracts_n:
-            out = match_records(b["norm"], c["norm"])
-            if out["matched"]:
-                evidence = list(out["evidence"]) + _amount_note(
-                    b["norm"].get("amount"), c["norm"].get("amount"))
-                _emit(f"bid:{b['ref']}", f"contract:{c['cid']}", "resulted_in",
-                      out["level"], evidence + [out["rule"]],
-                      match_path="bid-bridge")
-                best = out
-                break
-        if best is None:
-            for c in contracts_n:
-                try:
-                    ydiff = abs(int(b["norm"].get("year") or 0) - int(c["norm"].get("year") or 0))
-                except (TypeError, ValueError):
-                    continue
-                overlap = _token_overlap(b["norm"]["title"], c["norm"]["title"])
-                if ydiff <= 1 and overlap >= 0.5:
-                    ev = ["similar project title"]
-                    ev.append("same fiscal year" if ydiff == 0 else "adjacent fiscal year (bid vs award lag)")
-                    review.append({
-                        "candidate_id": _next("MATCH"),
-                        "record_a": f"bid:{b['ref']}",
-                        "record_b": f"contract:{c['cid']}",
-                        "match_score": round(overlap, 2),
-                        "evidence": ev,
-                        "decision": "pending",
-                    })
-                    if len(review) >= 200:
-                        break
-            if len(review) >= 200:
-                break
-    # Direct project-entity <-> contract pass: catches co-members that share
-    # one award (first-match-wins in the bid loop would otherwise drop them).
-    direct_linked: set[str] = set()
-    for p in projects:
-        if p.get("project_type") == "dpwh_infrastructure":
-            continue
-        pn = norm_project_entity(p)
-        for c in contracts_n:
-            out = match_records(pn, c["norm"])
-            if out["matched"]:
-                # Amount corroboration lives on the bid-loop edge, where both
-                # sides report amounts; project entities carry quarterly
-                # allocation series instead of a single figure.
-                _emit(f"project:{p['project_id']}", f"contract:{c['cid']}", "has_contract",
-                      out["level"], out["evidence"] + [out["rule"]],
-                      match_path="direct")
-                direct_linked.add(p["project_id"])
-    # Dev/COA project entities with no direct match: near-miss review so
-    # synonym cases (renovation/improvement) stay triageable, never silent.
-    for p in projects:
-        if p.get("project_type") == "dpwh_infrastructure":
-            continue
-        if p["project_id"] in direct_linked:
-            continue
-        pn = norm_project_entity(p)
-        for c in contracts_n:
-            try:
-                ydiff = abs(int(pn.get("year") or 0) - int(c["norm"].get("year") or 0))
-            except (TypeError, ValueError):
-                continue
-            if ydiff > 1:
-                continue
-            overlap = _token_overlap(pn["title"], c["norm"]["title"])
-            if overlap < 0.5:
-                continue
-            ev = ["similar project title"]
-            ev.append("same fiscal year" if ydiff == 0 else "adjacent fiscal year (bid vs award lag)")
-            review.append({
-                "candidate_id": _next("MATCH"),
-                "record_a": f"project:{p['project_id']}",
-                "record_b": f"contract:{c['cid']}",
-                "match_score": round(overlap, 2),
-                "evidence": ev,
-                "decision": "pending",
-            })
-            if len(review) >= 200:
-                break
-        if len(review) >= 200:
-            break
-    # DPWH <-> PhilGEPS: review-only, never auto-linked (national vs
-    # municipal procurement universes). Qualifies only with specific
-    # shared work-type tokens (>=2 significant tokens, or 1 token plus
-    # comparable scale) — single generic tokens alone are noise.
-    # Separately, DPWH contractor *identity* (not contract linkage) resolves
-    # against canonical contractor entities: exact normalized name, else
-    # token-subset for known variants (e.g. SAFEWAY CONSTRUCTION).
-    lookup = contractor_lookup or {}
-    _seen_identity: set[str] = set()
-    _STOP = {"of", "the", "and", "for", "at", "in", "with", "along", "brgy",
-             "barangay", "mapandan", "pangasinan", "phase", "section"}
-    for d in dpwh_raw or []:
-        dn = {"source": "dpwh", "ref": d.get("contract_id", ""),
-              "title": norm_title(d.get("project_name", "")),
-              "contractor": "", "amount": 0,
-              "year": str(d.get("fiscal_year") or "") or None, "barangays": []}
-        dc = norm_contractor(d.get("contractor", ""))
-        if dc and d.get("contract_id") not in _seen_identity:
-            target = lookup.get(dc)
-            if target:
-                _seen_identity.add(d.get("contract_id", ""))
-                _emit(f"dpwh:{d.get('contract_id', '')}", f"contractor:{target}",
-                      "contractor_identity", "explicit",
-                      ["same normalized contractor name"])
-            else:
-                for norm, cid in lookup.items():
-                    dt, nt = dc.split(), norm.split()
-                    if len(dt) >= 2 and len(nt) >= 2 and (
-                            all(w in nt for w in dt) or all(w in dt for w in nt)):
-                        _seen_identity.add(d.get("contract_id", ""))
-                        _emit(f"dpwh:{d.get('contract_id', '')}", f"contractor:{cid}",
-                              "contractor_identity", "probable",
-                              ["contractor name token-subset — verify legal entity"])
-                        break
-        if not dc:
-            continue
-        for c in contracts_n:
-            try:
-                ydiff = abs(int(dn["year"] or 0) - int(c["norm"].get("year") or 0))
-            except (TypeError, ValueError):
-                continue
-            if ydiff > 1:
-                continue
-            cc = c["norm"].get("contractor", "")
-            if not cc or not (dc == cc or dc in cc or cc in dc):
-                continue
-            overlap = _token_overlap(dn["title"], c["norm"]["title"])
-            shared = sorted({w for w in dn["title"].split() if len(w) > 3 and w not in _STOP} &
-                            {w for w in c["norm"]["title"].split() if len(w) > 3 and w not in _STOP})
-            scale_ok = False
-            try:
-                _da, _ca = float(d.get("contract_amount") or 0), float(c["norm"].get("amount") or 0)
-                scale_ok = bool(_da and _ca) and 0.5 <= _da / _ca <= 2.0
-            except (TypeError, ValueError, ZeroDivisionError):
-                pass
-            if not (len(shared) >= 2 or (len(shared) == 1 and scale_ok)):
-                continue
-            review.append({
-                "candidate_id": _next("MATCH"),
-                "record_a": f"dpwh:{d.get('contract_id', '')}",
-                "record_b": f"contract:{c['cid']}",
-                "match_score": round(overlap, 2),
-                "evidence": ["same contractor",
-                             "same fiscal year" if ydiff == 0 else "adjacent fiscal year",
-                             f"shared work-type token(s): {', '.join(shared)}"] +
-                            (["comparable scale"] if len(shared) == 1 and scale_ok else []),
-                "decision": "pending",
-            })
-            if len(review) >= 200:
-                break
-        if len(review) >= 200:
-            break
-    # Shared-award conflicts: one contract claimed by multiple projects.
-    # Tag every edge in the group so reviewers see the collision explicitly.
-    _by_contract: dict[str, list] = {}
-    for _r in rels:
-        if _r["type"] == "has_contract":
-            _by_contract.setdefault(_r["to"], []).append(_r)
-    for _cid, _group in _by_contract.items():
-        _projs = sorted({_r["from"] for _r in _group})
-        if len(_projs) < 2:
-            continue
-        for _r in _group:
-            _others = ", ".join(p for p in _projs if p != _r["from"])
-            _tag = f"shared award — also linked to {_others}"
-            if _tag not in _r["evidence"]:
-                _r["evidence"].append(_tag)
+    _link_contracts_to_contractors(contracts_n, _emit)
+    review = _link_bids_to_projects_and_contracts(bids_n, projects, contracts_n, _emit, _next, _amount_note)
+    direct_linked = _link_projects_to_contracts(projects, contracts_n, _emit)
+    review.extend(_synonym_near_misses(projects, contracts_n, direct_linked, _next, _emit))
+    review.extend(_dpwh_near_match_and_identity(dpwh_raw, contracts_n, contractor_lookup, _next, _emit))
+    if len(review) >= 200:
+        review = review[:200]
+    _tag_shared_award_conflicts(rels)
     return rels, review
 
 

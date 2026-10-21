@@ -39,6 +39,81 @@ def safe_url(value):
         return False
 
 
+def _normalize_properties(original, identifier):
+    """Extract and normalize feature properties, filtering for safety and size."""
+    props = {key: value for key in FIELDS if (value := safe_text(original.get(key))) is not None}
+    props.setdefault("id", identifier)
+    props.setdefault("name", props.get("label", identifier))
+    for key in ("pop2024", "pop2020"):
+        if type(original.get(key)) is int and original[key] >= 0:
+            props[key] = original[key]
+    for key in ('fiscal_year', 'contract_amount', 'approved_budget', 'accomplishment_percent', 'source_area_sqkm'):
+        value = original.get(key)
+        if finite_number(value):
+            props[key] = value
+        elif key in original and value is None:
+            props[key] = None
+    if 'project_id' in original and original['project_id'] is None:
+        props['project_id'] = None
+    _normalize_provenance(props, original)
+    _normalize_urls(props, original)
+    _normalize_project_url(props, original)
+    for key in ('quality_flags', 'limitations', 'contractors'):
+        values = original.get(key)
+        if isinstance(values, list):
+            props[key] = [clean for value in values[:100] if (clean := safe_text(value)) is not None]
+    source_geometry_id = original.get('source_geometry_id')
+    if type(source_geometry_id) is int or safe_text(source_geometry_id) is not None:
+        props.setdefault('provenance', {}).setdefault('source_record_id', str(source_geometry_id))
+    source_note = safe_text(original.get('source_note'))
+    if source_note and source_note not in props.get('limitations', []):
+        props.setdefault('limitations', []).append(source_note)
+    return props
+
+
+def _normalize_provenance(props, original):
+    """Copy provenance fields safely."""
+    provenance = original.get('provenance')
+    if isinstance(provenance, dict):
+        props['provenance'] = {key: value for key in ('source', 'source_record_id', 'retrieved', 'last_verified')
+                               if (value := safe_text(provenance.get(key))) is not None}
+        if safe_url(provenance.get('source_url')):
+            props['provenance']['source_url'] = provenance['source_url']
+
+
+def _normalize_urls(props, original):
+    """Copy source URL fields safely."""
+    for key in ('source_url', 'source_document_url'):
+        if safe_url(original.get(key)):
+            props[key] = original[key]
+
+
+def _normalize_project_url(props, original):
+    """Validate and copy project_url if it matches expected format."""
+    project_url = original.get('project_url')
+    if isinstance(project_url, str) and len(project_url) <= 4000 and re.fullmatch(
+            r'/(?:fil/|pag/)?transparency/(?:projects/\?project=|infrastructure/#dpwh-project-)'
+            r'(?:[A-Za-z0-9_.~-]|%[A-Fa-f0-9]{2})+', project_url):
+        props['project_url'] = project_url
+
+
+def _validate_geometry(geometry, points_only, nonspatial):
+    """Validate geometry constraints; return (depths, kind) or (None, None) if no geometry."""
+    if points_only and (not isinstance(geometry, dict) or geometry.get("type") != "Point"):
+        raise ValueError("Facility geometry must be Point")
+    if nonspatial and geometry is not None:
+        raise ValueError("Reference geometry must be null; no position inferred")
+    if geometry is None:
+        return None, None
+    if not isinstance(geometry, dict):
+        raise ValueError("Invalid geometry")
+    depths = {"Point": 0, "MultiPoint": 1, "LineString": 1, "MultiLineString": 2, "Polygon": 2, "MultiPolygon": 3}
+    kind = geometry.get("type")
+    if kind not in depths:
+        raise ValueError("Unsupported geometry")
+    return depths, kind
+
+
 def feature_collection(data, *, points_only=False, nonspatial=False, label="GIS"):
     """Skip bad individual features; reject malformed/oversized collections."""
     if not isinstance(data, dict) or data.get("type") != "FeatureCollection":
@@ -78,69 +153,31 @@ def feature_collection(data, *, points_only=False, nonspatial=False, label="GIS"
             if identifier in seen:
                 raise ValueError("Duplicate feature ID")
             geometry = feature.get("geometry")
-            if points_only and (not isinstance(geometry, dict) or geometry.get("type") != "Point"):
-                raise ValueError("Facility geometry must be Point")
-            if nonspatial and geometry is not None:
-                raise ValueError("Reference geometry must be null; no position inferred")
+            depths, kind = _validate_geometry(geometry, points_only, nonspatial)
             if geometry is not None:
-                if not isinstance(geometry, dict):
-                    raise ValueError("Invalid geometry")
-                depths = {"Point": 0, "MultiPoint": 1, "LineString": 1, "MultiLineString": 2, "Polygon": 2, "MultiPolygon": 3}
-                kind = geometry.get("type")
-                if kind not in depths:
-                    raise ValueError("Unsupported geometry")
                 coordinate(geometry.get("coordinates"), depths[kind])
-                if kind in ("Polygon", "MultiPolygon"):
-                    polygons = [geometry["coordinates"]] if kind == "Polygon" else geometry["coordinates"]
-                    for polygon in polygons:
-                        for ring in polygon:
-                            if len(ring) < 4 or ring[0] != ring[-1]:
-                                raise ValueError("Polygon rings must be closed and have at least four positions")
-                lines = [geometry["coordinates"]] if kind == "LineString" else geometry["coordinates"] if kind == "MultiLineString" else []
-                if any(len(line) < 2 for line in lines):
-                    raise ValueError("Line requires at least two positions")
-            props = {key: value for key in FIELDS if (value := safe_text(original.get(key))) is not None}
-            props.setdefault("id", identifier)
-            props.setdefault("name", props.get("label", identifier))
-            for key in ("pop2024", "pop2020"):
-                if type(original.get(key)) is int and original[key] >= 0:
-                    props[key] = original[key]
-            for key in ('fiscal_year', 'contract_amount', 'approved_budget', 'accomplishment_percent', 'source_area_sqkm'):
-                value = original.get(key)
-                if finite_number(value):
-                    props[key] = value
-                elif key in original and value is None:
-                    props[key] = None
-            if 'project_id' in original and original['project_id'] is None:
-                props['project_id'] = None
-            provenance = original.get('provenance')
-            if isinstance(provenance, dict):
-                props['provenance'] = {key: value for key in ('source', 'source_record_id', 'retrieved', 'last_verified')
-                                       if (value := safe_text(provenance.get(key))) is not None}
-                if safe_url(provenance.get('source_url')):
-                    props['provenance']['source_url'] = provenance['source_url']
-            for key in ('source_url', 'source_document_url'):
-                if safe_url(original.get(key)):
-                    props[key] = original[key]
-            project_url = original.get('project_url')
-            if isinstance(project_url, str) and len(project_url) <= 4000 and re.fullmatch(r'/(?:fil/|pag/)?transparency/(?:projects/\?project=|infrastructure/#dpwh-project-)(?:[A-Za-z0-9_.~-]|%[A-Fa-f0-9]{2})+', project_url):
-                props['project_url'] = project_url
-            for key in ('quality_flags', 'limitations', 'contractors'):
-                values = original.get(key)
-                if isinstance(values, list):
-                    props[key] = [clean for value in values[:100] if (clean := safe_text(value)) is not None]
-            source_geometry_id = original.get('source_geometry_id')
-            if type(source_geometry_id) is int or safe_text(source_geometry_id) is not None:
-                props.setdefault('provenance', {}).setdefault('source_record_id', str(source_geometry_id))
-            source_note = safe_text(original.get('source_note'))
-            if source_note and source_note not in props.get('limitations', []):
-                props.setdefault('limitations', []).append(source_note)
+                _validate_ring_closure(geometry.get("coordinates"), kind)
+            props = _normalize_properties(original, identifier)
             safe_geometry = None if geometry is None else {'type': geometry['type'], 'coordinates': deepcopy(geometry['coordinates'])}
             result.append({"type": "Feature", "geometry": safe_geometry, "properties": props})
             seen.add(identifier)
         except ValueError as exc:
             LOG.warning("GIS layer %s: skipped feature %s (index %d): %s", label, identifier, index, exc)
     return {"type": "FeatureCollection", "features": result}
+
+
+def _validate_ring_closure(coordinates, kind):
+    """Validate polygon rings are closed and linestrings have enough points."""
+    if kind in ("Polygon", "MultiPolygon"):
+        polygons = [coordinates] if kind == "Polygon" else coordinates
+        for polygon in polygons:
+            for ring in polygon:
+                if len(ring) < 4 or ring[0] != ring[-1]:
+                    raise ValueError("Polygon rings must be closed and have at least four positions")
+    else:
+        lines = [coordinates] if kind == "LineString" else coordinates if kind == "MultiLineString" else []
+        if any(len(line) < 2 for line in lines):
+            raise ValueError("Line requires at least two positions")
 
 
 def project_records(data, lang_code="en"):

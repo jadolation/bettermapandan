@@ -85,22 +85,24 @@ def page_outputs(root: Path) -> set[Path]:
     return {Path(locale) / to_folder_index(page) for locale in LOCALES for page in pages}
 
 
-def _asset_outputs(root: Path) -> set[Path]:
+def _is_accepted_asset(rel: Path) -> bool:
+    if any(part.startswith(".") or part.lower() in PRIVATE_PARTS for part in rel.parts):
+        return False
     scripts = {Path(source).relative_to("assets").as_posix() for source in JS_SOURCES}
     scripts |= {Path(source).with_suffix(".min.js").as_posix() for source in scripts}
-    # These browser scripts are outside the first-party minification contract.
     scripts.update({"chart.umd.min.js", "js/legislative.js"})
+    media = len(rel.parts) == 1 or (len(rel.parts) == 2 and rel.parts[0] in MEDIA_DIRS)
+    return (rel.as_posix() in PUBLIC_DATA | scripts
+            or (media and rel.suffix.lower() in MEDIA_SUFFIXES)
+            or rel.as_posix() in {"style.css", "style.min.css"}
+            or (len(rel.parts) == 2 and rel.parts[0] == "css" and rel.suffix == ".css"))
+
+
+def _asset_outputs(root: Path) -> set[Path]:
     outputs = set()
-    # Audit the entire tree first; arbitrary JSON/GeoJSON/KMZ is never copied.
     for path in _tree_files(root, Path("assets")):
         rel = path.relative_to("assets")
-        if any(part.startswith(".") or part.lower() in PRIVATE_PARTS for part in rel.parts):
-            continue
-        media = len(rel.parts) == 1 or (len(rel.parts) == 2 and rel.parts[0] in MEDIA_DIRS)
-        if (rel.as_posix() in PUBLIC_DATA | scripts
-                or (media and rel.suffix.lower() in MEDIA_SUFFIXES)
-                or rel.as_posix() in {"style.css", "style.min.css"}
-                or (len(rel.parts) == 2 and rel.parts[0] == "css" and rel.suffix == ".css")):
+        if _is_accepted_asset(rel):
             outputs.add(path)
     for path in gis_asset_outputs(root):
         if (not isinstance(path, Path) or path.is_absolute() or ".." in path.parts

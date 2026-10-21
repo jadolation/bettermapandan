@@ -22,33 +22,59 @@ def test_compatible_zero_rotation_package():
     assert images == [(buffer.getvalue(), bounds)]
 
 
-def test_preparation_reproducible_and_published(tmp_path):
-    report = prepare(tmp_path, publication=True)
+@pytest.fixture
+def flood_report(tmp_path):
+    return prepare(tmp_path, publication=True)
+
+
+def test_preparation_reproducible(tmp_path, flood_report):
     original = (tmp_path / 'flood.kmz').read_bytes()
     assert len(inspect_kmz(original)) == 1
+
+
+def test_preparation_fit_quality(flood_report):
+    report = flood_report
     assert report['fit']['rmse_metres'] == pytest.approx(1.4265735942303537)
     assert len(report['fit']['points']) == len(report['grid_check']['points']) == 7
     assert len(report['independent_candidates']['points']) == 2
     assert report['independent_candidates']['max_metres'] == pytest.approx(9.843620728838424)
-    # Assert real output footprint against the measured centre transform, not
-    # merely against the bounds copied into KML and the browser manifest.
+
+
+def test_preparation_footprint_transform_bounds(flood_report):
+    report = flood_report
     left, top, right, bottom = report['crop_pixel_box_exclusive']
     corners = np.array([[left-.5, top-.5, 1], [right-.5, top-.5, 1], [right-.5, bottom-.5, 1], [left-.5, bottom-.5, 1]]) @ np.array(report['affine_pixel_to_lon_lat'])
     assert report['bounds']['west'] == pytest.approx(corners[:, 0].min(), abs=1e-10)
     assert report['bounds']['east'] == pytest.approx(corners[:, 0].max(), abs=1e-10)
     assert report['bounds']['south'] == pytest.approx(corners[:, 1].min(), abs=1e-10)
     assert report['bounds']['north'] == pytest.approx(corners[:, 1].max(), abs=1e-10)
+
+
+def test_preparation_source_validation(flood_report):
+    report = flood_report
     assert 'NOT verified' in report['source_crs']
     assert len(report['distributed_nearest_line_diagnostics']) == 6
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == SHA256
+
+
+def test_preparation_published_artifacts(tmp_path, flood_report):
     prepare(tmp_path, publication=True)
+    original = (tmp_path / 'flood.kmz').read_bytes()
     assert (tmp_path / 'flood.kmz').read_bytes() == original
     image = Image.open(tmp_path / 'flood.png')
     assert image.size == (2018, 1418)
     assert image.getextrema()[3] == (0, 255)
+
+
+def test_preparation_layer_config():
     config = layer_configuration(ROOT)
     flood = next(layer for layer in config['layers'] if layer['id'] == 'flood-susceptibility')
     assert flood['type'] == 'kmz' and not flood['visible_by_default']
+
+
+def test_preparation_prepared_directory(tmp_path, flood_report):
+    report = flood_report
+    original = (tmp_path / 'flood.kmz').read_bytes()
     prepared = ROOT / 'datasets/GIS/flood/prepared'
     assert (prepared / 'flood-susceptibility.kmz').read_bytes() == original
     saved = json.loads((prepared / 'flood-susceptibility.registration.json').read_text())
