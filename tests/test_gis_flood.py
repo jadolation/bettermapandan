@@ -9,6 +9,7 @@ from PIL import Image
 pytest.importorskip('numpy')
 pytest.importorskip('pyproj')
 import numpy as np
+
 from _build.gis_flood import ROOT, SHA256, SOURCE, package, prepare
 from _build.gis_sources import inspect_kmz, layer_configuration
 
@@ -31,8 +32,8 @@ def test_preparation_reproducible_and_published(tmp_path):
     assert report['independent_candidates']['max_metres'] == pytest.approx(9.843620728838424)
     # Assert real output footprint against the measured centre transform, not
     # merely against the bounds copied into KML and the browser manifest.
-    l, t, r, b = report['crop_pixel_box_exclusive']
-    corners = np.array([[l-.5, t-.5, 1], [r-.5, t-.5, 1], [r-.5, b-.5, 1], [l-.5, b-.5, 1]]) @ np.array(report['affine_pixel_to_lon_lat'])
+    left, top, right, bottom = report['crop_pixel_box_exclusive']
+    corners = np.array([[left-.5, top-.5, 1], [right-.5, top-.5, 1], [right-.5, bottom-.5, 1], [left-.5, bottom-.5, 1]]) @ np.array(report['affine_pixel_to_lon_lat'])
     assert report['bounds']['west'] == pytest.approx(corners[:, 0].min(), abs=1e-10)
     assert report['bounds']['east'] == pytest.approx(corners[:, 0].max(), abs=1e-10)
     assert report['bounds']['south'] == pytest.approx(corners[:, 1].min(), abs=1e-10)
@@ -46,7 +47,7 @@ def test_preparation_reproducible_and_published(tmp_path):
     assert image.size == (2018, 1418)
     assert image.getextrema()[3] == (0, 255)
     config = layer_configuration(ROOT)
-    flood = next(l for l in config['layers'] if l['id'] == 'flood-susceptibility')
+    flood = next(layer for layer in config['layers'] if layer['id'] == 'flood-susceptibility')
     assert flood['type'] == 'kmz' and not flood['visible_by_default']
     prepared = ROOT / 'datasets/GIS/flood/prepared'
     assert (prepared / 'flood-susceptibility.kmz').read_bytes() == original

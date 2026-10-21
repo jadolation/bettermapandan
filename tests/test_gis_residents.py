@@ -7,7 +7,13 @@ from pathlib import Path
 import pytest
 
 from _build.gis import facilities_collection, script_json
-from _build.gis_residents import BARANGAY_SLUGS, contact_placeholders, phone_link, reconcile, residents
+from _build.gis_residents import (
+    BARANGAY_SLUGS,
+    contact_placeholders,
+    phone_link,
+    reconcile,
+    residents,
+)
 from _build.gis_sources import prepare_inputs
 
 ROOT = Path(__file__).resolve().parents[1]

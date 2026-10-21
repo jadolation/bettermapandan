@@ -1,5 +1,6 @@
 target-version = "py39"
 line-length = 100
+extend-exclude = ["vcpkg"]
 
 [lint]
 select = [
