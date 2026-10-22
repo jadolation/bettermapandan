@@ -340,6 +340,7 @@ async function main() {
       const match = pathname.match(/^\/fixtures\/(en|fil|pag)\/gis\/$/);
       if (match) { res.setHeader("content-type", "text/html"); res.end(fixture(match[1], new URL("http://localhost" + req.url).searchParams.get("data") || "normal")); return; }
       if (pathname === "/assets/gis-map.min.js") { res.setHeader("content-type", "text/javascript"); res.end(fs.readFileSync(path.join(repo, "assets/gis-map.js"))); return; }
+      if (pathname === "/assets/gis-weather.min.js") { res.setHeader("content-type", "text/javascript"); res.end(fs.readFileSync(path.join(repo, "assets/gis-weather.js"))); return; }
       if (pathname === "/assets/gis/late-missing.png") { setTimeout(() => res.writeHead(404).end(), 350); return; }
       if (pathname === "/assets/gis/late.png") { setTimeout(() => { res.setHeader("content-type", "image/png"); res.end(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a5wAAAABJRU5ErkJggg==", "base64")); }, 350); return; }
       if (pathname === "/assets/gis/map.png") {
