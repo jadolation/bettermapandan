@@ -58,6 +58,20 @@ def test_sync_three_routes_dependencies_and_only_managed_cleanup(preview):
     assert not (root / "transparency/projects/index.html").exists()
 
 
+def test_statistics_json_is_an_exact_managed_resource(preview):
+    root, site = preview
+    for locale in LOCALES:
+        prefix = Path(locale)
+        manifest = site / prefix / MANIFEST
+        data = json.loads(manifest.read_text())
+        data['files'].append('assets/gis/barangay-statistics.json')
+        manifest.write_text(json.dumps(data))
+        put(site, prefix / 'assets/gis/barangay-statistics.json', '{"schema_version":1}')
+    synchronize_gis(root)
+    for locale in LOCALES:
+        assert (root / locale / 'assets/gis/barangay-statistics.json').read_text() == '{"schema_version":1}'
+
+
 @pytest.mark.parametrize("bad", ["pag/gis/index.html", "fil/assets/gis-map.min.js", "assets/gis/roads.geojson",
                                  "pag/assets/images/map.png", "assets/gis/manifest.json"])
 def test_missing_input_leaves_old_preview_intact(preview, bad):

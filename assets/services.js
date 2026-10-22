@@ -2,6 +2,7 @@ window.addEventListener("load", function () {
   if (typeof Chart === "undefined") return;
 
   var green = "#4c8a2e";
+  var greenText = "#3f7426";
   var gold = "#e8a917";
   var greenDark = "#16532c";
   var greenMid = "#2d6b1f";
@@ -120,8 +121,8 @@ window.addEventListener("load", function () {
     var freeCount = data.fees.free || 0;
     var paidCount = data.fees.paid || 0;
     feesSummary.innerHTML =
-      '<div style="font-size:1.5rem;font-weight:700;color:' + green + '">&#x20B1;' + avg.toLocaleString("en-PH", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</div>' +
+      '<div style="font-size:1.5rem;font-weight:700;color:' + greenText + '">&#x20B1;' + avg.toLocaleString("en-PH", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</div>' +
       '<div><strong>Average fee</strong> across ' + paidCount + ' paid service' + (paidCount !== 1 ? 's' : '') + '</div>' +
-      '<div><span style="color:' + green + ';font-weight:600">' + freeCount + ' free</span> &middot; <span style="font-weight:600">' + paidCount + ' paid</span></div>';
+      '<div><span style="color:' + greenText + ';font-weight:600">' + freeCount + ' free</span> &middot; <span style="font-weight:600">' + paidCount + ' paid</span></div>';
   }
 });

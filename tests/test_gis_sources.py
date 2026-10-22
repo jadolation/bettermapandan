@@ -32,6 +32,44 @@ def layer(identifier, source, kind='geojson', enabled=True):
             'enabled': enabled, 'visible_by_default': True}
 
 
+def test_statistics_shared_asset_and_optional_failure(tmp_path, monkeypatch):
+    import _build.gis_statistics as statistics
+    modes = [dict(layer('barangay-' + metric, 'src/data/gis/barangays.geojson', 'choropleth'),
+                  visible_by_default=False, metric=metric, geometry_layer='barangay-boundaries')
+             for metric in ('population', 'projects')]
+    configuration(tmp_path, modes)
+    calls = []
+
+    def build(root):
+        calls.append(root)
+        return {'schema_version': 1, 'barangays': {}}
+
+    monkeypatch.setattr(statistics, 'build_statistics', build)
+    result = prepare_inputs(tmp_path)
+    assert len(calls) == 1
+    assert all(mode['available'] and mode['type'] == 'choropleth' for mode in result['layers'])
+    assert {mode['statistics_url'] for mode in result['layers']} == {'assets/gis/barangay-statistics.json'}
+    assert Path('assets/gis/barangay-statistics.json') in gis_asset_outputs(tmp_path)
+
+    def fail(root):
+        raise ValueError('Invalid canonical PSGC')
+
+    monkeypatch.setattr(statistics, 'build_statistics', fail)
+    result = prepare_inputs(tmp_path)
+    assert all(not mode['available'] for mode in result['layers'])
+    assert Path('assets/gis/barangay-statistics.json') not in gis_asset_outputs(tmp_path)
+
+
+@pytest.mark.parametrize('change', [{'metric': 'density'}, {'geometry_layer': 'roads'}, {'visible_by_default': True}])
+def test_invalid_choropleth_configuration(tmp_path, change):
+    mode = dict(layer('barangay-population', 'src/data/gis/barangays.geojson', 'choropleth'),
+                visible_by_default=False, metric='population', geometry_layer='barangay-boundaries')
+    mode.update(change)
+    configuration(tmp_path, [mode])
+    with pytest.raises(ValueError, match='Choropleth'):
+        layer_configuration(tmp_path)
+
+
 def kmz(rotation=0, href='tile.png', coordinates=None, extra=None):
     from PIL import Image
     image = io.BytesIO()

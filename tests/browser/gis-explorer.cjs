@@ -222,11 +222,15 @@ async function v3Checks(page, locale) {
   assert.match(await page.$eval(".gis-result", el => el.textContent), /Canonical shape name/);
   await setSearch("", "barangays");
   assert.equal(await page.$$eval(".gis-result", rows => rows.length), 15, "Layer-specific null references survive shape load and another shape failure");
+  // Explicit fallback scenario: retain coverage of the enhanced static directory.
+  await page.$eval("#gis-directories", el => { el.hidden = false; });
   await click(page, '#gis-directories details:has(#gis-barangay-list) summary');
   await click(page, "#gis-barangay-list li button");
   await page.waitForFunction(() => document.getElementById("gis-detail-content").textContent.includes("Canonical shape name"));
   assert.match(await page.$eval("#gis-detail-content", el => el.textContent), /Canonical shape name/, "Static directory enhancement joins by gid, not name");
   await page.keyboard.press("Escape");
+  await page.$eval("#gis-directories", el => { el.hidden = true; });
+  await page.focus("#gis-search");
   assert.ok(await page.evaluate(() => window.__gisTest.vectorStyles.some(style => style.dashArray === "6 5")));
 
   await toggle("hazard", true); await loaded("hazard");
@@ -240,7 +244,7 @@ async function v3Checks(page, locale) {
   assert.ok((await page.$eval('[data-layer-id="physical-a"] input[type="range"]', el => el.getAttribute("aria-valuetext"))).includes(locale.opacity));
   await toggle("physical-b", true); await loaded("physical-b");
   assert.equal(await page.$eval('[data-layer-id="physical-a"] input[type="checkbox"]', el => el.checked), false);
-  assert.equal(await page.$eval('[data-layer-id="hazard"] input[type="checkbox"]', el => el.checked), true, "Hazards remain independent of the physical exclusive group");
+  assert.equal(await page.$eval('[data-layer-id="hazard"] input[type="checkbox"]', el => el.checked), false, "Thematic fills remain mutually exclusive");
   await toggle("physical-a", true);
   assert.equal(await page.$eval('[data-layer-id="physical-b"] input[type="checkbox"]', el => el.checked), false);
   assert.equal(await page.$eval('[data-layer-id="physical-a"] input[type="range"]', el => el.value), "45", "Opacity persists across toggles");
@@ -401,6 +405,9 @@ async function main() {
         await page.waitForFunction(() => document.getElementById("gis-map-status").textContent === document.getElementById("gis-page").dataset.tileError);
         assert.equal(await page.evaluate(() => "GIS_MODE" in window), false);
         assert.equal(await page.$eval("#gis-barangay-list", el => el.querySelectorAll("li").length), 15);
+        assert.equal(await page.$eval("#gis-directories", el => el.hidden && getComputedStyle(el).display === "none"), true, "Below-map fallback sections are absent from the initialized UI");
+        assert.equal(await page.$eval("#gis-directory-link", el => el.hidden), true, "No focusable link targets the hidden fallback");
+        assert.equal(await page.$$eval("#gis-directories a, #gis-directories button, #gis-directories summary", els => els.every(el => el.getClientRects().length === 0)), true, "Hidden fallback controls have no visible or keyboard-focusable boxes");
         assert.equal(await page.$eval("#gis-map-fallback", el => !el.hidden), true);
         assert.equal(await page.$eval("#gis-map-status", el => el.textContent), locale.tile_error);
         assert.equal(await page.$eval("#gis-search", el => !!el.labels.length), true);
@@ -553,6 +560,14 @@ async function main() {
       await nojs.setRequestInterception(true); nojs.on("request", r => r.url().startsWith(origin) ? r.continue() : r.abort());
       await nojs.goto(url, { waitUntil: "domcontentloaded" });
       assert.equal(await nojs.$eval("#gis-barangay-list", el => el.querySelectorAll("li").length), 15);
+      assert.equal(await nojs.$eval("#gis-directories", el => !el.hidden && getComputedStyle(el).display !== "none"), true);
+      for (const selector of ["#gis-facility-list", "#gis-barangay-list"]) {
+        await click(nojs, `#gis-directories details:has(${selector}) summary`);
+        assert.equal(await nojs.$eval(selector, el => el.getClientRects().length > 0), true, "No-JS disclosures expose the static directory");
+      }
+      await nojs.focus("#gis-directories details:last-of-type summary");
+      await nojs.keyboard.press("Enter");
+      assert.equal(await nojs.$eval("#gis-directories details:last-of-type", el => el.open), true, "No-JS flood reference remains available");
       assert.equal(await nojs.$eval("#gis-map-fallback", el => getComputedStyle(el).display !== "none"), true);
        assert.equal(await nojs.$eval("#gis-workspace", el => el.hidden), true);
        assert.equal(await nojs.$eval("#gis-page h1", el => el.textContent), locale.title);

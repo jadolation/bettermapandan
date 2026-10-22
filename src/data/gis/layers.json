@@ -106,6 +106,34 @@
       ]
     },
     {
+      "id": "barangay-population",
+      "title": {"en": "Population by Barangay", "fil": "Populasyon ayon sa Barangay", "pag": "Populasyon ed kada Barangay"},
+      "type": "choropleth",
+      "source": "src/data/gis/barangays.geojson",
+      "dependencies": ["src/data/gis/barangay_boundaries.geojson", "src/data/entities/projects.json", "src/data/relationships.json", "src/data/dpwh.json", "src/data/fdp_disclosures.json", "src/data/audit-reports.json", "src/data/procurement.json", "src/data/entities/contracts.json", "src/data/entities/bids.json"],
+      "enabled": true,
+      "visible_by_default": false,
+      "metric": "population",
+      "geometry_layer": "barangay-boundaries",
+      "group": {"en": "Barangay Statistics", "fil": "Estadistika ng Barangay", "pag": "Estadistika na Barangay"},
+      "pane": "administrative",
+      "precision": "indicative"
+    },
+    {
+      "id": "barangay-projects",
+      "title": {"en": "Government Projects by Barangay", "fil": "Mga Proyekto ng Pamahalaan ayon sa Barangay", "pag": "Saray Proyekto na Gobyerno ed kada Barangay"},
+      "type": "choropleth",
+      "source": "src/data/gis/barangays.geojson",
+      "dependencies": ["src/data/gis/barangay_boundaries.geojson", "src/data/entities/projects.json", "src/data/relationships.json", "src/data/dpwh.json", "src/data/fdp_disclosures.json", "src/data/audit-reports.json", "src/data/procurement.json", "src/data/entities/contracts.json", "src/data/entities/bids.json"],
+      "enabled": true,
+      "visible_by_default": false,
+      "metric": "projects",
+      "geometry_layer": "barangay-boundaries",
+      "group": {"en": "Barangay Statistics", "fil": "Estadistika ng Barangay", "pag": "Estadistika na Barangay"},
+      "pane": "administrative",
+      "precision": "indicative"
+    },
+    {
       "id": "roads",
       "title": {
         "en": "Roads",

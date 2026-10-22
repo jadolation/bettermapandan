@@ -51,7 +51,8 @@ def _resources(base, locale, *, required):
         raise ValueError(f"Invalid GIS sync manifest: {path}")
     result = {prefix / MANIFEST}
     for name in data["files"]:
-        if not isinstance(name, str) or not re.fullmatch(r"assets/gis/[a-z][a-z0-9-]{0,85}\.(?:geojson|png)", name):
+        if not isinstance(name, str) or not (name == "assets/gis/barangay-statistics.json"
+                or re.fullmatch(r"assets/gis/[a-z][a-z0-9-]{0,85}\.(?:geojson|png)", name)):
             raise ValueError(f"Unsafe GIS manifest resource: {name!r}")
         rel = prefix / name
         if rel in result:

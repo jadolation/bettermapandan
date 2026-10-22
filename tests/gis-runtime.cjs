@@ -209,3 +209,71 @@ test("pane ordering and status palette are explicit rather than inferred from ti
   assert.deepEqual(Object.keys(gis.statusColors), ["completed", "ongoing", "not_started", "stopped", "unknown"]);
   assert.equal(new Set(Object.values(gis.statusColors)).size, 4);
 });
+
+test("statistics use deterministic tie-preserving sequential quantiles with fewer classes", () => {
+  assert.deepEqual(gis.quantiles([null, undefined, "0", NaN, Infinity, -1]), []);
+  assert.deepEqual(gis.quantiles([0, 0, 0]), [{ min: 0, max: 0, color: "#31875A" }]);
+  assert.deepEqual(gis.quantiles([0, 0, 7]), [{ min: 0, max: 0, color: "#31875A" }, { min: 7, max: 7, color: "#C84B47" }]);
+  assert.deepEqual(gis.quantiles([3, 2, 1]), [{ min: 1, max: 1, color: "#31875A" }, { min: 2, max: 2, color: "#E8C44D" }, { min: 3, max: 3, color: "#C84B47" }]);
+  const values = [0, 0, 0, 0, 1, 2, 3, 4, 5, 5, 5, 5], before = [...values];
+  const classes = gis.quantiles(values);
+  assert.deepEqual(values, before);
+  assert.deepEqual(gis.quantiles([...values].reverse()), classes);
+  assert.equal(classes.length, 3);
+  assert.equal(gis.statisticColor(0, classes), "#31875A");
+  assert.equal(gis.statisticColor(null, classes), "#A6ADB4");
+  assert.equal(gis.statisticColor("0", classes), "#A6ADB4");
+  for (const value of new Set(values)) assert.equal(classes.filter(c => value >= c.min && value <= c.max).length, 1);
+});
+
+test("project filters intersect on the same source reference before canonical-ID union", () => {
+  const references = [{ source: "dpwh", year: 2024, status: "ongoing" }, { source: "dilg", year: 2023, status: "completed" }];
+  const project = { project_id: "canonical-1", barangay_gids: ["one", "two"], references };
+  const data = { projects: [project, { ...project }, { project_id: "canonical-2", references: [{ source: "dpwh", year: null, status: "unknown" }] }] };
+  assert.deepEqual(gis.filteredProjects(data, { source: "dpwh", year: "2023", status: "completed" }), []);
+  assert.deepEqual(gis.filteredProjects(data, { source: "dpwh", year: "2024", status: "completed" }), []);
+  assert.deepEqual(gis.filteredProjects(data, { source: "dilg", year: "2023", status: "completed" }), [project]);
+  assert.equal(gis.filteredProjects(data, {}).length, 2);
+  assert.equal(gis.filteredProjects(data, { year: "unknown", status: "unknown" })[0].project_id, "canonical-2");
+  assert.equal(gis.matchingReferences(project, { source: "dilg" })[0].year, 2023);
+});
+
+function statisticsFixture() {
+  const gids = Array.from({ length: 15 }, (_, i) => "0105528" + String(i + 1).padStart(3, "0"));
+  return { schema_version: 1, municipality_psgc: "0105528000", population: { year: 2024, total: 0, status: "available", provenance: [] },
+    barangays: Object.fromEntries(gids.map(gid => [gid, { gid, name: gid, population: { count: 0, year: 2024, status: "available", share: null }, projects: { count: 0, ids: [], status: "scoped" } }])),
+    projects: [], project_coverage: { sources: { dpwh: { supported: true }, philgeps: { supported: false } } } };
+}
+
+test("barangay assignment belongs to the matching source reference, not its project union", () => {
+  const project = { barangay_gids: ["one", "two"], references: [
+    { source: "dpwh", year: 2024, status: "ongoing", barangay_gids: ["one"] },
+    { source: "dilg", year: 2023, status: "completed", barangay_gids: ["two"] },
+  ] };
+  assert.equal(gis.projectInBarangay(project, { source: "dpwh" }, "two"), false);
+  assert.equal(gis.projectInBarangay(project, { year: "2023" }, "one"), false);
+  assert.equal(gis.projectInBarangay(project, {}, "two"), true);
+});
+
+test("statistics validation distinguishes missing population and scoped zero, rejecting bad joins", () => {
+  const data = statisticsFixture();
+  assert.equal(gis.validateStatistics(data), data);
+  data.barangays["0105528001"].population.count = null;
+  data.barangays["0105528001"].population.status = "missing";
+  assert.equal(gis.validateStatistics(data).barangays["0105528002"].population.count, 0);
+  const invalid = mutate => { const copy = JSON.parse(JSON.stringify(data)); mutate(copy); assert.throws(() => gis.validateStatistics(copy)); };
+  invalid(d => { d.schema_version = 2; });
+  invalid(d => { d.municipality_psgc = "0105529000"; });
+  invalid(d => { delete d.barangays["0105528001"]; });
+  invalid(d => { d.barangays["0105528001"].population.count = -1; });
+  invalid(d => { d.barangays["0105528001"].population.share = 2; });
+  invalid(d => { d.barangays["0105528001"].population.year = 2020; });
+  invalid(d => { d.barangays["0105528001"].projects.ids = ["invented"]; });
+  invalid(d => { d.project_coverage.sources.dpwh.supported = "true"; });
+  invalid(d => { d.projects = [{ project_id: "one", name: "Project", barangay_gids: ["0105528001"], references: [{ source: "dpwh", year: 2024, status: "ongoing" }] }]; });
+  data.projects.push({ project_id: "one", name: "Project", barangay_gids: ["0105528001", "0105528002"], references: [{ source: "dpwh", year: 2024, status: "ongoing", barangay_gids: ["0105528001", "0105528002"] }] });
+  for (const gid of ["0105528001", "0105528002"]) data.barangays[gid].projects = { count: 1, ids: ["one"], status: "scoped" };
+  assert.equal(gis.validateStatistics(data), data);
+  invalid(d => { d.projects.push(d.projects[0]); });
+  invalid(d => { d.projects[0].references[0].source = "invented"; });
+});

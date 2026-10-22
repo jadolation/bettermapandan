@@ -92,9 +92,18 @@
     });
     coords.forEach(function (p) {
       var color = getMarkerColor(p.status);
+      var markerLabel = (p.project_name || "Infrastructure project") +
+        (p.status ? " — " + p.status : "");
       var marker = L.marker([p.latitude, p.longitude], {
         icon: createMarkerIcon(color),
-      }).addTo(map);
+        title: markerLabel,
+        alt: markerLabel,
+      });
+      marker.on("add", function () {
+        var el = marker.getElement();
+        if (el) el.setAttribute("aria-label", markerLabel);
+      });
+      marker.addTo(map);
       var popup =
         "<strong>" +
         escapeHtml(p.project_name) +

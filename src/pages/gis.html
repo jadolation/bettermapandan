@@ -42,7 +42,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
     <p>{{GIS_PLACE}}</p>
     <h1>{{GIS_TITLE}}</h1>
     <p>{{GIS_INTRO}}</p>
-    <a href="#gis-directories">{{GIS_DIRECTORY_LINK}}</a>
+    <a id="gis-directory-link" href="#gis-directories">{{GIS_DIRECTORY_LINK}}</a>
   </header>
   <div id="gis-workspace" class="gis-workspace" hidden>
     <aside class="gis-sidebar" aria-label="{{GIS_EXPLORER}}">
@@ -65,6 +65,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
       <section id="gis-layers-panel" class="gis-layer-controls" role="tabpanel" aria-labelledby="gis-layers-tab" tabindex="0" hidden>
         <p class="gis-panel-note">{{GIS_LAYER_HELP}}</p>
         <div id="gis-layer-list"></div>
+        <div id="gis-project-filters" class="gis-project-filters" hidden></div>
       </section>
     </aside>
     <div class="gis-map-pane">
@@ -74,7 +75,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
        <p>{{GIS_MARKER_TOTAL}}: <span id="gis-marker-count">0</span></p>
       </div>
       <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
-      <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" hidden></section>
+       <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" aria-live="polite" hidden></section>
     </div>
     <section id="gis-details" class="gis-details" role="region" hidden>
       <button id="gis-close" type="button">{{GIS_CLOSE}}</button>

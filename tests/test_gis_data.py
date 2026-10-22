@@ -68,7 +68,8 @@ def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp
     }
     assert len(images) == 86  # 81 native hazard, four physical and one flood image.
     assert len([path for path in outputs if path.suffix == '.geojson']) == 4
-    assert len(outputs) == 91  # 86 images, four vectors and their exact manifest.
+    assert len(outputs) == 92  # 86 images, four vectors, statistics and their exact manifest.
+    assert Path('assets/gis/barangay-statistics.json') in outputs
 
 
 def test_physical_configuration_matches_prepared_source_legends_and_dates():

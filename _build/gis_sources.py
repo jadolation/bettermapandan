@@ -43,6 +43,17 @@ def input_path(root, relative):
     return result
 
 
+def _validate_layer_display(layer):
+    if 'group' in layer and (not isinstance(layer['group'], dict) or not all(isinstance(layer['group'].get(lang), str) for lang in ('en', 'fil', 'pag'))):
+        raise ValueError('GIS group requires en, fil, and pag labels')
+    if 'pane' in layer and layer['pane'] not in {'physical', 'hazards', 'administrative', 'infrastructure', 'facilities'}:
+        raise ValueError('Invalid GIS pane')
+    if 'opacity' in layer and (type(layer['opacity']) not in (int, float) or not 0 <= layer['opacity'] <= 1 or not math.isfinite(layer['opacity'])):
+        raise ValueError('GIS opacity must be a finite number from 0 to 1')
+    if 'exclusive_group' in layer and (not isinstance(layer['exclusive_group'], str) or not layer['exclusive_group'] or len(layer['exclusive_group']) > 100):
+        raise ValueError('GIS exclusive_group must be a nonempty string')
+
+
 def layer_configuration(root):
     data = parse_json(bounded_bytes(Path(root) / "src/data/gis/layers.json", 1024 * 1024).decode('utf-8'))
     if not isinstance(data, dict) or not isinstance(data.get('layers'), list) or not isinstance(data.get('metadata', {}), dict):
@@ -57,25 +68,21 @@ def layer_configuration(root):
         if not isinstance(identifier, str) or not re.fullmatch(r'[a-z][a-z0-9-]{0,79}', identifier) or identifier in seen:
             raise ValueError(f"Invalid or duplicate GIS layer ID: {identifier!r}")
         seen.add(identifier)
-        if layer.get('type') not in {'geojson', 'records', 'kmz', 'dpwh', 'source-reference'}:
+        if layer.get('type') not in {'geojson', 'records', 'kmz', 'dpwh', 'source-reference', 'choropleth'}:
             raise ValueError(f"GIS layer {identifier}: unsupported input type")
         if type(layer.get('enabled')) is not bool or type(layer.get('visible_by_default')) is not bool:
             raise ValueError(f"GIS layer {identifier}: enabled and visible_by_default must be booleans")
         if not isinstance(layer.get('title'), dict) or not isinstance(layer['title'].get('en'), str):
             raise ValueError(f"GIS layer {identifier}: title.en is required")
         input_path(root, layer.get('source'))
+        if layer['type'] == 'choropleth' and (layer.get('metric') not in {'population', 'projects'}
+                or layer.get('geometry_layer') != 'barangay-boundaries' or layer['visible_by_default']):
+            raise ValueError('Choropleth requires a supported metric, shared boundaries and default off')
         if 'dependencies' in layer and (not isinstance(layer['dependencies'], list) or len(layer['dependencies']) > 10):
             raise ValueError('GIS dependencies must be a bounded list')
         for dependency in layer.get('dependencies', []):
             input_path(root, dependency)
-        if 'group' in layer and (not isinstance(layer['group'], dict) or not all(isinstance(layer['group'].get(lang), str) for lang in ('en', 'fil', 'pag'))):
-            raise ValueError('GIS group requires en, fil, and pag labels')
-        if 'pane' in layer and layer['pane'] not in {'physical', 'hazards', 'administrative', 'infrastructure', 'facilities'}:
-            raise ValueError('Invalid GIS pane')
-        if 'opacity' in layer and (type(layer['opacity']) not in (int, float) or not 0 <= layer['opacity'] <= 1 or not math.isfinite(layer['opacity'])):
-            raise ValueError('GIS opacity must be a finite number from 0 to 1')
-        if 'exclusive_group' in layer and (not isinstance(layer['exclusive_group'], str) or not layer['exclusive_group'] or len(layer['exclusive_group']) > 100):
-            raise ValueError('GIS exclusive_group must be a nonempty string')
+        _validate_layer_display(layer)
         if 'source_url' in layer and not safe_url(layer['source_url']):
             raise ValueError(f"GIS layer {identifier}: source_url must be HTTP(S)")
         if layer['type'] == 'source-reference' and (not layer.get('source_url') or layer['visible_by_default']):
@@ -198,7 +205,9 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
 
     fields = ('id', 'title', 'enabled', 'visible_by_default', 'attribution', 'source_url',
               'source_label', 'source_date', 'precision', 'limitations', 'legend', 'semantic_role',
-              'group', 'pane', 'opacity', 'exclusive_group')
+              'group', 'pane', 'opacity', 'exclusive_group', 'metric', 'geometry_layer')
+    statistics = None
+    statistics_error = None
     for configured in config['layers']:
         identifier, kind = configured['id'], configured['type']
         layer = {key: configured[key] for key in fields if key in configured}
@@ -214,6 +223,23 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
             continue
         relative = configured['source']
         try:
+            if kind == 'choropleth':
+                if statistics_error:
+                    raise ValueError(statistics_error)
+                if statistics is None:
+                    from .gis_statistics import build_statistics
+                    try:
+                        statistics = build_statistics(root)
+                        encoded = script_json(statistics).encode('utf-8')
+                        if len(encoded) > 8 * 1024 * 1024:
+                            raise ValueError('Statistics runtime resource limit')
+                        emit('barangay-statistics.json', encoded)
+                    except Exception:
+                        statistics_error = 'Barangay statistics preparation failed'
+                        raise
+                layer.update(type='choropleth', available=True,
+                             statistics_url='assets/gis/barangay-statistics.json')
+                continue
             raw = bounded_bytes(input_path(root, relative))
             if kind == 'geojson':
                 parsed = parse_json(raw.decode('utf-8'))
@@ -307,7 +333,8 @@ def gis_asset_outputs(root):
         raise ValueError('Invalid generated GIS asset manifest')
     outputs = {manifest}
     for name in data['files']:
-        if not isinstance(name, str) or not re.fullmatch(r'assets/gis/[a-z][a-z0-9-]{0,85}\.(?:geojson|png)', name):
+        if not isinstance(name, str) or not (name == 'assets/gis/barangay-statistics.json'
+                or re.fullmatch(r'assets/gis/[a-z][a-z0-9-]{0,85}\.(?:geojson|png)', name)):
             raise ValueError(f'Unsafe generated GIS asset: {name!r}')
         rel = Path(name)
         if rel in outputs or (root / rel).is_symlink() or not (root / rel).is_file():

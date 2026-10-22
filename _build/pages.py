@@ -207,9 +207,6 @@ def _process_static_page(
     if rel.name == "index.html":
         homepage_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
         page_html = page_html.replace("</body>", homepage_js + "\n</body>", 1)
-    if rel.name == "about.html":
-        about_js = '<script defer src="' + asset_base + '/assets/stats.min.js"></script>'
-        page_html = page_html.replace("</body>", about_js + "\n</body>", 1)
     if rel.name in SECTION_NAV and "section-nav.min.js" not in page_html:
         section_nav_js = '<script defer src="' + asset_base + '/assets/js/section-nav.min.js"></script>\n'
         page_html = page_html.replace("</body>", section_nav_js + "</body>", 1)

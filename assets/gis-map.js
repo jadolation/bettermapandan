@@ -13,7 +13,72 @@
  */
 (function () {
   "use strict";
-  var TYPES = ["inline-geojson", "geojson", "raster-image-overlay", "reference"];
+  var TYPES = ["inline-geojson", "geojson", "raster-image-overlay", "reference", "choropleth"];
+  var STAT_COLORS = ["#31875A", "#E8C44D", "#C84B47"], MISSING_COLOR = "#A6ADB4";
+  function quantiles(values) {
+    var sorted = values.filter(function (v) { return typeof v === "number" && Number.isFinite(v) && v >= 0; }).sort(function (a, b) { return a - b; });
+    if (!sorted.length) return [];
+    var distinct = Array.from(new Set(sorted)), ends = [];
+    if (distinct.length <= 3) ends = distinct;
+    else {
+      [1, 2, 3].forEach(function (n) { var end = sorted[Math.ceil(sorted.length * n / 3) - 1]; if (ends.indexOf(end) < 0) ends.push(end); });
+    }
+    return ends.map(function (end, i) {
+      var start = i ? sorted.find(function (v) { return v > ends[i - 1]; }) : sorted[0];
+      return { min: start, max: end, color: STAT_COLORS[ends.length === 2 && i === 1 ? 2 : i] };
+    });
+  }
+  function statisticColor(value, classes) {
+    var entry = typeof value === "number" && Number.isFinite(value) && classes.find(function (c) { return value >= c.min && value <= c.max; });
+    return entry ? entry.color : MISSING_COLOR;
+  }
+  function matchingReferences(project, filters) {
+    return project.references.filter(function (ref) {
+      return ["source", "year", "status"].every(function (key) {
+        return !filters[key] || String(ref[key] == null ? "unknown" : ref[key]) === filters[key];
+      });
+    });
+  }
+  function filteredProjects(data, filters) {
+    var seen = new Set();
+    return data.projects.filter(function (project) {
+      var refs = matchingReferences(project, filters);
+      if (data.project_coverage) refs = refs.filter(function (ref) { var coverage = data.project_coverage.sources[ref.source]; return coverage && coverage.supported === true; });
+      if (seen.has(project.project_id) || !refs.length) return false;
+      seen.add(project.project_id); return true;
+    });
+  }
+  function projectInBarangay(project, filters, gid) {
+    return matchingReferences(project, filters).some(function (ref) { return ref.barangay_gids.indexOf(gid) >= 0; });
+  }
+  function validateStatistics(data) {
+    function fail() { throw Error("Invalid barangay statistics"); }
+    function string(v) { return typeof v === "string" && v.length > 0 && v.length <= 2000 && !/[\x00-\x1f]/.test(v); }
+    function count(v) { return Number.isSafeInteger(v) && v >= 0; }
+    if (!data || data.schema_version !== 1 || data.municipality_psgc !== "0105528000" || !data.population || data.population.year !== 2024 || !Array.isArray(data.population.provenance) || !data.barangays || Array.isArray(data.barangays) || !Array.isArray(data.projects) || data.projects.length > 10000 || !data.project_coverage || !data.project_coverage.sources) fail();
+    var gids = Object.keys(data.barangays), ids = new Set(), coverage = data.project_coverage.sources;
+    if (!Object.keys(coverage).length || Object.keys(coverage).length > 4) fail();
+    Object.keys(coverage).forEach(function (source) { if (["dpwh", "dilg", "coa", "philgeps"].indexOf(source) < 0 || !coverage[source] || typeof coverage[source].supported !== "boolean") fail(); });
+    if (gids.length !== 15) fail();
+    gids.forEach(function (gid) {
+      var b = data.barangays[gid], p = b && b.population, projects = b && b.projects;
+      if (!/^0105528\d{3}$/.test(gid) || !string(b.name) || !p || (p.count !== null && !count(p.count)) || p.year !== 2024 || !string(p.status) || (p.share !== null && (typeof p.share !== "number" || !Number.isFinite(p.share) || p.share < 0 || p.share > 1)) || !projects || (projects.count !== null && !count(projects.count)) || !Array.isArray(projects.ids) || !string(projects.status)) fail();
+    });
+    data.projects.forEach(function (project) {
+      if (!project || !string(project.project_id) || ids.has(project.project_id) || !string(project.name) || !Array.isArray(project.barangay_gids) || new Set(project.barangay_gids).size !== project.barangay_gids.length || !project.barangay_gids.every(function (gid) { return gids.indexOf(gid) >= 0; }) || !Array.isArray(project.references) || !project.references.length || project.references.length > 1000) fail();
+      ids.add(project.project_id);
+      project.references.forEach(function (ref) {
+        if (!ref || !Object.hasOwn(data.project_coverage.sources, ref.source) || (ref.year !== null && (!Number.isInteger(ref.year) || ref.year < 1900 || ref.year > 2200)) || !string(ref.status) || !Array.isArray(ref.barangay_gids) || !ref.barangay_gids.every(function (gid) { return project.barangay_gids.indexOf(gid) >= 0; })) fail();
+      });
+    });
+    gids.forEach(function (gid) {
+      var p = data.barangays[gid].projects;
+      if (new Set(p.ids).size !== p.ids.length || !p.ids.every(function (id) { return ids.has(id); }) || (p.count !== null && p.count !== p.ids.length)) fail();
+      var assigned = data.projects.filter(function (project) { return project.barangay_gids.indexOf(gid) >= 0; });
+      if (assigned.length !== p.ids.length || !assigned.every(function (project) { return p.ids.indexOf(project.project_id) >= 0; })) fail();
+    });
+    return data;
+  }
   var PANES = { physical: 250, hazards: 300, administrative: 400, infrastructure: 450, facilities: 500 };
   var STATUS_COLORS = { completed: "#287943", ongoing: "#b66b08", not_started: "#c0392b", stopped: "#c0392b", unknown: "#737373" };
   var ICONS = {
@@ -170,6 +235,9 @@
     validBounds: validBounds, validPoint: validPoint, escapeHtml: escapeHtml,
     opacity: opacity, projectUrl: projectUrl, defaultEntries: defaultEntries, panes: PANES, statusColors: STATUS_COLORS,
     iconSvg: iconSvg, categoryIcon: categoryIcon, categoryColor: categoryColor,
+    quantiles: quantiles, statisticColor: statisticColor, matchingReferences: matchingReferences,
+    filteredProjects: filteredProjects, validateStatistics: validateStatistics,
+    projectInBarangay: projectInBarangay,
   };
   if (typeof document === "undefined") return;
   function init() {
@@ -179,6 +247,8 @@
     var manifest = window.GIS_LAYERS || {}, meta = manifest.metadata || {};
     var lang = document.documentElement.lang || "en", states = [], groups = new Map(), map = null, returnFocus;
     var selectedFeature = null, selectedItem = null, selectionRequest = 0;
+    var statistics = null, statisticsPromise = null, metricState = null, metricClasses = [], metricValues = {}, projectMatches = [];
+    var projectFilters = { source: "", year: "", status: "" }, filterControls = {};
     function node(id) { return document.getElementById("gis-" + id); }
     var residentData = window.GIS_RESIDENTS || {}, residentLabels = residentData.labels || {};
     function text(key) { return residentLabels[key === "categoryShelter" ? "listedEvacuation" : key] || page.dataset[key] || key; }
@@ -263,16 +333,77 @@
     }
     function name(f, s) { var p = f.properties; return local(p.name || p.title || p.project_name || p.project_id || p.id || p.gid) || s.title; }
     function featureCategory(f) { return f.properties.evacuation_id ? "listed-evacuation" : f.properties.facility_type || f.properties.category || (f.properties.gid ? "barangay" : ""); }
+    function activeMetric() { return metricState && metricState.visible && metricState.loaded ? metricState : null; }
+    function boundaryState() { return states.find(function (s) { return s.layer.id === "barangay-boundaries" && s.layer.semantic_role === "barangay_boundary"; }); }
+    function boundaryStyle(f, s, item) {
+      var active = activeMetric(), selected = item && item === selectedItem;
+      return { color: selected ? "#17324D" : "#486b87", weight: selected ? 4 : s.visible ? 2 : 0,
+        opacity: selected || s.visible ? 1 : 0, fillColor: active ? statisticColor(metricValues[String(f.properties.gid || f.properties.psgc)], metricClasses) : "#486b87",
+        fillOpacity: active ? 0.62 : 0.08, dashArray: selected ? "5 3" : null };
+    }
+    function refreshBoundaries() {
+      var s = boundaryState(); if (!s) return;
+      s.items.forEach(function (item, f) { item.gisBaseStyle = boundaryStyle(f, s, item); item.setStyle(item.gisBaseStyle); });
+      if (map && s.overlay) { if (s.visible || activeMetric()) s.overlay.addTo(map); else map.removeLayer(s.overlay); }
+      updateBoundaryLabels();
+    }
+    function supportedScope() {
+      if (!statistics) return false;
+      var keys = projectFilters.source ? [projectFilters.source] : Object.keys(statistics.project_coverage.sources);
+      return keys.some(function (key) { var c = statistics.project_coverage.sources[key]; return c && c.supported === true; });
+    }
+    function refreshMetric() {
+      var s = activeMetric(); metricValues = {};
+      if (s) {
+        projectMatches = filteredProjects(statistics, projectFilters);
+        Object.keys(statistics.barangays).forEach(function (gid) {
+          var b = statistics.barangays[gid];
+          metricValues[gid] = s.layer.metric === "population" ? b.population.count : supportedScope() && b.projects.count !== null
+            ? projectMatches.filter(function (p) { return projectInBarangay(p, projectFilters, gid); }).length : null;
+        });
+      }
+      metricClasses = quantiles(Object.values(metricValues)); refreshBoundaries(); refreshStatisticDetails();
+      if (node("project-filters")) node("project-filters").hidden = !s || s.layer.metric !== "projects";
+    }
+    function referenceLabel(ref) {
+      var basis = { fiscal: "yearFiscal", disclosure: "yearDisclosure", award: "yearAward", start: "yearStart", completion: "yearCompletion", unknown: "statusUnknown" };
+      return [ref.source.toUpperCase(), ref.year == null ? text("statusUnknown") : String(ref.year), text(basis[ref.year_basis] || "yearReference"),
+        Object.hasOwn(STATUS_COLORS, ref.status) ? statusLabel(ref.status) : ref.status_label || ref.status].join(" / ");
+    }
+    function refreshStatisticDetails() {
+      var box = node("statistic-details"); if (!box) return;
+      box.replaceChildren(); var s = activeMetric(), gid = selectedFeature && String(selectedFeature.properties.gid || selectedFeature.properties.barangay_gid || selectedFeature.properties.psgc || "");
+      if (!s || !statistics.barangays[gid]) { box.hidden = true; return; }
+      box.hidden = false; var b = statistics.barangays[gid]; el("h4", s.title, box);
+      el("p", metricValues[gid] == null ? text("statUnavailable") : new Intl.NumberFormat(lang).format(metricValues[gid]) + " " + text(s.layer.metric === "population" ? "statPeople" : "statProjects"), box);
+      if (s.layer.metric === "population") {
+        el("p", String(b.population.year) + " / " + (b.population.share == null ? text("statUnavailable") : new Intl.NumberFormat(lang, { style: "percent", maximumFractionDigits: 2 }).format(b.population.share) + " " + text("statShare")), box);
+        statistics.population.provenance.forEach(function (p) {
+          el("p", local(p.source), box);
+          try { var url = new URL(p.source_url); if (/^https?:$/.test(url.protocol) && !url.username && !url.password) { var source = el("a", text("source"), box); source.href = url.href; source.rel = "noopener"; } } catch (error) { /* Optional source URL. */ }
+        });
+      } else {
+        el("p", text("statCoverage"), box).className = "gis-caution";
+        var list = el("ul", null, box);
+        projectMatches.filter(function (p) { return projectInBarangay(p, projectFilters, gid); }).forEach(function (p) {
+          var li = el("li", null, list), link = el("a", p.name, li); link.href = projectUrl({ project_id: p.project_id }, lang, location.origin);
+          el("small", text("projectId") + ": " + p.project_id, li);
+          matchingReferences(p, projectFilters).forEach(function (ref) { el("p", referenceLabel(ref), li); if (ref.record_id) el("small", text("sourceId") + ": " + ref.record_id, li); });
+        });
+      }
+      el("p", text("statPrecision"), box);
+    }
     function selection(feature, item) {
       function highlight(target, active) {
         if (!target) return;
-        if (target.setStyle) target.setStyle(active ? { weight: 4, fillOpacity: 0.18 } : target.gisBaseStyle || { weight: 2 });
+        if (target.setStyle) target.setStyle(active ? { weight: 4 } : target.gisBaseStyle || { weight: 2 });
         var element = target.getElement && target.getElement();
         if (element) { element.classList.toggle("gis-marker-selected", active); element.setAttribute("aria-pressed", String(active)); }
       }
       highlight(selectedItem, false);
       selectedFeature = feature; selectedItem = item;
       highlight(selectedItem, true);
+      refreshBoundaries();
       updateBoundaryLabels();
       node("results").querySelectorAll("button").forEach(function (button) {
         button.setAttribute("aria-pressed", String(button.gisFeature === feature));
@@ -299,6 +430,7 @@
       var p = f.properties, l = s.layer, provenance = p.provenance || {}, dl = el("dl", null, box);
       function field(key, value) { if (value != null && value !== "") { el("dt", text(key), dl); el("dd", local(value), dl); } }
       var gid = p.barangay_gid || p.gid, barangay = (residentData.barangays || {})[gid];
+      var statsBox = el("section", null, box); statsBox.id = "gis-statistic-details"; refreshStatisticDetails();
       field("placeType", p.facility_type || p.highway || p.waterway || p.amenity || p.class_name || l.title);
       field("barangayName", barangay ? barangay.name : p.barangay_location);
       field("address", p.address);
@@ -461,6 +593,25 @@
      function legend() {
       var box = node("legend"); box.replaceChildren();
       states.forEach(function (s) {
+        if (s.layer.type === "choropleth" && s === activeMetric()) {
+          el("h3", s.title, box);
+          el("p", s.layer.metric === "population" ? String(statistics.population.year || 2024) + " / " + text("statPeople") : text("statProjects"), box);
+          metricClasses.forEach(function (entry) {
+            var row = el("p", null, box), swatch = el("span", "", row); swatch.className = "gis-legend-swatch"; swatch.style.backgroundColor = entry.color;
+            el("span", new Intl.NumberFormat(lang).format(entry.min) + (entry.min === entry.max ? "" : " - " + new Intl.NumberFormat(lang).format(entry.max)), row);
+          });
+          var missing = el("p", null, box), gray = el("span", "", missing); gray.className = "gis-legend-swatch"; gray.style.backgroundColor = MISSING_COLOR;
+          el("span", text("statUnavailable"), missing);
+          if (s.layer.metric === "projects") {
+            el("p", text("statCoverage"), box).className = "gis-caution";
+            el("p", text("statZero"), box);
+            Object.keys(statistics.project_coverage.sources).forEach(function (source) {
+              var c = statistics.project_coverage.sources[source];
+              el("p", source.toUpperCase() + ": " + (c.supported ? text("statSupported") : text("statUnavailable")) + (Number.isSafeInteger(c.unassigned_count) ? " / " + text("statUnassigned") + ": " + c.unassigned_count : ""), box);
+            });
+          }
+          el("p", text("statPrecision"), box); return;
+        }
         if (!s.visible || !s.overlay) return;
         var role = s.layer.semantic_role;
         var sourceLine = [local(s.layer.scenario), s.layer.source_date, local(s.layer.attribution)].filter(Boolean).join(" · ");
@@ -505,7 +656,7 @@
     node("fit").onclick = function () {
       if (!map) return; var bounds = L.latLngBounds([]);
       states.forEach(function (s) {
-        if (!s.visible || !s.overlay || s.layer.semantic_role === "label_anchor") return;
+        if ((!s.visible && !(s === boundaryState() && activeMetric())) || !s.overlay || s.layer.semantic_role === "label_anchor") return;
         var b = s.overlay.getBounds(); if (b.isValid()) bounds.extend(b);
       });
       if (bounds.isValid()) map.fitBounds(bounds, { maxZoom: 16, padding: [24, 24] }); else announce("noGeometry");
@@ -581,9 +732,14 @@
           item.on("click", function () { select(f, s, null, null, false); });
           if (s.layer.semantic_role === "barangay_boundary") {
             if (item.bindTooltip) item.bindTooltip(escapeHtml(name(f, s)), { permanent: true, direction: "center", className: "gis-boundary-label" });
-            item.on("mouseover", function () { if (item !== selectedItem) item.setStyle({ weight: 3, fillOpacity: 0.14 }); });
-            item.on("mouseout", function () { if (item !== selectedItem) item.setStyle(item.gisBaseStyle); });
-            item.on("add", updateBoundaryLabels);
+             item.on("mouseover", function () { if (item !== selectedItem) item.setStyle(Object.assign({}, boundaryStyle(f, s, item), { weight: 3, opacity: 1 })); });
+             item.on("mouseout", function () { item.setStyle(boundaryStyle(f, s, item)); });
+             item.on("add", function () {
+               updateBoundaryLabels();
+               var path = item.getElement && item.getElement(); if (!path) return;
+               path.setAttribute("role", "button"); path.setAttribute("aria-label", name(f, s)); path.setAttribute("aria-pressed", String(item === selectedItem)); path.tabIndex = 0;
+               path.onkeydown = function (event) { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.stopPropagation(); select(f, s, path, null, false); } };
+             });
           }
         },
       }).addTo(group); return group;
@@ -594,7 +750,13 @@
       s.promise = (async function () {
         try {
           var l = s.layer;
-          if (l.type === "raster-image-overlay") {
+          if (l.type === "choropleth") {
+            if (["population", "projects"].indexOf(l.metric) < 0 || l.geometry_layer !== "barangay-boundaries") throw Error("Invalid statistical mode");
+            var boundaries = boundaryState(); if (!boundaries || !allowed(boundaries.layer)) throw Error("Missing boundaries");
+            if (!statisticsPromise) statisticsPromise = fetchData(l.statistics_url).then(validateStatistics).then(function (data) { statistics = data; setupProjectFilters(); return data; }).catch(function (error) { statisticsPromise = null; throw error; });
+            await Promise.all([load(boundaries), statisticsPromise]);
+            if (!boundaries.loaded || boundaries.features.length !== 15 || boundaries.features.some(function (f) { return !Object.hasOwn(statistics.barangays, String(f.properties.gid || f.properties.psgc)); })) throw Error("Invalid geometry join");
+          } else if (l.type === "raster-image-overlay") {
             if (!map || !Array.isArray(l.images) || !l.images.length || l.images.length > 128) throw Error("Invalid imagery");
             var images = l.images.map(function (image) {
               if (!validBounds(image.bounds)) throw Error("Invalid bounds");
@@ -633,19 +795,21 @@
           }
            s.loaded = true;
             if (s.message) s.message.textContent = text("loaded");
-           if (s.overlay && map) { if (s.visible) s.overlay.addTo(map); else map.removeLayer(s.overlay); }
+            if (s.overlay && map) { if (s.visible || s === boundaryState() && activeMetric()) s.overlay.addTo(map); else map.removeLayer(s.overlay); }
+            refreshMetric();
         } catch (error) {
           if (s.overlay && map) map.removeLayer(s.overlay);
           var restore = s.visible && s.previous && s.previous.loaded ? s.previous : null;
           s.overlay = null; s.images = []; s.features = []; s.visible = false;
-          if (s.toggle) { s.toggle.checked = false; s.toggle.disabled = s.layer.type !== "raster-image-overlay"; }
+          if (s.toggle) { s.toggle.checked = false; s.toggle.disabled = ["raster-image-overlay", "choropleth"].indexOf(s.layer.type) < 0; }
           // Only the current selection may roll back. A later selection hides
           // this state before its asynchronous load can finish or fail.
           if (restore) {
             restore.visible = true; restore.toggle.checked = true;
+            if (restore.layer.type === "choropleth") metricState = restore;
             if (map && restore.overlay) restore.overlay.addTo(map);
           }
-          s.message.textContent = text("layerError");
+          s.message.textContent = text(s.layer.type === "choropleth" ? "statError" : "layerError"); refreshMetric();
         }
         updateList(); legend();
       })();
@@ -653,6 +817,27 @@
       pending.then(function () { if (!s.loaded && s.promise === pending) s.promise = null; });
       return pending;
     }
+    function setupProjectFilters() {
+      var box = node("project-filters"); if (!box || box.dataset.ready) return; box.dataset.ready = "true";
+      ["source", "year", "status"].forEach(function (key) {
+        var label = el("label", text(key === "source" ? "source" : key === "year" ? "yearReference" : "projectStatus"), box);
+        var control = el("select", null, box); control.id = "gis-project-" + key; label.htmlFor = control.id; filterControls[key] = control;
+        el("option", text("statAll"), control).value = "";
+        var values = new Set();
+        if (key === "source") Object.keys(statistics.project_coverage.sources).forEach(function (source) { values.add(source); });
+        else statistics.projects.forEach(function (p) { p.references.forEach(function (r) { if (statistics.project_coverage.sources[r.source] && statistics.project_coverage.sources[r.source].supported) values.add(String(r[key] == null ? "unknown" : r[key])); }); });
+        Array.from(values).sort().forEach(function (value) {
+          var supported = key !== "source" || statistics.project_coverage.sources[value].supported;
+          var reference = key === "status" && statistics.projects.flatMap(function (p) { return p.references; }).find(function (ref) { return ref.status === value; });
+          var title = key === "source" ? value.toUpperCase() : value === "unknown" ? text("statusUnknown") : key === "status" && Object.hasOwn(STATUS_COLORS, value) ? statusLabel(value) : reference && reference.status_label || value;
+          var option = el("option", title + (supported ? "" : " / " + text("statUnavailable")), control); option.value = value; option.disabled = !supported;
+        });
+        control.onchange = function () { projectFilters[key] = control.value; refreshMetric(); legend(); };
+      });
+      el("p", text("statFilterHelp"), box).className = "gis-panel-note";
+    }
+    function thematic(l) { return l.type === "choropleth" || l.type === "raster-image-overlay"; }
+    function exclusive(a, b) { return thematic(a) && thematic(b) || a.exclusive_group && a.exclusive_group === b.exclusive_group; }
     var layers = manifest.schema_version === 1 && Array.isArray(manifest.layers) ? manifest.layers.slice(0, 200) : [], seen = new Set();
     layers.forEach(function (l) {
       if (!l || typeof l.id !== "string" || seen.has(l.id)) return; seen.add(l.id);
@@ -669,7 +854,7 @@
       message.textContent = canLoad ? text("notLoaded") : text("unavailableLayer");
       var pane = Object.hasOwn(PANES, l.pane) ? l.pane : l.type === "raster-image-overlay" ? "physical" :
         l.semantic_role === "dpwh_project" ? "infrastructure" : l.data_key === "GIS_FACILITIES" ? "facilities" : "administrative";
-      var s = { layer: l, title: title, features: [], pointGroups: new Map(), items: new Map(), visible: canRender && l.visible_by_default === true,
+      var s = { layer: l, title: title, features: [], pointGroups: new Map(), items: new Map(), visible: canRender && l.type !== "choropleth" && l.visible_by_default === true,
         overlay: null, toggle: toggle, message: message, images: [], opacity: opacity(l.opacity),
         pane: "gis-" + pane + (l.type === "raster-image-overlay" ? "-raster" : "") }; states.push(s);
       if (l.semantic_role === "barangay_reference_geometry") el("p", text("coarseGeometry"), row).className = "gis-caution";
@@ -685,7 +870,7 @@
         return;
       }
       if (!canLoad) return;
-      var option = el("option", title, node("layer-filter")); option.value = l.id;
+      if (l.type !== "choropleth") { var option = el("option", title, node("layer-filter")); option.value = l.id; }
       var details = el("button", text("details"), row); details.type = "button";
       details.onclick = function () { select({ properties: { name: title }, geometry: null }, s, details, null, false); };
       if (l.type === "reference") {
@@ -706,22 +891,24 @@
       }
       if (toggle) toggle.checked = s.visible;
       function excludeOthers() {
-        if (!s.visible || typeof l.exclusive_group !== "string" || !l.exclusive_group.trim()) return;
+        if (!s.visible) return;
         states.forEach(function (other) {
-          if (other === s || other.layer.exclusive_group !== l.exclusive_group) return;
+          if (other === s || !exclusive(l, other.layer)) return;
           other.visible = false; if (other.toggle) other.toggle.checked = false;
           if (other.overlay && map) map.removeLayer(other.overlay);
         });
       }
       if (toggle) toggle.addEventListener("change", function () {
-        if (toggle.checked && l.exclusive_group) {
-          var current = states.find(function (other) { return other !== s && other.visible && other.layer.exclusive_group === l.exclusive_group; });
+        if (toggle.checked) {
+          var current = states.find(function (other) { return other !== s && other.visible && exclusive(l, other.layer); });
           s.previous = current ? (current.loaded ? current : current.previous) : null;
         }
         s.visible = toggle.checked;
+        if (s.visible && l.type === "choropleth") metricState = s;
         excludeOthers();
-        if (s.visible) load(s).then(function () { if (s.visible && s.overlay && map) s.overlay.addTo(map); });
+        if (s.visible) load(s).then(function () { if (s.visible && s.overlay && map) s.overlay.addTo(map); refreshMetric(); legend(); });
         else if (s.overlay && map) map.removeLayer(s.overlay);
+        refreshMetric();
         updateList(); legend(); // Never fit on toggles: preserve the user's viewport.
       });
       excludeOthers();
@@ -736,7 +923,11 @@
       var button = el("button", text("locate"), row); button.type = "button";
       button.onclick = function () { choose(f, barangayState, button); };
     });
-    updateList(); node("workspace").dataset.ready = "true";
+    updateList();
+    // Keep static directories available until the interactive Explorer is initialized.
+    if (node("directories")) node("directories").hidden = true;
+    if (node("directory-link")) node("directory-link").hidden = true;
+    node("workspace").dataset.ready = "true";
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

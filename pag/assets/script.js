@@ -411,7 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // History population chart
 document.addEventListener("DOMContentLoaded", function () {
-  var ctx = document.getElementById("chart-history-population");
+  var ctx = document.getElementById("chart-population-history");
   if (!ctx) return;
 
   try {

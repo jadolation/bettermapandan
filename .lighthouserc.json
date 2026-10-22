@@ -94,6 +94,12 @@
             "maxLength": 50000
           }
         ],
+        "unused-css-rules": [
+          "warn",
+          {
+            "maxLength": 50000
+          }
+        ],
         "unused-javascript": [
           "warn",
           {

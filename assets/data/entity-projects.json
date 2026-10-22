@@ -2399,12 +2399,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0117",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0117",
+    "source_transaction_id": "DPWH-2023-023AJ0117",
     "contract_amount": 11589763.36,
     "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
   },
@@ -2423,12 +2424,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0116",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "18AJ0116",
+    "source_transaction_id": "DPWH-2019-018AJ0116",
     "contract_amount": 18345278.6,
     "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY"
   },
@@ -2447,12 +2449,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0033",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0033",
+    "source_transaction_id": "DPWH-2023-023AJ0033",
     "contract_amount": 47574067.96,
     "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
   },
@@ -2471,12 +2474,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0069",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0069",
+    "source_transaction_id": "DPWH-2023-023AJ0069",
     "contract_amount": 4803991.53,
     "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
   },
@@ -2495,12 +2499,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "21AJ0068",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2021"
       }
     ],
     "dpwh_contract_id": "21AJ0068",
+    "source_transaction_id": "DPWH-2021-021AJ0068",
     "contract_amount": 2880843.21,
     "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
   },
@@ -2519,12 +2524,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0056",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0056",
+    "source_transaction_id": "DPWH-2022-022AJ0056",
     "contract_amount": 5794812.69,
     "contractor": "LXS BUILDERS & SUPPLIES"
   },
@@ -2543,12 +2549,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "20AJ0037",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2020"
       }
     ],
     "dpwh_contract_id": "20AJ0037",
+    "source_transaction_id": "DPWH-2020-020AJ0037",
     "contract_amount": 47110690.84,
     "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
   },
@@ -2567,12 +2574,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0098",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0098",
+    "source_transaction_id": "DPWH-2023-022AJ0098",
     "contract_amount": 1941414.86,
     "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
   },
@@ -2589,12 +2597,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0100",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0100",
+    "source_transaction_id": "DPWH-2018-018AJ0100",
     "contract_amount": 9554749.34,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2613,12 +2622,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0099",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0099",
+    "source_transaction_id": "DPWH-2023-022AJ0099",
     "contract_amount": 1940897.68,
     "contractor": "ROCKWELL CONSTRUCTION AND SUPPLY"
   },
@@ -2637,12 +2647,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0011",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0011",
+    "source_transaction_id": "DPWH-2023-023AJ0011",
     "contract_amount": 19221664.9,
     "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
   },
@@ -2661,12 +2672,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "20AJ0101",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2020"
       }
     ],
     "dpwh_contract_id": "20AJ0101",
+    "source_transaction_id": "DPWH-2021-020AJ0101",
     "contract_amount": 18732486.77,
     "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY"
   },
@@ -2685,12 +2697,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0040",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0040",
+    "source_transaction_id": "DPWH-2018-018AJ0040",
     "contract_amount": 23105143.06,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2709,12 +2722,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0097",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0097",
+    "source_transaction_id": "DPWH-2023-022AJ0097",
     "contract_amount": 1941337.81,
     "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
   },
@@ -2733,12 +2747,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0045",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0045",
+    "source_transaction_id": "DPWH-2018-018AJ0045",
     "contract_amount": 18482969.89,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2757,12 +2772,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0096",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0096",
+    "source_transaction_id": "DPWH-2023-022AJ0096",
     "contract_amount": 1958340.13,
     "contractor": "ROCKWELL CONSTRUCTION AND SUPPLY"
   },
@@ -2779,12 +2795,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0110",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0110",
+    "source_transaction_id": "DPWH-2020-019AJ0110",
     "contract_amount": 9429521.58,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2803,12 +2820,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0040",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0040",
+    "source_transaction_id": "DPWH-2019-019AJ0040",
     "contract_amount": 47476082.45,
     "contractor": "BET CONSTRUCTION & SUPPLY"
   },
@@ -2827,12 +2845,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0045",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0045",
+    "source_transaction_id": "DPWH-2023-023AJ0045",
     "contract_amount": 4841163.36,
     "contractor": "LXS BUILDERS & SUPPLIES"
   },
@@ -2851,12 +2870,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0023",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0023",
+    "source_transaction_id": "DPWH-2018-018AJ0023",
     "contract_amount": 27737425.78,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2875,12 +2895,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "20AJ0032",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2020"
       }
     ],
     "dpwh_contract_id": "20AJ0032",
+    "source_transaction_id": "DPWH-2020-020AJ0032",
     "contract_amount": 1927837.62,
     "contractor": "MKM MARKETING"
   },
@@ -2900,12 +2921,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0064",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0064",
+    "source_transaction_id": "DPWH-2022-022AJ0064",
     "contract_amount": 6762333.73,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2924,12 +2946,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0039",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0039",
+    "source_transaction_id": "DPWH-2019-019AJ0039",
     "contract_amount": 28467174.28,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2948,12 +2971,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "21AJ0026",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2021"
       }
     ],
     "dpwh_contract_id": "21AJ0026",
+    "source_transaction_id": "DPWH-2021-021AJ0026",
     "contract_amount": 9530364.84,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -2972,12 +2996,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22A00149",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22A00149",
+    "source_transaction_id": "DPWH-2022-022A00149",
     "contract_amount": 4825000.0,
     "contractor": "MKM MARKETING"
   },
@@ -2997,12 +3022,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "19AJ0145",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2019"
       }
     ],
     "dpwh_contract_id": "19AJ0145",
+    "source_transaction_id": "DPWH-2020-019AJ0145",
     "contract_amount": 4843661.55,
     "contractor": "LXS BUILDERS & SUPPLIES"
   },
@@ -3021,12 +3047,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "22AJ0059",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2022"
       }
     ],
     "dpwh_contract_id": "22AJ0059",
+    "source_transaction_id": "DPWH-2022-022AJ0059",
     "contract_amount": 4831057.69,
     "contractor": "MIGHTYWAY CONSTRUCTION AND SUPPLY"
   },
@@ -3045,12 +3072,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0012",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0012",
+    "source_transaction_id": "DPWH-2017-017AJ0012",
     "contract_amount": 8829201.73,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -3070,12 +3098,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "25AJ0055",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2025"
       }
     ],
     "dpwh_contract_id": "25AJ0055",
+    "source_transaction_id": "DPWH-2025-025AJ0055",
     "contract_amount": 42534481.5,
     "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
   },
@@ -3094,12 +3123,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "26AJ0028",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2026"
       }
     ],
     "dpwh_contract_id": "26AJ0028",
+    "source_transaction_id": "DPWH-2026-026AJ0028",
     "contract_amount": 0.0,
     "contractor": ""
   },
@@ -3119,12 +3149,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "16AJ0001",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2016"
       }
     ],
     "dpwh_contract_id": "16AJ0001",
+    "source_transaction_id": "DPWH-2016-016AJ0001",
     "contract_amount": 3888639.8,
     "contractor": "JASA GD 2000 CONSTRUCTION CORPORATION"
   },
@@ -3143,12 +3174,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0044",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0044",
+    "source_transaction_id": "DPWH-2017-017AJ0044",
     "contract_amount": 9799048.03,
     "contractor": "AQUINO-DELA CRUZ ENGINEERING & CONSTRUCTION"
   },
@@ -3167,12 +3199,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "18AJ0027",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2018"
       }
     ],
     "dpwh_contract_id": "18AJ0027",
+    "source_transaction_id": "DPWH-2018-018AJ0027",
     "contract_amount": 23277829.98,
     "contractor": "AC SOLIVEN CONSTRUCTION CORPORATION"
   },
@@ -3191,12 +3224,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0089",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0089",
+    "source_transaction_id": "DPWH-2017-017AJ0089",
     "contract_amount": 1942491.75,
     "contractor": "ORIENTAL SALES CENTER AND CONTRACTOR"
   },
@@ -3215,12 +3249,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "23AJ0027",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2023"
       }
     ],
     "dpwh_contract_id": "23AJ0027",
+    "source_transaction_id": "DPWH-2023-023AJ0027",
     "contract_amount": 48004256.1,
     "contractor": "J.G. GARCIA CONSTRUCTION & SUPPLY"
   },
@@ -3237,12 +3272,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "16AJ0083",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2016"
       }
     ],
     "dpwh_contract_id": "16AJ0083",
+    "source_transaction_id": "DPWH-2017-016AJ0083",
     "contract_amount": 21831945.65,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION"
   },
@@ -3261,12 +3297,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "25AJ0097",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2025"
       }
     ],
     "dpwh_contract_id": "25AJ0097",
+    "source_transaction_id": "DPWH-2025-025AJ0097",
     "contract_amount": 4949900.27,
     "contractor": "JEUSMACK BUILDERS & CONSTRUCTION SUPPLY"
   },
@@ -3283,12 +3320,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "17AJ0058",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2017"
       }
     ],
     "dpwh_contract_id": "17AJ0058",
+    "source_transaction_id": "DPWH-2017-017AJ0058",
     "contract_amount": 6825575.6,
     "contractor": "SAFEWAY CONSTRUCTION"
   },
@@ -3307,12 +3345,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "16AJ0089",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2016"
       }
     ],
     "dpwh_contract_id": "16AJ0089",
+    "source_transaction_id": "DPWH-2017-016AJ0089",
     "contract_amount": 10287151.33,
     "contractor": "KENWOOD CONSTRUCTION ENTERPRISES CORPORATION / SAFEWAY CONSTRUCTION"
   },
@@ -3331,12 +3370,13 @@
         "source": "DPWH Transparency Portal",
         "record_id": "26AJ0027",
         "verification_method": "manual",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-20",
         "record_role": "infrastructure_record",
         "source_as_of": "2026"
       }
     ],
     "dpwh_contract_id": "26AJ0027",
+    "source_transaction_id": "DPWH-2026-026AJ0027",
     "contract_amount": 0.0,
     "contractor": ""
   },

@@ -223,7 +223,7 @@
 }
 
 /* Explorer remains an enhancement; the server-rendered directories are independent. */
-#gis-page [hidden] { display: none !important; }
+#gis-page [hidden], #gis-directories[hidden] { display: none !important; }
 #gis-page { color: var(--ink); --gis-map-height: clamp(400px, 62dvh, 680px); --gis-column-height: auto; }
 #gis-page *, #gis-page *::before, #gis-page *::after { box-sizing: border-box; }
 .gis-heading { border-left: 4px solid var(--gold); padding-left: 20px; margin: 8px 0 24px; }
@@ -286,6 +286,11 @@
 .gis-marker-count { position: absolute; top: -7px; right: -7px; min-width: 18px; height: 18px; padding: 0 3px; border-radius: 10px; background: var(--green-deep); color: var(--paper); font-size: 11px; line-height: 18px; text-align: center; }
 .gis-boundary-label { background: var(--paper); color: var(--green-deep); border: 1px solid var(--line); box-shadow: none; font-size: 11px; }
 .gis-layer small { display: block; color: var(--ink-soft); margin: 0 0 6px 34px; }
+.gis-project-filters { border-top: 2px solid var(--line); margin-top: 12px; padding-top: 12px; }
+.gis-project-filters label { display: block; font-size: .8rem; font-weight: 700; margin: 12px 0 6px; }
+#gis-statistic-details { border-top: 1px solid var(--line); margin-top: 14px; }
+#gis-statistic-details small { display: block; margin-top: 6px; }
+#gis-map path[role="button"]:focus-visible { outline: none; stroke: #17324D; stroke-width: 4; stroke-dasharray: 5 3; }
 @media (max-width: 768px) {
   #gis-page { --gis-map-height: clamp(280px, 46dvh, 420px); }
   .gis-workspace { display: flex; flex-direction: column; }

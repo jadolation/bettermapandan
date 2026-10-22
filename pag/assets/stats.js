@@ -45,9 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     // Destroy any existing Chart.js instance on this canvas (e.g. from script.js)
-    if (canvas.chart) {
+    var existing = typeof Chart.getChart === "function" ? Chart.getChart(canvas) : canvas.chart;
+    if (existing) {
       console.log('[stats.js] Destroying existing chart on canvas');
-      canvas.chart.destroy();
+      existing.destroy();
     }
     try {
       new Chart(canvas, config);
