@@ -1,10 +1,9 @@
 import re
-import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-from _build.config import ROOT, FIL_DIR, PAG_DIR
+from _build.config import FIL_DIR, PAG_DIR, ROOT
 from _build.templates import to_folder_index
 
 
@@ -146,7 +145,6 @@ def resolve_css_imports(css_text: str, base_path: Path) -> str:
     Handles nested imports up to 5 levels deep to prevent infinite loops.
     """
     import_re = re.compile(r'@import\s+url\(["\']?([^"\')]+)["\']?\)\s*;')
-    resolved = []
     seen = set()
 
     def _resolve(text: str, depth: int = 0) -> str:

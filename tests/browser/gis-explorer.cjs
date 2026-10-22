@@ -155,7 +155,7 @@ async function v3Checks(page, locale) {
    assert.equal(await page.$('[data-layer-id="other-records"]'), null);
    assert.equal(await page.$('#gis-layer-filter'), null);
   assert.deepEqual(await page.evaluate(() => Object.fromEntries(Object.entries(window.__gisTest.panes).filter(([key]) => !key.endsWith("-raster")).map(([key, pane]) => [key, pane.style.zIndex]))),
-    { "gis-physical": "250", "gis-hazards": "300", "gis-administrative": "400", "gis-infrastructure": "450", "gis-facilities": "500" });
+    { "gis-physical": "250", "gis-radar": "350", "gis-hazards": "300", "gis-administrative": "400", "gis-infrastructure": "450", "gis-facilities": "500" });
   assert.ok(await page.evaluate(() => Object.entries(window.__gisTest.panes).filter(([key]) => key.endsWith("-raster")).every(([, pane]) => pane.style.pointerEvents === "none")));
   await toggle("raster", false);
   await toggle("facilities", false);
