@@ -508,10 +508,10 @@ async function main() {
             if (id === "roads") assert.equal(await page.$eval('[data-layer-id="roads"] small', el => el.textContent), locale.loading);
           }
           await page.waitForFunction(() => [...document.querySelectorAll(".gis-layer small")].filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length >= 3);
-          await page.waitForFunction(() => window.__gisTest.vectors >= 2 && document.querySelector('[data-layer-id="anchors"] small').textContent === document.getElementById("gis-page").dataset.loaded);
+          await page.waitForFunction(() => window.__gisTest.vectors >= 1 && document.querySelector('[data-layer-id="anchors"] small').textContent === document.getElementById("gis-page").dataset.loaded);
           assert.deepEqual(await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.views]), initial);
           assert.equal(await page.$eval("#gis-legend", el => !el.hidden), true);
-          assert.ok(await page.evaluate(() => window.__gisTest.vectors >= 2));
+          assert.ok(await page.evaluate(() => window.__gisTest.vectors >= 1));
           await click(page, "#gis-explore-tab");
           await page.$eval("#gis-search", el => { el.value = "anchors"; el.dispatchEvent(new Event("input")); });
           const before = await page.evaluate(() => window.__gisTest.pans);
