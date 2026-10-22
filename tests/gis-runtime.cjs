@@ -182,9 +182,9 @@ test("project links preserve exact safe URLs and never infer names or locations"
   }
 });
 test("default results dedup only explicit IDs, preferring DPWH and usable barangay shapes", () => {
-  const state = (id, semantic_role, features, extra = {}) => ({ layer: { id, semantic_role, available: true }, features, overlay: {}, visible: true, ...extra });
+   const state = (id, semantic_role, features, extra = {}) => ({ layer: { id, semantic_role, available: true }, features, items: new Map(features.map(f => [f, {}])), overlay: {}, visible: true, ...extra });
   const ref = feature(null, { name: "Reference", project_id: "canonical-1" });
-  const dpwh = feature(null, { name: "Different project name", project_id: "canonical-1" });
+   const dpwh = feature(point().geometry, { name: "Different project name", project_id: "canonical-1" });
   const unlinked = feature(null, { name: "Different project name" });
   const barangay = feature(null, { name: "Canonical name", gid: "gid-1" });
   const shape = feature({ type: "Polygon", coordinates: [[[120, 16], [121, 16], [121, 17], [120, 16]]] }, { name: "Source spelling", gid: "gid-1" });
@@ -194,15 +194,23 @@ test("default results dedup only explicit IDs, preferring DPWH and usable barang
   const directory = state("barangays", "reference", [barangay, unrelated]);
   const shapes = state("shape", "barangay_boundary", [shape]);
   const before = JSON.stringify([refs, projects, directory, shapes]);
-  assert.deepEqual(gis.defaultEntries([refs, projects, directory, shapes]).map(entry => entry.feature), [unlinked, dpwh, unrelated, shape]);
+   assert.deepEqual(gis.defaultEntries([refs, projects, directory, shapes]).map(entry => entry.feature), [dpwh, shape]);
   assert.equal(JSON.stringify([refs, projects, directory, shapes]), before);
-  assert.ok(gis.defaultEntries([directory, { ...shapes, overlay: null }]).some(entry => entry.feature === barangay), "Failed shape loading never erases null references");
-  assert.ok(gis.defaultEntries([directory, state("shape", "barangay_boundary", [feature(null, { gid: "gid-1" })])]).some(entry => entry.feature === barangay));
+   assert.deepEqual(gis.defaultEntries([directory, { ...shapes, overlay: null }]), []);
+   assert.deepEqual(gis.defaultEntries([directory, state("shape", "barangay_boundary", [feature(null, { gid: "gid-1" })])]), []);
   const coarse = state("coarse", "barangay_reference_geometry", [shape], { visible: false });
-  assert.deepEqual(gis.defaultEntries([directory, coarse]).map(entry => entry.feature), [barangay, unrelated]);
-  assert.deepEqual(gis.defaultEntries([directory, { ...coarse, visible: true }]).map(entry => entry.feature), [unrelated, shape]);
+   assert.deepEqual(gis.defaultEntries([directory, coarse]), []);
+   assert.deepEqual(gis.defaultEntries([directory, { ...coarse, visible: true }]).map(entry => entry.feature), [shape]);
   const actual = { ...shape, properties: { ...shape.properties, name: "Actual boundary" } };
-  assert.deepEqual(gis.defaultEntries([directory, { ...coarse, visible: true }, state("actual", "barangay_boundary", [actual])]).map(entry => entry.feature), [unrelated, actual]);
+   assert.deepEqual(gis.defaultEntries([directory, { ...coarse, visible: true }, state("actual", "barangay_boundary", [actual])]).map(entry => entry.feature), [actual]);
+   const hidden = { ...shapes, visible: false };
+   assert.deepEqual(gis.defaultEntries([hidden]), []);
+   assert.deepEqual(gis.defaultEntries([hidden], hidden).map(e => e.feature), [shape]);
+   assert.deepEqual(gis.defaultEntries([{ ...shapes, items: new Map() }]), []);
+   const linked = feature(point().geometry, { canonical_facility_id: "fac-1" });
+   const canonical = feature(point().geometry, { id: "fac-1" });
+   const facilities = state("facilities", "facility", [canonical]); facilities.layer.data_key = "GIS_FACILITIES";
+   assert.deepEqual(gis.defaultEntries([state("linked", "facility", [linked]), { ...facilities, visible: false }]).map(e => e.feature), [linked]);
 });
 test("pane ordering and status palette are explicit rather than inferred from titles", () => {
   assert.deepEqual(gis.panes, { physical: 250, hazards: 300, administrative: 400, infrastructure: 450, facilities: 500 });

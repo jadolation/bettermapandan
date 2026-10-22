@@ -125,7 +125,12 @@
     return s.layer.available === true && !!s.overlay && !!f.geometry && ["Polygon", "MultiPolygon"].indexOf(f.geometry.type) >= 0 &&
       (s.layer.semantic_role === "barangay_boundary" || (s.layer.semantic_role === "barangay_reference_geometry" && s.visible));
   }
-  function defaultEntries(states) {
+  function defaultEntries(states, filledBoundary) {
+    states = states.filter(function (s) {
+      return s.layer.available === true && s.layer.type !== "reference" && s.overlay && (s.visible || s === filledBoundary);
+    }).map(function (s) {
+      return Object.assign({}, s, { features: s.features.filter(function (f) { return f.geometry && s.items.has(f); }), original: s });
+    });
     var projects = new Set(), barangays = new Map(), facilities = new Set();
     states.forEach(function (s) { s.features.forEach(function (f) {
        var p = f.properties;
@@ -147,7 +152,7 @@
       // Optional coarse source geometry is not a second directory when switched off.
       if (s.layer.semantic_role === "barangay_reference_geometry" && !s.visible) return;
        if (p.canonical_facility_id && facilities.has(p.canonical_facility_id)) return;
-       entries.push({ feature: f, state: s });
+       entries.push({ feature: f, state: s.original });
     }); });
     return entries;
   }
@@ -560,22 +565,19 @@
       }
     }
     function updateList() {
-      var q = node("search").value.trim().toLocaleLowerCase(), id = node("layer-filter").value;
+      var q = node("search").value.trim().toLocaleLowerCase();
       var focused = document.activeElement && document.activeElement.gisFeature, replacementFocus;
       var previousReturn = returnFocus && returnFocus.gisFeature;
       function sameRecord(a, b) { return a && b && (a === b ||
         (a.properties.gid && String(a.properties.gid) === String(b.properties.gid)) ||
         (a.properties.project_id && a.properties.project_id === b.properties.project_id)); }
       var list = node("results"), count = 0; list.replaceChildren();
-      var entries = id ? states.filter(function (s) { return s.layer.id === id; }).flatMap(function (s) {
-        return s.features.map(function (f) { return { feature: f, state: s }; });
-      }) : defaultEntries(states);
+      var entries = defaultEntries(states, activeMetric() && boundaryState());
       entries.forEach(function (entry) {
           var f = entry.feature, s = entry.state;
            var p = f.properties, haystack = [name(f, s), p.id, p.gid, p.psgc, p.source_name, p.project_id, p.source_transaction_id,
             p.contract_id, p.contractor, p.contractors, p.status, p.raw_status, p.status_key, p.status_key ? statusLabel(p.status_key) : "", p.fiscal_year,
              p.category, p.address, p.barangay, p.barangay_location, s.title].join(" ").toLocaleLowerCase();
-           if (p.canonical_facility_id && states.some(function (state) { return state.layer.data_key === "GIS_FACILITIES" && state.features.some(function (facility) { return facility.properties.id === p.canonical_facility_id; }); })) return;
           if (q && haystack.indexOf(q) < 0) return;
           count++; var b = el("button", null, el("li", null, list)); b.type = "button"; b.className = "gis-result";
           b.setAttribute("aria-controls", "gis-details"); b.gisFeature = f;
@@ -589,7 +591,7 @@
       if (replacementFocus) replacementFocus.focus({ preventScroll: true });
       node("result-count").textContent = count + " " + text("results"); node("no-results").hidden = count !== 0;
     }
-    ["search", "layer-filter"].forEach(function (id) { node(id).addEventListener(id === "search" ? "input" : "change", updateList); });
+    node("search").addEventListener("input", updateList);
      function legend() {
       var box = node("legend"); box.replaceChildren();
       states.forEach(function (s) {
@@ -841,6 +843,10 @@
     var layers = manifest.schema_version === 1 && Array.isArray(manifest.layers) ? manifest.layers.slice(0, 200) : [], seen = new Set();
     layers.forEach(function (l) {
       if (!l || typeof l.id !== "string" || seen.has(l.id)) return; seen.add(l.id);
+      if (l.type === "reference") {
+        if (l.data_key) states.push({ layer: l, title: local(l.title) || l.id, features: window[l.data_key] ? records(window[l.data_key]) : [], pointGroups: new Map(), items: new Map(), visible: false, overlay: null });
+        return;
+      }
       var group = local(l.group) || text("layers");
       if (!groups.has(group)) { var fieldset = el("fieldset", null, node("layer-list")); el("legend", group, fieldset); groups.set(group, fieldset); }
       var row = el("div", null, groups.get(group)); row.className = "gis-layer";
@@ -870,13 +876,8 @@
         return;
       }
       if (!canLoad) return;
-      if (l.type !== "choropleth") { var option = el("option", title, node("layer-filter")); option.value = l.id; }
       var details = el("button", text("details"), row); details.type = "button";
       details.onclick = function () { select({ properties: { name: title }, geometry: null }, s, details, null, false); };
-      if (l.type === "reference") {
-        var directory = el("button", text("listRecords"), row); directory.type = "button";
-        directory.onclick = function () { node("layer-filter").value = l.id; node("search").value = ""; updateList(); activateTab("explore", false); node("layer-filter").focus(); };
-      }
       if (l.type === "raster-image-overlay") {
         var opacityLabel = el("label", null, row), slider = el("input", null, opacityLabel), output = el("output", null, opacityLabel);
         slider.type = "range"; slider.min = "0"; slider.max = "100"; slider.step = "any"; slider.value = String(s.opacity * 100);

@@ -16,10 +16,11 @@ async function residentChecks(page, locale, width) {
   const counts = await page.evaluate(() => window.GIS_LAYERS.metadata.evacuation_counts);
   assert.deepEqual(counts, { listings: 12, spatial_locations: 9, unresolved_listings: 3, unique_coordinates: 9 });
   const members = await page.evaluate(() => [
-    ...window.GIS_FACILITIES.features.map(f => f.properties), ...window.GIS_RECORDS
+    ...window.GIS_FACILITIES.features.filter(f => f.geometry).map(f => f.properties)
   ].filter(p => p.evacuation_id).map(p => ({ id: p.id, listing: p.evacuation_id })));
-  assert.equal(members.length, 12);
-  assert.equal(await page.$$eval('.gis-result', rows => rows.filter(r => r.gisFeature.properties.evacuation_id).length), 12);
+  assert.equal(members.length, 9);
+  assert.equal(await page.$('#gis-layer-filter'), null);
+  assert.equal(await page.$$eval('.gis-result', rows => rows.filter(r => r.gisFeature.properties.evacuation_id).length), 9);
   assert.ok(await page.$eval('#gis-legend', el => el.textContent.includes(window.GIS_RESIDENTS.labels.listedEvacuation)));
   for (const member of members) {
     await page.evaluate(id => {
@@ -59,8 +60,11 @@ async function residentChecks(page, locale, width) {
   for (const [layer, query] of [['roads',''], ['places',''], ['barangay-labels','Poblacion'], ['dpwh-projects','']]) {
     await page.evaluate(([layer, query]) => {
       const search = document.querySelector('#gis-search'); search.value = query;
-      const filter = document.querySelector('#gis-layer-filter'); filter.value = layer; filter.dispatchEvent(new Event('change'));
-      document.querySelector('.gis-result').focus();
+       search.dispatchEvent(new Event('input'));
+       const manifest = window.GIS_LAYERS.layers.find(l => l.id === layer);
+       const button = [...document.querySelectorAll('.gis-result')].find(b => manifest.data_key === 'GIS_BARANGAYS' ? b.gisFeature.properties.gid : b.querySelector('small').textContent.includes(typeof manifest.title === 'string' ? manifest.title : manifest.title[document.documentElement.lang]));
+       if (!button) throw Error('Missing mapped layer item ' + layer);
+       button.focus();
     }, [layer, query]);
     await page.keyboard.press('Enter');
     assert.ok(await page.$eval('#gis-detail-content', (el, label) => [...el.querySelectorAll('details')].some(d => d.querySelector('summary').textContent === label && !d.open), labels.sourceMap));
@@ -68,12 +72,12 @@ async function residentChecks(page, locale, width) {
   }
   await page.evaluate(() => {
     document.querySelector('#gis-search').value = '';
-    const filter = document.querySelector('#gis-layer-filter'); filter.value = ''; filter.dispatchEvent(new Event('change'));
+     document.querySelector('#gis-search').dispatchEvent(new Event('input'));
   });
   const payload = await page.evaluate(() => JSON.stringify([window.GIS_FACILITIES, window.GIS_RECORDS, window.GIS_RESIDENTS]));
   assert.doesNotMatch(payload, /Mapandan Town Center|coordinate_history|review_notes|junjrburguillos@gmail/);
-  assert.equal(await page.$$eval('.gis-result', rows => rows.filter(r => r.gisFeature.properties.evacuation_id).length), 12);
-  console.log(JSON.stringify({ locale: lang, width, residentListingsChecked: 12, recordTypesChecked: 4 }));
+  assert.equal(await page.$$eval('.gis-result', rows => rows.filter(r => r.gisFeature.properties.evacuation_id).length), 9);
+  console.log(JSON.stringify({ locale: lang, width, residentListingsChecked: 9, recordTypesChecked: 4 }));
 }
 const server = http.createServer((req, res) => {
   const file = path.resolve(root, "." + decodeURIComponent(new URL("http://localhost" + req.url).pathname).replace(/\/+/g, "/"));

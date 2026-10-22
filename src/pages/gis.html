@@ -28,7 +28,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   data-loading="{{GIS_LOADING}}" data-empty-layer="{{GIS_EMPTY_LAYER}}"
   data-layer-error="{{GIS_LAYER_ERROR}}" data-not-loaded="{{GIS_NOT_LOADED}}"
   data-unavailable-layer="{{GIS_UNAVAILABLE_LAYER}}"
-  data-opacity="{{GIS_OPACITY}}" data-list-records="{{GIS_LIST_RECORDS}}"
+  data-opacity="{{GIS_OPACITY}}"
   data-locate="{{GIS_LOCATE}}" data-coarse-geometry="{{GIS_COARSE_GEOMETRY}}"
   data-contract-amount="{{GIS_CONTRACT_AMOUNT}}" data-approved-budget="{{GIS_APPROVED_BUDGET}}"
   data-accomplishment="{{GIS_ACCOMPLISHMENT}}" data-fiscal-year="{{GIS_FISCAL_YEAR}}" data-contractor="{{GIS_CONTRACTOR}}"
@@ -54,10 +54,6 @@ description: Explore Mapandan geographic and nonspatial references with source, 
       <section id="gis-explore-panel" class="gis-explore-panel" role="tabpanel" aria-labelledby="gis-explore-tab">
       <label for="gis-search">{{GIS_SEARCH}}</label>
       <input id="gis-search" type="search" autocomplete="off" aria-controls="gis-results">
-      <div class="gis-filters">
-        <label for="gis-layer-filter">{{GIS_LAYERS}}</label>
-        <select id="gis-layer-filter"><option value="">{{GIS_ALL_LAYERS}}</option></select>
-      </div>
       <p id="gis-result-count" role="status" aria-live="polite"></p>
       <p id="gis-no-results">{{GIS_NO_RESULTS}}</p>
       <ul id="gis-results" class="gis-results" aria-label="{{GIS_SEARCH}}" tabindex="0"></ul>

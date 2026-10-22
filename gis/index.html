@@ -170,7 +170,7 @@
   data-loading="Loading layer..." data-empty-layer="No records supplied"
   data-layer-error="This layer could not load. Other layers and the directories remain usable." data-not-loaded="Enable to load"
   data-unavailable-layer="Disabled, missing input or unsupported renderer"
-  data-opacity="Opacity" data-list-records="List records"
+  data-opacity="Opacity"
   data-locate="Locate / details" data-coarse-geometry="Very coarse source-reference geometry, not authoritative barangay boundaries. Gaps and simplified shapes are unsuitable for locating addresses or determining jurisdiction."
   data-contract-amount="Contract amount" data-approved-budget="Approved budget"
   data-accomplishment="Accomplishment" data-fiscal-year="Fiscal year" data-contractor="Contractor"
@@ -196,16 +196,12 @@
       <section id="gis-explore-panel" class="gis-explore-panel" role="tabpanel" aria-labelledby="gis-explore-tab">
       <label for="gis-search">Search records</label>
       <input id="gis-search" type="search" autocomplete="off" aria-controls="gis-results">
-      <div class="gis-filters">
-        <label for="gis-layer-filter">Map layers</label>
-        <select id="gis-layer-filter"><option value="">All loaded layers</option></select>
-      </div>
       <p id="gis-result-count" role="status" aria-live="polite"></p>
       <p id="gis-no-results">No loaded records match. Try another search or enable an available layer.</p>
       <ul id="gis-results" class="gis-results" aria-label="Search records" tabindex="0"></ul>
       </section>
       <section id="gis-layers-panel" class="gis-layer-controls" role="tabpanel" aria-labelledby="gis-layers-tab" tabindex="0" hidden>
-        <p class="gis-panel-note">Choose what appears on the map. Reference-only records remain searchable without a map position. Open details to inspect each source.</p>
+        <p class="gis-panel-note">Choose what appears on the map. Explore lists visible mapped features only. Open details to inspect each source.</p>
         <div id="gis-layer-list"></div>
         <div id="gis-project-filters" class="gis-project-filters" hidden></div>
       </section>

@@ -143,7 +143,7 @@ class GISRuntimeTests(unittest.TestCase):
 
     def test_v3_controls_and_cautions_are_localized(self):
         template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
-        keys = ("opacity", "reference_only", "list_records", "locate", "coarse_geometry",
+        keys = ("opacity", "reference_only", "locate", "coarse_geometry",
                 "contract_amount", "approved_budget", "accomplishment", "fiscal_year",
                 "contractor", "project_status", "status_key", "transaction_id", "project_id",
                 "contract_id", "actual_start_date", "actual_completion_date", "contract_effectivity_date",
