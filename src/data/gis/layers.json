@@ -172,29 +172,6 @@
       "pane": "infrastructure"
     },
     {
-      "id": "places",
-      "title": {
-        "en": "Places of Interest",
-        "fil": "Mga Lokasyon na May Interes",
-        "pag": "Lugaw na May Interes"
-      },
-      "type": "geojson",
-      "source": "datasets/GIS/places.geojson",
-      "source_label": "OpenStreetMap extract (datasets/GIS/places.geojson)",
-      "enabled": true,
-      "visible_by_default": false,
-      "source_url": "https://www.openstreetmap.org/",
-      "attribution": "OpenStreetMap contributors (ODbL)",
-      "source_date": "2026-10-18T15:17:35Z",
-      "semantic_role": "mapped_places",
-      "group": {
-        "en": "Public Facilities",
-        "fil": "Mga Pampublikong Pasilidad",
-        "pag": "Publiko a Facilidad"
-      },
-      "pane": "facilities"
-    },
-    {
       "id": "dpwh-projects",
       "title": {
         "en": "DPWH Projects",

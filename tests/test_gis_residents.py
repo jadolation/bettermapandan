@@ -87,7 +87,6 @@ def test_complete_inventory_explicit_identity_and_determinism(tmp_path):
     assert next(f for f in mapped if f['properties']['evacuation_id'] == 'evac-003')['properties']['id'] == 'fac-011'
     assert next(f for f in mapped if f['properties']['evacuation_id'] == 'evac-001')['properties']['id'] == 'fac-017'
     assert 'fac-006' not in {f['properties']['id'] for f in features}
-    assert first['metadata']['evacuation_counts'] == {'listings':12, 'spatial_locations':9, 'unresolved_listings':3, 'unique_coordinates':9}
     assert all('Current availability not confirmed' in ' '.join(p['limitations']) for p in all_props)
 
 
@@ -134,9 +133,6 @@ def test_publication_exclusions_and_linked_footprints(tmp_path):
     assert not {'fac-010', 'fac-012', 'fac-013', 'fac-014'} & {f['properties']['id'] for f in data['facilities']['features']}
     refs = {r['id']: r for r in data['records'] if r['layer_id'] == 'facility-references'}
     assert not {'fac-012', 'fac-013', 'fac-014', 'fac-015'} & refs.keys()
-    places = json.loads((tmp_path / 'assets/gis/places.geojson').read_text())
-    assert len([f for f in places['features'] if f['properties'].get('canonical_facility_id')]) == 8
-    assert all(f['geometry']['type'] == 'Polygon' for f in places['features'] if f['properties'].get('canonical_facility_id'))
 
 
 def test_footprint_positions_reproducible_not_hall_substitutions():

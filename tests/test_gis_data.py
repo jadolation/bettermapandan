@@ -41,7 +41,6 @@ def test_initial_layers_are_real_inputs_not_fictional_boundaries():
     config = layer_configuration(ROOT)
     assert all((ROOT / layer['source']).is_file() for layer in config['layers'])
     assert not any(layer['id'] == 'municipality-boundary' or 'UNVALIDATED' in layer['source'] or 'CANDIDATE' in layer['source'] for layer in config['layers'])
-    assert next(layer for layer in config['layers'] if layer['id'] == 'places')['source'] == 'datasets/GIS/places.geojson'
 
 
 def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp_path):
@@ -55,8 +54,6 @@ def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp
     assert all(record['geometry'] is None for record in references)
     assert len(dpwh) == 40
     assert all(record['geometry'] is None or record['geometry']['type'] == 'Point' for record in dpwh)
-    places = json.loads((tmp_path / 'assets/gis/places.geojson').read_text())
-    assert any(feature['geometry']['type'] == 'Polygon' for feature in places['features'])
     assert all(layer.get('images') for layer in result['layers'] if layer['type'] == 'raster-image-overlay')
     outputs = gis_asset_outputs(tmp_path)
     images = [image for layer in result['layers'] for image in layer.get('images', [])]
@@ -67,8 +64,8 @@ def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp
         'hazard-liquefaction': 52, 'flood-susceptibility': 1,
     }
     assert len(images) == 86  # 81 native hazard, four physical and one flood image.
-    assert len([path for path in outputs if path.suffix == '.geojson']) == 5
-    assert len(outputs) == 93  # 86 images, five vectors, statistics and their exact manifest.
+    assert len([path for path in outputs if path.suffix == '.geojson']) == 4
+    assert len(outputs) == 92  # 86 images, four vectors, statistics and their exact manifest.
     assert Path('assets/gis/barangay-statistics.json') in outputs
 
 

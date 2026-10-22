@@ -165,7 +165,7 @@ class GISRuntimeTests(unittest.TestCase):
         for name in ("LAYERS", "FACILITIES", "BARANGAYS", "RECORDS"):
             self.assertIn(f"window.GIS_{name} = {{GIS_{name}_DATA}};", template)
         self.assertNotIn("{GIS_RECORD_DIRECTORY}", template)
-        for removed in ("GIS_MODE", "GIS_PREVIEW_BANNER", "GIS_RESEARCH_DIRECTORY", "gis-status-filter"):
+        for removed in ("GIS_MODE", "GIS_PREVIEW_BANNER", "GIS_RESEARCH_DIRECTORY", "gis-status-filter", "GIS_MARKER_TOTAL"):
             self.assertNotIn(removed, template)
         self.assertIn('id="gis-workspace" class="gis-workspace" hidden', template)
         self.assertIn('id="gis-results"', template)

@@ -5,7 +5,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
 
 <div id="gis-page" data-asset-base="{{ASSET_BASE}}"
   data-reference-only="{{GIS_REFERENCE_ONLY}}" data-loaded="{{GIS_LOADED}}"
-  data-details="{{GIS_DETAILS}}" data-marker-total="{{GIS_MARKER_TOTAL}}" data-empty="{{GIS_EMPTY}}"
+  data-details="{{GIS_DETAILS}}" data-empty="{{GIS_EMPTY}}"
   data-listed-evacuation="{{GIS_LISTED_EVACUATION}}" data-availability-unknown="{{GIS_AVAILABILITY_UNKNOWN}}"
   data-library-error="{{GIS_LIBRARY_ERROR}}" data-tile-error="{{GIS_TILE_ERROR}}"
   data-map-error="{{GIS_MAP_ERROR}}" data-ready="{{GIS_READY}}"
@@ -68,8 +68,7 @@ description: Explore Mapandan geographic and nonspatial references with source, 
       <div class="gis-toolbar" role="group" aria-label="{{GIS_MAP_CONTROLS}}">
       <button id="gis-fit" type="button">{{GIS_FIT}}</button>
        <button id="gis-reset" type="button">{{GIS_RESET}}</button>
-       <p>{{GIS_MARKER_TOTAL}}: <span id="gis-marker-count">0</span></p>
-      </div>
+       </div>
       <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
        <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" aria-live="polite" hidden></section>
     </div>
