@@ -4,6 +4,8 @@
     "listed_evacuation": "Nakalistang evacuation center",
     "availability_unknown": "Hindi kumpirmado ang kasalukuyang availability",
     "resident": {
+      "hallPrecision": "Ibinigay na lokasyon ng gusali, hindi sinukat na pasukan",
+      "coordinates": "Mga coordinate (latitud, longhitud)",
       "purpose": "Paglalarawan / layunin",
       "retrieved": "Kinuha ang sanggunian",
       "operationUnknown": "Nakasulat na Closed sa lumang tala na walang petsa; hindi kumpirmado ang kasalukuyang operasyon ng paaralan.",

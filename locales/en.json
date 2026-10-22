@@ -4,6 +4,8 @@
     "listed_evacuation": "Listed evacuation center",
     "availability_unknown": "Current availability not confirmed",
     "resident": {
+      "hallPrecision": "Supplied building location, not a surveyed entrance",
+      "coordinates": "Coordinates (latitude, longitude)",
       "purpose": "Description / purpose",
       "retrieved": "Source retrieved",
       "operationUnknown": "Older undated notes say Closed; current school operation is not confirmed.",

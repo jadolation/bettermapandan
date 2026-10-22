@@ -47,8 +47,8 @@ def test_initial_layers_are_real_inputs_not_fictional_boundaries():
 def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp_path):
     result = prepare_inputs(ROOT, tmp_path)
     assert all(layer['available'] for layer in result['layers'])
-    assert len(result['facilities']['features']) == len(load('facilities.geojson')['features']) - 5
-    assert not {'fac-006', 'fac-010', 'fac-012', 'fac-013', 'fac-014'} & {f['properties']['id'] for f in result['facilities']['features']}
+    assert len(result['facilities']['features']) == len(load('facilities.geojson')['features']) - 6
+    assert not {'fac-006', 'fac-010', 'fac-012', 'fac-013', 'fac-014', 'fac-015'} & {f['properties']['id'] for f in result['facilities']['features']}
     references = [r for r in result['records'] if r['layer_id'] == 'project-references']
     dpwh = [r for r in result['records'] if r['layer_id'] == 'dpwh-projects']
     assert len(references) == 107
@@ -67,8 +67,8 @@ def test_real_inputs_prepare_into_temp_assets_without_approval_configuration(tmp
         'hazard-liquefaction': 52, 'flood-susceptibility': 1,
     }
     assert len(images) == 86  # 81 native hazard, four physical and one flood image.
-    assert len([path for path in outputs if path.suffix == '.geojson']) == 4
-    assert len(outputs) == 92  # 86 images, four vectors, statistics and their exact manifest.
+    assert len([path for path in outputs if path.suffix == '.geojson']) == 5
+    assert len(outputs) == 93  # 86 images, five vectors, statistics and their exact manifest.
     assert Path('assets/gis/barangay-statistics.json') in outputs
 
 

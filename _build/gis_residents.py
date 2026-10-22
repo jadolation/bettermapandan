@@ -85,7 +85,8 @@ def reconcile(root, facilities, records):
         raise ValueError('Evacuation inventory must account for all 12 source listings')
     by_id = {f['properties']['id']: f for f in facilities['features']}
     excluded = set(crosswalk['publication_exclusions'])
-    halls = set(crosswalk['unresolved_halls']) | set(crosswalk.get('unresolved_facilities', []))
+    from _build.gis_halls import LEGACY_HALL_IDS
+    halls = (set(crosswalk['unresolved_halls']) - LEGACY_HALL_IDS) | set(crosswalk.get('unresolved_facilities', []))
     for identifier in sorted(halls):
         feature = deepcopy(by_id[identifier])
         feature['geometry'] = None
@@ -95,7 +96,7 @@ def reconcile(root, facilities, records):
         if identifier == 'fac-006':
             feature['properties']['limitations'] = ['Older record combines National High School and Central School SPED identities. This unresolved record is not assigned the Central School evacuation listing; listed only, no map pin.']
         records.append(dict(feature['properties'], geometry=None))
-    facilities['features'] = [f for f in facilities['features'] if f['properties']['id'] not in excluded | halls]
+    facilities['features'] = [f for f in facilities['features'] if f['properties']['id'] not in excluded | halls | LEGACY_HALL_IDS]
     seen, facility_ids = set(), set()
     for link, original in zip(listings, source['features'], strict=True):
         raw = original['properties']

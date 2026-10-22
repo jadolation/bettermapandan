@@ -253,6 +253,11 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
                     layer.update(type='reference', data_key='GIS_BARANGAYS')
                 else:
                     data = feature_collection(parsed, label=identifier)
+                    if identifier == 'barangay-halls':
+                        from .gis_halls import geographic_qa, hall_collection
+                        data = hall_collection(parsed)
+                        boundaries = parse_json(bounded_bytes(input_path(root, 'src/data/gis/barangay_boundaries.geojson')).decode('utf-8'))
+                        result['metadata']['hall_geographic_qa'] = geographic_qa(data, boundaries)
                     filename = identifier + '.geojson'
                     emit(filename, script_json(data).encode('utf-8'))
                     layer.update(type='geojson', url='assets/gis/' + filename)

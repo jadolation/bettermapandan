@@ -133,9 +133,7 @@ def test_publication_exclusions_and_linked_footprints(tmp_path):
     assert 'coordinate_history' not in public and 'review_notes' not in public
     assert not {'fac-010', 'fac-012', 'fac-013', 'fac-014'} & {f['properties']['id'] for f in data['facilities']['features']}
     refs = {r['id']: r for r in data['records'] if r['layer_id'] == 'facility-references'}
-    for identifier in ('fac-012', 'fac-013', 'fac-014'):
-        assert refs[identifier]['geometry'] is None
-        assert refs[identifier]['verification_status'] == 'needs_review'
+    assert not {'fac-012', 'fac-013', 'fac-014', 'fac-015'} & refs.keys()
     places = json.loads((tmp_path / 'assets/gis/places.geojson').read_text())
     assert len([f for f in places['features'] if f['properties'].get('canonical_facility_id')]) == 8
     assert all(f['geometry']['type'] == 'Polygon' for f in places['features'] if f['properties'].get('canonical_facility_id'))

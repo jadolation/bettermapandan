@@ -4,6 +4,8 @@
     "listed_evacuation": "Nakalista a evacuation center",
     "availability_unknown": "Agni kumpirmado so availability natan",
     "resident": {
+      "hallPrecision": "Inted ya lokasyon na bilding, aliwan sinukat ya entrada",
+      "coordinates": "Coordinate (latitud, longhitud)",
       "purpose": "Deskripsyon / gagala",
       "retrieved": "Inala so pinanlapuan",
       "operationUnknown": "Closed so walad daan a tala ya anggapoy petsa; agni kumpirmado so operasyon na eskuela natan.",

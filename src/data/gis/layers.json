@@ -16,6 +16,21 @@
   },
   "layers": [
     {
+      "id": "barangay-halls",
+      "title": {"en": "Barangay Halls", "fil": "Mga Barangay Hall", "pag": "Saray Barangay Hall"},
+      "type": "geojson",
+      "source": "src/data/gis/barangay_halls.geojson",
+      "dependencies": ["src/data/gis/barangay_boundaries.geojson"],
+      "source_label": "Maintainer-confirmed Google Maps/government validation; supplied building locations, not surveyed entrances",
+      "enabled": true,
+      "visible_by_default": true,
+      "semantic_role": "barangay_hall",
+      "group": {"en": "Public Facilities", "fil": "Mga Pampublikong Pasilidad", "pag": "Publiko a Facilidad"},
+      "pane": "facilities",
+      "precision": "supplied_building_location",
+      "limitations": ["Supplied building locations are checked against indicative boundaries without moving accepted coordinates. Hall positions do not establish evacuation designation or availability."]
+    },
+    {
       "id": "facilities",
       "title": {
         "en": "Public Facilities",

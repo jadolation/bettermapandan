@@ -82,6 +82,7 @@
   var PANES = { physical: 250, hazards: 300, administrative: 400, infrastructure: 450, facilities: 500 };
   var STATUS_COLORS = { completed: "#287943", ongoing: "#b66b08", not_started: "#c0392b", stopped: "#c0392b", unknown: "#737373" };
   var ICONS = {
+    "building-2": '<rect x="4" y="3" width="16" height="19" rx="1"/><path d="M9 22v-5h6v5M8 7h2m4 0h2M8 11h2m4 0h2"/>',
     // Vetted static nodes from https://github.com/lucide-icons/lucide/tree/main/icons.
     "hard-hat": '<path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/>',
     "home": '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
@@ -108,6 +109,7 @@
     return '<svg viewBox="0 0 24 24" width="' + safeSize + '" height="' + safeSize + '" fill="none" stroke="' + safeColor + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + (Object.hasOwn(ICONS, iconName) ? ICONS[iconName] : ICONS["map-pin"]) + "</svg>";
   }
   function categoryIcon(category, semanticRole) {
+    if (semanticRole === "barangay_hall") return "building-2";
     var cat = (category || "").toLowerCase();
     if (semanticRole === "dpwh_project") return "hard-hat";
     if (cat === "listed-evacuation") return "home";
@@ -118,7 +120,7 @@
     return "map-pin";
   }
   function categoryKey(icon) {
-    return { home: "Shelter", "graduation-cap": "School", "heart-pulse": "Health", shield: "Emergency", landmark: "Barangay", "hard-hat": "Project", layers: "Shared" }[icon] || "Default";
+    return { home: "Shelter", "graduation-cap": "School", "heart-pulse": "Health", shield: "Emergency", landmark: "Barangay", "building-2": "Barangay", "hard-hat": "Project", layers: "Shared" }[icon] || "Default";
   }
   function opacity(value) { return typeof value === "number" && Number.isFinite(value) ? Math.max(0, Math.min(1, value)) : 0.65; }
   function spatialBarangay(s, f) {
@@ -331,6 +333,7 @@
     node("fit").disabled = node("reset").disabled = !map;
     node("reset").onclick = function () { if (map) map.setView([home[1], home[0]], zoom); };
     function precision(p, l) {
+      if (p.coordinate_method === 'maintainer_supplied') return text('hallPrecision');
       if (l.semantic_role === "label_anchor") return text("labelAnchor");
       var key = { source_reported: p.location_precision === "approximate" ? "approximateSource" : "sourceReported",
         plus_code_cell_center: "cellCenter", polygon_centroid: "centroid", field_observation: "fieldPosition" }[p.coordinate_method];
@@ -524,6 +527,10 @@
       var technical = el("details", null, box); el("summary", text("sourceMap"), technical);
       dl = el("dl", null, technical);
       field("precisionLabel", precision(p, l));
+      if (p.coordinate_method === 'maintainer_supplied' && f.geometry) {
+        el('dt', text('coordinates'), dl);
+        el('dd', String(f.geometry.coordinates[1]) + ', ' + String(f.geometry.coordinates[0]), dl);
+      }
       field("source", provenance.source || p.source || l.source_label);
       field("sourceDate", p.source_date || l.source_date);
       field("sourceId", provenance.source_record_id || p.evacuation_id);
