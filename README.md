@@ -4,6 +4,9 @@ An independent transparency portal for the Municipality of Mapandan, Pangasinan,
 
 **Live at:** [bettermapandan.org](https://bettermapandan.org) — deployed via GitHub Pages with a Hostinger-registered domain.
 
+For a concise source map, local setup commands, and the repository-scoped agent
+skill, see [Repository overview and local development](docs/repository-overview.md).
+
 ---
 
 ## What this is

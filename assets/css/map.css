@@ -30,6 +30,35 @@
    GIS Map Page — Leaflet barangay/facility map
    ========================================================================== */
 
+.gis-weather-map-wrap { --weather-color: #b44a25; isolation: isolate; position: relative; min-width: 0; }
+.gis-weather[hidden], #gis-weather-controls[hidden], .gis-weather-summary[hidden] { display: none; }
+.gis-weather-toggle { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 600; }
+.gis-weather-toggle input { width: 20px; height: 20px; accent-color: var(--green); }
+.gis-radar-controls { border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.gis-radar-controls h3 { font-size: .95rem; margin: 12px 0 6px; }
+.gis-radar-controls input[type="range"] { width: 100%; min-height: 28px; accent-color: var(--green); }
+#gis-radar-opacity-value { float: right; }
+#gis-radar-status { font-size: .8rem; margin: 8px 0; }
+.gis-weather-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 12px 0; }
+.gis-weather button { min-height: 44px; padding: 8px; font: inherit; font-size: .85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--green-deep); cursor: pointer; }
+.gis-weather button[aria-pressed="true"] { background: var(--green-deep); color: white; border-color: var(--green-deep); }
+.gis-weather button:disabled { opacity: .6; cursor: wait; }
+.gis-weather label[for] { display: block; font-size: .8rem; font-weight: 600; margin: 10px 0 6px; }
+#gis-weather-status { font-size: .8rem; margin: 10px 0; }
+.gis-weather-summary { position: absolute; z-index: 550; top: 14px; right: 14px; width: 242px; max-width: calc(100% - 76px); padding: 16px; border: 1px solid var(--line); border-top: 4px solid var(--weather-color); border-radius: 10px; background: rgba(255,255,255,.97); box-shadow: 0 4px 20px #16382220; pointer-events: none; color: #243e32; }
+.gis-weather-summary h2 { font: 600 15px/1.3 var(--font-body, sans-serif); margin: 5px 0; }
+.gis-weather-summary p { margin: 5px 0; font-size: 12px; }
+.gis-weather-summary .gis-weather-eyebrow { font-size: 10px; letter-spacing: .08em; font-weight: 700; }
+.gis-weather-reading { display: flex; align-items: center; gap: 12px; font-size: 32px; line-height: 1.3; font-weight: 700; color: var(--weather-color); }
+.gis-weather-arrow { display: inline-block; font-size: 30px; }
+.gis-weather-summary small { display: block; font-size: 10px; line-height: 1.5; margin-top: 5px; color: #52665a; }
+.gis-weather-summary a { display: inline-block; margin-top: 7px; font-size: 11px; pointer-events: auto; color: #285637; }
+.gis-weather-stale { display: block; font-size: 11px; color: #8c3d12; margin-top: 7px; }
+@media (max-width: 760px) {
+  .gis-weather-summary { top: 8px; right: 8px; width: 185px; padding: 10px; }
+  .gis-weather-reading { font-size: 26px; }
+}
+
 .gis-flood-high { background: #fa8689; }
 .gis-flood-medium { background: #ffbb7c; }
 
@@ -301,3 +330,5 @@
   .gis-heading { padding-left: 14px; margin-bottom: 18px; }
   .gis-details { position: fixed; top: auto; bottom: var(--gis-sticky-clearance, 80px); left: 8px; right: 8px; width: auto; max-height: calc(65dvh - var(--gis-sticky-clearance, 80px)); border-radius: 14px 14px 0 0; z-index: 120; padding: 14px; }
 }
+
+#gis-radar-play { margin-top: 8px; width: 100%; }

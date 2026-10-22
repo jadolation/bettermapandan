@@ -4,6 +4,38 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
 const gis = require("../assets/gis-map.js");
+const weather = require("../assets/gis-weather.js");
+test("weather requests share a bounded hourly timeline and correct coordinates", () => {
+  const url = new URL(weather.requestUrl([120.455, 16.03]));
+  assert.equal(url.searchParams.get("latitude"), "16.03");
+  assert.equal(url.searchParams.get("longitude"), "120.455");
+  assert.equal(url.searchParams.get("forecast_hours"), "48");
+  assert.equal(url.searchParams.get("timeformat"), "unixtime");
+  assert.equal(url.searchParams.get("hourly").split(",").length, 5);
+  assert.throws(() => weather.requestUrl([NaN, 16]));
+  assert.throws(() => weather.requestUrl([120, 91]));
+});
+test("weather preserves zero and missing values, rejects malformed units and arrays", () => {
+  const fields = ["temperature_2m", "apparent_temperature", "wind_speed_10m", "wind_direction_10m", "precipitation"];
+  const units = ["°C", "°C", "km/h", "°", "mm"];
+  const data = { hourly: { time: [1792627200, 1792630800] }, hourly_units: { time: "unixtime" } };
+  fields.forEach((f, i) => { data.hourly[f] = [0, null]; data.hourly_units[f] = units[i]; });
+  assert.deepEqual(weather.normalize(data)[0].values, [0, 0, 0, 0, 0]);
+  assert.deepEqual(weather.normalize(data)[1].values, [null, null, null, null, null]);
+  data.hourly.precipitation[0] = -1;
+  assert.equal(weather.normalize(data)[0].values[4], null);
+  data.hourly.precipitation.pop();
+  assert.throws(() => weather.normalize(data));
+  data.hourly.precipitation.push(null); data.hourly_units.temperature_2m = "°F";
+  assert.throws(() => weather.normalize(data));
+  assert.throws(() => weather.normalize({ error: true }));
+});
+test("weather displays PHT independently of device timezone and wind points downwind", () => {
+  assert.match(weather.formatTime(Date.UTC(2026, 9, 22, 17, 0), "en"), /Oct 23.*01:00.*AM.*PHT/);
+  assert.equal(weather.windRotation(0), 180);
+  assert.equal(weather.windRotation(90), 270);
+  assert.equal(weather.windRotation(180), 0);
+});
 const layer = { type: "inline-geojson", enabled: true, available: true };
 const feature = (geometry, properties = {}) => ({ type: "Feature", geometry, properties });
 const point = (coords = [120.455, 16.03]) => feature({ type: "Point", coordinates: coords });
@@ -284,4 +316,14 @@ test("statistics validation distinguishes missing population and scoped zero, re
   assert.equal(gis.validateStatistics(data), data);
   invalid(d => { d.projects.push(d.projects[0]); });
   invalid(d => { d.projects[0].references[0].source = "invented"; });
+});
+
+test("radar only accepts trusted, ordered past frame paths", () => {
+  const data = {host: "https://tilecache.rainviewer.com", radar: {past: [{time: 1700000000, path: "/v2/radar/1700000000"}]}};
+  assert.match(weather.normalizeRadar(data)[0].url, /256\/\{z\}/);
+  assert.equal(weather.normalizeRadar(data)[0].time, 1700000000000);
+  assert.throws(() => weather.normalizeRadar({...data, host: "https://evil.example"}));
+  assert.throws(() => weather.normalizeRadar({ ...data, radar: {past: []} }));
+  data.radar.past[0].path = "/v2/radar/../../other";
+  assert.throws(() => weather.normalizeRadar(data));
 });

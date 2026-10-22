@@ -260,3 +260,67 @@ python3 check_i18n.py
 Browser checks require the project's Node dependencies and Chrome. Controlled
 library fixtures test application behavior; they do not certify live map tiles,
 geographic accuracy, hazard analysis, or evacuation guidance.
+
+### Runtime weather overlay
+
+“Show weather” adds RainViewer past-radar tiles to the existing Leaflet map and
+loads the Open-Meteo area forecast. Radar opacity defaults to 65%; its frame
+selector is separate from the hourly forecast selector. All weather times use
+12-hour Asia/Manila time (PHT). Weather is opt-in and never fetched during builds.
+
+RainViewer metadata is cached for ten minutes while enabled; forecast data for
+one hour. Disabling weather removes tiles and the forecast summary and cancels pending
+metadata requests. Radar requests use native zoom 7 with Leaflet overscaling,
+so municipal-level zoom does not imply barangay-level precision. Frames older
+than one hour are hidden; failed radar requests do not disable the forecast.
+Blank radar tiles can indicate missing coverage, not necessarily dry weather.
+Provider details: https://www.rainviewer.com/api/weather-maps-api.html.
+
+Test with an existing Chromium executable:
+
+```sh
+CHROME_PATH="/path/to/chromium" node tests/browser/gis-weather.cjs --root "$PWD/_site"
+```
+
+The test uses actual Leaflet with deterministic weather responses. Set
+`WEATHER_LIVE_RADAR=1 WEATHER_VISUAL=1 WEATHER_SCREENSHOTS=/tmp/weather-screens`
+to check live radar and capture screenshots; Open-Meteo readings remain fixtures.
+
+#### RainViewer verification (22 October 2026)
+
+The integration matches the official Weather Maps API and Leaflet example:
+metadata supplies the host and opaque frame path; PNG tiles use colour 2
+(Universal Blue), 256-pixel tiles and native zoom 7. Higher map zooms overscale
+those tiles. `1_0` enables smoothing without separate snow colouring.
+
+A direct pixel check of all 13 returned Mapandan frames at z7/x106/y58 found
+fully transparent images. The latest frame was also transparent with 512-pixel
+images, smoothing disabled, and the latitude/longitude endpoint. Regional z4
+and world z0 control tiles contained visible pixels. This establishes an empty
+local response at the time of testing, not permanent missing coverage or dry
+weather. The coverage mask is not a live station-health check.
+
+The UI inspects loaded tile pixels intersecting the viewport and explicitly
+reports transparent views. Browser fixtures test transparent and visible
+responses. The optional live check also zooms out and verifies visible regional
+radar pixels; live outcomes depend on the provider and weather.
+
+References:
+- https://www.rainviewer.com/api/weather-maps-api.html
+- https://www.rainviewer.com/api/color-schemes.html
+- https://www.rainviewer.com/api/transition-faq.html
+- https://github.com/rainviewer/rainviewer-api-example
+
+PAGASA was investigated but no PAGASA integration was added.
+
+Frame replacement now removes the layer from the map before clearing its event
+handlers. Reversing that order removed Leaflet's own cleanup listener and left
+stale map zoom handlers. The Chromium regression test changes frames, disables
+weather, and zooms the map to catch this lifecycle failure.
+
+Radar playback is opt-in through Play radar / Pause radar. It loops the available
+past frames, waits for tiles to load, and keeps the 12-hour frame selector in
+sync. The delay is at least 1.5 seconds, increasing for views with more tiles to
+limit requests. Manual frame selection, map movement, a hidden tab, tile errors
+and disabling weather pause playback. Forecast readings appear only in the side
+summary; the duplicate Mapandan marker has been removed.

@@ -446,5 +446,194 @@
     "filipino": "Sangguniang Bayan",
     "pangasinan": "Sangguniang Bayan",
     "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_title",
+    "english": "Weather",
+    "filipino": "Panahon",
+    "pangasinan": "Weather",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_enable",
+    "english": "Show weather",
+    "filipino": "Ipakita ang panahon",
+    "pangasinan": "Show weather",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_description",
+    "english": "A forecast for the Mapandan area.",
+    "filipino": "Pagtataya para sa lugar ng Mapandan.",
+    "pangasinan": "A forecast for the Mapandan area.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_area",
+    "english": "MAPANDAN · AREA FORECAST",
+    "filipino": "MAPANDAN · PAGTATAYA SA LUGAR",
+    "pangasinan": "MAPANDAN · AREA FORECAST",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_model",
+    "english": "Model estimate · not a weather station",
+    "filipino": "Tantiya ng modelo · hindi istasyon ng panahon",
+    "pangasinan": "Model estimate · not a weather station",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_ready",
+    "english": "Forecast ready",
+    "filipino": "Handa na ang pagtataya",
+    "pangasinan": "Forecast ready",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_empty",
+    "english": "No forecast available for this hour.",
+    "filipino": "Walang pagtataya para sa oras na ito.",
+    "pangasinan": "No forecast available for this hour.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_error",
+    "english": "Could not refresh weather. Try again shortly.",
+    "filipino": "Hindi ma-update ang panahon. Subukan muli mamaya.",
+    "pangasinan": "Could not refresh weather. Try again shortly.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_limited",
+    "english": "Weather service is busy. Please wait before retrying.",
+    "filipino": "Abala ang serbisyo. Maghintay bago subukang muli.",
+    "pangasinan": "Weather service is busy. Please wait before retrying.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_stale",
+    "english": "Outdated forecast · refresh needed",
+    "filipino": "Lumang pagtataya · kailangang i-update",
+    "pangasinan": "Outdated forecast · refresh needed",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_retrieved",
+    "english": "Retrieved",
+    "filipino": "Kinuha noong",
+    "pangasinan": "Retrieved",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_wind_from",
+    "english": "Wind from",
+    "filipino": "Hangin mula sa",
+    "pangasinan": "Wind from",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_temperature",
+    "english": "Temperature",
+    "filipino": "Temperatura",
+    "pangasinan": "Temperature",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_feels",
+    "english": "Feels like",
+    "filipino": "Pakiramdam",
+    "pangasinan": "Feels like",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_wind",
+    "english": "Wind",
+    "filipino": "Hangin",
+    "pangasinan": "Wind",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_rain",
+    "english": "Hourly rain",
+    "filipino": "Ulan bawat oras",
+    "pangasinan": "Hourly rain",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_time",
+    "english": "Forecast time · PHT",
+    "filipino": "Oras ng pagtataya · PHT",
+    "pangasinan": "Forecast time · PHT",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_refresh",
+    "english": "Refresh forecast",
+    "filipino": "I-update ang pagtataya",
+    "pangasinan": "Refresh forecast",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_disclaimer",
+    "english": "Conditions can differ by barangay. For official warnings, consult",
+    "filipino": "Maaaring magkaiba ang kondisyon sa bawat barangay. Para sa opisyal na babala, tingnan ang",
+    "pangasinan": "Conditions can differ by barangay. For official warnings, consult",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar",
+    "english": "Rain radar",
+    "filipino": "Radar ng ulan",
+    "pangasinan": "Rain radar",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar_time",
+    "english": "Radar frame time · PHT",
+    "filipino": "Oras ng radar frame · PHT",
+    "pangasinan": "Radar frame time · PHT",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar_ready",
+    "english": "Radar tiles loaded",
+    "filipino": "Na-load ang mga radar tile",
+    "pangasinan": "Radar tiles loaded",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar_unavailable",
+    "english": "Radar unavailable or outdated. Forecast remains available.",
+    "filipino": "Hindi available o luma ang radar. Available pa rin ang forecast.",
+    "pangasinan": "Radar unavailable or outdated. Forecast remains available.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar_note",
+    "english": "Past radar · blank areas may have no coverage. Frame time may differ from observation time.",
+    "filipino": "Nakaraang radar · maaaring walang saklaw ang mga blangkong lugar. Maaaring iba ang oras ng frame sa oras ng obserbasyon.",
+    "pangasinan": "Past radar · blank areas may have no coverage. Frame time may differ from observation time.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar_empty",
+    "english": "No radar echoes in this view. Tiles are transparent; this does not confirm dry weather.",
+    "filipino": "Walang radar echo sa tanaw na ito. Transparent ang mga tile; hindi nito tinitiyak na walang ulan.",
+    "pangasinan": "No radar echoes in this view. Tiles are transparent; this does not confirm dry weather.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar_play",
+    "english": "Play radar",
+    "filipino": "I-play ang radar",
+    "pangasinan": "Play radar",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "gis.weather_radar_pause",
+    "english": "Pause radar",
+    "filipino": "I-pause ang radar",
+    "pangasinan": "Pause radar",
+    "pangasinan_status": "review_required"
   }
 ]

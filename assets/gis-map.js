@@ -935,6 +935,10 @@
     // Keep static directories available until the interactive Explorer is initialized.
     if (node("directories")) node("directories").hidden = true;
     if (node("directory-link")) node("directory-link").hidden = true;
+    if (map && window.MapandanWeather) {
+      try { window.MapandanWeather.attach(map, L, home); }
+      catch (error) { console.warn("Weather unavailable", error); }
+    }
     node("workspace").dataset.ready = "true";
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();

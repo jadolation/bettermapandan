@@ -60,6 +60,40 @@ description: Explore Mapandan geographic and nonspatial references with source, 
       </section>
       <section id="gis-layers-panel" class="gis-layer-controls" role="tabpanel" aria-labelledby="gis-layers-tab" tabindex="0" hidden>
         <p class="gis-panel-note">{{GIS_LAYER_HELP}}</p>
+        <fieldset id="gis-weather" class="gis-weather" hidden
+          data-radar-play="{{GIS_WEATHER_RADAR_PLAY}}" data-radar-pause="{{GIS_WEATHER_RADAR_PAUSE}}" data-radar-empty="{{GIS_WEATHER_RADAR_EMPTY}}" data-radar-ready="{{GIS_WEATHER_RADAR_READY}}" data-radar-unavailable="{{GIS_WEATHER_RADAR_UNAVAILABLE}}"
+          data-area="{{GIS_WEATHER_AREA}}" data-model="{{GIS_WEATHER_MODEL}}"
+          data-loading="{{GIS_LOADING}}" data-ready="{{GIS_WEATHER_READY}}"
+          data-empty="{{GIS_WEATHER_EMPTY}}" data-error="{{GIS_WEATHER_ERROR}}"
+          data-limited="{{GIS_WEATHER_LIMITED}}" data-stale="{{GIS_WEATHER_STALE}}"
+          data-retrieved="{{GIS_WEATHER_RETRIEVED}}" data-wind-from="{{GIS_WEATHER_WIND_FROM}}">
+          <legend>{{GIS_WEATHER_TITLE}}</legend>
+          <label class="gis-weather-toggle"><input id="gis-weather-enabled" type="checkbox"> {{GIS_WEATHER_ENABLE}}</label>
+          <p class="gis-panel-note">{{GIS_WEATHER_DESCRIPTION}}</p>
+          <div id="gis-weather-controls" hidden>
+            <div class="gis-radar-controls">
+              <h3>{{GIS_WEATHER_RADAR}}</h3>
+              <label for="gis-radar-opacity">{{GIS_OPACITY}} <output id="gis-radar-opacity-value" for="gis-radar-opacity">65%</output></label>
+              <input id="gis-radar-opacity" type="range" min="0" max="100" value="65">
+              <label for="gis-radar-time">{{GIS_WEATHER_RADAR_TIME}}</label>
+              <select id="gis-radar-time" disabled></select>
+              <button id="gis-radar-play" type="button" aria-pressed="false" disabled>{{GIS_WEATHER_RADAR_PLAY}}</button>
+              <p id="gis-radar-status" role="status" aria-live="polite"></p>
+              <p class="gis-panel-note">{{GIS_WEATHER_RADAR_NOTE}} <a href="https://www.rainviewer.com/" target="_blank" rel="noopener">RainViewer ↗</a></p>
+            </div>
+            <div class="gis-weather-modes" role="group" aria-label="{{GIS_WEATHER_TITLE}}">
+              <button type="button" data-weather-mode="temperature" aria-pressed="true">{{GIS_WEATHER_TEMPERATURE}}</button>
+              <button type="button" data-weather-mode="feels" aria-pressed="false">{{GIS_WEATHER_FEELS}}</button>
+              <button type="button" data-weather-mode="wind" aria-pressed="false">{{GIS_WEATHER_WIND}}</button>
+              <button type="button" data-weather-mode="rain" aria-pressed="false">{{GIS_WEATHER_RAIN}}</button>
+            </div>
+            <label for="gis-weather-time">{{GIS_WEATHER_TIME}}</label>
+            <select id="gis-weather-time" disabled></select>
+            <p id="gis-weather-status" role="status" aria-live="polite"></p>
+            <button id="gis-weather-refresh" type="button">{{GIS_WEATHER_REFRESH}}</button>
+            <p class="gis-panel-note">{{GIS_WEATHER_DISCLAIMER}} <a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">PAGASA ↗</a></p>
+          </div>
+        </fieldset>
         <div id="gis-layer-list"></div>
         <div id="gis-project-filters" class="gis-project-filters" hidden></div>
       </section>
@@ -70,7 +104,10 @@ description: Explore Mapandan geographic and nonspatial references with source, 
        <button id="gis-reset" type="button">{{GIS_RESET}}</button>
        <p>{{GIS_MARKER_TOTAL}}: <span id="gis-marker-count">0</span></p>
       </div>
-      <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
+      <div class="gis-weather-map-wrap">
+        <div id="gis-map" role="region" aria-label="{{GIS_MAP_NAME}}" aria-describedby="gis-map-help"></div>
+        <section id="gis-weather-summary" class="gis-weather-summary" aria-label="{{GIS_WEATHER_TITLE}}" hidden></section>
+      </div>
        <section id="gis-legend" class="gis-legend" aria-label="{{GIS_LEGEND}}" aria-live="polite" hidden></section>
     </div>
     <section id="gis-details" class="gis-details" role="region" hidden>
@@ -115,4 +152,5 @@ description: Explore Mapandan geographic and nonspatial references with source, 
   window.GIS_RESIDENTS = {GIS_RESIDENTS_DATA};
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script defer src="{{ASSET_BASE}}assets/gis-weather.min.js"></script>
 <script defer src="{{ASSET_BASE}}assets/gis-map.min.js"></script>

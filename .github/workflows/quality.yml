@@ -83,6 +83,7 @@ jobs:
         run: |
           node tests/browser/gis-explorer.cjs --fixtures
           node tests/browser/gis-explorer.cjs --root "$PWD/_site"
+          node tests/browser/gis-weather.cjs --root "$PWD/_site"
       - name: Check oversized graphics in exact artifact
         run: |
           LARGE_FILES=$(find _site -type f -name '*.svg' -size +100k | grep -v '/assets/logo.svg' | grep -v '/assets/logo-no-white.svg' | grep -v '/assets/municipal-seal.svg' | grep -v '/assets/Pandan.svg' || true)
