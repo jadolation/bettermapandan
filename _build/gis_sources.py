@@ -303,24 +303,8 @@ def prepare_inputs(root, workspace=None, lang_code="en"):
 
 def _resident_projection(root, result, asset_dir, emit):
     from _build.gis_residents import reconcile, residents
-    crosswalk = reconcile(root, result['facilities'], result['records'])
+    reconcile(root, result['facilities'], result['records'])
     result['residents'] = residents(root)
-    linked = {osm: row['facility_id'] for row in crosswalk['listings'] if row['facility_id'] for osm in row['osm_ids']}
-    # Retain linked footprints, but suppress duplicate directory entries by explicit ID.
-    for layer in result['layers']:
-        if layer['id'] != 'places' or not layer.get('available'):
-            continue
-        path = asset_dir / 'places.geojson'
-        places = parse_json(path.read_text(encoding='utf-8'))
-        places['features'] = [f for f in places['features'] if f['properties']['id'] not in crosswalk['excluded_osm_ids']]
-        for feature in places['features']:
-            canonical = linked.get(feature['properties']['id'])
-            if canonical:
-                feature['properties']['canonical_facility_id'] = canonical
-        emit('places.geojson', script_json(places).encode('utf-8'))
-    spatial = [f for f in result['facilities']['features'] if f['properties'].get('evacuation_id')]
-    result['metadata']['evacuation_counts'] = {'listings': 12, 'spatial_locations': len(spatial),
-        'unresolved_listings': 12 - len(spatial), 'unique_coordinates': len({tuple(f['geometry']['coordinates']) for f in spatial})}
 
 
 def gis_asset_outputs(root):

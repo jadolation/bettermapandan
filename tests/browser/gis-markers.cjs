@@ -13,8 +13,6 @@ async function residentChecks(page, locale, width) {
   const lang = locale ? locale.slice(0, -1) : 'en';
   const labels = JSON.parse(fs.readFileSync(path.join(__dirname, `../../locales/${lang}.json`))).gis.resident;
   await page.evaluate(() => document.querySelector('#gis-explore-tab').click());
-  const counts = await page.evaluate(() => window.GIS_LAYERS.metadata.evacuation_counts);
-  assert.deepEqual(counts, { listings: 12, spatial_locations: 9, unresolved_listings: 3, unique_coordinates: 9 });
   const members = await page.evaluate(() => [
     ...window.GIS_FACILITIES.features.filter(f => f.geometry).map(f => f.properties)
   ].filter(p => p.evacuation_id).map(p => ({ id: p.id, listing: p.evacuation_id })));
@@ -53,11 +51,11 @@ async function residentChecks(page, locale, width) {
     assert.ok(await page.evaluate(id => document.activeElement.gisFeature.properties.id === id, member.id));
   }
   // Load all optional vector record types, then inspect citizen-first details.
-  for (const id of ['roads', 'places', 'barangay-boundaries']) {
+  for (const id of ['roads', 'barangay-boundaries']) {
     await page.evaluate(id => { const input = document.querySelector(`[data-layer-id="${id}"] input`); if (!input.checked) input.click(); }, id);
     await page.waitForFunction(id => document.querySelector(`[data-layer-id="${id}"]`).textContent.includes(document.querySelector('#gis-page').dataset.loaded), {}, id);
   }
-  for (const [layer, query] of [['roads',''], ['places',''], ['barangay-labels','Poblacion'], ['dpwh-projects','']]) {
+  for (const [layer, query] of [['roads',''], ['barangay-labels','Poblacion'], ['dpwh-projects','']]) {
     await page.evaluate(([layer, query]) => {
       const search = document.querySelector('#gis-search'); search.value = query;
        search.dispatchEvent(new Event('input'));

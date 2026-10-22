@@ -40,7 +40,6 @@ function fixture(lang, scenario = "normal") {
   const layers = [layer("barangays", "reference", { data_key: "GIS_BARANGAYS" }),
     layer("facilities", "inline-geojson", { data_key: "GIS_FACILITIES", semantic_role: "facility", visible_by_default: true }),
     layer("roads", "geojson", { url: "assets/gis/roads.geojson" }),
-    layer("places", "geojson", { url: "assets/gis/places.geojson" }),
     layer("anchors", "geojson", { url: "assets/gis/anchors.geojson", semantic_role: "label_anchor" }),
     layer("raster", "raster-image-overlay", { images: [{ url: "assets/gis/map.png", bounds }], source_date: "2021-12-15", attribution: malicious,
       limitations: [malicious], legend: [{ color: "#c80", label: { en: "Class A", fil: "Klase A", pag: "Klase A" } }] }),
@@ -348,7 +347,7 @@ async function main() {
       }
       const geometries = {
         roads: { type: "LineString", coordinates: [[120.44, 16.02], [120.46, 16.04]] },
-        places: { type: "Polygon", coordinates: [[[120.44, 16.02], [120.46, 16.02], [120.46, 16.04], [120.44, 16.02]]] },
+        boundary: { type: "Polygon", coordinates: [[[120.44, 16.02], [120.46, 16.02], [120.46, 16.04], [120.44, 16.02]]] },
         anchors: { type: "Point", coordinates: [120.45, 16.03] },
       };
       if (pathname === "/assets/gis/dpwh.geojson") {
@@ -364,11 +363,11 @@ async function main() {
       }
       if (/^\/assets\/gis\/(boundaries|coarse)\.geojson$/.test(pathname)) {
         const coarse = pathname.includes("coarse");
-        const rows = [feature(coarse ? "Coarse source name" : "Canonical shape name", geometries.places, { gid: coarse ? "PSGC2" : "PSGC0", source_name: "Different spelling", pop2024: 1656, source_date: "2016", limitations: ["Source geometry only"] }),
-          feature("Unrelated same name", geometries.places, { gid: "PSGC_OTHER" })];
+        const rows = [feature(coarse ? "Coarse source name" : "Canonical shape name", geometries.boundary, { gid: coarse ? "PSGC2" : "PSGC0", source_name: "Different spelling", pop2024: 1656, source_date: "2016", limitations: ["Source geometry only"] }),
+          feature("Unrelated same name", geometries.boundary, { gid: "PSGC_OTHER" })];
         res.setHeader("content-type", "application/json"); setTimeout(() => res.end(JSON.stringify(fc(rows))), 100); return;
       }
-      const key = pathname.match(/^\/assets\/gis\/(roads|places|anchors)\.geojson$/);
+      const key = pathname.match(/^\/assets\/gis\/(roads|anchors)\.geojson$/);
       if (key) { res.setHeader("content-type", "application/json"); setTimeout(() => res.end(JSON.stringify(fc([feature(key[1], geometries[key[1]])]))), 150); return; }
     }
     let file = path.resolve(baseRoot, "." + pathname);
@@ -500,7 +499,7 @@ async function main() {
           await page.$eval("#gis-search", el => { el.value = ""; el.dispatchEvent(new Event("input")); });
           const initial = await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.views]);
           await click(page, "#gis-layers-tab");
-          for (const id of ["roads", "places", "anchors", "raster", "broken", "broken-image"]) {
+          for (const id of ["roads", "anchors", "raster", "broken", "broken-image"]) {
             const checkbox = await page.evaluateHandle(id => {
               return document.querySelector(`[data-layer-id="${id}"] input[type="checkbox"]`);
             }, id);
@@ -509,10 +508,10 @@ async function main() {
             if (id === "roads") assert.equal(await page.$eval('[data-layer-id="roads"] small', el => el.textContent), locale.loading);
           }
           await page.waitForFunction(() => [...document.querySelectorAll(".gis-layer small")].filter(el => el.textContent === document.getElementById("gis-page").dataset.layerError).length >= 3);
-          await page.waitForFunction(() => window.__gisTest.vectors >= 2 && document.querySelector('[data-layer-id="anchors"] small').textContent === document.getElementById("gis-page").dataset.loaded);
+          await page.waitForFunction(() => window.__gisTest.vectors >= 1 && document.querySelector('[data-layer-id="anchors"] small').textContent === document.getElementById("gis-page").dataset.loaded);
           assert.deepEqual(await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.views]), initial);
           assert.equal(await page.$eval("#gis-legend", el => !el.hidden), true);
-          assert.ok(await page.evaluate(() => window.__gisTest.vectors >= 2));
+          assert.ok(await page.evaluate(() => window.__gisTest.vectors >= 1));
           await click(page, "#gis-explore-tab");
           await page.$eval("#gis-search", el => { el.value = "anchors"; el.dispatchEvent(new Event("input")); });
           const before = await page.evaluate(() => window.__gisTest.pans);
@@ -582,7 +581,6 @@ async function main() {
            assert.equal(await page.$('[data-layer-id="other-records"]'), null, "Legacy references never become interactive rows");
         } else if (scenario === "empty") {
           assert.equal(await page.$eval("#gis-facility-empty", el => !el.hidden), true);
-          assert.equal(await page.$eval("#gis-marker-count", el => el.textContent), "0");
         } else if (scenario === "fallback") {
           assert.equal(await page.$$eval("#gis-map .gis-test-marker", markers => markers.length), 15, "Circle fallback markers attach to their group");
           await page.focus("#gis-map .gis-test-marker"); await page.keyboard.press("Enter");

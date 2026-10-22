@@ -266,10 +266,6 @@
     }
     function announce(key) { node("map-status").textContent = text(key); }
     node("workspace").hidden = false;
-    if (meta.evacuation_counts) {
-      var counts = meta.evacuation_counts;
-      el("p", text("counts") + ": " + [counts.listings, counts.spatial_locations, counts.unresolved_listings, counts.unique_coordinates].join(" / "), node("explore-panel"));
-    }
     function activateTab(id, focus) {
       ["explore", "layers"].forEach(function (key) {
         var active = key === id, tab = node(key + "-tab");
@@ -798,7 +794,6 @@
             if (l.type === "reference") s.features = s.features.map(function (f) { return { type: "Feature", properties: f.properties, geometry: null }; });
             s.pointGroups = exactGroups(s.features); s.overlay = vector(s);
             if (l.data_key === "GIS_FACILITIES") {
-              if (node("marker-count")) node("marker-count").textContent = String(s.overlay ? s.pointGroups.size : 0);
                if (node("facility-empty")) node("facility-empty").hidden = s.features.length !== 0;
             }
           }
