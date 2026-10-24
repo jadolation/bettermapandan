@@ -47,18 +47,35 @@ def reference_bundle():
     available = {f["properties"]["pattern_id"] for f in shapes}
     legs = {leg["id"]: leg for leg in data["transport/routes.json"]["legs"]}
     fare_index = {f["id"]: f for f in fares}
-    catalog = [{**{k: r[k] for k in ("id", "vehicle_type", "origin_id", "destination_id", "directions", "explanation_key", "transfer_count") if k in r}, "routing_eligible": False,
+    catalog = [{**{k: r[k] for k in ("id", "vehicle_type", "origin_id", "destination_id", "directions", "explanation_key", "subtitle_key", "transfer_count") if k in r}, "routing_eligible": False,
                 "legs": [{**legs[i], "fare": {k: fare_index[legs[i]["fare_id"]].get(k) for k in ("amount", "rate_kind", "source_type")}} for i in r["leg_ids"]]}
-               for r in data["transport/routes.json"]["routes"]]
+               for r in data["transport/routes.json"]["routes"] if r.get("public_catalog", True)]
     for route in catalog:
         route["fare_summary"] = reported_fare_summary(route["legs"])
     modes = {"place-guam-pickup": "tricycle", "place-manaoag-waiting": "minibus",
+             "place-town-plaza": "tricycle", "place-firetree-roundabout-manaoag": "minibus",
+             "place-tuliao-jeep": "jeepney", "place-tuliao-tricycle": "tricycle",
              "place-meditek-manaoag": "minibus", "place-sm-entry": "minibus",
              "place-calasiao": "jeepney", "place-sta-barbara": "tricycle",
              "place-border-arch": "transfer", "place-gmt-tuliao": "transfer"}
     observations = [{"type": "Feature", "id": p["id"], "geometry": p["geometry"],
                      "properties": {"id": p["id"], "name": p["name"], "transport_type": modes[p["id"]], "fares": [], "observed_only": True}}
                     for p in data["transport/named_places.json"]["places"] if p["id"] in modes and p.get("geometry")]
+    # Explicit source observations for each reported leg, never nearest-place inference.
+    leg_places = {
+        "leg-manaoag": ["place-firetree-roundabout-manaoag", "place-manaoag-waiting"],
+        "leg-manaoag-sm": ["place-meditek-manaoag", "place-sm-entry"],
+        "leg-guam": ["place-guam-pickup", "place-town-plaza"],
+        "leg-border-arch": ["place-border-arch"],
+        "leg-tuliao": ["place-border-arch", "place-gmt-tuliao"],
+        "leg-calasiao": ["place-tuliao-jeep", "place-calasiao"],
+        "leg-sta-barbara": ["place-tuliao-tricycle", "place-sta-barbara"],
+    }
+    spatial_ids = {f["id"] for f in features + observations}
+    for route in catalog:
+        ids = [route["origin_id"], route["destination_id"]]
+        ids += [place for leg in route["legs"] for place in leg_places.get(leg["id"], [])]
+        route["marker_ids"] = list(dict.fromkeys(i for i in ids if i in spatial_ids))
     return {"schema_version": 4, "features": features, "observations": observations, "shapes": shapes, "catalog": catalog, "patterns": [{"id": p["id"], "name": p["name"], "classification": p["classification"], "available": p["id"] in available} for p in data["transport/route_waypoints.json"]["patterns"] if p["classification"] == "passenger_candidate"]}
 
 
@@ -103,7 +120,10 @@ def commuter_placeholders(locale):
         if not summary["complete"]:
             fares += " + " + labels["unknown_fare"]
         alternate = '<p>' + escape(labels["alternate_driving"]) + '</p>' if any(leg.get("alternate_driving_note_minutes") for leg in route["legs"]) else ''
+        subtitle = '<p class="route-subtitle"><small>' + escape(labels[route["subtitle_key"]]) + '</small></p>' if route.get("subtitle_key") else ''
         routes.append('<fieldset class="passenger-geometry" data-route="' + escape(route["id"]) + '" data-type="' + escape(route["vehicle_type"]) + '"><legend>' + escape(labels[route["id"]]) + '</legend><p class="fare-summary">' + escape(fares) + '</p><details><summary>' + escape(labels["trip_details"]) + '</summary>' + explanation + '<ul>' + ''.join(rows) + '</ul>' + alternate + '<p>' + escape(labels["waiting_unknown"]) + '</p><p>' + escape(labels["fare_caveat"]) + '</p>' + ('<p>' + escape(labels["return_unconfirmed"]) + '</p>' if len(route["directions"]) > 1 else '') + '</details></fieldset>')
+        if subtitle:
+            routes[-1] = routes[-1].replace('</legend>', '</legend>' + subtitle, 1)
     return {"COMMUTER_DIRECTORY": "".join(cards),
             "COMMUTER_ROUTES": "".join(routes),
             "COMMUTER_DATA": script_json({**bundle, "labels": labels}),

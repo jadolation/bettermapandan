@@ -225,6 +225,8 @@ SCHEMAS = {
                         "id": {"type": "string"},
                         "name": {"type": "string"},
                         "public_signboard_text": {"type": ["string", "null"]},
+                        "public_catalog": {"type": "boolean", "description": "Whether this reference is offered as a public selectable journey; omitted means visible."},
+                        "subtitle_key": {"type": "string"},
                         "vehicle_type": {"type": "string"},
                         "origin_id": {"type": "string"},
                         "destination_id": {"type": "string"},

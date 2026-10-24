@@ -12,21 +12,123 @@ const root = path.resolve(process.argv[rootIndex + 1]);
 const originalMarkers = ['terminals.geojson', 'tricycle_stands.geojson'].flatMap(name =>
   JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/data/transport', name), 'utf8')).features
 ).map(feature => [feature.id, feature.geometry.coordinates]);
-const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/data/transport/routes.json'), 'utf8')).routes;
+const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/data/transport/routes.json'), 'utf8')).routes.filter(route => route.public_catalog !== false);
 const newDistances = { 'mini-mapandan-manaoag': 6784, 'mini-manaoag-mapandan': 6928.5, 'tri-guam-mapandan': 7733.8, 'tri-mapandan-guam': 7633, 'jeep-tuliao-calasiao': 5536.1, 'tri-tuliao-sta-barbara': 767.2, 'mini-manaoag-sm': 13773 };
 const generatedShapes = JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/data/transport/route_shapes.geojson'), 'utf8')).features;
 async function assertCurrentLineFits(page, count) {
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  if (await page.$eval('#commuter-sheet', el => el.dataset.state === 'expanded' && innerWidth < 900)) return;
   assert.ok(await page.evaluate(count => {
     const map = document.querySelector('#commuter-map').getBoundingClientRect();
     const sheet = document.querySelector('#commuter-sheet').getBoundingClientRect();
     const header = document.querySelector('.commuter-hero').getBoundingClientRect();
-    const left = innerWidth >= 900 && document.querySelector('#commuter-sheet').dataset.state !== 'collapsed' ? sheet.right : map.left;
-    const bottom = innerWidth >= 900 ? map.bottom : sheet.top;
+    const hidden = document.querySelector('#commuter-sheet').dataset.state === 'hidden';
+    const left = innerWidth >= 900 && !hidden ? sheet.right : map.left;
+    const bottom = innerWidth >= 900 || hidden ? map.bottom - 52 : sheet.top;
     return Array.from(document.querySelectorAll('#commuter-map path.leaflet-interactive')).every(path => {
       const rect = path.getBoundingClientRect();
       return rect.left >= left - 2 && rect.right <= map.right + 2 && rect.top >= header.bottom - 2 && rect.bottom <= bottom + 2;
     });
-  }, count), 'the selected actual direction fits the map');
+  }, count), 'the selected actual direction fits the map: ' + JSON.stringify(await page.evaluate(() => ({
+    width: innerWidth, zoom: window.__commuterMap.getZoom(),
+    map: document.querySelector('#commuter-map').getBoundingClientRect().toJSON(),
+    sheet: document.querySelector('#commuter-sheet').getBoundingClientRect().toJSON(),
+    paths: Array.from(document.querySelectorAll('#commuter-map path.leaflet-interactive')).map(el => el.getBoundingClientRect().toJSON())
+  }))));
+}
+async function openSheet(page) {
+  if (await page.$eval('#commuter-sheet', el => el.dataset.state === 'hidden')) await page.click('.sheet-reopen');
+  await page.click('.sheet-sizes [data-sheet-state="half"]');
+}
+async function dragHandle(page, height) {
+  const rect = await page.$eval('.sheet-handle', el => { const r = el.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+  const current = await page.$eval('#commuter-sheet', el => el.getBoundingClientRect().height);
+  await page.mouse.move(rect.x, rect.y);
+  await page.mouse.down();
+  await page.mouse.move(rect.x, rect.y + current - height, { steps: 12 });
+  await page.mouse.up();
+}
+async function assertZoomGestures(page, mobile) {
+  const runtime = await page.evaluate(() => ({ version: L.version, touch: L.Browser.touch, pointer: L.Browser.pointer, safari: L.Browser.safari,
+    viewport: document.querySelector('meta[name="viewport"]').content }));
+  assert.equal(runtime.version, '1.9.4');
+  assert.ok(!/user-scalable\s*=\s*no|maximum-scale/i.test(runtime.viewport));
+  console.log('Gesture runtime:', JSON.stringify(runtime));
+  const point = await page.$eval('#commuter-map', el => {
+    const r = el.getBoundingClientRect();
+    return { x: r.right - Math.min(160, r.width / 2), y: r.top + r.height * .5 };
+  });
+  assert.ok(await page.evaluate(({ x, y }) => document.elementFromPoint(x, y).closest('#commuter-map') !== null, point), 'gesture reaches map, not overlay');
+  const client = await page.createCDPSession();
+  async function pinch(start, end) {
+    const touches = distance => [-1, 1].map((sign, id) => ({ x: point.x + sign * distance, y: point.y, id: id + 1 }));
+    await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: touches(start) });
+    for (let step = 1; step <= 12; step++) {
+      await client.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: touches(start + (end - start) * step / 12) });
+      await page.evaluate(() => new Promise(requestAnimationFrame));
+    }
+    await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    await page.waitForFunction(() => !window.__commuterMap._animatingZoom && !window.__commuterMap.touchZoom._zooming);
+  }
+  if (mobile) {
+    const original = await page.evaluate(() => ({ center: window.__commuterMap.getCenter(), zoom: window.__commuterMap.getZoom() }));
+    for (const edge of [null, 'min', 'max']) {
+      for (const direction of [1, -1]) {
+        const before = await page.evaluate(({ edge, center }) => {
+          const map = window.__commuterMap;
+          map.setView(center, edge === 'min' ? map.getMinZoom() : edge === 'max' ? map.getMaxZoom() : 12, { animate: false });
+          return map.getZoom();
+        }, { edge, center: original.center });
+        await pinch(50, direction > 0 ? 55 : 50 / 1.1);
+        const settled = await page.evaluate(() => {
+          const map = window.__commuterMap;
+          return { zoom: map.getZoom(), min: map.getMinZoom(), max: map.getMaxZoom(), bounds: map.getBounds().toBBoxString() };
+        });
+        const delta = (settled.zoom - before) * direction;
+        assert.ok(delta >= 0 && delta <= .5, `small native pinch ${edge}/${direction}: ${delta}`);
+        if (!edge) assert.equal(delta, .25, '10% pinch settles to a quarter level in either direction');
+        assert.ok(settled.zoom >= settled.min && settled.zoom <= settled.max, 'pinch release respects zoom limits');
+        await page.evaluate(() => {
+          window.dispatchEvent(new Event('resize'));
+          if (visualViewport) { visualViewport.dispatchEvent(new Event('resize')); visualViewport.dispatchEvent(new Event('scroll')); }
+        });
+        await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 250)));
+        assert.deepEqual(await page.evaluate(() => ({ zoom: window.__commuterMap.getZoom(), bounds: window.__commuterMap.getBounds().toBBoxString() })),
+          { zoom: settled.zoom, bounds: settled.bounds }, 'small pinch zoom and geographic bounds remain stable after release');
+      }
+    }
+    await page.evaluate(({ center, zoom }) => window.__commuterMap.setView(center, zoom, { animate: false }), original);
+  }
+  for (const ctrl of mobile ? [null] : [false, true]) {
+    for (const direction of [1, -1]) {
+      const before = await page.evaluate(() => window.__commuterMap.getZoom());
+      if (mobile) {
+        await pinch(direction > 0 ? 25 : 70, direction > 0 ? 70 : 25);
+      } else {
+        await client.send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: point.x, y: point.y, deltaX: 0, deltaY: -direction * 160, modifiers: ctrl ? 2 : 0 });
+      }
+      await page.waitForFunction(({ before, direction }) => (window.__commuterMap.getZoom() - before) * direction > .5, { timeout: 3000 }, { before, direction });
+      await page.waitForFunction(() => !window.__commuterMap._animatingZoom && !window.__commuterMap.touchZoom._zooming);
+      const after = await page.evaluate(() => window.__commuterMap.getZoom());
+      await page.evaluate(() => {
+        window.dispatchEvent(new Event('resize'));
+        if (visualViewport) { visualViewport.dispatchEvent(new Event('resize')); visualViewport.dispatchEvent(new Event('scroll')); }
+      });
+      await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 250)));
+      assert.equal(await page.evaluate(() => window.__commuterMap.getZoom()), after, 'completed zoom survives viewport events');
+    }
+  }
+  assert.deepEqual(await page.evaluate(() => {
+    const options = window.__commuterMap.options;
+    return [options.zoomSnap, options.zoomDelta, options.wheelPxPerZoomLevel, options.wheelDebounceTime];
+  }), [.25, 1, 60, 40], 'only snap spacing changes; button and wheel tuning retain Leaflet defaults');
+  for (const direction of [1, -1]) {
+    const before = await page.evaluate(() => window.__commuterMap.getZoom());
+    await page.click(direction > 0 ? '.leaflet-control-zoom-in' : '.leaflet-control-zoom-out');
+    await page.waitForFunction(() => !window.__commuterMap._animatingZoom);
+    assert.equal(await page.evaluate(() => window.__commuterMap.getZoom()), before + direction, 'zoom buttons still move exactly one level');
+  }
+  await client.detach();
 }
 async function main() {
   const library = {};
@@ -57,7 +159,7 @@ async function main() {
           const errors = [];
           let tileRequests = 0;
           page.on('pageerror', error => errors.push(error.message));
-          await page.setViewport({ width, height: 900 });
+          await page.setViewport({ width, height: 900, isMobile: width < 900, hasTouch: width < 900 });
           await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
           if (mode === 'no-js') await page.setJavaScriptEnabled(false);
           await page.setRequestInterception(true);
@@ -73,6 +175,9 @@ async function main() {
               return req.respond({ contentType: 'image/png', body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNQK7j0HwAEkAJo39+DWAAAAABJRU5ErkJggg==', 'base64') });
             }
             if (req.url().startsWith(origin)) {
+              if (new URL(req.url()).pathname.endsWith('/assets/commuter-map.min.js')) {
+                return req.respond({ contentType: 'text/javascript', body: 'if (window.L) L.Map.addInitHook(function () { window.__commuterMap = this; });\n' + fs.readFileSync(path.join(root, 'assets/commuter-map.min.js'), 'utf8') });
+              }
               if (['shape-fixture', 'partial-shapes', 'no-shapes'].includes(mode) && new URL(req.url()).pathname.endsWith('/commuter/')) {
                 const localeRoot = lang === 'en' ? '' : lang;
                 let html = fs.readFileSync(path.join(root, localeRoot, 'commuter/index.html'), 'utf8');
@@ -97,7 +202,9 @@ async function main() {
           await page.goto(`${origin}/${lang === 'en' ? '' : lang + '/'}commuter/`, { waitUntil: 'networkidle0' });
           assert.equal(await page.$$eval('main', els => els.length), 1);
           assert.equal(await page.$$eval('.transport-card', els => els.length), 7);
-           assert.equal(await page.$$eval('#commuter-lines fieldset', els => els.length), catalog.length);
+            assert.equal(await page.$$eval('#commuter-lines fieldset', els => els.length), catalog.length);
+           assert.equal(await page.$$eval('[data-route="manaoag-sm-minibus"]', els => els.length), 0);
+           assert.equal(await page.$$eval('[data-route="mapandan-manaoag-sm-multileg"]', els => els.length), 1);
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${lang} ${width} ${mode}: overflow`);
           assert.equal(await page.$eval('#commuter-page', el => /\{C_|\{COMMUTER_/.test(el.textContent)), false);
           if (mode === 'no-js' || mode === 'cdn-failure') {
@@ -108,7 +215,16 @@ async function main() {
             await page.waitForSelector('#commuter-page[data-ready="true"]').catch(error => { throw new Error(`${lang}/${width}/${mode}: ${errors.join('; ')} ${error.message}`); });
             assert.equal(await page.evaluate(() => L.version), '1.9.4');
             const markerCount = await page.$eval('#commuter-data', el => { const d = JSON.parse(el.textContent); return d.features.length + d.observations.length; });
-            assert.equal(await page.$$eval('.transport-marker', els => els.length), markerCount, `${lang}/${width}/${mode}: ${await page.$eval('#commuter-map-status', el => el.textContent)}`);
+            assert.equal(await page.$$eval('.transport-marker', els => els.length), 0, `${lang}/${width}/${mode}: starts without crowded markers`);
+             assert.equal(await page.$eval('#commuter-show-all', el => el.checked), false);
+            await page.waitForSelector('.leaflet-commuter-boundaries-pane path').catch(async error => { throw new Error(`${lang}/${width}/${mode}: boundary ${await page.$eval('#commuter-map', el => el.dataset.boundaryUrl)}; ${errors.join('; ')}; ${error.message}`); });
+            assert.ok(await page.evaluate(() => {
+              const pane = document.querySelector('.leaflet-commuter-boundaries-pane');
+              const map = window.__commuterMap;
+              return getComputedStyle(pane).pointerEvents === 'none' && +pane.style.zIndex < +getComputedStyle(map.getPane('overlayPane')).zIndex &&
+                Array.from(pane.querySelectorAll('path')).every(el => !el.classList.contains('leaflet-interactive')) &&
+                Object.values(map._layers).filter(layer => layer instanceof L.Path && layer.options.pane === 'commuter-boundaries').every(layer => layer.options.interactive === false && layer.options.bubblingMouseEvents === false && !layer.getPopup() && !layer.getTooltip());
+            }), 'local indicative boundaries are visual only below routes');
             assert.ok(tileRequests > 0);
             assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'collapsed');
             assert.ok(await page.$eval('#commuter-map', el => el.clientHeight >= 280));
@@ -141,7 +257,19 @@ async function main() {
             assert.equal(await page.$$eval('.candidate-toggle:checked', els => els.length), 0);
             assert.equal(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.length), 0);
             assert.equal(await page.$$eval('.operational-geometry', els => els.length), 0);
+            await openSheet(page);
+            await page.focus('#commuter-show-all'); await page.keyboard.press('Space');
             assert.equal(await page.$$eval('.transport-marker svg', els => els.length), markerCount);
+            assert.ok(await page.$$eval('.transport-marker', els => els.every(el => {
+              const marker = el.getBoundingClientRect(), svg = el.querySelector('svg').getBoundingClientRect();
+              return marker.width === 44 && marker.height === 44 && svg.width <= 20 && svg.height <= 20 &&
+                Math.abs(marker.x + marker.width / 2 - svg.x - svg.width / 2) < 1 && Math.abs(marker.y + marker.height / 2 - svg.y - svg.height / 2) < 1 && getComputedStyle(el.querySelector('svg')).marginTop === '0px';
+            })), 'actual Leaflet SVG boxes centered in 44px marker hit targets: ' + JSON.stringify(await page.$eval('.transport-marker', el => {
+              const svg = el.querySelector('svg'); const style = getComputedStyle(svg);
+              return { marker: el.getBoundingClientRect().toJSON(), svg: svg.getBoundingClientRect().toJSON(), margin: style.margin, display: style.display, parentDisplay: getComputedStyle(el).display };
+            })));
+            await page.keyboard.press('Space');
+            assert.equal(await page.$$eval('.transport-marker', els => els.length), 0);
             assert.ok(await page.$$eval('.transport-marker', els => els.every(el => el.getAttribute('aria-label') && el.clientWidth >= 40)));
             assert.equal(await page.$$eval('#commuter-lines details[open]', els => els.length), 0);
             for (const state of ['half', 'expanded', 'collapsed', 'half']) {
@@ -160,13 +288,19 @@ async function main() {
             }), 'panel overlays map, not a separate stacked map area');
             let paths = 0;
             const shapeIds = new Set(payload.shapes.map(shape => shape.properties.pattern_id));
-            for (const [index, route] of payload.catalog.entries()) {
+            for (const route of payload.catalog) {
               const selector = `[data-route="${route.id}"]`;
               const id = route.directions[0].join('+');
               const count = route.directions[0].filter(id => shapeIds.has(id)).length;
-              const swappable = route.directions.filter(ids => ids.some(id => shapeIds.has(id))).length > 1;
+              if (route.id === 'mapandan-manaoag-sm-multileg') {
+                assert.deepEqual(route.directions, [['mini-mapandan-manaoag', 'mini-manaoag-sm']]);
+                assert.equal(route.transfer_count, 1);
+                assert.equal(await page.$eval(`${selector} .route-subtitle`, el => el.textContent), payload.labels.via_manaoag);
+                if (mode === 'map') assert.equal(count, 2);
+              }
               assert.equal(await page.$eval(`${selector} input`, el => el.disabled), count === 0);
-              assert.equal(await page.$eval(`${selector} button`, el => el.hidden), !swappable);
+              assert.equal(await page.$$eval(`${selector} button`, els => els.length), 0, 'no direction interchange control');
+              await openSheet(page);
               if (route.vehicle_type === 'multileg') {
                 assert.ok(route.legs.length >= 2);
                 assert.equal(route.transfer_count, route.legs.length - 1);
@@ -197,24 +331,23 @@ async function main() {
               await page.keyboard.press('Space');
               paths += count;
               assert.equal(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.length), paths);
-              assert.equal(await page.$$eval('.transport-marker', els => els.length), markerCount);
+              const expectedMarkers = await page.$$eval('.candidate-toggle:checked', (els, routes) => [...new Set(els.flatMap(el => routes.find(route => route.id === el.closest('fieldset').dataset.route).marker_ids))].sort(), payload.catalog);
+              assert.deepEqual(await page.$$eval('.transport-marker', els => els.map(el => el.dataset.id).sort()), expectedMarkers, 'only explicit selected-route source observations');
+              if (width < 900) {
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'hidden', 'route selection immediately reveals the map');
+                assert.equal(await page.$eval('.sheet-reopen', el => el === document.activeElement), true);
+              }
               await assertCurrentLineFits(page, count);
               assert.ok(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.every(el => el.getAttribute('stroke-dasharray') === '10 7')));
-              if (!swappable) continue;
-              const before = await page.$$eval('#commuter-map path.leaflet-interactive', els => els.map(el => el.getAttribute('d')));
-              const swap = `${selector} input`;
-              await page.$eval(swap, el => el.closest('fieldset').querySelector('button').focus());
-              await page.keyboard.press('Enter');
-              const changed = await page.$eval(`#commuter-lines fieldset:nth-child(${index + 1}) input`, el => el.dataset.pattern);
-              assert.notEqual(changed, id);
-              assert.equal(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.length), paths);
-              const after = await page.$$eval('#commuter-map path.leaflet-interactive', els => els.map(el => el.getAttribute('d')));
-              assert.notDeepEqual(after, before, 'swap selects independently captured direction geometry');
-              await assertCurrentLineFits(page, count);
+              assert.equal(await page.$eval(`${selector} input`, el => el.dataset.pattern), id, 'catalog primary sourced direction, not reversed geometry');
               assert.equal(await page.$eval('#commuter-info-body', el => /snap|OSRM|routing.openstreetmap/i.test(el.textContent)), false);
-              await page.keyboard.press('Enter');
-              assert.equal(await page.$eval(swap, el => el.dataset.pattern), id);
             }
+            if (mode === 'map') {
+              if (await page.$eval('#commuter-sheet', el => el.dataset.state !== 'hidden')) await page.click('[data-sheet-state="hidden"]');
+              await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+              await assertZoomGestures(page, width < 900);
+            }
+            await openSheet(page);
             for (const state of ['expanded', 'collapsed', 'half']) {
               await page.click(`[data-sheet-state="${state}"]`);
               await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
@@ -230,6 +363,8 @@ async function main() {
             await page.keyboard.press('Enter');
             assert.equal(await page.$$eval('.candidate-toggle:checked', els => els.length), 0);
             assert.equal(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.length), 0);
+            assert.equal(await page.$$eval('.transport-marker', els => els.length), 0);
+            await page.focus('#commuter-show-all'); await page.keyboard.press('Space');
             for (const feature of payload.features.concat(payload.observations)) {
               const selector = `.transport-marker[data-id="${feature.properties.id}"]`;
               await page.focus(selector);
@@ -242,21 +377,62 @@ async function main() {
               assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
             }
             await page.select('#commuter-type', 'tricycle');
-            assert.equal(await page.$$eval('.transport-marker', els => els.length), payload.features.concat(payload.observations).filter(f => f.properties.transport_type === 'tricycle').length);
+            const lastFeature = payload.features.concat(payload.observations).at(-1);
+            assert.equal(await page.$$eval('.transport-marker', els => els.length), payload.features.concat(payload.observations).filter(f => f.properties.transport_type === 'tricycle' || f.properties.id === lastFeature.properties.id).length);
             assert.equal(await page.$$eval('.transport-card:not([hidden])', els => els.length), 3);
             await page.focus('#commuter-search'); await page.type('#commuter-search', 'zzzzzz');
-            assert.equal(await page.$$eval('.transport-marker', els => els.length), 0);
+            assert.equal(await page.$$eval('.transport-marker', els => els.length), 1, 'explicit selection remains visible independently of filters');
             await page.focus('#commuter-reset'); await page.keyboard.press('Enter');
-            assert.equal(await page.$$eval('.transport-marker', els => els.length), markerCount);
+            assert.equal(await page.$$eval('.transport-marker', els => els.length), 0);
             await page.$eval('.commuter-directory', el => { el.open = true; });
             await page.focus('.transport-select'); await page.keyboard.press('Enter');
             assert.equal(await page.$eval('#commuter-info', el => el === document.activeElement), true);
+            assert.equal(await page.$$eval('.transport-marker', els => els.length), 1, 'directory selection works with no route or show-all');
             await page.focus('[data-sheet-state="collapsed"]'); await page.keyboard.press('Enter');
             assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'collapsed');
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
             if (mode === 'tile-failure') assert.equal(await page.$eval('#commuter-map-status', el => el.textContent), payload.labels.tiles_failed);
             if (mode === 'map') {
-              await page.setViewport({ width, height: 600 });
+              if (width < 900) {
+                await openSheet(page);
+                const height = await page.$eval('#commuter-page', el => el.clientHeight);
+                await dragHandle(page, height);
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'expanded');
+                const scroll = await page.$eval('#commuter-sheet-body', el => { el.scrollTop = 0; return { x: el.getBoundingClientRect().x + 30, y: el.getBoundingClientRect().y + 100 }; });
+                await page.mouse.move(scroll.x, scroll.y); await page.mouse.wheel({ deltaY: 250 });
+                await page.waitForFunction(() => document.querySelector('#commuter-sheet-body').scrollTop > 0);
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'expanded', 'content scrolling never drags sheet');
+                await dragHandle(page, height * .52);
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
+                await dragHandle(page, 58);
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'collapsed');
+                await dragHandle(page, 0);
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'hidden');
+                await page.focus('.sheet-reopen'); await page.keyboard.press('Enter');
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
+                await page.focus('.sheet-handle'); await page.keyboard.press('ArrowUp');
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'expanded');
+                await page.keyboard.press('Home');
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'hidden');
+                const mapRect = await page.$eval('#commuter-map', el => { const r = el.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });
+                assert.equal(await page.$eval('#commuter-map', el => getComputedStyle(el).touchAction), 'none');
+                assert.notEqual(await page.$eval('body', el => getComputedStyle(el).touchAction), 'none', 'gestures outside map are not blocked');
+                const client = await page.createCDPSession();
+                const zoom = await page.evaluate(() => window.__commuterMap.getZoom());
+                await client.send('Input.synthesizePinchGesture', { x: mapRect.x, y: mapRect.y, scaleFactor: 2, relativeSpeed: 400, gestureSourceType: 'touch' });
+                await page.waitForFunction(zoom => window.__commuterMap.getZoom() > zoom, { timeout: 3000 }, zoom);
+                const center = await page.evaluate(() => window.__commuterMap.getCenter().lng);
+                await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: mapRect.x, y: mapRect.y, id: 1 }] });
+                for (let step = 1; step <= 10; step++) {
+                  await client.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: mapRect.x - step * 7, y: mapRect.y, id: 1 }] });
+                  await page.evaluate(() => new Promise(requestAnimationFrame));
+                }
+                await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+                await page.waitForFunction(lng => Math.abs(window.__commuterMap.getCenter().lng - lng) > .00001, { timeout: 3000 }, center).catch(async error => { throw new Error(`${lang}/${width}: touch drag; ${JSON.stringify(await page.evaluate(() => ({ touch: L.Browser.touch, pointer: L.Browser.pointer, dragging: window.__commuterMap.dragging.enabled(), center: window.__commuterMap.getCenter() })))} ${error.message}`); });
+                await client.detach();
+                await page.click('.sheet-reopen');
+              }
+              await page.setViewport({ width, height: 600, isMobile: width < 900, hasTouch: width < 900 });
               await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
               assert.ok(await page.evaluate(() => document.querySelector('#commuter-page').getBoundingClientRect().bottom <= visualViewport.height + 1), 'dynamic viewport resize remains within available viewport');
               await page.click('[data-sheet-state="expanded"]');
@@ -272,7 +448,7 @@ async function main() {
         }
       }
     }
-    console.log('Commuter exact-artifact: 3 locales x 4 widths x 7 modes passed (actual Leaflet; dynamic catalog, overlay states/padding, accessible symbols, scoped fares, independent directions, partial/missing geometry, captured fixtures).');
+    console.log('Commuter exact-artifact: 3 locales x 4 widths x 7 modes passed (actual Leaflet; source marker subsets, show-all/reset, centered 44px targets, handle drag/scroll/keyboard, hidden/reopen, native CDP touch pinch/drag, visual local boundaries, route fit, fares, primary sourced directions, partial/missing geometry).');
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));

@@ -371,6 +371,9 @@ def test_commuter_locales_and_static_directory():
         assert "PHP 10-15" in html and "PHP 20-25" in html
         public = json.loads(commuter_placeholders(locale)["COMMUTER_DATA"])
         assert "mini-dagupan-turnaround" not in public["labels"]
+        assert "swap" not in public["labels"]
+        assert all(key in public["labels"] for key in (
+            "show_all_places", "sheet_hide", "sheet_show", "sheet_drag", "boundary_note"))
         for key in ("intro", "candidate_warning", "hint", "fallback", "loading", "ready", "tiles_failed", "unavailable"):
             text = public["labels"][key]
             assert len(text.split()) <= 14
@@ -380,6 +383,52 @@ def test_commuter_locales_and_static_directory():
 def reference_catalog():
     from _build.transport.compiler import reference_bundle
     return reference_bundle()["catalog"]
+
+
+def test_public_sm_journey_preserves_two_source_legs():
+    from _build.locales import load_locale
+    from _build.transport.compiler import commuter_placeholders, reference_bundle
+    bundle = reference_bundle()
+    catalog = {r["id"]: r for r in bundle["catalog"]}
+    assert "manaoag-sm-minibus" not in catalog
+    route = catalog["mapandan-manaoag-sm-multileg"]
+    assert route["directions"] == [["mini-mapandan-manaoag", "mini-manaoag-sm"]]
+    assert route["transfer_count"] == 1 and len(route["legs"]) == 2
+    assert [(leg["fare"]["amount"]["min"], leg["fare"]["amount"]["max"]) for leg in route["legs"]] == [(15, 20), (30, 40)]
+    assert catalog["mapandan-manaoag-minibus"]["fare_summary"]["amount"] == {"min": 15, "max": 20, "currency": "PHP"}
+    original = {f["properties"]["pattern_id"]: f for f in load_file("route_shapes.geojson")["features"]}
+    for pattern in route["directions"][0]:
+        assert next(f for f in bundle["shapes"] if f["properties"]["pattern_id"] == pattern)["geometry"] == original[pattern]["geometry"]
+    for lang in ("en", "fil", "pag"):
+        locale = load_locale(lang)
+        html = commuter_placeholders(locale)["COMMUTER_ROUTES"]
+        assert 'data-route="manaoag-sm-minibus"' not in html
+        assert html.count('data-route="mapandan-manaoag-sm-multileg"') == 1
+        assert "Mapandan -&gt; SM Urdaneta" in html
+        assert locale["commuter"]["via_manaoag"] in html
+        assert len(locale["commuter"]["via_manaoag"].split()) <= 9
+        assert "PHP 45-60" in html
+
+
+def test_explicit_route_marker_subsets_preserve_source_observations():
+    from _build.transport.compiler import reference_bundle
+    bundle = reference_bundle()
+    features = {f["id"]: f for f in bundle["features"] + bundle["observations"]}
+    catalog = {r["id"]: r for r in bundle["catalog"]}
+    assert catalog["mapandan-dagupan-minibus"]["marker_ids"] == ["term-mini-mapandan", "term-mini-dagupan"]
+    assert set(catalog["mapandan-manaoag-sm-multileg"]["marker_ids"]) == {
+        "place-firetree-roundabout-manaoag", "place-manaoag-waiting", "place-meditek-manaoag", "place-sm-entry"}
+    assert "place-tuliao-jeep" in catalog["mapandan-calasiao-multileg"]["marker_ids"]
+    assert "place-tuliao-tricycle" not in catalog["mapandan-calasiao-multileg"]["marker_ids"]
+    assert "place-tuliao-tricycle" in catalog["mapandan-sta-barbara-multileg"]["marker_ids"]
+    assert "place-tuliao-jeep" not in catalog["mapandan-sta-barbara-multileg"]["marker_ids"]
+    source_places = {p["id"]: p for p in load_file("named_places.json")["places"]}
+    for feature in bundle["observations"]:
+        assert feature["geometry"] == source_places[feature["id"]]["geometry"]
+    for route in catalog.values():
+        assert 0 < len(route["marker_ids"]) < len(features)
+        assert all(i in features for i in route["marker_ids"])
+        assert not {"place-peoples-park", "place-phome"}.intersection(route["marker_ids"])
 
 
 def test_scoped_reported_totals_and_unknown_final_fare():

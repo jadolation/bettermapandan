@@ -1,4 +1,13 @@
 [
+  {"key":"commuter.boundary_note","english":"Indicative boundaries: local BgySubMuns source; PSA identities. Not surveyed/legal boundaries.","filipino":"Indikatibong hangganan: lokal na BgySubMuns; pagkakakilanlan mula sa PSA. Hindi sinukat/legal na hangganan.","pangasinan":"Indikatibo ya ketegan: lokal ya BgySubMuns; identidad manlapud PSA. Aliwan nasukat/legal ya ketegan.","pangasinan_status":"review_required"},
+  {"key":"commuter.show_all_places","english":"Show all places","filipino":"Ipakita ang lahat ng lugar","pangasinan":"Ipatnag so amin ya pasen","pangasinan_status":"review_required"},
+  {"key":"commuter.sheet_hide","english":"Hide panel","filipino":"Itago ang panel","pangasinan":"Iyamot so panel","pangasinan_status":"review_required"},
+  {"key":"commuter.sheet_show","english":"Show routes and places","filipino":"Ipakita ang mga ruta at lugar","pangasinan":"Ipatnag saray ruta tan pasen","pangasinan_status":"review_required"},
+  {"key":"commuter.sheet_drag","english":"Drag panel; use arrow keys to resize","filipino":"I-drag ang panel; gamitin ang mga arrow key para baguhin ang laki","pangasinan":"Iguyod so panel; usaren saray arrow key pianuman so kadakkel","pangasinan_status":"review_required"},
+  {"key":"commuter.place-town-plaza","english":"Town Plaza observation","filipino":"Obserbasyon sa Town Plaza","pangasinan":"Obserbasyon ed Town Plaza","pangasinan_status":"review_required"},
+  {"key":"commuter.place-firetree-roundabout-manaoag","english":"Firetree roundabout observation","filipino":"Obserbasyon sa rotondang Firetree","pangasinan":"Obserbasyon ed rotondan Firetree","pangasinan_status":"review_required"},
+  {"key":"commuter.place-tuliao-jeep","english":"Tuliao jeepney observation","filipino":"Obserbasyon ng dyip sa Tuliao","pangasinan":"Obserbasyon na dyip ed Tuliao","pangasinan_status":"review_required"},
+  {"key":"commuter.place-tuliao-tricycle","english":"Tuliao tricycle observation","filipino":"Obserbasyon ng traysikel sa Tuliao","pangasinan":"Obserbasyon na traysikel ed Tuliao","pangasinan_status":"review_required"},
   {"key":"commuter.place-guam-pickup","english":"Guam pickup observation","filipino":"Obserbasyon ng sakayan sa Guam","pangasinan":"Obserbasyon na sakayan ed Guam","pangasinan_status":"review_required"},
   {"key":"commuter.place-manaoag-waiting","english":"Manaoag waiting observation","filipino":"Obserbasyon ng hintayan sa Manaoag","pangasinan":"Obserbasyon na alagaran ed Manaoag","pangasinan_status":"review_required"},
   {"key":"commuter.place-meditek-manaoag","english":"Meditek Manaoag observation","filipino":"Obserbasyon sa Meditek Manaoag","pangasinan":"Obserbasyon ed Meditek Manaoag","pangasinan_status":"review_required"},
@@ -23,7 +32,8 @@
   {"key":"commuter.transfer","english":"Transfer observation","filipino":"Obserbasyon ng lipatan","pangasinan":"Obserbasyon na lipatan","pangasinan_status":"review_required"},
   {"key":"commuter.multileg","english":"Multiple rides","filipino":"Maramihang sakay","pangasinan":"Dakdakel ya sakay","pangasinan_status":"review_required"},
   {"key":"commuter.manaoag-sm-minibus","english":"Manaoag - SM City Urdaneta approach","filipino":"Manaoag - lapit sa SM City Urdaneta","pangasinan":"Manaoag - asingger ed SM City Urdaneta","pangasinan_status":"review_required"},
-  {"key":"commuter.mapandan-manaoag-sm-multileg","english":"Mapandan - Manaoag - SM approach (2 rides)","filipino":"Mapandan - Manaoag - lapit sa SM (2 sakay)","pangasinan":"Mapandan - Manaoag - asingger ed SM (2 sakay)","pangasinan_status":"review_required"},
+  {"key":"commuter.mapandan-manaoag-sm-multileg","english":"Mapandan -> SM Urdaneta","filipino":"Mapandan -> SM Urdaneta","pangasinan":"Mapandan -> SM Urdaneta","pangasinan_status":"review_required"},
+  {"key":"commuter.via_manaoag","english":"Via Manaoag · 2 rides, 1 transfer","filipino":"Via Manaoag · 2 sakay, 1 lipat","pangasinan":"Via Manaoag · 2 sakay, 1 alis","pangasinan_status":"review_required"},
   {"key":"commuter.mini-manaoag-sm","english":"Manaoag to SM entry approach","filipino":"Manaoag papuntang liko sa pasukan ng SM","pangasinan":"Manaoag pa-liko ed loob na SM","pangasinan_status":"review_required"},
   {
     "key": "commuter.partial_park",
