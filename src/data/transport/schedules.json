@@ -1,0 +1,7 @@
+{
+  "$schema": "/schemas/transport-schedules.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "schedules": [],
+  "notes": "No verified timetables, headways, operating hours, or calendar data exist for any route. Empty array is valid for V0. Service status is fill_and_go with unknown waiting bounds."
+}

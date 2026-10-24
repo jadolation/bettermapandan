@@ -170,6 +170,11 @@ def _process_static_page(
             "GIS_BARANGAY_COUNT": str(len(barangays["features"])),
         }
         body = re.sub(r"\{(GIS_[A-Z_]+)\}", lambda match: replacements.get(match[1], match[0]), body)
+    if rel.name == "commuter.html":
+        from _build.transport.compiler import commuter_placeholders
+        replacements = commuter_placeholders(locale)
+        body = re.sub(r"\{(COMMUTER_[A-Z_]+|C_[A-Z_]+)\}",
+                      lambda match: replacements.get(match[1], match[0]), body)
     body = translate_html_fragment(body, lang_code)
     page_url = f"{lang_code}/{rel}" if lang_code != "en" else str(rel)
     breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)

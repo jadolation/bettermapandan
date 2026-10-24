@@ -20,6 +20,7 @@ PUBLIC_DATA = {
     "data/entity-bids.json", "data/entity-contracts.json", "data/entity-projects.json",
     "data/entity-relationships.json", "data/fund-index.json", "data/project-index.json",
     "data/transparency-csv.json",
+    "data/transport-reference.min.json",
 }
 MEDIA_DIRS = {"barangay-council", "citizens-charter", "history", "logos", "officials", "projects"}
 MEDIA_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".ico"}

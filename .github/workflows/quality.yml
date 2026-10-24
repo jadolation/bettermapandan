@@ -64,6 +64,8 @@ jobs:
           npm install --no-save --package-lock=false esbuild@0.28.2
       - name: Python regressions (includes Node wrapper)
         run: PYTHONDONTWRITEBYTECODE=1 python -B -m pytest -p no:cacheprovider tests/ -q
+      - name: Commuter transport data validation
+        run: python -B -c "from _build.transport.validation import validate_transport_data; errors = validate_transport_data(); assert not errors, errors"
       - name: Explicit JavaScript runtime suite
         run: node --test tests/gis-runtime.cjs
       - name: Check locale parity
@@ -84,6 +86,7 @@ jobs:
           node tests/browser/gis-explorer.cjs --fixtures
           node tests/browser/gis-explorer.cjs --root "$PWD/_site"
           node tests/browser/gis-weather.cjs --root "$PWD/_site"
+          node tests/browser/commuter.cjs --root "$PWD/_site"
       - name: Check oversized graphics in exact artifact
         run: |
           LARGE_FILES=$(find _site -type f -name '*.svg' -size +100k | grep -v '/assets/logo.svg' | grep -v '/assets/logo-no-white.svg' | grep -v '/assets/municipal-seal.svg' | grep -v '/assets/Pandan.svg' || true)

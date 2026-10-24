@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_type": "maintainer_provided",
+  "transcription_date": "2026-10-24",
+  "verification_status": "unverified",
+  "waypoint_names": {
+    "mini-mapandan-dagupan-outbound": ["Mapandan minibus terminal observation", "Minibus corridor observation 2", "Minibus corridor observation 3", "Minibus connecting-road observation", "Minibus Mangaldan corridor observation", "Updated Dagupan minibus terminal observation"],
+    "jeep-mangaldan-mapandan": ["Mangaldan jeepney terminal observation", "Mangaldan jeepney approach observation", "Jeepney connecting-road observation", "Jeepney corridor observation 4", "Mapandan jeepney approach observation", "Mapandan jeepney terminal rounded observation (marker precision retained)"],
+    "mini-dagupan-turnaround": ["First operational observation (no terminal connection asserted)", "Second operational observation", "Last operational observation (no closure asserted)"]
+  },
+  "patterns": [
+    {"id":"mini-mapandan-dagupan-outbound","name":"Minibus Mapandan to Dagupan","classification":"passenger_candidate","coordinates":[[120.4524166667,16.0265833333],[120.4491819019,16.0250880237],[120.4376189239,16.0293927585],[120.4191474325,16.0271981994],[120.4047449384,16.0653463241],[120.3437554808,16.0465670984]]},
+    {"id":"mini-dagupan-mapandan-return","name":"Minibus Dagupan to Mapandan","classification":"passenger_candidate","reverse_of":"mini-mapandan-dagupan-outbound"},
+    {"id":"jeep-mangaldan-mapandan","name":"Jeepney Mangaldan to Mapandan","classification":"passenger_candidate","coordinates":[[120.404355,16.065126],[120.4044767783,16.0649723099],[120.4192153537,16.0271571236],[120.4376495926,16.0292824117],[120.4515330510,16.0258928762],[120.4509084249,16.0259562867]]},
+    {"id":"jeep-mapandan-mangaldan","name":"Jeepney Mapandan to Mangaldan","classification":"passenger_candidate","reverse_of":"jeep-mangaldan-mapandan"},
+    {"id":"mini-dagupan-turnaround","name":"Dagupan operational movement (not passenger service)","classification":"operational_vehicle_movement","coordinates":[[120.3410895480,16.0452133745],[120.3444406265,16.0431885659],[120.3431491750,16.0459317217]]}
+  ]
+}

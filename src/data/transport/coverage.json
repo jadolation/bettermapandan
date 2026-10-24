@@ -1,0 +1,64 @@
+{
+  "$schema": "/schemas/transport-coverage.schema.json",
+  "schema_version": 1,
+  "as_of": "2026-10-24",
+  "description": "Candidate road geometry display available, initially off. Verified passenger routing coverage remains absent. Engine distances are not observed transit times. Jeepney geometry is withheld for ambiguous Mangaldan snapping.",
+  "supported_corridors": [
+    {
+      "id": "mapandan-dagupan-minibus",
+      "mode": "minibus",
+      "origin_id": "term-mini-mapandan",
+      "destination_id": "term-mini-dagupan",
+      "status": "provisional_reference",
+      "routing_eligible": false,
+      "notes": "Reported corridor only. Direction-specific pattern geometry not yet verified."
+    },
+    {
+      "id": "mapandan-mangaldan-jeepney",
+      "mode": "jeepney",
+      "origin_id": "term-jeep-mapandan",
+      "destination_id": "term-jeep-mangaldan",
+      "status": "provisional_reference",
+      "routing_eligible": false,
+      "notes": "Reported corridor only. Direction-specific pattern geometry not yet verified."
+    }
+  ],
+  "verified_pedestrian_access": {
+    "status": "pending",
+    "notes": "No verified pedestrian connectors have been mapped. Endpoint snapping requires evidenced access surfaces."
+  },
+  "supported_tricycle_areas": {
+    "status": "pending",
+    "notes": "Three user-supplied tricycle stands exist but TODA service areas and operating rules are not yet verified."
+  },
+  "unsupported_areas": [
+    {
+      "name": "Full Pangasinan",
+      "reason": "Coverage explicitly limited to the initial Mapandan-Dagupan and Mapandan-Mangaldan corridors. Do not claim province-wide routing."
+    }
+  ],
+  "supported_optimization_methods": {
+    "status": "pending",
+    "methods": []
+  },
+  "known_source_limitations": [
+    {
+      "source_id": "maintainer-supplied-coordinates",
+      "limitation": "Coordinates are maintainer-provided, not independently field-verified. Position verification is separate from service verification."
+    },
+    {
+      "source_id": "ord-2024-003-fare-ordinance",
+      "limitation": "Passenger fare amounts were not extracted or verified as structured data."
+    },
+    {
+      "source_id": "mtop-service-record",
+      "limitation": "Documents permit process only, not passenger routes, schedules or fares."
+    },
+    {
+      "id": "gis-road-extract",
+      "limitation": "Display-normalized road geometry omits access, foot, oneway, bridge, layer, surface and crossing attributes required for routing. Do not derive the pedestrian graph from the generated GIS road display layer."
+    }
+  ],
+  "last_validated": "2026-10-24",
+  "validation_notes": "V0 phase. No records are routing-enabled. All terminals, stands, patterns and trips are reference-only."
+}

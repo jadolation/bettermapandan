@@ -1,0 +1,48 @@
+{
+  "$schema": "/schemas/transport-operators.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "operators": [
+    {
+      "id": "mapandan-ac-minibus",
+      "name": "Mapandan air-conditioned minibus operator",
+      "transport_type": "minibus",
+      "todas": [],
+      "verification_status": "unverified",
+      "source_note": "Operator identity inferred from the supplied corridor description. No verified operator or TODA membership confirmed.",
+      "linked_terminal_ids": ["term-mini-mapandan"],
+      "linked_route_ids": ["mapandan-dagupan-minibus"]
+    },
+    {
+      "id": "dagupan-ac-minibus",
+      "name": "Dagupan air-conditioned minibus operator",
+      "transport_type": "minibus",
+      "todas": [],
+      "verification_status": "unverified",
+      "source_note": "Operator identity inferred from the supplied corridor description. No verified operator or TODA membership confirmed.",
+      "linked_terminal_ids": ["term-mini-dagupan"],
+      "linked_route_ids": ["mapandan-dagupan-minibus"]
+    },
+    {
+      "id": "mapandan-traditional-jeepney",
+      "name": "Mapandan traditional jeepney operator",
+      "transport_type": "jeepney",
+      "todas": [],
+      "verification_status": "unverified",
+      "source_note": "Operator identity inferred from the supplied corridor description. No verified operator or TODA membership confirmed.",
+      "linked_terminal_ids": ["term-jeep-mapandan"],
+      "linked_route_ids": ["mapandan-mangaldan-jeepney"]
+    },
+    {
+      "id": "mangaldan-traditional-jeepney",
+      "name": "Mangaldan traditional jeepney operator",
+      "transport_type": "jeepney",
+      "todas": [],
+      "verification_status": "unverified",
+      "source_note": "Operator identity inferred from the supplied corridor description. No verified operator or TODA membership confirmed.",
+      "linked_terminal_ids": ["term-jeep-mangaldan"],
+      "linked_route_ids": ["mapandan-mangaldan-jeepney"]
+    }
+  ],
+  "notes": "No verified TODA membership or operator-specific service areas. Empty or inferred operator records remain non-routable."
+}

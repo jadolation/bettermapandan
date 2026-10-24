@@ -1,0 +1,17 @@
+{
+  "$schema": "/schemas/transport-road-graph.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "type": "FeatureCollection",
+  "features": [],
+  "notes": "Reserved for routing-grade pedestrian road-graph input with preserved topology and access metadata. The display-normalized GIS road layer omits access, foot, oneway, bridge, layer, surface and crossing attributes and is NOT a routing input. Empty array is valid for V0.",
+  "input_policy": [
+    "Use repository-local GIS inputs only (src/data/, datasets/GIS/)",
+    "Reject symlinks and path traversal",
+    "Preserve OSM node identity for intersection detection",
+    "Filter waterways and non-walkable features",
+    "Apply mode-specific access policies; missing access is not permissive",
+    "Do NOT use the display-normalized GIS road layer as a routing input; it omits access metadata required for routing"
+  ],
+  "access_policy": "unknown_access_is_not_permissive"
+}

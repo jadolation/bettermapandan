@@ -1,0 +1,7 @@
+{
+  "$schema": "/schemas/transport-transfer-rules.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "rules": [],
+  "notes": "Transfer rules will require verified walking connections between eligible boarding/alighting points. No verified transfers exist yet. Empty array is valid for V0."
+}

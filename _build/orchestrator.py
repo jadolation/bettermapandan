@@ -111,6 +111,19 @@ def _build_workspace() -> None:
                 print(f"  - {err}")
             print("")
 
+    from _build.transport.validation import validate_transport_data
+    transport_errors = validate_transport_data()
+    if transport_errors:
+        print("\nERROR: Transport data validation failed:")
+        for err in transport_errors:
+            print(f"  - {err}")
+        raise SystemExit("Transport reference data failed validation; build aborted.")
+    print("  transport: reference data validated (V0 evidence phase)")
+
+    from _build.transport.compiler import compile_transport_reference
+    compile_transport_reference(ROOT)
+    print("  transport: reference bundle compiled")
+
     base = (SRC_PARTIALS / "base.html").read_text(encoding="utf-8")
     page_hero_raw = (SRC_PARTIALS / "page-hero.html").read_text(encoding="utf-8")
 

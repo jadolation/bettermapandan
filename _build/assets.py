@@ -223,6 +223,7 @@ JS_SOURCES = [
     "assets/js/dashboard-tabs.js",
     "assets/js/section-nav.js",
     "assets/js/project-explorer.js",
+    "assets/commuter-map.js",
 ]
 
 

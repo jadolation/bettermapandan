@@ -292,12 +292,22 @@
       "hero_heading": "Mga Dokumentong Lehislatibo",
       "hero_lede": "Komprehensibong database ng mga ordinansa, resolusyon, kautusang ehekutibo, at datos sa piskal — sinusubaybayan ang lehislatibong rekord ng Mapandan mula sa pagkakatatag nito noong 1887 hanggang sa kasalukuyan."
     },
-    "pag": {
+     "pag": {
       "title": "Saray Dokumentong Lehislatibo — BetterMapandan.org",
       "description": "Komprehensibong database na saray ordinansa, resolusyon, kautusan a ehekutibo, tan datos ed piskal na Munisipalidad na Mapandan, Pangasinan.",
       "hero_eyebrow": "Sangguniang Bayan",
       "hero_heading": "Saray Dokumentong Lehislatibo",
       "hero_lede": "Komprehensibong database na saray ordinansa, resolusyon, kautusan a ehekutibo, tan datos ed piskal — susubaybayan so lehislatibong rekord na Mapandan manlapud impanagbangon to nen 1887 anggad sayan agew."
+    }
+  },
+  "commuter.html": {
+    "fil": {
+      "title": "Better Mapandan: Biyahero",
+      "description": "Mga sakayan at saklaw ng pamasahe ayon sa lokal na ulat. Sanggunian lamang; walang pagpaplano ng ruta."
+    },
+    "pag": {
+      "title": "Better Mapandan: Manbibiyahe",
+      "description": "Saray sakayan tan saklaw na pasahe base ed lokal ya ulat. Reperensya labat; anggapo so pagplano na ruta."
     }
   }
 }

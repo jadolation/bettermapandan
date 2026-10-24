@@ -1,0 +1,95 @@
+{
+  "$schema": "/schemas/transport-fares.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "fares": [
+    {
+      "id": "fare-mini-mapandan-dagupan",
+      "route_id": "mapandan-dagupan-minibus",
+      "fare_type": "passenger_fare",
+      "rate_kind": "locally_reported_range",
+      "amount": {
+        "min": 35,
+        "max": 40,
+        "currency": "PHP"
+      },
+      "basis": null,
+      "notes": "Reported typical fare. Not a verified regulatory or operator-published fare.",
+      "effective_date": null,
+      "issuing_authority": null,
+      "source_reference": "commuter-reported-fares",
+      "verification_status": "locally_reported",
+      "applicable_concessions": [],
+      "created_date": "2026-10-24",
+      "last_updated": "2026-10-24"
+    },
+    {
+      "id": "fare-jeep-mapandan-mangaldan",
+      "route_id": "mapandan-mangaldan-jeepney",
+      "fare_type": "passenger_fare",
+      "rate_kind": "locally_reported_range",
+      "amount": {
+        "min": 21,
+        "max": 25,
+        "currency": "PHP"
+      },
+      "basis": null,
+      "notes": "Reported typical fare. Not a verified regulatory or operator-published fare.",
+      "effective_date": null,
+      "issuing_authority": null,
+      "source_reference": "commuter-reported-fares",
+      "verification_status": "locally_reported",
+      "applicable_concessions": [],
+      "created_date": "2026-10-24",
+      "last_updated": "2026-10-24"
+    },
+    {
+      "id": "fare-tri-passing-short",
+      "vehicle_type": "tricycle",
+      "service_type": "shared_passing",
+      "fare_type": "passenger_fare",
+      "rate_kind": "locally_reported_range",
+      "amount": {
+        "min": 10,
+        "max": 15,
+        "currency": "PHP"
+      },
+      "basis": "short_trip",
+      "notes": "Reported short compatible-journey range. Longer trips may cost more.",
+      "effective_date": null,
+      "issuing_authority": null,
+      "source_reference": "commuter-reported-fares",
+      "verification_status": "locally_reported",
+      "applicable_concessions": [],
+      "created_date": "2026-10-24",
+      "last_updated": "2026-10-24"
+    },
+    {
+      "id": "fare-tri-arkila-start",
+      "vehicle_type": "tricycle",
+      "service_type": "arkila",
+      "fare_type": "passenger_fare",
+      "rate_kind": "locally_reported_range",
+      "amount": {
+        "min": 20,
+        "max": 25,
+        "currency": "PHP"
+      },
+      "basis": "starting_fare_short_trip",
+      "notes": "Starting range for short arkila trips; fare may increase depending on distance and destination.",
+      "effective_date": null,
+      "issuing_authority": null,
+      "source_reference": "commuter-reported-fares",
+      "verification_status": "locally_reported",
+      "applicable_concessions": [],
+      "created_date": "2026-10-24",
+      "last_updated": "2026-10-24"
+    }
+  ],
+  "known_uncertainties": [
+    "Fare amounts are locally reported ranges, not verified regulatory fares.",
+    "No official fare schedules or effective dates have been obtained.",
+    "Concession and special-trip rules are not documented.",
+    "Ordinance ORD-2024-003 existence is confirmed; passenger fare amounts are not extracted or verified."
+  ]
+}

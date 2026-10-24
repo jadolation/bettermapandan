@@ -1,5 +1,12 @@
 [
   {
+    "key": "commuter.candidate_warning",
+    "english": "Unverified generated reference, not a confirmed service or boarding route. Car routing does not establish minibus or jeepney road legality. Road names, unnamed approaches and distance differences require human review.",
+    "filipino": "Hindi beripikadong sanggunian mula sa routing service, hindi kumpirmadong serbisyo o sakayan. Hindi patunay ang car routing na pinapayagan ang minibus o dyip sa kalsada. Kailangang suriin ang pangalan ng kalsada, mga daang walang pangalan at pagkakaiba ng distansya.",
+    "pangasinan": "Agni napaneknekan ya reperensya, aliwan kumpirmadon serbisyo odino sakayan. Say car routing et aliwan paneknek ya legal so dalan parad minibus odino dyip. Kaukolan na panagsuri na ngaran na dalan, saray agngaranan ya dalan tan dumaan na distansya.",
+    "pangasinan_status": "review_required"
+  },
+  {
     "key": "homepage.municipality_desc",
     "english": "Mapandan sits in the Third Congressional District of Pangasinan, bounded by San Jacinto to the north, Mangaldan to the northwest, Manaoag to the east, and Santa Barbara to the south. Covering 32.92 square kilometres, around three-quarters of its land supports agriculture &mdash; mainly rice, alongside corn, livestock, and seasonal vegetables. The municipal administration operates under the tagline &ldquo;Kaakibat niyo ang Aktibo at Responsableng Liderato&rdquo; (Partnering with you in Active and Responsible Leadership).",
     "filipino": "Matatagpuan ang Mapandan sa Ikatlong Kongresyonal na Distrito ng Pangasinan, na nasa hangganan ng San Jacinto sa hilaga, Mangaldan sa hilagang-kanluran, Manaoag sa silangan, at Santa Barbara sa timog. May lawak itong 32.92 kilometro kuwadrado, at halos tatlong-kapat ng lupain nito ay ginagamit sa agrikultura—pangunahing palay, kasama ang mais, paghahayupan, at mga pana-panahong gulay. Isinasagawa ng pamahalaang bayan ang mga programa nito sa ilalim ng tagline na “Kaakibat niyo ang Aktibo at Responsableng Liderato.”",

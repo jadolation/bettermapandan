@@ -1,0 +1,7 @@
+{
+  "$schema": "/schemas/transport-tricycle-rules.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "rules": [],
+  "notes": "Tricycle operating rules must include pickup areas, drop-off areas, cross-zone permissions, terminal-vs-street boarding, traversal permissions, applicable fares, source and effective date. Polygon containment does not confer permission. Empty array is valid for V0."
+}

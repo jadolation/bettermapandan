@@ -1,0 +1,8 @@
+{
+  "$schema": "/schemas/transport-stops.schema.json",
+  "schema_version": 1,
+  "type": "FeatureCollection",
+  "generated_at": "2026-10-24",
+  "features": [],
+  "notes": "No verified designated stops have been documented. Empty array is valid for V0."
+}

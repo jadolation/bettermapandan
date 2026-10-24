@@ -1,0 +1,63 @@
+{
+  "$schema": "/schemas/transport-named-places.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "places": [
+    {
+      "id": "place-arras-market-morales",
+      "route_id": "mapandan-dagupan-minibus",
+      "name": "Arra's Collection Dropping Hub",
+      "address": "Morales Street, Mapandan",
+      "geometry": null,
+      "classification": "candidate_pickup_landmark",
+      "source_type": "maintainer_provided",
+      "verification_status": "unverified",
+      "notes": "Reported dropping hub along Morales Street. Not geocoded or attached to routing. Do not snap to nearest road until verified.",
+      "review_date": "2026-10-24",
+      "reviewer": "BetterMapandan maintainer"
+    },
+    {
+      "id": "place-alaminos-bus-terminal-dagupan",
+      "route_pattern_id": "mini-dagupan-turnaround",
+      "name": "Alaminos City Bus Terminal",
+      "address": "AB Fernandez East Avenue, Downtown District, Dagupan City",
+      "geometry": null,
+      "classification": "operator_landmark",
+      "source_type": "maintainer_provided",
+      "verification_status": "unverified",
+      "notes": "Reported landmark for the Dagupan turnaround. Distinct from the supplied Dagupan minibus terminal coordinates until their relationship is established. Do not auto-merge.",
+      "review_date": "2026-10-24",
+      "reviewer": "BetterMapandan maintainer"
+    },
+    {
+      "id": "place-mmap-back-parking",
+      "route_id": "mapandan-mangaldan-jeepney",
+      "name": "Mapandan Public Market back parking area",
+      "address": "Mapandan Public Market back parking area, Poblacion",
+      "geometry": null,
+      "classification": "candidate_pickup_landmark",
+      "source_type": "maintainer_provided",
+      "verification_status": "unverified",
+      "notes": "Reported boarding/alighting landmark. Not geocoded or attached to routing until verified.",
+      "review_date": "2026-10-24",
+      "reviewer": "BetterMapandan maintainer"
+    },
+    {
+      "id": "place-bigmak-mangaldan",
+      "route_pattern_id": "jeep-mangaldan-mapandan",
+      "name": "L.C. Bigmak! Burger, Inc.",
+      "address": "Mangaldan",
+      "geometry": null,
+      "classification": "route_landmark",
+      "source_type": "maintainer_provided",
+      "verification_status": "unverified",
+      "notes": "Landmark referenced in route description. Distinct from the Mangaldan jeepney terminal coordinate. Do not auto-merge.",
+      "review_date": "2026-10-24",
+      "reviewer": "BetterMapandan maintainer"
+    }
+  ],
+  "relationships_to_resolve": [
+    "Relationship between supply coordinate term-mini-dagupan and place-alaminos-bus-terminal-dagupan",
+    "Relationship between Mangaldan terminal coordinate term-jeep-mangaldan and L.C. Bigmak! landmark place-bigmak-mangaldan"
+  ]
+}

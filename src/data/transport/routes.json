@@ -1,0 +1,47 @@
+{
+  "$schema": "/schemas/transport-routes.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "routes": [
+    {
+      "id": "mapandan-dagupan-minibus",
+      "name": "Mapandan - Dagupan air-conditioned minibus",
+      "public_signboard_text": "Mapandan - Dagupan (A/C Minibus)",
+      "vehicle_type": "minibus",
+      "origin_id": "term-mini-mapandan",
+      "destination_id": "term-mini-dagupan",
+      "patterns": ["mini-mapandan-dagupan-outbound", "mini-dagupan-mapandan-return"],
+      "operating_status": "reported_not_verified",
+      "service_verification_status": "unverified",
+      "evidence_source": "maintainer_supplied_corridor_description",
+      "evidence_note": "Reported street sequence and driving time/distance only. No verified timetable, schedule, frequency, or passenger boarding confirmation.",
+      "direction_handling": "direction_specific_patterns_required",
+      "boarding_alighting_rules": "unverified",
+      "routing_eligible": false,
+      "publication_status": "published_reference",
+      "created_date": "2026-10-24",
+      "last_updated": "2026-10-24",
+      "source_url": null
+    },
+    {
+      "id": "mapandan-mangaldan-jeepney",
+      "name": "Mapandan - Mangaldan traditional jeepney",
+      "public_signboard_text": "Mapandan - Mangaldan (Jeepney)",
+      "vehicle_type": "jeepney",
+      "origin_id": "term-jeep-mapandan",
+      "destination_id": "term-jeep-mangaldan",
+      "patterns": ["jeep-mapandan-mangaldan", "jeep-mangaldan-mapandan"],
+      "operating_status": "reported_not_verified",
+      "service_verification_status": "unverified",
+      "evidence_source": "maintainer_supplied_corridor_description",
+      "evidence_note": "Reported street sequence and driving time/distance only. No verified timetable, schedule, frequency, or passenger boarding confirmation. Mangaldan terminal coordinate and L.C. Bigmak! landmark relationship is unresolved.",
+      "direction_handling": "direction_specific_patterns_required",
+      "boarding_alighting_rules": "unverified",
+      "routing_eligible": false,
+      "publication_status": "published_reference",
+      "created_date": "2026-10-24",
+      "last_updated": "2026-10-24",
+      "source_url": null
+    }
+  ]
+}

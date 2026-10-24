@@ -1,0 +1,117 @@
+{
+  "$schema": "/schemas/transport-terminals.schema.json",
+  "schema_version": 1,
+  "type": "FeatureCollection",
+  "generated_at": "2026-10-24",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "term-mini-mapandan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4524166667, 16.0265833333]
+      },
+      "properties": {
+        "id": "term-mini-mapandan",
+        "name": "Mapandan air-conditioned minibus terminal",
+        "transport_type": "minibus",
+        "classification": "terminal",
+        "location_description": "Morales Street terminal area, Mapandan",
+        "original_coordinate_representation": "16°01'35.7\"N 120°27'08.7\"E",
+        "latitude": 16.0265833333,
+        "longitude": 120.4524166667,
+        "source_type": "maintainer_provided",
+        "verification_status": "unverified",
+        "publication_status": "published",
+        "routing_eligible": false,
+        "review_date": "2026-10-24",
+        "reviewer": "BetterMapandan maintainer",
+        "source_note": "Coordinates contributed by maintainer/commuter for the commuter planning feature.",
+        "linked_routes": ["mapandan-dagupan-minibus"],
+        "linked_operators": ["mapandan-ac-minibus"]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "term-mini-dagupan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.3437554808, 16.0465670984]
+      },
+      "properties": {
+        "id": "term-mini-dagupan",
+        "name": "Dagupan to Mapandan minibus terminal",
+        "transport_type": "minibus",
+        "classification": "terminal",
+        "location_description": "Dagupan terminal area",
+        "original_coordinate_representation": "16.0465670984, 120.3437554808",
+        "latitude": 16.0465670984,
+        "longitude": 120.3437554808,
+        "superseded_observations": [{"coordinates": [120.34487896138853, 16.068389474097867], "status": "superseded", "date": "2026-10-24"}],
+        "source_type": "maintainer_provided",
+        "verification_status": "unverified",
+        "publication_status": "published",
+        "routing_eligible": false,
+        "review_date": "2026-10-24",
+        "reviewer": "BetterMapandan maintainer",
+        "source_note": "Coordinates contributed by maintainer/commuter for the commuter planning feature.",
+        "linked_routes": ["mapandan-dagupan-minibus"],
+        "linked_operators": ["dagupan-ac-minibus"]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "term-jeep-mapandan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.45090842493461, 16.025956286653532]
+      },
+      "properties": {
+        "id": "term-jeep-mapandan",
+        "name": "Mapandan to Mangaldan jeepney terminal",
+        "transport_type": "jeepney",
+        "classification": "terminal",
+        "location_description": "Mapandan jeepney terminal area",
+        "original_coordinate_representation": "16.025956286653532, 120.45090842493461",
+        "latitude": 16.025956286653532,
+        "longitude": 120.45090842493461,
+        "source_type": "maintainer_provided",
+        "verification_status": "unverified",
+        "publication_status": "published",
+        "routing_eligible": false,
+        "review_date": "2026-10-24",
+        "reviewer": "BetterMapandan maintainer",
+        "source_note": "Coordinates contributed by maintainer/commuter for the commuter planning feature.",
+        "linked_routes": ["mapandan-mangaldan-jeepney"],
+        "linked_operators": ["mapandan-traditional-jeepney"]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "term-jeep-mangaldan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.404355, 16.065126]
+      },
+      "properties": {
+        "id": "term-jeep-mangaldan",
+        "name": "Mangaldan to Mapandan jeepney terminal",
+        "transport_type": "jeepney",
+        "classification": "terminal",
+        "location_description": "Mangaldan jeepney terminal area, near L.C. Bigmak!",
+        "original_coordinate_representation": "16.065126, 120.404355",
+        "latitude": 16.065126,
+        "longitude": 120.404355,
+        "source_type": "maintainer_provided",
+        "verification_status": "unverified",
+        "publication_status": "published",
+        "routing_eligible": false,
+        "review_date": "2026-10-24",
+        "reviewer": "BetterMapandan maintainer",
+        "source_note": "Coordinates contributed by maintainer/commuter for the commuter planning feature. L.C. Bigmak! Burger is a landmark; its relationship to the Mangaldan terminal is unresolved and must not be auto-merged.",
+        "linked_routes": ["mapandan-mangaldan-jeepney"],
+        "linked_operators": ["mangaldan-traditional-jeepney"]
+      }
+    }
+  ]
+}

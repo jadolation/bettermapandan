@@ -1,0 +1,7 @@
+{
+  "$schema": "/schemas/transport-stop-occurrences.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "occurrences": [],
+  "notes": "Stop occurrences are ordered visits within patterns. No verified stops have been documented. Empty array is valid for V0."
+}

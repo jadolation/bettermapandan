@@ -1,0 +1,49 @@
+{
+  "$schema": "/schemas/transport-sources.schema.json",
+  "schema_version": 1,
+  "generated_at": "2026-10-24",
+  "sources": [
+    {"id":"osm-osrm-candidates","type":"generated_osm_road_alignment","title":"FOSSGIS OSRM car ordered-waypoint candidates","retrieved":"2026-10-24","license":"ODbL","url":"https://routing.openstreetmap.de/about.html","republication_permitted":true,"notes":"Serial maintenance requests only, maximum one request per second. Generic car profile does not prove passenger operations, bus legality or complete turn restrictions. OSM vintage not exposed. Engine distances are not observed transit times. See generation_report.json for withheld matches, offsets and per-leg road sequences."},
+    {
+      "id": "commuter-reported-fares",
+      "type": "maintainer_provided",
+      "title": "Locally reported commuter fare ranges",
+      "retrieved": "2026-10-24",
+      "license": null,
+      "notes": "Commuter reports supplied for this feature. No official fare schedule, effective date, operator publication or license grant supplied.",
+      "url": null,
+      "republication_permitted": true
+    },
+    {
+      "id": "maintainer-supplied-coordinates",
+      "type": "maintainer_provided",
+      "title": "Maintainer-supplied transport coordinates",
+      "retrieved": "2026-10-24",
+      "license": null,
+      "license_notes": "No explicit license grant supplied. Not independently field-verified.",
+      "notes": "Coordinates were contributed by a Mapandan commuter for the Better Mapandan commuter planning feature. They are recorded as maintainer-provided reference data. No additional source document is supplied.",
+      "url": null,
+      "republication_permitted": true
+    },
+    {
+      "id": "ord-2024-003-fare-ordinance",
+      "type": "government_municipal_ordinance",
+      "title": "Municipal Ordinance No. 03, S-2024 (Fare Ordinance)",
+      "retrieved": "2026-10-24",
+      "license": "public_information",
+      "notes": "Municipal ordinance prescribing fares within Mapandan. Actual passenger fare amounts were not extracted or verified as structured data; only the existence of the ordinance is established.",
+      "url": "https://pangasinan.gov.ph/wp-content/uploads/2025/06/529-2025-RES.pdf",
+      "republication_permitted": true
+    },
+    {
+      "id": "mtop-service-record",
+      "type": "government_service_record",
+      "title": "Motorized Tricycle Operator's Permit service",
+      "retrieved": "2026-10-24",
+      "license": "public_information",
+      "notes": "Existing repository service record for the MTOP/TODA permit process. Documents permit requirements, not passenger routes or fares.",
+      "url": null,
+      "republication_permitted": true
+    }
+  ]
+}

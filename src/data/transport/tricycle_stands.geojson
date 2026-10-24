@@ -1,0 +1,92 @@
+{
+  "$schema": "/schemas/transport-tricycle-stands.schema.json",
+  "schema_version": 1,
+  "type": "FeatureCollection",
+  "generated_at": "2026-10-24",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "stand-tri-market",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.4509837880669, 16.026180552095127]
+      },
+      "properties": {
+        "id": "stand-tri-market",
+        "name": "Mapandan Public Market tricycle stand",
+        "transport_type": "tricycle",
+        "classification": "stand",
+        "location_description": "Mapandan Public Market area, Poblacion",
+        "original_coordinate_representation": "16.026180552095127, 120.4509837880669",
+        "latitude": 16.026180552095127,
+        "longitude": 120.4509837880669,
+        "source_type": "maintainer_provided",
+        "verification_status": "unverified",
+        "publication_status": "published",
+        "routing_eligible": false,
+        "review_date": "2026-10-24",
+        "reviewer": "BetterMapandan maintainer",
+        "source_note": "Coordinates contributed by maintainer/commuter for the commuter planning feature.",
+        "linked_routes": [],
+        "linked_operators": [],
+        "todas": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "stand-tri-plaza",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.452771, 16.026576]
+      },
+      "properties": {
+        "id": "stand-tri-plaza",
+        "name": "Public plaza tricycle stand",
+        "transport_type": "tricycle",
+        "classification": "stand",
+        "location_description": "Public plaza, left of St. Joseph's Pharmacy",
+        "original_coordinate_representation": "16.026576, 120.452771",
+        "latitude": 16.026576,
+        "longitude": 120.452771,
+        "source_type": "maintainer_provided",
+        "verification_status": "unverified",
+        "publication_status": "published",
+        "routing_eligible": false,
+        "review_date": "2026-10-24",
+        "reviewer": "BetterMapandan maintainer",
+        "source_note": "Coordinates contributed by maintainer/commuter for the commuter planning feature.",
+        "linked_routes": [],
+        "linked_operators": [],
+        "todas": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "stand-tri-hall",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [120.45309, 16.026763]
+      },
+      "properties": {
+        "id": "stand-tri-hall",
+        "name": "Town Hall tricycle stand",
+        "transport_type": "tricycle",
+        "classification": "stand",
+        "location_description": "In front of Mapandan Town Hall",
+        "original_coordinate_representation": "16.026763, 120.45309",
+        "latitude": 16.026763,
+        "longitude": 120.45309,
+        "source_type": "maintainer_provided",
+        "verification_status": "unverified",
+        "publication_status": "published",
+        "routing_eligible": false,
+        "review_date": "2026-10-24",
+        "reviewer": "BetterMapandan maintainer",
+        "source_note": "Coordinates contributed by maintainer/commuter for the commuter planning feature.",
+        "linked_routes": [],
+        "linked_operators": [],
+        "todas": []
+      }
+    }
+  ]
+}

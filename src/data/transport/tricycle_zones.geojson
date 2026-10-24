@@ -1,0 +1,8 @@
+{
+  "$schema": "/schemas/transport-tricycle-zones.schema.json",
+  "schema_version": 1,
+  "type": "FeatureCollection",
+  "generated_at": "2026-10-24",
+  "features": [],
+  "notes": "Tricycle zones are documented TODA-specific service areas. Existence of tricycle stands does not establish operating zones. Do not infer TODA coverage from barangay polygons. Empty array is valid for V0."
+}
