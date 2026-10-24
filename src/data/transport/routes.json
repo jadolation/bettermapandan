@@ -3,8 +3,12 @@
   "schema_version": 1,
   "generated_at": "2026-10-24",
   "routes": [
+    {"id":"manaoag-sm-minibus","name":"Manaoag - SM City Urdaneta approach","vehicle_type":"minibus","origin_id":"place-meditek-manaoag","destination_id":"place-sm-entry","patterns":["mini-manaoag-sm"],"directions":[["mini-manaoag-sm"]],"leg_ids":["leg-manaoag-sm"],"explanation_key":"sm_approach","operating_status":"reported_not_verified","service_verification_status":"unverified","source_type":"maintainer_local_observation","routing_eligible":false},
+    {"id":"mapandan-manaoag-sm-multileg","name":"Mapandan - Manaoag - SM City Urdaneta approach","vehicle_type":"multileg","origin_id":"place-peoples-park","destination_id":"place-sm-entry","patterns":["mini-mapandan-manaoag","mini-manaoag-sm"],"directions":[["mini-mapandan-manaoag","mini-manaoag-sm"]],"leg_ids":["leg-manaoag","leg-manaoag-sm"],"transfer_count":1,"pedestrian_access":"unresolved","authorization":"unconfirmed","explanation_key":"manaoag_transfer","operating_status":"reported_not_verified","service_verification_status":"unverified","source_type":"maintainer_local_observation","routing_eligible":false},
     {
       "id": "mapandan-dagupan-minibus",
+      "directions": [["mini-mapandan-dagupan-outbound"], ["mini-dagupan-mapandan-return"]],
+      "leg_ids": ["leg-dagupan"],
       "name": "Mapandan - Dagupan air-conditioned minibus",
       "public_signboard_text": "Mapandan - Dagupan (A/C Minibus)",
       "vehicle_type": "minibus",
@@ -25,6 +29,8 @@
     },
     {
       "id": "mapandan-mangaldan-jeepney",
+      "directions": [["jeep-mapandan-mangaldan"], ["jeep-mangaldan-mapandan"]],
+      "leg_ids": ["leg-mangaldan"],
       "name": "Mapandan - Mangaldan traditional jeepney",
       "public_signboard_text": "Mapandan - Mangaldan (Jeepney)",
       "vehicle_type": "jeepney",
@@ -42,6 +48,21 @@
       "created_date": "2026-10-24",
       "last_updated": "2026-10-24",
       "source_url": null
-    }
+    },
+    {"id":"mapandan-manaoag-minibus","name":"Mapandan - Manaoag","vehicle_type":"minibus","origin_id":"place-peoples-park","destination_id":"place-manaoag-waiting","patterns":["mini-mapandan-manaoag","mini-manaoag-mapandan"],"directions":[["mini-mapandan-manaoag"],["mini-manaoag-mapandan"]],"leg_ids":["leg-manaoag"],"explanation_key":"partial_park","operating_status":"reported_not_verified","service_verification_status":"unverified","source_type":"maintainer_local_observation","routing_eligible":false},
+    {"id":"urdaneta-mapandan-tricycle","name":"Guam, Urdaneta - Mapandan","vehicle_type":"tricycle","origin_id":"place-guam-pickup","destination_id":"place-town-plaza","patterns":["tri-guam-mapandan","tri-mapandan-guam"],"directions":[["tri-guam-mapandan"],["tri-mapandan-guam"]],"leg_ids":["leg-guam"],"explanation_key":"corridor_only","operating_status":"reported_not_verified","service_verification_status":"unverified","source_type":"maintainer_local_observation","routing_eligible":false},
+    {"id":"mapandan-calasiao-multileg","name":"Mapandan - Calasiao","vehicle_type":"multileg","origin_id":"place-phome","destination_id":"place-calasiao","patterns":["shared-mapandan-border-arch","tri-border-arch-tuliao","jeep-tuliao-calasiao"],"directions":[["shared-mapandan-border-arch","tri-border-arch-tuliao","jeep-tuliao-calasiao"]],"leg_ids":["leg-border-arch","leg-tuliao","leg-calasiao"],"transfer_count":2,"total_fare":null,"total_duration_minutes":null,"pedestrian_access":"unresolved","authorization":"unconfirmed","explanation_key":"missing_connections","operating_status":"reported_not_verified","service_verification_status":"unverified","source_type":"maintainer_local_observation","routing_eligible":false},
+    {"id":"mapandan-sta-barbara-multileg","name":"Mapandan - Santa Barbara","vehicle_type":"multileg","origin_id":"place-phome","destination_id":"place-sta-barbara","patterns":["shared-mapandan-border-arch","tri-border-arch-tuliao","tri-tuliao-sta-barbara"],"directions":[["shared-mapandan-border-arch","tri-border-arch-tuliao","tri-tuliao-sta-barbara"]],"leg_ids":["leg-border-arch","leg-tuliao","leg-sta-barbara"],"transfer_count":2,"total_fare":null,"total_duration_minutes":null,"pedestrian_access":"unresolved","authorization":"unconfirmed","explanation_key":"missing_connections","operating_status":"reported_not_verified","service_verification_status":"unverified","source_type":"maintainer_local_observation","routing_eligible":false}
+  ],
+  "legs": [
+    {"id":"leg-dagupan","label_key":"mapandan-dagupan-minibus","vehicle_types":["minibus"],"fare_id":"fare-mini-mapandan-dagupan","driving_km":15.4,"driving_minutes":34},
+    {"id":"leg-mangaldan","label_key":"mapandan-mangaldan-jeepney","vehicle_types":["jeepney"],"fare_id":"fare-jeep-mapandan-mangaldan","driving_km":8.7,"driving_minutes":18},
+    {"id":"leg-manaoag","label_key":"mapandan-manaoag-minibus","vehicle_types":["minibus"],"fare_id":"fare-mini-mapandan-manaoag","driving_km":5.1,"driving_minutes":13},
+    {"id":"leg-guam","label_key":"urdaneta-mapandan-tricycle","vehicle_types":["tricycle"],"fare_id":"fare-tri-guam-mapandan","driving_km":7.6,"driving_minutes":14},
+    {"id":"leg-border-arch","label_key":"shared-mapandan-border-arch","vehicle_types":["minibus","jeepney"],"vehicle_identity":"unknown_alternative_not_two_services","route_affiliation":null,"fare_id":"fare-shared-border-arch","driving_km":4.1,"driving_minutes":8},
+    {"id":"leg-tuliao","label_key":"tri-border-arch-tuliao","vehicle_types":["tricycle"],"fare_id":"fare-tri-border-arch-tuliao","driving_km":3.2,"driving_minutes":5},
+    {"id":"leg-calasiao","label_key":"jeep-tuliao-calasiao","vehicle_types":["jeepney"],"fare_id":"fare-jeep-tuliao-calasiao","driving_km":5.6,"driving_minutes":8,"geometry_status":"candidate_endpoint_partial"},
+    {"id":"leg-sta-barbara","label_key":"tri-tuliao-sta-barbara","vehicle_types":["tricycle"],"fare_id":"fare-tri-tuliao-sta-barbara","driving_km":0.85,"driving_minutes":2,"geometry_status":"candidate"},
+    {"id":"leg-manaoag-sm","label_key":"mini-manaoag-sm","vehicle_types":["minibus"],"fare_id":"fare-mini-manaoag-sm","driving_km":13.3,"driving_minutes":23,"alternate_driving_note_minutes":25,"geometry_status":"candidate_endpoint_partial"}
   ]
 }

@@ -2,8 +2,14 @@
   "$schema": "/schemas/transport-coverage.schema.json",
   "schema_version": 1,
   "as_of": "2026-10-24",
-  "description": "Candidate road geometry display available, initially off. Verified passenger routing coverage remains absent. Engine distances are not observed transit times. Jeepney geometry is withheld for ambiguous Mangaldan snapping.",
+  "description": "Catalogued reference corridors/journeys with candidate geometry initially off; no verified passenger routing, walking access, return operations or TODA authorization.",
   "supported_corridors": [
+    {"id":"mapandan-manaoag-minibus","mode":"minibus","origin_id":"place-peoples-park","destination_id":"place-manaoag-waiting","status":"provisional_reference","routing_eligible":false,"notes":"Partial observed geometry begins at Firetree roundabout, not Park boarding; road-name discrepancies withheld."},
+    {"id":"urdaneta-mapandan-tricycle","mode":"tricycle","origin_id":"place-guam-pickup","destination_id":"place-town-plaza","status":"provisional_reference","routing_eligible":false,"notes":"Reported corridor fare only; geometry mismatches withheld and TODA authorization unknown."},
+    {"id":"mapandan-calasiao-multileg","mode":"multileg","origin_id":"place-phome","destination_id":"place-calasiao","status":"provisional_reference","routing_eligible":false,"notes":"Three reported rides, PHP80-120 reported range; two unverified transfers and no connectors. Final 12 m instruction lacks endpoint beyond supplied observation."},
+    {"id":"mapandan-sta-barbara-multileg","mode":"multileg","origin_id":"place-phome","destination_id":"place-sta-barbara","status":"provisional_reference","routing_eligible":false,"notes":"Three reported rides; PHP65-100 known subtotal plus unknown final fare, incomplete. Plaza marker retained; car NoSegment within30m means road candidate stops at preceding supplied turn. Transfers conceptual, not mapped walks."},
+    {"id":"manaoag-sm-minibus","mode":"minibus","origin_id":"place-meditek-manaoag","destination_id":"place-sm-entry","status":"provisional_reference","routing_eligible":false,"notes":"PHP30-40 reported range. 13.3 km/23 min driving reference; separate alternate25min. Last coordinate is entry turn, final75m destination missing. No reverse operations inferred."},
+    {"id":"mapandan-manaoag-sm-multileg","mode":"multileg","origin_id":"place-peoples-park","destination_id":"place-sm-entry","status":"provisional_reference","routing_eligible":false,"notes":"PHP45-60 reported range for two rides; Manaoag waiting-to-Meditek access is unverified with no connector. People's Park boarding unlocated; ends at SM entry approach, not terminal."},
     {
       "id": "mapandan-dagupan-minibus",
       "mode": "minibus",
@@ -34,7 +40,7 @@
   "unsupported_areas": [
     {
       "name": "Full Pangasinan",
-      "reason": "Coverage explicitly limited to the initial Mapandan-Dagupan and Mapandan-Mangaldan corridors. Do not claim province-wide routing."
+      "reason": "Only the catalogued local reference corridors and incomplete journeys are described; no province-wide routing."
     }
   ],
   "supported_optimization_methods": {

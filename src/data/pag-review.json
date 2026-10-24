@@ -1,9 +1,63 @@
 [
+  {"key":"commuter.place-guam-pickup","english":"Guam pickup observation","filipino":"Obserbasyon ng sakayan sa Guam","pangasinan":"Obserbasyon na sakayan ed Guam","pangasinan_status":"review_required"},
+  {"key":"commuter.place-manaoag-waiting","english":"Manaoag waiting observation","filipino":"Obserbasyon ng hintayan sa Manaoag","pangasinan":"Obserbasyon na alagaran ed Manaoag","pangasinan_status":"review_required"},
+  {"key":"commuter.place-meditek-manaoag","english":"Meditek Manaoag observation","filipino":"Obserbasyon sa Meditek Manaoag","pangasinan":"Obserbasyon ed Meditek Manaoag","pangasinan_status":"review_required"},
+  {"key":"commuter.place-sm-entry","english":"SM City Urdaneta entry turn only","filipino":"Liko sa pasukan ng SM City Urdaneta lamang","pangasinan":"Liko ed loob na SM City Urdaneta labat","pangasinan_status":"review_required"},
+  {"key":"commuter.place-calasiao","english":"Calasiao last supplied endpoint","filipino":"Huling ibinigay na punto sa Calasiao","pangasinan":"Unor ya inter ya punto ed Calasiao","pangasinan_status":"review_required"},
+  {"key":"commuter.place-sta-barbara","english":"Santa Barbara Public Plaza observation","filipino":"Obserbasyon sa Santa Barbara Public Plaza","pangasinan":"Obserbasyon ed Santa Barbara Public Plaza","pangasinan_status":"review_required"},
+  {"key":"commuter.place-border-arch","english":"Border Arch transfer observation","filipino":"Obserbasyon ng lipatan sa Border Arch","pangasinan":"Obserbasyon na lipatan ed Border Arch","pangasinan_status":"review_required"},
+  {"key":"commuter.place-gmt-tuliao","english":"GMT-TODA landmark observation","filipino":"Obserbasyon ng palatandaang GMT-TODA","pangasinan":"Obserbasyon na palatandaan a GMT-TODA","pangasinan_status":"review_required"},
+  {"key":"commuter.show_route","english":"Show route on map","filipino":"Ipakita ang ruta sa mapa","pangasinan":"Ipatnag so ruta ed mapa","pangasinan_status":"review_required"},
+  {"key":"commuter.routes_results","english":"Routes","filipino":"Mga ruta","pangasinan":"Saray ruta","pangasinan_status":"review_required"},
+  {"key":"commuter.search","english":"Search routes or places","filipino":"Maghanap ng ruta o lugar","pangasinan":"Anapen so ruta odino pasen","pangasinan_status":"review_required"},
+  {"key":"commuter.reported_range","english":"Reported fare range","filipino":"Iniulat na saklaw ng pamasahe","pangasinan":"Naiulat ya saklaw na pasahe","pangasinan_status":"review_required"},
+  {"key":"commuter.incomplete_fare","english":"Incomplete fare; known subtotal","filipino":"Di-kumpletong pamasahe; alam na subtotal","pangasinan":"Ag kompleto so pasahe; amta ya subtotal","pangasinan_status":"review_required"},
+  {"key":"commuter.fare_caveat","english":"Reported ranges are not official fares or a service guarantee.","filipino":"Hindi opisyal na pamasahe o garantiya ng serbisyo ang iniulat na saklaw.","pangasinan":"Aliwan opisyal ya pasahe odino garantiya na serbisyo so naiulat ya saklaw.","pangasinan_status":"review_required"},
+  {"key":"commuter.sm_approach","english":"Mapped to the entry turn only; the final 75 m destination coordinate is missing.","filipino":"Hanggang liko sa pasukan lamang; walang koordinado para sa huling 75 m papunta sa destinasyon.","pangasinan":"Anggad liko ed loob labat; anggapo so koordinado parad unor ya 75 m pa-destinasyon.","pangasinan_status":"review_required"},
+  {"key":"commuter.manaoag_transfer","english":"People's Park boarding point is unlocated; walking access between the Manaoag waiting point and nearby Meditek is unverified. SM geometry ends at the entry turn.","filipino":"Walang koordinado ang sakayan sa People's Park; hindi beripikado ang lakaran mula sa hintayan sa Manaoag patungong kalapit na Meditek. Hanggang liko sa pasukan ng SM lamang ang guhit.","pangasinan":"Anggapo so koordinado na sakayan ed People's Park; agni napaneknekan so panakar manlapud alagaran ed Manaoag pa-asingger ya Meditek. Anggad liko ed loob na SM labat so linya.","pangasinan_status":"review_required"},
+  {"key":"commuter.alternate_driving","english":"SM driving reference: 13.3 km / 23 min; a separate report says 25 min, not a timetable.","filipino":"Sanggunian sa pagmamaneho sa SM: 13.3 km / 23 min; 25 min sa hiwalay na ulat, hindi iskedyul.","pangasinan":"Reperensya na panagmaneho pa-SM: 13.3 km / 23 min; 25 min ed bukod ya ulat, aliwan iskedyul.","pangasinan_status":"review_required"},
+  {"key":"commuter.sheet_collapsed","english":"Collapse panel","filipino":"Paliitin ang panel","pangasinan":"Paokeyen so panel","pangasinan_status":"review_required"},
+  {"key":"commuter.sheet_half","english":"Half panel","filipino":"Kalahating panel","pangasinan":"Kapigan panel","pangasinan_status":"review_required"},
+  {"key":"commuter.sheet_expanded","english":"Expand panel","filipino":"Palawakin ang panel","pangasinan":"Padakkelen so panel","pangasinan_status":"review_required"},
+  {"key":"commuter.observed_place","english":"Reported observation, not a verified terminal or boarding point.","filipino":"Iniulat na obserbasyon, hindi beripikadong terminal o sakayan.","pangasinan":"Naiulat ya obserbasyon, aliwan napaneknekan ya terminal odino sakayan.","pangasinan_status":"review_required"},
+  {"key":"commuter.transfer","english":"Transfer observation","filipino":"Obserbasyon ng lipatan","pangasinan":"Obserbasyon na lipatan","pangasinan_status":"review_required"},
+  {"key":"commuter.multileg","english":"Multiple rides","filipino":"Maramihang sakay","pangasinan":"Dakdakel ya sakay","pangasinan_status":"review_required"},
+  {"key":"commuter.manaoag-sm-minibus","english":"Manaoag - SM City Urdaneta approach","filipino":"Manaoag - lapit sa SM City Urdaneta","pangasinan":"Manaoag - asingger ed SM City Urdaneta","pangasinan_status":"review_required"},
+  {"key":"commuter.mapandan-manaoag-sm-multileg","english":"Mapandan - Manaoag - SM approach (2 rides)","filipino":"Mapandan - Manaoag - lapit sa SM (2 sakay)","pangasinan":"Mapandan - Manaoag - asingger ed SM (2 sakay)","pangasinan_status":"review_required"},
+  {"key":"commuter.mini-manaoag-sm","english":"Manaoag to SM entry approach","filipino":"Manaoag papuntang liko sa pasukan ng SM","pangasinan":"Manaoag pa-liko ed loob na SM","pangasinan_status":"review_required"},
+  {
+    "key": "commuter.partial_park",
+    "english": "People's Park boarding is unlocated; observed geometry starts at Firetree roundabout.",
+    "filipino": "Walang tiyak na sakayan sa People's Park; nagsisimula ang naobserbahang guhit sa rotondang Firetree.",
+    "pangasinan": "Ag amta so eksakton sakayan ed People's Park; manlapu so linya ed rotondan Firetree.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "commuter.missing_connections",
+    "english": "Transfer access is unverified; nearby Tuliao observations remain distinct with no walking connectors. Calasiao stops at the supplied endpoint (final 12 m turn missing); Santa Barbara road geometry stops before the plaza.",
+    "filipino": "Di-beripikado ang paglipat; magkahiwalay ang kalapit na obserbasyon sa Tuliao at walang guhit ng lakaran. Hanggang ibinigay na punto sa Calasiao (kulang ang huling 12 m na liko); bago sa plaza nagtatapos ang guhit sa Santa Barbara.",
+    "pangasinan": "Agni napaneknekan so lipatan; bukod so asingger ya obserbasyon ed Tuliao tan anggapo so linya na panakar. Anggad inter ya punto ed Calasiao (kulang so unor ya 12 m liko); antis plaza so panampotan na linya ed Santa Barbara.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "commuter.corridor_only",
+    "english": "This fare covers only the reported corridor, without TODA authorization evidence.",
+    "filipino": "Para lamang sa iniulat na koridor ang pamasahe, walang patunay ng pahintulot ng TODA.",
+    "pangasinan": "Parad naiulat ya koridor labat so pasahe, anggapo so prueba na permiso na TODA.",
+    "pangasinan_status": "review_required"
+  },
+  {
+    "key": "commuter.vehicle_unknown",
+    "english": "Minibus or jeepney (identity unknown)",
+    "filipino": "Minibus o dyip (hindi tiyak kung alin)",
+    "pangasinan": "Minibus odino dyip (ag amta no anto)",
+    "pangasinan_status": "review_required"
+  },
   {
     "key": "commuter.candidate_warning",
-    "english": "Unverified generated reference, not a confirmed service or boarding route. Car routing does not establish minibus or jeepney road legality. Road names, unnamed approaches and distance differences require human review.",
-    "filipino": "Hindi beripikadong sanggunian mula sa routing service, hindi kumpirmadong serbisyo o sakayan. Hindi patunay ang car routing na pinapayagan ang minibus o dyip sa kalsada. Kailangang suriin ang pangalan ng kalsada, mga daang walang pangalan at pagkakaiba ng distansya.",
-    "pangasinan": "Agni napaneknekan ya reperensya, aliwan kumpirmadon serbisyo odino sakayan. Say car routing et aliwan paneknek ya legal so dalan parad minibus odino dyip. Kaukolan na panagsuri na ngaran na dalan, saray agngaranan ya dalan tan dumaan na distansya.",
+    "english": "Unverified routes; fares and stops may vary.",
+    "filipino": "Di-beripikadong mga ruta; maaaring magbago ang pamasahe at sakayan.",
+    "pangasinan": "Agni napaneknekan ya ruta; nayarin manguuman so pasahe tan sakayan.",
     "pangasinan_status": "review_required"
   },
   {

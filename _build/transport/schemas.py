@@ -2,7 +2,13 @@
 SCHEMAS = {
     "transport/route_waypoints.json": {
         "type": "object", "required": ["schema_version", "source_type", "transcription_date", "verification_status", "patterns"],
-        "properties": {"source_type": {"const": "maintainer_provided"}, "verification_status": {"const": "unverified"}, "patterns": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "object", "required": ["id", "name", "classification"], "oneOf": [{"required": ["coordinates"]}, {"required": ["reverse_of"]}]}}}
+        "properties": {"source_type": {"const": "maintainer_provided"}, "verification_status": {"const": "unverified"}, "patterns": {"type": "array", "minItems": 1, "maxItems": 100, "items": {"type": "object", "required": ["id", "name", "classification"], "oneOf": [{"required": ["coordinates"]}, {"required": ["reverse_of"]}], "properties": {
+            "endpoint_caveat": {"type": "string", "minLength": 1},
+            "unrouted_endpoint": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+            "bearings": {"type": "array", "items": {"type": "string", "pattern": "^(|[0-9]+,[0-9]+)$"}},
+            "derived_waypoints": {"type": "array", "items": {"type": "object", "required": ["index", "osm_node", "source", "kind"], "properties": {"index": {"type": "integer", "minimum": 0}, "osm_node": {"type": "integer"}, "source": {"type": "string"}, "kind": {"const": "osm_derived_not_user_input"}}}},
+            "sparse_segments": {"type": "array", "items": {"type": "object", "required": ["osm_way", "osm_nodes", "source", "coordinates"]}}
+        }}}}
     },
     "transport/generation_report.json": {"type": "object", "required": ["schema_version", "endpoint", "profile", "retrieved_at", "patterns"], "properties": {"patterns": {"type": "array", "items": {"type": "object", "required": ["pattern_id", "input_hash", "status", "warnings"], "properties": {"status": {"enum": ["candidate", "withheld"]}}}}}},
     "transport/manifest.json": {
@@ -205,15 +211,16 @@ SCHEMAS = {
 
     "transport/routes.json": {
         "type": "object",
-        "required": ["schema_version", "generated_at", "routes"],
+        "required": ["schema_version", "generated_at", "routes", "legs"],
         "properties": {
+            "legs": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "label_key", "vehicle_types", "fare_id", "driving_km", "driving_minutes"], "properties": {"id": {"type": "string"}, "vehicle_types": {"type": "array", "minItems": 1, "items": {"enum": ["minibus", "jeepney", "tricycle"]}}, "driving_km": {"type": ["number", "null"], "exclusiveMinimum": 0}, "driving_minutes": {"type": ["number", "null"], "exclusiveMinimum": 0}}}},
             "schema_version": {"type": "integer"},
             "generated_at": {"type": "string"},
             "routes": {
                 "type": "array",
                 "items": {
                     "type": "object",
-                    "required": ["id", "name", "vehicle_type", "origin_id", "destination_id", "routing_eligible"],
+                    "required": ["id", "name", "vehicle_type", "origin_id", "destination_id", "routing_eligible", "directions", "leg_ids"],
                     "properties": {
                         "id": {"type": "string"},
                         "name": {"type": "string"},
@@ -222,6 +229,8 @@ SCHEMAS = {
                         "origin_id": {"type": "string"},
                         "destination_id": {"type": "string"},
                         "patterns": {"type": "array", "items": {"type": "string"}},
+                        "directions": {"type": "array", "minItems": 1, "maxItems": 2, "items": {"type": "array", "minItems": 1, "items": {"type": "string"}}},
+                        "leg_ids": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"type": "string"}},
                         "operating_status": {"type": "string"},
                         "service_verification_status": {"type": "string"},
                         "evidence_source": {"type": "string"},
@@ -350,7 +359,7 @@ SCHEMAS = {
                         "fare_type": {"type": "string"},
                         "rate_kind": {"type": "string"},
                         "amount": {
-                            "type": "object",
+                            "type": ["object", "null"],
                             "required": ["min", "max", "currency"],
                             "properties": {
                                 "min": {"type": "number"},
@@ -434,7 +443,8 @@ SCHEMAS = {
                     }
                 }
             },
-            "relationships_to_resolve": {"type": "array", "items": {"type": "string"}}
+            "relationships_to_resolve": {"type": "array", "items": {"type": "string"}},
+            "conceptual_connections": {"type": "array", "items": {"type": "object", "required": ["id", "from_id", "to_id", "observation_separation_m", "access", "geometry", "routing_eligible"], "properties": {"access": {"const": "unverified"}, "geometry": {"type": "null"}, "routing_eligible": {"const": False}, "observation_separation_m": {"type": "number", "minimum": 0}}}}
         }
     },
 

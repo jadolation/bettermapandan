@@ -3,8 +3,16 @@
   "schema_version": 1,
   "generated_at": "2026-10-24",
   "fares": [
+    {"id":"fare-mini-mapandan-manaoag","route_id":"mapandan-manaoag-minibus","fare_type":"passenger_fare","rate_kind":"locally_reported_range","amount":{"min":15,"max":20,"currency":"PHP"},"source_type":"maintainer_local_observation","source_reference":"route-expansion-observation","verification_status":"locally_reported","effective_date":null},
+    {"id":"fare-tri-guam-mapandan","route_id":"urdaneta-mapandan-tricycle","fare_type":"passenger_fare","rate_kind":"locally_reported_range","amount":{"min":70,"max":100,"currency":"PHP"},"basis":"reported_corridor_only","source_type":"maintainer_local_observation","source_reference":"route-expansion-observation","verification_status":"locally_reported","effective_date":null},
+    {"id":"fare-shared-border-arch","leg_id":"leg-border-arch","fare_type":"passenger_fare","rate_kind":"locally_reported_range","amount":{"min":15,"max":20,"currency":"PHP"},"source_type":"maintainer_local_observation","source_reference":"route-expansion-observation","verification_status":"locally_reported","effective_date":null},
+    {"id":"fare-tri-border-arch-tuliao","leg_id":"leg-tuliao","fare_type":"passenger_fare","rate_kind":"locally_reported_range","amount":{"min":50,"max":80,"currency":"PHP"},"source_type":"maintainer_local_observation","source_reference":"route-expansion-observation","verification_status":"locally_reported","effective_date":null},
+    {"id":"fare-jeep-tuliao-calasiao","leg_id":"leg-calasiao","fare_type":"passenger_fare","rate_kind":"locally_reported_range","amount":{"min":15,"max":20,"currency":"PHP"},"source_type":"maintainer_local_observation","source_reference":"final-legs-observation","verification_status":"locally_reported","effective_date":null},
+    {"id":"fare-mini-manaoag-sm","leg_id":"leg-manaoag-sm","fare_type":"passenger_fare","rate_kind":"locally_reported_range","amount":{"min":30,"max":40,"currency":"PHP"},"source_type":"maintainer_local_observation","source_reference":"final-legs-observation","verification_status":"locally_reported","effective_date":null},
+    {"id":"fare-tri-tuliao-sta-barbara","leg_id":"leg-sta-barbara","fare_type":"passenger_fare","rate_kind":"unknown","amount":null,"source_type":"maintainer_local_observation","source_reference":"route-expansion-observation","verification_status":"unknown","effective_date":null},
     {
       "id": "fare-mini-mapandan-dagupan",
+      "source_type": "maintainer_local_observation",
       "route_id": "mapandan-dagupan-minibus",
       "fare_type": "passenger_fare",
       "rate_kind": "locally_reported_range",
@@ -25,6 +33,7 @@
     },
     {
       "id": "fare-jeep-mapandan-mangaldan",
+      "source_type": "maintainer_local_observation",
       "route_id": "mapandan-mangaldan-jeepney",
       "fare_type": "passenger_fare",
       "rate_kind": "locally_reported_range",
@@ -45,6 +54,7 @@
     },
     {
       "id": "fare-tri-passing-short",
+      "source_type": "maintainer_local_observation",
       "vehicle_type": "tricycle",
       "service_type": "shared_passing",
       "fare_type": "passenger_fare",
@@ -66,6 +76,7 @@
     },
     {
       "id": "fare-tri-arkila-start",
+      "source_type": "maintainer_local_observation",
       "vehicle_type": "tricycle",
       "service_type": "arkila",
       "fare_type": "passenger_fare",

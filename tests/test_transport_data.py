@@ -97,15 +97,15 @@ def test_all_records_have_required_fields():
         assert not missing, f"stand {props['id']} missing: {missing}"
 
 
-def test_two_route_identities_exist():
-    """Two route records for the two corridors."""
+def test_corridor_and_journey_identities_exist():
+    """Catalog identities are references, not verified services."""
     routes = load_file("routes.json")["routes"]
     ids = {r["id"] for r in routes}
-    assert ids == {"mapandan-dagupan-minibus", "mapandan-mangaldan-jeepney"}
+    assert ids == {"mapandan-dagupan-minibus", "mapandan-mangaldan-jeepney", "mapandan-manaoag-minibus", "urdaneta-mapandan-tricycle", "mapandan-calasiao-multileg", "mapandan-sta-barbara-multileg", "manaoag-sm-minibus", "mapandan-manaoag-sm-multileg"}
 
 
-def test_five_initial_patterns_including_turnaround():
-    """Five patterns: two minibus directions, one turnaround, two jeepney directions."""
+def test_passenger_patterns_and_operational_separation():
+    """Original patterns plus independent candidate directions and missing final legs."""
     patterns = load_file("service_patterns.json")["patterns"]
     ids = {p["id"] for p in patterns}
     expected = {
@@ -115,7 +115,8 @@ def test_five_initial_patterns_including_turnaround():
         "jeep-mangaldan-mapandan",
         "jeep-mapandan-mangaldan",
     }
-    assert ids == expected
+    expected.update({"mini-mapandan-manaoag", "mini-manaoag-mapandan", "tri-guam-mapandan", "tri-mapandan-guam", "shared-mapandan-border-arch", "tri-border-arch-tuliao", "jeep-tuliao-calasiao", "tri-tuliao-sta-barbara"})
+    assert ids == expected | {"mini-manaoag-sm"}
 
 
 def test_dagupan_turnaround_is_non_passenger():
@@ -162,11 +163,15 @@ def test_named_places_not_merged_with_terminals():
                for r in data["relationships_to_resolve"])
 
 
-def test_named_places_are_nonspatial():
-    """Named place landmarks are not geocoded until verified."""
+def test_unsupplied_named_places_remain_nonspatial():
+    """Only explicitly supplied observations may have point geometry."""
     places = load_file("named_places.json")["places"]
     for place in places:
-        assert place.get("geometry") is None
+        if place.get("geometry") is not None:
+            assert place["source_type"] == "maintainer_local_observation"
+            assert place["routing_eligible"] is False
+        if place["id"] in {"place-peoples-park", "place-phome", "place-coca-cola", "place-s-and-r", "place-robinsons-pangasinan", "place-jollibee-junction"} or place["source_type"] == "maintainer_provided":
+            assert place.get("geometry") is None
 
 
 def test_four_fare_ranges_preserved():
@@ -188,6 +193,9 @@ def test_fares_are_locally_reported_not_official():
     """Provisional fares must not be labeled official_verified."""
     fares = load_file("fares.json")["fares"]
     for fare in fares:
+        if fare["rate_kind"] == "unknown":
+            assert fare["amount"] is None
+            continue
         assert fare["rate_kind"] == "locally_reported_range"
         assert fare["verification_status"] == "locally_reported"
         assert fare["effective_date"] is None
@@ -197,7 +205,8 @@ def test_fares_are_locally_reported_not_official():
 def test_fares_currency_is_php():
     """All fare amounts use PHP."""
     for fare in load_file("fares.json")["fares"]:
-        assert fare["amount"]["currency"] == "PHP"
+        if fare["amount"] is not None:
+            assert fare["amount"]["currency"] == "PHP"
 
 
 def test_tricycle_fare_basics_are_short_trip_not_fixed():
@@ -335,7 +344,7 @@ def test_public_projection_preserves_coordinates_and_applicable_fares():
         assert ranges == {"minibus": [(35, 40)], "jeepney": [(21, 25)],
                           "tricycle": [(10, 15), (20, 25)]}[props["transport_type"]]
     for fare in load_file("fares.json")["fares"]:
-        assert fare["source_reference"] == "commuter-reported-fares"
+        assert fare["source_reference"] in {"commuter-reported-fares", "route-expansion-observation", "final-legs-observation"}
 
 
 def test_commuter_locales_and_static_directory():
@@ -348,6 +357,16 @@ def test_commuter_locales_and_static_directory():
         assert all(locale["commuter"].values())
         html = commuter_placeholders(locale)["COMMUTER_DIRECTORY"]
         assert html.count('<article ') == 7
+        route_html = commuter_placeholders(locale)["COMMUTER_ROUTES"]
+        assert route_html.count('<fieldset ') == len(reference_catalog())
+        assert "PHP 15-20" in route_html and "PHP 70-100" in route_html and "PHP 50-80" in route_html
+        assert locale["commuter"]["unknown_fare"] in route_html
+        for route in reference_catalog():
+            assert route["id"] in locale["commuter"]
+            for leg in route["legs"]:
+                assert leg["label_key"] in locale["commuter"]
+                assert all(mode in locale["commuter"] for mode in leg["vehicle_types"])
+            assert all(pid in locale["commuter"] for direction in route["directions"] for pid in direction)
         assert "PHP 35-40" in html and "PHP 21-25" in html
         assert "PHP 10-15" in html and "PHP 20-25" in html
         public = json.loads(commuter_placeholders(locale)["COMMUTER_DATA"])
@@ -356,3 +375,91 @@ def test_commuter_locales_and_static_directory():
             text = public["labels"][key]
             assert len(text.split()) <= 14
             assert text.count(".") <= 1
+
+
+def reference_catalog():
+    from _build.transport.compiler import reference_bundle
+    return reference_bundle()["catalog"]
+
+
+def test_scoped_reported_totals_and_unknown_final_fare():
+    import copy
+
+    from _build.transport.compiler import reported_fare_summary
+    catalog = {r["id"]: r for r in reference_catalog()}
+    for rid, limits in {"mapandan-calasiao-multileg": (80, 120), "mapandan-manaoag-sm-multileg": (45, 60)}.items():
+        result = catalog[rid]["fare_summary"]
+        assert result["complete"] is True
+        assert result["amount"] == {"min": limits[0], "max": limits[1], "currency": "PHP"}
+    incomplete = catalog["mapandan-sta-barbara-multileg"]["fare_summary"]
+    assert incomplete["complete"] is False and incomplete["amount"] is None
+    assert incomplete["known_subtotal"] == {"min": 65, "max": 100, "currency": "PHP"}
+    assert incomplete["unknown_leg_ids"] == ["leg-sta-barbara"]
+    legs = copy.deepcopy(catalog["mapandan-calasiao-multileg"]["legs"])
+    legs[-1]["fare"]["rate_kind"] = "inapplicable_test_fare"
+    assert reported_fare_summary(legs)["complete"] is False
+
+
+def test_distinct_precise_final_places_and_unverified_connections():
+    from _build.transport.generate import distance
+    data = load_file("named_places.json")
+    places = {p["id"]: p for p in data["places"]}
+    expected = {
+        "place-tuliao-jeep": [120.40215800132748, 16.007041474290205],
+        "place-tuliao-tricycle": [120.40212464271654, 16.007106182475425],
+        "place-calasiao": [120.35382397535011, 16.021418024226584],
+        "place-sta-barbara": [120.40309090560488, 16.00082843128207],
+        "place-meditek-manaoag": [120.4862474315581, 16.04395435752346],
+        "place-sm-entry": [120.57163979808034, 15.970620569087611],
+    }
+    for pid, point in expected.items():
+        assert places[pid]["geometry"]["coordinates"] == point
+    assert places["place-sm-entry"]["classification"] == "entry_approach_not_terminal"
+    for c in data["conceptual_connections"]:
+        assert c["access"] == "unverified" and c["geometry"] is None and c["routing_eligible"] is False
+        a, b = [places[c[k]]["geometry"]["coordinates"] for k in ("from_id", "to_id")]
+        assert a != b
+        assert distance(a, b) == pytest.approx(c["observation_separation_m"], abs=.001)
+
+
+def test_expansion_fares_and_incomplete_journeys():
+    fares = {f["id"]: f for f in load_file("fares.json")["fares"]}
+    for fid, limits in {"fare-mini-mapandan-manaoag": (15, 20), "fare-tri-guam-mapandan": (70, 100), "fare-shared-border-arch": (15, 20), "fare-tri-border-arch-tuliao": (50, 80)}.items():
+        assert fares[fid]["amount"] == dict(zip(("min", "max", "currency"), (*limits, "PHP")))
+    for fare in fares.values():
+        assert fare["source_type"] == "maintainer_local_observation"
+        assert fare["rate_kind"] == ("unknown" if fare["amount"] is None else "locally_reported_range")
+    catalog = load_file("routes.json")
+    shared = next(leg for leg in catalog["legs"] if leg["id"] == "leg-border-arch")
+    assert shared["vehicle_types"] == ["minibus", "jeepney"]
+    assert shared["route_affiliation"] is None
+    for route in catalog["routes"]:
+        assert route["routing_eligible"] is False
+        if route["vehicle_type"] == "multileg":
+            assert len(route["leg_ids"]) >= 2 and route["transfer_count"] == len(route["leg_ids"]) - 1
+            assert route["directions"] == [route["patterns"]]
+            assert route.get("total_fare") is None and route.get("total_duration_minutes") is None
+            assert route["pedestrian_access"] == "unresolved"
+            assert route["authorization"] == "unconfirmed"
+
+
+@pytest.mark.parametrize("mutation", [
+    lambda d: d["transport/fares.json"]["fares"][4].update(amount={"min": 0, "max": 0, "currency": "PHP"}),
+    lambda d: d["transport/routes.json"]["routes"][4].update(total_fare=65),
+    lambda d: d["transport/routes.json"]["routes"][4].update(pedestrian_access="verified"),
+    lambda d: d["transport/routes.json"]["routes"][4].update(authorization="authorized"),
+    lambda d: d["transport/routes.json"]["routes"][4]["directions"].append(["tri-border-arch-tuliao"]),
+    lambda d: d["transport/routes.json"]["routes"][4]["directions"][0].append("mini-dagupan-turnaround"),
+    lambda d: d["transport/service_patterns.json"]["patterns"][0].update(routing_eligible=True, geometry_verified=True),
+])
+def test_catalog_publication_rejects_unsupported_claims(mutation):
+    from unittest.mock import patch
+
+    from _build.transport.compiler import reference_bundle
+    from _build.transport.validation import load_transport_data
+    data = load_transport_data()
+    # Mutations below target a multileg record regardless of catalog ordering.
+    data["transport/routes.json"]["routes"][4] = next(r for r in data["transport/routes.json"]["routes"] if r["id"] == "mapandan-calasiao-multileg")
+    mutation(data)
+    with patch("_build.transport.compiler.load_transport_data", return_value=data), pytest.raises(ValueError):
+        reference_bundle()

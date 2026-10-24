@@ -3,34 +3,39 @@ title: Better Mapandan Commuter
 description: Locally reported transport places and fare ranges. Reference only; no routing.
 ---
 <div id="commuter-page" class="commuter-page">
-  <header class="commuter-hero"><h1>{C_TITLE}</h1><p>{C_INTRO}</p></header>
-  <div class="commuter-controls" hidden>
-    <label for="commuter-search">{C_SEARCH}</label>
-    <input id="commuter-search" type="search" autocomplete="off">
-    <label for="commuter-type">{C_FILTER}</label>
-    <select id="commuter-type"><option value="">{C_ALL}</option><option value="minibus">{C_MINIBUS}</option><option value="jeepney">{C_JEEPNEY}</option><option value="tricycle">{C_TRICYCLE}</option></select>
-    <button id="commuter-reset" type="button">{C_RESET}</button>
-    <p id="commuter-count" role="status"></p>
-  </div>
-  <section class="commuter-geometry" aria-labelledby="commuter-geometry-title">
-    <h2 id="commuter-geometry-title">{C_PROVISIONAL}</h2>
-    <p>{C_CANDIDATE_WARNING}</p>
-    <div id="commuter-lines" hidden></div>
-    <noscript><p>{C_UNAVAILABLE}</p></noscript>
-  </section>
+  <header class="commuter-hero"><h1>{C_TITLE}</h1><p>{C_CANDIDATE_WARNING}</p></header>
   <div class="commuter-workspace">
     <section class="commuter-map-section" aria-label="{C_MAP}">
       <div id="commuter-map" class="commuter-map" aria-label="{C_MAP}"></div>
       <p id="commuter-map-status" role="status">{C_FALLBACK}</p>
     </section>
-    <details id="commuter-sheet" class="commuter-sheet" open>
-      <summary>{C_SHEET}</summary>
-      <section id="commuter-info" tabindex="-1" aria-labelledby="commuter-info-title">
+    <section id="commuter-sheet" class="commuter-sheet" aria-label="{C_SHEET}">
+      <div class="sheet-toolbar"><h2>{C_PROVISIONAL} / {C_SHEET}</h2>
+      <div class="sheet-sizes" hidden role="group" aria-label="{C_SHEET}">
+        <button type="button" data-sheet-state="collapsed" aria-controls="commuter-sheet-body" aria-label="{C_SHEET_COLLAPSED}"><span aria-hidden="true">&#8722;</span></button>
+        <button type="button" data-sheet-state="half" aria-controls="commuter-sheet-body" aria-label="{C_SHEET_HALF}"><span aria-hidden="true">&#8645;</span></button>
+        <button type="button" data-sheet-state="expanded" aria-controls="commuter-sheet-body" aria-label="{C_SHEET_EXPANDED}"><span aria-hidden="true">&#43;</span></button>
+      </div>
+      </div>
+      <div id="commuter-sheet-body" class="commuter-sheet-body">
+        <div class="commuter-controls" hidden>
+          <label class="commuter-sr-only" for="commuter-search">{C_SEARCH}</label>
+          <input id="commuter-search" type="search" placeholder="{C_SEARCH}" autocomplete="off">
+          <label class="commuter-sr-only" for="commuter-type">{C_FILTER}</label>
+          <select id="commuter-type"><option value="">{C_ALL}</option><option value="minibus">{C_MINIBUS}</option><option value="jeepney">{C_JEEPNEY}</option><option value="tricycle">{C_TRICYCLE}</option><option value="multileg">{C_MULTILEG}</option></select>
+          <button id="commuter-reset" type="button">{C_RESET}</button>
+          <p id="commuter-count" role="status"></p>
+        </div>
+        <div id="commuter-lines">{COMMUTER_ROUTES}</div>
+        <noscript><p>{C_UNAVAILABLE}</p></noscript>
+      <section id="commuter-info" tabindex="-1" aria-labelledby="commuter-info-title" hidden>
         <h2 id="commuter-info-title">{C_SELECT}</h2><div id="commuter-info-body"><p>{C_HINT}</p></div>
       </section>
-      <h2>{C_DIRECTORY}</h2>
-      <div id="transport-list" class="transport-list">{COMMUTER_DIRECTORY}</div>
-    </details>
+      <details class="commuter-directory"><summary>{C_DIRECTORY}</summary>
+        <div id="transport-list" class="transport-list">{COMMUTER_DIRECTORY}</div>
+      </details>
+      </div>
+    </section>
   </div>
 </div>
 <script id="commuter-data" type="application/json">{COMMUTER_DATA}</script>

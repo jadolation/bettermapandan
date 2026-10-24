@@ -3,6 +3,31 @@
   "schema_version": 1,
   "generated_at": "2026-10-24",
   "places": [
+    {"id":"place-firetree-roundabout-manaoag","name":"Firetree roundabout observation for Manaoag","geometry":{"type":"Point","coordinates":[120.4537424255,16.0271905088]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-maloko","name":"Maloko","geometry":{"type":"Point","coordinates":[120.4593303732,16.0214492605]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-galaban","name":"Galaban","geometry":{"type":"Point","coordinates":[120.4834076541,16.0376770060]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-tiong","name":"Tiong","geometry":{"type":"Point","coordinates":[120.4854454611,16.0434458815]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-tabayoyong","name":"Tabayoyong","geometry":{"type":"Point","coordinates":[120.4857012528,16.0434294929]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-manaoag-highway","name":"Manaoag highway observation","geometry":{"type":"Point","coordinates":[120.4856927264,16.0439293450]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-firetree-guam","name":"Firetree observation for Guam corridor","geometry":{"type":"Point","coordinates":[120.4546204349,16.0260434594]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-roundabout-guam","name":"Roundabout observation for Guam corridor","geometry":{"type":"Point","coordinates":[120.4538217097,16.0271171000]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-peoples-park","name":"Mapandan People's Park","geometry":null,"classification":"reported_origin_no_boarding_coordinate","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-manaoag-waiting","name":"Pigar Pigar Orig Manaoag waiting station","geometry":{"type":"Point","coordinates":[120.4863702448,16.0439189698]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-guam-pickup","name":"Guam pickup, Urdaneta","geometry":{"type":"Point","coordinates":[120.4978397275,15.9767050433]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-town-plaza","name":"Town Plaza observation","geometry":{"type":"Point","coordinates":[120.4529887567,16.0266228515]},"notes":"Distinct observation, not merged with the existing plaza stand.","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-phome","name":"PHOME vicinity","geometry":null,"classification":"nonspatial_reference","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-border-arch","name":"Border Arch","geometry":{"type":"Point","coordinates":[120.4193286072,16.0271295850]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-gmt-tuliao","name":"GMT-TODA Tuliao","geometry":{"type":"Point","coordinates":[120.4021994347,16.0071289665]},"classification":"reported_landmark_not_authorized_operator","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-calasiao","name":"Calasiao last supplied endpoint","geometry":{"type":"Point","coordinates":[120.35382397535011,16.021418024226584]},"notes":"12 m final turn has no supplied endpoint; not extended.","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-sta-barbara","name":"Santa Barbara Public Plaza observation","geometry":{"type":"Point","coordinates":[120.40309090560488,16.00082843128207]},"source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-tuliao-jeep","name":"Tuliao jeep observation","geometry":{"type":"Point","coordinates":[120.40215800132748,16.007041474290205]},"notes":"Distinct observation from GMT-TODA; transfer access unverified, no connector.","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-tuliao-tricycle","name":"Tuliao tricycle observation","geometry":{"type":"Point","coordinates":[120.40212464271654,16.007106182475425]},"notes":"Distinct observation from GMT-TODA; transfer access unverified, no connector.","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-meditek-manaoag","name":"Meditek Manaoag observation","geometry":{"type":"Point","coordinates":[120.4862474315581,16.04395435752346]},"notes":"Not merged with nearby waiting observation; walking access unverified.","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-sm-entry","name":"SM City Urdaneta entry turn observation","geometry":{"type":"Point","coordinates":[120.57163979808034,15.970620569087611]},"classification":"entry_approach_not_terminal","notes":"Missing final 75 m destination coordinate; no interior destination or building snap.","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-coca-cola","name":"CocaCola","geometry":null,"classification":"route_landmark","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-s-and-r","name":"S&R","geometry":null,"classification":"route_landmark","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-robinsons-pangasinan","name":"Robinsons Pangasinan","geometry":null,"classification":"route_landmark","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
+    {"id":"place-jollibee-junction","name":"Jollibee Junction","geometry":null,"classification":"route_landmark","source_type":"maintainer_local_observation","verification_status":"unverified","routing_eligible":false},
     {
       "id": "place-arras-market-morales",
       "route_id": "mapandan-dagupan-minibus",
@@ -56,7 +81,21 @@
       "reviewer": "BetterMapandan maintainer"
     }
   ],
+  "conceptual_connections": [
+    {"id":"tuliao-jeep-transfer","from_id":"place-gmt-tuliao","to_id":"place-tuliao-jeep","observation_separation_m":10.689,"access":"unverified","geometry":null,"routing_eligible":false,"notes":"Straight-line observation separation only, not a walk distance or connector."},
+    {"id":"tuliao-tricycle-transfer","from_id":"place-gmt-tuliao","to_id":"place-tuliao-tricycle","observation_separation_m":8.386,"access":"unverified","geometry":null,"routing_eligible":false,"notes":"Conceptual shared-leg attachment, not a mapped transfer walk."},
+    {"id":"manaoag-meditek-transfer","from_id":"place-manaoag-waiting","to_id":"place-meditek-manaoag","observation_separation_m":13.701,"access":"unverified","geometry":null,"routing_eligible":false,"notes":"Nearby observations remain distinct; waiting, crossing and walking access unknown."}
+  ],
+  "pattern_landmarks": {
+    "jeep-tuliao-calasiao": ["place-coca-cola", "place-s-and-r", "place-robinsons-pangasinan", "place-jollibee-junction"],
+    "shared-mapandan-border-arch": ["place-phome", "place-border-arch"],
+    "tri-border-arch-tuliao": ["place-border-arch", "place-gmt-tuliao"]
+  },
   "relationships_to_resolve": [
+    "People's Park boarding coordinate is unknown; do not merge with any existing terminal",
+    "Town Plaza and roundabout observations are distinct from nearby existing stands",
+    "PHOME vicinity is nonspatial; pedestrian access and both transfers remain unresolved",
+    "GMT-TODA Tuliao is a reported landmark, not an authorized operator identity",
     "Relationship between supply coordinate term-mini-dagupan and place-alaminos-bus-terminal-dagupan",
     "Relationship between Mangaldan terminal coordinate term-jeep-mangaldan and L.C. Bigmak! landmark place-bigmak-mangaldan"
   ]
