@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "dataset": "Better Mapandan Commuter — locally reported route additions",
+  "reported_on": "2026-10-24",
+  "status": "candidate_reference_only",
+  "notes": [
+    "Coordinates are maintainer supplied, order is as reported, longitude and latitude are separate properties; use [longitude,latitude] for GeoJSON.",
+    "Navigation times are road-driving references, not passenger journey guarantees.",
+    "Waypoints are not a complete road-aligned polyline. Do not make routing_eligible true until roadway geometry and accessibility are reviewed.",
+    "The Mapandan People's Park origin was given as a plus code and description, not a verified coordinate.",
+    "Unknown or missing trip segments remain unresolved."
+  ],
+  "routes": [
+    {
+      "id": "mapandan-manaoag-minibus",
+      "mode": "minibus",
+      "name": "Mapandan ↔ Manaoag",
+      "passenger_service": true,
+      "publication_status": "reference_only",
+      "routing_eligible": false,
+      "reported_drive_distance_km": 5.1,
+      "reported_drive_minutes": 13,
+      "street_sequence": [
+        "Pandan Avenue",
+        "Firetree Avenue",
+        "Maloko Street",
+        "Galaban Street",
+        "Tiong Street",
+        "Tabayoyong Street",
+        "Binalonan–Dagupan Highway / San Jacinto–Manaoag Road / Soriano Street"
+      ],
+      "fare": {
+        "kind": "locally_reported_range",
+        "currency": "PHP",
+        "min": 15,
+        "max": 20,
+        "scope": "Mapandan–Manaoag reported trip",
+        "verified_official": false
+      },
+      "patterns": [
+        {
+          "id": "manaoag-outbound",
+          "direction": "Mapandan to Manaoag",
+          "origin": {
+            "name": "Mapandan People's Park",
+            "address": "2FG3+GC9, Pandan Avenue, Mapandan",
+            "location_status": "unresolved"
+          },
+          "destination": {
+            "name": "Pigar pigar orig / Manaoag minibus waiting station",
+            "lat": 16.043918969753772,
+            "lon": 120.48637024482008
+          },
+          "waypoints": [
+            {
+              "sequence": 1,
+              "name": "Firetree Avenue roundabout, first exit",
+              "lat": 16.027190508821008,
+              "lon": 120.45374242545607,
+              "reported_segment_m": 900
+            },
+            {
+              "sequence": 2,
+              "name": "Turn left onto Maloko Street",
+              "lat": 16.021449260483585,
+              "lon": 120.45933037316149,
+              "reported_segment_m": 3200
+            },
+            {
+              "sequence": 3,
+              "name": "Continue onto Galaban Street",
+              "lat": 16.037677006042806,
+              "lon": 120.48340765412526,
+              "reported_segment_m": 700
+            },
+            {
+              "sequence": 4,
+              "name": "Turn right onto Tiong Street",
+              "lat": 16.04344588152305,
+              "lon": 120.48544546112221,
+              "reported_segment_m": 28
+            },
+            {
+              "sequence": 5,
+              "name": "Turn left onto Tabayoyong Street",
+              "lat": 16.04342949291382,
+              "lon": 120.48570125280366,
+              "reported_segment_m": 59
+            },
+            {
+              "sequence": 6,
+              "name": "Turn right onto Binalonan–Dagupan Highway / Soriano Street",
+              "lat": 16.04392934503667,
+              "lon": 120.48569272641463,
+              "reported_segment_m": 80
+            }
+          ]
+        },
+        {
+          "id": "manaoag-return",
+          "direction": "Manaoag to Mapandan",
+          "origin": {
+            "name": "Pigar pigar orig / Manaoag minibus waiting station",
+            "lat": 16.043918969753772,
+            "lon": 120.48637024482008
+          },
+          "destination": {
+            "name": "Mapandan People's Park",
+            "address": "2FG3+GC9, Pandan Avenue, Mapandan",
+            "location_status": "unresolved"
+          },
+          "status": "reported_service_direction_unverified",
+          "waypoints": [],
+          "note": "Return road geometry and turn permissions not separately supplied; do not automatically reverse the outbound route."
+        }
+      ]
+    },
+    {
+      "id": "urdaneta-guam-mapandan-tricycle",
+      "mode": "tricycle",
+      "name": "Guam Road, Urdaneta ↔ Mapandan Town Plaza",
+      "passenger_service": true,
+      "publication_status": "reference_only",
+      "routing_eligible": false,
+      "reported_drive_distance_km": 7.6,
+      "reported_drive_minutes": 14,
+      "street_sequence": [
+        "Urdaneta–Mapandan Road",
+        "Urdaneta",
+        "Firetree Avenue",
+        "Pandan Avenue"
+      ],
+      "fare": {
+        "kind": "locally_reported_range",
+        "currency": "PHP",
+        "min": 70,
+        "max": 100,
+        "scope": "Reported Guam Road/Urdaneta to Mapandan journey; not a verified tariff",
+        "verified_official": false
+      },
+      "patterns": [
+        {
+          "id": "urdaneta-mapandan",
+          "direction": "Guam Road, Urdaneta to Mapandan Town Plaza",
+          "origin": {
+            "name": "Guam Road pickup at Urdaneta–Mapandan Road entrance",
+            "lat": 15.976705043263722,
+            "lon": 120.49783972747508
+          },
+          "destination": {
+            "name": "Mapandan Town Plaza",
+            "lat": 16.02662285148536,
+            "lon": 120.45298875668284
+          },
+          "waypoints": [
+            {
+              "sequence": 1,
+              "name": "Continue onto Urdaneta",
+              "lat": 15.990239041170197,
+              "lon": 120.49246087811126,
+              "reported_segment_m": 5700
+            },
+            {
+              "sequence": 2,
+              "name": "Continue onto Firetree Avenue",
+              "lat": 16.02604345937503,
+              "lon": 120.45462043494697,
+              "reported_segment_m": 150
+            },
+            {
+              "sequence": 3,
+              "name": "Roundabout, turn left onto Pandan Avenue",
+              "lat": 16.02711710000002,
+              "lon": 120.45382170970646,
+              "reported_segment_m": 120
+            }
+          ]
+        },
+        {
+          "id": "mapandan-urdaneta",
+          "direction": "Mapandan to Guam Road, Urdaneta",
+          "status": "unverified_reverse_pattern",
+          "waypoints": [],
+          "note": "Reverse service and direction-specific turn rules not independently described."
+        }
+      ]
+    },
+    {
+      "id": "mapandan-calasiao-santa-barbara-transfer",
+      "mode": "multimodal_reference",
+      "name": "Mapandan → Tuliao (Santa Barbara) → Calasiao / Santa Barbara",
+      "passenger_service": true,
+      "publication_status": "reference_only",
+      "routing_eligible": false,
+      "legs": [
+        {
+          "id": "mapandan-border-arch",
+          "mode": "minibus_or_jeepney",
+          "origin": {
+            "name": "PHOME FURNISHING / Pandan Avenue departure reference",
+            "address": "2FG2+JXC, Pandan Avenue, Mapandan",
+            "location_status": "unresolved"
+          },
+          "destination": {
+            "name": "Mapandan Border Arch",
+            "lat": 16.027129584955865,
+            "lon": 120.41932860716835
+          },
+          "reported_drive_distance_km": 4.1,
+          "reported_drive_minutes": 8,
+          "street_sequence": [
+            "Pandan Avenue"
+          ],
+          "waypoints": [
+            {
+              "sequence": 1,
+              "name": "Pandan Avenue near departure",
+              "lat": 16.026453511849034,
+              "lon": 120.45244765978309,
+              "reported_segment_m": 1900
+            },
+            {
+              "sequence": 2,
+              "name": "Turn left to stay on Pandan Avenue",
+              "lat": 16.029333970226173,
+              "lon": 120.43770323676416,
+              "reported_segment_m": 2100
+            }
+          ],
+          "fare": {
+            "kind": "locally_reported_range",
+            "currency": "PHP",
+            "min": 15,
+            "max": 20,
+            "scope": "Mapandan to Border Arch",
+            "verified_official": false
+          }
+        },
+        {
+          "id": "border-arch-tuliao",
+          "mode": "tricycle",
+          "origin": {
+            "name": "Mapandan Border Arch",
+            "lat": 16.027129584955865,
+            "lon": 120.41932860716835
+          },
+          "destination": {
+            "name": "GMT-TODA (Tuliao)",
+            "lat": 16.007128966489937,
+            "lon": 120.40219943467551
+          },
+          "reported_drive_distance_km": 3.2,
+          "reported_drive_minutes": 5,
+          "street_sequence": [
+            "Santa Barbara–Mangaldan Road"
+          ],
+          "waypoints": [],
+          "fare": {
+            "kind": "locally_reported_range",
+            "currency": "PHP",
+            "min": 50,
+            "max": 80,
+            "scope": "Border Arch to Tuliao",
+            "verified_official": false
+          }
+        },
+        {
+          "id": "tuliao-calasiao",
+          "mode": "jeepney",
+          "origin": {
+            "name": "GMT-TODA (Tuliao)",
+            "lat": 16.007128966489937,
+            "lon": 120.40219943467551
+          },
+          "destination": {
+            "name": "Calasiao",
+            "location_status": "unresolved"
+          },
+          "intermediate_landmarks": [
+            "Coca-Cola manufacturing station",
+            "S&R",
+            "Robinsons Pangasinan",
+            "Jollibee Junction"
+          ],
+          "routing_eligible": false,
+          "waypoints": [],
+          "fare": {
+            "kind": "unknown"
+          },
+          "note": "Exact jeepney line, stop sequence, terminal, and fare not supplied."
+        },
+        {
+          "id": "tuliao-santa-barbara",
+          "mode": "tricycle",
+          "origin": {
+            "name": "GMT-TODA (Tuliao)",
+            "lat": 16.007128966489937,
+            "lon": 120.40219943467551
+          },
+          "destination": {
+            "name": "Santa Barbara",
+            "location_status": "unresolved"
+          },
+          "routing_eligible": false,
+          "waypoints": [],
+          "fare": {
+            "kind": "unknown"
+          },
+          "note": "Separate optional branch to Santa Barbara; destination and fare unknown."
+        }
+      ]
+    }
+  ]
+}
