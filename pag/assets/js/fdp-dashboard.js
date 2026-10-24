@@ -1,3 +1,5 @@
+function tr(text) { return (window.__I18N__ && window.__I18N__[text]) || text; }
+
 document.addEventListener("DOMContentLoaded", function () {
   if (typeof Chart === "undefined") {
     return;
@@ -49,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initChart(revCtx, {
       type: "doughnut",
       data: {
-        labels: ["Tax revenue", "Non-tax revenue", "National Tax Allotment", "Other external"],
+        labels: [tr("Tax revenue"), tr("Non-tax revenue"), tr("National Tax Allotment"), tr("Other external")],
         datasets: [{
           data: [millions(taxTotal), millions(nonTaxTotal),
                  millions(data.revenue.nta), millions(data.revenue.other_external)],
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return l.length > 28 ? l.slice(0, 27) + "…" : l;
         }),
         datasets: [{
-          label: "General Fund spending (PHP Millions)",
+          label: tr("General Fund spending (PHP Millions)"),
           data: expLabels.map(function (l) { return millions(data.expenditure.items[l]); }),
           backgroundColor: green
         }]
@@ -97,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: data.trend.map(function (p) { return p.period; }),
         datasets: [
           {
-            label: "Receipts (PHP Millions)",
+            label: tr("Receipts (PHP Millions)"),
             data: data.trend.map(function (p) { return millions(p.receipts); }),
             borderColor: green,
             backgroundColor: "rgba(76,138,46,0.1)",
@@ -105,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tension: 0.3
           },
           {
-            label: "Expenditures (PHP Millions)",
+            label: tr("Expenditures (PHP Millions)"),
             data: data.trend.map(function (p) { return millions(p.expenditures); }),
             borderColor: gold,
             backgroundColor: "rgba(232,169,23,0.1)",
@@ -139,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data: {
         labels: slugs.map(function (s) { return s.replace(/-/g, " "); }),
         datasets: [{
-          label: "Investment (PHP Millions)",
+          label: tr("Investment (PHP Millions)"),
           data: slugs.map(function (s) { return millions(((data.barangay.dist[s] || {}).investment) || 0); }),
           backgroundColor: slugs.map(function (s) {
             return ((data.barangay.dist[s] || {}).investment || 0) > 0 ? green : red;

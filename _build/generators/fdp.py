@@ -646,7 +646,9 @@ def _build_dashboard_labels(locale: dict) -> dict:
             "kpi_sef", "kpi_ldrrmf", "kpi_cash", "kpi_projects", "kpi_bids",
             "rev_title", "exp_title", "trend_title", "funds_title",
             "cash_title", "brgy_title", "bids_title", "view_table", "close",
-            "computed", "source", "view_table", "close"]
+            "computed", "source", "view_table", "close", "quarterly_note",
+            "operating", "investing", "financing", "ending", "awarded", "saved",
+            "retrieved"]
     return {"DASH_" + k.upper(): t(locale, f"transparency.dash_{k}", "") for k in keys}
 
 
@@ -704,8 +706,7 @@ def generate_fdp_dashboard(locale: dict) -> str:
     out.append('<div class="card mt-24">'
                f'<h3 id="fiscal-trend">{labels["DASH_TREND_TITLE"]}</h3>'
                '<canvas id="chart-fdp-trend" height="200" role="img"></canvas>'
-               f'<p class="note-inline">Quarterly flows derived by differencing year-to-date filings '
-               f'({labels["DASH_COMPUTED"]})</p></div>')
+               f'<p class="note-inline">{labels["DASH_QUARTERLY_NOTE"]}</p></div>')
 
     funds = summary["funds"]
     sef_hist = funds["sef"]
@@ -727,10 +728,10 @@ def generate_fdp_dashboard(locale: dict) -> str:
     if cash:
         out.append('<div class="card mt-24">'
                    f'<h3 id="fiscal-cash">{labels["DASH_CASH_TITLE"]} ({period_label})</h3>'
-                   f'<p>Operating {_peso(cash.get("net_operating"))} · '
-                   f'Investing {_peso(cash.get("net_investing"))} · '
-                   f'Financing {_peso(cash.get("net_financing"))} → '
-                   f'Ending {_peso(cash.get("ending"))}</p></div>')
+                   f'<p>{labels["DASH_OPERATING"]} {_peso(cash.get("net_operating"))} · '
+                   f'{labels["DASH_INVESTING"]} {_peso(cash.get("net_investing"))} · '
+                   f'{labels["DASH_FINANCING"]} {_peso(cash.get("net_financing"))} → '
+                   f'{labels["DASH_ENDING"]} {_peso(cash.get("ending"))}</p></div>')
 
     brgy = summary["barangay"]["dist"]
     if brgy:
@@ -743,10 +744,10 @@ def generate_fdp_dashboard(locale: dict) -> str:
         last = bids_hist[-1]
         out.append('<div class="card mt-24">'
                    f'<h3 id="fiscal-bids">{labels["DASH_BIDS_TITLE"]} ({period_label})</h3>'
-                   f'<p>ABC {_peso(last.get("abc"))} → awarded {_peso(last.get("awarded"))} · '
-                   f'saved {_peso(last.get("savings"))} ({last.get("rate")}%, '
+                   f'<p>ABC {_peso(last.get("abc"))} → {labels["DASH_AWARDED"]} {_peso(last.get("awarded"))} · '
+                   f'{labels["DASH_SAVED"]} {_peso(last.get("savings"))} ({last.get("rate")}%, '
                    f'{labels["DASH_COMPUTED"]})</p></div>')
 
-    out.append(f"<p class='source-label'>{src} &mdash; retrieved {summary.get('retrieved', '')}.</p>")
+    out.append(f"<p class='source-label'>{src} &mdash; {labels['DASH_RETRIEVED']} {summary.get('retrieved', '')}.</p>")
     out.append("</div></section>")
     return "\n".join(out)

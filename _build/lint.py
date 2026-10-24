@@ -19,6 +19,8 @@ TRANSLATION_ALLOWLIST = {
     "land bank", "landbank", "coa", "sglg", "fdp", "gf",
     "unpkg.com", "cdn.jsdelivr.net",
     "google maps", "google.com", "maps.app",
+    "bureau of fire protection", "philippine national police",
+    "philippine statistics authority",
     "16.03", "120.456", "openstreetmap",
     "©", "© 2024", "© 2025", "© 2026",
 }
@@ -67,10 +69,19 @@ TRANSLATION_ALLOWLIST_PAG = TRANSLATION_ALLOWLIST | {
 
 def _strip_tags_for_comparison(html_text: str) -> str:
     """Remove HTML tags and normalize whitespace for translation comparison."""
+    import html as _html
     import re as _re
     text = _re.sub(r"<script[^>]*>.*?</script>", "", html_text, flags=_re.DOTALL)
     text = _re.sub(r"<style[^>]*>.*?</style>", "", text, flags=_re.DOTALL)
+    text = _re.sub(
+        r"</(?:p|div|li|h[1-6]|tr|td|th|section|nav|a|button|figcaption)>",
+        ". ",
+        text,
+        flags=_re.IGNORECASE,
+    )
+    text = _re.sub(r"<br\s*/?>", ". ", text, flags=_re.IGNORECASE)
     text = _re.sub(r"<[^>]+>", " ", text)
+    text = _html.unescape(text)
     return _re.sub(r"\s+", " ", text).strip()
 
 

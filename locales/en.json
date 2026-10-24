@@ -332,7 +332,9 @@
     "yes": "Yes",
     "no": "No",
     "thanks": "Thank you for your feedback!",
-    "report": "Report incorrect information"
+    "report": "Report incorrect information",
+    "charter_alt": "Citizens Charter for {name}",
+    "photo_caption": "Citizens Charter document: {filename}"
   },
   "services": {
     "nav_services_directory": "Service directory",
@@ -436,7 +438,7 @@
   },
   "legislative": {
     "framework_eyebrow": "Framework",
-    "framework_title": "Local governance &amp; statutory origins",
+    "framework_title": "Local governance & statutory origins",
     "legal_basis": "Legal Basis",
     "legal_basis_desc": "The Municipality of Mapandan operates under <strong>Republic Act No. 7160</strong> (Local Government Code of 1991), situated within the Third Congressional District of Pangasinan. The Sangguniang Bayan &mdash; a unicameral local legislative council &mdash; exercises municipal legislative power, presided by the Municipal Vice Mayor and composed of elected councilors alongside ex-officio representatives from the Liga ng mga Barangay and the Sangguniang Kabataan Federation.",
     "historical_origins": "Historical Origins",
@@ -454,7 +456,7 @@
     "ord_status": "Status",
     "ord_source": "Source",
     "res_eyebrow": "Resolutions",
-    "res_title": "Resolutions &amp; investment plans",
+    "res_title": "Resolutions & investment plans",
     "res_desc": "Policy expressions, investment plans, and procurement authorizations passed by the Sangguniang Bayan.",
     "res_no": "Resolution No.",
     "res_title_col": "Title",
@@ -504,7 +506,8 @@
     "revenue_vs_expenditure": "Revenue vs Expenditure",
     "search_label": "Search legislative documents",
     "search_placeholder": "Search all tables...",
-    "view_fiscal": "View detailed fiscal data"
+    "view_fiscal": "View detailed fiscal data",
+    "barangays": "Barangays"
   },
   "statistics": {
     "eyebrow": "Open Data",
@@ -853,7 +856,15 @@
     "infrastructure_coa_findings": "COA Findings",
     "infrastructure_map": "Map",
     "infrastructure_source_note": "Source: DPWH Transparency Portal — Pangasinan 4th District Engineering Office. Project information, documents, and satellite imagery are continuously being uploaded.",
-    "infrastructure_status_card": "Status"
+    "infrastructure_status_card": "Status",
+    "dash_quarterly_note": "Quarterly flows derived by differencing year-to-date filings (computed)",
+    "dash_operating": "Operating",
+    "dash_investing": "Investing",
+    "dash_financing": "Financing",
+    "dash_ending": "Ending",
+    "dash_awarded": "awarded",
+    "dash_saved": "saved",
+    "dash_retrieved": "retrieved"
   },
   "procurement": {
     "eyebrow": "Public Procurement",
@@ -1047,7 +1058,8 @@
     "mobile_hotline": "Hotline",
     "mobile_search": "Search",
     "mobile_services": "Services",
-    "disclaimer": "Better Mapandan is an independent civic transparency portal. It is not an official government website and is not affiliated with, endorsed by, or operated by the Municipality of Mapandan or any government agency."
+    "disclaimer": "Better Mapandan is an independent civic transparency portal. It is not an official government website and is not affiliated with, endorsed by, or operated by the Municipality of Mapandan or any government agency.",
+    "free": "Free"
   },
   "government": {
     "executive_title": "Executive Branch",
@@ -1068,5 +1080,19 @@
     "nav_barangay_councils": "Barangay councils",
     "nav_contacts": "Contacts",
     "nav_national_agencies": "National agencies"
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "quick_actions": "Quick actions",
+    "emergency_numbers": "Emergency contact numbers",
+    "main_nav": "Main",
+    "language": "Language",
+    "logo_alt": "Better Mapandan seal",
+    "breadcrumb": "Breadcrumb"
+  },
+  "mobile": {
+    "hotline": "Hotline",
+    "search": "Search",
+    "services": "Services"
   }
 }

@@ -2,6 +2,7 @@
 from pathlib import Path
 
 from _build.config import SITE_CONFIG, SRC_PARTIALS
+from _build.html_i18n import js_i18n_script, localize_internal_links
 from _build.locales import t
 from _build.templates import fill, to_folder_index
 
@@ -36,6 +37,10 @@ def build_header(locale: dict, asset_base: str, lang_code: str, lang_urls: dict[
         "LANG_LABEL_EN": t(locale, "lang_switch.en", "EN"),
         "LANG_LABEL_FIL": t(locale, "lang_switch.fil", "FIL"),
         "LANG_LABEL_PAG": t(locale, "lang_switch.pag", "PANG"),
+        "A11Y_EMERGENCY_NUMBERS": t(locale, "a11y.emergency_numbers", "Emergency contact numbers"),
+        "A11Y_MAIN_NAV": t(locale, "a11y.main_nav", "Main"),
+        "A11Y_LANGUAGE": t(locale, "a11y.language", "Language"),
+        "LOGO_ALT": t(locale, "a11y.logo_alt", "Better Mapandan seal"),
     })
 
 def build_footer(locale: dict, asset_base: str) -> str:
@@ -71,6 +76,7 @@ def build_footer(locale: dict, asset_base: str) -> str:
         "FOOTER_PROVINCE": t(locale, "footer.province_of", "Province of Pangasinan"),
         "FOOTER_COA": t(locale, "footer.coa", "Commission on Audit"),
         "FOOTER_PSA": t(locale, "footer.psa", "Philippine Statistics Authority"),
+        "LOGO_ALT": t(locale, "a11y.logo_alt", "Better Mapandan seal"),
     })
 
 def build_hero(meta: dict, page_hero_raw: str, asset_base: str) -> str:
@@ -84,8 +90,17 @@ def build_hero(meta: dict, page_hero_raw: str, asset_base: str) -> str:
         "HERO_LEDE": meta.get("hero_lede", ""),
     })
 
-def assemble_page(base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str, lang_code: str, page_url: str = "", breadcrumb_jsonld: str = "") -> str:
+def assemble_page(
+    base: str, asset_base: str, title: str, description: str, header: str, body: str, footer: str,
+    lang_code: str, page_url: str = "", breadcrumb_jsonld: str = "", locale: dict | None = None,
+) -> str:
     """Assemble a complete page from its components."""
+    locale = locale or {}
+    if lang_code != "en":
+        base = localize_internal_links(base, lang_code)
+        header = localize_internal_links(header, lang_code)
+        body = localize_internal_links(body, lang_code)
+        footer = localize_internal_links(footer, lang_code)
     base_url = "https://bettermapandan.org"
     if page_url:
         folder_path = to_folder_index(Path(page_url))
@@ -106,4 +121,10 @@ def assemble_page(base: str, asset_base: str, title: str, description: str, head
         "LANG_ATTR": f' lang="{lang_code}"',
         "CANONICAL_URL": canonical,
         "BREADCRUMB_JSONLD": breadcrumb_jsonld,
+        "I18N_SCRIPT": js_i18n_script(lang_code),
+        "A11Y_SKIP": t(locale, "a11y.skip", "Skip to content"),
+        "A11Y_QUICK_ACTIONS": t(locale, "a11y.quick_actions", "Quick actions"),
+        "MOBILE_HOTLINE": t(locale, "mobile.hotline", "Hotline"),
+        "MOBILE_SEARCH": t(locale, "mobile.search", "Search"),
+        "MOBILE_SERVICES": t(locale, "mobile.services", "Services"),
     })

@@ -55,16 +55,17 @@ def build_breadcrumbs(locale: dict, rel: Path, page_title: str) -> str:
     if depth == 1:
         bc_items = [
             f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
-            f'<span aria-current="page">{section_slug.replace("-", " ").title()}</span>',
+            f'<span aria-current="page">{t(locale, "nav.services", "Services")}</span>',
         ]
     else:
         section_href = "../" * (depth - 1)
         bc_items = [
             f'<a href="{home_href}">{t(locale, "nav.home", "Home")}</a>',
-            f'<a href="{section_href}">{section_slug.replace("-", " ").title()}</a>',
+            f'<a href="{section_href}">{t(locale, "nav.services", "Services")}</a>',
             f'<span aria-current="page">{page_title}</span>',
         ]
-    return '<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb">' + " &rsaquo; ".join(bc_items) + "</nav></div>\n"
+    label = t(locale, "a11y.breadcrumb", "Breadcrumb")
+    return '<div class="wrap"><nav class="breadcrumb" aria-label="' + label + '">' + " &rsaquo; ".join(bc_items) + "</nav></div>\n"
 
 def build_breadcrumb_jsonld(locale: dict, rel: Path, page_title: str, lang_code: str) -> str:
     """Build BreadcrumbList JSON-LD for a page. Returns empty string for homepage."""

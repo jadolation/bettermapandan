@@ -1,0 +1,182 @@
+{
+  "Receipts (PHP Millions)": {
+    "fil": "Receipts (PHP Millions)",
+    "pag": "Receipts (PHP Millions)"
+  },
+  "Expenditures (PHP Millions)": {
+    "fil": "Mga paggasta (PHP Millions)",
+    "pag": "Saray panangusar na pondo (PHP Millions)"
+  },
+  "Investment (PHP Millions)": {
+    "fil": "Investment (PHP Millions)",
+    "pag": "Investment (PHP Millions)"
+  },
+  "No results": {
+    "fil": "Walang mga resulta",
+    "pag": "Anggapo saray resulta"
+  },
+  "General Fund spending (PHP Millions)": {
+    "fil": "General Pondo spending (PHP Millions)",
+    "pag": "General Pondo spending (PHP Millions)"
+  },
+  "Detail unavailable offline.": {
+    "fil": "Detail hindi magagamit offline.",
+    "pag": "Detail anggapon maala offline."
+  },
+  "Total Assets (PHP Millions)": {
+    "fil": "Kabuuan Assets (PHP Millions)",
+    "pag": "Kabuuan Assets (PHP Millions)"
+  },
+  "Income (PHP Millions)": {
+    "fil": "Kita (PHP Millions)",
+    "pag": "Kita (PHP Millions)"
+  },
+  "Expenses (PHP Millions)": {
+    "fil": "Expenses (PHP Millions)",
+    "pag": "Expenses (PHP Millions)"
+  },
+  "IRA/NTA (PHP Millions)": {
+    "fil": "IRA/NTA (PHP Millions)",
+    "pag": "IRA/NTA (PHP Millions)"
+  },
+  "Local Income (PHP Millions)": {
+    "fil": "Lokal Kita (PHP Millions)",
+    "pag": "Lokal Kita (PHP Millions)"
+  },
+  "Other (PHP Millions)": {
+    "fil": "Iba pang (PHP Millions)",
+    "pag": "Arum (PHP Millions)"
+  },
+  "Contract Amount (PHP Millions)": {
+    "fil": "Contract Halaga (PHP Millions)",
+    "pag": "Contract Halaga (PHP Millions)"
+  },
+  "Total Contract Value (PHP)": {
+    "fil": "Kabuuan Contract Value (PHP)",
+    "pag": "Kabuuan Contract Value (PHP)"
+  },
+  "COA Opinion": {
+    "fil": "COA Opinion",
+    "pag": "COA Opinion"
+  },
+  "The page or item where the error was found": {
+    "fil": "Ang page o item where ang pagkakamali ay found",
+    "pag": "Say page odino item where say kamalian et found"
+  },
+  "Description of the error": {
+    "fil": "Paglalarawan ng ang pagkakamali",
+    "pag": "Deskripsyon na say kamalian"
+  },
+  "What is incorrect?": {
+    "fil": "What ay incorrect?",
+    "pag": "What et incorrect?"
+  },
+  "The correct data if known": {
+    "fil": "Ang correct datos kung known",
+    "pag": "Say correct datos no known"
+  },
+  "Link to supporting document": {
+    "fil": "Link upang supporting dokumento",
+    "pag": "Link pian supporting dokumento"
+  },
+  "Submit Missing Information": {
+    "fil": "Isumite Kulang Impormasyon",
+    "pag": "Ipasa Kulang Impormasyon"
+  },
+  "Type of information being submitted": {
+    "fil": "Uri ng impormasyon being submitted",
+    "pag": "Klase na impormasyon being submitted"
+  },
+  "Information Title / Name": {
+    "fil": "Impormasyon Title / Pangalan",
+    "pag": "Impormasyon Title / Ngaran"
+  },
+  "Title of the information": {
+    "fil": "Title ng ang impormasyon",
+    "pag": "Title na say impormasyon"
+  },
+  "Description & Details": {
+    "fil": "Paglalarawan & Mga detalye",
+    "pag": "Deskripsyon & Saray detalye"
+  },
+  "Detailed description": {
+    "fil": "Detailed paglalarawan",
+    "pag": "Detailed deskripsyon"
+  },
+  "Link to verifiable source": {
+    "fil": "Link upang verifiable pinagmulan",
+    "pag": "Link pian verifiable nanlapuan"
+  },
+  "Suggest New Feature": {
+    "fil": "Suggest Bago Feature",
+    "pag": "Suggest Balo Feature"
+  },
+  "Feature Name": {
+    "fil": "Feature Pangalan",
+    "pag": "Feature Ngaran"
+  },
+  "Name of the proposed feature": {
+    "fil": "Pangalan ng ang proposed feature",
+    "pag": "Ngaran na say proposed feature"
+  },
+  "Detailed description of the feature": {
+    "fil": "Detailed paglalarawan ng ang feature",
+    "pag": "Detailed deskripsyon na say feature"
+  },
+  "How this would help Mapandan residents": {
+    "fil": "How ito would tulong Mapandan mga residente",
+    "pag": "How aya would tulong Mapandan saray residente"
+  },
+  "Min Temp": {
+    "fil": "Min Temp",
+    "pag": "Min Temp"
+  },
+  "Max Temp": {
+    "fil": "Max Temp",
+    "pag": "Max Temp"
+  },
+  "Rain chance": {
+    "fil": "Rain chance",
+    "pag": "Rain chance"
+  },
+  "2024 Population:": {
+    "fil": "2024 Populasyon:",
+    "pag": "2024 Bilang na totoo:"
+  },
+  "2020 Population:": {
+    "fil": "2020 Populasyon:",
+    "pag": "2020 Bilang na totoo:"
+  },
+  "Land Use:": {
+    "fil": "Lupa Gamitin:",
+    "pag": "Dalin Usar:"
+  },
+  "Barangay Page": {
+    "fil": "Barangay Page",
+    "pag": "Barangay Page"
+  },
+  "Phone:": {
+    "fil": "Phone:",
+    "pag": "Phone:"
+  },
+  "Report or update information": {
+    "fil": "Iulat o update impormasyon",
+    "pag": "Ireport odino update impormasyon"
+  },
+  "Switch to": {
+    "fil": "Switch upang",
+    "pag": "Switch pian"
+  },
+  "Search unavailable": {
+    "fil": "Maghanap hindi magagamit",
+    "pag": "Mananap anggapon maala"
+  },
+  "The search index could not be loaded. Please try again later.": {
+    "fil": "Ang maghanap index could hindi be loaded. Mangyaring try again later.",
+    "pag": "Say mananap index could ag be loaded. Paki try again later."
+  },
+  "Population 2024": {
+    "fil": "Populasyon 2024",
+    "pag": "Bilang na totoo 2024"
+  }
+}

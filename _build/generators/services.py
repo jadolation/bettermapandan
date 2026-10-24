@@ -20,7 +20,7 @@ def pick_lang(record: dict, base: str, lang_code: str, default: str = "") -> str
         val = record.get(f"{base}_{lang_code}")
         if val:
             return val
-    return record.get(base, default)
+    return record.get(base) or default
 
 
 def generate_services(locale: dict, lang_code: str = "en") -> tuple[dict[str, str], dict[str, dict], dict[str, dict]]:
@@ -48,7 +48,7 @@ def generate_services(locale: dict, lang_code: str = "en") -> tuple[dict[str, st
     except KeyError as e:
         raise SystemExit(f"ERROR: Category missing 'slug' field in {data_path}: {e}")
 
-    analytics = _build_services_analytics(services, categories)
+    analytics = _build_services_analytics(services, categories, lang_code)
     analytics_json = json.dumps(analytics, ensure_ascii=False)
 
     by_category: dict[str, list[dict]] = {}
@@ -66,9 +66,11 @@ def generate_services(locale: dict, lang_code: str = "en") -> tuple[dict[str, st
             svc, categories, services, svc_template, svc_labels, lang_code
         )
         pages[f"services/{svc_slug}.html"] = filled
+        svc_name = pick_lang(svc, "name", lang_code)
+        svc_desc = pick_lang(svc, "description", lang_code)
         meta[f"services/{svc_slug}.html"] = {
-            "title": f"{svc.get('name', '')} — BetterMapandan.org",
-            "description": svc.get("description", "")[:160],
+            "title": f"{svc_name} — BetterMapandan.org",
+            "description": svc_desc[:160],
         }
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
@@ -108,6 +110,9 @@ def _build_service_labels(locale: dict) -> dict:
         "SVC_NO": t(locale, "service_page.no", "No"),
         "SVC_THANKS": t(locale, "service_page.thanks", "Thank you for your feedback!"),
         "SVC_REPORT": t(locale, "service_page.report", "Report incorrect information"),
+        "SVC_CHARTER_ALT": t(locale, "service_page.charter_alt", "Citizens Charter for {name}"),
+        "SVC_PHOTO_CAPTION": t(locale, "service_page.photo_caption", "Citizens Charter document: {filename}"),
+        "SVC_FREE": t(locale, "common.free", "Free"),
     }
 
 
@@ -118,33 +123,39 @@ def _generate_single_service(svc: dict, categories: dict, services: list, templa
     cat_name = pick_lang(cat, "name", lang_code)
     hero_lede = pick_lang(svc, "hero_lede", lang_code, svc_desc or svc.get("description", ""))
 
-    reqs_html = "\n".join(f"            <li>{html.escape(r)}</li>" for r in svc.get("requirements", []))
-    proc_html = "\n".join(f"            <li>{html.escape(p)}</li>" for p in svc.get("procedure", []))
-    related_html = _build_related_links(svc, services, lang_code)
+    reqs = svc.get(f"requirements_{lang_code}") if lang_code != "en" else svc.get("requirements", [])
+    proc = svc.get(f"procedure_{lang_code}") if lang_code != "en" else svc.get("procedure", [])
+    if not isinstance(reqs, list) or not reqs:
+        reqs = svc.get("requirements", [])
+    if not isinstance(proc, list) or not proc:
+        proc = svc.get("procedure", [])
+    reqs_html = "\n".join(f"            <li>{html.escape(r)}</li>" for r in reqs)
+    proc_html = "\n".join(f"            <li>{html.escape(p)}</li>" for p in proc)
+    related_html = _build_related_links(svc, services, lang_code, labels["SVC_NO_RELATED"])
 
     svc_slug = svc.get("slug", "unknown")
     asset_base = compute_asset_base(Path(f"services/{svc_slug}/index.html"), lang_code)
-    photo_html = _build_photo_html(svc, lang_code, asset_base)
+    photo_html = _build_photo_html(svc, lang_code, asset_base, labels)
 
     filled = fill(template, {
         "NAME": html.escape(svc_name),
         "DESCRIPTION": html.escape(svc_desc),
         "CATEGORY_NAME": html.escape(cat_name),
         "HERO_LEDE": html.escape(hero_lede),
-        "DESCRIPTION_FULL": html.escape(svc.get("description_full", svc.get("description", ""))),
+        "DESCRIPTION_FULL": html.escape(pick_lang(svc, "description_full", lang_code, pick_lang(svc, "description", lang_code))),
         "REQUIREMENTS": reqs_html,
         "PROCEDURE": proc_html,
-        "OFFICE": html.escape(svc.get("office", "")),
-        "CLASSIFICATION": html.escape(svc.get("classification", "")),
-        "PROCESSING_TIME": html.escape(svc.get("processing_time", "")),
-        "FEE": html.escape(svc.get("fee", "Free")),
-        "WHERE": html.escape(svc.get("where_to_apply", "")),
+        "OFFICE": html.escape(pick_lang(svc, "office", lang_code)),
+        "CLASSIFICATION": html.escape(pick_lang(svc, "classification", lang_code)),
+        "PROCESSING_TIME": html.escape(pick_lang(svc, "processing_time", lang_code)),
+        "FEE": html.escape(pick_lang(svc, "fee", lang_code, labels["SVC_FREE"])),
+        "WHERE": html.escape(pick_lang(svc, "where_to_apply", lang_code)),
         "CONTACT": html.escape(svc.get("contact", "")),
         "SOURCE": html.escape(svc.get("source", "Mapandan Citizen's Charter")),
         "LAST_UPDATED": html.escape(svc.get("last_updated", "August 2025")),
         "RELATED_SERVICES": related_html,
         "PHOTO_HTML": photo_html,
-        "DELIVERY_MODE": html.escape(svc.get("delivery_mode", "in-person")),
+        "DELIVERY_MODE": html.escape(pick_lang(svc, "delivery_mode", lang_code, "in-person")),
         "SLUG": html.escape(svc.get("slug", "")),
         **labels,
     })
@@ -153,18 +164,24 @@ def _generate_single_service(svc: dict, categories: dict, services: list, templa
     return svc_slug, filled, hero_meta
 
 
-def _build_services_analytics(services: list, categories: dict) -> dict:
+def _build_services_analytics(services: list, categories: dict, lang_code: str = "en") -> dict:
     import re
-    cat_slugs = [svc.get("category", "") for svc in services]
-    categories_count = dict(Counter(cat_slugs))
+    cat_counts = Counter(svc.get("category", "") for svc in services)
+    categories_count = {
+        pick_lang(categories.get(slug, {}), "name", lang_code, slug): count
+        for slug, count in cat_counts.items()
+    }
 
-    office_count = dict(Counter(svc.get("office", "Unknown") for svc in services))
+    office_count = dict(Counter(pick_lang(svc, "office", lang_code, "Unknown") for svc in services))
 
     simple = sum(1 for svc in services if svc.get("classification") == "Simple")
     complex_count = sum(1 for svc in services if svc.get("classification") in ("Complex", "Highly Technical"))
-    classifications = {"Simple": simple, "Complex": complex_count}
+    classifications = {
+        pick_lang({"classification": "Simple"}, "classification", lang_code): simple,
+        pick_lang({"classification": "Complex"}, "classification", lang_code): complex_count,
+    }
 
-    delivery_modes = dict(Counter(svc.get("delivery_mode", "in-person") for svc in services))
+    delivery_modes = dict(Counter(pick_lang(svc, "delivery_mode", lang_code, "in-person") for svc in services))
 
     fee_count_free = 0
     fee_amounts = []
@@ -197,32 +214,36 @@ def _build_services_analytics(services: list, categories: dict) -> dict:
     }
 
 
-def _build_related_links(svc: dict, services: list, lang_code: str) -> str:
+def _build_related_links(svc: dict, services: list, lang_code: str, empty_label: str) -> str:
     related = svc.get("related", [])
     if not related:
-        return '<p>No related services available.</p>'
+        return f"<p>{html.escape(empty_label)}</p>"
+    prefix = f"/{lang_code}" if lang_code != "en" else ""
     links = []
     for rel_slug in related:
         rel_svc = next((s for s in services if s.get("slug") == rel_slug), None)
         if rel_svc:
             rel_name = pick_lang(rel_svc, "name", lang_code, "Unknown Service")
-            links.append(f'<a href="/services/{html.escape(rel_slug)}/">{html.escape(rel_name)}</a>')
+            links.append(f'<a href="{prefix}/services/{html.escape(rel_slug)}/">{html.escape(rel_name)}</a>')
     return '<div class="service-links">\n' + "\n".join(f"          {link}" for link in links) + "\n        </div>"
 
 
-def _build_photo_html(svc: dict, lang_code: str, asset_base: str) -> str:
+def _build_photo_html(svc: dict, lang_code: str, asset_base: str, labels: dict | None = None) -> str:
     photo_ref = svc.get("photo-referenced", "")
     if not photo_ref or not (ROOT / photo_ref.lstrip('/')).is_file():
         return ""
     photo_filename = photo_ref.split("/")[-1]
-    service_name = html.escape(svc.get("name", ""))
+    labels = labels or {}
+    service_name = pick_lang(svc, "name", lang_code)
+    alt = labels.get("SVC_CHARTER_ALT", "{name} — Citizens' Charter page").format(name=service_name)
+    caption = labels.get("SVC_PHOTO_CAPTION", "Citizens' Charter page — {filename}").format(filename=photo_filename)
     return f'''
             <figure class="service-photo-container">
-                <img class="service-photo" src="{asset_base}/{photo_ref}" alt="Citizens Charter for {service_name}"
+                <img class="service-photo" src="{asset_base}/{photo_ref}" alt="{html.escape(alt, quote=True)}"
                     loading="lazy" width="600" height="800"
                     data-fallback="hide">
                 <figcaption class="service-photo-caption">
-                    Citizens Charter document: {html.escape(photo_filename)}
+                    {html.escape(caption)}
                 </figcaption>
             </figure>'''
 
@@ -292,12 +313,15 @@ def _build_category_service_links(cat_services: list, lang_code: str) -> list:
     for s in cat_services:
         s_name = pick_lang(s, "name", lang_code)
         name_html = html.escape(s_name)
-        time_html = html.escape(s.get("processing_time", "")) if s.get("processing_time") else ""
-        fee_html = html.escape(s.get("fee", "")) if s.get("fee") else ""
+        prefix = f"/{lang_code}" if lang_code != "en" else ""
+        time_value = pick_lang(s, "processing_time", lang_code)
+        fee_value = pick_lang(s, "fee", lang_code)
+        time_html = html.escape(time_value) if time_value else ""
+        fee_html = html.escape(fee_value) if fee_value else ""
         meta_html = _build_service_meta_html(time_html, fee_html)
         service_links.append(
             f'<div class="service-link-wrap">'
-            f'<a class="service-link" href="/services/{html.escape(s.get("slug", ""))}/">{name_html}</a>'
+            f'<a class="service-link" href="{prefix}/services/{html.escape(s.get("slug", ""))}/">{name_html}</a>'
             f'{meta_html}</div>'
         )
     return service_links

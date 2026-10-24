@@ -13,12 +13,16 @@
     "fil": {
       "title": "Tungkol sa — BetterMapandan.org",
       "description": "Tungkol sa Bayan ng Mapandan, Pangasinan, at sa Better Mapandan civic transparency project.",
-      "hero_eyebrow": "About Better Mapandan"
+      "hero_eyebrow": "Tungkol",
+      "hero_heading": "Tungkol sa Better Mapandan",
+      "hero_lede": "Isang malayang civic transparency portal para sa Bayan ng Mapandan, Pangasinan."
     },
     "pag": {
       "title": "Tungkol — BetterMapandan.org",
       "description": "Tungkol ed Baley na Mapandan, Pangasinan, tan ed Better Mapandan civic transparency project.",
-      "hero_eyebrow": "Tungkol sa Better Mapandan"
+      "hero_eyebrow": "Nipaakar",
+      "hero_heading": "Nipakar ed Better Mapandan",
+      "hero_lede": "Sakey ya independiyenteng civic transparency portal parad Baley na Mapandan, Pangasinan."
     }
   },
   "government.html": {
@@ -26,13 +30,15 @@
       "title": "Direktoryo ng Pamahalaan — BetterMapandan.org",
       "description": "Mga opisyal na ehekutibo at lehislatibo, mga hepe ng departamento, at kumpletong direktoryo ng contact para sa Bayan ng Mapandan, Pangasinan.",
       "hero_eyebrow": "Government Directory",
-      "hero_lede": "Mga opisyal at opisina na naglilingkod sa Mapandan, mula sa Ehekutibo at Sangguniang Bayan hanggang sa mga hepe ng departamentong namamahala sa pang-araw-araw na operasyon."
+      "hero_lede": "Mga opisyal at opisina na naglilingkod sa Mapandan, mula sa Ehekutibo at Sangguniang Bayan hanggang sa mga hepe ng departamentong namamahala sa pang-araw-araw na operasyon.",
+      "hero_heading": "Direktoryo ng Pamahalaan"
     },
     "pag": {
       "title": "Direktoryo na Gobierno — BetterMapandan.org",
       "description": "Saray opisyal na executive tan legislative, saray department head, tan kumpletong contact directory na Baley na Mapandan, Pangasinan.",
       "hero_eyebrow": "Pamahalaan",
-      "hero_lede": "Saray opisyal tan opisina ya manserbi ed Mapandan, manipud ed Executive tan Sangguniang Bayan anggad ed saray department head ya manag-ayos na kadaagew a operasyon."
+      "hero_lede": "Saray opisyal tan opisina ya manserbi ed Mapandan, manipud ed Executive tan Sangguniang Bayan anggad ed saray department head ya manag-ayos na kadaagew a operasyon.",
+      "hero_heading": "Direktoryo na Gobyerno"
     }
   },
   "statistics.html": {
@@ -49,12 +55,16 @@
     "fil": {
       "title": "Transparency — BetterMapandan.org",
       "description": "Datos ng badyet, procurement, imprastraktura, at awdit para sa Mapandan, Pangasinan — maaaring tingnan ayon sa seksyon.",
-      "hero_eyebrow": "Transparency"
+      "hero_eyebrow": "Transparency",
+      "hero_lede": "Mga datos sa badyet, pagkuha ng mga produkto at serbisyo, imprastraktura, at pag-audit sa Mapandan — pumili ng seksiyong susuriin.",
+      "hero_heading": "Transparency"
     },
     "pag": {
       "title": "Transparensya — BetterMapandan.org",
       "description": "Badyet, procurement, imprastraktura, tan audit data para ed Mapandan, Pangasinan — nayarin a nengnengen base ed seksyon.",
-      "hero_eyebrow": "Transparency"
+      "hero_eyebrow": "Transparensya",
+      "hero_lede": "Saray datos ed badyet, panagaliw na produkto tan serbisyo, imprastruktura, tan audit ed Mapandan — manpili na seksiyon ya nengnengen.",
+      "hero_heading": "Transparensya"
     }
   },
   "search.html": {
@@ -71,96 +81,112 @@
     "fil": {
       "title": "Suporta — BetterMapandan.org",
       "description": "Mga mapagkukunan ng tulong, FAQ, impormasyon tungkol sa accessibility, patakaran sa privacy, at mga tuntunin ng paggamit para sa Better Mapandan civic portal.",
-      "hero_eyebrow": "Support"
+      "hero_eyebrow": "Support",
+      "hero_heading": "Tulong at Suporta",
+      "hero_lede": "Mga gabay sa tulong, madalas itanong, impormasyon sa aksesibilidad, at mga patakaran para sa Better Mapandan."
     },
     "pag": {
       "title": "Saranay — BetterMapandan.org",
       "description": "Saray tulong, FAQ, impormasyon na aksesibilidad, privacy policy, tan terms na paggamit para ed Better Mapandan civic portal.",
-      "hero_eyebrow": "Tulong at mga Mapagkukunan"
+      "hero_eyebrow": "Tulong tan Saray Rasay",
+      "hero_heading": "Tulong tan Suporta",
+      "hero_lede": "Saray giya parad tulong, masansan ya tepet, impormasyon ed aksesibilidad, tan saray patakaran parad Better Mapandan."
     }
   },
   "support/accessibility.html": {
     "fil": {
       "title": "Pahayag sa Aksesibilidad — BetterMapandan.org",
       "description": "Pangako at mga pamantayan sa aksesibilidad para sa Better Mapandan civic transparency portal.",
-      "hero_eyebrow": "Accessibility Statement",
-      "hero_lede": "Pangako naming gawing accessible sa lahat ng residente ang impormasyon ng pamahalaan."
+      "hero_eyebrow": "Suporta",
+      "hero_lede": "Pangako naming gawing accessible sa lahat ng residente ang impormasyon ng pamahalaan.",
+      "hero_heading": "Pahayag sa Aksesibilidad"
     },
     "pag": {
       "title": "Pahayag ed Aksesibilidad — BetterMapandan.org",
       "description": "Panag-ikagapos tan saray pamantayan ed aksesibilidad para ed Better Mapandan civic transparency portal.",
       "hero_eyebrow": "Suporta",
-      "hero_lede": "Sikayo so compromiso mi pian nayarin a maakses na amin a residente so impormasyon na gobierno."
+      "hero_lede": "Sikayo so compromiso mi pian nayarin a maakses na amin a residente so impormasyon na gobierno.",
+      "hero_heading": "Pahayag ed Aksesibilidad"
     }
   },
   "support/faq.html": {
     "fil": {
       "title": "Mga Madalas Itanong — BetterMapandan.org",
       "description": "Mga karaniwang tanong tungkol sa mga serbisyo ng pamahalaan, dokumento, at impormasyong sibiko para sa Mapandan, Pangasinan.",
-      "hero_eyebrow": "Frequently Asked Questions",
-      "hero_lede": "Mga sagot sa mga karaniwang tanong tungkol sa mga serbisyo ng pamahalaan at impormasyong sibiko sa Mapandan."
+      "hero_eyebrow": "Suporta",
+      "hero_lede": "Mga sagot sa mga karaniwang tanong tungkol sa mga serbisyo ng pamahalaan at impormasyong sibiko sa Mapandan.",
+      "hero_heading": "Mga Madalas Itanong"
     },
     "pag": {
       "title": "Saray Madalas a Saludsod — BetterMapandan.org",
       "description": "Saray kadawyan a saludsod tungkol ed saray serbisyo na gobierno, dokumento, tan civic information para ed Mapandan, Pangasinan.",
       "hero_eyebrow": "Suporta",
-      "hero_lede": "Saray sungbat ed saray kadawyan a saludsod tungkol ed saray serbisyo na gobierno tan civic information ed Mapandan."
+      "hero_lede": "Saray sungbat ed saray kadawyan a saludsod tungkol ed saray serbisyo na gobierno tan civic information ed Mapandan.",
+      "hero_heading": "Saray Masansan ya Tepet"
     }
   },
   "support/privacy.html": {
     "fil": {
       "title": "Patakaran sa Privacy — BetterMapandan.org",
       "description": "Patakaran sa privacy para sa Better Mapandan civic transparency portal.",
-      "hero_eyebrow": "Privacy Policy",
-      "hero_lede": "Kung paano namin pinangangasiwaan ang datos sa Better Mapandan civic transparency portal."
+      "hero_eyebrow": "Legal",
+      "hero_lede": "Kung paano namin pinangangasiwaan ang datos sa Better Mapandan civic transparency portal.",
+      "hero_heading": "Patakaran sa Privacy"
     },
     "pag": {
       "title": "Privacy Policy — BetterMapandan.org",
       "description": "Privacy policy para ed Better Mapandan civic transparency portal.",
       "hero_eyebrow": "Legal",
-      "hero_lede": "Panon mi a mangasiwa ed datos diad Better Mapandan civic transparency portal."
+      "hero_lede": "Panon mi a mangasiwa ed datos diad Better Mapandan civic transparency portal.",
+      "hero_heading": "Patakaran ed Privacy"
     }
   },
   "support/report.html": {
     "fil": {
-      "title": "Civic Contribution Hub — BetterMapandan.org",
+      "title": "Sentro ng Pakikilahok ng Mamamayan — BetterMapandan.org",
       "description": "Mag-ulat ng mga pagkakamali, magmungkahi ng bagong impormasyon, o magmungkahi ng mga feature para sa Better Mapandan civic transparency portal.",
       "hero_eyebrow": "Civic Contribution Hub",
-      "hero_lede": "Tulungan kaming panatilihing tama at kumpleto ang datos ng Mapandan. Mag-ulat ng mga pagkakamali, magmungkahi ng mga karagdagan, o magmungkahi ng mga bagong feature."
+      "hero_lede": "Tulungan kaming panatilihing tama at kumpleto ang datos ng Mapandan. Mag-ulat ng mga pagkakamali, magmungkahi ng mga karagdagan, o magmungkahi ng mga bagong feature.",
+      "hero_heading": "Sentro ng Pakikilahok ng Mamamayan"
     },
     "pag": {
-      "title": "Civic Contribution Hub — BetterMapandan.org",
+      "title": "Sentro na Pakikiparte na Saray Taga-Baley — BetterMapandan.org",
       "description": "I-ulat iray sayop, mangisurok na balon a impormasyon, odino mangisurok na features para ed Better Mapandan civic transparency portal.",
       "hero_eyebrow": "Komunidad",
-      "hero_lede": "Tulongan kami a panpatalin a tama tan kumpleto so datos na Mapandan. I-ulat iray sayop, mangisurok na dagdag, odino balon a features."
+      "hero_lede": "Tulongan kami a panpatalin a tama tan kumpleto so datos na Mapandan. I-ulat iray sayop, mangisurok na dagdag, odino balon a features.",
+      "hero_heading": "Sentro na Pakikiparte na Saray Taga-Baley"
     }
   },
   "support/sitemap.html": {
     "fil": {
-      "title": "Sitemap — BetterMapandan.org",
+      "title": "Mapa ng Website — BetterMapandan.org",
       "description": "Kumpletong sitemap ng lahat ng pahina sa Better Mapandan civic transparency portal.",
-      "hero_eyebrow": "Sitemap",
-      "hero_lede": "Kumpletong listahan ng lahat ng pahina sa Better Mapandan."
+      "hero_eyebrow": "Suporta",
+      "hero_lede": "Kumpletong listahan ng lahat ng pahina sa Better Mapandan.",
+      "hero_heading": "Mapa ng Website"
     },
     "pag": {
-      "title": "Sitemap — BetterMapandan.org",
+      "title": "Mapa na Website — BetterMapandan.org",
       "description": "Kumpletong sitemap na amin a pahina ed Better Mapandan civic transparency portal.",
       "hero_eyebrow": "Suporta",
-      "hero_lede": "Kumpletong listaan na amin a pahina ed Better Mapandan."
+      "hero_lede": "Kumpletong listaan na amin a pahina ed Better Mapandan.",
+      "hero_heading": "Mapa na Website"
     }
   },
   "support/terms.html": {
     "fil": {
       "title": "Mga Tuntunin ng Paggamit — BetterMapandan.org",
       "description": "Mga tuntunin ng paggamit para sa Better Mapandan civic transparency portal.",
-      "hero_eyebrow": "Terms of Use",
-      "hero_lede": "Mga tuntuning namamahala sa paggamit ng Better Mapandan civic transparency portal."
+      "hero_eyebrow": "Legal",
+      "hero_lede": "Mga tuntuning namamahala sa paggamit ng Better Mapandan civic transparency portal.",
+      "hero_heading": "Mga Tuntunin sa Paggamit"
     },
     "pag": {
       "title": "Saray Tuntunin na Panagusar — BetterMapandan.org",
       "description": "Saray tuntunin na panagusar para ed Better Mapandan civic transparency portal.",
       "hero_eyebrow": "Legal",
-      "hero_lede": "Saray tuntunin ya mangiwan ed panagusar na Better Mapandan civic transparency portal."
+      "hero_lede": "Saray tuntunin ya mangiwan ed panagusar na Better Mapandan civic transparency portal.",
+      "hero_heading": "Saray Tuntunin ed Panagusar"
     }
   },
   "transparency/procurement.html": {
@@ -168,13 +194,15 @@
       "title": "Pampublikong Pagkuha (PhilGEPS) — BetterMapandan.org",
       "description": "277 kontrata ng munisipyo na nagkakahalaga ng ₱470.2M mula sa PhilGEPS sa pamamagitan ng BetterGov.ph.",
       "hero_eyebrow": "Transparency · Pagkuha",
-      "hero_lede": "277 kontrata ng munisipyo na nagkakahalaga ng ₱470.2M mula sa PhilGEPS Open Data Portal ng BetterGov.ph — buwanang takbo, mga pangunahing awardee, at buong talahanayan ng mga kontrata."
+      "hero_lede": "277 kontrata ng munisipyo na nagkakahalaga ng ₱470.2M mula sa PhilGEPS Open Data Portal ng BetterGov.ph — buwanang takbo, mga pangunahing awardee, at buong talahanayan ng mga kontrata.",
+      "hero_heading": "Pampublikong Pagbili (PhilGEPS)"
     },
     "pag": {
       "title": "Pampublikong Procurement (PhilGEPS) — BetterMapandan.org",
       "description": "277 municipal contracts ya ₱470.2M manlapud PhilGEPS diad BetterGov.ph.",
       "hero_eyebrow": "Transparensya · Procurement",
-      "hero_lede": "277 municipal contracts ya ₱470.2M manlapud PhilGEPS Open Data Portal na BetterGov.ph — monthly trends, top awardees, tan kumpletong contract tables."
+      "hero_lede": "277 municipal contracts ya ₱470.2M manlapud PhilGEPS Open Data Portal na BetterGov.ph — monthly trends, top awardees, tan kumpletong contract tables.",
+      "hero_heading": "Publikon Panagaliw (PhilGEPS)"
     },
     "pag_status": "draft"
   },
@@ -183,13 +211,15 @@
       "title": "Mga Proyektong Imprastraktura — BetterMapandan.org",
       "description": "Mga proyektong imprastraktura ng DPWH sa Mapandan — 45 proyekto na nagkakahalaga ng ₱567.8M.",
       "hero_eyebrow": "Transparency · Imprastraktura",
-      "hero_lede": "45 kalsada, tulay, flood control, at pampublikong pasilidad na pinondohan ng DPWH sa Mapandan — may interaktibong mapa, katayuan ng mga proyekto, at buong detalye ng pagpopondo."
+      "hero_lede": "45 kalsada, tulay, flood control, at pampublikong pasilidad na pinondohan ng DPWH sa Mapandan — may interaktibong mapa, katayuan ng mga proyekto, at buong detalye ng pagpopondo.",
+      "hero_heading": "Mga Proyektong Pang-imprastraktura"
     },
     "pag": {
       "title": "Saray Proyekto na Imprastraktura — BetterMapandan.org",
       "description": "Saray DPWH infrastructure projects ed Mapandan — 45 proyekto ya ₱567.8M.",
       "hero_eyebrow": "Transparensya · Imprastraktura",
-      "hero_lede": "45 DPWH roads, bridges, flood control, tan public facilities ed Mapandan — walay interactive map, project statuses, tan kumpletong funding details."
+      "hero_lede": "45 DPWH roads, bridges, flood control, tan public facilities ed Mapandan — walay interactive map, project statuses, tan kumpletong funding details.",
+      "hero_heading": "Saray Proyekto ed Imprastruktura"
     },
     "pag_status": "draft"
   },
@@ -198,13 +228,15 @@
       "title": "Badyet at Pananalapi (DILG + BLGF) — BetterMapandan.org",
       "description": "Fiscal Dashboard — mga pangunahing tagapagpahiwatig, komposisyon ng kita, paggasta, paggamit ng pondo, daloy ng salapi, at mga paghahain sa DILG Full Disclosure Policy para sa Mapandan.",
       "hero_eyebrow": "Transparency · Badyet at Pananalapi",
-      "hero_lede": "Aprubadong badyet para sa CY 2026, paghahati-hati ng kita sa CY 2025, credit financing, mga itinakdang alokasyon, at mga paghahain sa DILG Full Disclosure Policy para sa Mapandan."
+      "hero_lede": "Aprubadong badyet para sa CY 2026, paghahati-hati ng kita sa CY 2025, credit financing, mga itinakdang alokasyon, at mga paghahain sa DILG Full Disclosure Policy para sa Mapandan.",
+      "hero_heading": "Badyet at Pananalapi (DILG + BLGF)"
     },
     "pag": {
       "title": "Badyet tan Pananalapi (DILG + BLGF) — BetterMapandan.org",
-      "description": "Fiscal Dashboard — key indicators, revenue composition, spending, fund utilization, cash flows, tan DILG Full Disclosure Policy filings para ed Mapandan.",
+      "description": "Fiscal Dashboard — saray mahahalagang indikator, komposisyon na kita, gastos, panagusar na pondo, cash flow, tan DILG Full Disclosure Policy filing para ed Mapandan.",
       "hero_eyebrow": "Transparensya · Badyet tan Pananalapi",
-      "hero_lede": "CY 2026 approved budget, CY 2025 revenue breakdown, credit financing, statutory allocations, tan DILG Full Disclosure Policy filings para ed Mapandan."
+      "hero_lede": "Aprubadon badyet parad CY 2026, pitlen na kita ed CY 2025, credit financing, saray itinatakda a alokasyon, tan saray DILG Full Disclosure Policy filing para ed Mapandan.",
+      "hero_heading": "Badyet tan Pananalapi (DILG + BLGF)"
     },
     "pag_status": "draft"
   },
@@ -213,13 +245,15 @@
       "title": "Awdit at Pagsunod — BetterMapandan.org",
       "description": "Mga opinyon sa awdit ng COA, pagsunod sa Seal of Good Local Governance, at nada-download na mga ulat sa awdit.",
       "hero_eyebrow": "Transparency · Awdit at Pagsunod",
-      "hero_lede": "Mga opinyon sa awdit ng COA, pagsunod sa Seal of Good Local Governance, mga paulit-ulit na natuklasan, mga antas ng pagpapatupad, at archive ng nada-download na mga ulat sa awdit ng COA para sa Mapandan."
+      "hero_lede": "Mga opinyon sa awdit ng COA, pagsunod sa Seal of Good Local Governance, mga paulit-ulit na natuklasan, mga antas ng pagpapatupad, at archive ng nada-download na mga ulat sa awdit ng COA para sa Mapandan.",
+      "hero_heading": "Pag-audit at Pagsunod sa mga Patakaran"
     },
     "pag": {
       "title": "Awdit tan Compliance — BetterMapandan.org",
       "description": "Saray COA audit opinions, Seal of Good Local Governance compliance, tan downloadable COA reports.",
       "hero_eyebrow": "Transparensya · Awdit tan Compliance",
-      "hero_lede": "Saray COA audit opinions, Seal of Good Local Governance compliance, chronic findings, implementation rates, tan downloadable COA report archives para ed Mapandan."
+      "hero_lede": "Saray COA audit opinions, Seal of Good Local Governance compliance, chronic findings, implementation rates, tan downloadable COA report archives para ed Mapandan.",
+      "hero_heading": "Audit tan Panagsunod ed Saray Patakaran"
     },
     "pag_status": "draft"
   },
@@ -238,14 +272,32 @@
       "title": "Explorer ng Proyekto — BetterMapandan.org",
       "description": "Maghanap ng mga proyekto, kontratista, pondo, at natuklasan sa awdit sa mga tala ng DILG, PhilGEPS, DPWH, at COA.",
       "hero_eyebrow": "Transparency · Explorer ng Proyekto",
-      "hero_lede": "Hanapin kung ano ang itinayo ng munisipyo, sino ang nagtayo, at ano ang sinabi ng mga auditor — bawat ugnay ay may pinagmulan."
+      "hero_lede": "Hanapin kung ano ang itinayo ng munisipyo, sino ang nagtayo, at ano ang sinabi ng mga auditor — bawat ugnay ay may pinagmulan.",
+      "hero_heading": "Explorer ng Proyekto"
     },
     "pag": {
-      "title": "Project Explorer — BetterMapandan.org",
+      "title": "Proyekto Explorer — BetterMapandan.org",
       "description": "Anapen so saray proyekto, contractors, funds, tan audit findings ed saray records na DILG, PhilGEPS, DPWH, tan COA.",
       "hero_eyebrow": "Transparensya · Project Explorer",
-      "hero_lede": "Anapen no anto so impatindog na munisipyo, sino so nangipatindog, tan anto so imbaga na saray auditor — kada link et walay source."
+      "hero_lede": "Anapen no anto so impatindog na munisipyo, sino so nangipatindog, tan anto so imbaga na saray auditor — kada link et walay source.",
+      "hero_heading": "Proyekto Explorer"
     },
     "pag_status": "draft"
+  },
+  "legislative.html": {
+    "fil": {
+      "title": "Mga Dokumentong Lehislatibo — BetterMapandan.org",
+      "description": "Komprehensibong database ng mga ordinansa, resolusyon, kautusang ehekutibo, at datos sa piskal ng Munisipalidad ng Mapandan, Pangasinan.",
+      "hero_eyebrow": "Sangguniang Bayan",
+      "hero_heading": "Mga Dokumentong Lehislatibo",
+      "hero_lede": "Komprehensibong database ng mga ordinansa, resolusyon, kautusang ehekutibo, at datos sa piskal — sinusubaybayan ang lehislatibong rekord ng Mapandan mula sa pagkakatatag nito noong 1887 hanggang sa kasalukuyan."
+    },
+    "pag": {
+      "title": "Saray Dokumentong Lehislatibo — BetterMapandan.org",
+      "description": "Komprehensibong database na saray ordinansa, resolusyon, kautusan a ehekutibo, tan datos ed piskal na Munisipalidad na Mapandan, Pangasinan.",
+      "hero_eyebrow": "Sangguniang Bayan",
+      "hero_heading": "Saray Dokumentong Lehislatibo",
+      "hero_lede": "Komprehensibong database na saray ordinansa, resolusyon, kautusan a ehekutibo, tan datos ed piskal — susubaybayan so lehislatibong rekord na Mapandan manlapud impanagbangon to nen 1887 anggad sayan agew."
+    }
   }
 }

@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data: {
         labels: ["1995", "2000", "2007", "2010", "2015", "2020", "2024"],
         datasets: [{
-          label: "Population",
+          label: tr("Population"),
           data: [27439, 30775, 32905, 34439, 37059, 38058, 38228],
           borderColor: green,
           backgroundColor: "rgba(76,138,46,0.1)",
@@ -90,9 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 var pops = [27439, 30775, 32905, 34439, 37059, 38058, 38228];
                 if (idx > 0) {
                   var growth = ((pops[idx] - pops[idx - 1]) / pops[idx - 1] * 100).toFixed(2);
-                  return "Year: " + years[idx] + " | Population: " + pops[idx].toLocaleString() + " | Growth since previous census: " + growth + "%";
+                  return tr("Year:") + " " + years[idx] + " | " + tr("Population:") + " " + pops[idx].toLocaleString() + " | " + tr("Growth since previous census:") + " " + growth + "%";
                 }
-                return "Year: " + years[idx] + " | Population: " + pops[idx].toLocaleString();
+                return tr("Year:") + " " + years[idx] + " | " + tr("Population:") + " " + pops[idx].toLocaleString();
               }
             }
           }
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
           y: {
             beginAtZero: false,
-            title: { display: true, text: "Population" }
+            title: { display: true, text: tr("Population") }
           },
           x: {
             title: { display: true, text: "Year" }
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ["CY 2020", "CY 2022", "CY 2023", "CY 2024", "CY 2025", "CY 2026"],
         datasets: [
           {
-            label: "Annual Budget (PHP Millions)",
+            label: tr("Annual Budget (PHP Millions)"),
             data: [122.4, 173.1, 151.5, 160.8, 193.1, 218.2],
             backgroundColor: [green, gold, green, green, green, gold]
           }
@@ -131,14 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
           tooltip: {
             callbacks: {
               label: function(ctx) {
-                return "Budget: ₱" + ctx.raw.toFixed(1) + " Million";
+                return tr("Budget:") + " ₱" + ctx.raw.toFixed(1) + " " + tr("Million");
               },
               afterLabel: function(ctx) {
                 if (ctx.label === "CY 2022") {
-                  return "Note: 2022 spike reflects one-time infrastructure transfers";
+                  return tr("Note: 2022 spike reflects one-time infrastructure transfers");
                 }
                 if (ctx.label === "CY 2026") {
-                  return "Note: CY 2026 figure is SP-approved appropriation";
+                  return tr("Note: CY 2026 figure is SP-approved appropriation");
                 }
                 return "";
               }
@@ -148,10 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
           y: {
             beginAtZero: true,
-            title: { display: true, text: "PHP Millions" }
+            title: { display: true, text: tr("PHP Millions") }
           },
           x: {
-            title: { display: true, text: "Fiscal Year" }
+            title: { display: true, text: tr("Fiscal Year") }
           }
         }
       }
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data: {
         labels: ["Pias", "Poblacion", "Baloling", "Nilombot", "Torres", "Luyan", "Jimenez", "Primicias", "Amanoaoac", "Lambayan", "Apaya", "Aserda", "Coral", "Golden", "Sta. Maria"],
         datasets: [{
-          label: "Population 2024",
+          label: tr("Population 2024"),
           data: [4827, 3509, 4238, 4199, 3061, 3344, 2008, 2218, 1656, 1682, 1650, 1414, 1405, 1432, 1585],
           backgroundColor: green
         }]
@@ -179,10 +179,10 @@ document.addEventListener("DOMContentLoaded", function () {
           tooltip: {
             callbacks: {
               title: function(ctx) {
-                return "Barangay: " + ctx[0].label;
+                return tr("Barangay:") + " " + ctx[0].label;
               },
               label: function(ctx) {
-                return "Population (2024): " + ctx.raw.toLocaleString();
+                return tr("Population (2024):") + " " + ctx.raw.toLocaleString();
               }
             }
           }
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
           x: {
             beginAtZero: true,
-            title: { display: true, text: "Population" }
+            title: { display: true, text: tr("Population") }
           },
           y: {
             title: { display: true, text: "Barangay" }
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
           tooltip: {
             callbacks: {
               title: function(ctx) {
-                return "Barangay: " + ctx[0].label;
+                return tr("Barangay:") + " " + ctx[0].label;
               },
               label: function(ctx) {
                 var label = ctx.dataset.label + ": " + ctx.raw.toLocaleString();
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
           x: {
             beginAtZero: true,
-            title: { display: true, text: "Population" }
+            title: { display: true, text: tr("Population") }
           },
           y: {
             title: { display: true, text: "Barangay" }
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
           y: {
             beginAtZero: true,
-            title: { display: true, text: "PHP Millions" }
+            title: { display: true, text: tr("PHP Millions") }
           },
           x: {
             title: { display: true, text: "Month" }
@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
           x: {
             beginAtZero: true,
-            title: { display: true, text: "PHP Millions" }
+            title: { display: true, text: tr("PHP Millions") }
           },
           y: {
             title: { display: true, text: "Awardee" }

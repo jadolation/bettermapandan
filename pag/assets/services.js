@@ -10,6 +10,7 @@ window.addEventListener("load", function () {
   var greenPale = "#8fbc5f";
   var greenPalest = "#b3d47a";
   var data = window.SERVICES_ANALYTICS || {};
+  function tr(text) { return (window.__I18N__ && window.__I18N__[text]) || text; }
 
   function sortedEntries(obj) {
     var entries = Object.entries(obj || {});
@@ -36,7 +37,7 @@ window.addEventListener("load", function () {
       data: {
         labels: catLabels,
         datasets: [{
-          label: "Services",
+          label: tr("Services"),
           data: catValues,
           backgroundColor: makePalette(catLabels.length)
         }]
@@ -60,7 +61,7 @@ window.addEventListener("load", function () {
       data: {
         labels: officeLabels,
         datasets: [{
-          label: "Services",
+          label: tr("Services"),
           data: officeValues,
           backgroundColor: makePalette(officeLabels.length)
         }]
@@ -122,7 +123,7 @@ window.addEventListener("load", function () {
     var paidCount = data.fees.paid || 0;
     feesSummary.innerHTML =
       '<div style="font-size:1.5rem;font-weight:700;color:' + greenText + '">&#x20B1;' + avg.toLocaleString("en-PH", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</div>' +
-      '<div><strong>Average fee</strong> across ' + paidCount + ' paid service' + (paidCount !== 1 ? 's' : '') + '</div>' +
-      '<div><span style="color:' + greenText + ';font-weight:600">' + freeCount + ' free</span> &middot; <span style="font-weight:600">' + paidCount + ' paid</span></div>';
+      '<div><strong>' + tr("Average fee") + '</strong> ' + tr("across") + ' ' + paidCount + ' ' + tr(paidCount !== 1 ? "paid services" : "paid service") + '</div>' +
+      '<div><span style="color:' + greenText + ';font-weight:600">' + freeCount + ' ' + tr("free") + '</span> &middot; <span style="font-weight:600">' + paidCount + ' ' + tr("paid") + '</span></div>';
   }
 });

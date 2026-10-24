@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  function tr(text) { return (window.__I18N__ && window.__I18N__[text]) || text; }
   var input = document.getElementById("search-input");
   var resultsDiv = document.getElementById("search-results");
   var statusDiv = document.getElementById("search-status");
@@ -20,10 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   browseDiv.style.display = "none";
 
-  // Load search index and perform search
-  // Use correct path for Filipino pages (assets are copied to /fil/assets/)
-  var isFil = location.pathname.indexOf("/fil/") !== -1;
-  var searchIndexPath = isFil ? "../assets/search-index.json" : "assets/search-index.json";
+  // Load search index and perform search. Assets are copied into both locale trees.
+  var isLocale = /^\/(fil|pag)\//.test(location.pathname);
+  var searchIndexPath = isLocale ? "../assets/search-index.json" : "assets/search-index.json";
   fetch(searchIndexPath)
     .then(function (res) { return res.json(); })
     .then(function (index) {
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var html = "";
       Object.keys(groups).forEach(function (cat) {
         html += '<div class="search-result-group">';
-        html += '<h3>' + cat + '</h3>';
+        html += '<h3>' + tr(cat) + '</h3>';
         groups[cat].forEach(function (m) {
           html += '<div class="search-result">';
           html += '<h4><a href="' + m.url + '">' + m.title + '</a></h4>';
@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       resultsDiv.innerHTML = html;
       statusDiv.style.display = "flex";
-      statusText.textContent = matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' for "' + query + '"';
+      statusText.textContent = matches.length + ' ' + tr(matches.length === 1 ? "result" : "results") + ' ' + tr("for") + ' "' + query + '"';
     })
     .catch(function () {
       emptyDiv.style.display = "block";
-      emptyDiv.querySelector("h3").textContent = "Search unavailable";
-      emptyDiv.querySelector("p").textContent = "The search index could not be loaded. Please try again later.";
+      emptyDiv.querySelector("h3").textContent = tr("Search unavailable");
+      emptyDiv.querySelector("p").textContent = tr("The search index could not be loaded. Please try again later.");
     });
 });

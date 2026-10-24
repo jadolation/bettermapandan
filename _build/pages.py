@@ -18,6 +18,7 @@ from _build.generators.barangays import (
 from _build.generators.dpwh import generate_dpwh
 from _build.generators.fdp import generate_fdp, generate_fdp_dashboard
 from _build.generators.fdp_analytics import generate_fdp_summary
+from _build.html_i18n import translate_html_fragment
 from _build.generators.procurement import (
     generate_homepage_dpwh_data,
     generate_homepage_procurement_data,
@@ -92,7 +93,7 @@ def _apply_page_meta(meta: dict, rel: Path, lang_code: str) -> dict:
     if not override:
         return meta
     meta = dict(meta)
-    for mkey in ("title", "description", "hero_eyebrow", "hero_lede"):
+    for mkey in ("title", "description", "hero_eyebrow", "hero_heading", "hero_lede"):
         if override.get(mkey):
             meta[mkey] = override[mkey]
     return meta
@@ -110,7 +111,8 @@ def _process_static_page(
     header = build_header(locale, asset_base, lang_code, lang_urls)
     footer = build_footer(locale, asset_base)
     hero_html = build_hero(meta, page_hero_raw, asset_base)
-    body = resolve_body_placeholders(hero_html + body, locale, asset_base)
+    body = translate_html_fragment(hero_html + body, lang_code)
+    body = resolve_body_placeholders(body, locale, asset_base)
     if rel.name == "transparency.html" or (len(rel.parts) > 1 and rel.parts[0] == "transparency"):
         proc_html, _, _ = generate_procurement(locale)
         body = body.replace("{PROCUREMENT_SECTION}", proc_html, 1)
@@ -168,9 +170,10 @@ def _process_static_page(
             "GIS_BARANGAY_COUNT": str(len(barangays["features"])),
         }
         body = re.sub(r"\{(GIS_[A-Z_]+)\}", lambda match: replacements.get(match[1], match[0]), body)
+    body = translate_html_fragment(body, lang_code)
     page_url = f"{lang_code}/{rel}" if lang_code != "en" else str(rel)
     breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)
-    page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url, breadcrumb_jsonld)
+    page_html = assemble_page(base, asset_base, meta["title"], meta["description"], header, breadcrumbs + body, footer, lang_code, page_url, breadcrumb_jsonld, locale)
 
     if rel.name == "statistics.html":
         comparison_script = build_barangay_comparison_script()
@@ -226,7 +229,9 @@ def _process_generated_page(
     out_rel = to_folder_index(rel)
     asset_base = compute_asset_base(out_rel, lang_code)
     lang_urls = build_lang_switcher_urls(rel, lang_code)
-    page_title = rel.stem.replace("-", " ").title()
+    page_meta_entry = page_meta.get(str(rel), {})
+    page_title = page_meta_entry.get("title") or rel.stem.replace("-", " ").title()
+    page_title = page_title.split(" —")[0].split(" |")[0].strip()
     breadcrumbs = build_breadcrumbs(locale, rel, page_title)
     header = build_header(locale, asset_base, lang_code, lang_urls)
     footer = build_footer(locale, asset_base)
@@ -242,15 +247,16 @@ def _process_generated_page(
         })
         body_content = hero_html + body_content
 
+    body_content = translate_html_fragment(body_content, lang_code)
     page_url = f"{lang_code}/{rel_path_str}" if lang_code != "en" else rel_path_str
     breadcrumb_jsonld = build_breadcrumb_jsonld(locale, rel, page_title, lang_code)
     if rel.name in SECTION_NAV:
         body_content = body_content.replace("{SECTION_NAV}", build_section_nav(locale, rel.name, body_content), 1)
     page_html = assemble_page(
         base, asset_base,
-        page_meta.get(rel_path_str, {}).get("title", "Better Mapandan"),
-        page_meta.get(rel_path_str, {}).get("description", ""),
-        header, breadcrumbs + body_content, footer, lang_code, page_url, breadcrumb_jsonld
+        page_meta_entry.get("title", "Better Mapandan"),
+        page_meta_entry.get("description", ""),
+        header, breadcrumbs + body_content, footer, lang_code, page_url, breadcrumb_jsonld, locale
     )
     if rel.name in SECTION_NAV:
         section_nav_js = '<script defer src="' + asset_base + '/assets/js/section-nav.min.js"></script>\n'
@@ -261,5 +267,5 @@ def _process_generated_page(
     out_path.write_text(page_html, encoding="utf-8")
     print(f"  [{lang_code.upper()}] built {rel}  ({len(page_html):,} bytes)")
 
-    search_entries.append(build_search_entry(rel, rel.stem.replace("-", " ").title(), "", body_content, lang_code))
+    search_entries.append(build_search_entry(rel, page_title, page_meta_entry.get("description", ""), body_content, lang_code))
     return 1

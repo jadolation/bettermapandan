@@ -20,8 +20,13 @@ function switchLang(lang) {
   localStorage.setItem("bettermapandan_lang", lang);
 }
 
+function tr(text) {
+  return (window.__I18N__ && window.__I18N__[text]) || text;
+}
+
 function getCurrentLang() {
-  return document.documentElement.lang || (location.pathname.indexOf("/fil/") !== -1 ? "fil" : "en");
+  return document.documentElement.lang ||
+    (/^\/(fil|pag)\//.test(location.pathname) ? location.pathname.split("/")[1] : "en");
 }
 
 // Language switcher - attach event listeners to lang buttons
@@ -158,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var code = current.weather_code;
         var icon = weatherIcon(code);
         var desc = weatherDesc(code);
-        var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(tr);
         var windDir = windDirection(current.wind_direction_10m);
 
         // Format updated timestamp
@@ -177,21 +182,21 @@ document.addEventListener("DOMContentLoaded", function () {
         html += '<div>';
         html += '<div class="weather-temp">' + Math.round(current.temperature_2m) + '&deg;C</div>';
         html += '<div class="weather-desc">' + desc + '</div>';
-        html += '<div class="weather-feels">Feels like ' + Math.round(current.apparent_temperature) + '&deg;C</div>';
+        html += '<div class="weather-feels">' + tr("Feels like") + ' ' + Math.round(current.apparent_temperature) + '&deg;C</div>';
         html += '</div>';
         html += '</div>';
 
         // Details row
         html += '<div class="weather-details">';
-        html += '<span><i data-lucide="droplet"></i> Humidity ' + current.relative_humidity_2m + '%</span>';
-        html += '<span><i data-lucide="wind"></i> Wind ' + Math.round(current.wind_speed_10m) + ' km/h ' + windDir + '</span>';
+        html += '<span><i data-lucide="droplet"></i> ' + tr("Humidity") + ' ' + current.relative_humidity_2m + '%</span>';
+        html += '<span><i data-lucide="wind"></i> ' + tr("Wind") + ' ' + Math.round(current.wind_speed_10m) + ' km/h ' + windDir + '</span>';
         if (current.precipitation > 0 || (current.rain && current.rain > 0)) {
           var rainMm = current.rain || current.precipitation;
-          html += '<span><i data-lucide="cloud-rain"></i> Rain ' + rainMm + ' mm</span>';
+          html += '<span><i data-lucide="cloud-rain"></i> ' + tr("Rain") + ' ' + rainMm + ' mm</span>';
         }
         var rainProb = daily.precipitation_probability_max ? daily.precipitation_probability_max[0] : null;
         if (rainProb !== null && rainProb !== undefined) {
-          html += '<span><i data-lucide="cloud-drizzle"></i> Rain chance ' + rainProb + '%</span>';
+          html += '<span><i data-lucide="cloud-drizzle"></i> ' + tr("Rain chance") + ' ' + rainProb + '%</span>';
         }
         html += '</div>';
 
@@ -199,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
         html += '<div class="weather-forecast">';
         for (var i = 0; i < WEATHER.days; i++) {
           var d = new Date(daily.time[i]);
-          var label = i === 0 ? "Today" : dayNames[d.getDay()];
+          var label = i === 0 ? tr("Today") : dayNames[d.getDay()];
           html += '<div class="weather-day">';
           html += '<div class="day-name">' + label + '</div>';
           html += '<div class="day-temp">' + Math.round(daily.temperature_2m_min[i]) + '&ndash;' + Math.round(daily.temperature_2m_max[i]) + '&deg;C</div>';
@@ -210,8 +215,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Footer: timestamp + attribution
         html += '<div class="weather-footer">';
-        html += '<span class="weather-updated">Updated ' + updatedStr + '</span>';
-        html += '<span class="weather-source">Powered by Open-Meteo</span>';
+        html += '<span class="weather-updated">' + tr("Updated") + ' ' + updatedStr + '</span>';
+        html += '<span class="weather-source">' + tr("Powered by Open-Meteo") + '</span>';
         html += '</div>';
 
         weatherEl.innerHTML = html;
@@ -226,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var precipData = [];
             for (var j = 0; j < WEATHER.days; j++) {
               var cd = new Date(daily.time[j]);
-              chartLabels.push(j === 0 ? "Today" : dayNames[cd.getDay()]);
+              chartLabels.push(j === 0 ? tr("Today") : dayNames[cd.getDay()]);
               minData.push(Math.round(daily.temperature_2m_min[j]));
               maxData.push(Math.round(daily.temperature_2m_max[j]));
               precipData.push(daily.precipitation_probability_max ? daily.precipitation_probability_max[j] : 0);
@@ -237,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 labels: chartLabels,
                 datasets: [
                   {
-                    label: "Min Temp",
+                    label: tr("Min Temp"),
                     data: minData,
                     backgroundColor: "rgba(59,130,246,0.7)",
                     borderColor: "rgba(59,130,246,1)",
@@ -245,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     borderRadius: 3
                   },
                   {
-                    label: "Max Temp",
+                    label: tr("Max Temp"),
                     data: maxData,
                     backgroundColor: "rgba(239,68,68,0.7)",
                     borderColor: "rgba(239,68,68,1)",
@@ -253,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     borderRadius: 3
                   },
                   {
-                    label: "Rain chance",
+                    label: tr("Rain chance"),
                     data: precipData,
                     backgroundColor: "rgba(59,130,246,0.3)",
                     borderColor: "rgba(59,130,246,0.5)",
@@ -315,12 +320,12 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch(function (err) {
         clearTimeout(timeout);
-        var msg = "Weather data unavailable.";
+        var msg = tr("Weather data unavailable.");
         if (err.name === "AbortError") {
-          msg = "Weather request timed out.";
+          msg = tr("Weather request timed out.");
         }
         weatherEl.innerHTML = '<div class="weather-error">' + msg + '</div>' +
-          '<div class="weather-pagasa-fallback"><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">View PAGASA Advisories &rarr;</a></div>';
+          '<div class="weather-pagasa-fallback"><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">' + tr("View PAGASA Advisories") + ' &rarr;</a></div>';
       });
   }
 
@@ -446,8 +451,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // BARANGAY_DATA is loaded from assets/barangay-data.js (generated from barangays.json)
   var barangays = typeof BARANGAY_DATA !== "undefined" ? BARANGAY_DATA : [];
-    var isFil = window.location.pathname.indexOf("/fil/") !== -1;
-  var barangayAssetBase = (isFil ? "../" : "") + "assets/barangay-council/";
+  var isLocale = getCurrentLang() !== "en";
+  var barangayAssetBase = (isLocale ? "../" : "") + "assets/barangay-council/";
   var byName = {};
   barangays.forEach(function (b) { byName[b.name] = b; });
 
@@ -758,19 +763,22 @@ if (feedback) {
   if (sessionStorage.getItem("lang_banner_dismissed")) return;
 
   // Build banner content using DOM methods to prevent XSS
-  var isEnPage = current === "en";
-  var switchLabel = isEnPage ? "Filipino" : "English";
+  var names = { en: "English", fil: "Filipino", pag: "Pangasinan" };
+  var switchLabel = names[stored] || stored;
   var switchUrl;
-  if (isEnPage) {
-    switchUrl = "/fil" + location.pathname;
+  if (current === "en") {
+    switchUrl = "/" + stored + location.pathname;
+  } else if (stored === "en") {
+    switchUrl = location.pathname.replace(/^\/(fil|pag)/, "") || "/";
   } else {
-    switchUrl = location.pathname.replace("/fil/", "/");
+    switchUrl = "/" + stored + location.pathname.replace(/^\/(fil|pag)/, "");
   }
   switchUrl += location.search + location.hash;
 
-  var msgLabel = isEnPage
-    ? "Mababasa rin ito sa Filipino"
-    : "This page is also available in English";
+  var msgLabel;
+  if (stored === "en") msgLabel = "This page is also available in English";
+  else if (stored === "fil") msgLabel = "Mababasa rin ito sa Filipino";
+  else msgLabel = "Nabasao met iti ed Pangasinan";
 
   var inner = document.createElement("div");
   inner.className = "lang-banner-inner";
@@ -783,13 +791,13 @@ if (feedback) {
   var btn = document.createElement("a");
   btn.href = switchUrl;
   btn.className = "lang-banner-btn";
-  btn.textContent = "Switch to " + switchLabel;
+  btn.textContent = tr("Switch to") + " " + switchLabel;
   btn.addEventListener("click", function() { switchLang(stored); });
   inner.appendChild(btn);
 
   var dismiss = document.createElement("button");
   dismiss.className = "lang-banner-dismiss";
-  dismiss.setAttribute("aria-label", "Dismiss");
+  dismiss.setAttribute("aria-label", tr("Dismiss"));
   dismiss.textContent = "\u00D7";
   dismiss.addEventListener("click", function() {
     banner.style.display = "none";

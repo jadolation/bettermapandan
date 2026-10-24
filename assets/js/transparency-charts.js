@@ -1,3 +1,5 @@
+function tr(text) { return (window.__I18N__ && window.__I18N__[text]) || text; }
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log('[transparency-charts.js] DOMContentLoaded fired');
   console.log('[transparency-charts.js] Chart available:', typeof Chart !== 'undefined');
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data: {
         labels: ["CY 2020", "CY 2021", "CY 2022", "CY 2023", "CY 2024", "CY 2025", "CY 2026"],
         datasets: [{
-          label: "Total Enacted Budget (PHP Millions)",
+          label: tr("Total Enacted Budget (PHP Millions)"),
           data: [122.40, 129.28, 173.14, 151.54, 160.83, 193.09, 218.21],
           backgroundColor: [green, green, green, green, green, green, green]
         }]
@@ -60,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var opinionColor = { "green": green, "gold": gold, "red": "#d9534f" };
     var opinionLabel = {};
     opinions.forEach(function (o) {
-      var name = o.opinion || "Unknown";
+      var name = tr(o.opinion || "Unknown");
       if (o.opinion_type === "compliance_audit") name += " (LDRRMF)";
       opinionLabel[o.year] = name;
     });
@@ -69,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data: {
         labels: opinions.map(function (o) { return o.year; }),
         datasets: [{
-          label: "COA Opinion",
+          label: tr("COA Opinion"),
           data: opinions.map(function (o) { return opinionValue[o.opinion] || 0; }),
           backgroundColor: opinions.map(function (o) { return opinionColor[o.color] || gold; })
         }]
@@ -92,9 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
             ticks: {
               stepSize: 1,
               callback: function (value) {
-                if (value === 1) return "Unqualified";
-                if (value === 2) return "Qualified";
-                if (value === 3) return "Non-Compliant";
+                if (value === 1) return tr("Unqualified");
+                if (value === 2) return tr("Qualified");
+                if (value === 3) return tr("Non-Compliant");
                 return "";
               }
             }
@@ -114,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
       data: {
         labels: FIN.map(function (r) { return r.year; }),
         datasets: [{
-          label: "Total Assets (PHP Millions)",
+          label: tr("Total Assets (PHP Millions)"),
           data: FIN.map(function (r) { return (r.total_assets || 0) / 1000000; }),
           borderColor: green,
           backgroundColor: "rgba(76,138,46,0.1)",
@@ -138,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: FIN.map(function (r) { return r.year; }),
         datasets: [
           {
-            label: "Income (PHP Millions)",
+            label: tr("Income (PHP Millions)"),
             data: FIN.map(function (r) { return (r.income || 0) / 1000000; }),
             borderColor: green,
             backgroundColor: "rgba(76,138,46,0.1)",
@@ -146,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tension: 0.3
           },
           {
-            label: "Expenses (PHP Millions)",
+            label: tr("Expenses (PHP Millions)"),
             data: FIN.map(function (r) { return (r.expenses || 0) / 1000000; }),
             borderColor: gold,
             backgroundColor: "rgba(232,169,23,0.1)",
@@ -171,17 +173,17 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: REV.map(function (r) { return r.year; }),
         datasets: [
           {
-            label: "IRA/NTA (PHP Millions)",
+            label: tr("IRA/NTA (PHP Millions)"),
             data: REV.map(function (r) { return (r.ira || 0) / 1000000; }),
             backgroundColor: green
           },
           {
-            label: "Local Income (PHP Millions)",
+            label: tr("Local Income (PHP Millions)"),
             data: REV.map(function (r) { return (r.local_income || 0) / 1000000; }),
             backgroundColor: gold
           },
           {
-            label: "Other (PHP Millions)",
+            label: tr("Other (PHP Millions)"),
             data: REV.map(function (r) { return (r.other || 0) / 1000000; }),
             backgroundColor: "#8fbc5f"
           }
@@ -207,17 +209,17 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: IMPL.map(function (r) { return String(r.period).replace("20", "").replace("20", ""); }),
         datasets: [
           {
-            label: "Implemented",
+            label: tr("Implemented"),
             data: IMPL.map(function (r) { return r.implemented || 0; }),
             backgroundColor: green
           },
           {
-            label: "Partial",
+            label: tr("Partial"),
             data: IMPL.map(function (r) { return r.partial || 0; }),
             backgroundColor: "#8fbc5f"
           },
           {
-            label: "Not Implemented",
+            label: tr("Not Implemented"),
             data: IMPL.map(function (r) { return r.not_implemented || 0; }),
             backgroundColor: gold
           }

@@ -17,18 +17,30 @@
   "layers": [
     {
       "id": "barangay-halls",
-      "title": {"en": "Barangay Halls", "fil": "Mga Barangay Hall", "pag": "Saray Barangay Hall"},
+      "title": {
+        "en": "Barangay Halls",
+        "fil": "Mga Barangay Hall",
+        "pag": "Saray Barangay Hall"
+      },
       "type": "geojson",
       "source": "src/data/gis/barangay_halls.geojson",
-      "dependencies": ["src/data/gis/barangay_boundaries.geojson"],
+      "dependencies": [
+        "src/data/gis/barangay_boundaries.geojson"
+      ],
       "source_label": "Maintainer-confirmed Google Maps/government validation; supplied building locations, not surveyed entrances",
       "enabled": true,
       "visible_by_default": true,
       "semantic_role": "barangay_hall",
-      "group": {"en": "Public Facilities", "fil": "Mga Pampublikong Pasilidad", "pag": "Publiko a Facilidad"},
+      "group": {
+        "en": "Public Facilities",
+        "fil": "Mga Pampublikong Pasilidad",
+        "pag": "Publiko a Facilidad"
+      },
       "pane": "facilities",
       "precision": "supplied_building_location",
-      "limitations": ["Supplied building locations are checked against indicative boundaries without moving accepted coordinates. Hall positions do not establish evacuation designation or availability."]
+      "limitations": [
+        "Supplied building locations are checked against indicative boundaries without moving accepted coordinates. Hall positions do not establish evacuation designation or availability."
+      ]
     },
     {
       "id": "facilities",
@@ -122,29 +134,65 @@
     },
     {
       "id": "barangay-population",
-      "title": {"en": "Population by Barangay", "fil": "Populasyon ayon sa Barangay", "pag": "Populasyon ed kada Barangay"},
+      "title": {
+        "en": "Population by Barangay",
+        "fil": "Populasyon ayon sa Barangay",
+        "pag": "Populasyon ed kada Barangay"
+      },
       "type": "choropleth",
       "source": "src/data/gis/barangays.geojson",
-      "dependencies": ["src/data/gis/barangay_boundaries.geojson", "src/data/entities/projects.json", "src/data/relationships.json", "src/data/dpwh.json", "src/data/fdp_disclosures.json", "src/data/audit-reports.json", "src/data/procurement.json", "src/data/entities/contracts.json", "src/data/entities/bids.json"],
+      "dependencies": [
+        "src/data/gis/barangay_boundaries.geojson",
+        "src/data/entities/projects.json",
+        "src/data/relationships.json",
+        "src/data/dpwh.json",
+        "src/data/fdp_disclosures.json",
+        "src/data/audit-reports.json",
+        "src/data/procurement.json",
+        "src/data/entities/contracts.json",
+        "src/data/entities/bids.json"
+      ],
       "enabled": true,
       "visible_by_default": false,
       "metric": "population",
       "geometry_layer": "barangay-boundaries",
-      "group": {"en": "Barangay Statistics", "fil": "Estadistika ng Barangay", "pag": "Estadistika na Barangay"},
+      "group": {
+        "en": "Barangay Statistics",
+        "fil": "Estadistika ng Barangay",
+        "pag": "Estadistika na Barangay"
+      },
       "pane": "administrative",
       "precision": "indicative"
     },
     {
       "id": "barangay-projects",
-      "title": {"en": "Government Projects by Barangay", "fil": "Mga Proyekto ng Pamahalaan ayon sa Barangay", "pag": "Saray Proyekto na Gobyerno ed kada Barangay"},
+      "title": {
+        "en": "Government Projects by Barangay",
+        "fil": "Mga Proyekto ng Pamahalaan ayon sa Barangay",
+        "pag": "Saray Proyekto na Gobyerno ed kada Barangay"
+      },
       "type": "choropleth",
       "source": "src/data/gis/barangays.geojson",
-      "dependencies": ["src/data/gis/barangay_boundaries.geojson", "src/data/entities/projects.json", "src/data/relationships.json", "src/data/dpwh.json", "src/data/fdp_disclosures.json", "src/data/audit-reports.json", "src/data/procurement.json", "src/data/entities/contracts.json", "src/data/entities/bids.json"],
+      "dependencies": [
+        "src/data/gis/barangay_boundaries.geojson",
+        "src/data/entities/projects.json",
+        "src/data/relationships.json",
+        "src/data/dpwh.json",
+        "src/data/fdp_disclosures.json",
+        "src/data/audit-reports.json",
+        "src/data/procurement.json",
+        "src/data/entities/contracts.json",
+        "src/data/entities/bids.json"
+      ],
       "enabled": true,
       "visible_by_default": false,
       "metric": "projects",
       "geometry_layer": "barangay-boundaries",
-      "group": {"en": "Barangay Statistics", "fil": "Estadistika ng Barangay", "pag": "Estadistika na Barangay"},
+      "group": {
+        "en": "Barangay Statistics",
+        "fil": "Estadistika ng Barangay",
+        "pag": "Estadistika na Barangay"
+      },
       "pane": "administrative",
       "precision": "indicative"
     },
@@ -203,7 +251,7 @@
       "title": {
         "en": "Project References",
         "fil": "Mga Sanggunian ng Proyekto",
-        "pag": "Project References"
+        "pag": "Saray Reperensya na Proyekto"
       },
       "type": "records",
       "source": "src/data/entities/projects.json",
@@ -433,7 +481,7 @@
       "group": {
         "en": "Natural Hazards",
         "fil": "Mga Likas na Panganib",
-        "pag": "Natural Hazards"
+        "pag": "Saray Likas a Panganib"
       },
       "pane": "hazards",
       "opacity": 0.65,
@@ -461,7 +509,7 @@
       "group": {
         "en": "Natural Hazards",
         "fil": "Mga Likas na Panganib",
-        "pag": "Natural Hazards"
+        "pag": "Saray Likas a Panganib"
       },
       "pane": "hazards",
       "opacity": 0.65,
@@ -475,7 +523,7 @@
       "title": {
         "en": "Flood Susceptibility (Municipal Map)",
         "fil": "Pagkamadaling Bahain (Mapa ng Munisipyo)",
-        "pag": "Flood Susceptibility (Municipal Map)"
+        "pag": "Posibilidad na Layus (Munisipal Mapa)"
       },
       "type": "kmz",
       "source": "datasets/GIS/flood/prepared/flood-susceptibility.kmz",
@@ -496,7 +544,7 @@
       "group": {
         "en": "Natural Hazards",
         "fil": "Mga Likas na Panganib",
-        "pag": "Natural Hazards"
+        "pag": "Saray Likas a Panganib"
       },
       "pane": "hazards",
       "opacity": 0.6,

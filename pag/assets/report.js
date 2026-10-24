@@ -1,3 +1,5 @@
+function tr(text) { return (window.__I18N__ && window.__I18N__[text]) || text; }
+
 document.addEventListener("DOMContentLoaded", function () {
   var currentMode = "report";
   var TO_EMAIL = "zaratejandale15@gmail.com";
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var previewTitle = document.getElementById("preview-title");
   var previewDesc = document.getElementById("preview-desc");
 
-  var modeLabels = { report: "Report Error", contribute: "Submit Missing Info", suggest: "Suggest Feature" };
+  var modeLabels = { report: tr("Report Error"), contribute: tr("Submit Missing Info"), suggest: tr("Suggest Feature") };
   var modeClasses = { report: "mode-report", contribute: "mode-contribute", suggest: "mode-suggest" };
 
   function updatePreview() {
@@ -58,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
       desc = document.getElementById("field-suggest-desc").value.trim();
     }
 
-    previewTitle.textContent = title || "Enter a title above...";
-    previewDesc.textContent = desc ? (desc.length > 140 ? desc.slice(0, 140) + "..." : desc) : "Your submission preview will appear here as you type.";
+    previewTitle.textContent = title || tr("Enter a title above...");
+    previewDesc.textContent = desc ? (desc.length > 140 ? desc.slice(0, 140) + "..." : desc) : tr("Your submission preview will appear here as you type.");
   }
 
   // Attach live update listeners to all form fields
@@ -117,21 +119,21 @@ document.addEventListener("DOMContentLoaded", function () {
       var error = document.getElementById("field-report-error").value.trim();
       var correction = document.getElementById("field-report-correction").value.trim();
       var source = document.getElementById("field-report-source").value.trim();
-      subject = "Data Correction: " + (page || "General");
-      body = "Mode: Report Error\nPage/Item: " + page + "\nError: " + error + "\nCorrection: " + correction + "\nSource: " + source;
+      subject = tr("Data Correction:") + " " + (page || tr("General"));
+      body = tr("Mode: Report Error") + "\n" + tr("Page/Item:") + " " + page + "\n" + tr("Error:") + " " + error + "\n" + tr("Correction:") + " " + correction + "\n" + tr("Source:") + " " + source;
     } else if (mode === "contribute") {
       var cat = document.getElementById("field-contribute-category").value;
       var title = document.getElementById("field-contribute-title").value.trim();
       var desc = document.getElementById("field-contribute-desc").value.trim();
       var vSource = document.getElementById("field-contribute-source").value.trim();
-      subject = "New Information: " + title;
-      body = "Mode: Submit Missing Info\nCategory: " + cat + "\nTitle: " + title + "\nDescription: " + desc + "\nSource: " + vSource;
+      subject = tr("New Information:") + " " + title;
+      body = tr("Mode: Submit Missing Info") + "\n" + tr("Category:") + " " + cat + "\n" + tr("Title:") + " " + title + "\n" + tr("Description:") + " " + desc + "\n" + tr("Source:") + " " + vSource;
     } else {
       var name = document.getElementById("field-suggest-name").value.trim();
       var sDesc = document.getElementById("field-suggest-desc").value.trim();
       var usecase = document.getElementById("field-suggest-usecase").value.trim();
-      subject = "Feature Suggestion: " + name;
-      body = "Mode: Suggest Feature\nFeature: " + name + "\nDescription: " + sDesc + "\nUse Case: " + usecase;
+      subject = tr("Feature Suggestion:") + " " + name;
+      body = tr("Mode: Suggest Feature") + "\n" + tr("Feature:") + " " + name + "\n" + tr("Description:") + " " + sDesc + "\n" + tr("Use Case:") + " " + usecase;
     }
 
     return "mailto:" + TO_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
@@ -159,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var url = buildMailto("report");
       if (!url) return;
       window.location.href = url;
-      showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
+      showToast("\uD83D\uDFE2 " + tr("Draft opened! Please press 'Send' in your email app to complete."));
     });
   }
 
@@ -169,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var url = buildMailto("contribute");
       if (!url) return;
       window.location.href = url;
-      showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
+      showToast("\uD83D\uDFE2 " + tr("Draft opened! Please press 'Send' in your email app to complete."));
     });
   }
 
@@ -179,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var url = buildMailto("suggest");
       if (!url) return;
       window.location.href = url;
-      showToast("\uD83D\uDFE2 Draft opened! Please press 'Send' in your email app to complete.");
+      showToast("\uD83D\uDFE2 " + tr("Draft opened! Please press 'Send' in your email app to complete."));
     });
   }
 
@@ -214,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var body = decodeURIComponent(parts[1].split("&body=")[1]);
       var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
       copyToClipboard(draft).then(function () {
-        showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+        showToast("\uD83D\uDCCB " + tr("Copied to clipboard! Paste into your email app."));
       });
     });
   }
@@ -229,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var body = decodeURIComponent(parts[1].split("&body=")[1]);
       var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
       copyToClipboard(draft).then(function () {
-        showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+        showToast("\uD83D\uDCCB " + tr("Copied to clipboard! Paste into your email app."));
       });
     });
   }
@@ -244,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var body = decodeURIComponent(parts[1].split("&body=")[1]);
       var draft = "To: " + TO_EMAIL + "\nSubject: " + subject + "\n\n" + body;
       copyToClipboard(draft).then(function () {
-        showToast("\uD83D\uDCCB Copied to clipboard! Paste into your email app.");
+        showToast("\uD83D\uDCCB " + tr("Copied to clipboard! Paste into your email app."));
       });
     });
   }
@@ -254,14 +256,14 @@ document.addEventListener("DOMContentLoaded", function () {
 if (window.WebMCP && typeof WebMCP.registerTool === 'function') {
   WebMCP.registerTool({
     name: 'report-error',
-    label: 'Report Error',
+    label: tr('Report Error'),
     inputSchema: {
       type: 'object',
       properties: {
-        page: { type: 'string', label: 'Page / Item', description: 'The page or item where the error was found' },
-        error: { type: 'string', label: 'What is incorrect?', description: 'Description of the error' },
-        correction: { type: 'string', label: 'Correct information', description: 'The correct data if known' },
-        source: { type: 'string', label: 'Source / Proof Link', description: 'Link to supporting document' }
+        page: { type: 'string', label: tr('Page / Item'), description: tr('The page or item where the error was found') },
+        error: { type: 'string', label: tr('What is incorrect?'), description: tr('Description of the error') },
+        correction: { type: 'string', label: tr('Correct information'), description: tr('The correct data if known') },
+        source: { type: 'string', label: tr('Source / Proof Link'), description: tr('Link to supporting document') }
       },
       required: ['error']
     }
@@ -269,14 +271,14 @@ if (window.WebMCP && typeof WebMCP.registerTool === 'function') {
 
   WebMCP.registerTool({
     name: 'submit-information',
-    label: 'Submit Missing Information',
+    label: tr('Submit Missing Information'),
     inputSchema: {
       type: 'object',
       properties: {
-        category: { type: 'string', label: 'Category', description: 'Type of information being submitted', enum: ['Official', 'Service', 'Hotline', 'Ordinance', 'Historical Detail'] },
-        title: { type: 'string', label: 'Information Title / Name', description: 'Title of the information' },
-        description: { type: 'string', label: 'Description & Details', description: 'Detailed description' },
-        source: { type: 'string', label: 'Verification Source / Proof Link', description: 'Link to verifiable source' }
+        category: { type: 'string', label: tr('Category'), description: tr('Type of information being submitted'), enum: ['Official', 'Service', 'Hotline', 'Ordinance', 'Historical Detail'] },
+        title: { type: 'string', label: tr('Information Title / Name'), description: tr('Title of the information') },
+        description: { type: 'string', label: tr('Description & Details'), description: tr('Detailed description') },
+        source: { type: 'string', label: tr('Verification Source / Proof Link'), description: tr('Link to verifiable source') }
       },
       required: ['category', 'title', 'description']
     }
@@ -284,13 +286,13 @@ if (window.WebMCP && typeof WebMCP.registerTool === 'function') {
 
   WebMCP.registerTool({
     name: 'suggest-feature',
-    label: 'Suggest New Feature',
+    label: tr('Suggest New Feature'),
     inputSchema: {
       type: 'object',
       properties: {
-        name: { type: 'string', label: 'Feature Name', description: 'Name of the proposed feature' },
-        description: { type: 'string', label: 'Description', description: 'Detailed description of the feature' },
-        usecase: { type: 'string', label: 'Use Case / Why it matters', description: 'How this would help Mapandan residents' }
+        name: { type: 'string', label: tr('Feature Name'), description: tr('Name of the proposed feature') },
+        description: { type: 'string', label: tr('Description'), description: tr('Detailed description of the feature') },
+        usecase: { type: 'string', label: tr('Use Case / Why it matters'), description: tr('How this would help Mapandan residents') }
       },
       required: ['name', 'description']
     }
