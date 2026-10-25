@@ -1,5 +1,9 @@
 {
   "commuter": {
+    "google_maps_view": "Tingnan sa Google Maps",
+    "google_maps_walk": "Mga direksyon sa paglalakad",
+    "google_maps_note": "Bubukas ang Google Maps. Lokal na iniulat na lokasyon; hindi garantisadong maaabot na sakayan. Walang lokasyon ng pasaherong ipinapadala.",
+    "location_unavailable": "Wala pang lokasyon",
     "directions_title": "Tingnan ang mga direksyon",
     "where_ride": "Saan sasakay",
     "where_getoff": "Saan bababa",

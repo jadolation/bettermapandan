@@ -17,10 +17,12 @@
 .commuter-page .leg-select { display: flex; align-items: center; gap: .5rem; width: 100%; text-align: left; border: 0; background: #eef5ef; font-weight: 650; }
 .route-sources { margin-top: 1rem; border-top: 1px solid #d6e0d8; }
 .route-sources p { overflow-wrap: anywhere; }
-.journey-summary { position: sticky; top: 0; z-index: 1; background: #fffefa; padding: .3rem 0 .6rem; border-bottom: 1px solid #d6e0d8; }
+.commuter-page .journey-summary { display: block; position: sticky; top: 0; z-index: 1; width: 100%; min-width: 0; padding: .3rem 0 .6rem; border-bottom: 1px solid #d6e0d8; background: #fffefa; }
 .ride-sequence, .ride-sequence > span { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
-#commuter-info .journey-summary p { font-size: .75rem; margin: .15rem 0; }
 .summary-fact { display: flex; align-items: flex-start; gap: .4rem; }
+.commuter-page .journey-summary > *, .commuter-page .direction-leg { width: 100%; min-width: 0; overflow-wrap: normal; word-break: normal; hyphens: none; }
+.commuter-page .direction-leg p, .commuter-page .direction-step > button > span { min-width: 0; overflow-wrap: break-word; word-break: normal; }
+#commuter-info .journey-summary p { font-size: .75rem; margin: .15rem 0; }
 .commuter-page .leg-select[aria-pressed="true"] { box-shadow: inset 3px 0 #16532c; }
 .transport-card { border-top: 1px solid #b9c6bc; padding: .6rem 0; }
 .transport-card h3 { font-size: 1rem; margin: .25rem 0; }
@@ -65,6 +67,9 @@
 #commuter-lines fieldset { min-width: 0; margin: 0; border: 1px solid #c1ccc3; border-radius: .65rem; padding: .5rem .65rem; }
 #commuter-lines fieldset.selected { border-color: #16532c; box-shadow: inset 3px 0 #16532c; }
 #commuter-info-body > button { display: block; width: 100%; text-align: left; margin: .4rem 0; }
+.station-actions { display: grid; gap: .5rem; margin: .75rem 0; }
+.station-actions a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 44px; padding: .65rem; border: 1px solid #183a2b; border-radius: .5rem; color: #183a2b; background: #fffefa; font-size: .9rem; text-align: center; }
+.station-actions a:first-child { background: #183a2b; color: white; }
 #commuter-lines legend { padding: 0 .2rem; font-weight: 650; font-size: .9rem; }
 #commuter-lines label { display: flex; align-items: center; min-height: 44px; gap: .5rem; font-size: .85rem; }
 #commuter-lines input { width: 24px; height: 24px; flex-shrink: 0; accent-color: #16532c; }

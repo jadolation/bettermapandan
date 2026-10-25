@@ -142,20 +142,25 @@ def test_build_writes_homepages(built_site: Path):
 
 
 @pytest.mark.parametrize("locale", ["", "fil", "pag"])
-@pytest.mark.parametrize("slug", ["", "gis", "commuter"])
-def test_generated_navigation_retains_map_and_footer_commuter(built_site: Path, locale, slug):
+@pytest.mark.parametrize("slug", ["", "about", "services", "gis", "commuter"])
+def test_generated_navigation_and_map_page_chrome(built_site: Path, locale, slug):
     prefix = f"/{locale}/" if locale else "/"
     html = (built_site / locale / slug / "index.html").read_text(encoding="utf-8")
     header = re.search(r'<header\b.*?</header>', html, re.S).group()
-    footer = re.search(r'<footer\b.*?</footer>', html, re.S).group()
+    footer = re.search(r'<footer\b.*?</footer>', html, re.S)
     assert 'aria-controls="primary-nav"' in header
     assert header.count('id="primary-nav"') == 1
     primary_nav = re.search(r'<ul\b[^>]*id="primary-nav".*?</ul>', header, re.S).group()
     assert "commuter/" not in primary_nav
-    for chrome in (header, footer):
-        assert f'href="{prefix}gis/">Map</a>' in chrome
-        assert "{{" not in chrome
-    assert f'href="{prefix}commuter/">Commuter</a>' in footer
+    assert f'href="{prefix}gis/">Map</a>' in header
+    if slug in ("gis", "commuter"):
+        assert footer is None
+        assert 'class="mobile-action-bar"' not in html
+        assert 'class="site-footer"' not in html
+    else:
+        assert footer is not None
+        assert f'href="{prefix}commuter/">Commuter</a>' in footer.group()
+        assert 'class="mobile-action-bar"' in html
     assert "{{" not in html
 
 

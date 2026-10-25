@@ -49,6 +49,16 @@
   function symbol(mode) { return '<svg class="transport-symbol" viewBox="0 0 24 24" aria-hidden="true">' + (paths[mode] || paths.transfer) + '</svg>'; }
   function name(id) { var f = features.find(function (f) { return f.properties.id === id; }); return labels[id] || (f && f.properties.name) || (data.place_names || {})[id] || id; }
   function paragraph(parent, text) { if (text) { var p = document.createElement("p"); p.textContent = text; parent.appendChild(p); } }
+  function stationLocation(feature) {
+    var geometry = feature && feature.geometry, coordinates = geometry && geometry.coordinates;
+    if (!geometry || geometry.type !== "Point" || !Array.isArray(coordinates) || coordinates.length !== 2 ||
+        ![coordinates[0], coordinates[1]].every(function (value) { return typeof value === "number" && Number.isFinite(value); }) ||
+        Math.abs(coordinates[0]) > 180 || Math.abs(coordinates[1]) > 90) return null;
+    var point = [coordinates[1], coordinates[0]], destination = point.join(",");
+    return { point: point,
+      view: "https://www.google.com/maps/search/?" + new URLSearchParams({ api: "1", query: destination }),
+      walking: "https://www.google.com/maps/dir/?" + new URLSearchParams({ api: "1", destination: destination, travelmode: "walking" }) };
+  }
   function disclosure(title) { var el = document.createElement("details"), summary = document.createElement("summary"); summary.textContent = title; el.appendChild(summary); body.appendChild(el); return el; }
   function clearStep() {
     if (map && stepMarker) map.removeLayer(stepMarker);
@@ -162,7 +172,8 @@
     }
     if (selection.kind === "station") {
       var f = features.find(function (f) { return f.properties.id === selection.id; });
-      bounds.extend([f.geometry.coordinates[1], f.geometry.coordinates[0]]);
+      var location = stationLocation(f);
+      if (location) bounds.extend(location.point);
     } else {
       var line = lines.get(selection.id);
       if (line) bounds.extend(line.getBounds());
@@ -283,6 +294,16 @@
       summary = props.observed_only ? labels.observed_place : labels[props.transport_type];
       if (view === "station") {
         paragraph(body, labels[props.transport_type]); paragraph(body, labels.unconfirmed_stops);
+        paragraph(body, props.location_description || props.notes);
+        var location = stationLocation(feature);
+        if (location) {
+          var actions = document.createElement("div"); actions.className = "station-actions";
+          [["view", labels.google_maps_view], ["walking", labels.google_maps_walk]].forEach(function (action) {
+            var link = document.createElement("a"); link.href = location[action[0]]; link.textContent = action[1];
+            link.target = "_blank"; link.rel = "noopener noreferrer"; actions.appendChild(link);
+          });
+          body.appendChild(actions); paragraph(body, labels.google_maps_note);
+        } else paragraph(body, labels.location_unavailable);
         props.fares.forEach(function (fare) { paragraph(body, labels[fare.id] + ": PHP " + fare.amount.min + "-" + fare.amount.max); });
         paragraph(body, labels.associated_routes);
         var associated = props.catalog_route_ids || [];
@@ -293,7 +314,7 @@
         });
         var details = disclosure(labels.sources);
         paragraph(details, summary); paragraph(details, props.location_description);
-        paragraph(details, feature.geometry.coordinates[1] + ", " + feature.geometry.coordinates[0]);
+        if (location) paragraph(details, location.point.join(", "));
         paragraph(details, props.source_note || props.source_type); paragraph(details, props.verification_status);
         paragraph(details, props.notes); paragraph(details, labels.source_warning); paragraph(details, labels.fare_caveat);
       }
@@ -369,8 +390,10 @@
       tiles.on("tileerror", function () { tileFailed = true; status.textContent = labels.tiles_failed; });
       tiles.on("load", function () { if (!tileFailed) status.textContent = labels.ready; }); tiles.addTo(map);
       features.forEach(function (feature) {
+        var location = stationLocation(feature);
+        if (!location) return;
         var props = feature.properties, title = name(props.id) + "; " + labels[props.transport_type];
-        var marker = L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], { title: title, alt: title, keyboard: true, icon: L.divIcon({ className: "transport-marker transport-icon-" + props.transport_type, html: symbol(props.transport_type), iconSize: [44, 44], iconAnchor: [22, 22] }) });
+        var marker = L.marker(location.point, { title: title, alt: title, keyboard: true, icon: L.divIcon({ className: "transport-marker transport-icon-" + props.transport_type, html: symbol(props.transport_type), iconSize: [44, 44], iconAnchor: [22, 22] }) });
         marker.on("click", function () { choose("station", props.id, true); });
         marker.on("add", function () {
           var element = marker.getElement(); element.dataset.id = props.id; element.setAttribute("aria-label", title);

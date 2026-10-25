@@ -1,4 +1,5 @@
 """Page shell builders: header, footer, hero, assembled page."""
+import re
 from pathlib import Path
 
 from _build.config import SITE_CONFIG, SRC_PARTIALS
@@ -97,6 +98,13 @@ def assemble_page(
 ) -> str:
     """Assemble a complete page from its components."""
     locale = locale or {}
+    map_page = Path(page_url).as_posix() in {
+        f"{prefix}{name}.html"
+        for prefix in ("", "fil/", "pag/") for name in ("gis", "commuter")
+    }
+    if map_page:
+        footer = ""
+        base = re.sub(r'<!-- MOBILE_ACTIONS_START -->.*?<!-- MOBILE_ACTIONS_END -->', '', base, flags=re.S)
     if lang_code != "en":
         base = localize_internal_links(base, lang_code)
         header = localize_internal_links(header, lang_code)

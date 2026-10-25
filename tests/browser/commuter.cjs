@@ -10,6 +10,8 @@ const rootIndex = process.argv.indexOf('--root');
 assert.ok(rootIndex >= 0 && process.argv[rootIndex + 1], 'Pass --root _site');
 const root = path.resolve(process.argv[rootIndex + 1]);
 const smoke = process.argv.includes('--smoke');
+const layoutOnly = process.argv.includes('--layout-only');
+const invalidOnly = process.argv.includes('--invalid-only');
 const localeIndex = process.argv.indexOf('--locale');
 const selectedLocale = localeIndex >= 0 ? process.argv[localeIndex + 1] : null;
 assert.ok(!selectedLocale || ['en', 'fil', 'pag'].includes(selectedLocale));
@@ -212,6 +214,47 @@ async function assertZoomGestures(page, mobile) {
   assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half', 'native map pan works with details half-open');
   await client.detach();
 }
+async function assertExternalTabs(browser, page) {
+  const session = await browser.target().createCDPSession();
+  const requests = [];
+  session.on('Target.attachedToTarget', async ({ sessionId }) => {
+    const child = session.connection().session(sessionId);
+    await child.send('Fetch.enable', { patterns: [{ urlPattern: 'https://www.google.com/*' }] });
+    child.on('Fetch.requestPaused', async event => {
+      if (event.resourceType === 'Document') {
+        requests.push(event.request.url);
+        assert.ok(!Object.keys(event.request.headers).some(key => key.toLowerCase() === 'referer'), 'noreferrer prevents sharing the source page');
+      }
+      await child.send('Fetch.fulfillRequest', { requestId: event.requestId, responseCode: 200,
+        responseHeaders: [{ name: 'Content-Type', value: 'text/html' }],
+        body: Buffer.from('<title>Intercepted Google Maps navigation</title><link rel="icon" href="data:,">').toString('base64') });
+    });
+    await child.send('Runtime.runIfWaitingForDebugger');
+  });
+  await session.send('Target.setAutoAttach', { autoAttach: true, waitForDebuggerOnStart: true, flatten: true, filter: [{ type: 'page', exclude: false }] });
+  try {
+    const before = await page.evaluate(() => ({ route: document.querySelector('#commuter-page').dataset.activeRouteId,
+      station: document.querySelector('#commuter-page').dataset.selectionId, zoom: window.__commuterMap.getZoom(),
+      bounds: window.__commuterMap.getBounds().toBBoxString(), state: document.querySelector('#commuter-sheet').dataset.state }));
+    for (const index of [0, 1]) {
+      const href = await page.$$eval('.station-actions a', (els, index) => els[index].href, index);
+      const popupReady = browser.waitForTarget(target => target.opener() === page.target() && target.url() === href);
+      await page.$$eval('.station-actions a', (els, index) => els[index].click(), index);
+      const popup = await (await popupReady).page();
+      await popup.waitForFunction(() => document.title === 'Intercepted Google Maps navigation');
+      assert.equal(await popup.evaluate(() => window.opener), null);
+      assert.equal(requests.at(-1), href);
+      await popup.close();
+      assert.deepEqual(await page.evaluate(() => ({ route: document.querySelector('#commuter-page').dataset.activeRouteId,
+        station: document.querySelector('#commuter-page').dataset.selectionId, zoom: window.__commuterMap.getZoom(),
+        bounds: window.__commuterMap.getBounds().toBBoxString(), state: document.querySelector('#commuter-sheet').dataset.state })), before);
+    }
+    assert.equal(requests.length, 2, 'only explicit anchor clicks navigate to Google; both are intercepted');
+  } finally {
+    await session.send('Target.setAutoAttach', { autoAttach: false, waitForDebuggerOnStart: false, flatten: true });
+    await session.detach();
+  }
+}
 async function main() {
   const library = {};
   for (const ext of ['js', 'css']) {
@@ -235,7 +278,7 @@ async function main() {
     browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox'] });
      for (const lang of smoke ? ['en'] : selectedLocale ? [selectedLocale] : ['en', 'fil', 'pag']) {
        for (const width of smoke ? [320, 1440] : [320, 375, 430, 1440]) {
-          for (const mode of smoke ? ['map'] : ['map', 'cdn-failure', 'no-js', 'tile-failure', 'shape-fixture', 'partial-shapes', 'no-shapes']) {
+          for (const mode of invalidOnly ? ['invalid-points'] : smoke || layoutOnly ? ['map'] : ['map', 'cdn-failure', 'no-js', 'tile-failure', 'shape-fixture', 'partial-shapes', 'no-shapes', 'invalid-points']) {
            console.log(`Commuter case: ${lang}/${width}/${mode}`);
           const page = await browser.newPage();
           if (lang === 'pag' && width === 430 && mode === 'map') await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
@@ -244,8 +287,10 @@ async function main() {
            page.on('pageerror', error => errors.push(error.message));
           await page.setViewport({ width, height: 900, isMobile: width < 900, hasTouch: width < 900 });
           if (mode === 'no-js') await page.setJavaScriptEnabled(false);
-          await page.setRequestInterception(true);
-           page.on('request', async req => {
+           await page.setRequestInterception(true);
+           let googleRequests = 0;
+            page.on('request', async req => {
+             if (new URL(req.url()).hostname === 'www.google.com') { googleRequests++; return req.abort(); }
             if (req.url().includes('leaflet@1.9.4')) {
               if (mode === 'cdn-failure') return req.abort();
               const ext = req.url().endsWith('.css') ? 'css' : 'js';
@@ -260,11 +305,15 @@ async function main() {
               if (new URL(req.url()).pathname.endsWith('/assets/commuter-map.min.js')) {
                 return req.respond({ contentType: 'text/javascript', body: 'if (window.L) L.Map.addInitHook(function () { window.__commuterMap = this; });\n' + fs.readFileSync(path.join(root, 'assets/commuter-map.min.js'), 'utf8') });
               }
-              if (['shape-fixture', 'partial-shapes', 'no-shapes'].includes(mode) && new URL(req.url()).pathname.endsWith('/commuter/')) {
+              if (['shape-fixture', 'partial-shapes', 'no-shapes', 'invalid-points'].includes(mode) && new URL(req.url()).pathname.endsWith('/commuter/')) {
                 const localeRoot = lang === 'en' ? '' : lang;
                 let html = fs.readFileSync(path.join(root, localeRoot, 'commuter/index.html'), 'utf8');
                 html = html.replace(/(<script id="commuter-data" type="application\/json">)([\s\S]*?)(<\/script>)/, (_, start, raw, end) => {
-                  const payload = JSON.parse(raw);
+                   const payload = JSON.parse(raw);
+                   if (mode === 'invalid-points') {
+                     const geometries = [null, { type: 'LineString', coordinates: [1, 2] }, { type: 'Point', coordinates: [] }, { type: 'Point', coordinates: ['120', 16] }, { type: 'Point', coordinates: [true, 16] }, { type: 'Point', coordinates: [120, 91] }, { type: 'Point', coordinates: [120, 16, 0] }];
+                     payload.features.forEach((feature, index) => { feature.geometry = geometries[index]; });
+                   }
                   if (mode === 'shape-fixture') payload.shapes = payload.patterns.map(pattern => {
                     const capture = JSON.parse(fs.readFileSync(path.join(__dirname, '../fixtures/transport-osrm', pattern.id + '.json'), 'utf8'));
                     return { type: 'Feature', geometry: capture.routes[0].geometry, properties: {
@@ -281,8 +330,26 @@ async function main() {
             }
             return req.abort();
           });
-          await page.goto(`${origin}/${lang === 'en' ? '' : lang + '/'}commuter/`, { waitUntil: 'networkidle0' });
-          assert.equal(await page.$$eval('main', els => els.length), 1);
+           await page.goto(`${origin}/${lang === 'en' ? '' : lang + '/'}commuter/`, { waitUntil: 'networkidle0' });
+           if (mode === 'invalid-points') {
+             await page.waitForSelector('#commuter-page[data-ready="true"]');
+             const labels = await page.$eval('#commuter-data', el => JSON.parse(el.textContent).labels);
+             for (let index = 0; index < 7; index++) {
+               await exploreSheet(page);
+               await page.$eval('.commuter-directory', el => { el.open = true; });
+               await page.$$eval('.transport-select', (els, index) => els[index].click(), index);
+               assert.equal(await page.$$eval('.station-actions a', els => els.length), 0);
+               assert.ok((await page.$eval('#commuter-info-body', el => el.textContent)).includes(labels.location_unavailable));
+               assert.equal(await page.$$eval('.transport-marker.selected', els => els.length), 0);
+               assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
+             }
+             assert.deepEqual(errors, []);
+             assert.equal(googleRequests, 0);
+             await page.close();
+             continue;
+           }
+           assert.equal(await page.$$eval('main', els => els.length), 1);
+           assert.equal(await page.$$eval('footer, .mobile-action-bar', els => els.length), 0);
           assert.equal(await page.$$eval('.transport-card', els => els.length), 7);
              assert.equal(await page.$$eval('#commuter-lines > button', els => els.length), catalog.length);
              assert.equal(await page.$$eval('#commuter-lines button button, #commuter-lines button details, .sheet-back', els => els.length), 0);
@@ -307,7 +374,8 @@ async function main() {
              assert.equal(await page.$$eval('.transport-marker', els => els.length), 0);
            } else {
             await page.waitForSelector('#commuter-page[data-ready="true"]').catch(error => { throw new Error(`${lang}/${width}/${mode}: ${errors.join('; ')} ${error.message}`); });
-            assert.equal(await page.evaluate(() => L.version), '1.9.4');
+             assert.equal(await page.evaluate(() => L.version), '1.9.4');
+             assert.ok(await page.evaluate(() => Math.abs(document.querySelector('#commuter-page').getBoundingClientRect().bottom - innerHeight) < 2 && parseFloat(getComputedStyle(document.body).paddingBottom) === 0), 'workspace fills viewport without a reserved footer gap');
             const markerCount = await page.$eval('#commuter-data', el => { const d = JSON.parse(el.textContent); return d.features.length + d.observations.length; });
             assert.equal(await page.$$eval('.transport-marker', els => els.length), 0, `${lang}/${width}/${mode}: starts without crowded markers`);
              assert.equal(await page.$eval('#commuter-show-all', el => el.checked), false);
@@ -438,8 +506,30 @@ async function main() {
                  assert.equal(await page.$$eval('.direction-leg', els => els.length), route.legs.length);
                  assert.equal(await page.$$eval('.direction-transfer', els => els.length), route.legs.length - 1);
                  assert.equal(await page.$$eval('.direction-step', els => els.length), route.directions[0].reduce((sum, p) => sum + payload.direction_steps[p].steps.length, 0));
-                  assert.equal(await page.$eval('.route-sources', el => el.open), false);
-                  const overview = await page.$eval('.journey-summary', el => el.innerText);
+                   assert.equal(await page.$eval('.route-sources', el => el.open), false);
+                   assert.ok(await page.$$eval('.route-sources details', els => els.length >= 2), 'restored fare and driving disclosures');
+                   const overview = await page.$eval('.journey-summary', el => el.innerText);
+                   const summaryLayout = await page.$eval('.journey-summary', el => ({
+                     display: getComputedStyle(el).display,
+                     width: el.getBoundingClientRect().width,
+                     children: Array.from(el.children).map(child => ({ width: child.getBoundingClientRect().width, display: getComputedStyle(child).display, wrap: getComputedStyle(child).overflowWrap, wordBreak: getComputedStyle(child).wordBreak, text: child.innerText }))
+                   }));
+                   assert.ok(summaryLayout.children.every(child => child.width >= summaryLayout.width * .8), 'summary rows use full width: ' + JSON.stringify(summaryLayout));
+                   assert.ok(summaryLayout.children.every(child => child.wrap === 'normal' && child.wordBreak === 'normal'), 'labels wrap at words rather than narrow character columns');
+                   assert.ok(await page.$eval('.journey-summary', el => {
+                     const rows = Array.from(el.children).map(child => child.getBoundingClientRect());
+                     return rows.every((rect, index) => !index || rect.top >= rows[index - 1].bottom);
+                   }), 'summary facts stack vertically, never in parallel lanes');
+                   assert.ok(await page.$eval('.journey-summary > .summary-fact', el => {
+                      const original = el.innerHTML;
+                      el.textContent = Array(4).fill(el.textContent).join(' / ');
+                     const range = document.createRange(); range.selectNodeContents(el);
+                     const lines = Array.from(range.getClientRects()), box = el.getBoundingClientRect();
+                     const readable = lines.length > 1 && Math.max(...lines.map(rect => rect.width)) >= box.width * .8 && lines.every(rect => rect.right <= box.right + 1);
+                      el.innerHTML = original;
+                     return readable;
+                   }), 'long localized endpoint names wrap into full-width readable lines');
+                   assert.ok(await page.$$eval('.direction-leg', els => els.every(el => el.getBoundingClientRect().width >= el.parentElement.getBoundingClientRect().width * .8)), 'each vehicle leg occupies a full-width section');
                   for (const technical of ['maintainer_', 'unverified', ...route.directions[0]]) assert.ok(!overview.includes(technical), 'summary has no raw source identifiers');
                   await page.focus('.leg-select'); await page.keyboard.press('Enter');
                   assert.equal(await page.$$eval('.route-directions[open]', els => els.length), 1, 'direct keyboard leg selection opens only that leg');
@@ -552,8 +642,9 @@ async function main() {
               await assertZoomGestures(page, width < 900);
             }
             await openSheet(page);
-            for (const state of ['expanded', 'collapsed', 'half']) {
-               await sizeSheet(page, state);
+             for (const state of ['expanded', 'collapsed', 'half']) {
+                await sizeSheet(page, state);
+                if (state !== 'collapsed') assert.ok(await page.$$eval('.journey-summary > p', els => els.every(el => el.getBoundingClientRect().width >= el.parentElement.getBoundingClientRect().width * .8)), 'summary remains full width at each visible sheet stop');
               await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
               await assertCurrentLineFits(page, paths);
             }
@@ -570,7 +661,18 @@ async function main() {
               await page.keyboard.press('Enter');
                await page.waitForFunction(name => document.querySelector('#commuter-info-title').textContent.endsWith(name), { timeout: 3000 }, payload.labels[feature.properties.id]);
               assert.notEqual(await page.$eval('#commuter-sheet', el => el.dataset.state), 'collapsed');
-              const info = await page.$eval('#commuter-info-body', el => el.textContent);
+               const info = await page.$eval('#commuter-info-body', el => el.textContent);
+               const links = await page.$$eval('.station-actions a', els => els.map(el => ({ href: el.href, target: el.target, rel: el.rel, width: el.getBoundingClientRect().width, parentWidth: el.parentElement.getBoundingClientRect().width, height: el.getBoundingClientRect().height, text: el.textContent })));
+               const coordinate = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]].join(',');
+               assert.deepEqual(links.map(link => link.href), [
+                 'https://www.google.com/maps/search/?' + new URLSearchParams({ api: '1', query: coordinate }),
+                 'https://www.google.com/maps/dir/?' + new URLSearchParams({ api: '1', destination: coordinate, travelmode: 'walking' })
+               ]);
+               assert.ok(links.every(link => link.target === '_blank' && link.rel === 'noopener noreferrer' && link.height >= 44 && link.width > 200 && Math.abs(link.width - link.parentWidth) < 1 && link.text.length));
+               assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
+               assert.equal(googleRequests, 0, 'station selection never requests Google');
+               await page.$eval('.station-actions a', el => { el.addEventListener('click', event => event.preventDefault(), { once: true }); el.click(); });
+               assert.equal(await page.$eval('#commuter-page', el => el.dataset.selectionId), feature.properties.id, 'explicit external action leaves selection intact');
                for (const fare of feature.properties.fares) assert.ok(info.includes(`PHP ${fare.amount.min}-${fare.amount.max}`));
                assert.equal(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.length), 0, 'station clears route geometry');
                assert.equal(await page.$$eval('.transport-marker.selected', els => els.length), 1);
@@ -598,8 +700,10 @@ async function main() {
                return { x: r.x + r.width / 2, y: r.y + r.height / 2, visible: r.top >= hero.bottom && (innerWidth >= 900 ? r.left >= sheet.right : r.bottom <= sheet.top) };
              });
              assert.ok(stationPoint.visible, 'selected station fits unobscured map strip');
-             await page.mouse.click(stationPoint.x, stationPoint.y);
-             assert.equal(await page.$eval('#commuter-page', el => el.dataset.view), 'station', 'native marker click uses same station transition');
+              await page.mouse.click(stationPoint.x, stationPoint.y);
+              assert.equal(await page.$eval('#commuter-page', el => el.dataset.view), 'station', 'native marker click uses same station transition');
+              if (process.argv.includes('--screenshots') && mode === 'map') await page.screenshot({ path: `/tmp/kilo/station-${lang}-${width}.png` });
+              if (mode === 'map') await assertExternalTabs(browser, page);
               await exploreSheet(page);
               await page.click('#commuter-reset');
               await page.click('#commuter-show-all');
@@ -687,7 +791,7 @@ async function main() {
         }
       }
     }
-     console.log(`Commuter exact-artifact: ${smoke ? '2 desktop/mobile smoke cases' : (selectedLocale || '3 locales') + ' x 4 widths x 7 modes'} passed (actual Leaflet; active route with station focus, persistent three-stop sheet, Explore/Close/reopen, source markers, native pinch/pan, geometry/fare fixtures, partial/missing geometry).`);
+     console.log(`Commuter exact-artifact: ${smoke ? '2 desktop/mobile smoke cases' : (selectedLocale || '3 locales') + ' x 4 widths x ' + (layoutOnly || invalidOnly ? '1 mode' : '8 modes')} passed (actual Leaflet; active route with station focus, persistent three-stop sheet, Explore/Close/reopen, source markers, native pinch/pan, geometry/fare fixtures, partial/missing geometry).`);
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));

@@ -1,4 +1,8 @@
 [
+  {"key":"commuter.google_maps_view","english":"View on Google Maps","filipino":"Tingnan sa Google Maps","pangasinan":"Nengnengen ed Google Maps","pangasinan_status":"review_required"},
+  {"key":"commuter.google_maps_walk","english":"Get walking directions","filipino":"Mga direksyon sa paglalakad","pangasinan":"Saray direksyon na panakaran","pangasinan_status":"review_required"},
+  {"key":"commuter.google_maps_note","english":"Opens Google Maps. Locally reported coordinate; accessible boarding is not guaranteed. No passenger location is sent.","filipino":"Bubukas ang Google Maps. Lokal na iniulat na lokasyon; hindi garantisadong maaabot na sakayan. Walang lokasyon ng pasaherong ipinapadala.","pangasinan":"Onlukas so Google Maps. Lokal ya naiulat ya lokasyon; ag garantisado so sakayan ya naarumog. Anggapo so lokasyon na pasahero ya ipapawit.","pangasinan_status":"review_required"},
+  {"key":"commuter.location_unavailable","english":"Location not yet available","filipino":"Wala pang lokasyon","pangasinan":"Anggapo ni so lokasyon","pangasinan_status":"review_required"},
   {"key":"commuter.driving","english":"Driving time only, excluding waiting","filipino":"Oras ng pagmamaneho lamang, hindi kasama ang paghihintay","pangasinan":"Oras na panagmaneho labat, ag kaiba so panalagar","pangasinan_status":"review_required"},
   {"key":"commuter.total_fare","english":"Total reported fare","filipino":"Kabuuang iniulat na pamasahe","pangasinan":"Interon naiulat ya pasahe","pangasinan_status":"review_required"},
   {"key":"commuter.action_start_head","english":"Start at People's Park; head onto {street}","filipino":"Magsimula sa People's Park; tumuloy sa {street}","pangasinan":"Manlapu ed People's Park; unla ed {street}","pangasinan_status":"review_required"},

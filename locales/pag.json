@@ -1,5 +1,9 @@
 {
   "commuter": {
+    "google_maps_view": "Nengnengen ed Google Maps",
+    "google_maps_walk": "Saray direksyon na panakaran",
+    "google_maps_note": "Onlukas so Google Maps. Lokal ya naiulat ya lokasyon; ag garantisado so sakayan ya naarumog. Anggapo so lokasyon na pasahero ya ipapawit.",
+    "location_unavailable": "Anggapo ni so lokasyon",
     "directions_title": "Nengnengen iray direksyon",
     "where_ride": "Iner so pagsakayan",
     "where_getoff": "Iner so pagbaba",

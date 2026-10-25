@@ -1,5 +1,9 @@
 {
   "commuter": {
+    "google_maps_view": "View on Google Maps",
+    "google_maps_walk": "Get walking directions",
+    "google_maps_note": "Opens Google Maps. Locally reported coordinate; accessible boarding is not guaranteed. No passenger location is sent.",
+    "location_unavailable": "Location not yet available",
     "directions_title": "View directions",
     "where_ride": "Where to ride",
     "where_getoff": "Where to get off",

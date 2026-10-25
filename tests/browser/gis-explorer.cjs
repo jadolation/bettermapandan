@@ -397,6 +397,11 @@ async function main() {
         page.on("pageerror", error => errors.push(error.message));
         await page.goto(url, { waitUntil: "domcontentloaded" });
         await page.waitForSelector('#gis-workspace[data-ready="true"]');
+        if (!fixtures) {
+          assert.equal(await page.$$eval('footer, .mobile-action-bar', els => els.length), 0, 'GIS omits both footer components in every locale');
+          assert.equal(await page.$eval('body', el => parseFloat(getComputedStyle(el).paddingBottom)), 0, 'No reserved mobile-footer padding');
+          assert.equal(await page.$eval('#gis-page', el => parseFloat(getComputedStyle(el).getPropertyValue('--gis-sticky-clearance'))), 8, 'Only the normal 8px edge margin remains, not action-bar clearance');
+        }
         await page.waitForFunction(() => document.getElementById("gis-map-status").textContent === document.getElementById("gis-page").dataset.tileError);
         assert.equal(await page.evaluate(() => "GIS_MODE" in window), false);
         assert.equal(await page.$eval("#gis-barangay-list", el => el.querySelectorAll("li").length), 15);
