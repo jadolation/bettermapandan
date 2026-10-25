@@ -304,14 +304,15 @@
         modeIcon.innerHTML = symbol(props.transport_type === "transfer" ? "transfer" : props.transport_type);
         mode.appendChild(modeIcon);
         var modeName = document.createElement("span");
-        modeName.textContent = labels[props.transport_type] || props.transport_type;
+        modeName.textContent = summary || props.transport_type;
         mode.appendChild(modeName);
         panel.appendChild(mode);
 
-        if (props.location_description) {
+        var description = props.location_description || (props.name !== title ? props.name : "");
+        if (description) {
           var locationDescription = document.createElement("p");
           locationDescription.className = "station-detail-location";
-          locationDescription.textContent = props.location_description;
+          locationDescription.textContent = description;
           panel.appendChild(locationDescription);
         }
 
@@ -379,6 +380,7 @@
         var disclosureTitle = document.createElement("summary");
         disclosureTitle.textContent = labels.sources;
         details.appendChild(disclosureTitle);
+        paragraph(details, props.id);
         paragraph(details, labels.google_maps_note);
         paragraph(details, props.notes);
         if (location) paragraph(details, location.point.join(", "));

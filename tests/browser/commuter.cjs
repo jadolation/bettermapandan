@@ -686,22 +686,24 @@ async function main() {
                     }).length;
                   }, payload.labels[feature.properties.id]), 1, 'selected station title is visible exactly once at every stop');
                 }
-                assert.equal(await page.$$eval('.station-notice', els => els.length), 1);
-                assert.equal(await page.$$eval('#commuter-info-body > details', els => els.length), 1);
-                assert.equal(await page.$eval('.station-sources', el => el.open), false);
+                 assert.equal(await page.$$eval('.station-detail-caveat', els => els.length), 1);
+                 assert.ok(await page.$eval('.station-detail-caveat', (el, notice) => el.innerText.trim() === notice, payload.labels.unconfirmed_stops));
+                 assert.equal(await page.$$eval('#commuter-info-body details', els => els.length), 1);
+                 assert.equal(await page.$eval('.station-source-details', el => el.open), false);
                 assert.ok(await page.$eval('#commuter-info-body', (el, props) => {
                   const visible = el.innerText;
                   const title = document.querySelector('#commuter-info-title').textContent;
                   const description = props.location_description || (props.name !== title ? props.name : '');
                   return visible.includes(description) && !visible.includes(props.id) && (!props.notes || !visible.includes(props.notes));
-                }, feature.properties));
-                assert.ok(await page.$$eval('.station-route', els => els.every(el => {
-                  const row = el.getBoundingClientRect(), text = el.firstElementChild.getBoundingClientRect();
-                  return row.width > 200 && text.width > row.width * .7 && getComputedStyle(el).display === 'flex';
-                })));
-                await page.$eval('.station-sources', el => { el.open = true; });
-                assert.ok((await page.$eval('.station-sources', el => el.innerText)).includes(feature.properties.id));
-                await page.$eval('.station-sources', el => { el.open = false; });
+                 }, feature.properties), 'station public description excludes source-only fields: ' + JSON.stringify(await page.$eval('#commuter-info-body', el => el.innerText)));
+                 assert.equal(await page.$$eval('.station-route-link', els => els.length), feature.properties.catalog_route_ids.length);
+                 assert.ok(await page.$$eval('.station-route-link', els => els.every(el => {
+                   const row = el.getBoundingClientRect(), parent = el.parentElement.getBoundingClientRect();
+                   return row.width > 200 && Math.abs(row.width - parent.width) < 2 && el.textContent.trim().length > 0;
+                 })));
+                 await page.$eval('.station-source-details', el => { el.open = true; });
+                 assert.ok((await page.$eval('.station-source-details', el => el.innerText)).includes(feature.properties.id));
+                 await page.$eval('.station-source-details', el => { el.open = false; });
                 assert.equal(googleRequests, 0, 'station selection never requests Google');
                await page.$eval('.station-actions a', el => { el.addEventListener('click', event => event.preventDefault(), { once: true }); el.click(); });
                assert.equal(await page.$eval('#commuter-page', el => el.dataset.selectionId), feature.properties.id, 'explicit external action leaves selection intact');
