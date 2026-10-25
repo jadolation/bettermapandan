@@ -101,7 +101,7 @@
       var steps = collection ? collection.steps : [];
       var first = steps.find(function (step) { return ["board", "ask", "transfer", "start", "start_head", "head"].includes(step.instruction_type); });
       var last = steps.find(function (step) { return step.instruction_type === "arrive"; });
-      paragraph(group, labels.where_ride + ": " + (first ? labels["action_" + first.instruction_type].replace("{street}", first.street_name) : labels.confirm_stops));
+      paragraph(group, labels.where_ride + ": " + (first ? labels["action_" + first.instruction_type].replace("{street}", first.place_id ? name(first.place_id) : first.street_name) : labels.confirm_stops));
       paragraph(group, labels.where_getoff + ": " + (last ? labels.action_arrive.replace("{street}", last.street_name) : labels.confirm_stops));
       if (!data.shapes.some(function (shape) { return shape.properties.pattern_id === pattern && !shape.properties.endpoint_caveat; })) paragraph(group, labels.map_incomplete);
       var detail = document.createElement("details"), toggle = document.createElement("summary");
@@ -124,7 +124,7 @@
           var action = document.createElement(step.waypoint ? "button" : "span");
           var type = step.instruction_type;
            action.innerHTML = symbol(type === "left" || type === "left_stay" || type === "roundabout_left" ? "left" : type === "right" ? "right" : type === "uturn" ? "uturn" : type === "arrive" ? "flag" : type === "start" || type === "start_head" ? "location" : type === "board" || type === "ask" ? leg.vehicle_types[0] : type === "transfer" ? "transfer" : type === "roundabout_first" ? "cornerup" : "straight");
-          var text = document.createElement("span"); text.textContent = labels["action_" + type].replace("{street}", step.street_name) + (step.distance_m == null ? "" : " / " + step.distance_m + " m"); action.appendChild(text);
+           var text = document.createElement("span"); text.textContent = labels["action_" + type].replace("{street}", step.place_id ? name(step.place_id) : step.street_name) + (step.distance_m == null ? "" : " / " + step.distance_m + " m"); action.appendChild(text);
           if (step.waypoint) {
              action.type = "button"; action.setAttribute("aria-pressed", "false"); action.title = labels.reported_pin;
              action.addEventListener("mousedown", function (event) { event.preventDefault(); action.focus({ preventScroll: true }); });
@@ -281,6 +281,7 @@
         route.directions[0].forEach(function (pattern) {
           var source = (data.direction_steps || {})[pattern];
           if (source) source.steps.forEach(function (step) {
+            paragraph(sources, step.source_amendment);
             paragraph(sources, step.sequence + ". " + step.instruction_text + " | " + step.original_source + " | " + JSON.stringify(step.waypoint) + " | " + step.source_type + " / " + step.verification_status);
           });
         });

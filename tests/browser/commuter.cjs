@@ -501,6 +501,19 @@ async function main() {
                assert.equal(await page.$$eval('.route-select[aria-pressed="true"]', els => els.length), 1);
                assert.equal(await page.$$eval('.transport-marker.selected', els => els.length), 0);
                await assertCurrentLineFits(page, count);
+               if (['mapandan-calasiao-multileg', 'mapandan-sta-barbara-multileg'].includes(route.id)) {
+                 assert.equal(route.origin_id, 'term-mini-mapandan');
+                 assert.ok(expectedMarkers.includes('term-mini-mapandan'));
+                 assert.equal(await page.$eval('#commuter-show-all', el => el.checked), false);
+                 const start = await page.$eval('.direction-leg', el => el.textContent);
+                 assert.ok(start.includes(payload.labels['term-mini-mapandan']));
+                 assert.ok(!start.includes('PHOME'));
+                 if (mode === 'map') assert.ok(await page.$eval('.transport-marker[data-id="term-mini-mapandan"]', el => {
+                   const p = el.getBoundingClientRect(), map = document.querySelector('#commuter-map').getBoundingClientRect();
+                   const sheet = document.querySelector('#commuter-sheet').getBoundingClientRect(), header = document.querySelector('.commuter-hero').getBoundingClientRect();
+                   return p.left >= (innerWidth >= 900 ? sheet.right : map.left) && p.right <= map.right && p.top >= header.bottom && p.bottom <= (innerWidth >= 900 ? map.bottom : sheet.top);
+                 }), 'starting terminal fits unobscured selected-route view');
+               }
                assert.ok(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.every(el => el.getAttribute('stroke-dasharray') === '10 7')));
                const compact = await page.$eval('#commuter-info-body', el => Array.from(el.children).filter(el => el.tagName !== 'DETAILS').map(el => el.textContent).join(' '));
                assert.ok(compact.includes(payload.labels.waiting_unknown));
@@ -602,7 +615,8 @@ async function main() {
                   const breakdown = await page.$eval('.route-sources', el => el.textContent);
                 for (const leg of route.legs) assert.ok(breakdown.includes(leg.fare.amount ? `PHP ${leg.fare.amount.min}-${leg.fare.amount.max}` : payload.labels.unknown_fare));
                 if (expectedMarkers.length) {
-                  await page.focus(`.transport-marker[data-id="${expectedMarkers[0]}"]`);
+                   const focusId = route.origin_id === 'term-mini-mapandan' ? route.origin_id : expectedMarkers[0];
+                   await page.focus(`.transport-marker[data-id="${focusId}"]`);
                   await page.keyboard.press('Enter');
                   assert.equal(await page.$eval('#commuter-page', el => el.dataset.activeRouteId), route.id);
                    assert.equal(await page.$eval('#commuter-page', el => el.dataset.focusedFeature), 'station');
@@ -610,7 +624,7 @@ async function main() {
                   assert.equal(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.length), count);
                   assert.deepEqual(await page.$$eval('.transport-marker', els => els.map(el => el.dataset.id).sort()), expectedMarkers);
                   const visible = await page.$eval('#commuter-info-body', el => el.innerText);
-                  const feature = payload.features.concat(payload.observations).find(f => f.properties.id === expectedMarkers[0]);
+                   const feature = payload.features.concat(payload.observations).find(f => f.properties.id === focusId);
                   assert.ok(!visible.includes(String(feature.geometry.coordinates[1])));
                   assert.ok(!visible.includes(feature.properties.source_type));
                   assert.equal(await page.$$eval('#commuter-info-body details[open]', els => els.length), 0);

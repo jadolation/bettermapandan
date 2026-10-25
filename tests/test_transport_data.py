@@ -385,7 +385,7 @@ def test_sheet_projection_is_only_existing_evidence_and_explicit_links():
     assert any(not f["properties"]["catalog_route_ids"] for f in bundle["features"])
     assert all(f["properties"]["observed_only"] for f in bundle["observations"])
     assert bundle["place_names"]["place-peoples-park"] == observations["place-peoples-park"]["name"]
-    assert bundle["place_names"]["place-phome"] == observations["place-phome"]["name"]
+    assert "place-phome" not in bundle["place_names"]
 
 
 def test_sheet_labels_and_script_projection_escape_untrusted_text():
@@ -518,6 +518,19 @@ def test_explicit_route_marker_subsets_preserve_source_observations():
     assert "place-tuliao-tricycle" not in catalog["mapandan-calasiao-multileg"]["marker_ids"]
     assert "place-tuliao-tricycle" in catalog["mapandan-sta-barbara-multileg"]["marker_ids"]
     assert "place-tuliao-jeep" not in catalog["mapandan-sta-barbara-multileg"]["marker_ids"]
+    terminal = features["term-mini-mapandan"]
+    assert terminal["geometry"]["coordinates"] == [120.4524166667, 16.0265833333]
+    for rid in ("mapandan-calasiao-multileg", "mapandan-sta-barbara-multileg"):
+        assert catalog[rid]["origin_id"] == "term-mini-mapandan"
+        assert "term-mini-mapandan" in catalog[rid]["marker_ids"]
+        assert rid in terminal["properties"]["catalog_route_ids"]
+        assert catalog[rid]["routing_eligible"] is False
+    start = bundle["direction_steps"]["shared-mapandan-border-arch"]["steps"][0]
+    assert start["place_id"] == "term-mini-mapandan"
+    assert start["waypoint"] is None and start["geometry_leg_reference"] is None
+    assert start["original_source"] == "startPHOMEvicinitynull"
+    assert start["superseded_instruction_text"] == "Start in the PHOME vicinity."
+    assert "no geometry" in start["source_amendment"]
     source_places = {p["id"]: p for p in load_file("named_places.json")["places"]}
     for feature in bundle["observations"]:
         assert feature["geometry"] == source_places[feature["id"]]["geometry"]
