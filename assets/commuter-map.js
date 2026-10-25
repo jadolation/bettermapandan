@@ -294,52 +294,106 @@
       var feature = features.find(function (f) { return f.properties.id === selection.id; }), props = feature.properties;
       summary = props.observed_only ? labels.observed_place : labels[props.transport_type];
       if (view === "station") {
-        paragraph(body, props.location_description || (props.name !== title ? props.name : null));
+        var panel = document.createElement("section");
+        panel.className = "station-detail-card";
+        body.appendChild(panel);
+
+        var mode = document.createElement("div");
+        mode.className = "station-detail-mode";
+        var modeIcon = document.createElement("span");
+        modeIcon.innerHTML = symbol(props.transport_type === "transfer" ? "transfer" : props.transport_type);
+        mode.appendChild(modeIcon);
+        var modeName = document.createElement("span");
+        modeName.textContent = labels[props.transport_type] || props.transport_type;
+        mode.appendChild(modeName);
+        panel.appendChild(mode);
+
+        if (props.location_description) {
+          var locationDescription = document.createElement("p");
+          locationDescription.className = "station-detail-location";
+          locationDescription.textContent = props.location_description;
+          panel.appendChild(locationDescription);
+        }
+
         var location = stationLocation(feature);
         if (location) {
-          var actions = document.createElement("div"); actions.className = "station-actions";
+          var actions = document.createElement("div");
+          actions.className = "station-actions";
           [["view", labels.google_maps_view], ["walking", labels.google_maps_walk]].forEach(function (action) {
-            var link = document.createElement("a"); link.href = location[action[0]]; link.textContent = action[1];
-            link.target = "_blank"; link.rel = "noopener noreferrer"; actions.appendChild(link);
+            var link = document.createElement("a");
+            link.href = location[action[0]];
+            link.textContent = action[1];
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            actions.appendChild(link);
           });
-          body.appendChild(actions);
-        } else paragraph(body, labels.location_unavailable);
-        paragraph(body, labels.station_notice); body.lastChild.className = "commuter-note station-notice";
-        var routesTitle = document.createElement("h3"); routesTitle.textContent = labels.connected_routes; body.appendChild(routesTitle);
+          panel.appendChild(actions);
+        } else {
+          paragraph(panel, labels.location_unavailable);
+        }
+
         var associated = props.catalog_route_ids || [];
-        if (!associated.length) paragraph(body, labels.no_routes);
-        associated.forEach(function (id) {
-          var route = data.catalog.find(function (item) { return item.id === id; });
-          if (!route) return;
-          var button = document.createElement("button"); button.type = "button"; button.className = "station-route"; button.dataset.associatedRoute = id;
-          var text = document.createElement("span"), routeName = document.createElement("strong"), metadata = document.createElement("small");
-          routeName.textContent = name(id);
-          metadata.textContent = route.legs.map(function (leg) { return leg.vehicle_types.map(function (mode) { return labels[mode]; }).join(" / "); }).filter(function (mode, index, modes) { return modes.indexOf(mode) === index; }).join(" / ") + " · " + route.legs.length + " " + labels.rides + " / " + (route.transfer_count || 0) + " " + labels.transfers;
-          text.appendChild(routeName); text.appendChild(metadata); button.appendChild(text);
-          var chevron = document.createElement("span"); chevron.className = "station-route-chevron"; chevron.innerHTML = symbol("chevron"); button.appendChild(chevron);
-          button.addEventListener("click", function () { choose("route", id, true); }); body.appendChild(button);
-        });
-        var details = disclosure(labels.station_sources); details.className = "station-sources";
-        paragraph(details, summary); paragraph(details, props.location_description);
-        if (location) paragraph(details, location.point.join(", "));
-        paragraph(details, props.id);
-        paragraph(details, props.source_note || props.source_type); paragraph(details, props.verification_status);
-        paragraph(details, props.notes);
-        props.fares.forEach(function (fare) { paragraph(details, labels[fare.id] + ": PHP " + fare.amount.min + "-" + fare.amount.max); });
-        associated.forEach(function (id) {
-          var route = data.catalog.find(function (item) { return item.id === id; });
-          if (!route) return;
-          paragraph(details, id + " / " + route.service_verification_status);
-          data.shapes.filter(function (shape) { return route.directions[0].includes(shape.properties.pattern_id); }).forEach(function (shape) {
-            var source = shape.properties;
-            paragraph(details, [source.pattern_id, source.geometry_status, source.verification_status, source.attribution, source.endpoint_caveat].filter(Boolean).join(" / "));
+        if (associated.length) {
+          var routeSection = document.createElement("section");
+          routeSection.className = "station-connected-routes";
+          var routeHeading = document.createElement("h3");
+          routeHeading.textContent = labels.associated_routes;
+          routeSection.appendChild(routeHeading);
+          associated.forEach(function (id) {
+            var button = document.createElement("button");
+            button.type = "button";
+            button.className = "station-route-link";
+            button.textContent = name(id);
+            button.dataset.associatedRoute = id;
+            button.addEventListener("click", function () { choose("route", id, true); });
+            routeSection.appendChild(button);
           });
-        });
+          panel.appendChild(routeSection);
+        } else {
+          var noRoutes = document.createElement("p");
+          noRoutes.className = "station-detail-muted";
+          noRoutes.textContent = labels.no_routes;
+          panel.appendChild(noRoutes);
+        }
+
+        if (props.fares && props.fares.length) {
+          var fareSection = document.createElement("div");
+          fareSection.className = "station-fare-lines";
+          props.fares.forEach(function (fare) {
+            var amount = fare.amount;
+            if (amount) paragraph(fareSection, labels[fare.id] + ": PHP " + amount.min + "-" + amount.max);
+          });
+          panel.appendChild(fareSection);
+        }
+
+        var caveat = document.createElement("p");
+        caveat.className = "station-detail-caveat";
+        var caveatIcon = document.createElement("span");
+        caveatIcon.innerHTML = symbol("warning");
+        caveat.appendChild(caveatIcon);
+        caveat.appendChild(document.createTextNode(" " + labels.unconfirmed_stops));
+        panel.appendChild(caveat);
+
+        var details = document.createElement("details");
+        details.className = "station-source-details";
+        var disclosureTitle = document.createElement("summary");
+        disclosureTitle.textContent = labels.sources;
+        details.appendChild(disclosureTitle);
+        paragraph(details, labels.google_maps_note);
+        paragraph(details, props.notes);
+        if (location) paragraph(details, location.point.join(", "));
+        paragraph(details, props.source_note || props.source_type);
+        paragraph(details, props.verification_status);
+        paragraph(details, labels.source_warning);
+        paragraph(details, labels.fare_caveat);
+        panel.appendChild(details);
+
       }
     }
     heading.textContent = selection.kind === "station" ? title : labels.route_details + ": " + title;
     if (view !== "explore") {
-      var icon = document.createElement("span"); icon.innerHTML = symbol(selection.kind === "station" ? props.transport_type : "transfer"); heading.prepend(icon);
+      // Station details use a full-width card; do not turn the card into an inline chip.
+      var icon = document.createElement("span"); icon.innerHTML = symbol(selection.kind === "station" ? "location" : "transfer"); heading.prepend(icon);
       Array.from(body.children).forEach(function (child) {
         if (child.tagName !== "P") return;
         if ([labels.unconfirmed_stops, labels.fare_change, labels.waiting_unknown].includes(child.textContent)) {
