@@ -6,6 +6,7 @@ Staging copies only what the build reads (src/, locales/, CSS/JS assets),
 so no 100MB image dirs and no writes to the real repo tree.
 """
 import json
+import re
 import shutil
 import sys
 import xml.etree.ElementTree as ET
@@ -138,6 +139,24 @@ def test_build_writes_homepages(built_site: Path):
     assert (built_site / "index.html").exists()
     assert (built_site / "fil" / "index.html").exists()
     assert (built_site / "pag" / "index.html").exists()
+
+
+@pytest.mark.parametrize("locale", ["", "fil", "pag"])
+@pytest.mark.parametrize("slug", ["", "gis", "commuter"])
+def test_generated_navigation_retains_map_and_footer_commuter(built_site: Path, locale, slug):
+    prefix = f"/{locale}/" if locale else "/"
+    html = (built_site / locale / slug / "index.html").read_text(encoding="utf-8")
+    header = re.search(r'<header\b.*?</header>', html, re.S).group()
+    footer = re.search(r'<footer\b.*?</footer>', html, re.S).group()
+    assert 'aria-controls="primary-nav"' in header
+    assert header.count('id="primary-nav"') == 1
+    primary_nav = re.search(r'<ul\b[^>]*id="primary-nav".*?</ul>', header, re.S).group()
+    assert "commuter/" not in primary_nav
+    for chrome in (header, footer):
+        assert f'href="{prefix}gis/">Map</a>' in chrome
+        assert "{{" not in chrome
+    assert f'href="{prefix}commuter/">Commuter</a>' in footer
+    assert "{{" not in html
 
 
 def test_build_writes_section_pages(built_site: Path):

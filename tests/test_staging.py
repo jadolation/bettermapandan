@@ -31,7 +31,7 @@ def site(tmp_path, monkeypatch):
     # GIS generation is tested with its helper; boundary fixtures enumerate only
     # explicitly selected outputs, without running a full build.
     monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: set())
-    for rel in ("src/pages/index.html", "src/pages/gis.html",
+    for rel in ("src/pages/index.html", "src/pages/gis.html", "src/pages/commuter.html",
                 "src/pages/support/faq.html", "src/pages/transparency/projects.html"):
         put(tmp_path, rel, "source only")
     put(tmp_path, "src/data/services.json", json.dumps({"services": [{"slug": "birth-certificate"}]}))
@@ -64,6 +64,8 @@ def test_stages_multilingual_routes_assets_and_exact_downloads(site):
     actual = {path.relative_to(artifact) for path in artifact.rglob("*") if path.is_file()}
     assert actual == expected
     for locale in ("", "fil", "pag"):
+        assert (artifact / locale / "gis/index.html").is_file()
+        assert (artifact / locale / "commuter/index.html").is_file()
         assert (artifact / locale / "services/birth-certificate/index.html").is_file()
         assert (artifact / locale / "transparency/projects/index.html").is_file()
         assert (artifact / locale / "support/faq/index.html").is_file()
