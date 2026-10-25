@@ -12,7 +12,16 @@
 .commuter-sheet { border: 1px solid #aab8af; border-radius: 1rem 1rem 0 0; background: #fffefa; padding: .6rem; }
 .commuter-sheet summary { cursor: pointer; min-height: 44px; padding: .6rem 0; font-weight: 650; }
 .commuter-sheet h2 { font-size: 1rem; }
-#commuter-info { padding: .5rem; border-left: 4px solid #a86712; background: #f4f7f4; margin: .5rem 0; }
+#commuter-info { padding: .5rem; background: #fffefa; margin: .5rem 0; }
+.direction-leg { padding: .8rem 0; border-bottom: 1px solid #d6e0d8; }
+.commuter-page .leg-select { display: flex; align-items: center; gap: .5rem; width: 100%; text-align: left; border: 0; background: #eef5ef; font-weight: 650; }
+.route-sources { margin-top: 1rem; border-top: 1px solid #d6e0d8; }
+.route-sources p { overflow-wrap: anywhere; }
+.journey-summary { position: sticky; top: 0; z-index: 1; background: #fffefa; padding: .3rem 0 .6rem; border-bottom: 1px solid #d6e0d8; }
+.ride-sequence, .ride-sequence > span { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
+#commuter-info .journey-summary p { font-size: .75rem; margin: .15rem 0; }
+.summary-fact { display: flex; align-items: flex-start; gap: .4rem; }
+.commuter-page .leg-select[aria-pressed="true"] { box-shadow: inset 3px 0 #16532c; }
 .transport-card { border-top: 1px solid #b9c6bc; padding: .6rem 0; }
 .transport-card h3 { font-size: 1rem; margin: .25rem 0; }
 .transport-card p, #commuter-info p { font-size: .85rem; margin: .4rem 0; }

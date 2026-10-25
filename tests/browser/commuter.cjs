@@ -434,15 +434,30 @@ async function main() {
                for (const id of [route.origin_id, route.destination_id]) {
                  if (payload.place_names[id]) assert.ok(compact.includes(payload.labels[id] || payload.place_names[id]), 'existing nonspatial endpoint name is not a fabricated location');
                }
-                 assert.equal(await page.$$eval('#commuter-info-body details[open]', els => els.length), 1, 'only directions expanded by default');
+                  assert.equal(await page.$$eval('#commuter-info-body details[open]', els => els.length), 0, 'all directions and sources initially closed');
                  assert.equal(await page.$$eval('.direction-leg', els => els.length), route.legs.length);
                  assert.equal(await page.$$eval('.direction-transfer', els => els.length), route.legs.length - 1);
                  assert.equal(await page.$$eval('.direction-step', els => els.length), route.directions[0].reduce((sum, p) => sum + payload.direction_steps[p].steps.length, 0));
-                 assert.equal(await page.$eval('.route-sources', el => el.open), false);
-                 assert.ok(!(await page.$eval('#commuter-info-body', el => el.innerText)).includes('undefined'));
-                 for (const pattern of route.directions[0]) {
-                   const source = payload.direction_steps[pattern];
-                   for (const note of source.notes) assert.ok((await page.$eval('.route-directions', el => el.innerText)).includes(payload.labels[note]));
+                  assert.equal(await page.$eval('.route-sources', el => el.open), false);
+                  const overview = await page.$eval('.journey-summary', el => el.innerText);
+                  for (const technical of ['maintainer_', 'unverified', ...route.directions[0]]) assert.ok(!overview.includes(technical), 'summary has no raw source identifiers');
+                  await page.focus('.leg-select'); await page.keyboard.press('Enter');
+                  assert.equal(await page.$$eval('.route-directions[open]', els => els.length), 1, 'direct keyboard leg selection opens only that leg');
+                  assert.equal(await page.$eval('#commuter-page', el => el.dataset.activeRouteId), route.id, 'leg selection retains journey');
+                  assert.equal(await page.$eval('#commuter-page', el => el.dataset.selectionId), route.id);
+                  if (mode === 'map') {
+                    const style = await page.$$eval('#commuter-map path.leaflet-interactive', els => els.map(el => ({ opacity: Number(el.getAttribute('stroke-opacity')), weight: Number(el.getAttribute('stroke-width')) })));
+                    if (count) assert.ok(style.some(item => item.opacity === 1 && item.weight === 7) || !payload.shapes.some(shape => shape.properties.pattern_id === route.directions[0][0]));
+                    if (count > 1) assert.ok(style.some(item => item.opacity === .25 && item.weight === 3), 'other existing leg geometry is dimmed');
+                    assert.equal(style.length, count, 'leg focus retains all journey geometry');
+                  }
+                  await page.focus('.route-directions summary'); await page.keyboard.press('Enter');
+                  assert.equal(await page.$$eval('.route-directions[open]', els => els.length), 0, 'keyboard disclosure closes selected leg');
+                  assert.ok(!(await page.$eval('#commuter-info-body', el => el.innerText)).includes('undefined'));
+                  for (const pattern of route.directions[0]) {
+                    await page.$eval(`.direction-leg[data-pattern="${pattern}"] .route-directions`, el => { el.open = true; });
+                    const source = payload.direction_steps[pattern];
+                    for (const note of source.notes) assert.ok((await page.$eval(`.direction-leg[data-pattern="${pattern}"] .route-directions`, el => el.innerText)).includes(payload.labels[note]));
                    const point = source.steps.find(step => step.waypoint);
                    if (point) assert.ok(!(await page.$eval('#commuter-info-body', el => el.innerText)).includes(String(point.waypoint[1])), 'raw coordinates stay in collapsed sources');
                  }
@@ -463,7 +478,8 @@ async function main() {
                        const button = selector + ' button';
                        await page.$eval(button, el => {
                          const panel = document.querySelector('#commuter-sheet-body');
-                         panel.scrollTop += el.getBoundingClientRect().top - panel.getBoundingClientRect().top - panel.clientHeight / 2;
+                          const summary = document.querySelector('.journey-summary').getBoundingClientRect();
+                          panel.scrollTop += el.getBoundingClientRect().top - panel.getBoundingClientRect().top - Math.max(panel.clientHeight / 2, summary.height + 8);
                        });
                        const before = await page.$eval('#commuter-sheet-body', el => el.scrollTop);
                        const zoom = await page.evaluate(() => window.__commuterMap.getZoom());
@@ -487,14 +503,15 @@ async function main() {
                    // Return to the pre-step route view for the independent polyline/gesture regressions below.
                    await page.evaluate(view => window.__commuterMap.setView(view.center, view.zoom, { animate: false }), routeView);
                  }
-                 await page.$eval('#commuter-info-body > details:nth-of-type(2)', el => { el.open = true; });
-                 const breakdown = await page.$eval('#commuter-info-body > details:nth-of-type(2)', el => el.textContent);
+                  await page.$eval('.route-sources', el => { el.open = true; });
+                  const breakdown = await page.$eval('.route-sources', el => el.textContent);
                 for (const leg of route.legs) assert.ok(breakdown.includes(leg.fare.amount ? `PHP ${leg.fare.amount.min}-${leg.fare.amount.max}` : payload.labels.unknown_fare));
                 if (expectedMarkers.length) {
                   await page.focus(`.transport-marker[data-id="${expectedMarkers[0]}"]`);
                   await page.keyboard.press('Enter');
                   assert.equal(await page.$eval('#commuter-page', el => el.dataset.activeRouteId), route.id);
-                  assert.equal(await page.$eval('#commuter-page', el => el.dataset.focusedFeature), 'station');
+                   assert.equal(await page.$eval('#commuter-page', el => el.dataset.focusedFeature), 'station');
+                   assert.equal(await page.$$eval('.direction-step, .ride-cards', els => els.length), 0, 'station view has no journey timeline');
                   assert.equal(await page.$$eval('#commuter-map path.leaflet-interactive', els => els.length), count);
                   assert.deepEqual(await page.$$eval('.transport-marker', els => els.map(el => el.dataset.id).sort()), expectedMarkers);
                   const visible = await page.$eval('#commuter-info-body', el => el.innerText);

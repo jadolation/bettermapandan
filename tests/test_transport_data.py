@@ -21,6 +21,25 @@ from _build.transport.validation import (
 DATA_DIR = TRANSPORT_DATA_DIR
 
 
+def test_redesign_preserves_public_leg_reports_and_unknown_timings():
+    from _build.transport.compiler import reference_bundle
+
+    bundle = reference_bundle()
+    source = load_file("routes.json")
+    legs = {leg["id"]: leg for leg in source["legs"]}
+    for route in bundle["catalog"]:
+        original = next(item for item in source["routes"] if item["id"] == route["id"])
+        assert [leg["id"] for leg in route["legs"]] == original["leg_ids"]
+        assert route["directions"] == original["directions"]
+        assert "total_duration_minutes" not in route
+        for leg in route["legs"]:
+            for key, value in legs[leg["id"]].items():
+                assert leg[key] == value
+    calasiao = next(route for route in bundle["catalog"] if route["id"] == "mapandan-calasiao-multileg")
+    assert calasiao["legs"][-1]["fare"]["amount"] == {"min": 15, "max": 20, "currency": "PHP"}
+    assert calasiao["fare_summary"]["amount"] == {"min": 80, "max": 120, "currency": "PHP"}
+
+
 def load_file(name):
     return json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
 

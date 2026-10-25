@@ -29,6 +29,10 @@
   var map, frame, fitTimer, drag = null, suppressClick = false;
   var DRAG_THRESHOLD = 8, FLING_VELOCITY = .45, SAMPLE_WINDOW = 100;
   var paths = {
+    flag: '<path d="M3 2h2v2h15l-3 5 3 5H5v8H3V2Z"/>',
+    peso: '<path d="M5 2h8a6 6 0 0 1 6 4h3v2h-2v2h2v2h-3a6 6 0 0 1-6 4H9v6H5V12H2v-2h3V8H2V6h3V2Zm4 4h6a3 3 0 0 0-2-1H9v1Zm0 2v2h7V8H9Zm0 4v1h4a3 3 0 0 0 2-1H9Z"/>',
+    cornerup: '<path d="m15 1 8 8h-5v8a5 5 0 0 1-5 5H2v-4h11a1 1 0 0 0 1-1V9H9l6-8Z"/>',
+    chevron: '<path d="m4 7 8 8 8-8 3 3-11 11L1 10l3-3Z"/>',
     left: '<path d="m10 2-9 8 9 8v-6h7v10h5V7H10V2Z"/>',
     right: '<path d="m14 2 9 8-9 8v-6H7v10H2V7h12V2Z"/>',
     straight: '<path d="m12 1 9 9h-6v13H9V10H3l9-9Z"/>',
@@ -69,8 +73,7 @@
     document.getElementById("commuter-selection-status").textContent = labels.reported_pin;
   }
   function renderDirections(route) {
-    var directions = disclosure(labels.directions_title); directions.open = true; directions.className = "route-directions";
-    paragraph(directions, labels.directions_notice);
+    var directions = document.createElement("div"); directions.className = "ride-cards"; body.appendChild(directions);
     route.directions[0].forEach(function (pattern, index) {
       var leg = route.legs[index], collection = (data.direction_steps || {})[pattern];
       var group = document.createElement("section"); group.className = "direction-leg"; group.dataset.pattern = pattern;
@@ -79,23 +82,42 @@
         transfer.innerHTML = symbol("transfer"); transfer.appendChild(document.createTextNode(labels.transfer_notice)); directions.appendChild(transfer);
         if (pattern === "mini-manaoag-sm") paragraph(directions, labels.manaoag_transfer);
       }
-      var title = document.createElement("h3"); title.innerHTML = leg.vehicle_types.map(symbol).join("");
+      var title = document.createElement("button"); title.type = "button"; title.className = "leg-select"; title.innerHTML = leg.vehicle_types.map(symbol).join("");
       title.appendChild(document.createTextNode(labels[leg.label_key])); group.appendChild(title);
+      if (route.legs.length === 1 && route.public_signboard_text) paragraph(group, route.public_signboard_text);
       paragraph(group, leg.vehicle_types.map(function (mode) { return labels[mode]; }).join(" / ") + " / " +
         (leg.fare.amount ? "PHP " + leg.fare.amount.min + "-" + leg.fare.amount.max : labels.unknown_fare) + " / " +
         (leg.driving_minutes == null ? labels.unknown_driving : leg.driving_km + " km / " + leg.driving_minutes + " min"));
-      if (!collection) paragraph(group, labels.directions_unavailable);
+      var steps = collection ? collection.steps : [];
+      var first = steps.find(function (step) { return ["board", "ask", "transfer", "start", "start_head", "head"].includes(step.instruction_type); });
+      var last = steps.find(function (step) { return step.instruction_type === "arrive"; });
+      paragraph(group, labels.where_ride + ": " + (first ? labels["action_" + first.instruction_type].replace("{street}", first.street_name) : labels.confirm_stops));
+      paragraph(group, labels.where_getoff + ": " + (last ? labels.action_arrive.replace("{street}", last.street_name) : labels.confirm_stops));
+      if (!data.shapes.some(function (shape) { return shape.properties.pattern_id === pattern && !shape.properties.endpoint_caveat; })) paragraph(group, labels.map_incomplete);
+      var detail = document.createElement("details"), toggle = document.createElement("summary");
+      detail.className = "route-directions"; toggle.textContent = labels.directions_title; detail.appendChild(toggle); group.appendChild(detail);
+      function emphasize(open) {
+        page.dataset.activeLeg = pattern;
+        directions.querySelectorAll(".leg-select").forEach(function (button) { button.setAttribute("aria-pressed", String(button === title)); });
+        var line = lines.get(activeRouteId);
+        if (line) line.eachLayer(function (layer) { layer.setStyle({ color: layer.feature.properties.pattern_id === pattern ? "#16532c" : "#789486", weight: layer.feature.properties.pattern_id === pattern ? 7 : 3, opacity: layer.feature.properties.pattern_id === pattern ? 1 : .25 }); });
+        if (open) detail.open = true;
+      }
+      title.addEventListener("click", function () { emphasize(true); });
+      detail.addEventListener("toggle", function () { if (detail.open) emphasize(false); });
+      if (!collection) paragraph(detail, labels.directions_unavailable);
       else {
-        collection.notes.forEach(function (key) { paragraph(group, labels[key]); });
+        collection.notes.forEach(function (key) { paragraph(detail, labels[key]); });
         var list = document.createElement("ol"); list.className = "direction-timeline";
         collection.steps.forEach(function (step) {
           var item = document.createElement("li"); item.className = "direction-step";
           var action = document.createElement(step.waypoint ? "button" : "span");
           var type = step.instruction_type;
-          action.innerHTML = symbol(type === "left" || type === "left_stay" || type === "roundabout_left" ? "left" : type === "right" ? "right" : type === "uturn" ? "uturn" : type === "arrive" || type === "start" || type === "start_head" ? "location" : type === "board" || type === "ask" ? leg.vehicle_types[0] : type === "transfer" ? "transfer" : "straight");
+           action.innerHTML = symbol(type === "left" || type === "left_stay" || type === "roundabout_left" ? "left" : type === "right" ? "right" : type === "uturn" ? "uturn" : type === "arrive" ? "flag" : type === "start" || type === "start_head" ? "location" : type === "board" || type === "ask" ? leg.vehicle_types[0] : type === "transfer" ? "transfer" : type === "roundabout_first" ? "cornerup" : "straight");
           var text = document.createElement("span"); text.textContent = labels["action_" + type].replace("{street}", step.street_name) + (step.distance_m == null ? "" : " / " + step.distance_m + " m"); action.appendChild(text);
           if (step.waypoint) {
-            action.type = "button"; action.setAttribute("aria-pressed", "false"); action.title = labels.reported_pin;
+             action.type = "button"; action.setAttribute("aria-pressed", "false"); action.title = labels.reported_pin;
+             action.addEventListener("mousedown", function (event) { event.preventDefault(); action.focus({ preventScroll: true }); });
             action.addEventListener("click", function () { focusStep(step, pattern, action); });
           }
           item.appendChild(action);
@@ -103,13 +125,14 @@
           if (step.warning_key) paragraph(item, labels[step.warning_key]);
           list.appendChild(item);
         });
-        group.appendChild(list);
+        detail.appendChild(list);
       }
       directions.appendChild(group);
     });
     if (route.directions.length > 1) {
-      var reverse = document.createElement("details"), title = document.createElement("summary");
-      title.textContent = route.directions.slice(1).map(function (patterns) { return patterns.map(name).join(" / "); }).join("; ");
+       var reverse = document.createElement("details"), title = document.createElement("summary");
+      reverse.className = "reverse-directions";
+      title.textContent = labels.return_unconfirmed;
       reverse.appendChild(title);
       route.directions.slice(1).forEach(function (patterns) { patterns.forEach(function (pattern) {
         var source = (data.direction_steps || {})[pattern];
@@ -120,7 +143,7 @@
   }
   function fareText(route) {
     var fare = route.fare_summary, amount = fare.amount || fare.known_subtotal;
-    return (fare.complete ? labels.reported_range : labels.incomplete_fare) + (amount ? ": PHP " + amount.min + "-" + amount.max : "") + (fare.complete ? "" : " + " + labels.unknown_fare);
+    return (fare.complete ? labels.total_fare : labels.incomplete_fare) + (amount ? ": PHP " + amount.min + "-" + amount.max : "") + (fare.complete ? "" : " + " + labels.unknown_fare);
   }
   function padding() {
     var rect = map.getContainer().getBoundingClientRect(), panel = sheet.getBoundingClientRect();
@@ -201,24 +224,38 @@
       var route = data.catalog.find(function (r) { return r.id === selection.id; });
       summary = fareText(route);
       if (view === "route") {
-        paragraph(body, Array.from(new Set(route.legs.map(function (leg) { return leg.vehicle_types.length > 1 ? labels.vehicle_unknown : labels[leg.vehicle_types[0]]; }))).join(" / "));
         paragraph(body, name(route.origin_id) + " \u2192 " + name(route.destination_id));
         paragraph(body, summary);
         paragraph(body, route.legs.length + " " + labels.rides + " / " + (route.transfer_count || 0) + " " + labels.transfers);
-        paragraph(body, labels.unconfirmed_stops);
-        renderDirections(route);
         paragraph(body, labels.waiting_unknown);
-        paragraph(body, labels.fare_change);
-        if (!route.fare_summary.complete) paragraph(body, labels.no_totals);
-        var detail = disclosure(labels.reported_range);
+        paragraph(body, labels.unconfirmed_stops);
+        var overview = document.createElement("section"); overview.className = "journey-summary";
+        while (body.firstChild) overview.appendChild(body.firstChild);
+        ["location", "peso", "transfer", "clock", "warning"].forEach(function (icon, index) {
+          var item = overview.children[index]; if (!item) return;
+          var glyph = document.createElement("span"); glyph.innerHTML = symbol(icon); item.prepend(glyph); item.classList.add("summary-fact");
+        });
+        var sequence = document.createElement("p"); sequence.className = "ride-sequence";
+        route.legs.forEach(function (leg, index) {
+          if (index) { var change = document.createElement("span"); change.innerHTML = symbol("transfer"); sequence.appendChild(change); }
+          var mode = document.createElement("span"); mode.innerHTML = leg.vehicle_types.map(symbol).join("");
+          mode.appendChild(document.createTextNode(leg.vehicle_types.map(function (type) { return labels[type]; }).join(" / "))); sequence.appendChild(mode);
+        });
+        overview.prepend(sequence); body.appendChild(overview);
+        renderDirections(route);
+        var sources = disclosure(labels.sources);
+        sources.className = "route-sources";
+        var reverseDirections = body.querySelector(".reverse-directions"); if (reverseDirections) sources.appendChild(reverseDirections);
+        paragraph(sources, labels.local_reports);
+        paragraph(sources, labels.fare_change);
+        if (!route.fare_summary.complete) paragraph(sources, labels.no_totals);
+        var detail = document.createElement("details"), fareTitle = document.createElement("summary"); fareTitle.textContent = labels.reported_range; detail.appendChild(fareTitle); sources.appendChild(detail);
         route.legs.forEach(function (leg) { var amount = leg.fare.amount; paragraph(detail, labels[leg.label_key] + ": " + (amount ? "PHP " + amount.min + "-" + amount.max : labels.unknown_fare)); });
         paragraph(detail, labels.fare_caveat);
-        var driving = disclosure(labels.driving);
+        var driving = document.createElement("details"), drivingTitle = document.createElement("summary"); drivingTitle.textContent = labels.driving; driving.appendChild(drivingTitle); sources.appendChild(driving);
         route.legs.forEach(function (leg) { paragraph(driving, labels[leg.label_key] + ": " + (leg.driving_minutes == null ? labels.unknown_driving : leg.driving_km + " km / " + leg.driving_minutes + " min")); });
         if (route.legs.some(function (leg) { return leg.alternate_driving_note_minutes; })) paragraph(driving, labels.alternate_driving);
         paragraph(driving, labels.waiting_unknown);
-        var sources = disclosure(labels.sources);
-        sources.className = "route-sources";
         var routeShapes = data.shapes.filter(function (s) { return route.directions[0].includes(s.properties.pattern_id); });
         paragraph(sources, labels.source_warning);
         if (route.explanation_key) paragraph(sources, labels[route.explanation_key]);
@@ -227,6 +264,8 @@
         else if (routeShapes.length < route.directions[0].length || routeShapes.some(function (s) { return !!s.properties.endpoint_caveat; })) paragraph(sources, labels.partial_geometry);
         paragraph(sources, route.evidence_note); paragraph(sources, route.evidence_source || route.source_type);
         paragraph(sources, route.service_verification_status);
+        paragraph(sources, [route.last_updated, route.created_date, route.source_url].filter(Boolean).join(" / "));
+        paragraph(sources, data.direction_limitations);
         route.directions[0].forEach(function (pattern) {
           var source = (data.direction_steps || {})[pattern];
           if (source) source.steps.forEach(function (step) {
@@ -235,7 +274,7 @@
         });
         routeShapes.forEach(function (s) {
           var p = s.properties;
-          paragraph(sources, [p.name, p.verification_status, p.attribution, p.endpoint_caveat].filter(Boolean).map(function (v) { return typeof v === "object" ? JSON.stringify(v) : v; }).join("; "));
+          paragraph(sources, [p.name, p.verification_status, p.attribution, p.endpoint_caveat, p.retrieved_at, p.warnings].filter(Boolean).map(function (v) { return typeof v === "object" ? JSON.stringify(v) : v; }).join("; "));
           paragraph(sources, labels.geometry_details + ": " + p.distance_m + " m");
         });
       }
@@ -261,7 +300,7 @@
     }
     heading.textContent = (selection.kind === "route" ? labels.route_details : labels.station_details) + ": " + title;
     if (view !== "explore") {
-      (selection.kind === "route" ? [0, 2, 3] : [0]).forEach(function (index) {
+      (selection.kind === "route" ? [] : [0]).forEach(function (index) {
         if (body.children[index]) body.children[index].classList.add("detail-chip");
       });
       var icon = document.createElement("span"); icon.innerHTML = symbol(selection.kind === "station" ? "location" : "transfer"); heading.prepend(icon);
@@ -283,14 +322,18 @@
   function choose(kind, id, focus) {
     if (kind === "route" && !data.catalog.some(function (r) { return r.id === id; }) || kind === "station" && !features.some(function (f) { return f.properties.id === id; })) return;
     clearStep();
-    if (kind === "route") activeRouteId = id;
+    if (kind === "route") {
+      activeRouteId = id; delete page.dataset.activeLeg;
+      var line = lines.get(id); if (line) line.setStyle({ color: "#16532c", weight: 4, opacity: 1 });
+    }
     selection = { kind: kind, id: id }; view = kind; render(); sheetBody.scrollTop = 0; setSheet("half");
     document.getElementById("commuter-selection-status").textContent = name(id);
     if (focus) heading.focus({ preventScroll: true });
   }
   exploreButton.addEventListener("click", function () {
     clearStep();
-    view = "explore"; selection = { kind: "none", id: null };
+    view = "explore";
+    if (selection.kind === "station") selection = { kind: "none", id: null };
     render(); sheetBody.scrollTop = 0; setSheet("half", false);
     search.focus({ preventScroll: true });
   });

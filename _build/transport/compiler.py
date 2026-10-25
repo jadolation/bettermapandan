@@ -48,7 +48,7 @@ def reference_bundle():
     available = {f["properties"]["pattern_id"] for f in shapes}
     legs = {leg["id"]: leg for leg in data["transport/routes.json"]["legs"]}
     fare_index = {f["id"]: f for f in fares}
-    catalog = [{**{k: r[k] for k in ("id", "vehicle_type", "origin_id", "destination_id", "directions", "explanation_key", "subtitle_key", "transfer_count", "service_verification_status", "evidence_source", "evidence_note", "source_type", "pedestrian_access", "authorization") if k in r}, "routing_eligible": False,
+    catalog = [{**{k: r[k] for k in ("id", "vehicle_type", "origin_id", "destination_id", "directions", "explanation_key", "subtitle_key", "transfer_count", "service_verification_status", "evidence_source", "evidence_note", "source_type", "pedestrian_access", "authorization", "public_signboard_text", "last_updated", "created_date", "source_url") if k in r}, "routing_eligible": False,
                 "legs": [{**legs[i], "fare": {k: fare_index[legs[i]["fare_id"]].get(k) for k in ("amount", "rate_kind", "source_type")}} for i in r["leg_ids"]]}
                for r in data["transport/routes.json"]["routes"] if r.get("public_catalog", True)]
     for route in catalog:
