@@ -57,6 +57,33 @@ There is one map workflow, without modes, approval steps, or permission ledgers.
 libraries or map tiles available offline. Pillow, included in the Python
 requirements, validates images extracted from supported KMZ inputs.
 
+## Reported Commuter Directions
+
+`src/data/transport/directions.json` holds independent maintainer-provided,
+unverified per-pattern instruction collections. `sequence` is one-based and
+unique within a collection; `instruction_type`, `instruction_text`,
+`original_source`, `street_name`, nullable `distance_m`, and nullable `waypoint`
+preserve the reported action and observation. Waypoints use longitude/latitude,
+including the newly supplied precision. They never replace rounded inputs in
+`route_waypoints.json` or regenerate captured source geometry. `step_defaults`
+supplies nullable `duration_seconds` and `geometry_leg_reference`, plus
+`verification_status: unverified` and `source_type: maintainer_provided`; the
+compiler materializes these fields on every public step.
+
+No captured leg correspondence has been established, so every
+`geometry_leg_reference` remains null and selection highlights only a temporary
+reported pin. Unknown step locations remain text with a localized "Location not
+mapped" explanation. In particular, no SM final 75 m connector, Santa Barbara
+plaza access, or walking connection between distinct observations is drawn.
+The two shared Arch/Tuliao collections are referenced by both three-ride
+journeys without copying them. Street-only Dagupan/Mangaldan sequences are
+projected directly from their existing direction-specific `reported_streets`;
+they do not imply turn actions or new step distances. Guam and Manaoag reverse
+directions are unavailable, never automatically reversed. Reported driving
+totals remain separate from per-step distances and generated candidate lengths.
+Reported Maloko/Galaban instructions are retained despite conflicting candidate
+Mango Avenue/unnamed labels. New EN/FIL/PAG wording awaits language review.
+
 ## Edit a Facility
 
 Edit a feature in `src/data/gis/facilities.geojson`. Keep a stable unique ID,

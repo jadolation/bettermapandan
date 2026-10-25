@@ -347,6 +347,45 @@ def test_public_projection_preserves_coordinates_and_applicable_fares():
         assert fare["source_reference"] in {"commuter-reported-fares", "route-expansion-observation", "final-legs-observation"}
 
 
+def test_sheet_projection_is_only_existing_evidence_and_explicit_links():
+    from _build.transport.compiler import reference_bundle
+
+    bundle = reference_bundle()
+    source = {f["id"]: f["properties"] for filename in ("terminals.geojson", "tricycle_stands.geojson")
+              for f in load_file(filename)["features"]}
+    observations = {p["id"]: p for p in load_file("named_places.json")["places"]}
+    for feature in bundle["features"] + bundle["observations"]:
+        props = feature["properties"]
+        original = source.get(feature["id"], observations.get(feature["id"]))
+        for field in ("classification", "location_description", "source_type", "source_note", "verification_status", "routing_eligible", "notes"):
+            if field in original:
+                assert props[field] == original[field]
+        expected = [r["id"] for r in bundle["catalog"] if feature["id"] in r["marker_ids"] or r["id"] in original.get("linked_routes", [])]
+        assert props["catalog_route_ids"] == expected
+        assert props["routing_eligible"] is False
+    assert any(not f["properties"]["catalog_route_ids"] for f in bundle["features"])
+    assert all(f["properties"]["observed_only"] for f in bundle["observations"])
+    assert bundle["place_names"]["place-peoples-park"] == observations["place-peoples-park"]["name"]
+    assert bundle["place_names"]["place-phome"] == observations["place-phome"]["name"]
+
+
+def test_sheet_labels_and_script_projection_escape_untrusted_text():
+    from copy import deepcopy
+
+    from _build.locales import load_locale
+    from _build.transport.compiler import commuter_placeholders
+
+    locale = deepcopy(load_locale("en"))
+    attack = '</script><img src=x onerror="alert(1)">&'
+    locale["commuter"]["term-mini-mapandan"] = attack
+    locale["commuter"]["mapandan-dagupan-minibus"] = attack
+    output = commuter_placeholders(locale)
+    assert attack not in output["COMMUTER_DIRECTORY"]
+    assert attack not in output["COMMUTER_ROUTES"]
+    assert "</script>" not in output["COMMUTER_DATA"]
+    assert json.loads(output["COMMUTER_DATA"])["labels"]["term-mini-mapandan"] == attack
+
+
 def test_commuter_locales_and_static_directory():
     from _build.locales import load_locale
     from _build.transport.compiler import commuter_placeholders
@@ -358,8 +397,9 @@ def test_commuter_locales_and_static_directory():
         html = commuter_placeholders(locale)["COMMUTER_DIRECTORY"]
         assert html.count('<article ') == 7
         route_html = commuter_placeholders(locale)["COMMUTER_ROUTES"]
-        assert route_html.count('<fieldset ') == len(reference_catalog())
-        assert "PHP 15-20" in route_html and "PHP 70-100" in route_html and "PHP 50-80" in route_html
+        assert route_html.count('<button ') == len(reference_catalog())
+        assert '<details' not in route_html and '<fieldset' not in route_html
+        assert "PHP 15-20" in route_html and "PHP 70-100" in route_html
         assert locale["commuter"]["unknown_fare"] in route_html
         for route in reference_catalog():
             assert route["id"] in locale["commuter"]
@@ -385,6 +425,43 @@ def reference_catalog():
     return reference_bundle()["catalog"]
 
 
+def test_route_cards_are_compact_native_buttons_without_nested_controls():
+    from html.parser import HTMLParser
+
+    from _build.locales import load_locale
+    from _build.transport.compiler import commuter_placeholders
+
+    class Cards(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.inside = False
+            self.routes = []
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if self.inside:
+                assert tag not in {"button", "a", "input", "select", "details", "summary"}
+            if tag == "button":
+                self.inside = True
+                assert attrs["type"] == "button"
+                assert attrs["aria-pressed"] == "false"
+                assert attrs["aria-controls"] == "commuter-info"
+                self.routes.append(attrs["data-route"])
+
+        def handle_endtag(self, tag):
+            if tag == "button":
+                self.inside = False
+
+    for lang in ("en", "fil", "pag"):
+        output = commuter_placeholders(load_locale(lang))
+        parser = Cards()
+        parser.feed(output["COMMUTER_ROUTES"])
+        assert parser.routes == [r["id"] for r in reference_catalog()]
+        assert " km" not in output["COMMUTER_ROUTES"]
+        assert load_locale(lang)["commuter"]["driving"] not in output["COMMUTER_ROUTES"]
+        assert load_locale(lang)["commuter"]["select"] not in output["COMMUTER_ROUTES"]
+
+
 def test_public_sm_journey_preserves_two_source_legs():
     from _build.locales import load_locale
     from _build.transport.compiler import commuter_placeholders, reference_bundle
@@ -405,7 +482,7 @@ def test_public_sm_journey_preserves_two_source_legs():
         assert 'data-route="manaoag-sm-minibus"' not in html
         assert html.count('data-route="mapandan-manaoag-sm-multileg"') == 1
         assert "Mapandan -&gt; SM Urdaneta" in html
-        assert locale["commuter"]["via_manaoag"] in html
+        assert locale["commuter"]["rides"] in html
         assert len(locale["commuter"]["via_manaoag"].split()) <= 9
         assert "PHP 45-60" in html
 
@@ -512,3 +589,112 @@ def test_catalog_publication_rejects_unsupported_claims(mutation):
     mutation(data)
     with patch("_build.transport.compiler.load_transport_data", return_value=data), pytest.raises(ValueError):
         reference_bundle()
+
+
+def test_directions_normalize_nullable_fields_and_reuse_shared_collections():
+    from _build.transport.compiler import reference_bundle
+
+    bundle = reference_bundle()
+    directions = bundle["direction_steps"]
+    assert len(load_file("directions.json")["collections"]) == 7
+    assert len(directions) == 11
+    catalog = {r["id"]: r for r in bundle["catalog"]}
+    assert catalog["mapandan-calasiao-multileg"]["directions"][0][:2] == catalog["mapandan-sta-barbara-multileg"]["directions"][0][:2]
+    for source in directions.values():
+        assert [s["sequence"] for s in source["steps"]] == list(range(1, len(source["steps"]) + 1))
+        for step in source["steps"]:
+            assert step["duration_seconds"] is None
+            assert step["geometry_leg_reference"] is None
+            assert step["source_type"] == "maintainer_provided"
+            assert step["verification_status"] == "unverified"
+            assert step["original_source"] and step["instruction_text"]
+            assert "waypoint" in step and "distance_m" in step
+    for reverse in ("mini-manaoag-mapandan", "tri-mapandan-guam", "mini-dagupan-turnaround"):
+        assert reverse not in directions
+
+
+def test_direction_observations_preserve_precision_without_replacing_shape_inputs():
+    import re
+
+    from _build.transport.compiler import reference_bundle
+
+    directions = reference_bundle()["direction_steps"]
+    expected = {
+        ("mini-mapandan-manaoag", 2): [120.45374242545607, 16.027190508821008],
+        ("mini-mapandan-manaoag", 8): [120.48637024482008, 16.043918969753772],
+        ("tri-guam-mapandan", 1): [120.49783972747508, 15.976705043263722],
+        ("tri-guam-mapandan", 5): [120.45382170970646, 16.02711710000002],
+        ("shared-mapandan-border-arch", 2): [120.45244765978309, 16.026453511849034],
+        ("tri-border-arch-tuliao", 4): [120.40219943467551, 16.007128966489937],
+        ("mini-manaoag-sm", 1): [120.4862474315581, 16.04395435752346],
+        ("mini-manaoag-sm", 9): [120.57163979808034, 15.970620569087611],
+        ("tri-tuliao-sta-barbara", 6): [120.40309090560488, 16.00082843128207],
+    }
+    for (pid, seq), point in expected.items():
+        assert directions[pid]["steps"][seq - 1]["waypoint"] == point
+    for source in load_file("directions.json")["collections"]:
+        for step in source["steps"]:
+            coordinates = re.search(r"(-?\d+\.\d+),\s*(-?\d+\.\d+)", step["original_source"])
+            if coordinates:
+                assert step["waypoint"] == [float(coordinates[2]), float(coordinates[1])]
+    assert directions["mini-manaoag-sm"]["steps"][-1]["waypoint"] is None
+    assert directions["tri-tuliao-sta-barbara"]["steps"][-2]["waypoint"] is None
+    assert directions["jeep-tuliao-calasiao"]["steps"][-1]["waypoint"] is None
+    shape = next(f for f in load_file("route_shapes.geojson")["features"] if f["id"] == "mini-mapandan-manaoag")
+    assert shape["properties"]["distance_m"] == 6784
+    assert directions["mini-mapandan-manaoag"]["steps"][2]["street_name"] == "Maloko"
+    assert directions["mini-mapandan-manaoag"]["steps"][2]["warning_key"] == "name_conflict"
+
+
+def test_older_street_sequences_remain_separate_reports_not_turn_inference():
+    from _build.transport.compiler import reference_bundle
+
+    directions = reference_bundle()["direction_steps"]
+    for pid in ("mini-mapandan-dagupan-outbound", "mini-dagupan-mapandan-return", "jeep-mapandan-mangaldan", "jeep-mangaldan-mapandan"):
+        original = next(p for p in load_file("service_patterns.json")["patterns"] if p["id"] == pid)
+        assert [s["original_source"] for s in directions[pid]["steps"]] == original["reported_streets"]
+        assert all(s["instruction_type"] == "reported_street" and s["distance_m"] is None and s["waypoint"] is None for s in directions[pid]["steps"])
+
+
+@pytest.mark.parametrize("mutation", [
+    lambda c: c[0]["steps"][1].update(sequence=1),
+    lambda c: c[0].update(pattern_id="unknown-pattern"),
+    lambda c: c.append(c[0]),
+    lambda c: c[0]["steps"][0].update(waypoint=[120, 100]),
+    lambda c: c[0]["steps"][0].update(geometry_leg_reference={"pattern_id": "mini-mapandan-manaoag", "sequence": 0}),
+    lambda c: c[0]["steps"][0].update(verification_status="verified"),
+    lambda c: c[0].update(reverse_of="tri-guam-mapandan"),
+])
+def test_directions_reject_unsupported_correspondence_or_claims(mutation):
+    from _build.transport.validation import load_transport_data, validate_directions
+
+    data = load_transport_data()
+    mutation(data["transport/directions.json"]["collections"])
+    assert validate_directions(data)
+
+
+def test_direction_instruction_labels_and_script_escaping():
+    from copy import deepcopy
+    from unittest.mock import patch
+
+    from _build.locales import load_locale
+    from _build.transport.compiler import commuter_placeholders
+    from _build.transport.validation import load_transport_data
+
+    data = load_transport_data()
+    attack = '</script><img src=x onerror="alert(1)">&'
+    step = data["transport/directions.json"]["collections"][0]["steps"][0]
+    step["instruction_text"] = attack
+    step["original_source"] = attack
+    with patch("_build.transport.compiler.load_transport_data", return_value=deepcopy(data)):
+        output = commuter_placeholders(load_locale("en"))
+    assert "</script>" not in output["COMMUTER_DATA"]
+    assert json.loads(output["COMMUTER_DATA"])["direction_steps"]["mini-mapandan-manaoag"]["steps"][0]["original_source"] == attack
+    for lang in ("en", "fil", "pag"):
+        labels = load_locale(lang)["commuter"]
+        for source in data["transport/directions.json"]["collections"]:
+            assert all(key in labels for key in source["notes"])
+            for step in source["steps"]:
+                assert "{street}" in labels["action_" + step["instruction_type"]]
+                if "warning_key" in step:
+                    assert labels[step["warning_key"]]

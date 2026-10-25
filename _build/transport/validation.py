@@ -54,7 +54,39 @@ def validate_records(data):
     errors.extend(_validate_patterns(data))
     errors.extend(_validate_fares(data))
     errors.extend(_validate_catalog(data))
+    errors.extend(validate_directions(data))
     errors.extend(validate_shapes(data))
+    return errors
+
+
+def validate_directions(data):
+    """Directions are independent observations, never geometry or reverse inference."""
+    import jsonschema
+
+    source = data.get("transport/directions.json", {})
+    errors = []
+    try:
+        jsonschema.validate(source, SCHEMAS["transport/directions.json"])
+    except jsonschema.ValidationError as exc:
+        return [f"directions: {exc.message}"]
+    patterns = {p["id"] for p in data["transport/service_patterns.json"]["patterns"]
+                if p.get("classification") != "operational_vehicle_movement"}
+    seen = set()
+    for collection in source["collections"]:
+        pid = collection["pattern_id"]
+        if pid not in patterns or pid in seen:
+            errors.append(f"directions: unresolved or duplicate pattern {pid}")
+        seen.add(pid)
+        if [s["sequence"] for s in collection["steps"]] != list(range(1, len(collection["steps"]) + 1)):
+            errors.append(f"directions {pid}: sequence must be unique and ordered")
+        for step in collection["steps"]:
+            point = step["waypoint"]
+            if step["distance_m"] is not None and not math.isfinite(step["distance_m"]):
+                errors.append(f"directions {pid}: nonfinite reported distance")
+            if point is not None and not (all(math.isfinite(c) for c in point) and -180 <= point[0] <= 180 and -90 <= point[1] <= 90):
+                errors.append(f"directions {pid}: invalid waypoint")
+            if "reverse_of" in step or "reverse_of" in collection:
+                errors.append(f"directions {pid}: automatic reversal is not supported")
     return errors
 
 

@@ -41,13 +41,14 @@ def reference_bundle():
                          "geometry": feature["geometry"],
                          "properties": {"id": props["id"], "name": props["name"],
                                         "transport_type": props["transport_type"],
+                                        **{k: props[k] for k in ("classification", "location_description", "source_type", "source_note", "verification_status", "routing_eligible", "linked_routes") if k in props},
                                         "fares": [{"id": f["id"], "amount": f["amount"]} for f in applicable]}})
     public_fields = ("id", "pattern_id", "name", "classification", "geometry_status", "geometry_review", "verification_status", "publication_status", "routing_eligible", "endpoint", "profile", "retrieved_at", "attribution", "distance_m", "distance_comparison", "snap_offsets_m", "warnings", "response_checksum", "supplied_waypoints", "snapped_waypoints", "derived_waypoints", "endpoint_caveat", "unrouted_endpoint")
     shapes = [{"type": "Feature", "geometry": f["geometry"], "properties": {**{k: f["properties"][k] for k in public_fields if k in f["properties"]}, "legs": [{k: leg[k] for k in ("sequence", "distance_m", "road_names")} for leg in f["properties"]["legs"]]}} for f in data["transport/route_shapes.geojson"]["features"] if f["properties"]["classification"] == "passenger_candidate" and not f["properties"].get("stale") and not f["properties"].get("withheld")]
     available = {f["properties"]["pattern_id"] for f in shapes}
     legs = {leg["id"]: leg for leg in data["transport/routes.json"]["legs"]}
     fare_index = {f["id"]: f for f in fares}
-    catalog = [{**{k: r[k] for k in ("id", "vehicle_type", "origin_id", "destination_id", "directions", "explanation_key", "subtitle_key", "transfer_count") if k in r}, "routing_eligible": False,
+    catalog = [{**{k: r[k] for k in ("id", "vehicle_type", "origin_id", "destination_id", "directions", "explanation_key", "subtitle_key", "transfer_count", "service_verification_status", "evidence_source", "evidence_note", "source_type", "pedestrian_access", "authorization") if k in r}, "routing_eligible": False,
                 "legs": [{**legs[i], "fare": {k: fare_index[legs[i]["fare_id"]].get(k) for k in ("amount", "rate_kind", "source_type")}} for i in r["leg_ids"]]}
                for r in data["transport/routes.json"]["routes"] if r.get("public_catalog", True)]
     for route in catalog:
@@ -59,7 +60,8 @@ def reference_bundle():
              "place-calasiao": "jeepney", "place-sta-barbara": "tricycle",
              "place-border-arch": "transfer", "place-gmt-tuliao": "transfer"}
     observations = [{"type": "Feature", "id": p["id"], "geometry": p["geometry"],
-                     "properties": {"id": p["id"], "name": p["name"], "transport_type": modes[p["id"]], "fares": [], "observed_only": True}}
+                     "properties": {"id": p["id"], "name": p["name"], "transport_type": modes[p["id"]], "fares": [], "observed_only": True,
+                                    **{k: p[k] for k in ("classification", "source_type", "verification_status", "routing_eligible", "notes") if k in p}}}
                     for p in data["transport/named_places.json"]["places"] if p["id"] in modes and p.get("geometry")]
     # Explicit source observations for each reported leg, never nearest-place inference.
     leg_places = {
@@ -76,7 +78,23 @@ def reference_bundle():
         ids = [route["origin_id"], route["destination_id"]]
         ids += [place for leg in route["legs"] for place in leg_places.get(leg["id"], [])]
         route["marker_ids"] = list(dict.fromkeys(i for i in ids if i in spatial_ids))
-    return {"schema_version": 4, "features": features, "observations": observations, "shapes": shapes, "catalog": catalog, "patterns": [{"id": p["id"], "name": p["name"], "classification": p["classification"], "available": p["id"] in available} for p in data["transport/route_waypoints.json"]["patterns"] if p["classification"] == "passenger_candidate"]}
+    for feature in features + observations:
+        props = feature["properties"]
+        props["catalog_route_ids"] = [r["id"] for r in catalog if props["id"] in r["marker_ids"] or r["id"] in props.get("linked_routes", [])]
+    endpoint_ids = {r[k] for r in catalog for k in ("origin_id", "destination_id")}
+    place_names = {p["id"]: p["name"] for p in data["transport/named_places.json"]["places"] if p["id"] in endpoint_ids}
+    direction_source = data["transport/directions.json"]
+    directions = {c["pattern_id"]: {**c, "steps": [{**direction_source["step_defaults"], **step} for step in c["steps"]]}
+                  for c in direction_source["collections"]}
+    # Older street-only reports are independent direction records, not turn instructions.
+    for pattern in data["transport/service_patterns.json"]["patterns"]:
+        if pattern["id"] in {"mini-mapandan-dagupan-outbound", "mini-dagupan-mapandan-return", "jeep-mapandan-mangaldan", "jeep-mangaldan-mapandan"}:
+            directions[pattern["id"]] = {"pattern_id": pattern["id"], "notes": ["street_sequence_only"], "steps": [
+                {**direction_source["step_defaults"], "sequence": i, "instruction_type": "reported_street",
+                 "instruction_text": street, "original_source": street, "street_name": street,
+                 "distance_m": None, "waypoint": None}
+                for i, street in enumerate(pattern["reported_streets"], 1)]}
+    return {"schema_version": 5, "direction_steps": directions, "direction_limitations": direction_source["limitations"], "features": features, "observations": observations, "place_names": place_names, "shapes": shapes, "catalog": catalog, "patterns": [{"id": p["id"], "name": p["name"], "classification": p["classification"], "available": p["id"] in available} for p in data["transport/route_waypoints.json"]["patterns"] if p["classification"] == "passenger_candidate"]}
 
 
 def commuter_placeholders(locale):
@@ -101,17 +119,9 @@ def commuter_placeholders(locale):
             ': ' + escape(name) + '</button></article>')
     labels = {k: v for k, v in labels.items() if k not in (
         "mini-dagupan-turnaround", "operational", "snap_offsets", "distance_difference",
-        "geometry_details", "reset_lines", "uncertainty", "coverage")}
+        "reset_lines", "uncertainty", "coverage")}
     routes = []
     for route in bundle["catalog"]:
-        rows = []
-        for leg in route["legs"]:
-            amount = leg["fare"]["amount"]
-            fare = f"PHP {amount['min']}-{amount['max']}" if amount else labels["unknown_fare"]
-            driving = f"{leg['driving_km']} km / {leg['driving_minutes']} min" if leg["driving_km"] is not None else labels["unknown_driving"]
-            modes = labels["vehicle_unknown"] if len(leg["vehicle_types"]) > 1 else labels[leg["vehicle_types"][0]]
-            rows.append('<li>' + escape(labels[leg["label_key"]]) + ': ' + escape(modes + '; ' + fare) + '<br>' + escape(labels["driving"] + ': ' + driving) + '</li>')
-        explanation = '<p>' + escape(labels[route["explanation_key"]]) + '</p>' if route.get("explanation_key") else ''
         summary = route["fare_summary"]
         amount = summary["amount"] or summary["known_subtotal"]
         fares = labels["reported_range"] if summary["complete"] else labels["incomplete_fare"]
@@ -119,11 +129,9 @@ def commuter_placeholders(locale):
             fares += f": PHP {amount['min']}-{amount['max']}"
         if not summary["complete"]:
             fares += " + " + labels["unknown_fare"]
-        alternate = '<p>' + escape(labels["alternate_driving"]) + '</p>' if any(leg.get("alternate_driving_note_minutes") for leg in route["legs"]) else ''
-        subtitle = '<p class="route-subtitle"><small>' + escape(labels[route["subtitle_key"]]) + '</small></p>' if route.get("subtitle_key") else ''
-        routes.append('<fieldset class="passenger-geometry" data-route="' + escape(route["id"]) + '" data-type="' + escape(route["vehicle_type"]) + '"><legend>' + escape(labels[route["id"]]) + '</legend><p class="fare-summary">' + escape(fares) + '</p><details><summary>' + escape(labels["trip_details"]) + '</summary>' + explanation + '<ul>' + ''.join(rows) + '</ul>' + alternate + '<p>' + escape(labels["waiting_unknown"]) + '</p><p>' + escape(labels["fare_caveat"]) + '</p>' + ('<p>' + escape(labels["return_unconfirmed"]) + '</p>' if len(route["directions"]) > 1 else '') + '</details></fieldset>')
-        if subtitle:
-            routes[-1] = routes[-1].replace('</legend>', '</legend>' + subtitle, 1)
+        modes = " / ".join(dict.fromkeys(labels[mode] for leg in route["legs"] for mode in leg["vehicle_types"]))
+        rides = f'{len(route["legs"])} {labels["rides"]} / {route.get("transfer_count", 0)} {labels["transfers"]}'
+        routes.append('<button type="button" class="passenger-geometry route-select" aria-pressed="false" aria-controls="commuter-info" data-route="' + escape(route["id"]) + '" data-type="' + escape(route["vehicle_type"]) + '"><strong>' + escape(labels[route["id"]]) + '</strong><span class="route-chips">' + escape(modes + " / " + rides) + '</span><span class="fare-summary">' + escape(fares) + '</span></button>')
     return {"COMMUTER_DIRECTORY": "".join(cards),
             "COMMUTER_ROUTES": "".join(routes),
             "COMMUTER_DATA": script_json({**bundle, "labels": labels}),

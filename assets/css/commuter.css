@@ -32,7 +32,30 @@
 .route-modes .transport-symbol { width: 22px; height: 22px; }
 .commuter-page :focus-visible { outline: 3px solid #ac6500; outline-offset: 2px; }
 #commuter-lines { display: grid; gap: .5rem; }
+.commuter-page .route-select { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; width: 100%; padding: .75rem; text-align: left; border-color: #c1ccc3; }
+.route-select strong { flex: 1; }
+.route-chips, .route-select .fare-summary { display: block; width: 100%; font-size: .8rem; }
+.route-select.selected { border-color: #16532c; box-shadow: inset 3px 0 #16532c; background: #eef5ef; }
+.direction-leg h3 { display: flex; align-items: center; gap: .35rem; font-size: .9rem; margin: .8rem 0 .3rem; }
+.direction-timeline { list-style: none; margin: .7rem 0; padding: 0 0 0 .6rem; }
+.direction-step { position: relative; border-left: 2px solid #b4c8ba; padding: 0 0 .75rem .65rem; }
+.direction-step:last-child { border-left-color: transparent; }
+.direction-step::before { content: ""; position: absolute; left: -5px; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: #356647; }
+.commuter-page .direction-step > button, .direction-step > span { display: flex; gap: .5rem; align-items: flex-start; width: 100%; min-height: 44px; padding: .5rem; text-align: left; font-size: .85rem; }
+.direction-step > button[aria-pressed="true"] { background: #e2ece4; border-color: #16532c; }
+#commuter-info .direction-step p { margin: .2rem .5rem; font-size: .75rem; color: #72501b; }
+.direction-transfer { display: flex; gap: .4rem; border-block: 1px solid #b4c8ba; padding: .5rem 0; }
+.direction-waypoint { color: #a8490b; filter: drop-shadow(0 1px 2px #fff); }
+.direction-waypoint .transport-symbol { width: 30px; height: 36px; }
+.commuter-note { display: flex; align-items: center; gap: .4rem; }
+.commuter-note svg { color: #986019; }
+#commuter-info .detail-chip { display: inline-flex; padding: .3rem .5rem; margin-right: .3rem; border-radius: .4rem; background: #e2ece4; font-weight: 600; }
+.sheet-explore[aria-pressed="true"] { background: #183a2b; color: white; }
+.enhanced .leaflet-bottom { bottom: var(--sheet-height, 60%); }
+@media (min-width: 900px) { .enhanced .leaflet-bottom { bottom: 0; } }
 #commuter-lines fieldset { min-width: 0; margin: 0; border: 1px solid #c1ccc3; border-radius: .65rem; padding: .5rem .65rem; }
+#commuter-lines fieldset.selected { border-color: #16532c; box-shadow: inset 3px 0 #16532c; }
+#commuter-info-body > button { display: block; width: 100%; text-align: left; margin: .4rem 0; }
 #commuter-lines legend { padding: 0 .2rem; font-weight: 650; font-size: .9rem; }
 #commuter-lines label { display: flex; align-items: center; min-height: 44px; gap: .5rem; font-size: .85rem; }
 #commuter-lines input { width: 24px; height: 24px; flex-shrink: 0; accent-color: #16532c; }
@@ -42,33 +65,33 @@
 #commuter-lines details summary { font-size: .8rem; font-weight: 500; }
 #commuter-lines .fare-summary { font-weight: 600; }
 .commuter-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.commuter-page.enhanced { position: relative; max-width: none; width: 100vw; margin-left: calc(50% - 50vw); padding: 0; height: var(--commuter-height, 80dvh); min-height: 180px; overflow: hidden; }
+.commuter-page.enhanced { position: relative; max-width: none; width: 100vw; margin-left: calc(50% - 50vw); padding: 0; height: var(--commuter-height, 80dvh); min-height: 96px; overflow: hidden; }
 .enhanced .commuter-workspace, .enhanced .commuter-map-section, .enhanced .commuter-map { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; }
 .enhanced .commuter-hero { position: absolute; top: .5rem; left: max(.5rem, env(safe-area-inset-left)); right: max(.5rem, env(safe-area-inset-right)); z-index: 401; pointer-events: none; padding: .5rem .75rem; background: #fffefaf5; border-radius: .65rem; box-shadow: 0 2px 8px #0002; }
 .enhanced .leaflet-top { top: 84px; }
 .enhanced #commuter-map-status { position: absolute; bottom: 0; right: .25rem; z-index: 401; background: #fffefae6; max-width: 65%; }
-.enhanced .commuter-sheet { position: absolute; z-index: 500; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 44px minmax(0, 1fr); gap: .25rem; padding: .4rem max(.6rem, env(safe-area-inset-right)) max(.4rem, env(safe-area-inset-bottom)) max(.6rem, env(safe-area-inset-left)); box-shadow: 0 -4px 24px #183a2b26; height: 52%; max-height: 100%; }
+.enhanced .commuter-sheet { position: absolute; z-index: 500; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: var(--sheet-header-height, 72px) minmax(0, 1fr); gap: .25rem; padding: .4rem max(.6rem, env(safe-area-inset-right)) max(.4rem, env(safe-area-inset-bottom)) max(.6rem, env(safe-area-inset-left)); box-shadow: 0 -4px 24px #183a2b26; height: var(--sheet-height, 96px); max-height: 100%; transition: height .18s ease-out; }
 .sheet-toolbar { display: flex; gap: .4rem; align-items: center; min-width: 0; }
 .sheet-toolbar h2 { margin: 0; flex: 1; min-width: 0; font-size: .85rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.enhanced .sheet-sizes { display: flex; gap: .2rem; }
-.sheet-sizes button { min-width: 44px; width: 44px; padding: .25rem; font-size: 1.15rem; }
-.sheet-toolbar { flex-wrap: wrap; }
-.sheet-toolbar h2 { display: none; }
-.sheet-handle { display: none; flex: 0 0 44px; width: 44px; cursor: ns-resize; touch-action: none; user-select: none; }
+.sheet-toolbar { position: relative; touch-action: none; user-select: none; cursor: ns-resize; padding-top: 12px; }
+.sheet-heading { flex: 1; min-width: 0; }
+.sheet-heading p { font-size: .75rem; margin: .2rem 0 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.sheet-handle { display: none; position: absolute; top: -6px; left: calc(50% - 28px); width: 56px; height: 24px; border-radius: 8px; }
+.sheet-handle::after { content: ""; display: block; width: 36px; height: 4px; margin: 10px auto; border-radius: 4px; background: #87958d; }
 .enhanced .sheet-handle { display: block; }
-.sheet-sizes { flex: 1; flex-wrap: wrap; }
-.sheet-reopen { position: absolute; bottom: max(.5rem, env(safe-area-inset-bottom)); left: max(.5rem, env(safe-area-inset-left)); z-index: 501; box-shadow: 0 2px 8px #0003; }
+.sheet-size-disclosure { position: relative; }
+.sheet-size-disclosure > summary { min-width: 44px; text-align: center; list-style: none; font-size: 1.25rem; }
+.sheet-sizes { position: absolute; right: 0; bottom: 100%; width: 190px; padding: .5rem; display: grid; gap: .3rem; background: #fffefa; border: 1px solid #87958d; border-radius: .5rem; z-index: 2; }
+.commuter-sheet[data-state="expanded"] .sheet-sizes { bottom: auto; top: 100%; }
+.sheet-sizes button { width: 100%; }
+.commuter-sheet.dragging { transition: none; }
 .commuter-controls .show-all-places { grid-column: 1 / -1; display: flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .85rem; }
 .commuter-controls .show-all-places input { width: 24px; height: 24px; min-height: 24px; }
 .sheet-sizes button[aria-pressed="true"] { background: #183a2b; color: white; }
 .commuter-sheet-body { grid-column: 1 / -1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
-.enhanced .commuter-sheet[data-state="collapsed"] { height: calc(58px + env(safe-area-inset-bottom)); }
-.enhanced .commuter-sheet[data-state="expanded"] { height: 100%; }
-.enhanced .commuter-sheet[data-state="hidden"] { visibility: hidden; height: 0; padding: 0; border: 0; }
 @media (min-width: 900px) {
   .enhanced .commuter-hero { right: auto; max-width: calc(100% - 100px); }
-  .enhanced .commuter-sheet { left: 1rem; right: auto; bottom: 1.5rem; width: 380px; border-radius: 1rem; height: 60%; }
-  .enhanced .commuter-sheet[data-state="expanded"] { height: calc(100% - 110px); }
+  .enhanced .commuter-sheet { left: 1rem; right: auto; bottom: 1.5rem; width: 380px; border-radius: 1rem; max-height: calc(100% - 110px); }
   .enhanced .leaflet-top { left: auto; right: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .commuter-page * { scroll-behavior: auto !important; transition: none !important; } }

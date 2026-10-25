@@ -11,6 +11,7 @@
   "service_patterns_file": "service_patterns.json",
   "route_shapes": "route_shapes.geojson",
   "route_waypoints": "route_waypoints.json",
+  "directions": "directions.json",
   "generation_report": "generation_report.json",
   "stop_occurrences": "stop_occurrences.json",
   "tricycle_zones": "tricycle_zones.geojson",

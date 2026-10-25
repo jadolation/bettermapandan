@@ -1,5 +1,30 @@
 """Transport data schemas for Better Mapandan Commuter."""
 SCHEMAS = {
+    "transport/directions.json": {
+        "type": "object", "required": ["schema_version", "source_type", "verification_status", "step_defaults", "collections"],
+        "properties": {
+            "schema_version": {"const": 1}, "source_type": {"const": "maintainer_provided"},
+            "verification_status": {"const": "unverified"},
+            "step_defaults": {"const": {"duration_seconds": None, "geometry_leg_reference": None, "verification_status": "unverified", "source_type": "maintainer_provided"}},
+            "collections": {"type": "array", "minItems": 1, "items": {
+                "type": "object", "required": ["pattern_id", "steps", "notes"],
+                "properties": {"pattern_id": {"type": "string"}, "notes": {"type": "array", "items": {"type": "string"}},
+                    "steps": {"type": "array", "minItems": 1, "items": {
+                        "type": "object", "required": ["sequence", "instruction_type", "instruction_text", "original_source", "street_name", "distance_m", "waypoint"],
+                        "properties": {
+                            "sequence": {"type": "integer", "minimum": 1},
+                            "instruction_type": {"enum": ["start", "start_head", "board", "ask", "head", "north", "northwest", "continue", "left", "left_stay", "right", "uturn", "roundabout_first", "roundabout_left", "transfer", "arrive", "onward"]},
+                            "instruction_text": {"type": "string", "minLength": 1}, "original_source": {"type": "string", "minLength": 1},
+                            "street_name": {"type": "string", "minLength": 1},
+                            "distance_m": {"type": ["number", "null"], "minimum": 0},
+                            "waypoint": {"type": ["array", "null"], "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+                            "duration_seconds": {"type": "null"}, "geometry_leg_reference": {"type": "null"},
+                            "verification_status": {"const": "unverified"}, "source_type": {"const": "maintainer_provided"}
+                        }
+                    }}}
+            }}
+        }
+    },
     "transport/route_waypoints.json": {
         "type": "object", "required": ["schema_version", "source_type", "transcription_date", "verification_status", "patterns"],
         "properties": {"source_type": {"const": "maintainer_provided"}, "verification_status": {"const": "unverified"}, "patterns": {"type": "array", "minItems": 1, "maxItems": 100, "items": {"type": "object", "required": ["id", "name", "classification"], "oneOf": [{"required": ["coordinates"]}, {"required": ["reverse_of"]}], "properties": {
