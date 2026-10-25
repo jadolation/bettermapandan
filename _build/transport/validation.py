@@ -9,6 +9,16 @@ from _build.transport import (
     VERIFICATION_STATUSES,
 )
 from _build.transport.schemas import SCHEMAS
+from _build.transport.generate import (
+    coordinate,
+    deduplicate,
+    digest,
+    distance,
+    matching_issues,
+    ordered,
+    reviewed_short_leg,
+    sourced_sparse_segment,
+)
 
 TRANSPORT_DATA_DIR = Path(__file__).resolve().parent.parent.parent / "src" / "data" / "transport"
 
@@ -91,33 +101,12 @@ def validate_directions(data):
 
 
 def validate_shapes(data):
-    from _build.transport.generate import (
-        coordinate,
-        deduplicate,
-        digest,
-        distance,
-        matching_issues,
-        ordered,
-        reviewed_short_leg,
-        sourced_sparse_segment,
-    )
     errors = []
     patterns = data.get("transport/route_waypoints.json", {}).get("patterns", [])
     known = {p["id"] for p in data.get("transport/service_patterns.json", {}).get("patterns", [])}
     for pattern in patterns:
         try:
-            points = ordered(pattern, patterns)
-            if pattern["id"] not in known or len(points) < 2 or not all(coordinate(c) for c in points):
-                raise ValueError("invalid waypoint input or pattern reference")
-            if "bearings" in pattern and len(pattern["bearings"]) != len(points):
-                raise ValueError("bearing count differs from waypoint count")
-            sources = {s["id"] for s in data.get("transport/sources.json", {}).get("sources", [])}
-            for derived in pattern.get("derived_waypoints", []):
-                if not 0 <= derived["index"] < len(points) or derived["source"] not in sources or derived["kind"] != "osm_derived_not_user_input":
-                    raise ValueError("invalid derived shaping provenance")
-            for segment in pattern.get("sparse_segments", []):
-                if segment["source"] not in sources or len(segment["osm_nodes"]) != 2 or len(segment["coordinates"]) != 2 or not all(coordinate(c) for c in segment["coordinates"]) or distance(*segment["coordinates"]) > 1000:
-                    raise ValueError("invalid sparse road edge evidence")
+            _validate_waypoint_pattern(pattern, patterns, known, data)
         except (KeyError, StopIteration, ValueError) as exc:
             errors.append(f"waypoints: {exc}")
     for feature in data.get("transport/route_shapes.geojson", {}).get("features", []):
@@ -133,48 +122,13 @@ def validate_shapes(data):
                 raise ValueError("stale candidate inputs")
             if props["routing_eligible"] is not False or props["publication_status"] != "reference_only":
                 raise ValueError("candidate routing/publication gate")
-            if props["geometry_status"] == "candidate":
-                if props["verification_status"] != "unverified" or props.get("geometry_review") != "unreviewed":
-                    raise ValueError("candidate must remain unverified")
-            elif props["geometry_status"] == "verified":
-                review = props.get("human_geometry_review", {})
-                if props.get("geometry_review") != "reviewed" or not all(review.get(k) for k in ("date", "reviewer", "evidence_source")) or props["verification_status"] not in ("maintainer_confirmed", "operator_confirmed", "authority_confirmed"):
-                    raise ValueError("verified geometry requires separate human review")
-                sources = data.get("transport/sources.json", {}).get("sources", [])
-                if not any(s["id"] == review["evidence_source"] and s.get("republication_permitted") is True for s in sources):
-                    raise ValueError("unresolved human geometry review source")
-            else:
-                raise ValueError("unsupported geometry status")
+            _validate_geometry_review(props, data)
             if props["classification"] != pattern["classification"]:
                 raise ValueError("operational/passenger classification mismatch")
             for field in ("endpoint", "profile", "retrieved_at", "response_checksum", "attribution", "warnings"):
                 if not props.get(field):
                     raise ValueError("missing provenance: " + field)
-            snaps, offsets, legs = props["snapped_waypoints"], props["snap_offsets_m"], props["legs"]
-            if len(snaps) != len(points) or len(offsets) != len(points) or len(legs) != len(points)-1:
-                raise ValueError("invalid candidate leg/waypoint counts")
-            combined = []
-            for i, leg in enumerate(legs):
-                coords = leg["geometry"]["coordinates"]
-                if leg["sequence"] != i or not math.isfinite(leg["distance_m"]) or leg["distance_m"] <= 0 or not all(coordinate(c) for c in coords) or len(coords) < 2:
-                    raise ValueError("invalid leg geometry")
-                if distance(coords[0], snaps[i]) > 2 or distance(coords[-1], snaps[i+1]) > 2:
-                    raise ValueError("unordered leg endpoints")
-                if combined and distance(combined[-1], coords[0]) > 2:
-                    raise ValueError("discontinuous leg endpoints")
-                if leg["distance_m"] < distance(points[i], points[i+1]) * .25:
-                    if not reviewed_short_leg(pattern, points, props, i) or "conservative_display_review_nearby_same_road_observations_short_nonzero_leg_terminal_access_unverified_no_connector" not in props["warnings"]:
-                        raise ValueError("ambiguous collapsed leg")
-                if any(distance(a, b) > 500 and not sourced_sparse_segment(a, b, pattern.get("sparse_segments", ())) for a, b in zip(coords, coords[1:])):
-                    raise ValueError("geometry discontinuity")
-                combined.extend(coords)
-            if feature["geometry"]["type"] != "LineString" or deduplicate(combined) != deduplicate(feature["geometry"]["coordinates"]):
-                raise ValueError("full geometry mismatch")
-            for point, snap, offset in zip(points, snaps, offsets):
-                if not coordinate(snap) or not 0 <= offset <= props["max_snap_m"] <= 30 or abs(distance(point, snap)-offset) > .01:
-                    raise ValueError("invalid snap offset")
-            if not math.isfinite(props["distance_m"]) or abs(sum(leg["distance_m"] for leg in legs)-props["distance_m"]) > 2:
-                raise ValueError("invalid total distance")
+            _validate_shape_geometry(feature, props, pattern, points)
             if matching_issues(pattern, points, props):
                 raise ValueError("unresolved matching/corridor error")
             for warning in matching_issues(pattern, points, props, name_warnings=True):
@@ -183,6 +137,68 @@ def validate_shapes(data):
         except (KeyError, TypeError, ValueError, StopIteration, IndexError) as exc:
             errors.append(f"shape {feature.get('id')}: {exc}")
     return errors
+
+
+def _validate_waypoint_pattern(pattern, patterns, known, data):
+    points = ordered(pattern, patterns)
+    if pattern["id"] not in known or len(points) < 2 or not all(coordinate(c) for c in points):
+        raise ValueError("invalid waypoint input or pattern reference")
+    if "bearings" in pattern and len(pattern["bearings"]) != len(points):
+        raise ValueError("bearing count differs from waypoint count")
+    sources = {s["id"] for s in data.get("transport/sources.json", {}).get("sources", [])}
+    for derived in pattern.get("derived_waypoints", []):
+        if not 0 <= derived["index"] < len(points) or derived["source"] not in sources or derived["kind"] != "osm_derived_not_user_input":
+            raise ValueError("invalid derived shaping provenance")
+    for segment in pattern.get("sparse_segments", []):
+        if segment["source"] not in sources or len(segment["osm_nodes"]) != 2 or len(segment["coordinates"]) != 2 or not all(coordinate(c) for c in segment["coordinates"]) or distance(*segment["coordinates"]) > 1000:
+            raise ValueError("invalid sparse road edge evidence")
+
+
+def _validate_geometry_review(props, data):
+    if props["geometry_status"] == "candidate":
+        if props["verification_status"] != "unverified" or props.get("geometry_review") != "unreviewed":
+            raise ValueError("candidate must remain unverified")
+    elif props["geometry_status"] == "verified":
+        review = props.get("human_geometry_review", {})
+        if props.get("geometry_review") != "reviewed" or not all(review.get(k) for k in ("date", "reviewer", "evidence_source")) or props["verification_status"] not in ("maintainer_confirmed", "operator_confirmed", "authority_confirmed"):
+            raise ValueError("verified geometry requires separate human review")
+        sources = data.get("transport/sources.json", {}).get("sources", [])
+        if not any(s["id"] == review["evidence_source"] and s.get("republication_permitted") is True for s in sources):
+            raise ValueError("unresolved human geometry review source")
+    else:
+        raise ValueError("unsupported geometry status")
+
+
+def _validate_shape_leg(leg, i, snaps, combined, pattern, points, props):
+    coords = leg["geometry"]["coordinates"]
+    if leg["sequence"] != i or not math.isfinite(leg["distance_m"]) or leg["distance_m"] <= 0 or not all(coordinate(c) for c in coords) or len(coords) < 2:
+        raise ValueError("invalid leg geometry")
+    if distance(coords[0], snaps[i]) > 2 or distance(coords[-1], snaps[i+1]) > 2:
+        raise ValueError("unordered leg endpoints")
+    if combined and distance(combined[-1], coords[0]) > 2:
+        raise ValueError("discontinuous leg endpoints")
+    if leg["distance_m"] < distance(points[i], points[i+1]) * .25:
+        if not reviewed_short_leg(pattern, points, props, i) or "conservative_display_review_nearby_same_road_observations_short_nonzero_leg_terminal_access_unverified_no_connector" not in props["warnings"]:
+            raise ValueError("ambiguous collapsed leg")
+    if any(distance(a, b) > 500 and not sourced_sparse_segment(a, b, pattern.get("sparse_segments", ())) for a, b in zip(coords, coords[1:])):
+        raise ValueError("geometry discontinuity")
+    return coords
+
+
+def _validate_shape_geometry(feature, props, pattern, points):
+    snaps, offsets, legs = props["snapped_waypoints"], props["snap_offsets_m"], props["legs"]
+    if len(snaps) != len(points) or len(offsets) != len(points) or len(legs) != len(points)-1:
+        raise ValueError("invalid candidate leg/waypoint counts")
+    combined = []
+    for i, leg in enumerate(legs):
+        combined.extend(_validate_shape_leg(leg, i, snaps, combined, pattern, points, props))
+    if feature["geometry"]["type"] != "LineString" or deduplicate(combined) != deduplicate(feature["geometry"]["coordinates"]):
+        raise ValueError("full geometry mismatch")
+    for point, snap, offset in zip(points, snaps, offsets):
+        if not coordinate(snap) or not 0 <= offset <= props["max_snap_m"] <= 30 or abs(distance(point, snap)-offset) > .01:
+            raise ValueError("invalid snap offset")
+    if not math.isfinite(props["distance_m"]) or abs(sum(leg["distance_m"] for leg in legs)-props["distance_m"]) > 2:
+        raise ValueError("invalid total distance")
 
 
 def _validate_terminals(data):
@@ -261,8 +277,6 @@ def _validate_fares(data):
 
 
 def _validate_catalog(data):
-    from _build.transport.generate import coordinate
-
     errors = []
     catalog = data.get("transport/routes.json", {})
     legs = {leg["id"]: leg for leg in catalog.get("legs", [])}
@@ -273,6 +287,13 @@ def _validate_catalog(data):
             errors.append(f"leg {leg['id']}: missing fare")
         if len(leg.get("vehicle_types", [])) > 1 and (leg.get("route_affiliation") is not None or leg.get("vehicle_identity") != "unknown_alternative_not_two_services"):
             errors.append(f"leg {leg['id']}: unsupported vehicle identity or affiliation")
+    _validate_catalog_places(data, errors)
+    for route in catalog.get("routes", []):
+        _validate_catalog_route(route, legs, patterns, errors)
+    return errors
+
+
+def _validate_catalog_places(data, errors):
     for place in data.get("transport/named_places.json", {}).get("places", []):
         geometry = place.get("geometry")
         if place.get("routing_eligible") or (geometry is not None and (geometry.get("type") != "Point" or not coordinate(geometry.get("coordinates")))):
@@ -281,18 +302,19 @@ def _validate_catalog(data):
     for connection in data.get("transport/named_places.json", {}).get("conceptual_connections", []):
         if connection.get("from_id") not in place_ids or connection.get("to_id") not in place_ids or connection.get("access") != "unverified" or connection.get("geometry") is not None or connection.get("routing_eligible") is not False:
             errors.append("conceptual connection must remain unverified and nonspatial")
-    for route in catalog.get("routes", []):
-        ids = route.get("leg_ids", [])
-        directions = route.get("directions", [])
-        if not ids or any(i not in legs for i in ids) or not directions:
-            errors.append(f"route {route['id']}: invalid catalog legs/directions")
-        for direction in directions:
-            if any(p not in route.get("patterns", []) or p not in patterns or patterns[p].get("classification") == "operational_vehicle_movement" for p in direction):
-                errors.append(f"route {route['id']}: invalid passenger direction")
-        if route.get("vehicle_type") == "multileg":
-            if len(ids) < 2 or len(directions) != 1 or any(len(d) != len(ids) for d in directions) or route.get("transfer_count") != len(ids)-1 or route.get("total_fare") is not None or route.get("total_duration_minutes") is not None or route.get("pedestrian_access") != "unresolved" or route.get("authorization") != "unconfirmed":
-                errors.append(f"route {route['id']}: incomplete journey gates")
-    return errors
+
+
+def _validate_catalog_route(route, legs, patterns, errors):
+    ids = route.get("leg_ids", [])
+    directions = route.get("directions", [])
+    if not ids or any(i not in legs for i in ids) or not directions:
+        errors.append(f"route {route['id']}: invalid catalog legs/directions")
+    for direction in directions:
+        if any(p not in route.get("patterns", []) or p not in patterns or patterns[p].get("classification") == "operational_vehicle_movement" for p in direction):
+            errors.append(f"route {route['id']}: invalid passenger direction")
+    if route.get("vehicle_type") == "multileg":
+        if len(ids) < 2 or len(directions) != 1 or any(len(d) != len(ids) for d in directions) or route.get("transfer_count") != len(ids)-1 or route.get("total_fare") is not None or route.get("total_duration_minutes") is not None or route.get("pedestrian_access") != "unresolved" or route.get("authorization") != "unconfirmed":
+            errors.append(f"route {route['id']}: incomplete journey gates")
 
 
 def _check_enum(record, rid, field, allowed, errors):

@@ -93,42 +93,11 @@ def parse_response(response, points, radius=30, sparse_segments=()):
     legs = route.get("legs", [])
     if len(legs) != len(points)-1:
         raise ValueError("wrong_leg_count")
-    offsets = []
-    for source, snap in zip(points, snaps):
-        if not coordinate(source) or not coordinate(snap.get("location")):
-            raise ValueError("invalid_coordinate")
-        offset = distance(source, snap["location"])
-        offsets.append(round(offset, 3))
-        if offset > radius or not math.isfinite(snap.get("distance", float("inf"))) or snap["distance"] > radius:
-            raise ValueError("excessive_snap: " + str(offset))
+    offsets = snap_offsets(points, snaps, radius)
     combined, reports = [], []
     for i, leg in enumerate(legs):
-        line, names = [], []
-        for step in leg.get("steps", []):
-            geometry = step.get("geometry", {})
-            coords = geometry.get("coordinates", [])
-            if geometry.get("type") != "LineString" or len(coords) < 2 or not all(coordinate(c) for c in coords):
-                raise ValueError("corrupt_step_geometry")
-            if line and line[-1] != coords[0]:
-                raise ValueError("discontinuous_steps")
-            line.extend(coords if not line else coords[1:])
-            if step.get("name") and (not names or names[-1] != step["name"]):
-                names.append(step["name"])
-        if len(line) < 2 or distance(line[0], snaps[i]["location"]) > 2 or distance(line[-1], snaps[i+1]["location"]) > 2:
-            raise ValueError("unordered_leg_endpoints")
-        if combined and combined[-1] != line[0]:
-            overview = route.get("geometry", {}).get("coordinates", [])
-            # OSRM can clip the two sides of a via point differently. The tiny
-            # interval must already be covered by an actual overview segment.
-            if distance(combined[-1], line[0]) > 2 or not any(
-                all(abs(distance(a, p) + distance(p, b) - distance(a, b)) <= .1 for p in (combined[-1], line[0]))
-                for a, b in zip(overview, overview[1:])
-            ):
-                raise ValueError("discontinuous_legs")
-        if not math.isfinite(leg.get("distance", -1)) or leg["distance"] <= 0:
-            raise ValueError("degenerate_leg")
-        if any(distance(a, b) > 500 and not sourced_sparse_segment(a, b, sparse_segments) for a, b in zip(line, line[1:])):
-            raise ValueError("geometry_gap")
+        line, names = step_geometry(leg)
+        validate_response_leg(line, leg, i, snaps, combined, route, sparse_segments)
         reports.append({"sequence": i, "distance_m": leg["distance"], "road_names": names, "geometry": {"type": "LineString", "coordinates": line}})
         combined.extend(line)
     geometry = route.get("geometry", {})
@@ -140,6 +109,50 @@ def parse_response(response, points, radius=30, sparse_segments=()):
     if type(total) not in (int, float) or not math.isfinite(total) or abs(total-sum(leg["distance_m"] for leg in reports)) > 2:
         raise ValueError("invalid_network_distance")
     return {"geometry": geometry, "overview_sampling_reconstructed": sampling_warning, "distance_m": total, "engine_duration_s": route.get("duration"), "snap_offsets_m": offsets, "snapped_waypoints": [s["location"] for s in snaps], "legs": reports}
+
+
+def snap_offsets(points, snaps, radius):
+    offsets = []
+    for source, snap in zip(points, snaps):
+        if not coordinate(source) or not coordinate(snap.get("location")):
+            raise ValueError("invalid_coordinate")
+        offset = distance(source, snap["location"])
+        offsets.append(round(offset, 3))
+        if offset > radius or not math.isfinite(snap.get("distance", float("inf"))) or snap["distance"] > radius:
+            raise ValueError("excessive_snap: " + str(offset))
+    return offsets
+
+
+def step_geometry(leg):
+    line, names = [], []
+    for step in leg.get("steps", []):
+        geometry = step.get("geometry", {})
+        coords = geometry.get("coordinates", [])
+        if geometry.get("type") != "LineString" or len(coords) < 2 or not all(coordinate(c) for c in coords):
+            raise ValueError("corrupt_step_geometry")
+        if line and line[-1] != coords[0]:
+            raise ValueError("discontinuous_steps")
+        line.extend(coords if not line else coords[1:])
+        if step.get("name") and (not names or names[-1] != step["name"]):
+            names.append(step["name"])
+    return line, names
+
+
+def validate_response_leg(line, leg, i, snaps, combined, route, sparse_segments):
+    if len(line) < 2 or distance(line[0], snaps[i]["location"]) > 2 or distance(line[-1], snaps[i+1]["location"]) > 2:
+        raise ValueError("unordered_leg_endpoints")
+    if combined and combined[-1] != line[0]:
+        overview = route.get("geometry", {}).get("coordinates", [])
+        # Via-point clipping is allowed only on an actual overview segment.
+        if distance(combined[-1], line[0]) > 2 or not any(
+            all(abs(distance(a, p) + distance(p, b) - distance(a, b)) <= .1 for p in (combined[-1], line[0]))
+            for a, b in zip(overview, overview[1:])
+        ):
+            raise ValueError("discontinuous_legs")
+    if not math.isfinite(leg.get("distance", -1)) or leg["distance"] <= 0:
+        raise ValueError("degenerate_leg")
+    if any(distance(a, b) > 500 and not sourced_sparse_segment(a, b, sparse_segments) for a, b in zip(line, line[1:])):
+        raise ValueError("geometry_gap")
 
 
 def matching_issues(pattern, points, result, *, name_warnings=False):
@@ -246,7 +259,7 @@ def main():
             (args.capture_dir / (pattern["id"] + ".json")).write_bytes(raw)
             response = json.loads(raw)
             item["reported_snap_offsets_m"] = [w.get("distance") for w in response.get("waypoints", [])]
-            item["response_summary"] = [{"distance_m": r.get("distance"), "legs": [{"distance_m": leg.get("distance"), "road_names": [step.get("name", "") for step in leg.get("steps", []) if step.get("name")]} for leg in r.get("legs", [])]} for r in response.get("routes", [])]
+            item["response_summary"] = response_summary(response)
             result = parse_response(response, points, args.radius, pattern.get("sparse_segments", ()))
             item.update(result)
             reference = pattern.get("reference_m", 15400 if pattern["id"].startswith("mini-") else 8700)
@@ -277,6 +290,19 @@ def main():
         report["patterns"].append(item)
         if not args.replay:
             time.sleep(1.1)
+    history = retain_previous_shapes(shapes, patterns, args.only)
+    shape_order = {p["id"]: i for i, p in enumerate(patterns)}
+    shapes.sort(key=lambda shape: shape_order.get(shape["id"], len(patterns)))
+    (DATA / "route_shapes.geojson").write_text(json.dumps({"type": "FeatureCollection", "schema_version": 2, "notes": "Road geometry must not be manufactured. Candidates are unverified references, never passenger routing evidence.", "features": shapes, "historical_features": history}, indent=2, allow_nan=False) + "\n")
+    (DATA / "generation_report.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    print(json.dumps([{k: p.get(k) for k in ("pattern_id", "status", "distance_m", "snap_offsets_m", "warnings")} for p in report["patterns"]], indent=2))
+
+
+def response_summary(response):
+    return [{"distance_m": r.get("distance"), "legs": [{"distance_m": leg.get("distance"), "road_names": [step.get("name", "") for step in leg.get("steps", []) if step.get("name")]} for leg in r.get("legs", [])]} for r in response.get("routes", [])]
+
+
+def retain_previous_shapes(shapes, patterns, only):
     old = json.loads((DATA / "route_shapes.geojson").read_text())
     history = old.get("historical_features", [])
     generated_ids = {s["id"] for s in shapes}
@@ -286,7 +312,7 @@ def main():
             history.append(feature)
         if feature["id"] not in generated_ids:
             props = feature["properties"]
-            if args.only and feature["id"] not in args.only:
+            if only and feature["id"] not in only:
                 shapes.append(feature)
                 continue
             current = next((p for p in patterns if p["id"] == feature["id"]), None)
@@ -295,11 +321,7 @@ def main():
             props["stale"] = not current or props.get("input_hash") != digest(ordered(current, patterns))
             props["withheld"] = True
             shapes.append(feature)
-    shape_order = {p["id"]: i for i, p in enumerate(patterns)}
-    shapes.sort(key=lambda shape: shape_order.get(shape["id"], len(patterns)))
-    (DATA / "route_shapes.geojson").write_text(json.dumps({"type": "FeatureCollection", "schema_version": 2, "notes": "Road geometry must not be manufactured. Candidates are unverified references, never passenger routing evidence.", "features": shapes, "historical_features": history}, indent=2, allow_nan=False) + "\n")
-    (DATA / "generation_report.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
-    print(json.dumps([{k: p.get(k) for k in ("pattern_id", "status", "distance_m", "snap_offsets_m", "warnings")} for p in report["patterns"]], indent=2))
+    return history
 
 
 if __name__ == "__main__":

@@ -23,14 +23,9 @@ def reported_fare_summary(legs):
             "basis": "reported_ranges_not_official_or_service_guarantee"}
 
 
-def reference_bundle():
-    """Public reference projection; no operator, licensing or routing claims."""
-    data = load_transport_data()
-    errors = validate_records(data)
-    if errors:
-        raise ValueError("; ".join(errors))
+def _reference_features(data, fares):
+    """Project source features with their applicable reported fares."""
     features = []
-    fares = data["transport/fares.json"]["fares"]
     for feature in (data["transport/terminals.geojson"]["features"] +
                     data["transport/tricycle_stands.geojson"]["features"]):
         props = feature["properties"]
@@ -43,9 +38,18 @@ def reference_bundle():
                                         "transport_type": props["transport_type"],
                                         **{k: props[k] for k in ("classification", "location_description", "source_type", "source_note", "verification_status", "routing_eligible", "linked_routes") if k in props},
                                         "fares": [{"id": f["id"], "amount": f["amount"]} for f in applicable]}})
+    return features
+
+
+def _reference_shapes(data):
+    """Project only publishable passenger candidate shapes."""
     public_fields = ("id", "pattern_id", "name", "classification", "geometry_status", "geometry_review", "verification_status", "publication_status", "routing_eligible", "endpoint", "profile", "retrieved_at", "attribution", "distance_m", "distance_comparison", "snap_offsets_m", "warnings", "response_checksum", "supplied_waypoints", "snapped_waypoints", "derived_waypoints", "endpoint_caveat", "unrouted_endpoint")
     shapes = [{"type": "Feature", "geometry": f["geometry"], "properties": {**{k: f["properties"][k] for k in public_fields if k in f["properties"]}, "legs": [{k: leg[k] for k in ("sequence", "distance_m", "road_names")} for leg in f["properties"]["legs"]]}} for f in data["transport/route_shapes.geojson"]["features"] if f["properties"]["classification"] == "passenger_candidate" and not f["properties"].get("stale") and not f["properties"].get("withheld")]
-    available = {f["properties"]["pattern_id"] for f in shapes}
+    return shapes
+
+
+def _reference_catalog(data, fares):
+    """Project public routes with source legs and reported fare summaries."""
     legs = {leg["id"]: leg for leg in data["transport/routes.json"]["legs"]}
     fare_index = {f["id"]: f for f in fares}
     catalog = [{**{k: r[k] for k in ("id", "vehicle_type", "origin_id", "destination_id", "directions", "explanation_key", "subtitle_key", "transfer_count", "service_verification_status", "evidence_source", "evidence_note", "source_type", "pedestrian_access", "authorization", "public_signboard_text", "last_updated", "created_date", "source_url") if k in r}, "routing_eligible": False,
@@ -53,6 +57,36 @@ def reference_bundle():
                for r in data["transport/routes.json"]["routes"] if r.get("public_catalog", True)]
     for route in catalog:
         route["fare_summary"] = reported_fare_summary(route["legs"])
+    return catalog
+
+
+def _reference_directions(data):
+    """Expand direction defaults while keeping street-only reports separate."""
+    direction_source = data["transport/directions.json"]
+    directions = {c["pattern_id"]: {**c, "steps": [{**direction_source["step_defaults"], **step} for step in c["steps"]]}
+                  for c in direction_source["collections"]}
+    # Older street-only reports are independent direction records, not turn instructions.
+    for pattern in data["transport/service_patterns.json"]["patterns"]:
+        if pattern["id"] in {"mini-mapandan-dagupan-outbound", "mini-dagupan-mapandan-return", "jeep-mapandan-mangaldan", "jeep-mangaldan-mapandan"}:
+            directions[pattern["id"]] = {"pattern_id": pattern["id"], "notes": ["street_sequence_only"], "steps": [
+                {**direction_source["step_defaults"], "sequence": i, "instruction_type": "reported_street",
+                 "instruction_text": street, "original_source": street, "street_name": street,
+                 "distance_m": None, "waypoint": None}
+                for i, street in enumerate(pattern["reported_streets"], 1)]}
+    return directions
+
+
+def reference_bundle():
+    """Public reference projection; no operator, licensing or routing claims."""
+    data = load_transport_data()
+    errors = validate_records(data)
+    if errors:
+        raise ValueError("; ".join(errors))
+    fares = data["transport/fares.json"]["fares"]
+    features = _reference_features(data, fares)
+    shapes = _reference_shapes(data)
+    available = {f["properties"]["pattern_id"] for f in shapes}
+    catalog = _reference_catalog(data, fares)
     modes = {"place-guam-pickup": "tricycle", "place-manaoag-waiting": "minibus",
              "place-town-plaza": "tricycle", "place-firetree-roundabout-manaoag": "minibus",
              "place-tuliao-jeep": "jeepney", "place-tuliao-tricycle": "tricycle",
@@ -84,16 +118,7 @@ def reference_bundle():
     endpoint_ids = {r[k] for r in catalog for k in ("origin_id", "destination_id")}
     place_names = {p["id"]: p["name"] for p in data["transport/named_places.json"]["places"] if p["id"] in endpoint_ids}
     direction_source = data["transport/directions.json"]
-    directions = {c["pattern_id"]: {**c, "steps": [{**direction_source["step_defaults"], **step} for step in c["steps"]]}
-                  for c in direction_source["collections"]}
-    # Older street-only reports are independent direction records, not turn instructions.
-    for pattern in data["transport/service_patterns.json"]["patterns"]:
-        if pattern["id"] in {"mini-mapandan-dagupan-outbound", "mini-dagupan-mapandan-return", "jeep-mapandan-mangaldan", "jeep-mangaldan-mapandan"}:
-            directions[pattern["id"]] = {"pattern_id": pattern["id"], "notes": ["street_sequence_only"], "steps": [
-                {**direction_source["step_defaults"], "sequence": i, "instruction_type": "reported_street",
-                 "instruction_text": street, "original_source": street, "street_name": street,
-                 "distance_m": None, "waypoint": None}
-                for i, street in enumerate(pattern["reported_streets"], 1)]}
+    directions = _reference_directions(data)
     return {"schema_version": 5, "direction_steps": directions, "direction_limitations": direction_source["limitations"], "features": features, "observations": observations, "place_names": place_names, "shapes": shapes, "catalog": catalog, "patterns": [{"id": p["id"], "name": p["name"], "classification": p["classification"], "available": p["id"] in available} for p in data["transport/route_waypoints.json"]["patterns"] if p["classification"] == "passenger_candidate"]}
 
 
