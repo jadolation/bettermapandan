@@ -312,7 +312,8 @@ async function main() {
                    const payload = JSON.parse(raw);
                    if (mode === 'invalid-points') {
                      const geometries = [null, { type: 'LineString', coordinates: [1, 2] }, { type: 'Point', coordinates: [] }, { type: 'Point', coordinates: ['120', 16] }, { type: 'Point', coordinates: [true, 16] }, { type: 'Point', coordinates: [120, 91] }, { type: 'Point', coordinates: [120, 16, 0] }];
-                     payload.features.forEach((feature, index) => { feature.geometry = geometries[index]; });
+                      payload.features.forEach((feature, index) => { feature.geometry = geometries[index]; });
+                      payload.features[0].properties.catalog_route_ids = [];
                    }
                   if (mode === 'shape-fixture') payload.shapes = payload.patterns.map(pattern => {
                     const capture = JSON.parse(fs.readFileSync(path.join(__dirname, '../fixtures/transport-osrm', pattern.id + '.json'), 'utf8'));
@@ -340,8 +341,12 @@ async function main() {
                await page.$$eval('.transport-select', (els, index) => els[index].click(), index);
                assert.equal(await page.$$eval('.station-actions a', els => els.length), 0);
                assert.ok((await page.$eval('#commuter-info-body', el => el.textContent)).includes(labels.location_unavailable));
-               assert.equal(await page.$$eval('.transport-marker.selected', els => els.length), 0);
-               assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
+                assert.equal(await page.$$eval('.transport-marker.selected', els => els.length), 0);
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
+                if (index === 0) {
+                  assert.equal(await page.$$eval('[data-associated-route]', els => els.length), 0);
+                  assert.ok((await page.$eval('#commuter-info-body', el => el.innerText)).includes(labels.no_routes));
+                }
              }
              assert.deepEqual(errors, []);
              assert.equal(googleRequests, 0);
@@ -669,8 +674,35 @@ async function main() {
                  'https://www.google.com/maps/dir/?' + new URLSearchParams({ api: '1', destination: coordinate, travelmode: 'walking' })
                ]);
                assert.ok(links.every(link => link.target === '_blank' && link.rel === 'noopener noreferrer' && link.height >= 44 && link.width > 200 && Math.abs(link.width - link.parentWidth) < 1 && link.text.length));
-               assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
-               assert.equal(googleRequests, 0, 'station selection never requests Google');
+                assert.equal(await page.$eval('#commuter-sheet', el => el.dataset.state), 'half');
+                assert.equal(await page.$eval('#commuter-sheet-title', el => el.textContent), payload.labels.station_details);
+                assert.equal(await page.$eval('#commuter-info-title', el => el.textContent), payload.labels[feature.properties.id]);
+                for (const state of mode === 'map' && feature === payload.features[0] ? ['expanded', 'collapsed', 'half'] : []) {
+                  await sizeSheet(page, state);
+                  assert.equal(await page.evaluate(title => {
+                    return ['#commuter-sheet-title', '#commuter-info-title'].filter(selector => {
+                      const el = document.querySelector(selector);
+                      return el.checkVisibility() && el.textContent === title;
+                    }).length;
+                  }, payload.labels[feature.properties.id]), 1, 'selected station title is visible exactly once at every stop');
+                }
+                assert.equal(await page.$$eval('.station-notice', els => els.length), 1);
+                assert.equal(await page.$$eval('#commuter-info-body > details', els => els.length), 1);
+                assert.equal(await page.$eval('.station-sources', el => el.open), false);
+                assert.ok(await page.$eval('#commuter-info-body', (el, props) => {
+                  const visible = el.innerText;
+                  const title = document.querySelector('#commuter-info-title').textContent;
+                  const description = props.location_description || (props.name !== title ? props.name : '');
+                  return visible.includes(description) && !visible.includes(props.id) && (!props.notes || !visible.includes(props.notes));
+                }, feature.properties));
+                assert.ok(await page.$$eval('.station-route', els => els.every(el => {
+                  const row = el.getBoundingClientRect(), text = el.firstElementChild.getBoundingClientRect();
+                  return row.width > 200 && text.width > row.width * .7 && getComputedStyle(el).display === 'flex';
+                })));
+                await page.$eval('.station-sources', el => { el.open = true; });
+                assert.ok((await page.$eval('.station-sources', el => el.innerText)).includes(feature.properties.id));
+                await page.$eval('.station-sources', el => { el.open = false; });
+                assert.equal(googleRequests, 0, 'station selection never requests Google');
                await page.$eval('.station-actions a', el => { el.addEventListener('click', event => event.preventDefault(), { once: true }); el.click(); });
                assert.equal(await page.$eval('#commuter-page', el => el.dataset.selectionId), feature.properties.id, 'explicit external action leaves selection intact');
                for (const fare of feature.properties.fares) assert.ok(info.includes(`PHP ${fare.amount.min}-${fare.amount.max}`));

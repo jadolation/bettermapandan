@@ -1,5 +1,15 @@
 {
+  "commuter_discovery": {
+    "tool": "Malayang digital na gabay sa impormasyon, hindi serbisyo ng munisipyo o plataporma sa pagpapareserba.",
+    "subtitle": "Hanapin ang iyong daan sa Pangasinan",
+    "description": "Tingnan ang mga ruta, istasyon at gabay sa lokal na pamasahe para sa ilang sakop na ruta sa paligid ng Mapandan. Kumpirmahin sa lugar ang serbisyo at pamasahe.",
+    "cta": "Tuklasin ang mga Ruta ng Biyahero",
+    "category": "Pampublikong Transportasyon at Pagbiyahe"
+  },
   "commuter": {
+    "station_notice": "Lokal na iniulat na lokasyon; kumpirmahin sa lugar ang sakayan at serbisyo.",
+    "station_sources": "Mga sanggunian at karagdagang impormasyon",
+    "connected_routes": "Mga kaugnay na ruta",
     "google_maps_view": "Tingnan sa Google Maps",
     "google_maps_walk": "Mga direksyon sa paglalakad",
     "google_maps_note": "Bubukas ang Google Maps. Lokal na iniulat na lokasyon; hindi garantisadong maaabot na sakayan. Walang lokasyon ng pasaherong ipinapadala.",
@@ -249,9 +259,9 @@
     "facility_total": "Mga tala ng pasilidad na may ibinigay na punto",
     "map_pending": "makikita kapag na-load ang mapa",
     "empty": "Walang ibinigay na puntong pasilidad sa mapang ito. Hindi ito nangangahulugang walang pasilidad.",
-    "unavailable": "Pinipili ng tagapangalaga ang mga layer. Hindi nilo-load ang naka-disable, kulang o hindi suportadong datos. Hiwalay ang mga kalsada sa background ng OpenStreetMap sa itinakdang layer ng kalsada.",
-    "precision": "Maaaring mula sa pinagmulan, tinatayang sentro ng Plus Code cell, sentro ng hugis ng gusali sa mapa, o obserbasyon sa lugar ang coordinate. Hindi patunay ng katumpakan ang maraming decimal. Hindi patunay ang punto sa mapa ng kasalukuyang operasyon o pagtatalaga bilang evacuation center. Tingnan ang pinagmulan at petsa.",
-    "safety": "Hindi ito serbisyong real-time na babala, ruta sa emerhensya o kaligtasan ng silungan. Huwag gamitin para sa pagpapasya sa emerhensya. Tumawag sa 911 o makipag-ugnayan sa Mapandan MDRRMO.",
+    "unavailable": "Mga itinakda, pinagana at suportadong layer lang ng tagapangalaga ang nilo-load; hiwalay ang mga kalsada sa basemap ng OpenStreetMap.",
+    "precision": "Maaaring tantiya ang lokasyon at hindi patunay ng kasalukuyang serbisyo o evacuation center.",
+    "safety": "Hindi para sa real-time na babala o pagpapasya sa emerhensya; tumawag sa 911 o MDRRMO.",
     "shared": "Eksaktong magkapareho ang iniulat na coordinate ng magkahiwalay na talang ito. Hindi nito pinatutunayang nasa iisang lugar sila. Walang puntong inilipat para sa pagpapakita.",
     "source": "Pinagmulan",
     "source_reported": "Coordinate mula sa pinagmulan (hindi awtomatikong nasuri sa lugar)",

@@ -1,5 +1,15 @@
 {
+  "commuter_discovery": {
+    "tool": "Independent digital information tool, not a municipal service or booking platform.",
+    "subtitle": "Find your way around Pangasinan",
+    "description": "Explore routes, stations and local fare guides for a few supported corridors around Mapandan. Confirm service and fares locally.",
+    "cta": "Explore Commuter Routes",
+    "category": "Public Transportation & Commuting"
+  },
   "commuter": {
+    "station_notice": "Locally reported location; confirm boarding and service locally.",
+    "station_sources": "Sources and more information",
+    "connected_routes": "Connected routes",
     "google_maps_view": "View on Google Maps",
     "google_maps_walk": "Get walking directions",
     "google_maps_note": "Opens Google Maps. Locally reported coordinate; accessible boarding is not guaranteed. No passenger location is sent.",
@@ -249,9 +259,9 @@
     "facility_total": "Facility records with supplied points",
     "map_pending": "available when the map loads",
     "empty": "No facility points are supplied in this map. This does not mean facilities are absent.",
-    "unavailable": "Layers are selected by the maintainer. Disabled layers and unsupported or missing inputs are not loaded. OpenStreetMap background roads are separate from configured road layers.",
-    "precision": "Coordinates may be source-reported, approximate Plus Code cell centres, mapped-footprint centroids or field observations. Extra decimal places do not prove accuracy. A map point does not establish current operations or evacuation-centre designation. Consult the stated source and date.",
-    "safety": "Not a real-time warning, emergency-routing or shelter-safety service. Do not use this map for emergency decisions. For emergencies, call 911 or contact the Mapandan MDRRMO.",
+    "unavailable": "Only maintainer-configured, enabled, supported layers load; OpenStreetMap basemap roads are separate.",
+    "precision": "Locations may be approximate and do not confirm current services or evacuation shelters.",
+    "safety": "Not for real-time warnings or emergency decisions; call 911 or MDRRMO.",
     "shared": "These distinct records share exactly the same reported coordinates. This does not confirm that they occupy the same site. No points have been moved for display.",
     "source": "Source",
     "source_reported": "Source-reported coordinates (not necessarily field-verified)",

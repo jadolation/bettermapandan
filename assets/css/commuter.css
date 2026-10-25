@@ -70,6 +70,19 @@
 .station-actions { display: grid; gap: .5rem; margin: .75rem 0; }
 .station-actions a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 44px; padding: .65rem; border: 1px solid #183a2b; border-radius: .5rem; color: #183a2b; background: #fffefa; font-size: .9rem; text-align: center; }
 .station-actions a:first-child { background: #183a2b; color: white; }
+.commuter-page[data-view="station"] #commuter-info { display: block; min-width: 0; overflow-wrap: normal; word-break: normal; }
+.commuter-page[data-view="station"] #commuter-info-title { display: flex; align-items: flex-start; gap: .5rem; margin: .25rem 0 .65rem; line-height: 1.4; }
+.commuter-page[data-view="station"] #commuter-info-body { display: block; width: 100%; min-width: 0; }
+.commuter-page[data-view="station"] #commuter-info-body > * { width: 100%; min-width: 0; }
+.commuter-page[data-view="station"] #commuter-info-body > h3 { font-size: .9rem; margin: 1.1rem 0 .5rem; }
+.commuter-page[data-view="station"] .station-notice { padding: .6rem .7rem; background: #eef5ef; border-radius: .5rem; }
+.commuter-page #commuter-info-body > .station-route { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .75rem; border-color: #c1ccc3; background: #fffefa; }
+.station-route > span:first-child { flex: 1; min-width: 0; }
+.station-route strong, .station-route small { display: block; overflow-wrap: normal; word-break: normal; }
+.station-route small { margin-top: .3rem; font-size: .75rem; font-weight: 400; line-height: 1.5; }
+.station-route-chevron { flex: 0 0 20px; transform: rotate(-90deg); }
+.station-sources { margin-top: 1rem; border-top: 1px solid #d6e0d8; }
+.station-sources p { overflow-wrap: anywhere; }
 #commuter-lines legend { padding: 0 .2rem; font-weight: 650; font-size: .9rem; }
 #commuter-lines label { display: flex; align-items: center; min-height: 44px; gap: .5rem; font-size: .85rem; }
 #commuter-lines input { width: 24px; height: 24px; flex-shrink: 0; accent-color: #16532c; }

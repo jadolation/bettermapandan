@@ -1,5 +1,15 @@
 {
+  "commuter_discovery": {
+    "tool": "Independiente ya digital ya giya ed impormasyon, aliwan serbisyo na munisipyo odino plataporma na panagpareserba.",
+    "subtitle": "Anapen so dalan mo ed Pangasinan",
+    "description": "Nengnengen iray ruta, istasyon tan giya na lokal ya pasahe parad pigaran sakop ya ruta ed kaliberliber na Mapandan. Kumpirmaen ed pasen so serbisyo tan pasahe.",
+    "cta": "Nengnengen iray Ruta na Biyahero",
+    "category": "Publiko ya Transportasyon tan Panagbiahe"
+  },
   "commuter": {
+    "station_notice": "Lokal ya naiulat ya lokasyon; kumpirmaen ed pasen so sakayan tan serbisyo.",
+    "station_sources": "Saray reperensya tan kaaruman ya impormasyon",
+    "connected_routes": "Saray konektado ya ruta",
     "google_maps_view": "Nengnengen ed Google Maps",
     "google_maps_walk": "Saray direksyon na panakaran",
     "google_maps_note": "Onlukas so Google Maps. Lokal ya naiulat ya lokasyon; ag garantisado so sakayan ya naarumog. Anggapo so lokasyon na pasahero ya ipapawit.",
@@ -249,9 +259,9 @@
     "facility_total": "Saray tala na pasilidad ya walay naiter a punto",
     "map_pending": "nanengneng sano na-load so mapa",
     "empty": "Anggapoy naiter a punto na pasilidad ed sayan mapa. Ag to ibabaga ya anggapoy pasilidad.",
-    "unavailable": "Say manangasikaso so mamipili ed saray layer. Ag na-load so naka-disable, kulang odino ag suportado a datos. Hiwalay iray dalan ed background na OpenStreetMap ed itinakda a layer na dalan.",
-    "precision": "Nayarin coordinate ed pinanlapuan, tinansya a sentro na Plus Code cell, sentro na hugis na bilding ed mapa, odino obserbasyon ed lugar iray punto. Aliwan prueba na katumpakan so dakel a decimal. Aliwan prueba so punto ed mapa na kasalukuyan a operasyon odino pagkatalaga bilang evacuation center. Nengnengen so pinanlapuan tan petsa.",
-    "safety": "Aliwa yan real-time a babala, ruta ed emerhensya odino serbisyo na kaligtasan na silungan. Ag usaren parad desisyon ed emerhensya. Tumawag ed 911 odino kontaken so Mapandan MDRRMO.",
+    "unavailable": "Saray itinakda, pinagana tan suportado ya layer na manangasikaso labat so na-load; hiwalay iray dalan ed basemap na OpenStreetMap.",
+    "precision": "Nayarin tantiya so lokasyon tan aliwan prueba na kasalukuyan ya serbisyo odino evacuation center.",
+    "safety": "Aliwa parad real-time ya babala odino desisyon ed emerhensya; tumawag ed 911 odino MDRRMO.",
     "shared": "Eksakton pareho so iniulat a coordinate na sarayan nanduruma a tala. Ag to pinapaseguro ya walad sakey a lugar ira. Anggapoy punto ya inalis parad panagpakita.",
     "source": "Pinanlapuan",
     "source_reported": "Coordinate ed pinanlapuan (aliwan seguradon nasuri ed lugar)",

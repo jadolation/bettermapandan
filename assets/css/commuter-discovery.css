@@ -1,0 +1,30 @@
+.commuter-discovery { padding-block: 24px; }
+.commuter-discovery-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: clamp(20px, 4vw, 40px);
+  background: var(--cream);
+  border: 1px solid var(--green-deep);
+  border-top: 5px solid var(--green-deep);
+  border-radius: var(--radius);
+  color: var(--green-deep);
+}
+.commuter-discovery-card > svg { flex: 0 0 48px; }
+.commuter-discovery-card > div { flex: 1; min-width: 0; }
+.commuter-discovery-card h2 { margin-block: 4px 8px; }
+.commuter-discovery-card p { margin-block: 8px; }
+.commuter-discovery-subtitle { font-weight: 600; }
+.commuter-discovery-card .btn,
+[data-entry-type="digital-tool"] .service-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .commuter-discovery-card { flex-wrap: wrap; gap: 12px; }
+  .commuter-discovery-card > div { flex-basis: calc(100% - 60px); }
+  .commuter-discovery-card .btn { width: 100%; justify-content: center; }
+}

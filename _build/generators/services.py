@@ -74,8 +74,21 @@ def generate_services(locale: dict, lang_code: str = "en") -> tuple[dict[str, st
         }
         hero_meta_dict[f"services/{svc_slug}.html"] = hero_meta
 
+    # Discovery tools are not municipal services and never enter charter analytics
+    # or the detail-page/entity generation loop above.
+    discovery = locale["commuter_discovery"]
+    tool_category = {
+        "slug": "public-transportation-commuting", "icon": "bus-front",
+        "name": discovery["category"], "description": discovery["description"],
+        "entry_type": "digital-tool",
+    }
+    directory_data = {**data, "categories": [*data.get("categories", []), tool_category]}
+    by_category[tool_category["slug"]] = [{
+        "name": "Better Mapandan Commuter", "entry_type": "digital-tool",
+        "destination": "/commuter/", "description": discovery["tool"],
+    }]
     dir_filled, dir_hero_meta = _generate_services_directory(
-        data, by_category, dir_template, locale, lang_code, asset_base=compute_asset_base(Path("services/index.html"), lang_code), analytics_json=analytics_json
+        directory_data, by_category, dir_template, locale, lang_code, asset_base=compute_asset_base(Path("services/index.html"), lang_code), analytics_json=analytics_json
     )
     pages["services.html"] = dir_filled
     meta["services.html"] = {
@@ -256,7 +269,7 @@ def _generate_services_directory(data: dict, by_category: dict, template: str, l
         cat_desc = pick_lang(cat, "description", lang_code)
         service_links = _build_category_service_links(cat_services, lang_code)
         card = (
-            f'      <div class="card service-category-card">\n'
+            f'      <div class="card service-category-card" data-entry-type="{html.escape(cat.get("entry_type", "municipal-service"))}">\n'
             f'        <div class="service-card-head">\n'
             f'          <div class="service-icon"><i data-lucide="{html.escape(cat.get("icon", ""))}"></i></div>\n'
             f'          <h2>{html.escape(cat_name)}</h2>\n'
@@ -319,9 +332,15 @@ def _build_category_service_links(cat_services: list, lang_code: str) -> list:
         time_html = html.escape(time_value) if time_value else ""
         fee_html = html.escape(fee_value) if fee_value else ""
         meta_html = _build_service_meta_html(time_html, fee_html)
+        destination = f'/services/{s.get("slug", "")}/'
+        if s.get("entry_type") == "digital-tool":
+            destination = s["destination"]
+            if not re.fullmatch(r"/(?:[a-z0-9-]+/)+", destination):
+                raise ValueError("Digital tool destination must be a canonical internal path")
+            meta_html = f'<p class="service-link-meta">{html.escape(s["description"])}</p>'
         service_links.append(
             f'<div class="service-link-wrap">'
-            f'<a class="service-link" href="{prefix}/services/{html.escape(s.get("slug", ""))}/">{name_html}</a>'
+            f'<a class="service-link" href="{prefix}{html.escape(destination)}">{name_html}</a>'
             f'{meta_html}</div>'
         )
     return service_links

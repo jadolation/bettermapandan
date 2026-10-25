@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var anyVisible = false;
 
     cards.forEach(function (card) {
-      var h3 = card.querySelector("h3");
+      var h3 = card.querySelector("h2, h3");
       var desc = card.querySelector("p");
       var links = card.querySelectorAll(".service-link");
       var catName = h3 ? h3.textContent.toLowerCase() : "";

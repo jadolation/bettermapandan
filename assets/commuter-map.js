@@ -188,6 +188,7 @@
     if (!states.includes(state)) return;
     if (state === "collapsed" && sheetBody.contains(document.activeElement)) handle.focus({ preventScroll: true });
     sheet.dataset.state = state;
+    if (view === "station") document.getElementById("commuter-sheet-title").textContent = state === "collapsed" ? name(selection.id) : labels.station_details;
     sheetBody.hidden = state === "collapsed";
     sheet.style.setProperty("--sheet-height", stops[states.indexOf(state)] + "px");
     page.style.setProperty("--sheet-height", stops[states.indexOf(state)] + "px");
@@ -293,8 +294,7 @@
       var feature = features.find(function (f) { return f.properties.id === selection.id; }), props = feature.properties;
       summary = props.observed_only ? labels.observed_place : labels[props.transport_type];
       if (view === "station") {
-        paragraph(body, labels[props.transport_type]); paragraph(body, labels.unconfirmed_stops);
-        paragraph(body, props.location_description || props.notes);
+        paragraph(body, props.location_description || (props.name !== title ? props.name : null));
         var location = stationLocation(feature);
         if (location) {
           var actions = document.createElement("div"); actions.className = "station-actions";
@@ -302,29 +302,44 @@
             var link = document.createElement("a"); link.href = location[action[0]]; link.textContent = action[1];
             link.target = "_blank"; link.rel = "noopener noreferrer"; actions.appendChild(link);
           });
-          body.appendChild(actions); paragraph(body, labels.google_maps_note);
+          body.appendChild(actions);
         } else paragraph(body, labels.location_unavailable);
-        props.fares.forEach(function (fare) { paragraph(body, labels[fare.id] + ": PHP " + fare.amount.min + "-" + fare.amount.max); });
-        paragraph(body, labels.associated_routes);
+        paragraph(body, labels.station_notice); body.lastChild.className = "commuter-note station-notice";
+        var routesTitle = document.createElement("h3"); routesTitle.textContent = labels.connected_routes; body.appendChild(routesTitle);
         var associated = props.catalog_route_ids || [];
         if (!associated.length) paragraph(body, labels.no_routes);
         associated.forEach(function (id) {
-          var button = document.createElement("button"); button.type = "button"; button.textContent = name(id); button.dataset.associatedRoute = id;
+          var route = data.catalog.find(function (item) { return item.id === id; });
+          if (!route) return;
+          var button = document.createElement("button"); button.type = "button"; button.className = "station-route"; button.dataset.associatedRoute = id;
+          var text = document.createElement("span"), routeName = document.createElement("strong"), metadata = document.createElement("small");
+          routeName.textContent = name(id);
+          metadata.textContent = route.legs.map(function (leg) { return leg.vehicle_types.map(function (mode) { return labels[mode]; }).join(" / "); }).filter(function (mode, index, modes) { return modes.indexOf(mode) === index; }).join(" / ") + " · " + route.legs.length + " " + labels.rides + " / " + (route.transfer_count || 0) + " " + labels.transfers;
+          text.appendChild(routeName); text.appendChild(metadata); button.appendChild(text);
+          var chevron = document.createElement("span"); chevron.className = "station-route-chevron"; chevron.innerHTML = symbol("chevron"); button.appendChild(chevron);
           button.addEventListener("click", function () { choose("route", id, true); }); body.appendChild(button);
         });
-        var details = disclosure(labels.sources);
+        var details = disclosure(labels.station_sources); details.className = "station-sources";
         paragraph(details, summary); paragraph(details, props.location_description);
         if (location) paragraph(details, location.point.join(", "));
+        paragraph(details, props.id);
         paragraph(details, props.source_note || props.source_type); paragraph(details, props.verification_status);
-        paragraph(details, props.notes); paragraph(details, labels.source_warning); paragraph(details, labels.fare_caveat);
+        paragraph(details, props.notes);
+        props.fares.forEach(function (fare) { paragraph(details, labels[fare.id] + ": PHP " + fare.amount.min + "-" + fare.amount.max); });
+        associated.forEach(function (id) {
+          var route = data.catalog.find(function (item) { return item.id === id; });
+          if (!route) return;
+          paragraph(details, id + " / " + route.service_verification_status);
+          data.shapes.filter(function (shape) { return route.directions[0].includes(shape.properties.pattern_id); }).forEach(function (shape) {
+            var source = shape.properties;
+            paragraph(details, [source.pattern_id, source.geometry_status, source.verification_status, source.attribution, source.endpoint_caveat].filter(Boolean).join(" / "));
+          });
+        });
       }
     }
-    heading.textContent = (selection.kind === "route" ? labels.route_details : labels.station_details) + ": " + title;
+    heading.textContent = selection.kind === "station" ? title : labels.route_details + ": " + title;
     if (view !== "explore") {
-      (selection.kind === "route" ? [] : [0]).forEach(function (index) {
-        if (body.children[index]) body.children[index].classList.add("detail-chip");
-      });
-      var icon = document.createElement("span"); icon.innerHTML = symbol(selection.kind === "station" ? "location" : "transfer"); heading.prepend(icon);
+      var icon = document.createElement("span"); icon.innerHTML = symbol(selection.kind === "station" ? props.transport_type : "transfer"); heading.prepend(icon);
       Array.from(body.children).forEach(function (child) {
         if (child.tagName !== "P") return;
         if ([labels.unconfirmed_stops, labels.fare_change, labels.waiting_unknown].includes(child.textContent)) {
@@ -333,8 +348,8 @@
         }
       });
     }
-    document.getElementById("commuter-sheet-title").textContent = title;
-    document.getElementById("commuter-sheet-summary").textContent = summary;
+    document.getElementById("commuter-sheet-title").textContent = view === "station" && sheet.dataset.state !== "collapsed" ? labels.station_details : title;
+    document.getElementById("commuter-sheet-summary").textContent = view === "station" ? labels[props.transport_type] : summary;
     page.dataset.selectionKind = selection.kind; page.dataset.selectionId = selection.id || ""; page.dataset.view = view;
     page.dataset.activeRouteId = activeRouteId || "";
     page.dataset.focusedFeature = selection.kind;
