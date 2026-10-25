@@ -391,9 +391,7 @@
     }
     heading.textContent = (selection.kind === "route" ? labels.route_details : labels.station_details) + ": " + title;
     if (view !== "explore") {
-      (selection.kind === "route" ? [] : [0]).forEach(function (index) {
-        if (body.children[index]) body.children[index].classList.add("detail-chip");
-      });
+      // Station details use a full-width card; do not turn the card into an inline chip.
       var icon = document.createElement("span"); icon.innerHTML = symbol(selection.kind === "station" ? "location" : "transfer"); heading.prepend(icon);
       Array.from(body.children).forEach(function (child) {
         if (child.tagName !== "P") return;
