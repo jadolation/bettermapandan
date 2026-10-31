@@ -21,6 +21,12 @@ from _build.transport.validation import (
 DATA_DIR = TRANSPORT_DATA_DIR
 
 
+@pytest.fixture(autouse=True)
+def compiled_bootstrap(tmp_path, monkeypatch):
+    from _build.transport import compiler
+    monkeypatch.setattr(compiler, "bootstrap_bundle", lambda: compiler.compile_resources(tmp_path, compiler.reference_bundle()))
+
+
 def test_redesign_preserves_public_leg_reports_and_unknown_timings():
     from _build.transport.compiler import reference_bundle
 
@@ -705,7 +711,7 @@ def test_directions_reject_unsupported_correspondence_or_claims(mutation):
     assert validate_directions(data)
 
 
-def test_direction_instruction_labels_and_script_escaping():
+def test_direction_instruction_labels_and_script_escaping(tmp_path):
     from copy import deepcopy
     from unittest.mock import patch
 
@@ -721,7 +727,12 @@ def test_direction_instruction_labels_and_script_escaping():
     with patch("_build.transport.compiler.load_transport_data", return_value=deepcopy(data)):
         output = commuter_placeholders(load_locale("en"))
     assert "</script>" not in output["COMMUTER_DATA"]
-    assert json.loads(output["COMMUTER_DATA"])["direction_steps"]["mini-mapandan-manaoag"]["steps"][0]["original_source"] == attack
+    manifest = json.loads(output["COMMUTER_DATA"])
+    assert "direction_steps" not in manifest
+    ref = manifest["resources"]["mini-mapandan-manaoag"]["detail"]
+    raw = (tmp_path / ref["url"].lstrip("/")).read_text()
+    assert "</script>" not in raw
+    assert json.loads(raw)["data"]["directions"]["steps"][0]["original_source"] == attack
     for lang in ("en", "fil", "pag"):
         labels = load_locale(lang)["commuter"]
         for source in data["transport/directions.json"]["collections"]:

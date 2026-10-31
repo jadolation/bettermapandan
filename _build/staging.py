@@ -20,7 +20,6 @@ PUBLIC_DATA = {
     "data/entity-bids.json", "data/entity-contracts.json", "data/entity-projects.json",
     "data/entity-relationships.json", "data/fund-index.json", "data/project-index.json",
     "data/transparency-csv.json",
-    "data/transport-reference.min.json",
 }
 MEDIA_DIRS = {"barangay-council", "citizens-charter", "history", "logos", "officials", "projects"}
 MEDIA_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".ico"}
@@ -116,6 +115,36 @@ def _asset_outputs(root: Path) -> set[Path]:
             raise ValueError(f"Unsafe generated GIS asset: {path}")
         _regular_file(root, path)
         outputs.add(path)
+    outputs.update(_commuter_outputs(root))
+    return outputs
+
+
+def _commuter_outputs(root):
+    """Only content-addressed resources referenced by the current manifest."""
+    manifest = Path("assets/commuter/manifest.json")
+    data = json.loads(_regular_file(root, manifest).read_text(encoding="utf-8"))
+    if data.get("schema_version") != 6:
+        raise ValueError("Invalid commuter manifest version")
+    outputs = {manifest}
+    for pattern, resources in data["resources"].items():
+        for kind, item in resources.items():
+            url = item["url"]
+            if kind not in {"geometry", "detail"} or not re.fullmatch(r"/assets/commuter/" + kind + r"-[a-f0-9]{64}\.json", url):
+                raise ValueError("Unsafe commuter resource")
+            if not url.endswith("-" + item["sha256"] + ".json"):
+                raise ValueError("Commuter resource version mismatch")
+            rel = Path(url[1:])
+            import hashlib
+            content = _regular_file(root, rel).read_bytes()
+            if hashlib.sha256(content).hexdigest() != item["sha256"]:
+                raise ValueError("Commuter resource checksum mismatch")
+            payload = json.loads(content)
+            if payload.get("schema_version") != 1 or payload.get("pattern_id") != pattern or payload.get("kind") != kind or "data" not in payload:
+                raise ValueError("Invalid commuter resource schema")
+            outputs.add(rel)
+    vendor = Path("assets/vendor/leaflet-1.9.4")
+    outputs.update(vendor / name for name in ("leaflet.js", "leaflet.css", "LICENSE", "PROVENANCE.md"))
+    outputs.update(vendor / "images" / name for name in ("layers.png", "layers-2x.png", "marker-icon.png", "marker-icon-2x.png", "marker-shadow.png"))
     return outputs
 
 
@@ -156,7 +185,7 @@ def stage_site(root: Path) -> Path:
         _regular_file(root, rel)
     # Locale assets are build-time duplicates. Reuse audited root assets rather
     # than independently mutable fil/assets or pag/assets.
-    assets = {rel for rel in outputs if rel.parts[0] == "assets"}
+    assets = {rel for rel in outputs if rel.parts[0] == "assets" and rel.parts[1] not in {"commuter", "vendor"}}
     if destination.exists():
         _tree_files(root, Path(STAGING_DIR))
         shutil.rmtree(destination)

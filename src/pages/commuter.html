@@ -6,7 +6,7 @@ description: Locally reported transport places and fare ranges. Reference only; 
   <header class="commuter-hero"><h1>{C_TITLE}</h1><p>{C_CANDIDATE_WARNING}</p></header>
   <div class="commuter-workspace">
     <section class="commuter-map-section" aria-label="{C_MAP}">
-      <div id="commuter-map" class="commuter-map" aria-label="{C_MAP}" data-boundary-url="{{ASSET_BASE}}assets/gis/barangay-boundaries.geojson"></div>
+      <div id="commuter-map" class="commuter-map" aria-label="{C_MAP}" data-boundary-url="/assets/gis/barangay-boundaries.geojson"></div>
       <p id="commuter-map-status" role="status">{C_FALLBACK}</p>
     </section>
     <section id="commuter-sheet" class="commuter-sheet" aria-label="{C_SHEET}">
@@ -47,5 +47,4 @@ description: Locally reported transport places and fare ranges. Reference only; 
 </div>
 <p id="commuter-selection-status" class="commuter-sr-only" role="status" aria-live="polite"></p>
 <script id="commuter-data" type="application/json">{COMMUTER_DATA}</script>
-<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-<script defer src="{{ASSET_BASE}}assets/commuter-map.min.js"></script>
+<script defer src="/assets/commuter-map.min.js"></script>

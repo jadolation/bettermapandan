@@ -26,6 +26,12 @@ def put(root, rel, content="public"):
     return path
 
 
+def commuter_outputs(root):
+    from _build.transport.compiler import compile_resources
+    compile_resources(root, {"shapes": [], "direction_steps": {}})
+    shutil.copytree(REPO / "assets/vendor", root / "assets/vendor", dirs_exist_ok=True)
+
+
 @pytest.fixture
 def site(tmp_path, monkeypatch):
     # GIS generation is tested with its helper; boundary fixtures enumerate only
@@ -52,6 +58,7 @@ def site(tmp_path, monkeypatch):
                 "assets/data/project-index.json", "assets/projects/bucas.jpg",
                 "assets/citizens-charter/birth-certificate.jpg", "assets/logo.svg"):
         put(tmp_path, rel)
+    commuter_outputs(tmp_path)
     return tmp_path
 
 
@@ -60,7 +67,7 @@ def test_stages_multilingual_routes_assets_and_exact_downloads(site):
     expected = page_outputs(site) | _asset_outputs(site) | _download_outputs(site)
     expected.update(Path(name) for name in ROOT_FILES)
     for locale in ("fil", "pag"):
-        expected.update(Path(locale) / rel for rel in _asset_outputs(site))
+        expected.update(Path(locale) / rel for rel in _asset_outputs(site) if rel.parts[1] not in {"commuter", "vendor"})
     actual = {path.relative_to(artifact) for path in artifact.rglob("*") if path.is_file()}
     assert actual == expected
     for locale in ("", "fil", "pag"):
@@ -89,7 +96,7 @@ def test_uncontracted_files_never_publish(site, rel):
     put(site, rel, "private")
     artifact = stage_site(site)
     assert not (artifact / rel).exists()
-    assert all(path.read_text() != "private" for path in artifact.rglob("*") if path.is_file())
+    assert all(path.read_bytes() != b"private" for path in artifact.rglob("*") if path.is_file())
 
 
 @pytest.mark.parametrize("rel,is_dir", [
@@ -200,6 +207,7 @@ def test_real_current_build_contract_in_isolated_fixture(tmp_path, monkeypatch):
     for rel in ROOT_FILES:
         put(tmp_path, rel)
     (tmp_path / "assets").mkdir()
+    commuter_outputs(tmp_path)
     monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: set())
     artifact = stage_site(tmp_path)
     for locale in ("", "fil", "pag"):

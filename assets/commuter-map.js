@@ -21,6 +21,9 @@
   var status = document.getElementById("commuter-map-status");
   var features = data.features.concat(data.observations || []);
   var markers = new Map(), lines = new Map();
+  var resources = new Map(), geometry = new Map(), detailCache = new Map(), routeLoads = new Map();
+  var pendingFit = null, boundaryTimer;
+  data.direction_steps = {};
   var selection = { kind: "none", id: null };
   var activeRouteId = null;
   var stepMarker = null;
@@ -49,6 +52,90 @@
   function symbol(mode) { return '<svg class="transport-symbol" viewBox="0 0 24 24" aria-hidden="true">' + (paths[mode] || paths.transfer) + '</svg>'; }
   function name(id) { var f = features.find(function (f) { return f.properties.id === id; }); return labels[id] || (f && f.properties.name) || (data.place_names || {})[id] || id; }
   function paragraph(parent, text) { if (text) { var p = document.createElement("p"); p.textContent = text; parent.appendChild(p); } }
+  function coordinatesValid(value) {
+    return Array.isArray(value) && value.length >= 2 && value.every(function (point) {
+      return Array.isArray(point) && point.length === 2 && point.every(function (n) { return typeof n === "number" && Number.isFinite(n); }) && Math.abs(point[0]) <= 180 && Math.abs(point[1]) <= 90;
+    });
+  }
+  function validResource(payload, pattern, kind) {
+    if (!payload || payload.schema_version !== 1 || payload.pattern_id !== pattern || payload.kind !== kind) return false;
+    var value = payload.data;
+    if (kind === "geometry") return value === null || value && (value.type === "LineString" && coordinatesValid(value.coordinates) || value.type === "MultiLineString" && Array.isArray(value.coordinates) && value.coordinates.length && value.coordinates.every(coordinatesValid));
+    if (!value || typeof value !== "object" || !(value.properties === null || value.properties && value.properties.pattern_id === pattern)) return false;
+    var source = value.directions;
+    return source === null || source && source.pattern_id === pattern && Array.isArray(source.notes) && Array.isArray(source.steps) && source.steps.every(function (step) {
+      return step && typeof step.instruction_type === "string" && typeof step.street_name === "string" && Number.isInteger(step.sequence) &&
+        (step.waypoint === null || coordinatesValid([step.waypoint, step.waypoint])) && (step.distance_m === null || typeof step.distance_m === "number" && Number.isFinite(step.distance_m));
+    });
+  }
+  function loadResource(pattern, kind) {
+    var reference = (data.resources[pattern] || {})[kind];
+    if (!reference) return Promise.resolve(null);
+    if (resources.has(reference.url)) return resources.get(reference.url);
+    var controller = new AbortController(), timeout = setTimeout(function () { controller.abort(); }, 20000);
+    var promise = fetch(reference.url, { signal: controller.signal }).then(function (response) {
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return response.arrayBuffer();
+    }).then(async function (bytes) {
+      var hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))).map(function (n) { return n.toString(16).padStart(2, "0"); }).join("");
+      if (hash !== reference.sha256 || !reference.url.endsWith("-" + hash + ".json")) throw new Error("Resource version");
+      var payload = JSON.parse(new TextDecoder().decode(bytes));
+      if (!validResource(payload, pattern, kind)) throw new Error("Resource schema");
+      if (kind === "geometry") geometry.set(pattern, payload.data);
+      else { detailCache.set(pattern, payload.data); if (payload.data.directions) data.direction_steps[pattern] = payload.data.directions; }
+      return payload.data;
+    }).catch(function (error) { resources.delete(reference.url); throw error; }).finally(function () { clearTimeout(timeout); });
+    resources.set(reference.url, promise); return promise;
+  }
+  function lazyDisclosure(element, patterns, draw) {
+    var loaded = false, loading = false;
+    var content = document.createElement("div"); element.appendChild(content);
+    function load() {
+      if (loaded || loading || !element.open) return;
+      loading = true; content.replaceChildren(); paragraph(content, labels.resource_loading);
+      Promise.all(patterns.map(function (pattern) { return loadResource(pattern, "detail"); })).then(function () {
+        loaded = true; content.replaceChildren(); draw(content);
+      }).catch(function (error) {
+        console.warn("Commuter information:", error.message);
+        content.replaceChildren(); paragraph(content, labels.resource_failed);
+        var retry = document.createElement("button"); retry.type = "button"; retry.textContent = labels.resource_retry; retry.addEventListener("click", load); content.appendChild(retry);
+      }).finally(function () { loading = false; });
+    }
+    element.addEventListener("toggle", load);
+  }
+  function routeStatus(route, failed) {
+    var node = document.getElementById("commuter-route-status");
+    if (!node || activeRouteId !== route.id || view !== "route") return;
+    node.replaceChildren();
+    if (failed) {
+      paragraph(node, labels.resource_failed);
+      if (route.directions[0].some(function (pattern) { return geometry.get(pattern); })) paragraph(node, labels.partial_geometry);
+      var retry = document.createElement("button"); retry.type = "button"; retry.textContent = labels.resource_retry;
+      retry.addEventListener("click", function () { pendingFit = route.id; loadRoute(route); }); node.appendChild(retry);
+    } else if (routeLoads.has(route.id)) paragraph(node, labels.resource_loading);
+    else if (route.directions[0].some(function (pattern) { return !geometry.get(pattern); })) paragraph(node, labels.partial_geometry);
+  }
+  function createRouteLine(route) {
+    if (!map) return;
+    var shapes = route.directions[0].filter(function (pattern) { return geometry.get(pattern); }).map(function (pattern) {
+      return { type: "Feature", geometry: geometry.get(pattern), properties: { pattern_id: pattern } };
+    });
+    if (!shapes.length) return;
+    var previous = lines.get(route.id); if (previous) map.removeLayer(previous);
+    var line = L.geoJSON({ type: "FeatureCollection", features: shapes }, { style: { color: "#16532c", weight: 4, dashArray: "10 7" } });
+    line.on("click", function () { choose("route", route.id, true); }); lines.set(route.id, line);
+  }
+  function loadRoute(route) {
+    if (routeLoads.has(route.id)) { routeStatus(route, false); return; }
+    var work = Promise.allSettled(route.directions[0].map(function (pattern) { return loadResource(pattern, "geometry"); }));
+    routeLoads.set(route.id, work); routeStatus(route, false);
+    work.then(function (results) {
+      routeLoads.delete(route.id);
+      if (activeRouteId !== route.id) return;
+      createRouteLine(route); update(); routeStatus(route, results.some(function (r) { return r.status === "rejected"; }));
+      if (map && pendingFit === route.id && selection.kind === "route") { pendingFit = null; scheduleFit(); }
+    });
+  }
   function stationLocation(feature) {
     var geometry = feature && feature.geometry, coordinates = geometry && geometry.coordinates;
     if (!geometry || geometry.type !== "Point" || !Array.isArray(coordinates) || coordinates.length !== 2 ||
@@ -99,8 +186,9 @@
         (leg.fare.amount ? "PHP " + leg.fare.amount.min + "-" + leg.fare.amount.max : labels.unknown_fare) + " / " +
         (leg.driving_minutes == null ? labels.unknown_driving : leg.driving_km + " km / " + leg.driving_minutes + " min"));
       var steps = collection ? collection.steps : [];
-      var first = steps.find(function (step) { return ["board", "ask", "transfer", "start", "start_head", "head"].includes(step.instruction_type); });
-      var last = steps.find(function (step) { return step.instruction_type === "arrive"; });
+      var summary = (data.direction_summaries || {})[pattern] || {};
+      var first = summary.first;
+      var last = summary.last;
       paragraph(group, labels.where_ride + ": " + (first ? labels["action_" + first.instruction_type].replace("{street}", first.place_id ? name(first.place_id) : first.street_name) : labels.confirm_stops));
       paragraph(group, labels.where_getoff + ": " + (last ? labels.action_arrive.replace("{street}", last.street_name) : labels.confirm_stops));
       if (!data.shapes.some(function (shape) { return shape.properties.pattern_id === pattern && !shape.properties.endpoint_caveat; })) paragraph(group, labels.map_incomplete);
@@ -115,9 +203,10 @@
       }
       title.addEventListener("click", function () { emphasize(true); });
       detail.addEventListener("toggle", function () { if (detail.open) emphasize(false); });
-      if (!collection) paragraph(detail, labels.directions_unavailable);
-      else {
-        collection.notes.forEach(function (key) { paragraph(detail, labels[key]); });
+      lazyDisclosure(detail, [pattern], function (container) {
+        collection = data.direction_steps[pattern];
+        if (!collection) { paragraph(container, labels.directions_unavailable); return; }
+        collection.notes.forEach(function (key) { paragraph(container, labels[key]); });
         var list = document.createElement("ol"); list.className = "direction-timeline";
         collection.steps.forEach(function (step) {
           var item = document.createElement("li"); item.className = "direction-step";
@@ -135,8 +224,8 @@
           if (step.warning_key) paragraph(item, labels[step.warning_key]);
           list.appendChild(item);
         });
-        detail.appendChild(list);
-      }
+        container.appendChild(list);
+      });
       directions.appendChild(group);
     });
     if (route.directions.length > 1) {
@@ -144,11 +233,11 @@
       reverse.className = "reverse-directions";
       title.textContent = labels.return_unconfirmed;
       reverse.appendChild(title);
-      route.directions.slice(1).forEach(function (patterns) { patterns.forEach(function (pattern) {
+      lazyDisclosure(reverse, route.directions.slice(1).flat(), function (container) { route.directions.slice(1).forEach(function (patterns) { patterns.forEach(function (pattern) {
         var source = (data.direction_steps || {})[pattern];
-        if (!source) paragraph(reverse, labels.directions_unavailable);
-        else { paragraph(reverse, labels.street_sequence_only); source.steps.forEach(function (step) { paragraph(reverse, labels.action_reported_street.replace("{street}", step.street_name)); }); }
-      }); }); directions.appendChild(reverse);
+        if (!source) paragraph(container, labels.directions_unavailable);
+        else { paragraph(container, labels.street_sequence_only); source.steps.forEach(function (step) { paragraph(container, labels.action_reported_street.replace("{street}", step.street_name)); }); }
+      }); }); }); directions.appendChild(reverse);
     }
   }
   function fareText(route) {
@@ -255,9 +344,13 @@
         });
         overview.prepend(sequence); body.appendChild(overview);
         renderDirections(route);
+        var resourceStatus = document.createElement("div"); resourceStatus.id = "commuter-route-status"; resourceStatus.setAttribute("role", "status"); body.appendChild(resourceStatus);
         var sources = disclosure(labels.sources);
         sources.className = "route-sources";
         var reverseDirections = body.querySelector(".reverse-directions"); if (reverseDirections) sources.appendChild(reverseDirections);
+        lazyDisclosure(sources, route.directions.flat(), function (sources) {
+        var routeRecord = (detailCache.get(route.directions[0][0]) || {}).routes || {};
+        var sourceRoute = routeRecord[route.id] || route;
         paragraph(sources, labels.local_reports);
         paragraph(sources, labels.fare_change);
         if (!route.fare_summary.complete) paragraph(sources, labels.no_totals);
@@ -270,13 +363,13 @@
         paragraph(driving, labels.waiting_unknown);
         var routeShapes = data.shapes.filter(function (s) { return route.directions[0].includes(s.properties.pattern_id); });
         paragraph(sources, labels.source_warning);
-        if (route.explanation_key) paragraph(sources, labels[route.explanation_key]);
+        if (sourceRoute.explanation_key) paragraph(sources, labels[sourceRoute.explanation_key]);
         paragraph(sources, route.directions[0].map(name).join("; "));
         if (!routeShapes.length) paragraph(sources, labels.withheld);
         else if (routeShapes.length < route.directions[0].length || routeShapes.some(function (s) { return !!s.properties.endpoint_caveat; })) paragraph(sources, labels.partial_geometry);
-        paragraph(sources, route.evidence_note); paragraph(sources, route.evidence_source || route.source_type);
-        paragraph(sources, route.service_verification_status);
-        paragraph(sources, [route.last_updated, route.created_date, route.source_url].filter(Boolean).join(" / "));
+        paragraph(sources, sourceRoute.evidence_note); paragraph(sources, sourceRoute.evidence_source || sourceRoute.source_type);
+        paragraph(sources, sourceRoute.service_verification_status);
+        paragraph(sources, [sourceRoute.last_updated, sourceRoute.created_date, sourceRoute.source_url].filter(Boolean).join(" / "));
         paragraph(sources, data.direction_limitations);
         route.directions[0].forEach(function (pattern) {
           var source = (data.direction_steps || {})[pattern];
@@ -286,9 +379,16 @@
           });
         });
         routeShapes.forEach(function (s) {
-          var p = s.properties;
+          var p = (detailCache.get(s.properties.pattern_id) || {}).properties || s.properties;
           paragraph(sources, [p.name, p.verification_status, p.attribution, p.endpoint_caveat, p.retrieved_at, p.warnings].filter(Boolean).map(function (v) { return typeof v === "object" ? JSON.stringify(v) : v; }).join("; "));
           paragraph(sources, labels.geometry_details + ": " + p.distance_m + " m");
+        });
+        route.directions.flat().forEach(function (pattern) {
+          var value = detailCache.get(pattern); if (!value) return;
+          var record = document.createElement("details"), title = document.createElement("summary"); title.textContent = name(pattern);
+          var raw = document.createElement("pre"); raw.style.whiteSpace = "pre-wrap"; raw.style.overflowWrap = "anywhere"; raw.textContent = JSON.stringify(value, null, 2);
+          record.appendChild(title); record.appendChild(raw); sources.appendChild(record);
+        });
         });
       }
     } else if (selection.kind === "station") {
@@ -411,17 +511,20 @@
     page.dataset.activeRouteId = activeRouteId || "";
     page.dataset.focusedFeature = selection.kind;
     update();
+    if (selection.kind === "route") routeStatus(route, false);
   }
   function choose(kind, id, focus) {
     if (kind === "route" && !data.catalog.some(function (r) { return r.id === id; }) || kind === "station" && !features.some(function (f) { return f.properties.id === id; })) return;
     clearStep();
     if (kind === "route") {
+      pendingFit = id;
       activeRouteId = id; delete page.dataset.activeLeg;
       var line = lines.get(id); if (line) line.setStyle({ color: "#16532c", weight: 4, opacity: 1 });
-    }
+    } else pendingFit = null;
     selection = { kind: kind, id: id }; view = kind; render(); sheetBody.scrollTop = 0; setSheet("half");
     document.getElementById("commuter-selection-status").textContent = name(id);
     if (focus) heading.focus({ preventScroll: true });
+    if (kind === "route") loadRoute(data.catalog.find(function (r) { return r.id === id; }));
   }
   exploreButton.addEventListener("click", function () {
     clearStep();
@@ -444,19 +547,28 @@
   document.getElementById("commuter-reset").addEventListener("click", function () {
     clearStep();
     search.value = ""; filter.value = ""; showAll.checked = false;
-    selection = { kind: "none", id: null }; activeRouteId = null; view = "explore"; clearTimeout(fitTimer); render();
+    selection = { kind: "none", id: null }; activeRouteId = null; pendingFit = null; view = "explore"; clearTimeout(fitTimer); render();
     if (map) map.setView([16.0266, 120.4524], 12, { animate: false });
   });
-  if (window.L) {
+  function initializeMap() {
+    if (map || !window.L) return;
     try {
       var reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
       map = L.map("commuter-map", { zoomSnap: .25, touchZoom: true, dragging: true, scrollWheelZoom: true, zoomAnimation: !reducedMotion, fadeAnimation: !reducedMotion, markerZoomAnimation: !reducedMotion }).setView([16.0266, 120.4524], 12);
       map.on("dragstart zoomstart", function () { clearTimeout(fitTimer); });
+      function cancelPendingFit() { pendingFit = null; clearTimeout(fitTimer); }
+      map.getContainer().addEventListener("pointerdown", cancelPendingFit);
+      map.getContainer().addEventListener("wheel", cancelPendingFit, { passive: true });
+      map.getContainer().addEventListener("keydown", cancelPendingFit);
       var pane = map.createPane("commuter-boundaries"); pane.style.zIndex = "350"; pane.style.pointerEvents = "none";
-      fetch(map.getContainer().dataset.boundaryUrl).then(function (response) { if (!response.ok) throw new Error("Boundary unavailable"); return response.json(); }).then(function (boundary) {
+      function loadBoundary() {
+        if (routeLoads.size) { boundaryTimer = setTimeout(loadBoundary, 250); return; }
+        fetch(map.getContainer().dataset.boundaryUrl, { signal: AbortSignal.timeout(15000), priority: "low" }).then(function (response) { if (!response.ok) throw new Error("Boundary unavailable"); return response.json(); }).then(function (boundary) {
         L.geoJSON(boundary, { pane: "commuter-boundaries", interactive: false, bubblingMouseEvents: false, style: { color: "#557467", weight: 1, opacity: .55, fillColor: "#6c967d", fillOpacity: .08 } }).addTo(map);
         map.attributionControl.addAttribution(labels.boundary_note);
       }).catch(function () { /* Optional context cannot block the directory. */ });
+      }
+      boundaryTimer = setTimeout(loadBoundary, 1200);
       var tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19 });
       var tileFailed = false; status.textContent = labels.loading;
       tiles.on("tileerror", function () { tileFailed = true; status.textContent = labels.tiles_failed; });
@@ -474,12 +586,12 @@
           };
         }); markers.set(props.id, marker);
       });
-      data.catalog.forEach(function (route) {
-        var shapes = data.shapes.filter(function (s) { return route.directions[0].includes(s.properties.pattern_id); });
-        if (!shapes.length) return;
-        var line = L.geoJSON({ type: "FeatureCollection", features: shapes }, { style: { color: "#185da3", weight: 4, dashArray: "10 7" } });
-        line.on("click", function () { choose("route", route.id, true); }); lines.set(route.id, line);
-      });
+      if (activeRouteId) {
+        var currentRoute = data.catalog.find(function (r) { return r.id === activeRouteId; });
+        createRouteLine(currentRoute);
+        if (!routeLoads.has(activeRouteId) && pendingFit === activeRouteId && selection.kind === "route") { pendingFit = null; scheduleFit(); }
+      }
+      update();
       map.attributionControl.addAttribution('Road geometry: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | <a href="https://www.openstreetmap.org/fixthemap">Fix the map</a>');
     } catch (error) { status.textContent = labels.fallback; map = null; }
   }
@@ -556,4 +668,7 @@
   window.addEventListener("resize", resize);
   if (window.visualViewport) { visualViewport.addEventListener("resize", resize); visualViewport.addEventListener("scroll", resize); }
   page.dataset.ready = "true";
+  var library = document.createElement("script"); library.src = "/assets/vendor/leaflet-1.9.4/leaflet.js";
+  library.onload = initializeMap; library.onerror = function () { status.textContent = labels.fallback; };
+  document.head.appendChild(library);
 })();

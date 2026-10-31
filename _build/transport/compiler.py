@@ -1,9 +1,9 @@
-"""Compile transport reference data into a browser-loadable bundle.
+"""Compile a compact commuter bootstrap and hashed precision-preserving resources.
 
-Produces a single minified JSON artifact containing terminals and tricycle
-stands for the V1.0 commuter directory. Routing graph outputs are added in
-later phases. The bundle is generated once per build, before locale rendering.
+Compilation happens once before locale rendering; no geometry service is used.
+The full reference projection remains available for data consumers and tests.
 """
+import hashlib
 import json
 from html import escape
 from pathlib import Path
@@ -124,9 +124,8 @@ def reference_bundle():
 
 def commuter_placeholders(locale):
     """Build accessible HTML and script-safe data from the same seven records."""
-    from _build.gis import script_json
     labels = locale["commuter"]
-    bundle = reference_bundle()
+    bundle = bootstrap_bundle()
     cards = []
     for feature in bundle["features"]:
         props = feature["properties"]
@@ -159,19 +158,74 @@ def commuter_placeholders(locale):
         routes.append('<button type="button" class="passenger-geometry route-select" aria-pressed="false" aria-controls="commuter-info" data-route="' + escape(route["id"]) + '" data-type="' + escape(route["vehicle_type"]) + '"><strong>' + escape(labels[route["id"]]) + '</strong><span class="route-chips">' + escape(modes + " / " + rides) + '</span><span class="fare-summary">' + escape(fares) + '</span></button>')
     return {"COMMUTER_DIRECTORY": "".join(cards),
             "COMMUTER_ROUTES": "".join(routes),
-            "COMMUTER_DATA": script_json({**bundle, "labels": labels}),
+            "COMMUTER_DATA": compact_script_json({**bundle, "labels": labels}),
             **{"C_" + key.upper(): escape(value, quote=True) for key, value in labels.items()}}
 
 
-def compile_transport_reference(root):
-    """Compile transport reference data into a single browser-ready JSON bundle.
+def bootstrap_bundle():
+    """Read the once-compiled public manifest for every locale."""
+    from _build.config import ROOT
+    return json.loads((ROOT / "assets/commuter/manifest.json").read_text(encoding="utf-8"))
 
-    Writes to <root>/assets/data/transport-reference.min.json.
-    Returns the relative output path within assets/data/.
-    """
-    bundle = reference_bundle()
-    output = json.dumps(bundle, ensure_ascii=False, separators=(",", ":"))
-    out_file = Path(root) / "assets" / "data" / "transport-reference.min.json"
-    out_file.parent.mkdir(parents=True, exist_ok=True)
-    out_file.write_text(output, encoding="utf-8")
-    return "assets/data/transport-reference.min.json"
+
+def compile_transport_reference(root):
+    """Validate and compile once, before all locale render passes."""
+    compile_resources(root, reference_bundle())
+    return "assets/commuter/manifest.json"
+
+
+def compact_script_json(value):
+    """Compact JSON safe in an HTML script text node, without shared GIS changes."""
+    return json.dumps(value, ensure_ascii=False, allow_nan=False, separators=(",", ":")).replace("&", "\\u0026").replace("<", "\\u003c").replace(">", "\\u003e").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+
+
+def compile_resources(root, bundle):
+    """Publish precision-preserving per-pattern resources and a compact manifest."""
+    directory = Path(root) / "assets/commuter"
+    if any(path.is_symlink() for path in (Path(root), Path(root) / "assets", directory)):
+        raise ValueError("Linked commuter output")
+    directory.mkdir(parents=True, exist_ok=True)
+    shapes = {shape["properties"]["pattern_id"]: shape for shape in bundle["shapes"]}
+    resources, outputs = {}, {}
+    for pattern in sorted(set(shapes) | set(bundle["direction_steps"])):
+        resources[pattern] = {}
+        shape = shapes.get(pattern)
+        values = {"geometry": shape.get("geometry") if shape else None,
+                  "detail": {"properties": shape["properties"] if shape else None,
+                             "directions": bundle["direction_steps"].get(pattern),
+                             "routes": {route["id"]: route for route in bundle.get("catalog", []) if route["directions"][0][0] == pattern}}}
+        for kind, value in values.items():
+            payload = {"schema_version": 1, "pattern_id": pattern, "kind": kind, "data": value}
+            content = compact_script_json(payload).encode("utf-8")
+            digest = hashlib.sha256(content).hexdigest()
+            filename = f"{kind}-{digest}.json"
+            outputs[filename] = content
+            resources[pattern][kind] = {"url": "/assets/commuter/" + filename, "sha256": digest}
+    summaries = {}
+    for pattern, collection in bundle["direction_steps"].items():
+        steps = collection["steps"]
+        first = next((s for s in steps if s["instruction_type"] in {"board", "ask", "transfer", "start", "start_head", "head"}), None)
+        last = next((s for s in steps if s["instruction_type"] == "arrive"), None)
+        summaries[pattern] = {key: {field: step.get(field) for field in ("instruction_type", "place_id", "street_name")} if step else None for key, step in (("first", first), ("last", last))}
+    compact = {k: v for k, v in bundle.items() if k not in {"shapes", "direction_steps"}}
+    route_fields = {"id", "vehicle_type", "origin_id", "destination_id", "directions", "subtitle_key", "transfer_count", "routing_eligible", "public_signboard_text", "legs", "marker_ids", "fare_summary"}
+    compact["catalog"] = [{k: v for k, v in route.items() if k in route_fields} for route in bundle.get("catalog", [])]
+    compact.update(schema_version=6, resources=resources, direction_summaries=summaries,
+                   shapes=[{"type": "Feature", "properties": {k: s["properties"][k] for k in ("pattern_id", "endpoint_caveat") if k in s["properties"]}} for s in bundle["shapes"]])
+    # All resources are complete before the manifest is replaced. Staging reads
+    # only manifest references, so stale/unrelated files are never published.
+    for filename, content in outputs.items():
+        target = directory / filename
+        if target.is_symlink():
+            raise ValueError("Linked commuter resource")
+        if not target.is_file() or target.read_bytes() != content:
+            target.write_bytes(content)
+    manifest = directory / "manifest.json"
+    if manifest.is_symlink():
+        raise ValueError("Linked commuter manifest")
+    temporary = directory / "manifest.tmp"
+    if temporary.is_symlink():
+        raise ValueError("Linked commuter manifest temporary")
+    temporary.write_text(compact_script_json(compact), encoding="utf-8")
+    temporary.replace(manifest)
+    return compact

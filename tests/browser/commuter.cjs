@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const puppeteer = require('puppeteer-core');
 const rootIndex = process.argv.indexOf('--root');
 assert.ok(rootIndex >= 0 && process.argv[rootIndex + 1], 'Pass --root _site');
@@ -256,12 +257,6 @@ async function assertExternalTabs(browser, page) {
   }
 }
 async function main() {
-  const library = {};
-  for (const ext of ['js', 'css']) {
-    const response = await fetch(`https://unpkg.com/leaflet@1.9.4/dist/leaflet.${ext}`, { signal: AbortSignal.timeout(30000) });
-    assert.ok(response.ok, 'actual Leaflet must be available, not a mock');
-    library[ext] = await response.text();
-  }
   const server = http.createServer((req, res) => {
     let file = path.resolve(root, '.' + new URL(req.url.replace(/^\/+/, '/'), 'http://localhost').pathname);
     if (!file.startsWith(root + path.sep)) return res.writeHead(403).end();
@@ -283,25 +278,27 @@ async function main() {
           const page = await browser.newPage();
           if (lang === 'pag' && width === 430 && mode === 'map') await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
           const errors = [];
-          let tileRequests = 0;
-           page.on('pageerror', error => errors.push(error.message));
+           let tileRequests = 0;
+           const fixtureResources = new Map();
+            page.on('pageerror', error => errors.push(error.message));
+            page.on('console', message => { if (message.type() === 'warn') console.log(message.text()); });
           await page.setViewport({ width, height: 900, isMobile: width < 900, hasTouch: width < 900 });
           if (mode === 'no-js') await page.setJavaScriptEnabled(false);
            await page.setRequestInterception(true);
            let googleRequests = 0;
             page.on('request', async req => {
              if (new URL(req.url()).hostname === 'www.google.com') { googleRequests++; return req.abort(); }
-            if (req.url().includes('leaflet@1.9.4')) {
-              if (mode === 'cdn-failure') return req.abort();
-              const ext = req.url().endsWith('.css') ? 'css' : 'js';
-              return req.respond({ contentType: ext === 'css' ? 'text/css' : 'text/javascript', headers: { 'access-control-allow-origin': '*' }, body: library[ext] });
+             if (req.url().endsWith('/assets/vendor/leaflet-1.9.4/leaflet.js')) {
+               if (mode === 'cdn-failure') return req.abort();
+               return req.respond({ contentType: 'text/javascript', body: fs.readFileSync(path.join(root, 'assets/vendor/leaflet-1.9.4/leaflet.js'), 'utf8') + '\nL.Map.addInitHook(function () { window.__commuterMap = this; });' });
             }
             if (req.url().includes('tile.openstreetmap.org')) {
               tileRequests++;
               if (mode === 'tile-failure') return req.abort();
               return req.respond({ contentType: 'image/png', body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNQK7j0HwAEkAJo39+DWAAAAABJRU5ErkJggg==', 'base64') });
             }
-            if (req.url().startsWith(origin)) {
+             if (req.url().startsWith(origin)) {
+               if (fixtureResources.has(new URL(req.url()).pathname)) return req.respond({ contentType: 'application/json', body: fixtureResources.get(new URL(req.url()).pathname) });
               if (new URL(req.url()).pathname.endsWith('/assets/commuter-map.min.js')) {
                 return req.respond({ contentType: 'text/javascript', body: 'if (window.L) L.Map.addInitHook(function () { window.__commuterMap = this; });\n' + fs.readFileSync(path.join(root, 'assets/commuter-map.min.js'), 'utf8') });
               }
@@ -322,7 +319,20 @@ async function main() {
                     }};
                   });
                   if (mode === 'partial-shapes') payload.shapes = payload.shapes.filter(shape => ['mini-mapandan-dagupan-outbound', 'shared-mapandan-border-arch'].includes(shape.properties.pattern_id));
-                  if (mode === 'no-shapes') payload.shapes = [];
+                   if (mode === 'no-shapes') payload.shapes = [];
+                   if (['shape-fixture', 'partial-shapes', 'no-shapes'].includes(mode)) {
+                     const available = new Set(payload.shapes.map(shape => shape.properties.pattern_id));
+                     for (const [pattern, refs] of Object.entries(payload.resources)) {
+                       if (!available.has(pattern)) { delete refs.geometry; continue; }
+                       const shape = payload.shapes.find(shape => shape.properties.pattern_id === pattern);
+                       if (mode !== 'shape-fixture') continue;
+                       const body = JSON.stringify({ schema_version: 1, pattern_id: pattern, kind: 'geometry', data: shape.geometry });
+                       const sha256 = crypto.createHash('sha256').update(body).digest('hex');
+                       const url = '/assets/commuter/geometry-' + sha256 + '.json';
+                       refs.geometry = { url, sha256 }; fixtureResources.set(url, body);
+                     }
+                     payload.shapes = payload.shapes.map(shape => ({ type: 'Feature', properties: { pattern_id: shape.properties.pattern_id, endpoint_caveat: shape.properties.endpoint_caveat } }));
+                   }
                   return start + JSON.stringify(payload) + end;
                 });
                 return req.respond({contentType: 'text/html', body: html});
@@ -407,7 +417,21 @@ async function main() {
                 return r.left >= bounds.left && r.right <= bounds.right && r.top >= bounds.top && r.bottom <= bounds.bottom;
               });
             }));
-            const payload = await page.$eval('#commuter-data', el => JSON.parse(el.textContent));
+             const payload = await page.$eval('#commuter-data', el => JSON.parse(el.textContent));
+             assert.ok(payload.shapes.every(shape => !shape.geometry), 'bootstrap has no route geometry');
+             payload.direction_steps = {};
+             for (const [pattern, refs] of Object.entries(payload.resources)) {
+               if (refs.detail) {
+                 const detail = JSON.parse(fs.readFileSync(path.join(root, refs.detail.url), 'utf8')).data;
+                 if (detail.directions) payload.direction_steps[pattern] = detail.directions;
+               }
+             }
+             payload.shapes = payload.shapes.map(shape => {
+               const refs = payload.resources[shape.properties.pattern_id];
+               const raw = fixtureResources.get(refs.geometry.url) || fs.readFileSync(path.join(root, refs.geometry.url), 'utf8');
+               const detail = JSON.parse(fs.readFileSync(path.join(root, refs.detail.url), 'utf8')).data;
+               return { ...shape, geometry: JSON.parse(raw).data, properties: detail.properties || shape.properties };
+             });
             assert.deepEqual(payload.features.map(feature => [feature.id, feature.geometry.coordinates]), originalMarkers);
             if (mode === 'map' || mode === 'tile-failure') {
               for (const [id, distance] of Object.entries(newDistances)) {
@@ -523,9 +547,9 @@ async function main() {
                   assert.equal(await page.$$eval('#commuter-info-body details[open]', els => els.length), 0, 'all directions and sources initially closed');
                  assert.equal(await page.$$eval('.direction-leg', els => els.length), route.legs.length);
                  assert.equal(await page.$$eval('.direction-transfer', els => els.length), route.legs.length - 1);
-                 assert.equal(await page.$$eval('.direction-step', els => els.length), route.directions[0].reduce((sum, p) => sum + payload.direction_steps[p].steps.length, 0));
+                  assert.equal(await page.$$eval('.direction-step', els => els.length), 0, 'closed details do not fetch or construct directions');
                    assert.equal(await page.$eval('.route-sources', el => el.open), false);
-                   assert.ok(await page.$$eval('.route-sources details', els => els.length >= 2), 'restored fare and driving disclosures');
+                    assert.equal(await page.$$eval('.route-sources details', els => els.length), route.directions.length > 1 ? 1 : 0, 'sources remain lazy');
                    const overview = await page.$eval('.journey-summary', el => el.innerText);
                    const summaryLayout = await page.$eval('.journey-summary', el => ({
                      display: getComputedStyle(el).display,
@@ -563,7 +587,8 @@ async function main() {
                   assert.equal(await page.$$eval('.route-directions[open]', els => els.length), 0, 'keyboard disclosure closes selected leg');
                   assert.ok(!(await page.$eval('#commuter-info-body', el => el.innerText)).includes('undefined'));
                   for (const pattern of route.directions[0]) {
-                    await page.$eval(`.direction-leg[data-pattern="${pattern}"] .route-directions`, el => { el.open = true; });
+                     await page.$eval(`.direction-leg[data-pattern="${pattern}"] .route-directions`, el => { el.open = true; });
+                     await page.waitForFunction(pattern => document.querySelector(`.direction-leg[data-pattern="${pattern}"] .direction-timeline`) || document.querySelector(`.direction-leg[data-pattern="${pattern}"] .route-directions`).textContent.includes(JSON.parse(document.querySelector('#commuter-data').textContent).labels.directions_unavailable), {}, pattern);
                     const source = payload.direction_steps[pattern];
                     for (const note of source.notes) assert.ok((await page.$eval(`.direction-leg[data-pattern="${pattern}"] .route-directions`, el => el.innerText)).includes(payload.labels[note]));
                    const point = source.steps.find(step => step.waypoint);
@@ -611,7 +636,8 @@ async function main() {
                    // Return to the pre-step route view for the independent polyline/gesture regressions below.
                    await page.evaluate(view => window.__commuterMap.setView(view.center, view.zoom, { animate: false }), routeView);
                  }
-                  await page.$eval('.route-sources', el => { el.open = true; });
+                   await page.$eval('.route-sources', el => { el.open = true; });
+                   await page.waitForFunction(() => document.querySelectorAll('.route-sources details').length >= 2).catch(async error => { throw new Error(route.id + ': ' + await page.$eval('.route-sources', el => el.textContent) + '; ' + errors.join('; ') + '; ' + error.message); });
                   const breakdown = await page.$eval('.route-sources', el => el.textContent);
                 for (const leg of route.legs) assert.ok(breakdown.includes(leg.fare.amount ? `PHP ${leg.fare.amount.min}-${leg.fare.amount.max}` : payload.labels.unknown_fare));
                 if (expectedMarkers.length) {

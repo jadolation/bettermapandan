@@ -98,6 +98,13 @@ def assemble_page(
 ) -> str:
     """Assemble a complete page from its components."""
     locale = locale or {}
+    commuter_page = Path(page_url).name == "commuter.html"
+    if commuter_page:
+        base = re.sub(r'<link rel="preload"[^>]*mapandan-gateway-emblem\.png[^>]*>', '', base)
+        base = re.sub(r'<script defer src="[^\"]*(?:chart\.umd\.min\.js|barangay-data\.min\.js|lucide[^\"]*)"[^>]*></script>', '', base)
+        base = re.sub(r'<link rel="stylesheet" href="https://unpkg.com/leaflet[^>]*>', '<link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css" />', base)
+        base = base.replace('{{ASSET_BASE}}/assets/', '/assets/')
+        header = re.sub(r'(["\'])(?:\.\.?/+)*/*assets/', r'\1/assets/', header)
     map_page = Path(page_url).as_posix() in {
         f"{prefix}{name}.html"
         for prefix in ("", "fil/", "pag/") for name in ("gis", "commuter")
