@@ -71,3 +71,6 @@ frontend-text-extract.txt
 /gis/
 /commuter/
 /index_new/
+
+# Build provenance manifest (regenerated on every build)
+/src/data/build-manifest.json
