@@ -62,3 +62,9 @@ frontend-text-extract.txt
 
 # Vendored C++ package manager (unused; was a dangling submodule)
 /vcpkg/
+
+# Generated at build time (prepare_inputs / page build)
+/assets/gis/
+/gis/
+/commuter/
+/index_new/
