@@ -1,0 +1,90 @@
+---
+title: National Budget Projects in Mapandan — BetterMapandan.org
+description: Compare FY2027 NEP and House proposal records matching Mapandan, with source documents, actual reading stages, and geography-review caveats.
+hero_eyebrow: Transparency · National Budget
+hero_heading: National Budget Projects in Mapandan
+hero_lede: Explore proposed projects for 2027 and compare the executive proposal with the House budget.
+---
+
+{TRANSPARENCY_TABS}
+
+<section class="section national-budget" id="national-budget-page" data-state="loading" aria-labelledby="nb-heading">
+  <div class="wrap">
+    <h2 id="nb-heading">{NATIONAL_BUDGET_HEADING}</h2>
+    <p class="nb-proposal-notice">{NATIONAL_BUDGET_PROPOSAL_NOTICE}</p>
+    <div class="nb-coverage-line"><p id="nb-coverage-status" role="status">{NATIONAL_BUDGET_LOADING}</p>
+      <details id="nb-coverage" class="nb-explanation">
+        <summary>{NATIONAL_BUDGET_COVERAGE_DETAILS}</summary>
+        <div id="nb-availability" class="nb-availability" aria-label="{NATIONAL_BUDGET_AVAILABILITY}"></div>
+      </details>
+    </div>
+    <noscript><p class="nb-warning">{NATIONAL_BUDGET_NOSCRIPT}</p></noscript>
+    <div id="nb-summary" class="nb-summary"></div>
+    <p class="nb-overview-note">{NATIONAL_BUDGET_OVERVIEW_NOTE}</p>
+    <p id="nb-status" role="status" aria-live="polite" aria-atomic="true">{NATIONAL_BUDGET_LOADING}</p>
+
+    <form id="nb-filters" class="nb-filters" aria-label="{NATIONAL_BUDGET_FILTERS}">
+      <fieldset disabled>
+        <legend>{NATIONAL_BUDGET_FILTERS}</legend>
+        <div class="nb-filter-grid">
+          <label for="nb-search">{NATIONAL_BUDGET_TITLE_SEARCH}<input id="nb-search" type="search" autocomplete="off"></label>
+          <label for="nb-category">{NATIONAL_BUDGET_CATEGORY}<select id="nb-category"><option value="">{NATIONAL_BUDGET_ALL}</option><option value="dpwh">DPWH</option><option value="fmr">FMR</option><option value="hfep">HFEP</option><option value="nia">NIA</option></select></label>
+          <label for="nb-status-filter">{NATIONAL_BUDGET_RECORD_STATUS}<select id="nb-status-filter"><option value="">{NATIONAL_BUDGET_ALL}</option></select></label>
+        </div>
+        <details id="nb-more-filters">
+          <summary>{NATIONAL_BUDGET_MORE_FILTERS}</summary>
+          <div class="nb-filter-grid">
+          <label for="nb-office">{NATIONAL_BUDGET_OFFICE}<select id="nb-office"><option value="">{NATIONAL_BUDGET_ALL}</option></select></label>
+          <label for="nb-barangay">{NATIONAL_BUDGET_BARANGAY_SEARCH}<input id="nb-barangay" type="search" autocomplete="off" aria-describedby="nb-barangay-help"></label>
+          <label for="nb-sort">{NATIONAL_BUDGET_SORT}<select id="nb-sort"><option value="title">{NATIONAL_BUDGET_SORT_TITLE}</option><option value="house-desc">{NATIONAL_BUDGET_SORT_HOUSE_DESC}</option><option value="house-asc">{NATIONAL_BUDGET_SORT_HOUSE_ASC}</option><option value="nep-desc">{NATIONAL_BUDGET_SORT_NEP_DESC}</option><option value="nep-asc">{NATIONAL_BUDGET_SORT_NEP_ASC}</option></select></label>
+        </div>
+        <p id="nb-barangay-help">{NATIONAL_BUDGET_BARANGAY_HELP}</p>
+        <label class="nb-checkbox" for="nb-include-review"><input id="nb-include-review" type="checkbox"> {NATIONAL_BUDGET_INCLUDE_REVIEW}</label>
+        </details>
+      </fieldset>
+    </form>
+
+    <h2>{NATIONAL_BUDGET_RECORDS}</h2>
+    <div id="nb-results" class="nb-records"></div>
+    <nav class="nb-pagination" aria-label="{NATIONAL_BUDGET_PAGINATION}">
+      <button id="nb-prev" type="button" disabled>{NATIONAL_BUDGET_PREVIOUS}</button>
+      <span id="nb-page"></span>
+      <button id="nb-next" type="button" disabled>{NATIONAL_BUDGET_NEXT}</button>
+    </nav>
+    <section id="nb-review-section" aria-labelledby="nb-review-heading" class="nb-review" hidden>
+      <h2 id="nb-review-heading">{NATIONAL_BUDGET_REVIEW_HEADING}</h2>
+      <p>{NATIONAL_BUDGET_REVIEW_NOTICE}</p>
+      <div id="nb-review-results" class="nb-records"></div>
+      <nav class="nb-pagination" aria-label="{NATIONAL_BUDGET_REVIEW_HEADING}">
+        <button id="nb-review-prev" type="button" disabled>{NATIONAL_BUDGET_PREVIOUS}</button>
+        <span id="nb-review-page"></span>
+        <button id="nb-review-next" type="button" disabled>{NATIONAL_BUDGET_NEXT}</button>
+      </nav>
+    </section>
+
+    <p id="nb-source-date" class="source-label" hidden></p>
+    <details id="nb-notices" class="nb-explanation">
+      <summary>{NATIONAL_BUDGET_SOURCE_NOTICES}</summary>
+      <div id="nb-notice-content"></div>
+    </details>
+    <details class="nb-explanation">
+      <summary>{NATIONAL_BUDGET_READING_GUIDE}</summary>
+      <p>{NATIONAL_BUDGET_GEOGRAPHY_NOTICE}</p>
+      <p>{NATIONAL_BUDGET_COMPARISON_NOTICE}</p>
+      <p>{NATIONAL_BUDGET_EVIDENCE_NOTICE}</p>
+      <p>{NATIONAL_BUDGET_FRESHNESS_NOTICE}</p>
+      <p>{NATIONAL_BUDGET_DENOMINATOR}</p>
+      <p class="source-label"><a href="https://budget.bettergov.ph/docs" rel="noopener noreferrer">{NATIONAL_BUDGET_API_DOCS}</a> · <a href="https://budget.bettergov.ph/hgab/2027/methodology" rel="noopener noreferrer">{NATIONAL_BUDGET_METHODOLOGY}</a></p>
+    </details>
+    <details id="nb-technical-data" class="nb-explanation">
+      <summary>{NATIONAL_BUDGET_TECHNICAL_DATA}</summary>
+      <p id="nb-technical-counts"></p>
+      <div id="nb-diagnostics"></div>
+      <div class="nb-downloads">
+        <p id="nb-export-scope">{NATIONAL_BUDGET_EXPORT_NOTICE}</p>
+        <button id="nb-export" type="button" disabled aria-describedby="nb-export-scope">{NATIONAL_BUDGET_EXPORT_CSV}</button>
+        <button id="nb-export-metadata" type="button" disabled aria-describedby="nb-export-scope">{NATIONAL_BUDGET_EXPORT_METADATA}</button>
+      </div>
+    </details>
+  </div>
+</section>

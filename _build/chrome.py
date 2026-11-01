@@ -136,6 +136,12 @@ def assemble_page(
         "FOOTER": footer,
         "LANG_ATTR": f' lang="{lang_code}"',
         "CANONICAL_URL": canonical,
+        "BUDGET_CONNECT_SRC": (
+            " https://budget.bettergov.ph"
+            if Path(page_url).as_posix() in {
+                f"{prefix}transparency/national-budget.html" for prefix in ("", "fil/", "pag/")
+            } else ""
+        ),
         "BREADCRUMB_JSONLD": breadcrumb_jsonld,
         "I18N_SCRIPT": js_i18n_script(lang_code),
         "A11Y_SKIP": t(locale, "a11y.skip", "Skip to content"),

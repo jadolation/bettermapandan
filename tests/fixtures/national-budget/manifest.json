@@ -1,0 +1,41 @@
+{
+  "description": "Exact HTTPS public API response bodies; not a runtime fallback.",
+  "files": [
+    {
+      "file": "dpwh-list.json",
+      "url": "https://budget.bettergov.ph/api/v1/hgab/2027/datasets/dpwh/projects?q=Mapandan&limit=50&offset=0",
+      "retrieved_at": "2026-11-01T02:00:28.387Z",
+      "sha256": "115302b6c00e51e3ac81b9f18290aa8fa382fada07b802754e6dbd76bb559ce5"
+    },
+    {
+      "file": "fmr-list.json",
+      "url": "https://budget.bettergov.ph/api/v1/hgab/2027/datasets/fmr/projects?q=Mapandan&limit=50&offset=0",
+      "retrieved_at": "2026-11-01T02:00:28.633Z",
+      "sha256": "073d57c5a5292f127dcaf97f53138e5cbec1971d0f6a1ff669a80d5b5b58546e"
+    },
+    {
+      "file": "hfep-list.json",
+      "url": "https://budget.bettergov.ph/api/v1/hgab/2027/datasets/hfep/projects?q=Mapandan&limit=50&offset=0",
+      "retrieved_at": "2026-11-01T02:00:28.814Z",
+      "sha256": "305186b218d267cfa4a403232137089e928171c3b94c9125c4dc8f6913fb2eb7"
+    },
+    {
+      "file": "nia-list.json",
+      "url": "https://budget.bettergov.ph/api/v1/hgab/2027/datasets/nia/projects?q=Mapandan&limit=50&offset=0",
+      "retrieved_at": "2026-11-01T02:00:29.007Z",
+      "sha256": "4efd81953bf0fe52fd2f07a020a5392110fe0716dd83528b7fba6568c0f1b8f4"
+    },
+    {
+      "file": "dpwh-detail-3959.json",
+      "url": "https://budget.bettergov.ph/api/v1/hgab/2027/datasets/dpwh/projects/house-reading%3A3959",
+      "retrieved_at": "2026-11-01T02:00:29.190Z",
+      "sha256": "ace278ee5d53cf329cdf3ac658f69f2f03395d78dd8a634af688ffbe6b57a4cf"
+    },
+    {
+      "file": "dpwh-detail-3923.json",
+      "url": "https://budget.bettergov.ph/api/v1/hgab/2027/datasets/dpwh/projects/house-reading%3A3923",
+      "retrieved_at": "2026-11-01T02:00:29.379Z",
+      "sha256": "d02600048c319571baebfdcc9c335eead0af0124181c71f5de4985138b630fe4"
+    }
+  ]
+}

@@ -66,7 +66,7 @@ jobs:
       - name: Commuter transport data validation
         run: python -B -c "from _build.transport.validation import validate_transport_data; errors = validate_transport_data(); assert not errors, errors"
       - name: Explicit JavaScript runtime suite
-        run: node --test tests/gis-runtime.cjs
+        run: node --test tests/gis-runtime.cjs tests/national-budget-runtime.cjs
       - name: Check locale parity
         run: python check_i18n.py
       - name: Build and stage once in isolated offline workspace
@@ -87,6 +87,7 @@ jobs:
           node tests/browser/gis-weather.cjs --root "$PWD/_site"
           node tests/browser/commuter.cjs --root "$PWD/_site"
           node tests/browser/commuter-loading.cjs --root "$PWD/_site"
+          node tests/browser/national-budget.cjs --root "$PWD/_site"
       - name: Check oversized graphics in exact artifact
         run: |
           LARGE_FILES=$(find _site -type f -name '*.svg' -size +100k | grep -v '/assets/logo.svg' | grep -v '/assets/logo-no-white.svg' | grep -v '/assets/municipal-seal.svg' | grep -v '/assets/Pandan.svg' || true)

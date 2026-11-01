@@ -1,4 +1,21 @@
 {
+  "transparency/national-budget.html": {
+    "pag_status": "draft",
+    "fil": {
+      "title": "Mga Proyekto sa Pambansang Badyet sa Mapandan — BetterMapandan.org",
+      "description": "Ihambing ang mga rekord ng NEP at Kamara sa FY2027 na tumutugma sa Mapandan, kasama ang pinagmulan, aktuwal na pagbasa at pagsusuri ng lokasyon.",
+      "hero_eyebrow": "Transparency · Pambansang Badyet",
+      "hero_heading": "Mga Proyekto sa Pambansang Badyet sa Mapandan",
+      "hero_lede": "Tingnan ang mga panukalang proyekto para sa 2027 at ihambing ang panukala ng ehekutibo sa badyet ng Kamara."
+    },
+    "pag": {
+      "title": "Saray Proyekto ed Nasyonal ya Badyet ed Mapandan — BetterMapandan.org",
+      "description": "Ikompara iray rekord na NEP tan Kamara ed FY2027 ya katugma na Mapandan, kaiba so pinanggapuan, aktuwal ya pagbasa tan panagrepaso na lokasyon.",
+      "hero_eyebrow": "Transparency · Nasyonal ya Badyet",
+      "hero_heading": "Saray Proyekto ed Nasyonal ya Badyet ed Mapandan",
+      "hero_lede": "Nengnengen iray panukala ya proyekto parad 2027 tan ikompara so panukala na ehekutibo ed badyet na Kamara."
+    }
+  },
   "index.html": {
     "fil": {
       "title": "Better Mapandan — Portal ng Civic Transparency para sa Mapandan, Pangasinan",

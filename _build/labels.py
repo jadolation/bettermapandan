@@ -13,6 +13,8 @@ def resolve_body_placeholders(body: str, locale: dict, asset_base: str) -> str:
         "ASSET_BASE": asset_base,
         **{f"DISCOVERY_{key.upper()}": escape(str(value))
            for key, value in locale.get("commuter_discovery", {}).items()},
+        **{f"NATIONAL_BUDGET_{key.upper()}": escape(str(value))
+           for key, value in locale.get("national_budget", {}).items()},
         **facts_placeholders(),
         ** _build_page_body_labels(locale),
         ** _build_homepage_labels(locale),

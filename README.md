@@ -257,6 +257,60 @@ The site includes a knowledge-graph layer that links COA audit findings to procu
 
 This enables cross-reference queries such as: "Show all COA findings related to CCTV procurements" or "Trace funding from LDRRMF to specific DPWH contracts."
 
+### National budget proposals
+
+`/transparency/national-budget/` (also under `/fil/` and `/pag/`) queries the
+public [BetterGovPH Budget API](https://budget.bettergov.ph/docs) in the browser
+for FY2027 records matching `Mapandan` in DPWH, FMR, HFEP, and NIA. These are
+independent, provisional comparisons of published proposals, not expenditures,
+awarded contracts, completed projects, or an official DBM/House publication.
+They remain separate from the site's DPWH contracts and entity graph.
+
+The API's actual House reading is retained: currently DPWH uses third reading,
+while the other three datasets use second reading. Monetary summaries are
+separate by reading, never added across versions. Unknown amounts remain
+unknown; paired-record change excludes uncertain/noncomparable pairs and reports
+its denominator. Source PDF references identify file positions, not necessarily
+printed page numbers. Evidence-review flags remain visible, including the
+Amanoaoac NEP amount still being checked against the scan.
+
+Name search is not a complete municipal inventory. A matching Region I is only
+a consistency check. Explicit other-region records are excluded; missing-region
+or non-title matches remain in a review list and outside default monetary/export
+scope until the user explicitly includes them. Search, filters, summaries, and
+CSV share the selected scope. Source titles and quoted upstream notices are not
+translated; new Pangasinan interface text awaits fluent-speaker review.
+
+The default view prioritizes project titles, proposed amounts, changes, and
+visible source-review warnings. Coverage details, additional filters, original
+source notices, and technical metadata use native expandable disclosures.
+Project source disclosures retain official full titles and exact PDF references;
+raw IDs, comparison codes, confidence, and JSON remain in nested technical
+details. CSV and metadata downloads are under Technical data details. These
+presentation choices do not change the API validation or financial calculations.
+
+The page uses session-memory caching, bounded pagination (100 pages / 5,000 rows
+per dataset), and lazy detail requests. It displays upstream snapshot and local
+retrieval timestamps; data is not refreshed automatically during interaction.
+Failures and incomplete results are labeled separately from successful empty
+results, with per-dataset retry. There is no silent stale-data fallback. Without
+JavaScript or upstream availability, explanatory text and original-source links
+remain available, but live records cannot be loaded. CSV downloads have a
+companion metadata download with query, coverage, provenance, and verbatim notices.
+
+Edit the source template, `national_budget` locale labels, and the three
+`assets/js/national-budget-*.js` scripts, not generated HTML or sidecars. Scripts
+are registered in `_build/assets.py` and injected only on this page by
+`_build/pages.py`; no server or mandatory new frontend build is required.
+Historical GAA and automatic project linking are not implemented.
+
+Offline regression coverage uses raw responses under
+`tests/fixtures/national-budget/`, `node --test tests/national-budget-runtime.cjs`,
+and `node tests/browser/national-budget.cjs --root "$PWD/_site"` after an isolated
+build. Tests mock API traffic; live CORS and source-document availability require
+separate checks. Run the existing Python, locale, browser, and staging checks as
+well; `npm test` is not the repository test suite.
+
 ---
 
 ## Commands

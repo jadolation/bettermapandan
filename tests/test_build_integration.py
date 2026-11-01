@@ -219,7 +219,7 @@ def test_mayoral_terms_single_source(built_site: Path):
     assert '"end": null' in html
 
 
-TRANSPARENCY_SUBPAGES = ("procurement", "infrastructure", "budget-fiscal", "audit-compliance", "projects")
+TRANSPARENCY_SUBPAGES = ("procurement", "infrastructure", "budget-fiscal", "national-budget", "audit-compliance", "projects")
 
 
 def _read_subpage(built_site: Path, lang: str, slug: str) -> str:
@@ -235,17 +235,17 @@ def _read_subpage(built_site: Path, lang: str, slug: str) -> str:
 
 
 def test_transparency_tabs_pills_and_select(built_site: Path):
-    """Every transparency subpage (EN + FIL + PAG) renders 5 pills + mobile select in sync."""
+    """Every transparency subpage (EN + FIL + PAG) renders six synchronized tabs."""
     for lang in ("en", "fil", "pag"):
         prefix = "" if lang == "en" else f"/{lang}"
         for slug in TRANSPARENCY_SUBPAGES:
             html = _read_subpage(built_site, lang, slug)
-            assert html.count('class="tab-btn') == 5, f"{lang}/{slug} pills"
+            assert html.count('class="tab-btn') == 6, f"{lang}/{slug} pills"
             assert html.count('aria-current="page"') == 1, f"{lang}/{slug} active"
             assert 'id="transparency-section-select"' in html, f"{lang}/{slug} select"
             tabs_select = html.split('id="transparency-section-select"')[1].split("</select>")[0]
-            assert tabs_select.count("<option") == 5, f"{lang}/{slug} options"
-            assert html.count(" selected") == 1, f"{lang}/{slug} selected"
+            assert tabs_select.count("<option") == 6, f"{lang}/{slug} options"
+            assert tabs_select.count(" selected") == 1, f"{lang}/{slug} selected"
             assert '<label class="tabs-select-label"' not in html, f"{lang}/{slug} label removed"
             assert 'aria-label="' in html.split('id="transparency-section-select"')[1][:200], f"{lang}/{slug} select named"
             active_url = f"{prefix}/transparency/{slug}/"
@@ -263,6 +263,43 @@ def test_transparency_dropdown_sticky_css(built_site: Path):
     assert "calc(var(--transparency-tabs-top" in css
     # Bar carries no top padding of its own (flush top edge).
     assert "padding:0 0 8px" in css
+
+
+def test_national_budget_localization_assets_and_discovery(built_site: Path):
+    """New source page participates in native localization and asset contracts."""
+    for lang in ("en", "fil", "pag"):
+        prefix = "" if lang == "en" else f"/{lang}"
+        locale = json.loads((REPO / f"locales/{lang}.json").read_text(encoding="utf-8"))
+        html = _read_subpage(built_site, lang, "national-budget")
+        assert "{NATIONAL_BUDGET_" not in html
+        match = re.search(r"window.NATIONAL_BUDGET_LABELS = (.*?);</script>", html)
+        assert match, "page-specific labels must precede the feature scripts"
+        assert json.loads(match[1]) == locale["national_budget"]
+        scripts = [f"national-budget-{feature}.min.js" for feature in ("normalize", "api", "ui")]
+        assert html.index(match[0]) < html.index(scripts[0]) < html.index(scripts[1]) < html.index(scripts[2])
+        assert "<noscript>" in html
+        assert re.search(r'<details\b[^>]*id="nb-coverage"', html)
+        assert re.search(r'<details\b[^>]*id="nb-more-filters"', html)
+        assert re.search(r'<details\b[^>]*id="nb-technical-data"', html)
+        assert html.index('id="nb-summary"') < html.index('id="nb-filters"') < html.index('id="nb-results"')
+        assert html.index('id="nb-results"') < html.index('id="nb-notices"') < html.index('id="nb-technical-data"')
+        assert html.index('id="nb-technical-data"') < html.index('id="nb-export"')
+        csp = re.search(r'http-equiv="Content-Security-Policy" content="([^"]+)"', html)[1]
+        assert "https://budget.bettergov.ph" in csp.split("connect-src", 1)[1].split(";", 1)[0]
+        assert "https://budget.bettergov.ph/docs" in html
+        assert "https://budget.bettergov.ph/hgab/2027/methodology" in html
+        assert f'https://bettermapandan.org{prefix}/transparency/national-budget/' in html
+        for script in scripts:
+            assert (built_site / "assets/js" / script).is_file()
+        other = _read_subpage(built_site, lang, "procurement")
+        assert "national-budget-ui.min.js" not in other
+        other_csp = re.search(r'http-equiv="Content-Security-Policy" content="([^"]+)"', other)[1]
+        assert "https://budget.bettergov.ph" not in other_csp
+        root = built_site if lang == "en" else built_site / lang
+        search = json.loads((root / "assets/search-index.json").read_text(encoding="utf-8"))
+        assert any(entry["url"] == f"{prefix}/transparency/national-budget/" for entry in search)
+    sitemap = (built_site / "sitemap.xml").read_text(encoding="utf-8")
+    assert "https://bettermapandan.org/transparency/national-budget/" in sitemap
 
 
 def test_section_nav_sidebar_and_edge(built_site: Path):

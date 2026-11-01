@@ -18,7 +18,6 @@ from _build.generators.barangays import (
 from _build.generators.dpwh import generate_dpwh
 from _build.generators.fdp import generate_fdp, generate_fdp_dashboard
 from _build.generators.fdp_analytics import generate_fdp_summary
-from _build.html_i18n import translate_html_fragment
 from _build.generators.procurement import (
     generate_homepage_dpwh_data,
     generate_homepage_procurement_data,
@@ -28,6 +27,7 @@ from _build.gis import (
     directory_html,
     script_json,
 )
+from _build.html_i18n import translate_html_fragment
 from _build.labels import resolve_body_placeholders
 from _build.navigation import (
     build_breadcrumb_jsonld,
@@ -188,6 +188,12 @@ def _process_static_page(
     if str(rel).replace("\\", "/") == "transparency/projects.html":
         explorer_js = '<script defer src="' + asset_base + '/assets/js/project-explorer.min.js"></script>'
         page_html = page_html.replace("</body>", explorer_js + "</body>", 1)
+
+    if rel.as_posix() == "transparency/national-budget.html":
+        budget_js = '<script>window.NATIONAL_BUDGET_LABELS = ' + script_json(locale.get("national_budget", {})) + ';</script>\n'
+        for feature in ("normalize", "api", "ui"):
+            budget_js += f'<script defer src="{asset_base}/assets/js/national-budget-{feature}.min.js"></script>\n'
+        page_html = page_html.replace("</body>", budget_js + "</body>", 1)
 
     # Transparency subpages only (the /transparency/ hub is static — no JS data needed).
     if len(rel.parts) > 1 and rel.parts[0] == "transparency":

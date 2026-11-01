@@ -19,6 +19,28 @@ from _build.staging import (
 REPO = Path(__file__).resolve().parent.parent
 
 
+def test_national_budget_offline_script_copythrough(tmp_path, monkeypatch):
+    """The supported offline path emits deployable ordered plain scripts too."""
+    from _build import assets
+
+    scripts = [f"assets/js/national-budget-{part}.js" for part in ("normalize", "api", "ui")]
+    assert set(scripts).issubset(assets.JS_SOURCES)
+    for script in scripts:
+        target = tmp_path / script
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes((REPO / script).read_bytes())
+    monkeypatch.setattr(assets, "ROOT", tmp_path)
+    monkeypatch.setattr(assets, "JS_SOURCES", scripts)
+
+    def no_build_tool(*args, **kwargs):
+        raise OSError("offline fixture: build tool unavailable")
+
+    monkeypatch.setattr(assets.subprocess, "run", no_build_tool)
+    assets.minify_js_assets()
+    for script in scripts:
+        assert (tmp_path / script.replace(".js", ".min.js")).read_bytes() == (REPO / script).read_bytes()
+
+
 def put(root, rel, content="public"):
     path = root / rel
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -38,7 +60,8 @@ def site(tmp_path, monkeypatch):
     # explicitly selected outputs, without running a full build.
     monkeypatch.setattr("_build.staging.gis_asset_outputs", lambda root: set())
     for rel in ("src/pages/index.html", "src/pages/gis.html", "src/pages/commuter.html",
-                "src/pages/support/faq.html", "src/pages/transparency/projects.html"):
+                "src/pages/support/faq.html", "src/pages/transparency/projects.html",
+                "src/pages/transparency/national-budget.html"):
         put(tmp_path, rel, "source only")
     put(tmp_path, "src/data/services.json", json.dumps({"services": [{"slug": "birth-certificate"}]}))
     downloads = ["/datasets/audit-reports/Mapandan2025_car.docx",
@@ -54,7 +77,9 @@ def site(tmp_path, monkeypatch):
     for rel in ROOT_FILES:
         put(tmp_path, rel)
     for rel in ("assets/style.min.css", "assets/css/map.css", "assets/gis-map.min.js",
-                "assets/js/project-explorer.min.js", "assets/search-index.json",
+                 "assets/js/project-explorer.min.js", "assets/search-index.json",
+                 "assets/js/national-budget-api.min.js", "assets/js/national-budget-normalize.min.js",
+                 "assets/js/national-budget-ui.min.js", "assets/css/national-budget.css",
                 "assets/data/project-index.json", "assets/projects/bucas.jpg",
                 "assets/citizens-charter/birth-certificate.jpg", "assets/logo.svg"):
         put(tmp_path, rel)
@@ -75,6 +100,9 @@ def test_stages_multilingual_routes_assets_and_exact_downloads(site):
         assert (artifact / locale / "commuter/index.html").is_file()
         assert (artifact / locale / "services/birth-certificate/index.html").is_file()
         assert (artifact / locale / "transparency/projects/index.html").is_file()
+        assert (artifact / locale / "transparency/national-budget/index.html").is_file()
+        for feature in ("api", "normalize", "ui"):
+            assert (artifact / locale / f"assets/js/national-budget-{feature}.min.js").is_file()
         assert (artifact / locale / "support/faq/index.html").is_file()
         assert (artifact / locale / "assets/gis-map.min.js").read_text() == "public"
     assert (artifact / "datasets/audit-reports/Mapandan2025_car.docx").is_file()
@@ -90,6 +118,7 @@ def test_stages_multilingual_routes_assets_and_exact_downloads(site):
     "assets/facilities.geojson", "assets/facilities.json", "assets/data/facilities.json",
     "assets/gis/hazards.kmz", "assets/review/photo.png", "assets/tests/test.js",
     "assets/data/queue.json", "assets/debug.html", "assets/debug.py", "assets/debug.js",
+    "tests/fixtures/national-budget/dpwh.json", "assets/data/national-budget-fixture.json",
     "pag/assets/data/facilities.json", "fil/assets/debug.js",
 ])
 def test_uncontracted_files_never_publish(site, rel):

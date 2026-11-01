@@ -1,6 +1,7 @@
 """Navigation builders: lang switcher, breadcrumbs, tabs, section nav."""
 import json
 import re
+from html import escape
 from pathlib import Path
 
 from _build.config import (
@@ -145,6 +146,7 @@ def build_transparency_tabs(locale: dict, active_slug: str, lang_prefix: str) ->
         ("procurement", t(locale, "transparency.tab_procurement", "Public Procurement")),
         ("infrastructure", t(locale, "transparency.tab_infrastructure", "Infrastructure")),
         ("budget-fiscal", t(locale, "transparency.tab_budget_fiscal", "Budget & Fiscal")),
+        ("national-budget", escape(t(locale, "national_budget.tab", "National Budget"))),
         ("audit-compliance", t(locale, "transparency.tab_audit", "Audit & Compliance")),
         ("projects", t(locale, "transparency.tab_projects", "Project Explorer")),
     ]

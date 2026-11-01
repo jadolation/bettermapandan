@@ -223,6 +223,9 @@ JS_SOURCES = [
     "assets/js/dashboard-tabs.js",
     "assets/js/section-nav.js",
     "assets/js/project-explorer.js",
+    "assets/js/national-budget-normalize.js",
+    "assets/js/national-budget-api.js",
+    "assets/js/national-budget-ui.js",
     "assets/commuter-map.js",
 ]
 
