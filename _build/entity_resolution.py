@@ -73,32 +73,6 @@ def norm_fdp_bid(bid: dict) -> dict:
     }
 
 
-def norm_fdp_project(row: dict, period: str = "") -> dict:
-    """Adapter: raw FDP development-fund row -> normalized record."""
-    return {
-        "source": "fdp-dev",
-        "ref": "",
-        "title": norm_title(row.get("project", "")),
-        "contractor": "",
-        "amount": float(row.get("cost") or 0),
-        "year": (period.split("-")[0] if "-" in (period or "") else None),
-        "barangays": normalize_barangays(row.get("location", "")),
-    }
-
-
-def norm_dpwh_project(project: dict) -> dict:
-    """Adapter: raw DPWH record -> normalized comparison record."""
-    return {
-        "source": "dpwh",
-        "ref": project.get("contract_id", ""),
-        "title": norm_title(project.get("project_name", "")),
-        "contractor": norm_contractor(project.get("contractor", "")),
-        "amount": float(project.get("contract_amount") or 0),
-        "year": str(project.get("fiscal_year") or "") or None,
-        "barangays": normalize_barangays(project.get("barangay_location", "")),
-    }
-
-
 def _titles_match(a: str, b: str, min_tokens: int = 2) -> bool:
     """Same-title rule: all significant tokens of the shorter title present."""
     stop = {"of", "the", "and", "for", "at", "in", "brgy", "barangay", "phase"}

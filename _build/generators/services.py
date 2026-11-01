@@ -6,7 +6,7 @@ from pathlib import Path
 
 from _build.config import ROOT, SRC_DATA, SRC_TEMPLATES
 from _build.locales import t
-from _build.templates import fill, compute_url, compute_asset_base, to_folder_index, FRONT_MATTER_RE
+from _build.templates import fill, compute_asset_base, to_folder_index, FRONT_MATTER_RE
 
 
 def pick_lang(record: dict, base: str, lang_code: str, default: str = "") -> str:

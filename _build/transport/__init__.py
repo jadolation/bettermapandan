@@ -13,13 +13,6 @@ VERIFICATION_STATUSES = {
     "withdrawn",
 }
 
-PUBLICATION_STATUSES = {
-    "draft",
-    "reference_only",
-    "published",
-    "withdrawn",
-}
-
 SOURCE_TYPES = {
     "maintainer_provided",
     "maintainer_local_observation",
@@ -38,20 +31,3 @@ FARE_RATE_KINDS = {
     "calculated_estimate",
     "unknown",
 }
-
-DEPARTURE_MODELS = {
-    "scheduled",
-    "frequency_based",
-    "fill_and_go",
-    "unknown",
-}
-
-TRICYCLE_SERVICE_TYPES = {
-    "shared_passing",
-    "arkila",
-}
-
-GEOJSON_COORD_ORDER = "longitude, latitude"
-
-DEFAULT_SNAP_THRESHOLD_M = 30
-MANUAL_SNAP_MAX_M = 150

@@ -11,7 +11,6 @@ Sheet1 files. Amounts arrive as comma-quoted text; dates as ISO strings.
 Usage: python3 src/data/extract_fdp.py
 """
 import csv
-import hashlib
 import re
 import sys
 from pathlib import Path
@@ -439,18 +438,6 @@ def parse_sipb_rows(rows, loan):
     return {"loan": loan, "report_date": report_date, "items": items}
 
 
-def _detect_budget_year(rows, fallback=None):
-    for row in rows[:14]:
-        joined = " ".join(clean_text(c) for c in row)
-        match = re.search(r"[Bb][Uu][Dd][Gg][Ee][Tt]\s+[Yy][Ee][Aa][Rr]\s+(20\d{2})", joined)
-        if match:
-            return int(match.group(1))
-        match = re.search(r"[Ff][Ii][Ss][Cc][Aa][Ll]\s+[Yy][Ee][Aa][Rr]\s+(20\d{2})", joined)
-        if match:
-            return int(match.group(1))
-    return fallback
-
-
 def parse_lbp2(rows, year):
     offices, current = [], None
     for row in rows:
@@ -718,10 +705,6 @@ def sniff_kind(rows) -> str:
     if "statement of expenditures" in head:
         return "soe"
     return "unknown"
-
-
-def file_hash(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def main():

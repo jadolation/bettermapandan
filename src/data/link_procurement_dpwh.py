@@ -51,7 +51,7 @@ def amount_proximity(a: float, b: float, tolerance: float = 0.10) -> bool:
     return abs(a - b) / max(abs(a), abs(b)) <= tolerance
 
 
-def dates_overlap(dpwh_start: str | None, dpwh_end: str | None, philgeps_date: str | None, window_days: int = 90) -> bool:
+def dates_overlap(dpwh_start: str | None, dpwh_end: str | None, philgeps_date: str | None) -> bool:
     """Return True if the PhilGEPS award date falls near the DPWH contract period.
     
     If DPWH dates are missing, return True as a weak signal (don't penalize).
@@ -311,11 +311,6 @@ def write_candidates_report(report: dict, output_path: Path) -> None:
     """Write a candidates report to a JSON file."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-
-
-def read_candidates_report(input_path: Path) -> dict:
-    """Read a candidates report from a JSON file."""
-    return json.loads(input_path.read_text(encoding="utf-8"))
 
 
 def load_json(path: Path) -> dict:

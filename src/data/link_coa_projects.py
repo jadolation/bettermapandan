@@ -33,7 +33,7 @@ def amount_proximity(a: float, b: float, tolerance: float = 0.10) -> bool:
     return abs(a - b) / max(abs(a), abs(b)) <= tolerance
 
 
-def dates_overlap(dpwh_start: str | None, dpwh_end: str | None, philgeps_date: str | None, window_days: int = 90) -> bool:
+def dates_overlap(dpwh_start: str | None, dpwh_end: str | None, philgeps_date: str | None) -> bool:
     if not philgeps_date:
         return False
     if not dpwh_start and not dpwh_end:

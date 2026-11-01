@@ -196,13 +196,6 @@ def js_i18n_script(lang_code: str) -> str:
     return f"<script>window.__I18N__ = {payload};</script>"
 
 
-def translate_display_text(text: str, lang_code: str) -> str:
-    """Translate a single visible string, falling back to the source."""
-    if not text or lang_code == "en":
-        return text
-    return _load_page_text(lang_code).get(_norm(text), text)
-
-
 def _translate_text_segment(segment: str, lookup: dict[str, str]) -> str:
     match = re.match(r"^(\s*)(.*?)(\s*)$", segment, re.DOTALL)
     if not match:
@@ -293,9 +286,6 @@ def localize_internal_links(fragment: str, lang_code: str) -> str:
 
     return _HREF_RE.sub(repl, fragment)
 
-
-def page_text_count(lang_code: str) -> int:
-    return len(_load_page_text(lang_code))
 
 _JS_EXTRA["fil"].update({
     "Report Error": "Iulat ang Error",

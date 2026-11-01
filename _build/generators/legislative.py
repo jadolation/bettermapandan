@@ -6,7 +6,7 @@ from pathlib import Path
 
 from _build.config import ROOT, SRC_DATA, SRC_TEMPLATES
 from _build.locales import t
-from _build.templates import fill, compute_url, compute_asset_base, FRONT_MATTER_RE
+from _build.templates import fill, compute_asset_base, FRONT_MATTER_RE
 
 
 def generate_legislative(locale: dict, lang_code: str = "en") -> tuple[str, dict, dict]:
@@ -136,60 +136,6 @@ def _build_legislative_labels(locale: dict) -> dict:
         "LEG_ORD_VS_RESOLUTION": t(locale, "legislative.ord_vs_resolution", "Ordinance vs. Resolution"),
         "LEG_ORD_VS_RESOLUTION_DESC": t(locale, "legislative.ord_vs_resolution_desc", "Under the Local Government Code of 1991, the Sangguniang Bayan enacts two types of legislative measures:"),
     }
-
-
-def _build_ordinance_rows(ordinances: list, category_labels: dict) -> list:
-    rows = []
-    for o in ordinances:
-        cat_label = category_labels.get(o.get("category", ""), o.get("category", "").title())
-        status_class = _get_status_class(o.get("status", ""))
-        status_text = o.get("status", "").title()
-        source = _build_source_link(o.get("source_url", ""))
-        cat_class = html.escape(o.get("category", ""))
-        rows.append(
-            f'<tr>'
-            f'<td>{html.escape(o.get("number", ""))}</td>'
-            f'<td>{html.escape(o.get("title", ""))}</td>'
-            f'<td>{html.escape(o.get("date_enacted", ""))}</td>'
-            f'<td><span class="category-pill category-{cat_class}">{html.escape(cat_label)}</span></td>'
-            f'<td>{html.escape(o.get("sp_review", ""))}</td>'
-            f'<td><span class="pill {status_class}">{status_text}</span></td>'
-            f'<td>{source}</td>'
-            f'</tr>'
-        )
-    return rows
-
-
-def _build_resolution_rows(resolutions: list) -> list:
-    rows = []
-    for r in resolutions:
-        fiscal = _format_fiscal_value(r.get("fiscal_value"), decimals=2)
-        res_source = _build_source_link(r.get("source_url", ""))
-        rows.append(
-            f'<tr>'
-            f'<td>{html.escape(r.get("number", ""))}</td>'
-            f'<td>{html.escape(r.get("title", ""))}</td>'
-            f'<td>{html.escape(r.get("date_approved", ""))}</td>'
-            f'<td>{fiscal}</td>'
-            f'<td>{res_source}</td>'
-            f'</tr>'
-        )
-    return rows
-
-
-def _build_executive_rows(issuances: list) -> list:
-    rows = []
-    for e in issuances:
-        date = html.escape(e.get("date", "")) if e.get("date") else "—"
-        rows.append(
-            f'<tr>'
-            f'<td>{html.escape(e.get("title", ""))}</td>'
-            f'<td>{date}</td>'
-            f'<td>{html.escape(e.get("authority", ""))}</td>'
-            f'<td>{html.escape(e.get("description", ""))}</td>'
-            f'</tr>'
-        )
-    return rows
 
 
 def _build_fiscal_cards(fiscal_data: list) -> list:

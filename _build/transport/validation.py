@@ -39,22 +39,6 @@ def load_transport_data(data_dir=None):
     return data
 
 
-def validate_routable_record(record, record_type):
-    """Eligibility is necessary but insufficient; routing also requires accepted
-    evidence, applicable service permissions, geometry/connectivity, and
-    non-withdrawn status.
-    """
-    if not isinstance(record, dict):
-        raise ValueError(f"{record_type} must be an object")
-    if record.get("routing_eligible") is True:
-        source = record.get("source_type")
-        if source in SOURCE_TYPES and source in ("maintainer_provided", "maintainer_local_observation"):
-            raise ValueError(
-                f"{record.get('id', '?')}: source_type '{source}' cannot authorize routing eligibility"
-            )
-    return True
-
-
 def validate_records(data):
     """Enforce reference-only defaults and routing-eligibility rules."""
     errors = []

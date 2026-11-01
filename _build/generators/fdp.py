@@ -588,17 +588,6 @@ def generate_fdp(locale: dict) -> str:
            f'<h2>{labels["FDP_TITLE"]}</h2>',
            f'<p>{labels["FDP_LEDE"]}</p>',
            "</div>"]
-    def _period_block(period: str, heading: str) -> list:
-        slug = re.sub(r"[^a-z0-9]+", "-", period.lower()).strip("-") or "undated"
-        dialog_id = f"fdp-dialog-{slug}"
-        block = [heading, _render_period_cards(period, data, labels)]
-        tables = _render_period_tables(period, data, labels)
-        if tables.strip():
-            block.append(f'<button type="button" class="btn btn-outline btn-sm" data-fdp-dialog="{dialog_id}">'
-                         f'{labels["DASH_VIEW_TABLE"]}: {_esc(_period_label(period, labels["FDP_UNDATED"]))}</button>')
-            block.append(_dialog(dialog_id, _period_label(period, labels["FDP_UNDATED"]),
-                                 tables, labels["DASH_CLOSE"]))
-        return block
 
     if periods:
         latest = periods[0]

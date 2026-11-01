@@ -6,42 +6,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 OUTPUT = ROOT / "src" / "data" / "dpwh.json"
 
-
-def _parse_money(s):
-    s = s.replace("₱", "").replace(",", "").strip()
-    try:
-        return float(s)
-    except ValueError:
-        return 0.0
-
-
-def _parse_date(s):
-    s = s.strip()
-    if not s or s == "—":
-        return None
-    parts = s.split("/")
-    if len(parts) == 3:
-        return f"{parts[2]}-{parts[0].zfill(2)}-{parts[1].zfill(2)}"
-    return None
-
-
-def _fiscal_year_from_id(cid):
-    if not cid or len(cid) < 2:
-        return None
-    prefix = cid[:2]
-    if prefix.isdigit():
-        y = int(prefix)
-        return 2000 + y if y < 100 else y
-    return None
-
-
-def _extract_id(s):
-    s = s.strip()
-    if "(" in s:
-        return s[s.rfind("(") + 1:].rstrip(")")
-    return ""
-
-
 projects = [
     {
         "transaction_id": "DPWH-2023-023AJ0117",
