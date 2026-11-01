@@ -93,7 +93,7 @@ def _is_accepted_asset(rel: Path) -> bool:
         return False
     scripts = {Path(source).relative_to("assets").as_posix() for source in JS_SOURCES}
     scripts |= {Path(source).with_suffix(".min.js").as_posix() for source in scripts}
-    scripts.update({"chart.umd.min.js", "js/legislative.js"})
+    scripts.update({"chart.umd.min.js"})
     media = len(rel.parts) == 1 or (len(rel.parts) == 2 and rel.parts[0] in MEDIA_DIRS)
     return (rel.as_posix() in PUBLIC_DATA | scripts
             or (media and rel.suffix.lower() in MEDIA_SUFFIXES)

@@ -40,7 +40,7 @@ Better Mapandan is an independent transparency portal for the Municipality of Ma
 ## Prerequisites
 
 - **Python 3.11+** — required to run the build system and tests
-- **Node.js 22+** — required only for image optimization (`optimize-images.mjs`) and Lighthouse audits
+- **Node.js 22+** — required only for Lighthouse audits and the browser test suite
 
 Python packages:
 
@@ -207,14 +207,6 @@ npm run lighthouse
 npm run lighthouse:single
 ```
 
-### Option C: Node image optimization only
-
-```bash
-node optimize-images.mjs
-```
-
-This compresses citizens-charter photos (mozjpeg, quality 70), history photos (PNG quality 60), and converts hero images and history PNGs to WebP.
-
 ---
 
 ## Contribution Workflow
@@ -364,7 +356,7 @@ Found a bug, have a suggestion, or want to request a feature?
 |------|---------|
 | Build site | `python3 build.py` |
 | Verify translations | `python3 build.py --verify-translations` |
-| Compress images | `python3 build.py --compress` or `node optimize-images.mjs` |
+| Compress images | `python3 build.py --compress` |
 | Check i18n parity | `python3 check_i18n.py` |
 | Run tests | `python3 -m pytest tests/ -v` |
 | Lint Python | `ruff check .` |

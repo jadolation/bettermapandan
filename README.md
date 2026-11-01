@@ -354,8 +354,6 @@ Excluded from compression (must remain SVG):
 - `assets/logo.svg` — uses `<mask>` + `feColorMatrix` filter pipeline
 - `assets/municipal-seal.svg` — embedded PNG with SVG filter rendering
 
-Alternatively: `node optimize-images.mjs` for standalone image optimization.
-
 ---
 
 ## Data schemas
