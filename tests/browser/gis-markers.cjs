@@ -12,6 +12,10 @@ const leafletCss = fs.readFileSync(process.env.GIS_LEAFLET_CSS_PATH, "utf8");
 async function residentChecks(page, locale, width) {
   const lang = locale ? locale.slice(0, -1) : 'en';
   const labels = JSON.parse(fs.readFileSync(path.join(__dirname, `../../locales/${lang}.json`))).gis.resident;
+  await page.evaluate(() => {
+    const opener = document.querySelector('#gis-sheet-toggle');
+    if (opener.getAttribute('aria-expanded') === 'false') opener.click();
+  });
   await page.evaluate(() => document.querySelector('#gis-explore-tab').click());
   const members = await page.evaluate(() => [
     ...window.GIS_FACILITIES.features.filter(f => f.geometry).map(f => f.properties)
@@ -30,6 +34,15 @@ async function residentChecks(page, locale, width) {
     const svg = await page.$eval('.gis-result svg', el => ({ color: el.getAttribute('stroke'), path: el.innerHTML }));
     assert.equal(svg.color, '#b66b08');
     await page.keyboard.press('Enter');
+    await page.waitForFunction(() => {
+      const marker = document.querySelector('.gis-icon-marker.gis-marker-selected');
+      const sheet = document.querySelector('.gis-sidebar').getBoundingClientRect();
+      const map = document.querySelector('#gis-map').getBoundingClientRect();
+      if (!marker) return false;
+      const rect = marker.getBoundingClientRect();
+      return rect.top >= map.top && rect.right <= map.right &&
+        (innerWidth >= 900 ? rect.left > sheet.right : rect.bottom < sheet.top);
+    });
     const details = await page.$eval('#gis-detail-content', el => ({
       content: el.textContent,
       technical: [...el.querySelectorAll('details')].map(d => ({ summary: d.querySelector('summary').textContent, open: d.open })),
@@ -104,6 +117,10 @@ const server = http.createServer((req, res) => {
       });
       await page.goto(`http://127.0.0.1:${server.address().port}/${locale}gis/`, { waitUntil: "networkidle0" });
       await page.waitForSelector(".leaflet-marker-icon.gis-icon-marker > svg");
+      await page.waitForFunction(() => {
+        const rect = document.querySelector('#gis-map').getBoundingClientRect();
+        return Math.abs(rect.width - innerWidth) <= 2 && Math.abs(rect.bottom - innerHeight) <= 2;
+      });
       await page.evaluate(css => {
         // Deliberately reproduce the production ordering, even if loading changes.
         const style = document.createElement("style"); style.textContent = css; document.head.append(style);

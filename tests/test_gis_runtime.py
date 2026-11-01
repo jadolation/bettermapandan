@@ -111,11 +111,17 @@ class GISRuntimeTests(unittest.TestCase):
         self.assertIn(escape(unsafe), rendered)
         self.assertNotIn("<img", rendered)
 
-    def test_mobile_height_is_not_overridden_by_inline_style(self):
+    def test_map_first_height_and_single_sheet(self):
         css = (ROOT / "assets/css/map.css").read_text(encoding="utf-8")
         self.assertRegex(css, r"#gis-map\s*\{[^}]*min-height: 280px")
-        self.assertIn("--gis-map-height: clamp(280px, 46dvh, 420px)", css)
-        self.assertIn("height: var(--gis-column-height)", css)
+        self.assertIn("height: var(--gis-viewport-height", css)
+        self.assertIn("height: var(--gis-sheet-height", css)
+        self.assertNotIn("--gis-column-height", css)
+        template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
+        self.assertIn('aria-controls="gis-sheet-body"', template)
+        self.assertLess(template.index('id="gis-sheet-body"'), template.index('id="gis-details"'))
+        self.assertLess(template.index('id="gis-details"'), template.index('class="gis-map-pane"'))
+        self.assertEqual(template.count('id="gis-details"'), 1)
 
     def test_explorer_tokens_and_accessible_panels(self):
         template = (ROOT / "src/pages/gis.html").read_text(encoding="utf-8")
@@ -130,11 +136,11 @@ class GISRuntimeTests(unittest.TestCase):
             self.assertIn(f'role="tabpanel" aria-labelledby="gis-{panel}-tab"', template)
         css = (ROOT / "assets/css/map.css").read_text(encoding="utf-8")
         self.assertNotRegex(css, r"var\(--(?:surface|text(?:-secondary)?|amber(?:-pale|-line|-text)?|blue)\)")
-        self.assertIn("--gis-sticky-clearance", css)
+        self.assertIn("safe-area-inset-bottom", css)
         self.assertIn("overscroll-behavior: contain", css)
         tokens = (ROOT / "assets/css/tokens.css").read_text(encoding="utf-8")
         defined = set(re.findall(r"(--[\w-]+)\s*:", tokens + css))
-        self.assertLessEqual(set(re.findall(r"var\((--[\w-]+)", css)), defined | {"--gis-sticky-clearance"})
+        self.assertLessEqual(set(re.findall(r"var\((--[\w-]+)", css)), defined)
 
     def test_gis_metadata_describes_current_explorer(self):
         meta = json.loads((ROOT / "src/data/page-meta.json").read_text(encoding="utf-8"))["gis.html"]

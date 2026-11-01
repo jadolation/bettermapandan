@@ -67,12 +67,23 @@ async function main() {
       assert.ok(await page.$eval('#gis-map', el => el.getBoundingClientRect().height >= 280), 'styled map has usable height');
       assert.equal(await page.$eval('#gis-weather-summary', el => getComputedStyle(el).position), 'absolute');
       assert.ok(await page.$('.leaflet-map-pane'), JSON.stringify(await page.evaluate(() => ({ leaflet: typeof L, status: document.querySelector('#gis-map-status').textContent }))));
+      if (await page.$('#gis-sheet-toggle[aria-expanded="false"]')) await activate('#gis-sheet-toggle');
       await activate('#gis-layers-tab');
       const before = await page.$eval('.leaflet-map-pane', el => el.style.transform);
       const markers = await page.$$eval('.gis-icon-marker', els => els.length);
       await activate('#gis-weather-enabled');
       await page.waitForSelector('#gis-weather-summary:not([hidden])');
       assert.equal(requests, 1);
+      assert.equal(await page.$$eval('#gis-weather-controls #gis-weather-provenance', els => els.length), 1, 'provenance stays in Layers weather controls');
+      assert.equal(await page.$eval('#gis-weather-provenance', el => el.hidden), false);
+      assert.ok(await page.evaluate(() => {
+        const details = document.querySelector('#gis-weather-provenance');
+        const labels = document.querySelector('#gis-weather').dataset;
+        return [labels.area, labels.model, labels.retrieved].every(text => details.textContent.includes(text));
+      }), 'full area/model/retrieval details remain accessible in Layers');
+      assert.equal(await page.$eval('#gis-weather-provenance a', el => el.href), 'https://open-meteo.com/');
+      assert.equal(await page.$$eval('#gis-weather-summary h2, #gis-weather-summary a, #gis-weather-summary small', els => els.length), 0, 'map summary omits heading and provenance');
+      assert.match(await page.$eval('#gis-weather-summary', el => el.textContent), /PHT/);
       await page.waitForSelector('.leaflet-gis-radar-pane img');
       await page.waitForFunction(() => document.querySelector('#gis-radar-status').textContent !== document.querySelector('#gis-weather').dataset.loading);
       assert.ok(await page.evaluate(() => { const p = document.querySelector('#gis-weather').dataset; return [p.radarReady, p.radarEmpty].includes(document.querySelector('#gis-radar-status').textContent); }));
@@ -109,6 +120,11 @@ async function main() {
       for (const mode of ['feels', 'wind', 'rain', 'temperature']) {
         await activate(`[data-weather-mode="${mode}"]`);
         assert.equal(await page.$$eval('.gis-weather-marker', els => els.length), 0, 'forecast uses the side summary only');
+        assert.equal(await page.$eval('.gis-weather-mode', el => el.textContent), await page.$eval(`[data-weather-mode="${mode}"]`, el => el.textContent));
+        if (mode === 'wind') {
+          assert.ok(await page.evaluate(() => document.querySelector('#gis-weather-provenance').textContent.includes(document.querySelector('#gis-weather').dataset.windFrom + ' 45°')), 'wind direction detail stays in Layers');
+          assert.equal(await page.$$eval('#gis-weather-summary .gis-weather-arrow', els => els.length), 1);
+        }
       }
       assert.equal(requests, 1, 'modes reuse one response');
       await page.select('#gis-weather-time', String((start + 3600) * 1000));
@@ -117,6 +133,26 @@ async function main() {
       assert.equal(await page.$$eval('.gis-icon-marker', els => els.length), markers);
       assert.equal(await page.$eval('.leaflet-gis-radar-pane', el => getComputedStyle(el).pointerEvents), 'none');
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'no horizontal overflow');
+      const overlayGeometry = async () => {
+        await page.waitForFunction(() => {
+          const selectors = ['#gis-weather-summary', '.gis-toolbar', '#gis-map .leaflet-control-zoom', '.gis-sidebar'];
+          const rects = selectors.map(selector => document.querySelector(selector).getBoundingClientRect());
+          const intersects = (a, b) => a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1;
+          return rects.slice(1).every(rect => !intersects(rects[0], rect));
+        });
+      };
+      await overlayGeometry();
+      await page.focus('#gis-sheet-toggle'); await page.keyboard.press('End');
+      await overlayGeometry();
+      if (width < 900) {
+        for (const viewport of [{ width: 320, height: 740 }, { width: 740, height: 390 }]) {
+          await page.setViewport(viewport); await overlayGeometry();
+          assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+        }
+        await page.setViewport({ width, height: 1000 });
+      }
+      await page.focus('#gis-sheet-toggle'); await page.keyboard.press('ArrowDown');
+      await overlayGeometry();
       if (process.env.WEATHER_SCREENSHOTS) {
         await page.evaluate(() => { document.activeElement.blur(); document.querySelector('#gis-layers-panel').scrollTop = 0; window.scrollTo({ top: 0, behavior: "instant" }); });
         await new Promise(resolve => setTimeout(resolve, 200));
@@ -150,8 +186,9 @@ async function main() {
       assert.equal(radarRequests, 1, 'radar metadata uses fresh cache');
       failure = true; delay = true;
       await page.evaluate(() => { const realNow = Date.now; Date.now = () => realNow() + 61 * 60000; document.dispatchEvent(new Event('visibilitychange')); });
-      await page.waitForFunction(() => document.querySelector('.gis-weather-stale'));
+      await page.waitForFunction(() => document.querySelector('#gis-weather-summary .gis-weather-stale'));
       await page.waitForFunction(() => document.querySelector('#gis-weather-status').textContent === document.querySelector('#gis-weather').dataset.limited);
+      assert.equal(await page.$eval('#gis-weather-summary .gis-weather-error', el => el.textContent), await page.$eval('#gis-weather', el => el.dataset.limited), 'request errors remain visible on the map alongside stale data');
       assert.equal(requests, 2);
       assert.equal(await page.$eval('#gis-weather-refresh', el => el.disabled), true);
       await activate('#gis-weather-enabled');
@@ -162,6 +199,14 @@ async function main() {
       await new Promise(resolve => setTimeout(resolve, 700));
       assert.equal(await page.$eval('#gis-weather-summary', el => el.hidden), true, 'late response cannot revive disabled overlay');
       assert.equal(await page.$$eval('.gis-weather-marker', els => els.length), 0);
+      failure = true; delay = false;
+      await page.evaluate(() => { const realNow = Date.now; Date.now = () => realNow() + 65 * 60000; });
+      await activate('#gis-weather-enabled');
+      await page.waitForSelector('#gis-weather-summary:not([hidden]) .gis-weather-error');
+      assert.equal(await page.$$eval('#gis-weather-summary .gis-weather-reading', els => els.length), 0, 'expired forecast is not shown after an error');
+      assert.equal(await page.$eval('#gis-weather-provenance', el => el.hidden), true, 'expired provenance is not shown');
+      await activate('#gis-weather-enabled');
+      assert.equal(await page.$eval('#gis-weather-summary', el => el.hidden), true, 'disabling also hides an error-only overlay');
       assert.deepEqual(errors, []);
       await page.close();
       console.log(`Weather modes/cache/layout passed: ${lang}, ${width}px`);

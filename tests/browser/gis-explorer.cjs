@@ -23,7 +23,14 @@ const fc = features => ({ type: "FeatureCollection", features });
 const feature = (name, geometry = null, extra = {}) => ({ type: "Feature", geometry, properties: { name, ...extra } });
 const malicious = '<img src=x onerror="window.__injected=1">';
 const bounds = { west: 120.44, south: 16.01, east: 120.46, north: 16.04 };
+async function openSheet(page) {
+  if (await page.$eval("#gis-sheet-body", el => el.hidden)) {
+    await page.focus("#gis-sheet-toggle"); await page.keyboard.press("Enter");
+    await page.waitForFunction(() => !document.getElementById("gis-sheet-body").hidden);
+  }
+}
 async function click(page, selector) {
+  if (["#gis-explore-tab", "#gis-layers-tab", ".gis-result", ".gis-layer button"].includes(selector)) await openSheet(page);
   // Puppeteer's nearest-edge scrolling can leave controls under fixed site bars.
   await page.$eval(selector, el => el.scrollIntoView({ block: "center", behavior: "instant" }));
   if (selector === "#gis-explore-tab" || selector === "#gis-layers-tab" || selector === ".gis-result" || selector === ".gis-layer button") {
@@ -83,11 +90,11 @@ function fixture(lang, scenario = "normal") {
   html = html.replace(/\{(GIS_\w+)\}/g, (_, key) => replacements[key] == null ? `{${key}}` : replacements[key]);
   assert.doesNotMatch(html, /\{GIS_|\{\{GIS_/);
   if (scenario === "missing") html = html.replace(/window\.GIS_(FACILITIES|BARANGAYS|RECORDS) = [^\n]*;/g, "");
-  return `<!doctype html><html lang="${lang}"><head><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/assets/css/tokens.css"><link rel="stylesheet" href="/assets/css/map.css"></head><body>${html}<div class="mobile-action-bar" style="position:fixed;bottom:0;height:72px;left:0;right:0;background:white">Site actions</div></body></html>`;
+  return `<!doctype html><html lang="${lang}"><head><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/assets/css/tokens.css"><link rel="stylesheet" href="/assets/css/map.css"><style>body{margin:0}body>header{height:80px;box-sizing:border-box;display:flex;align-items:center;padding:0 20px;background:#fff;border-bottom:1px solid #ddd}body>header a{color:#164734}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}#gis-map .gis-test-marker,#gis-map .gis-test-shape{position:absolute;left:60%;top:24%}</style></head><body><header><a href="/">Better Mapandan</a><nav aria-label="Main" style="margin-left:auto">Map</nav></header>${html}</body></html>`;
 }
 
 function leafletMock() {
-  const stats = window.__gisTest = { markers: [], markerStyles: [], vectorStyles: [], images: [], imageItems: [], panes: {}, fits: 0, pans: 0, views: 0, vectors: 0, resizes: 0 };
+  const stats = window.__gisTest = { markers: [], markerStyles: [], vectorStyles: [], images: [], imageItems: [], panes: {}, fitOptions: [], fits: 0, pans: 0, views: 0, vectors: 0, resizes: 0 };
   const bounds = () => ({ isValid: () => true, extend() { return this; } });
   function layer(buttonClass) {
     const item = { handlers: {}, children: [], on(event, fn) { this.handlers[event] = fn; return this; },
@@ -104,12 +111,15 @@ function leafletMock() {
       openTooltip() { this.tooltipOpen = true; return this; }, closeTooltip() { this.tooltipOpen = false; return this; } };
     if (buttonClass) {
       item.button = document.createElement("button"); item.button.type = "button"; item.button.className = buttonClass;
+      // Emulate features in the visible map area rather than document-flow controls under the sheet.
+      Object.assign(item.button.style, { position: "absolute", left: "60%", top: "24%" });
       item.button.textContent = "Map feature"; item.button.onclick = () => item.handlers.click && item.handlers.click();
     }
     return item;
   }
   window.L = {
     map(id) {
+      if (new URL(location.href).searchParams.get("data") === "map-failure") throw Error("Controlled map initialization failure");
       const container = document.getElementById(id);
       for (const cls of ["leaflet-control-zoom-in", "leaflet-control-zoom-out"]) {
         const b = document.createElement("button"); b.className = cls; container.appendChild(b);
@@ -117,7 +127,7 @@ function leafletMock() {
        return { createPane(name) { const pane = document.createElement("div"); stats.panes[name] = pane; return pane; },
           getPane(name) { return stats.panes[name]; }, getZoom() { return 14; }, on() { return this; },
          setView() { stats.views++; return this; }, addLayer(item) { item.mount(container); return this; },
-        removeLayer(item) { item.remove(); }, panTo() { stats.pans++; }, fitBounds() { stats.fits++; },
+        removeLayer(item) { item.remove(); }, panTo() { stats.pans++; }, fitBounds(bounds, options) { stats.fits++; stats.fitOptions.push(options); return this; },
         invalidateSize() { stats.resizes++; }, getContainer() { return container; } };
     },
     tileLayer() { const item = layer(); setTimeout(() => { if (item.handlers.tileerror) item.handlers.tileerror(); }, 20); return item; },
@@ -140,10 +150,89 @@ function leafletMock() {
   if (new URL(location.href).searchParams.get("data") === "fallback") { delete window.L.marker; delete window.L.divIcon; }
 }
 
+async function sheetGeometry(page) {
+  await page.waitForFunction(() => {
+    const map = document.getElementById("gis-map").getBoundingClientRect();
+    return Math.abs(map.bottom - innerHeight) <= 2;
+  });
+  const geometry = await page.evaluate(() => {
+    const rect = selector => { const r = document.querySelector(selector).getBoundingClientRect(); return { top: r.top, bottom: r.bottom, left: r.left, right: r.right, width: r.width, height: r.height }; };
+    return { map: rect("#gis-map"), sheet: rect(".gis-sidebar"), header: rect(".site-header, body > header"), width: innerWidth, height: innerHeight, scrollWidth: document.documentElement.scrollWidth };
+  });
+  assert.ok(Math.abs(geometry.map.top - geometry.header.bottom) <= 2, "Map begins immediately below the site header");
+  assert.ok(Math.abs(geometry.map.left) <= 2 && Math.abs(geometry.map.right - geometry.width) <= 2, "Map fills the full viewport width behind the sheet");
+  assert.ok(geometry.map.height > 0 && Math.abs(geometry.map.bottom - geometry.height) <= 2, "Map fills remaining viewport height");
+  assert.ok(geometry.sheet.top >= geometry.map.top - 2 && geometry.sheet.bottom <= geometry.map.bottom + 2 && geometry.sheet.left >= -2 && geometry.sheet.right <= geometry.width + 2, "Single sheet stays inside the map canvas");
+  assert.ok(geometry.scrollWidth <= geometry.width + 2, "Map-first layout has no horizontal overflow");
+  return geometry;
+}
+
+async function sheetChecks(page, mobile) {
+  assert.equal(await page.$eval(".gis-sidebar", el => el.dataset.sheetState), mobile ? "collapsed" : "half", "Mobile starts compact; desktop starts half open");
+  assert.equal(await page.$eval("#gis-sheet-body", el => el.hidden), mobile);
+  assert.equal(await page.$eval("#gis-sheet-toggle", el => el.getAttribute("aria-expanded")), String(!mobile));
+  const initial = await sheetGeometry(page);
+  if (mobile) {
+    assert.ok(initial.sheet.height < initial.map.height * .3, "Compact sheet preserves the initial map view");
+    assert.equal(await page.$$eval("#gis-sheet-body button, #gis-sheet-body input, #gis-sheet-body [tabindex]", els => els.every(el => el.getClientRects().length === 0)), true, "Collapsed sheet has no exposed focus targets");
+  }
+  const navigation = await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.pans, window.__gisTest.views]);
+  await openSheet(page);
+  await page.focus("#gis-sheet-toggle"); await page.keyboard.press("End");
+  assert.equal(await page.$eval(".gis-sidebar", el => el.dataset.sheetState), "expanded");
+  const expanded = await sheetGeometry(page);
+  await page.keyboard.press("ArrowDown");
+  assert.equal(await page.$eval(".gis-sidebar", el => el.dataset.sheetState), "half");
+  const half = await sheetGeometry(page);
+  assert.ok(expanded.sheet.height > half.sheet.height, "Expanded sheet is taller than half");
+  await page.keyboard.press("Home");
+  assert.equal(await page.$eval("#gis-sheet-body", el => el.hidden), true);
+  await page.keyboard.press("ArrowUp");
+  assert.equal(await page.$eval(".gis-sidebar", el => el.dataset.sheetState), "half");
+  for (const state of ["expanded", "collapsed", "half"]) {
+    await click(page, ".gis-sheet-sizes summary");
+    await click(page, `[data-gis-sheet-state="${state}"]`);
+    assert.equal(await page.$eval(".gis-sidebar", el => el.dataset.sheetState), state, `Explicit ${state} size works without dragging`);
+    assert.equal(await page.$eval(`[data-gis-sheet-state="${state}"]`, el => el.getAttribute("aria-pressed")), "true");
+    assert.equal(await page.evaluate(() => document.activeElement.id), "gis-sheet-toggle");
+  }
+  await page.focus("#gis-search"); await page.keyboard.press("Escape");
+  assert.equal(await page.$eval("#gis-sheet-body", el => el.hidden), true, "Escape without details collapses sheet");
+  assert.equal(await page.evaluate(() => document.activeElement.id), "gis-sheet-toggle", "Collapsing moves focus out of hidden content");
+  await page.keyboard.press("Tab");
+  assert.equal(await page.evaluate(() => document.getElementById("gis-sheet-body").contains(document.activeElement)), false, "Tab cannot enter collapsed sheet content");
+  if (mobile) {
+    const box = await page.$eval("#gis-sheet-toggle", el => { const r = el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; });
+    await page.mouse.move(box.x, box.y); await page.mouse.down(); await page.mouse.move(box.x, box.y - 130, { steps: 4 });
+    assert.equal(await page.$eval(".gis-sidebar", el => el.classList.contains("gis-dragging")), true);
+    await page.$eval("#gis-sheet-toggle", el => el.dispatchEvent(new PointerEvent("pointercancel", { pointerId: 1, bubbles: true })));
+    await page.mouse.move(2, 2); await page.mouse.up();
+    assert.equal(await page.$eval(".gis-sidebar", el => el.classList.contains("gis-dragging")), false);
+    assert.equal(await page.$eval(".gis-sidebar", el => el.dataset.sheetState), "collapsed", "Cancelled drag restores the previous snap state");
+    assert.equal(await page.$eval("#gis-sheet-body", el => el.hidden), true);
+    for (const viewport of [{ width: 740, height: 360 }, { width: 320, height: 740 }]) {
+      const before = await page.evaluate(() => window.__gisTest.resizes);
+      await page.setViewport(viewport);
+      await page.waitForFunction(value => window.__gisTest.resizes > value, {}, before);
+      await sheetGeometry(page);
+      await openSheet(page);
+      await click(page, "#gis-layers-tab"); await sheetGeometry(page);
+      await page.focus("#gis-sheet-toggle"); await page.keyboard.press("End"); await sheetGeometry(page);
+      await page.keyboard.press("Home");
+    }
+    await page.setViewport({ width: 390, height: 844 });
+  }
+  await openSheet(page); await click(page, "#gis-explore-tab");
+  const final = await sheetGeometry(page);
+  assert.equal(final.map.width, initial.map.width, "Sheet controls do not shrink the map width");
+  assert.equal(final.map.height, initial.map.height, "Sheet controls do not shrink the map height");
+  assert.deepEqual(await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.pans, window.__gisTest.views]), navigation, "Resizing and changing sheet sizes never refit or pan the map");
+}
+
 async function v3Checks(page, locale) {
   const setSearch = async (query = "", id = "") => {
-    await page.$eval("#gis-search", (el, value) => { el.value = value; el.dispatchEvent(new Event("input")); }, query);
     await click(page, "#gis-explore-tab");
+    await page.$eval("#gis-search", (el, value) => { el.value = value; el.dispatchEvent(new Event("input")); }, query);
   };
   const toggle = async (id, checked) => {
     await page.$eval(`[data-layer-id="${id}"] input[type="checkbox"]`, (el, value) => { if (el.checked !== value) el.click(); }, checked);
@@ -225,7 +314,7 @@ async function v3Checks(page, locale) {
   assert.match(await page.$eval("#gis-detail-content", el => el.textContent), /Canonical shape name/, "Static directory enhancement joins by gid, not name");
   await page.keyboard.press("Escape");
   await page.$eval("#gis-directories", el => { el.hidden = true; });
-  await page.focus("#gis-search");
+  await openSheet(page); await page.focus("#gis-search");
   assert.ok(await page.evaluate(() => window.__gisTest.vectorStyles.some(style => style.dashArray === "6 5")));
 
   await toggle("hazard", true); await loaded("hazard");
@@ -391,6 +480,7 @@ async function main() {
       for (const mobile of [false, true]) {
         const page = await browser.newPage(), errors = [], requests = [];
         await page.setViewport({ width: mobile ? 390 : 1440, height: mobile ? 844 : 1000 });
+        await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
         await page.evaluateOnNewDocument(leafletMock);
         await page.setRequestInterception(true);
         page.on("request", request => { requests.push(request.url()); request.url().startsWith(origin) ? request.continue() : request.abort(); });
@@ -400,7 +490,6 @@ async function main() {
         if (!fixtures) {
           assert.equal(await page.$$eval('footer, .mobile-action-bar', els => els.length), 0, 'GIS omits both footer components in every locale');
           assert.equal(await page.$eval('body', el => parseFloat(getComputedStyle(el).paddingBottom)), 0, 'No reserved mobile-footer padding');
-          assert.equal(await page.$eval('#gis-page', el => parseFloat(getComputedStyle(el).getPropertyValue('--gis-sticky-clearance'))), 8, 'Only the normal 8px edge margin remains, not action-bar clearance');
         }
         await page.waitForFunction(() => document.getElementById("gis-map-status").textContent === document.getElementById("gis-page").dataset.tileError);
         assert.equal(await page.evaluate(() => "GIS_MODE" in window), false);
@@ -413,13 +502,14 @@ async function main() {
         assert.equal(await page.$eval("#gis-search", el => !!el.labels.length), true);
         assert.equal(await page.$$eval("#gis-page h1", els => els.length), 1);
         assert.equal(await page.$eval("#gis-page h1", el => el.textContent), locale.title);
+        await sheetChecks(page, mobile);
         assert.equal(await page.$eval("#gis-explore-tab", el => el.getAttribute("aria-selected")), "true");
         await page.$eval("#gis-search", el => { el.value = "Facility"; el.dispatchEvent(new Event("input")); });
         await page.focus("#gis-explore-tab"); await page.keyboard.press("ArrowRight");
         assert.equal(await page.evaluate(() => document.activeElement.id), "gis-layers-tab");
         assert.equal(await page.$eval("#gis-explore-panel", el => el.hidden), true);
         assert.equal(await page.$eval("#gis-layers-panel", el => el.hidden), false);
-        assert.equal(await page.$eval("#gis-layers-panel", el => getComputedStyle(el).overflowY), "auto");
+        assert.equal(await page.$eval("#gis-layers-panel", el => getComputedStyle(el).overflowY === "auto" || getComputedStyle(el.parentElement).overflowY === "auto"), true, "Layers scroll within the panel or the short-screen sheet body");
          assert.equal(await page.$('#gis-layer-filter'), null);
         await page.keyboard.press("Home");
         assert.equal(await page.$eval("#gis-search", el => el.value), "Facility");
@@ -435,7 +525,7 @@ async function main() {
         await page.$eval("#gis-map", el => { el.style.height = ""; });
         assert.equal(await page.$eval("#gis-results", el => getComputedStyle(el).overflowY), "auto");
         if (!mobile) {
-          await page.waitForFunction(() => Math.abs(document.querySelector(".gis-sidebar").getBoundingClientRect().bottom - document.querySelector(".gis-map-pane").getBoundingClientRect().bottom) <= 2);
+          await sheetGeometry(page);
           assert.ok(await page.$eval("#gis-results", el => el.clientHeight > 0 && el.scrollHeight > el.clientHeight), "Results have a bounded scroll region");
         } else {
           assert.ok(await page.$eval(".gis-sidebar", el => el.getBoundingClientRect().height <= 620), "Mobile sidebar stays bounded");
@@ -457,26 +547,48 @@ async function main() {
           await click(page, "#gis-explore-tab");
           await builtV3Checks(page);
         }
+        await openSheet(page);
         await page.focus("#gis-search"); await page.keyboard.type("NO_SUCH_RECORD_123");
         assert.equal(await page.$eval("#gis-results", el => el.children.length), 0);
         assert.equal(await page.$eval("#gis-no-results", el => !el.hidden), true);
         await page.$eval("#gis-search", el => { el.value = ""; el.dispatchEvent(new Event("input")); });
         const result = await page.$(".gis-result");
         if (result) {
+          const navigation = await page.evaluate(() => [window.__gisTest.fits, window.__gisTest.pans]);
           await result.focus(); await page.keyboard.press("Enter");
           assert.equal(await page.$eval("#gis-details", el => !el.hidden), true);
           assert.equal(await page.evaluate(() => document.activeElement.id), "gis-close");
-          if (mobile) {
-            assert.equal(await page.$eval("#gis-details", el => getComputedStyle(el).position), "fixed");
-            assert.equal(await page.evaluate(() => {
-              const sheet = document.getElementById("gis-details").getBoundingClientRect();
-              const bar = document.querySelector(".mobile-action-bar");
-              return !bar || !bar.getClientRects().length || sheet.bottom <= bar.getBoundingClientRect().top;
-            }), true, "Details clear the global sticky action bar");
-          }
-          await page.keyboard.press("Escape");
+          assert.equal(await page.$eval("#gis-explore-panel", el => el.hidden), true, "Details replace the originating view");
+          assert.equal(await page.$eval("#gis-layers-panel", el => el.hidden), true);
+          assert.equal(await page.$$eval(".gis-tabs button", els => els.every(el => el.getClientRects().length > 0)), true, "Explore and Layers remain available in details");
+          assert.equal(await page.$eval("#gis-details", el => {
+            const r = el.getBoundingClientRect(), s = el.closest(".gis-sidebar").getBoundingClientRect(), body = el.parentElement.getBoundingClientRect();
+            const bounded = r.bottom <= s.bottom + 2 || (getComputedStyle(el.parentElement).overflowY === "auto" && body.bottom <= s.bottom + 2);
+            return getComputedStyle(el).position !== "fixed" && r.top >= s.top && bounded && r.left >= s.left && r.right <= s.right + 2;
+          }), true, "Details are contained in the single overlay sheet");
+          assert.equal(await page.evaluate(() => window.__gisTest.pans), navigation[1], "Point selection does not panTo behind overlays");
+          assert.ok(await page.evaluate(previous => window.__gisTest.fits > previous, navigation[0]), "Selection navigates with fitBounds");
+          const padding = await page.evaluate(() => window.__gisTest.fitOptions.at(-1));
+          assert.ok(padding.paddingTopLeft.every(Number.isFinite) && padding.paddingBottomRight.every(Number.isFinite), "Selection supplies asymmetric map padding");
+          const geometry = await sheetGeometry(page);
+          if (mobile) assert.ok(padding.paddingBottomRight[1] >= geometry.sheet.height, "Point selection clears the mobile sheet");
+          else assert.ok(padding.paddingTopLeft[0] >= geometry.sheet.right, "Point selection clears the desktop floating panel");
+          await click(page, "#gis-close");
           assert.equal(await page.$eval("#gis-details", el => el.hidden), true);
           assert.equal(await page.evaluate(() => document.activeElement.className), "gis-result");
+          await click(page, ".gis-result"); await page.keyboard.press("Escape");
+          assert.equal(await page.$eval("#gis-details", el => el.hidden), true, "Escape returns from details without collapsing");
+          assert.equal(await page.$eval("#gis-sheet-body", el => el.hidden), false);
+          assert.equal(await page.evaluate(() => document.activeElement.className), "gis-result");
+          await click(page, ".gis-result"); await click(page, "#gis-layers-tab");
+          assert.equal(await page.$eval("#gis-details", el => el.hidden), true, "Persistent Layers tab exits details");
+          assert.equal(await page.$eval("#gis-layers-panel", el => el.hidden), false);
+          await click(page, ".gis-layer button"); await click(page, "#gis-close");
+          assert.equal(await page.$eval("#gis-layers-panel", el => el.hidden), false, "Back restores the originating Layers view");
+          assert.equal(await page.evaluate(() => document.activeElement.closest("#gis-layers-panel") !== null), true, "Back restores layer trigger focus");
+          await click(page, ".gis-layer button"); await click(page, "#gis-explore-tab");
+          assert.equal(await page.$eval("#gis-details", el => el.hidden), true, "Persistent Explore tab exits details");
+          assert.equal(await page.$eval("#gis-explore-panel", el => el.hidden), false);
         }
         if (fixtures) {
           assert.equal(await page.evaluate(() => window.GIS_FACILITIES.features.length), 16);
@@ -492,6 +604,7 @@ async function main() {
           assert.equal(await page.$eval("#gis-map .gis-icon-marker", el => el.getAttribute("aria-pressed")), "true");
           await page.keyboard.press("Escape");
           assert.equal(await page.$eval("#gis-map .gis-icon-marker", el => el.classList.contains("gis-marker-selected")), false);
+          await openSheet(page);
           assert.deepEqual(await page.evaluate(() => window.__gisTest.markers[0]), [16.03, 120.45]);
           assert.equal(await page.$eval("#gis-facility-list", el => el.querySelectorAll("li").length), 16);
           assert.ok(!requests.some(url => /\/(disabled|unavailable|forbidden)\.geojson/.test(url)), "Disabled and unsafe URLs never fetch");
@@ -520,9 +633,9 @@ async function main() {
           assert.ok(await page.evaluate(() => window.__gisTest.vectors >= 1));
           await click(page, "#gis-explore-tab");
           await page.$eval("#gis-search", el => { el.value = "anchors"; el.dispatchEvent(new Event("input")); });
-          const before = await page.evaluate(() => window.__gisTest.pans);
+          const before = await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]);
           await click(page, ".gis-result");
-          assert.equal(await page.evaluate(() => window.__gisTest.pans), before, "Label anchors never navigate");
+          assert.deepEqual(await page.evaluate(() => [window.__gisTest.pans, window.__gisTest.fits]), before, "Label anchors never navigate");
           await page.keyboard.press("Escape");
           assert.equal(await page.evaluate(() => window.__injected), undefined);
           assert.equal(await page.$("#gis-detail-content img"), null);
@@ -569,10 +682,14 @@ async function main() {
       assert.equal(await missing.$eval("#gis-map", el => el.hidden), true);
       assert.equal(await missing.$eval("#gis-map-status", el => el.textContent), locale.library_error);
       assert.equal(await missing.$eval("#gis-barangay-list", el => el.querySelectorAll("li").length), 15);
+      assert.equal(await missing.$eval("#gis-directories", el => !el.hidden && getComputedStyle(el).display !== "none"), true, "Missing Leaflet preserves visible static directories");
+      assert.equal(await missing.$eval("#gis-workspace", el => el.hidden), true, "Missing Leaflet does not expose an unusable sheet");
+      assert.equal(await missing.$eval("#gis-page", el => el.classList.contains("gis-enhanced")), false);
+      assert.equal(await missing.$$eval("#gis-directories button", els => els.length), 0, "Missing Leaflet leaves directories unenhanced");
       checks++; await missing.close();
     }
     if (fixtures) {
-      for (const lang of ["en", "fil", "pag"]) for (const scenario of ["empty", "missing", "legacy", "fallback"]) {
+      for (const lang of ["en", "fil", "pag"]) for (const scenario of ["empty", "missing", "legacy", "fallback", "map-failure"]) {
         const page = await browser.newPage(), errors = [];
         await page.evaluateOnNewDocument(leafletMock);
         await page.setRequestInterception(true);
@@ -580,6 +697,14 @@ async function main() {
         page.on("pageerror", e => errors.push(e.message));
         await page.goto(`${origin}/fixtures/${lang}/gis/?data=${scenario}`, { waitUntil: "domcontentloaded" });
         await page.waitForSelector('#gis-workspace[data-ready="true"]');
+        if (scenario === "map-failure") {
+          assert.equal(await page.$eval("#gis-map-status", el => el.textContent === document.getElementById("gis-page").dataset.mapError), true);
+          assert.equal(await page.$eval("#gis-workspace", el => el.hidden), true);
+          assert.equal(await page.$eval("#gis-page", el => el.classList.contains("gis-enhanced")), false);
+          assert.equal(await page.$eval("#gis-directories", el => !el.hidden && getComputedStyle(el).display !== "none"), true, "Failed map initialization preserves directories");
+          assert.equal(await page.$$eval("#gis-directories button", els => els.length), 0, "Failed map initialization leaves directories unenhanced");
+          assert.deepEqual(errors, []); checks++; await page.close(); continue;
+        }
          assert.equal(await page.$('#gis-layer-filter'), null);
          assert.equal(await page.$eval("#gis-results", el => el.children.length), ["legacy", "fallback"].includes(scenario) ? 16 : 0);
         assert.equal(await page.evaluate(() => window.__gisTest.markers.length), ["legacy", "fallback"].includes(scenario) ? 15 : 0);

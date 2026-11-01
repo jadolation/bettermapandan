@@ -155,6 +155,7 @@
     function node(tag, text, parent) {
       var n = document.createElement(tag); if (text != null) n.textContent = text; if (parent) parent.appendChild(n); return n;
     }
+    var provenance = node("div", null, controls); provenance.id = "gis-weather-provenance"; provenance.hidden = true;
     function available(row) { return row.values[MODES[mode][0]] !== null; }
     function updateTimes() {
       var rows = (cache || []).filter(available);
@@ -168,9 +169,14 @@
       if (selected !== null) picker.value = String(selected);
       picker.disabled = !rows.length;
     }
-    function render() {
+    function render(errorMessage) {
       summary.replaceChildren(); summary.hidden = true;
+      provenance.replaceChildren(); provenance.hidden = true;
       if (!toggle.checked) return;
+      if (errorMessage) {
+        summary.hidden = false;
+        node("strong", errorMessage, summary).className = "gis-weather-error";
+      }
       if (!cache || Date.now() - retrieved > 2 * TTL) { if (!controller) status.textContent = labels.empty; return; }
       var row = cache.find(function (r) { return r.time === selected; });
       if (!row || !available(row)) { status.textContent = labels.empty; return; }
@@ -178,18 +184,19 @@
       var valueText = new Intl.NumberFormat(lang === "fil" ? "fil-PH" : "en-PH", { maximumFractionDigits: mode === "rain" ? 1 : 0 }).format(value) + " " + config[1];
       var label = buttons.find(function (b) { return b.dataset.weatherMode === mode; }).textContent;
       summary.style.setProperty("--weather-color", config[2]); summary.hidden = false;
-      node("p", labels.area, summary).className = "gis-weather-eyebrow";
-      node("h2", label, summary);
+      node("p", label, summary).className = "gis-weather-mode";
       var reading = node("div", valueText, summary); reading.className = "gis-weather-reading";
+      provenance.hidden = false;
+      node("p", labels.area, provenance).className = "gis-weather-eyebrow";
       if (mode === "wind" && value > 0 && row.values[3] !== null) {
         var arrow = node("span", "↑", reading); arrow.className = "gis-weather-arrow";
         arrow.style.transform = "rotate(" + windRotation(row.values[3]) + "deg)"; arrow.setAttribute("aria-hidden", "true");
-        node("p", labels.windFrom + " " + Math.round(row.values[3]) + "°", summary);
+        node("p", labels.windFrom + " " + Math.round(row.values[3]) + "°", provenance);
       }
       node("p", mode === "rain" ? formatTime(row.time - 3600000, lang) + " – " + formatTime(row.time, lang) : formatTime(row.time, lang), summary);
-      node("small", labels.model, summary);
-      var source = node("a", "Open-Meteo ↗", summary); source.href = "https://open-meteo.com/"; source.target = "_blank"; source.rel = "noopener";
-      node("small", labels.retrieved + " " + formatTime(retrieved, lang), summary);
+      node("p", labels.model, provenance);
+      var source = node("a", "Open-Meteo ↗", provenance); source.href = "https://open-meteo.com/"; source.target = "_blank"; source.rel = "noopener";
+      node("p", labels.retrieved + " " + formatTime(retrieved, lang), provenance);
       var stale = Date.now() - retrieved >= TTL;
       if (stale) node("strong", labels.stale, summary).className = "gis-weather-stale";
       if (!controller) status.textContent = stale ? labels.stale : labels.ready;
@@ -216,8 +223,9 @@
         cache = rows; retrieved = Date.now(); controller = null; updateTimes(); render();
       } catch (error) {
         if (id !== generation || !toggle.checked) return;
-        controller = null; render();
-        status.textContent = error.message === "limited" ? labels.limited : labels.error;
+        controller = null;
+        var errorMessage = error.message === "limited" ? labels.limited : labels.error;
+        render(errorMessage); status.textContent = errorMessage;
       } finally {
         clearTimeout(timeout);
         if (id === generation) { controller = null; panel.removeAttribute("aria-busy"); refresh.disabled = Date.now() < nextRequest; }

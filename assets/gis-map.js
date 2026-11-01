@@ -266,13 +266,50 @@
     }
     function announce(key) { node("map-status").textContent = text(key); }
     node("workspace").hidden = false;
+    var sheet = page.querySelector(".gis-sidebar"), sheetBody = node("sheet-body"), sheetToggle = node("sheet-toggle");
+    var sheetSizes = ["collapsed", "half", "expanded"], sheetStops = [96, 360, 600];
+    var sheetState = matchMedia("(min-width: 900px)").matches ? "half" : "collapsed", activeTab = "explore", detailTab = "explore";
+    var sheetScroll = { explore: 0, layers: 0 };
+    var drag = null, resizeFrame = null, suppressSheetClick = false;
+    function desktop() { return matchMedia("(min-width: 900px)").matches; }
+    function setSheet(state) {
+      if (sheetSizes.indexOf(state) < 0) return;
+      if (state === "collapsed" && sheetBody.contains(document.activeElement)) sheetToggle.focus({ preventScroll: true });
+      if (sizeMenu && sizeMenu.open) {
+        if (sizeMenu.contains(document.activeElement)) sheetToggle.focus({ preventScroll: true });
+        sizeMenu.open = false;
+      }
+      sheetState = state; sheet.dataset.sheetState = state;
+      sheetBody.hidden = state === "collapsed";
+      sheetToggle.setAttribute("aria-expanded", String(state !== "collapsed"));
+      var height = sheetStops[sheetSizes.indexOf(state)];
+      page.style.setProperty("--gis-sheet-height", height + "px");
+      page.style.setProperty("--gis-overlay-space", Math.max(44, page.clientHeight - height - 180) + "px");
+      page.classList.toggle("gis-tight", !desktop() && page.clientHeight - height < 310);
+      page.classList.toggle("gis-short", height < 380);
+      var legendOverlay = node("legend-overlay");
+      if (state !== "collapsed" && page.classList.contains("gis-tight") && legendOverlay.open) {
+        if (legendOverlay.contains(document.activeElement)) legendOverlay.querySelector("summary").focus({ preventScroll: true });
+        legendOverlay.open = false;
+      }
+      page.querySelectorAll("[data-gis-sheet-state]").forEach(function (button) {
+        button.setAttribute("aria-pressed", String(button.dataset.gisSheetState === state));
+      });
+    }
     function activateTab(id, focus) {
+      if (!node(activeTab + "-panel").hidden) sheetScroll[activeTab] = sheetBody.scrollTop;
+      if (!node("details").hidden) {
+        selectionRequest++; node("details").hidden = true; selection(null, null);
+      }
+      activeTab = id;
+      node("map-information").open = false;
       ["explore", "layers"].forEach(function (key) {
         var active = key === id, tab = node(key + "-tab");
         tab.setAttribute("aria-selected", String(active)); tab.tabIndex = active ? 0 : -1;
         node(key + "-panel").hidden = !active;
         if (active && focus) tab.focus();
       });
+      sheetBody.scrollTop = sheetScroll[id];
     }
     ["explore", "layers"].forEach(function (id, index) {
       var tab = node(id + "-tab");
@@ -285,24 +322,86 @@
         if (target) { e.preventDefault(); activateTab(target, true); }
       });
     });
+    function cancelDrag() {
+      if (!drag) return;
+      var old = drag; drag = null; sheet.classList.remove("gis-dragging");
+      if (sheetToggle.hasPointerCapture(old.id)) sheetToggle.releasePointerCapture(old.id);
+      setSheet(sheetState);
+    }
     function resize() {
-      var bar = document.querySelector(".mobile-action-bar");
-      var clearance = bar && bar.getClientRects().length ? Math.ceil(bar.getBoundingClientRect().height) + 8 : 8;
-      page.style.setProperty("--gis-sticky-clearance", clearance + "px");
-      var column = page.querySelector(".gis-map-pane");
-      if (column) page.style.setProperty("--gis-column-height", Math.ceil(column.getBoundingClientRect().height) + "px");
-      if (map) map.invalidateSize();
+      if (resizeFrame) cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(function () {
+        resizeFrame = null; cancelDrag();
+        if (!page.classList.contains("gis-enhanced")) return;
+        var viewport = window.visualViewport;
+        var top = Math.max(0, page.getBoundingClientRect().top - (viewport ? viewport.offsetTop : 0));
+        var available = Math.max(96, (viewport ? viewport.height : innerHeight) - top);
+        page.style.setProperty("--gis-viewport-height", available + "px");
+        var maximum = Math.max(96, desktop() ? Math.min(available - 32, available * .9) : Math.min(available * .9, available - 150));
+        var headerHeight = sheet.querySelector(".gis-sheet-toolbar").offsetHeight + sheet.querySelector(".gis-sheet-notice").offsetHeight;
+        var minimum = Math.min(maximum, Math.max(80, headerHeight + (parseFloat(getComputedStyle(sheet).paddingBottom) || 0) + 2));
+        sheetStops = [minimum, Math.max(minimum, Math.min(available * .5, maximum)), maximum];
+        setSheet(sheetState);
+        if (map) map.invalidateSize({ pan: false });
+        var focused = document.activeElement;
+        if (sheetBody.contains(focused) && focused.matches("input, select, textarea")) focused.scrollIntoView({ block: "nearest" });
+      });
     }
     window.addEventListener("resize", resize);
+    if (window.visualViewport) { window.visualViewport.addEventListener("resize", resize); window.visualViewport.addEventListener("scroll", resize); }
     if (typeof ResizeObserver !== "undefined") {
       var observer = new ResizeObserver(resize);
       observer.observe(node("map"));
-      var column = page.querySelector(".gis-map-pane");
-      if (column) observer.observe(column);
-      var sticky = document.querySelector(".mobile-action-bar");
-      if (sticky) observer.observe(sticky);
+      observer.observe(sheet.querySelector(".gis-sheet-toolbar"));
+      observer.observe(sheet.querySelector(".gis-sheet-notice"));
+      var siteHeader = document.querySelector(".site-header, body > header");
+      if (siteHeader) observer.observe(siteHeader);
     }
-    resize();
+    sheetToggle.addEventListener("click", function () {
+      if (suppressSheetClick) { suppressSheetClick = false; return; }
+      setSheet(sheetState === "collapsed" ? "half" : "collapsed");
+    });
+    sheetToggle.addEventListener("keydown", function (event) {
+      if (["ArrowUp", "ArrowDown", "Home", "End"].indexOf(event.key) < 0) return;
+      event.preventDefault();
+      var index = sheetSizes.indexOf(sheetState);
+      setSheet(event.key === "Home" ? "collapsed" : event.key === "End" ? "expanded" : sheetSizes[Math.max(0, Math.min(2, index + (event.key === "ArrowUp" ? 1 : -1)))]);
+    });
+    page.querySelectorAll("[data-gis-sheet-state]").forEach(function (button) {
+      button.onclick = function () { setSheet(button.dataset.gisSheetState); page.querySelector(".gis-sheet-sizes").open = false; sheetToggle.focus({ preventScroll: true }); };
+    });
+    var sizeMenu = page.querySelector(".gis-sheet-sizes");
+    sizeMenu.addEventListener("toggle", function () {
+      if (sizeMenu.open) sizeMenu.dataset.direction = sizeMenu.getBoundingClientRect().top - page.getBoundingClientRect().top < sizeMenu.querySelector("div").offsetHeight + 8 ? "down" : "up";
+    });
+    node("legend-overlay").addEventListener("toggle", function () {
+      if (this.open && page.classList.contains("gis-tight")) setSheet("collapsed");
+    });
+    sheetToggle.addEventListener("pointerdown", function (event) {
+      if (desktop() || drag || !event.isPrimary || event.button !== 0) return;
+      suppressSheetClick = false;
+      drag = { id: event.pointerId, y: event.clientY, height: sheetStops[sheetSizes.indexOf(sheetState)], moved: false };
+      sheetToggle.setPointerCapture(event.pointerId);
+    });
+    sheetToggle.addEventListener("pointermove", function (event) {
+      if (!drag || drag.id !== event.pointerId) return;
+      var delta = drag.y - event.clientY;
+      if (Math.abs(delta) >= 6) drag.moved = true;
+      if (!drag.moved) return;
+      sheet.classList.add("gis-dragging"); sheetBody.hidden = false;
+      page.style.setProperty("--gis-sheet-height", Math.max(sheetStops[0], Math.min(sheetStops[2], drag.height + delta)) + "px");
+    });
+    sheetToggle.addEventListener("pointerup", function (event) {
+      if (!drag || drag.id !== event.pointerId) return;
+      var old = drag, height = parseFloat(page.style.getPropertyValue("--gis-sheet-height"));
+      drag = null; suppressSheetClick = old.moved;
+      sheet.classList.remove("gis-dragging");
+      if (sheetToggle.hasPointerCapture(old.id)) sheetToggle.releasePointerCapture(old.id);
+      var index = sheetStops.reduce(function (best, value, i) { return Math.abs(value - height) < Math.abs(sheetStops[best] - height) ? i : best; }, 0);
+      setSheet(old.moved ? sheetSizes[index] : sheetState);
+    });
+    sheetToggle.addEventListener("pointercancel", cancelDrag);
+    sheetToggle.addEventListener("lostpointercapture", cancelDrag);
     var assetBase = String(meta.asset_base == null ? page.dataset.assetBase || "." : meta.asset_base);
     var base = new URL(assetBase.replace(/\/*$/, "/"), location.href).href;
     var home = validPoint(meta.default_map_center) ? meta.default_map_center : [120.455, 16.03];
@@ -327,7 +426,30 @@
       resize();
     } catch (error) { map = null; announce("mapError"); }
     node("fit").disabled = node("reset").disabled = !map;
-    node("reset").onclick = function () { if (map) map.setView([home[1], home[0]], zoom); };
+    node("reset").onclick = function () {
+      if (map) { map.setView([home[1], home[0]], zoom); navigateGeometry({ type: "Point", coordinates: home }, zoom); }
+    };
+    function mapPadding() {
+      var rect = node("map").getBoundingClientRect(), panel = sheet.getBoundingClientRect();
+      var left = desktop() ? panel.right - rect.left + 20 : 20;
+      var bottom = desktop() ? 36 : sheetStops[sheetSizes.indexOf(sheetState)] + 36;
+      var top = 64, right = 64;
+      var weather = node("weather-summary");
+      if (weather && !weather.hidden && !page.classList.contains("gis-tight")) top = Math.max(top, weather.getBoundingClientRect().bottom - rect.top + 12);
+      var legend = node("legend-overlay");
+      if (legend.open && !legend.hidden) bottom += legend.getBoundingClientRect().height;
+      // Retain a usable map target even on a short viewport with an expanded sheet.
+      top = Math.min(top, Math.max(8, rect.height - bottom - 40));
+      bottom = Math.min(bottom, Math.max(8, rect.height - top - 40));
+      return { paddingTopLeft: [Math.min(left, Math.max(8, rect.width - right - 40)), top], paddingBottomRight: [right, bottom], maxZoom: 16, animate: false };
+    }
+    function navigateGeometry(geometry, pointZoom) {
+      if (!map || !geometry) return;
+      var options = mapPadding();
+      var bounds = geometry.type === "Point" ? L.latLngBounds([[geometry.coordinates[1], geometry.coordinates[0]], [geometry.coordinates[1], geometry.coordinates[0]]]) : L.geoJSON({ type: "Feature", properties: {}, geometry: geometry }).getBounds();
+      if (geometry.type === "Point") options.maxZoom = pointZoom == null ? map.getZoom() : pointZoom;
+      if (bounds.isValid()) map.fitBounds(bounds, options);
+    }
     function precision(p, l) {
       if (p.coordinate_method === 'maintainer_supplied') return text('hallPrecision');
       if (l.semantic_role === "label_anchor") return text("labelAnchor");
@@ -416,19 +538,25 @@
     function close() {
       selectionRequest++;
       node("details").hidden = true; selection(null, null);
-      if (returnFocus && returnFocus.isConnected) {
-        if (node("explore-panel").contains(returnFocus)) activateTab("explore", false);
-        if (node("layers-panel").contains(returnFocus)) activateTab("layers", false);
+      activateTab(detailTab, false);
+      if (sheetState === "collapsed") setSheet("half");
+      if (returnFocus && returnFocus.isConnected && returnFocus.getClientRects().length) {
         returnFocus.focus({ preventScroll: true });
-      } else node("explore-tab").focus({ preventScroll: true });
+      } else node(activeTab + "-tab").focus({ preventScroll: true });
     }
     node("close").onclick = close;
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !node("details").hidden) { e.preventDefault(); close(); }
+      else if (e.key === "Escape" && page.contains(document.activeElement) && sheetState !== "collapsed") {
+        e.preventDefault(); page.querySelector(".gis-sheet-sizes").open = false; setSheet("collapsed");
+      }
     });
     function select(f, s, trigger, shared, navigate) {
       selectionRequest++;
-      returnFocus = trigger || document.activeElement;
+      if (node("details").hidden) {
+        returnFocus = trigger || document.activeElement; detailTab = activeTab;
+        sheetScroll[activeTab] = sheetBody.scrollTop;
+      }
       selection(f, s.items.get(f));
       var box = node("detail-content"); box.replaceChildren(); el("h3", name(f, s), box);
       var p = f.properties, l = s.layer, provenance = p.provenance || {}, dl = el("dl", null, box);
@@ -540,10 +668,14 @@
         if (canonicalFacility) { var canonicalButton = el("button", name(canonicalFacility, canonicalState), box); canonicalButton.type = "button";
           canonicalButton.onclick = function () { select(canonicalFacility, canonicalState, trigger, null, false); }; }
       }
-      node("details").hidden = false; node("close").focus({ preventScroll: true });
+      node("map-information").open = false;
+      node("explore-panel").hidden = node("layers-panel").hidden = true;
+      node(activeTab + "-tab").setAttribute("aria-selected", "false");
+      node("details").hidden = false;
+      if (sheetState === "collapsed") setSheet("half");
+      sheetBody.scrollTop = 0; node("details").scrollTop = 0; node("close").focus({ preventScroll: true });
       if (navigate && map && f.geometry && l.semantic_role !== "label_anchor") {
-        if (f.geometry.type === "Point") map.panTo([f.geometry.coordinates[1], f.geometry.coordinates[0]]);
-        else { var bounds = L.geoJSON(f).getBounds(); if (bounds.isValid()) map.fitBounds(bounds, { maxZoom: 16, padding: [24, 24] }); }
+        navigateGeometry(f.geometry);
       }
     }
     async function choose(f, s, trigger) {
@@ -657,6 +789,7 @@
           limitations.forEach(function (v) { el("p", v, box); });
         }
       }); box.hidden = !box.childNodes.length;
+      node("legend-overlay").hidden = box.hidden;
     }
     node("fit").onclick = function () {
       if (!map) return; var bounds = L.latLngBounds([]);
@@ -664,7 +797,7 @@
         if ((!s.visible && !(s === boundaryState() && activeMetric())) || !s.overlay || s.layer.semantic_role === "label_anchor") return;
         var b = s.overlay.getBounds(); if (b.isValid()) bounds.extend(b);
       });
-      if (bounds.isValid()) map.fitBounds(bounds, { maxZoom: 16, padding: [24, 24] }); else announce("noGeometry");
+      if (bounds.isValid()) map.fitBounds(bounds, mapPadding()); else announce("noGeometry");
     };
     async function fetchData(raw) {
       var url = assetUrl(raw, base, location.origin), abort = new AbortController();
@@ -720,12 +853,12 @@
           element.classList.toggle("gis-marker-selected", marker === selectedItem);
           element.tabIndex = 0;
           element.onkeydown = function (event) {
-            if (event.key === " " || event.key === "Enter") { event.preventDefault(); event.stopPropagation(); select(shared[0], s, element, shared, false); }
+            if (event.key === " " || event.key === "Enter") { event.preventDefault(); event.stopPropagation(); select(shared[0], s, element, shared, true); }
           };
         });
         shared.forEach(function (f) { s.items.set(f, marker); });
         if (marker.bindTooltip) marker.bindTooltip(escapeHtml(title), { permanent: s.layer.semantic_role === "label_anchor" });
-        marker.on("click", function () { select(shared[0], s, null, shared, false); });
+        marker.on("click", function () { select(shared[0], s, marker.getElement(), shared, true); });
       });
       L.geoJSON({ type: "FeatureCollection", features: s.features.filter(function (f) { return f.geometry && f.geometry.type !== "Point"; }) }, {
         pane: s.pane,
@@ -734,7 +867,7 @@
           dashArray: s.layer.semantic_role === "barangay_reference_geometry" ? "6 5" : null },
         onEachFeature: function (f, item) {
           s.items.set(f, item); item.gisBaseStyle = { weight: 2, fillOpacity: s.layer.semantic_role === "barangay_boundary" ? 0.08 : s.layer.semantic_role === "barangay_reference_geometry" ? 0.025 : 0.16 };
-          item.on("click", function () { select(f, s, null, null, false); });
+          item.on("click", function () { select(f, s, item.getElement(), null, true); });
           if (s.layer.semantic_role === "barangay_boundary") {
             if (item.bindTooltip) item.bindTooltip(escapeHtml(name(f, s)), { permanent: true, direction: "center", className: "gis-boundary-label" });
              item.on("mouseover", function () { if (item !== selectedItem) item.setStyle(Object.assign({}, boundaryStyle(f, s, item), { weight: 3, opacity: 1 })); });
@@ -743,7 +876,7 @@
                updateBoundaryLabels();
                var path = item.getElement && item.getElement(); if (!path) return;
                path.setAttribute("role", "button"); path.setAttribute("aria-label", name(f, s)); path.setAttribute("aria-pressed", String(item === selectedItem)); path.tabIndex = 0;
-               path.onkeydown = function (event) { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.stopPropagation(); select(f, s, path, null, false); } };
+                path.onkeydown = function (event) { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.stopPropagation(); select(f, s, path, null, true); } };
              });
           }
         },
@@ -922,15 +1055,22 @@
     var directoryRows = node("barangay-list") ? node("barangay-list").querySelectorAll("li") : [], barangayState = states.find(function (s) { return s.layer.data_key === "GIS_BARANGAYS"; });
     var directoryLink = page.querySelector('.gis-toolbar a[href="#gis-barangay-title"]');
     if (directoryLink && !node("barangay-title")) directoryLink.hidden = true;
-    if (barangayState) directoryRows.forEach(function (row, index) {
+    if (map && barangayState) directoryRows.forEach(function (row, index) {
       var f = barangayState.features[index]; if (!f) return;
       var button = el("button", text("locate"), row); button.type = "button";
       button.onclick = function () { choose(f, barangayState, button); };
     });
     updateList();
     // Keep static directories available until the interactive Explorer is initialized.
-    if (node("directories")) node("directories").hidden = true;
-    if (node("directory-link")) node("directory-link").hidden = true;
+    if (map) {
+      node("map-information").appendChild(node("map-notes"));
+      page.classList.add("gis-enhanced");
+      if (node("directories")) node("directories").hidden = true;
+      if (node("directory-link")) node("directory-link").hidden = true;
+      setSheet(sheetState); resize();
+    } else {
+      node("workspace").hidden = true; node("map").hidden = true;
+    }
     if (map && window.MapandanWeather) {
       try { window.MapandanWeather.attach(map, L, home); }
       catch (error) { console.warn("Weather unavailable", error); }

@@ -1,4 +1,13 @@
 [
+  {"key":"gis.sheet_toggle","english":"Open or collapse Explorer","filipino":"Buksan o paliitin ang Tagasiyasat","pangasinan":"Lukasan odino paokeyen so Explorer","pangasinan_status":"review_required"},
+  {"key":"gis.sheet_size","english":"Explorer size","filipino":"Laki ng Tagasiyasat","pangasinan":"Kadakkel na Explorer","pangasinan_status":"review_required"},
+  {"key":"gis.sheet_collapsed","english":"Compact","filipino":"Maliit","pangasinan":"Melag","pangasinan_status":"review_required"},
+  {"key":"gis.sheet_half","english":"Half height","filipino":"Kalahating taas","pangasinan":"Kapigan katagey","pangasinan_status":"review_required"},
+  {"key":"gis.sheet_expanded","english":"Expanded","filipino":"Pinalaki","pangasinan":"Pinadakkel","pangasinan_status":"review_required"},
+  {"key":"gis.sheet_back","english":"Back","filipino":"Bumalik","pangasinan":"Pawil","pangasinan_status":"review_required"},
+  {"key":"gis.map_information","english":"Map information","filipino":"Impormasyon sa mapa","pangasinan":"Impormasyon ed mapa","pangasinan_status":"review_required"},
+  {"key":"gis.legend_toggle","english":"Map legend","filipino":"Paliwanag ng mapa","pangasinan":"Paliwawa na mapa","pangasinan_status":"review_required"},
+  {"key":"gis.sheet_notice","english":"Reference only. Not live safety guidance.","filipino":"Sanggunian lamang. Hindi real-time na gabay sa kaligtasan.","pangasinan":"Reperensya labat. Aliwan real-time ya giya ed kaligtasan.","pangasinan_status":"review_required"},
   {"key":"commuter.resource_loading","english":"Loading route information...","filipino":"Kinakarga ang impormasyon ng ruta...","pangasinan":"Ikakarga so impormasyon na ruta...","pangasinan_status":"review_required"},
   {"key":"commuter.resource_failed","english":"Route information unavailable. Retry or refresh this page.","filipino":"Hindi makuha ang impormasyon ng ruta. Subukang muli o i-refresh ang pahina.","pangasinan":"Ag nakuha so impormasyon na ruta. Salien lamet odino i-refresh so pahina.","pangasinan_status":"review_required"},
   {"key":"commuter.resource_retry","english":"Retry","filipino":"Subukang muli","pangasinan":"Salien lamet","pangasinan_status":"review_required"},
