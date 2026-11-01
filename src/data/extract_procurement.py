@@ -6,12 +6,12 @@ import pandas as pd
 
 from ._utils import clean, write_json
 
-CACHE_DIR = Path("datasets/PhilGEPS")
+CACHE_DIR = Path("datasets/philgeps")
 OUTPUT = Path("src/data/procurement.json")
 
 
 def main():
-    philgeps_path = CACHE_DIR / "philgeps.parquet"
+    philgeps_path = CACHE_DIR / "mapandan.parquet"
     if not philgeps_path.exists():
         raise SystemExit(f"ERROR: {philgeps_path} not found")
 

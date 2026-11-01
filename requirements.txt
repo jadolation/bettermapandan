@@ -1,3 +1,5 @@
 jsonschema>=4.10
 openpyxl>=3.1
 Pillow>=10.0
+# Data extraction scripts (src/data/extract_procurement.py)
+pandas>=2.0
