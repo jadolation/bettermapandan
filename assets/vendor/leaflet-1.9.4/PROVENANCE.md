@@ -6,6 +6,11 @@ Upstream: https://github.com/Leaflet/Leaflet/tree/v1.9.4.
 BSD-2-Clause license is included in LICENSE. Builds use these local files and
 never download Leaflet. The source map is not needed by the application.
 
+Checksums authenticate exact upstream bytes, not newline-normalized text.
+Upstream leaflet.css and LICENSE use CRLF; leaflet.js uses LF. The repository's
+.gitattributes disables text conversion for these distribution files so Git
+stores and checks out the original bytes regardless of core.autocrlf.
+
 SHA-256 checksums:
 
 ```

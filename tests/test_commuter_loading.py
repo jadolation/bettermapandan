@@ -1,7 +1,9 @@
 """Progressive commuter publication contracts, without geometry service calls."""
 import hashlib
 import json
+import os
 import re
+import subprocess
 from copy import deepcopy
 from pathlib import Path
 
@@ -147,6 +149,40 @@ def test_pinned_leaflet_provenance_license_and_checksums():
             continue
         assert hashlib.sha256((directory / name).read_bytes()).hexdigest() == digest
     assert "Redistribution and use" in (directory / "LICENSE").read_text()
+
+
+@pytest.mark.parametrize("autocrlf", ["false", "true", "input"])
+def test_pinned_leaflet_git_roundtrip_preserves_upstream_bytes(tmp_path, autocrlf):
+    root = Path(__file__).resolve().parent.parent
+    relative = Path("assets/vendor/leaflet-1.9.4")
+    directory = tmp_path / relative
+    directory.mkdir(parents=True)
+    (tmp_path / ".gitattributes").write_bytes((root / ".gitattributes").read_bytes())
+    records = re.findall(r"^([a-f0-9]{64})  (.+)$", (root / relative / "PROVENANCE.md").read_text(), re.MULTILINE)
+    env = dict(os.environ, GIT_CONFIG_GLOBAL=os.devnull, GIT_CONFIG_SYSTEM=os.devnull)
+
+    def git(*args, input=None):
+        return subprocess.run(
+            ["git", "-c", f"core.autocrlf={autocrlf}", *args],
+            cwd=tmp_path, env=env, input=input, capture_output=True, check=True,
+        ).stdout
+
+    git("init", "--quiet")
+    for digest, name in records:
+        if name.endswith(".tgz"):
+            continue
+        path = directory / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        raw = (root / relative / name).read_bytes()
+        path.write_bytes(raw)
+        git("add", "--", str(relative / name))
+        assert git("rev-parse", ":" + str(relative / name)) == git("hash-object", "--no-filters", "--stdin", input=raw)
+        assert hashlib.sha256(git("show", ":" + str(relative / name))).hexdigest() == digest
+        path.unlink()
+    git("checkout-index", "--all", "--force")
+    for digest, name in records:
+        if not name.endswith(".tgz"):
+            assert hashlib.sha256((directory / name).read_bytes()).hexdigest() == digest
 
 
 @pytest.mark.parametrize("language", ["en", "fil", "pag"])
