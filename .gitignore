@@ -59,3 +59,6 @@ __pycache__/
 
 frontend-text-extract.txt
 /pangasinan-filipino-translation
+
+# Vendored C++ package manager (unused; was a dangling submodule)
+/vcpkg/

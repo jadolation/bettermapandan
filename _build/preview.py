@@ -7,8 +7,8 @@ import tempfile
 from pathlib import Path
 
 MAX_COPY_BYTES = 1024 * 1024 * 1024
-SKIP = {"__pycache__", ".pytest_cache", "node_modules", "vcpkg", ".git",
-        "vcpkg_installed", ".venv", ".mypy_cache", ".ruff_cache",
+SKIP = {"__pycache__", ".pytest_cache", "node_modules", ".git",
+        ".venv", ".mypy_cache", ".ruff_cache",
         "_site", "_preview_gis", "gis-preview"}
 
 

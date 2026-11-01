@@ -34,7 +34,7 @@ def test_controlled_copy_current_inputs_and_configured_datasets(tmp_path):
     (root / 'datasets/GIS/roads.geojson').write_text('configured bytes')
     (root / 'datasets/GIS/not-configured.geojson').write_text('DO_NOT_COPY')
     (root / 'src/data/disabled.json').write_text('DO_NOT_COPY')
-    for name in ('node_modules', 'vcpkg', '.git', '_site', '_preview_gis', 'pag', 'fil', 'assets/gis-preview', 'assets/gis'):
+    for name in ('node_modules', '.git', '_site', '_preview_gis', 'pag', 'fil', 'assets/gis-preview', 'assets/gis'):
         (root / name).mkdir(parents=True, exist_ok=True)
         (root / name / 'DO_NOT_COPY').write_text('private')
     workspace = tmp_path / 'workspace'
