@@ -67,6 +67,7 @@ frontend-text-extract.txt
 
 # Generated at build time (prepare_inputs / page build)
 /assets/gis/
+/assets/commuter/
 /gis/
 /commuter/
 /index_new/
